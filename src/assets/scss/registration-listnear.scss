@@ -1,0 +1,43 @@
+.registration-listnear {
+    background-color: #f4f8ff;
+    .registration-listnear-wrapper {
+        padding: 100px;
+        display: flex;
+        flex-direction: column;
+        h5 {
+            font-weight: bold;
+            font-size: 22px;
+            color: #000000;
+            margin: 30px 0 20px 0;
+        }
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            .form {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .form-first,
+                .form-last {
+                    width: 50%;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        li {
+                            margin-bottom: 20px;
+                            display: flex;
+                            flex-direction: row;
+                        }
+                        label {
+                            font-size: 16px;
+                            line-height: 29px;
+                            color: #222d44;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

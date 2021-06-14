@@ -1,0 +1,205 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.containerFluid{
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerSetting{
+    width: 80%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.row{
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.setting, .kafedra{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #78BAF3;
+    margin: 10px 0;
+}
+.rowInside{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.number{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.groupOne, .groupTwo{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+.groupOneNumber{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 120%;
+    text-align: center;
+    color: #222D44;
+}
+.btn-kafedra{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-family: Montserrat;
+    border: 1px solid rgba(119, 119, 119, 0.39);
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s ease;
+    margin-right: 10px;
+}
+.btn-kafedra:hover{
+    border: 1px solid #78BAF3;
+    box-shadow: 0 0 3px 3px #78baf37a;
+}
+.btn-kafedra:focus{
+    box-shadow: 0 0 3px 3px #78baf37a;
+    color: #fff;
+    background: #78BAF3;
+    border: none;
+}
+.addKafedra{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #222D44;
+}
+.buttonDiv{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+@media(max-width:1620px){
+    .buttonDiv{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap:10px;
+    }
+}
+@media(max-width:761px){
+    .buttonDiv{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap:10px;
+    }
+}
+.addKafedra{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    text-decoration-line: none;
+    color: #222D44;
+    transition: 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addKafedra:hover{
+    text-decoration: underline;
+    color: #78BAF3;
+}
+
+/* SectionOne */
+.rowSectionOneBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.divTable{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.newTable{
+    width: 80%;
+}
+.newTh, .newTd{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+}
+.newTh{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222D44;
+}
+.newTd{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: #000000;
+}
+.btn-registration{
+    background: linear-gradient(180deg, #222D44 0%, #4E5E80 100%);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    transition: 1s ease;
+}
+.btn-registration:focus{
+    border: 1px solid rgba(0, 0, 0, 0.76);
+    box-shadow: 0 0 3px 3px rgba(17, 17, 17, 0.651);
+    
+}
