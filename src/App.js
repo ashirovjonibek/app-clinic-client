@@ -36,7 +36,6 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountApplicant}/>
             </Switch>
         </div>
-
     );
 }
 
