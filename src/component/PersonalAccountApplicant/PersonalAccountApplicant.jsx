@@ -5,7 +5,7 @@ import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
 import { Route, Switch } from "react-router";
 import YourAppelSection from "./YourAppelSection";
-import PerAccAppCallFlow from "./PerAccAppCallFlow";
+import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonAccountListnear/SendSection";
@@ -25,7 +25,7 @@ const PersonalAccountApplicant = () => {
                         <div className="content-wrapper">
                             <Switch>
                                 <Route exact path="/" component={YourAppelSection} />
-                                <Route exact path="/perAccAppCallFlow" component={PerAccAppCallFlow} />
+                                <Route exact path="/perAccAppCallFlow" component={PerAccAppCallFlowSection} />
                                 <Route exact path="/perAccAppPeriodSection" component={PerAccAppPeriodSection} />
                                 <Route exact path="/perAccAppResponseRequest" component={PerAccAppResponseRequest} />
                                 <Route exact path="/sendSection" component={SendSection} />

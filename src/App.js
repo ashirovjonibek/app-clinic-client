@@ -12,7 +12,7 @@ import RegistrationApplicant from "./component/RegistrationApplicant/Registratio
 import Dashboard from "./component/Dashboard/Dashboard";
 import Desctop7 from "./component/Desctop7/Desctop7";
 import Desctop8 from "./component/Desctop8/Desctop8";
-import PerAccAppCallFlow from "./component/PersonalAccountApplicant/PerAccAppCallFlow";
+import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import Register from "./component/auth/Register";
 import Header from "./component/Header/Header";
 import FirstHome from "./component/Home/FirstHome";
@@ -38,6 +38,8 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
             </Switch> */}
             <PersonAccountListnear />
+            <PersonalAccountApplicant />
+            <PersonalAccountSupervisor />
         </div>
     );
 }
