@@ -5,6 +5,13 @@ import PerAccSupervisorSiteBar from "./PerAccSupervisorSiteBar";
 import PerAccSupListenersSection from "./PerAccSupListenersSection";
 import SupervisorIncomingRequests from "./SupervisorIncomingRequests";
 import SupervisorResponsesRequests from "./SupervisorResponsesRequests";
+import SupervisorApplicants from "./SupervisorApplicants";
+import SupervisorAppeals from "./SupervisorAppeals";
+import SupervisorCallFlow from "./SupervisorCallFlow";
+import SupervisorFeedbakRequest from "./SupervisorFeedbakRequest";
+import SupervisorDirectorySection from "./SupervisorDirectorySection";
+import SupervisorReytingListnear from "./SupervisorReytingListnear";
+import SupervisorArchive from "./SupervisorArchive";
 
 const PersonalAccountSupervisor = () => {
     return (
@@ -22,8 +29,13 @@ const PersonalAccountSupervisor = () => {
                                     <Route exact path="/" component={PerAccSupListenersSection} />
                                     <Route exact path="/supervisorIncomingRequests" component={SupervisorIncomingRequests} />
                                     <Route exact path="/supervisorResponsesRequests" component={SupervisorResponsesRequests} />
-                                    {/* <Route exact path="/perAccAppResponseRequest" component={PerAccAppResponseRequest} />
-                                    <Route exact path="/sendSection" component={SendSection} /> */}
+                                    <Route exact path="/supervisorApplicants" component={SupervisorApplicants} />
+                                    <Route exact path="/supervisorAppeals" component={SupervisorAppeals} />
+                                    <Route exact path="/supervisorCallFlow" component={SupervisorCallFlow} />
+                                    <Route exact path="/supervisorFeedbakRequest" component={SupervisorFeedbakRequest} />
+                                    <Route exact path="/supervisorDirectorySection" component={SupervisorDirectorySection} />
+                                    <Route exact path="/supervisorReytingListnear" component={SupervisorReytingListnear} />
+                                    <Route exact path="/supervisorArchive" component={SupervisorArchive} />
                                 </Switch>
                             </div>
                         </section>

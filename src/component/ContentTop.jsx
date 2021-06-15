@@ -1,8 +1,8 @@
 import React from "react";
-import iconSearch from "../../assets/icon/icon-search.svg";
-import SortDate from "../SortDate";
+import iconSearch from "../assets/icon/icon-search.svg";
+import SortDate from "./SortDate";
 
-const PerAccLisBarContentTop = () => {
+const ContentTop = () => {
     return (
         <div className="content-top">
             <div className="request-items">
@@ -22,4 +22,4 @@ const PerAccLisBarContentTop = () => {
     );
 }
 
-export default PerAccLisBarContentTop;
+export default ContentTop;

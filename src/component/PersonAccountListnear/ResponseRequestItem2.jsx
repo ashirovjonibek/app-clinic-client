@@ -2,7 +2,7 @@ import React from "react";
 import ButtonDefault from "../ButtonDefault";
 import Label from "../Label";
 import UserItem from "../UserItem";
-import iconStar from "../../assets/icon/icon-star.svg";
+import ReactionStars from "../ReactionStars";
 
 const ResponseRequestItem2 = () => {
     return (
@@ -10,16 +10,7 @@ const ResponseRequestItem2 = () => {
             <div className="content-line" />
             <div className="user-item">
                 <UserItem />
-                <div className="user-reaction-stars">
-                    <div className="us-re-label">Оценка вашего ответа:</div>
-                    <div className="stars">
-                        <img height="20px" width="20px" src={iconStar} alt="" />
-                        <img height="20px" width="20px" src={iconStar} alt="" />
-                        <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
-                        <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
-                        <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
-                    </div>
-                </div>
+                <ReactionStars />
             </div>
             <div className="reponse-request-content">
                 <Label text="Комментарий к ответу:" />

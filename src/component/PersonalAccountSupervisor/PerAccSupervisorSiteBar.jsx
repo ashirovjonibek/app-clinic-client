@@ -17,28 +17,28 @@ const PerAccSupervisorSiteBar = () => {
                             <Link to="/supervisorResponsesRequests">Ответы на обращения </Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/perAccAppResponseRequest">Заявители</Link>
+                            <Link to="/supervisorApplicants">Заявители</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/sendSection">Обращения</Link>
+                            <Link to="/supervisorAppeals">Обращения</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/perAccAppCallFlow">Ход обращений</Link>
+                            <Link to="/supervisorCallFlow">Ход обращений</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/perAccAppPeriodSection">Отзывы по обращений </Link>
+                            <Link to="/supervisorFeedbakRequest">Отзывы по обращений </Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/perAccAppResponseRequest">Нормативно-правовая база</Link>
+                            <Link to="/supervisorDirectorySection">Нормативно-правовая база</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/sendSection">Рейтинг слушателей</Link>
+                            <Link to="/supervisorReytingListnear">Рейтинг слушателей</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/perAccAppResponseRequest">Статистика и отчеты</Link>
+                            <Link to="">Статистика и отчеты</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/sendSection">Архив</Link>
+                            <Link to="/supervisorArchive">Архив</Link>
                         </li>
                     </ul>
                 </div>

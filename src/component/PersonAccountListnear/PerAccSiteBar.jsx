@@ -11,7 +11,7 @@ const PerAccLisSiteBar = () => {
                             <Link to="/">Поступившие обращения</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/responseRequests">Ответы на обращения</Link>
+                            <Link to="/responseRequestSection">Ответы на обращения</Link>
                         </li>
                         <li className="navbar-items">
                             <Link to="/deadlineRequests">Срок исполнения обращений</Link>

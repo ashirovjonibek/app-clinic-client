@@ -1,19 +1,19 @@
 import React from "react";
-import ButtonWhite from "../ButtonWhite";
 import UserName from "../UserName";
 
-const Fedbeck = (props) => {
+const SupervisorApplicants = () => {
     return (
         <div className="content">
             <div className="fedbeck">
+
                 <UserName text="Турсунов Тулкин Мирзаевич" />
-                <div className="request-content-title-date">
-                    <ButtonWhite />
+                <div className="supervisor-applicants">
+                    <h5 >Приоритет №1</h5>
+                    <p>Количество обращений:<strong >2</strong></p>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default Fedbeck;
+export default SupervisorApplicants;

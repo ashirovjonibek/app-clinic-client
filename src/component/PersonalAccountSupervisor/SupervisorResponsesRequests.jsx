@@ -5,11 +5,12 @@ import InputFile from "../InputFile";
 import SectionCategory from "../SectionCategory";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
+import ButtonWhite from "../ButtonWhite";
 
 const SupervisorResponsesRequests = () => {
     return (
         <div className="content">
-            <div className="content-item"> //wewew/////ewewewe
+            <div className="content-item">
                 <UserName text="Aliyev Vali" />
                 <DocumentText />
                 <div style={{ marginTop: '20px' }}>
@@ -17,18 +18,18 @@ const SupervisorResponsesRequests = () => {
                 </div>
                 <div className="content-line"></div>
                 <UserItem />
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                    <div>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between'}}>
+                    <div className="file-upload">
                         <Label text="Ответ:" />
-                    </div>
-                    <div>
                         <InputFile />
                     </div>
                     <div>
-                        <button>Удовлетворительно</button>
+                        <ButtonWhite />
                     </div>
                 </div>
+
             </div>
+
         </div>
     );
 }

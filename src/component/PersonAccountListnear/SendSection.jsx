@@ -3,7 +3,7 @@ import CenterSends from "./CenterSends";
 
 const SendSection = () => {
     return (
-        <div>
+        <div className="send-section">
             <CenterSends />
             <CenterSends />
             <CenterSends />

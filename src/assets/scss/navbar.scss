@@ -9,9 +9,6 @@
         border-radius: 10px;
         ul {
             .navbar-items {
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 height: 40px;
                 width: 100%;
                 background-color: #ffffff;
@@ -22,6 +19,11 @@
                     margin-bottom: 20px;
                 }
                 a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    width: 100%;
                     text-decoration: none;
                     font-size: 16px;
                     font-weight: 500;

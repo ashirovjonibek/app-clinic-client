@@ -4,6 +4,8 @@ import Label from "../Label";
 import SectionCategory from "../SectionCategory";
 import CheckboxConfidensial from "../CheckboxConfidensial";
 import UserItem from "../UserItem";
+import DocumentText from "../DocumentText";
+import ButtonWhite from "../ButtonWhite";
 
 const PerAccAppResponseRequest = () => {
     return (
@@ -14,22 +16,8 @@ const PerAccAppResponseRequest = () => {
                         <h3>Пришел ответ на ваше обращение от <strong>Тулкина Мирзавевича</strong></h3>
                     </div>
                 </div>
-                <div className="request-theme">
-                    <div>
-                        <h3>Тема обращения:<span>Тема</span></h3>
-                    </div>
-                </div>
-                <div className="request-content-item">
-                    <p>Повседневная практика показывает, что сложившаяся структура организации создаёт
-                    необходимость включения в
-                    производственный план целого ряда внеочередных мероприятий с учётом комплекса
-                    системы обучения кадров, соответствующей
-                    насущным потребностям. Явные признаки победы институционализации формируют
-                    глобальную экономическую сеть и при этом - в
-                    равной степени предоставлены сами себе. А также независимые государства и по сей
-                    день остаются уделом либералов, которые
-                                        жаждут быть описаны максимально подробно.</p>
-
+                <div style={{ marginBottom: '20px' }}>
+                    <DocumentText />
                 </div>
                 <SectionCategory />
                 <CheckboxConfidensial />
@@ -44,8 +32,8 @@ const PerAccAppResponseRequest = () => {
                 <div className="answer-score">
                     <h4>Оценка ответа:</h4>
                     <div className="answer-score-button">
-                        <button>Неудовлетворительно</button>
-                        <button>Удовлетворительно</button>
+                        <ButtonWhite>Неудовлетворительно</ButtonWhite>
+                        <ButtonWhite>Удовлетворительно</ButtonWhite>
                     </div>
                 </div>
             </div>
