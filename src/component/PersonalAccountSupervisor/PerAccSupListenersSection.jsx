@@ -1,11 +1,11 @@
 import React from "react";
-import ButtonWhite from "../ButtonWhite";
 import SortDate from "../SortDate";
-import UserItem from "../UserItem";
+
+import PerAccSupListenersItem from "./PerAccSupListenersItem";
 
 const PerAccSupListenersSection = () => {
     return (
-        <div>
+        <div className="peraccsup-listeners-section">
             <div className="listnears-section-top">
                 <div className="list-generation">
                     Сгенерировать ссылку
@@ -15,20 +15,7 @@ const PerAccSupListenersSection = () => {
                 </div>
                 <SortDate />
             </div>
-            <div className="content">
-                <div className="fedbeck">
-                    <UserItem />
-                    <div className="fedbeck-right">
-                        <div>
-                            <ButtonWhite>Включить</ButtonWhite>
-                            <ButtonWhite>Включить</ButtonWhite>
-                        </div>
-                        <div className="redaction-date">
-                            <a href="">Редактировать данные</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <PerAccSupListenersItem />
         </div>
     );
 }

@@ -1,14 +1,13 @@
-import React from "react"
+import React from "react";
 import UserItem from "../UserItem";
 
-const SupervisorIncomingRequests = () => {
+const ModeratorListnearItem = () => {
     return (
-        <div>
+        <div className="moderator-listnear-item">
             <div className="content">
                 <div className="fedbeck">
                     <UserItem />
                     <div className="supervisor-center-sends-right">
-                        <div className="new">1</div>
                         <div className="count-request">
                             <div style={{ marginBottom: '15px' }}>Количество обращений:<strong>15</strong></div>
                             <div>Количество обработанных:<strong>10</strong></div>
@@ -20,4 +19,4 @@ const SupervisorIncomingRequests = () => {
     );
 }
 
-export default SupervisorIncomingRequests;
+export default ModeratorListnearItem;

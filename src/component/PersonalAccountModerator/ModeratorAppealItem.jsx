@@ -4,11 +4,10 @@ import DocumentProsses from "../DocumentProsses";
 import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
 
-const ModeratorAppeals = () => {
+const ModeratorAppealItem = () => {
     return (
-        <div className="content">
-            <ContentTop />
-            <div className="content-item">
+        <div className="moderator-appeals-item">
+            <div className="content">
                 <DocumentProsses />
                 <div className="request-content">
                     <div className="request-content-title">
@@ -33,4 +32,4 @@ const ModeratorAppeals = () => {
     );
 }
 
-export default ModeratorAppeals;
+export default ModeratorAppealItem;

@@ -1,12 +1,12 @@
 import React from "react";
 import DirectorySection from "../PersonAccountListnear/DirectorySection";
 
-const ModeratorLegalBase = () => {
+const ModeratorLegalBaseSection = () => {
     return (
-        <div>
+        <div className="moderator-legal-base-section">
             <DirectorySection /> 
         </div>
     );
 }
 
-export default ModeratorLegalBase;
+export default ModeratorLegalBaseSection;

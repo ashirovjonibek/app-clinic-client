@@ -3,7 +3,7 @@ import DirectoryPdf from "./DirectoryPdf";
 
 const DirectorySection = () => {
     return (
-        <div>
+        <div className="directory-section">
             <DirectoryPdf />
             <DirectoryPdf />
             <DirectoryPdf />

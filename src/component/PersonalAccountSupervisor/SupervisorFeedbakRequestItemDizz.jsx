@@ -4,20 +4,10 @@ import UserName from "../UserName";
 import ButtonWhite from "../ButtonWhite";
 import SupervisorComments from "../SupervisorComments";
 
-const ModeratorFedbeckRequest = () => {
+const SupervisorFeedbakRequestItemDizz = () => {
     return (
-        <div className="content">
-            <div className="content-item">
-                <UserItem />
-                <div className="content-line" />
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <UserName text="Aliyev Valijon" />
-                    <div>
-                        <ButtonWhite />
-                    </div>
-                </div>
-            </div>
-            <div className="content-item">
+        <div className="supervisor-feedbak-request-dizz">
+            <div className="content">
                 <UserItem />
                 <div className="content-line" />
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: '20px' }}>
@@ -28,9 +18,8 @@ const ModeratorFedbeckRequest = () => {
                 </div>
                 <SupervisorComments />
             </div>
-
         </div>
     );
 }
 
-export default ModeratorFedbeckRequest;
+export default SupervisorFeedbakRequestItemDizz;

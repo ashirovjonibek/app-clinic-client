@@ -11,13 +11,13 @@ const PerAccSupervisorSiteBar = () => {
                             <Link to="/">Слушатели</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/supervisorIncomingRequests">Поступившие обращения</Link>
+                            <Link to="/supervisorIncomingRequestSection">Поступившие обращения</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/supervisorResponsesRequests">Ответы на обращения </Link>
+                            <Link to="/supervisorResponsesRequestSection">Ответы на обращения </Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="/supervisorApplicants">Заявители</Link>
+                            <Link to="/supervisorApplicantSection">Заявители</Link>
                         </li>
                         <li className="navbar-items">
                             <Link to="/supervisorAppeals">Обращения</Link>
