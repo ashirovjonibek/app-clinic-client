@@ -37,6 +37,9 @@
     input {
         width: 100%;
     }
+    input::-webkit-calendar-picker-indicator {
+         opacity: 0;
+    }
     img {
         height: 15px;
         width: 15px;

@@ -1,0 +1,51 @@
+.navlanguage {
+    height: 40px;
+    margin: 0 20px;
+}
+
+.navlanguage-item {
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px 0 15px 50px;
+}
+
+.navlanguage-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.navlanguage-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0 15px 50px;
+}
+
+
+.navlanguage:hover .navlanguage-content {
+    display: block;
+}
+
+.navlanguage:hover .navlanguage-item {
+    border-radius: 20px 20px 0px 0px ;
+}
+
+.uzb-item {
+    background: url("../icon/flag-uzb.svg") center left 10px / 25px 25px no-repeat;
+}
+
+.rus-item {
+    background: url("../icon/flag-rus.svg") center left 10px / 25px 25px no-repeat;
+}
+
+.ang-item {
+    background: url("../icon/flag-ang.svg") center left 10px / 25px 25px no-repeat;
+}

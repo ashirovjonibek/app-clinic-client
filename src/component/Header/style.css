@@ -143,14 +143,20 @@
 }
 
 .navbar .glas {
-    height: 50px;
-    width: 60px;
+    height: 40px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 30px;
     background-color: #ffffff;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.navbar .glas img {
+    height: 20px;
+    width: 20px;
 }
 
 .navbar .enter-site {

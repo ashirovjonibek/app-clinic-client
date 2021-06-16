@@ -3,6 +3,7 @@ import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import ButtonDefault from "../ButtonDefault";
+import NavLanguage from "./NavLanguage";
 
 
 const NavCenter = () => {
@@ -31,20 +32,7 @@ const NavCenter = () => {
                             <input type="" placeholder="Поиск..." />
                             <button type=""><img src={iconSearch} alt="search-icon" /></button>
                         </form>
-                        <div className="language">
-                            <ul>
-                                <li href="#">
-
-                                </li>
-                                <li href="#">
-                                    
-                                    </li>
-                                <li href="#">
-                                    
-                                    </li>
-                            </ul>
-                        </div>
-
+                        <NavLanguage />
                         <div className="glas">
                             <img src={iconGlass} alt="" />
                         </div>

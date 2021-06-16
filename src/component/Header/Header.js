@@ -5,8 +5,8 @@ import AddRess from "../../assets/icon/icon-adress.svg"
 import EmailSvg from "../../assets/icon/icon-email.svg"
 import ContactSvg from "../../assets/icon/icon-contact.svg"
 import SearchIcon from "../../assets/icon/search-icon.svg"
-import IconRussian from "../../assets/icon/icon-russia.svg"
-import IconLanguage from "../../assets/icon/icon-language.svg"
+// import IconRussian from "../../assets/icon/icon-russia.svg"
+// import IconLanguage from "../../assets/icon/icon-language.svg"
 import IconGlass from "../../assets/icon/icon-glass.svg"
 import {AppBar, Button, IconButton, Menu, MenuItem, Toolbar, Typography, withStyles} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
@@ -120,14 +120,15 @@ function Header(props) {
                                 </form>
                                 <div className="dropdown-lang">
                                     <button className="dropbtn">
-                                        <img src={IconRussian} alt=""/>
-                                        <img src={IconLanguage} alt=""/>
+                                        {/* <img src={IconRussian} alt=""/> */}
+                                        {/* <img src={IconLanguage} alt=""/> */}
                                     </button>
                                     <div className="dropdown-content">
                                         <a href="#">
-                                            <img src={IconRussian} alt=""/></a>
+                                            {/* <img src={IconRussian} alt=""/> */}
+                                            </a>
                                         <a href="#">
-                                            <img src={IconRussian} alt=""/>
+                                            {/* <img src={IconRussian} alt=""/> */}
                                         </a>
                                     </div>
                                 </div>

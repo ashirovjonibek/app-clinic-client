@@ -40,7 +40,8 @@ function App() {
             {/* <PersonAccountListnear />
             <PersonalAccountApplicant />
             <PersonalAccountSupervisor /> */}
-            <PersonalAccountModerator />
+            {/* <PersonalAccountModerator /> */}
+            <RegistrationListnear />
         </div>
     );
 }
