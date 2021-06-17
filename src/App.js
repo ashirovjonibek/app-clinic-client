@@ -38,10 +38,10 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
             </Switch> */}
             {/* <PersonAccountListnear />
-            <PersonalAccountApplicant />
-            <PersonalAccountSupervisor /> */}
+            <PersonalAccountApplicant /> */}
+            <PersonalAccountSupervisor />
             {/* <PersonalAccountModerator /> */}
-            <RegistrationListnear />
+            {/* <RegistrationListnear /> */}
         </div>
     );
 }

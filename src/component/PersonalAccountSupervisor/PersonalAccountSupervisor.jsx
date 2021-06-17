@@ -13,6 +13,7 @@ import SupervisorDirectorySection from "./SupervisorDirectorySection";
 import SupervisorReytingListnear from "./SupervisorReytingListnear";
 import SupervisorArchive from "./SupervisorArchive";
 import SupervisorApplicantSection from "./SupervisorApplicantSection";
+import SupervisorStatisticSection from "./SupervisorStatisticSection";
 
 const PersonalAccountSupervisor = () => {
     return (
@@ -36,6 +37,7 @@ const PersonalAccountSupervisor = () => {
                                     <Route exact path="/supervisorFeedbakRequest" component={SupervisorFeedbakRequestSection} />
                                     <Route exact path="/supervisorDirectorySection" component={SupervisorDirectorySection} />
                                     <Route exact path="/supervisorReytingListnear" component={SupervisorReytingListnear} />
+                                    <Route exact path="/supervisorStatisticSection" component={SupervisorStatisticSection} />
                                     <Route exact path="/supervisorArchive" component={SupervisorArchive} />
                                 </Switch>
                             </div>

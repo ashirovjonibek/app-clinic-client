@@ -35,7 +35,7 @@ const PerAccSupervisorSiteBar = () => {
                             <Link to="/supervisorReytingListnear">Рейтинг слушателей</Link>
                         </li>
                         <li className="navbar-items">
-                            <Link to="">Статистика и отчеты</Link>
+                            <Link to="/supervisorStatisticSection">Статистика и отчеты</Link>
                         </li>
                         <li className="navbar-items">
                             <Link to="/supervisorArchive">Архив</Link>
