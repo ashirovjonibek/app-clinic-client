@@ -13,7 +13,7 @@ import SupervisorDirectorySection from "./SupervisorDirectorySection";
 import SupervisorReytingListnear from "./SupervisorReytingListnear";
 import SupervisorArchive from "./SupervisorArchive";
 import SupervisorApplicantSection from "./SupervisorApplicantSection";
-import SupervisorStatisticSection from "./SupervisorStatisticSection";
+import SupervisorStatisticSection from "./SupervisorStatisticSection/SupervisorStatisticSection";
 
 const PersonalAccountSupervisor = () => {
     return (
