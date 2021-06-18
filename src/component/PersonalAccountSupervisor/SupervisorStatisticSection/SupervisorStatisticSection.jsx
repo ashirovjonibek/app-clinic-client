@@ -2,7 +2,10 @@ import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import ButtonDefault from "../../ButtonDefault";
 import StatisticCategories from "./StatisticCategories";
+import StatisticGender from "./StatisticGender";
+import StatisticOverdue from "./StatisticOverdue";
 import StatisticRegions from "./StatisticRegions";
+import StatisticStatus from "./StatisticStatus";
 
 const SupervisorStatisticSection = () => {
     return (
@@ -43,7 +46,10 @@ const SupervisorStatisticSection = () => {
             </div>
             <div className="statistic-section-item">
                 {/* <StatisticRegions /> */}
-                <StatisticCategories />
+                {/* <StatisticCategories /> */}
+                {/* <StatisticGender /> */}
+                {/* <StatisticOverdue /> */}
+                <StatisticStatus />
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0 10px 0' }}>
                 <ButtonDefault text="Экспорт" />

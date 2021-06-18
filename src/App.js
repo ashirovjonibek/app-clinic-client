@@ -26,7 +26,7 @@ import Login from "./component/Desctop4/Login";
 function App() {
     return (
         <div className="App">
-            {/* <Switch>
+            <Switch>
                 <Route exact path="/" component={FirstHome}/>
                 <Route exact path="/auth/login" component={Login}/>
                 <Route exact path="/desctop3" component={Desctop3}/>
@@ -36,10 +36,10 @@ function App() {
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
-            </Switch> */}
+            </Switch>
             {/* <PersonAccountListnear />
             <PersonalAccountApplicant /> */}
-            <PersonalAccountSupervisor />
+            {/* <PersonalAccountSupervisor /> */}
             {/* <PersonalAccountModerator /> */}
             {/* <RegistrationListnear /> */}
         </div>

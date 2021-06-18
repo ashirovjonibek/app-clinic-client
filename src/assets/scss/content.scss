@@ -267,44 +267,328 @@
                                 .progres-year-61 {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #5DDAF0;
+                                    background-color: #5ddaf0;
                                 }
                                 .progres-year-16-60 {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #B393E0;
+                                    background-color: #b393e0;
                                 }
                                 .progres-year-18-30 {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #F57670;
+                                    background-color: #f57670;
                                 }
                                 .progres-year-31-45 {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #DAF285;
+                                    background-color: #daf285;
                                 }
                                 .progres-year-0-17 {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #78BAF3;
+                                    background-color: #78baf3;
                                 }
                             }
                         }
                     }
-                    .categories-inform{
+                    .categories-inform {
                         display: flex;
                         flex-direction: row;
                         margin-top: 40px;
-                        .categories{
+                        .categories {
                             width: 50%;
                             margin: 0 10px;
-                            .categories-item{
+                            .categories-item {
                                 display: flex;
                                 flex-direction: row;
                                 margin-bottom: 10px;
                                 .categories-color,
-                                .checkbox{
+                                .checkbox {
+                                    height: 15px;
+                                    width: 15px;
+                                    border-radius: 3px;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .statistic-gender {
+                .statistic-section-item-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    h5 {
+                        font-weight: 500;
+                    }
+                }
+                .statistic-section-item-body {
+                    height: 570px;
+                    .statistic-item-line {
+                        display: flex;
+                        flex-direction: row;
+                        position: absolute;
+                        padding: 7px 0 0 145px;
+                        .item-line {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin-left: 46px;
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            .line {
+                                height: 480px;
+                                width: 1px;
+                                background-color: #4e5e808f;
+                            }
+                            .item {
+                                margin-top: 10px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    .statistic-item {
+                        height: 38px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .statistic-item-name {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: center;
+                            height: 22px;
+                            width: 150px;
+                            padding-right: 5px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                        .statistic-item-progres-section {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 100px;
+                            .item-progres {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-start;
+                                z-index: 1;
+                                .item{
+                                    font-size: 12px;
+                                    margin-left: 5px;
+                                }
+                                .progres-men {
+                                    height: 10px;
+                                    width: 300px;
+                                    background-color: #78baf3;
+                                }
+                                .progres-women {
+                                    height: 10px;
+                                    width: 300px;
+                                    background-color: #f57670;
+                                    margin-bottom: 5px;
+                                }
+                            }
+                        }
+                    }
+                    .gender-inform {
+                        margin-top: 40px;
+                        display: flex;
+                        justify-content: center;
+                        .gender {
+                            height: 100px;
+                            display: flex;
+                            flex-direction: row;
+                            .gender-item {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 10px;
+                                .categories-color,
+                                .checkbox {
+                                    height: 15px;
+                                    width: 15px;
+                                    border-radius: 3px;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .statistic-overdue {
+                .statistic-section-item-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    h5 {
+                        font-weight: 500;
+                    }
+                }
+                .statistic-section-item-body {
+                    height: 500px;
+                    .statistic-item-line {
+                        display: flex;
+                        flex-direction: row;
+                        position: absolute;
+                        padding: 10px 0 0 145px;
+                        .item-line {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin-left: 95px;
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            .line {
+                                height: 470px;
+                                width: 1px;
+                                background-color: #4e5e808f;
+                            }
+                            .item {
+                                margin-top: 10px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    .statistic-item {
+                        height: 38px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .statistic-item-name {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: center;
+                            height: 22px;
+                            width: 150px;
+                            padding-right: 5px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                        .statistic-item-progres-section {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            height: 100px;
+                            z-index: 1;
+                            .item-progres {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                .progres {
+                                    height: 10px;
+                                    width: 300px;
+                                    background-color: #78BAF3;
+                                }
+                                .progres-value {
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .statistic-status {
+                .statistic-section-item-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    h5 {
+                        font-weight: 500;
+                    }
+                }
+                .statistic-section-item-body {
+                    height: 570px;
+                    .statistic-item-line {
+                        display: flex;
+                        flex-direction: row;
+                        position: absolute;
+                        padding: 7px 0 0 145px;
+                        .item-line {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin-left: 46px;
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            .line {
+                                height: 482px;
+                                width: 1px;
+                                background-color: #4e5e808f;
+                            }
+                            .item {
+                                margin-top: 10px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    .statistic-item {
+                        height: 38px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .statistic-item-name {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: center;
+                            height: 22px;
+                            width: 150px;
+                            padding-right: 5px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                        .statistic-item-progres-section {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 100px;
+                            .item-progres {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-start;
+                                z-index: 1;
+                                .item{
+                                    font-size: 12px;
+                                    margin-left: 5px;
+                                }
+                                .progres-new {
+                                    height: 9px;
+                                    width: 300px;
+                                    background-color: #78BAF3;
+                                }
+                                .progres-prosses {
+                                    height: 9px;
+                                    width: 300px;
+                                    background-color: #F57670;
+                                }
+                                .progres-close {
+                                    height: 9px;
+                                    width: 300px;
+                                    background-color: #DAF285;
+                                }
+                            }
+                        }
+                    }
+                    .gender-inform {
+                        margin-top: 40px;
+                        display: flex;
+                        justify-content: center;
+                        .gender {
+                            height: 100px;
+                            display: flex;
+                            flex-direction: row;
+                            .gender-item {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 10px;
+                                .categories-color,
+                                .checkbox {
                                     height: 15px;
                                     width: 15px;
                                     border-radius: 3px;
