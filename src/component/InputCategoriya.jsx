@@ -3,17 +3,17 @@ import iconDropdown from "../assets/icon/icon-down.svg";
 import {ListenerContext} from "../utils/ListenerContext";
 
 const InputCategoriya = ({nameCourse, namePosition, nameChair}) => {
-    const {course, setCourse, position, setPosition, chair, setChair} = useContext(ListenerContext);
+    // const {course, setCourse, position, setPosition, chair, setChair} = useContext(ListenerContext);
     const handleChangeCategory = (e) => {
-        if (nameCourse !== undefined) {
-            setCourse(e.target.value)
-        }
-        if (namePosition !== undefined) {
-            setPosition(e.target.value)
-        }
-        if (nameChair !== undefined) {
-            setChair(e.target.value)
-        }
+        // if (nameCourse !== undefined) {
+        //     setCourse(e.target.value)
+        // }
+        // if (namePosition !== undefined) {
+        //     setPosition(e.target.value)
+        // }
+        // if (nameChair !== undefined) {
+        //     setChair(e.target.value)
+        // }
 
     }
     return (

@@ -232,12 +232,17 @@ const StatisticStatus = () => {
                         <div className="gender-item">
                             <input type="checkbox" className="checkbox" />
                             <div className="categories-color" style={{ backgroundColor: '#78BAF3' }}></div>
-                            <p>Мужщины</p>
+                            <p>Новое</p>
                         </div>
                         <div className="gender-item">
                             <input type="checkbox" className="checkbox" />
                             <div className="categories-color" style={{ backgroundColor: '#F57670' }}></div>
-                            <p>Женщины</p>
+                            <p>В обработке</p>
+                        </div>
+                         <div className="gender-item">
+                            <input type="checkbox" className="checkbox" />
+                            <div className="categories-color" style={{ backgroundColor: '#DAF285' }}></div>
+                            <p>Закрыто</p>
                         </div>
                     </div>
                 </div>
