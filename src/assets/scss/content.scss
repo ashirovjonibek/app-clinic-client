@@ -376,7 +376,7 @@
                                 flex-direction: row;
                                 align-items: flex-start;
                                 z-index: 1;
-                                .item{
+                                .item {
                                     font-size: 12px;
                                     margin-left: 5px;
                                 }
@@ -482,7 +482,7 @@
                                 .progres {
                                     height: 10px;
                                     width: 300px;
-                                    background-color: #78BAF3;
+                                    background-color: #78baf3;
                                 }
                                 .progres-value {
                                     margin-left: 5px;
@@ -553,24 +553,24 @@
                                 flex-direction: row;
                                 align-items: flex-start;
                                 z-index: 1;
-                                .item{
+                                .item {
                                     font-size: 12px;
                                     margin-left: 5px;
                                 }
                                 .progres-new {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #78BAF3;
+                                    background-color: #78baf3;
                                 }
                                 .progres-prosses {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #F57670;
+                                    background-color: #f57670;
                                 }
                                 .progres-close {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #DAF285;
+                                    background-color: #daf285;
                                 }
                             }
                         }
@@ -660,24 +660,24 @@
                                 flex-direction: row;
                                 align-items: flex-start;
                                 z-index: 1;
-                                .item{
+                                .item {
                                     font-size: 10px;
                                     margin-left: 5px;
                                 }
                                 .progres-new {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #78BAF3;
+                                    background-color: #78baf3;
                                 }
                                 .progres-prosses {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #F57670;
+                                    background-color: #f57670;
                                 }
                                 .progres-close {
                                     height: 9px;
                                     width: 300px;
-                                    background-color: #DAF285;
+                                    background-color: #daf285;
                                 }
                             }
                         }
@@ -769,32 +769,32 @@
                                 .progres-vov {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #78BAF3;
+                                    background-color: #78baf3;
                                 }
                                 .progres-afgan {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #F57670;
+                                    background-color: #f57670;
                                 }
                                 .progres-mom {
                                     height: 5px;
                                     width: 300px;
-                                    background-color:  #DAF285;
+                                    background-color: #daf285;
                                 }
                                 .progres-1grup {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #B393E0;
+                                    background-color: #b393e0;
                                 }
                                 .progres-2grup {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #5DDAF0;
+                                    background-color: #5ddaf0;
                                 }
                                 .progres-3grup {
                                     height: 5px;
                                     width: 300px;
-                                    background-color: #FFDB67;
+                                    background-color: #ffdb67;
                                 }
                             }
                         }
@@ -819,10 +819,46 @@
                                     border-radius: 3px;
                                     margin-right: 10px;
                                 }
-                                p{
+                                p {
                                     line-height: 18px;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            .statistic-periods {
+                .statistic-section-item-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    h5 {
+                        font-weight: 500;
+                    }
+                }
+                .statistic-section-item-body {
+                    height: 520px;
+                    .periods-table {
+                        border-collapse: collapse;
+                        tr{
+                            height: 37px;
+                        }
+                        .table-name-cities {
+                            text-align: right;
+                            width: 150px;
+                            font-weight: 500;
+                            padding-right: 5px;
+                        }
+                        .table-statistic-item {
+                            width: 135px;
+                            border: 1px solid #b1afaf;
+                            text-align: center;
+                            padding: 8px;
+                            font-size: 15px;
+
+                        }
+                        .table-date{
+                            width: 135px;
+                            text-align: center;
                         }
                     }
                 }

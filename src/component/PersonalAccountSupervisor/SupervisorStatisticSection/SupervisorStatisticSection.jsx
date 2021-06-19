@@ -8,6 +8,7 @@ import StatisticRegions from "./StatisticRegions";
 import StatisticStatus from "./StatisticStatus";
 import StatisticCategories from "./StatisticCategories";
 import StatisticLgots from "./StatisticLgots";
+import StatisticPeriods from "./StatisticPeriods";
 
 const SupervisorStatisticSection = () => {
     return (
@@ -53,7 +54,8 @@ const SupervisorStatisticSection = () => {
                 {/* <StatisticOverdue /> */}
                 {/* <StatisticStatus /> */}
                 {/* <StatisticCategories /> */}
-                <StatisticLgots />
+                {/* <StatisticLgots /> */}
+                {/* <StatisticPeriods /> */}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0 10px 0' }}>
                 <ButtonDefault text="Экспорт" />
