@@ -39,9 +39,10 @@ function App() {
             </Switch> */}
             {/* <PersonAccountListnear />
             <PersonalAccountApplicant /> */}
-            <PersonalAccountSupervisor />
+            {/* <PersonalAccountSupervisor /> */}
             {/* <PersonalAccountModerator /> */}
             {/* <RegistrationListnear /> */}
+            <RegistrationApplicant/>
         </div>
     );
 }

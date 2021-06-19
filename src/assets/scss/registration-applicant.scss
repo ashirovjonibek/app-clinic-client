@@ -71,28 +71,28 @@
                 align-items: flex-end;
                 justify-content: flex-end;
                 margin-top: 10px;
-                // .confidential {
-                //     .checked {
-                //         display: flex;
-                //         flex-direction: row;
-                //         align-items: center;
-                //         input {
-                //             height: 20px;
-                //             width: 20px;
-                //         }
-                //         label {
-                //             font-size: 14px;
-                //             font-weight: 400;
-                //             line-height: 17px;
-                //             width: 280px;
-                //             margin-left: 20px;
-                //             a {
-                //                 text-decoration: none;
-                //                 color: black;
-                //             }
-                //         }
-                //     }
-                // }
+                .confidential {
+                    .checked {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        input {
+                            height: 20px;
+                            width: 20px;
+                        }
+                        label {
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 17px;
+                            width: 280px;
+                            margin-left: 20px;
+                            a {
+                                text-decoration: none;
+                                color: black;
+                            }
+                        }
+                    }
+                }
                 button {
                     margin-left: 10px;
                 }

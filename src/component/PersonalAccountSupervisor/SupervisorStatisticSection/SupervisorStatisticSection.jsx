@@ -48,14 +48,14 @@ const SupervisorStatisticSection = () => {
                 </div>
             </div>
             <div className="statistic-section-item">
-                {/* <StatisticRegions /> */}
-                {/* <StatisticYearCategories /> */}
-                {/* <StatisticGender /> */}
-                {/* <StatisticOverdue /> */}
-                {/* <StatisticStatus /> */}
-                {/* <StatisticCategories /> */}
-                {/* <StatisticLgots /> */}
-                {/* <StatisticPeriods /> */}
+                <StatisticRegions />
+                <StatisticYearCategories />
+                <StatisticGender />
+                <StatisticOverdue />
+                <StatisticStatus />
+                <StatisticCategories />
+                <StatisticLgots />
+                <StatisticPeriods />
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0 10px 0' }}>
                 <ButtonDefault text="Экспорт" />
