@@ -61,7 +61,8 @@
                 .last-form {
                     ul {
                         display: flex;
-                        flex-wrap: wrap;
+                        flex-direction: row;
+                        justify-content: space-between;
                         margin-top: 10px;
                         li {
                             width: 290px;
@@ -70,24 +71,27 @@
                                 margin-bottom: 10px;
                             }
                         }
-                        // .confidential {
-                        //     .about {
-                        //         display: flex;
-                        //         flex-direction: row;
-                        //         align-items: center;
-                        //         input {
-                        //             height: 20px;
-                        //             width: 20px;
-                        //         }
-                        //         label {
-                        //             font-size: 12px;
-                        //             font-weight: 400;
-                        //             line-height: 17px;
-                        //             width: 280px;
-                        //             margin-left: 20px;
-                        //         }
-                        //     }
-                        // }
+                        .confidential {
+                            display: flex;
+                            flex-direction: column;
+                            width: 330px;
+                            .about {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                input {
+                                    height: 20px;
+                                    width: 20px;
+                                }
+                                label {
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                    line-height: 17px;
+                                    width: 280px;
+                                    margin-left: 20px;
+                                }
+                            }
+                        }
                     }
                 }
                 .send-button {

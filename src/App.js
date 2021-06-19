@@ -5,7 +5,7 @@ import Nav from "./component/Nav/Nav";
 import Footer from "./component/Footer/Footer";
 import FooterUsaid from "./component/Footer/FooterUsaid";
 import Home from "./component/Home/Home";
-import Desctop3 from "./component/Desctop3/Desctop3";
+import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonAccountListnear from "./component/PersonAccountListnear/PersonAccountListnear";
 import RegistrationListnear from "./component/RegistrsationListnear/RegistrationListnear";
 import RegistrationApplicant from "./component/RegistrationApplicant/RegistrationApplicant";
@@ -42,7 +42,9 @@ function App() {
             {/* <PersonalAccountSupervisor /> */}
             {/* <PersonalAccountModerator /> */}
             {/* <RegistrationListnear /> */}
-            <RegistrationApplicant/>
+            {/* <RegistrationApplicant/> */}
+            {/* <ApplicantAppeal /> */}
+            <Login />
         </div>
     );
 }

@@ -2,16 +2,12 @@ import React from "react";
 import iconVideo from "../../assets/icon/video-camera.svg";
 import iconAudio from "../../assets/icon/microphone.svg";
 import Title from "../Title";
-import ButtonDefault from "../ButtonDefault";
-import InputFile from "../InputFile";
-import InputCategoraiya from "../InputCategoriya";
-import Label from "../Label";
 import { withRouter } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
+import iconDropdown from "../../assets/icon/icon-down.svg";
 
-
-const Desctop3 = (props) => {
+const ApplicantAppeal = (props) => {
     const { history } = props;
     return (
         <div>
@@ -26,14 +22,14 @@ const Desctop3 = (props) => {
                         <div>
                             <button className="video-request">
                                 <img src={iconVideo} alt="" />
-                        Сделать видео обращение
-                    </button>
+                                Сделать видео обращение
+                            </button>
                         </div>
                         <div>
                             <button className="audio-request">
                                 <img src={iconAudio} alt="" />
-                        Сделать аудио обращение
-                    </button>
+                                Сделать аудио обращение
+                            </button>
                         </div>
                     </div>
                     <form className="appeal">
@@ -49,31 +45,42 @@ const Desctop3 = (props) => {
                                 <ul>
                                     <li >
                                         <div className="lb">
-                                            <Label for="" text="Категория обращения" />
+                                            <label className="label" for="">Категория обращения</label>
                                         </div>
-                                        <InputCategoraiya />
+                                        <div>
+                                            <div className="category">
+                                                <input onChange="" list="lorem" name="lorem" placeholder="Выберите категорию"
+                                                />
+                                                <img src={iconDropdown} alt="" />
+                                            </div>
+                                            <datalist id="lorem">
+                                                <option value="lorem" />
+                                                <option value="lorem" />
+                                                <option value="lorem" />
+                                            </datalist>
+                                        </div>
                                     </li>
                                     <li>
                                         <div className="lb">
-                                            <Label for="" text="Прикрепить файл" />
+                                            <label className="label" for="">Прикрепить файл</label>
                                         </div>
-                                        <InputFile />
+                                        <div className="file">
+                                            <input type="file" />
+                                        </div>
                                     </li>
                                     <li className="confidential">
-                                        <div className="lb">
-                                            <Label for="" text="Конфиденциально" />
-                                        </div>
+                                        <label className="label lb" for="" style={{ fontSize: '18px', fontWeight: '500', marginLeft: '60px' }}>Конфиденциально</label>
                                         <div className="about">
                                             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
                                             <label for="vehicle1">
                                                 данный вопрос не будет отображаться в разделе «Популярные вопросы» в АИС
-                                            Клиника.</label>
+                                                Клиника.</label>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
                             <li className="send-button">
-                                <ButtonDefault onClick={() => history.push('/registrationApplicant')} type="submit" text="Отправить" />
+                                <button type="submit" className="btn-default">Отправить</button>
                             </li>
 
                         </ul>
@@ -85,4 +92,4 @@ const Desctop3 = (props) => {
     );
 }
 
-export default withRouter(Desctop3);
+export default withRouter(ApplicantAppeal);
