@@ -1,7 +1,4 @@
 import React from "react";
-import ButtonDefault from "../ButtonDefault";
-import InputText from "../InputText";
-import Label from "../Label";
 import Title from "../Title";
 
 const NewPassword = () => {

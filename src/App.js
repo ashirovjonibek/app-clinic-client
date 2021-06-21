@@ -7,7 +7,7 @@ import FooterUsaid from "./component/Footer/FooterUsaid";
 import Home from "./component/Home/Home";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonAccountListnear from "./component/PersonAccountListnear/PersonAccountListnear";
-import RegistrationListnear from "./component/RegistrsationListnear/RegistrationListnear";
+import RegistrationListnear from "./component/Registration/RegistrationListnear";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
 import Desctop7 from "./component/Registration/ReqoverAccount";
@@ -44,7 +44,7 @@ function App() {
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
             {/* <Login /> */}
-            <NewPassword />
+            <RegistrationListnear />
         </div>
     );
 }
