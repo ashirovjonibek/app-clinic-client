@@ -1,9 +1,7 @@
 import React from "react";
-import ButtonDefault from "../ButtonDefault";
-import Label from "../Label";
 import Title from "../Title";
 
-const Login = () => {
+const ReqoverAccount = () => {
     return (
         <div className="desctop7 container-fluit" >
             <div className="container" >
@@ -13,11 +11,11 @@ const Login = () => {
                     <form action="">
                         <div className="form-password">
                             <div className="label">
-                                <Label text="Введите код" />
+                                <label className="label" for="" >Введите код</label>
                             </div>
                             <input type="password" />
                         </div>
-                        <ButtonDefault type="submit" text="Отправить" />
+                        <button type="submit" className="btn-default">Отправить</button>
                     </form>
                 </div>
             </div>
@@ -25,4 +23,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default ReqoverAccount;

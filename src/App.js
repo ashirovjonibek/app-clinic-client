@@ -10,7 +10,7 @@ import PersonAccountListnear from "./component/PersonAccountListnear/PersonAccou
 import RegistrationListnear from "./component/RegistrsationListnear/RegistrationListnear";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
-import Desctop7 from "./component/Desctop7/Desctop7";
+import Desctop7 from "./component/Registration/ReqoverAccount";
 import Desctop8 from "./component/Desctop8/Desctop8";
 import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import Register from "./component/auth/Register";
@@ -21,7 +21,7 @@ import PersonalAccountSupervisor from "./component/PersonalAccountSupervisor/Per
 import PersonalAccountApplicant from "./component/PersonalAccountApplicant/PersonalAccountApplicant";
 import PersonalAccountModerator from "./component/PersonalAccountModerator/PersonalAccountModerator";
 import Login from "./component/Registration/Login";
-
+import ReqoverAccount from "./component/Registration/ReqoverAccount";
 
 function App() {
     return (
@@ -44,7 +44,8 @@ function App() {
             {/* <RegistrationListnear /> */}
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
-            <Login />
+            {/* <Login /> */}
+            <ReqoverAccount />
         </div>
     );
 }
