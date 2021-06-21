@@ -8,7 +8,7 @@ import Home from "./component/Home/Home";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonAccountListnear from "./component/PersonAccountListnear/PersonAccountListnear";
 import RegistrationListnear from "./component/RegistrsationListnear/RegistrationListnear";
-import RegistrationApplicant from "./component/RegistrationApplicant/RegistrationApplicant";
+import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
 import Desctop7 from "./component/Desctop7/Desctop7";
 import Desctop8 from "./component/Desctop8/Desctop8";
@@ -20,7 +20,7 @@ import Setting from "./component/setting/Setting";
 import PersonalAccountSupervisor from "./component/PersonalAccountSupervisor/PersonalAccountSupervisor";
 import PersonalAccountApplicant from "./component/PersonalAccountApplicant/PersonalAccountApplicant";
 import PersonalAccountModerator from "./component/PersonalAccountModerator/PersonalAccountModerator";
-import Login from "./component/Desctop4/Login";
+import Login from "./component/Registration/Login";
 
 
 function App() {

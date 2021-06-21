@@ -1,10 +1,6 @@
 import React from "react";
-import ButtonDefault from "../ButtonDefault";
 import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
-import InputCategoriya from "../InputCategoriya";
-import InputText from "../InputText";
-import Label from "../Label";
 import Title from "../Title";
 import iconDropdown from "../../assets/icon/icon-down.svg";
 
