@@ -4,7 +4,7 @@ import InputText from "../InputText";
 import Label from "../Label";
 import Title from "../Title";
 
-const Desctop8 = () => {
+const NewPassword = () => {
     return (
         <div className="desctop8 container-fluit" >
             <div className="container" >
@@ -14,15 +14,15 @@ const Desctop8 = () => {
                     <form action="">
                         <ul>
                             <li style={{ marginRight: '-50px' }}>
-                                <Label text="Новый пароль" />
-                                <InputText text="Пароль" />
+                                <label className="label" for="">Новый пароль</label>
+                                <input className="input-text" type="text" placeholder="Пароль" />
                             </li>
                             <li>
-                                <Label text="Повторите пароль" />
-                                <InputText text="Пароль" />
+                                <label className="label" for="">Повторите пароль</label>
+                                <input className="input-text" type="text" placeholder="Пароль" />
                             </li>
                             <li>
-                                <ButtonDefault type="submit" text="Подтвердить" />
+                                <button type="submit" className="btn-default">Подтвердить</button>
                             </li>
                         </ul>
                     </form>
@@ -32,4 +32,4 @@ const Desctop8 = () => {
     );
 }
 
-export default Desctop8;
+export default NewPassword;
