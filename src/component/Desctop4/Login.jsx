@@ -34,19 +34,19 @@ const Login = () => {
                             <ul>
                                 <li>
                                     <div className="first-label">
-                                        <Label text="Логин" />
+                                        <label className="label" for="">Логин</label>
                                     </div>
-
-                                    <InputText text="Логин (email)" />
+                                    <input className="input-text" type="text" placeholder="Логин (email)" />
+                                  
                                 </li>
                                 <li>
                                     <div className="last-label">
-                                        <Label text="Пароль" />
+                                        <label className="label" for="">Пароль</label>
                                     </div>
-                                    <InputText text="Пароль" />
+                                    <input className="input-text" type="text" placeholder="Пароль" />
                                 </li>
                                 <li>
-                                    <ButtonDefault type="submit" text="Войти" />
+                                    <button type="submit" className="btn-default">Войти</button>
                                 </li>
                                 <li className="form-link">
                                     <a href="">Забыли пароль?</a>
