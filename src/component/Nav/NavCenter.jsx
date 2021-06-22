@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import ButtonDefault from "../ButtonDefault";
 import NavLanguage from "./NavLanguage";
-
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 const NavCenter = () => {
+    const [sitebar, setSitebar] = useState(false);
+
     return (
 
         <div className="nav-center container-fluit">
             <div className="container">
                 <div className="navbar">
+                    <div className="menu-icon" onClick={() => setSitebar(!sitebar)}>
+                        <MenuIcon fontSize={'large'} />
+                    </div>
                     <div className="header-logo">
                         <a href="#">
                             <div className="logo-left">
@@ -38,13 +44,42 @@ const NavCenter = () => {
                         </div>
                         <ButtonDefault type="submit" text="Войти" />
                     </div>
-
-
                 </div>
-            </div >
+            </div>
+            <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
+                <div className="container">
+                    <div className="desctop-navigation-body">
+
+                        <ul>
+                            <li>
+                                <a href="">Что такое клиника</a>
+                            </li>
+                            <li>
+                                <a href="">Цель клиники</a>
+                            </li>
+                            <li>
+                                <a href="">Предназначение клиники</a>
+                            </li>
+                            <li>
+                                <a href="">Популярные вопросы</a>
+                            </li>
+                            <li>
+                                <a href="">Нормативно-правовая база</a>
+                            </li>
+                            <li>
+                                <a href="">Полезные ссылки</a>
+                            </li>
+                            <li>
+                                <a href="">Адреса прокуратур</a>
+                            </li>
+                        </ul>
+                        <div className="icon-disable">
+                            <CloseIcon fontSize={'large'} style={{color: 'white'}} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div >
-
-
     );
 }
 

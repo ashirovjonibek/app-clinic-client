@@ -47,13 +47,13 @@ const Dashboard = () => {
                         <table>
                             <tr>
                                 <td class="column-categories-name">&nbsp;</td>
-                                <td class="table-border table-categoriyes table-mini">Общее количество<br /> обращений</td>
+                                <td class="table-border table-categoriyes table-mini">Общее<br/> количество<br /> обращений</td>
                                 <td class="table-border table-categoriyes table-mini">Поступило<br /> обращений</td>
                                 <td class="table-border table-categoriyes table-mini">Обращениям<br /> ответил</td>
                                 <td class="table-border table-categoriyes table-mini">Обращений в <br />обработке</td>
                                 <td class="table-border table-categoriyes table-mini">Новых<br/>обращений</td>
                                 <td class="table-border table-categoriyes table-mini">Обращений в<br /> рассмотрении</td>
-                                <td class="table-border table-categoriyes table-mini">Прошли модерацию<br /> начальника</td>
+                                <td class="table-border table-categoriyes table-mini">Прошли<br/> модерацию<br /> начальника</td>
                             </tr>
                             <tr>
                                 <td class="table-border column-categories-name">Имя<br/>фамилия</td>

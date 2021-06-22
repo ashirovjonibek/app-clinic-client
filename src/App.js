@@ -1,6 +1,6 @@
 import React from "react";
 import "./assets/scss/style.scss";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Nav from "./component/Nav/Nav";
 import Footer from "./component/Footer/Footer";
 import FooterUsaid from "./component/Footer/FooterUsaid";
@@ -14,13 +14,14 @@ import Desctop7 from "./component/Registration/ReqoverAccount";
 import NewPassword from "./component/Registration/NewPassword";
 import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import Register from "./component/auth/Register";
-import Header from "./component/Header/Header";
 import FirstHome from "./component/Home/FirstHome";
 import Setting from "./component/setting/Setting";
 import PersonalAccountSupervisor from "./component/PersonalAccountSupervisor/PersonalAccountSupervisor";
 import PersonalAccountApplicant from "./component/PersonalAccountApplicant/PersonalAccountApplicant";
 import PersonalAccountModerator from "./component/PersonalAccountModerator/PersonalAccountModerator";
 import Login from "./component/Registration/Login";
+import Admin from "./component/Admin/Admin";
+import NavCenter from "./component/Nav/NavCenter";
 
 function App() {
     return (
@@ -43,8 +44,11 @@ function App() {
             {/* <RegistrationListnear /> */}
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
-            {/* <Login /> */}
-            <RegistrationListnear />
+            {/* <Admin /> */}
+            {/* <Dashboard /> */}
+            <div className="nav">
+                <NavCenter />
+            </div>
         </div>
     );
 }
