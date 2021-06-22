@@ -15,8 +15,11 @@ const NavCenter = () => {
         <div className="nav-center container-fluit">
             <div className="container">
                 <div className="navbar">
-                    <div className="menu-icon" onClick={() => setSitebar(!sitebar)}>
-                        <MenuIcon fontSize={'large'} />
+                    <div className="menu-icon" >
+                        <MenuIcon
+                            fontSize={'large'}
+                            onClick={() => setSitebar(!sitebar)}
+                        />
                     </div>
                     <div className="header-logo">
                         <a href="#">
@@ -34,13 +37,15 @@ const NavCenter = () => {
                         </a>
                     </div>
                     <div className="header-right">
-                        <form role="search" method="get" action="#" className="search-form">
-                            <input type="" placeholder="Поиск..." />
-                            <button type=""><img src={iconSearch} alt="search-icon" /></button>
-                        </form>
-                        <NavLanguage />
-                        <div className="glas">
-                            <img src={iconGlass} alt="" />
+                        <div className="header-right-desctop">
+                            <form role="search" method="get" action="#" className="search-form">
+                                <input type="" placeholder="Поиск..." />
+                                <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                            </form>
+                            <NavLanguage />
+                            <div className="glas">
+                                <img src={iconGlass} alt="" />
+                            </div>
                         </div>
                         <ButtonDefault type="submit" text="Войти" />
                     </div>
@@ -49,32 +54,43 @@ const NavCenter = () => {
             <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
                 <div className="container">
                     <div className="desctop-navigation-body">
-
-                        <ul>
-                            <li>
-                                <a href="">Что такое клиника</a>
-                            </li>
-                            <li>
-                                <a href="">Цель клиники</a>
-                            </li>
-                            <li>
-                                <a href="">Предназначение клиники</a>
-                            </li>
-                            <li>
-                                <a href="">Популярные вопросы</a>
-                            </li>
-                            <li>
-                                <a href="">Нормативно-правовая база</a>
-                            </li>
-                            <li>
-                                <a href="">Полезные ссылки</a>
-                            </li>
-                            <li>
-                                <a href="">Адреса прокуратур</a>
-                            </li>
-                        </ul>
+                        <div>
+                            <div style={{display: 'flex', flexDirection: 'row', marginBottom: '20px'}}>
+                                <NavLanguage />
+                                <div className="glas">
+                                    <img src={iconGlass} alt="" />
+                                </div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="">Что такое клиника</a>
+                                </li>
+                                <li>
+                                    <a href="">Цель клиники</a>
+                                </li>
+                                <li>
+                                    <a href="">Предназначение клиники</a>
+                                </li>
+                                <li>
+                                    <a href="">Популярные вопросы</a>
+                                </li>
+                                <li>
+                                    <a href="">Нормативно-правовая база</a>
+                                </li>
+                                <li>
+                                    <a href="">Полезные ссылки</a>
+                                </li>
+                                <li>
+                                    <a href="">Адреса прокуратур</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div className="icon-disable">
-                            <CloseIcon fontSize={'large'} style={{color: 'white'}} />
+                            <CloseIcon
+                                fontSize={'large'}
+                                style={{ color: 'white' }}
+                                onClick={() => setSitebar(!sitebar)}
+                            />
                         </div>
                     </div>
                 </div>
