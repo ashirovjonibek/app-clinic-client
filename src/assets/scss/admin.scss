@@ -56,6 +56,10 @@
                     }
                 }
             }
+
+            select{
+                display: none;
+            }
             table {
                 tr {
                     .table-border {
