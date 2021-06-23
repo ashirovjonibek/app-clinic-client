@@ -21,6 +21,10 @@
 @import "content.scss";
 @import "admin.scss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 .App {
     font-family: "Montserrat", sans-serif;
 }
