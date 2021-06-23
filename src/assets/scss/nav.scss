@@ -156,6 +156,12 @@
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
     .nav {
+        .nav-top {
+            display: none;
+        }
+        .nav-bottom {
+            display: none;
+        }
         .nav-center {
             .navbar {
                 .header-right {
@@ -170,6 +176,12 @@
 
 @media screen and (max-width: 768px) {
     .nav {
+        .nav-top {
+            display: none;
+        }
+        .nav-bottom {
+            display: none;
+        }
         .nav-center {
             .navbar {
                 .header-logo {
@@ -198,17 +210,8 @@
                         flex-direction: row;
                         justify-content: space-between;
                         padding: 20px 0;
-                        .navlanguage-item {
-                            background-color: white;
-                        }
-                        .glas{
-                            padding: 10px;
-                            border-radius: 50%;
-                            background-color: white;
-                            img{
-                                height: 20px;
-                                width: 20px;
-                            }
+                        .mobil-language {
+                            display: none;
                         }
                         ul {
                             li {
@@ -234,6 +237,29 @@
                 .header-right {
                     .header-right-desctop {
                         display: none;
+                    }
+                }
+            }
+            #show-navigation {
+                .container {
+                    .desctop-navigation-body {
+                        .mobil-language {
+                            display: flex;
+                            flex-direction: row;
+                            margin-bottom: 20px;
+                            .navlanguage-item {
+                                background-color: white;
+                            }
+                            .glas {
+                                padding: 10px;
+                                border-radius: 50%;
+                                background-color: white;
+                                img {
+                                    height: 20px;
+                                    width: 20px;
+                                }
+                            }
+                        }
                     }
                 }
             }

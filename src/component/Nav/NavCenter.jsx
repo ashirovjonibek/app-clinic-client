@@ -55,7 +55,7 @@ const NavCenter = () => {
                 <div className="container">
                     <div className="desctop-navigation-body">
                         <div>
-                            <div style={{display: 'flex', flexDirection: 'row', marginBottom: '20px'}}>
+                            <div className="mobil-language">
                                 <NavLanguage />
                                 <div className="glas">
                                     <img src={iconGlass} alt="" />
