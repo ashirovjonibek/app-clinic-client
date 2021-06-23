@@ -6,25 +6,25 @@ const NavBottom = () => {
             <div className="container">
                 <ul>
                     <li>
-                        <a href="">Что такое<br /> клиника</a>
+                        <a href="#what-clinic">Что такое<br /> клиника</a>
                     </li>
                     <li>
-                        <a href="">Цель<br /> клиники</a>
+                        <a href="#cel-clinic">Цель<br /> клиники</a>
                     </li>
                     <li>
-                        <a href="">Предназначение<br /> клиники</a>
+                        <a href="#purpose-clinic">Предназначение<br /> клиники</a>
                     </li>
                     <li>
-                        <a href="">Популярные<br /> вопросы</a>
+                        <a href="#popular-clinic">Популярные<br /> вопросы</a>
                     </li>
                     <li>
-                        <a href="">Нормативно-правовая<br /> база</a>
+                        <a href="#legal-clinic">Нормативно-правовая<br /> база</a>
                     </li>
                     <li>
-                        <a href="">Полезные<br /> ссылки</a>
+                        <a href="#home-slider">Полезные<br /> ссылки</a>
                     </li>
                     <li>
-                        <a href="">Адреса<br /> прокуратур</a>
+                        <a href="#adres-procuratura">Адреса<br /> прокуратур</a>
                     </li>
                 </ul>
             </div>

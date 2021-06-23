@@ -37,6 +37,10 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
             </Switch> */}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 21730713ff7cac9f8ff2c4b30b0536b0c580fa98
             {/* <PersonAccountListnear />
             <PersonalAccountApplicant /> */}
             {/* <PersonalAccountSupervisor /> */}
@@ -44,11 +48,17 @@ function App() {
             {/* <RegistrationListnear /> */}
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
-            <Admin />
+            {/* <Admin /> */}
             {/* <Dashboard /> */}
-            <div className="nav">
+            {/* <div className="nav">
                 <NavCenter />
+<<<<<<< HEAD
             </div>
+=======
+            </div> */}
+
+            <FirstHome />
+>>>>>>> 21730713ff7cac9f8ff2c4b30b0536b0c580fa98
         </div>
     );
 }
