@@ -1,3 +1,5 @@
+
+
 @media (max-width: 576px) {
   .footer {
     .footer-first {
@@ -15,7 +17,6 @@
 
 @media (max-width: 768px) {
   .footer {
-    height: 950px;
     text-align: center;
     .footer-first {
       display: flex;
@@ -62,7 +63,6 @@
     .footer-first {
       .sub-title-line {
         max-width: 95%;
-        background-color: red;
       }
     }
   }

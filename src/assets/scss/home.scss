@@ -1,20 +1,40 @@
 .home {
-    height: 100vh;
-    background-color: #99ff99;
-    padding-top: 30vh;
-    a {
+    background-color: #f4f8ff;
+    .header-img {
+        height: 100vh;
+        background: url(../img/header-img.jpg) center/cover no-repeat;
+        margin-bottom: 10px;
+        button {
+            margin: 35% 45%;
+        }
+    }
+    .what-clinic {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        width: 140px;
-        height: 40px;
-        background: linear-gradient(180deg, #222d44 0%, #4e5e80 100%);
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 30px;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 29px;
-        color: #fafafa;
+        flex-direction: row;
+        margin-bottom: 20px;
+        .what-clinic-text,
+        .what-clinic-mini {
+            height: 350px;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .what-clinic-text{
+            width: 55%;
+        }
+        .what-clinic-mini{
+            width: 45%;
+        }
+    }
+    .cel-clinic{
+        height: 450px;
+    }
+    .home-slider{
+        background-color: white;
+        height: 500px;
+        padding: 20px;
+        margin-bottom: 20px;
     }
 }
