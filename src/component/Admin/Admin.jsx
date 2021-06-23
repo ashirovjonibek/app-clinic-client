@@ -28,7 +28,7 @@ const Admin = () => {
                         </ul>
                     </div>
                     <div className="admin-table">
-                        <AdminListAppeal />
+                        {/* <AdminListAppeal /> */}
                         <AdminListListnear />
                     </div>
                 </div>

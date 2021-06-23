@@ -63,9 +63,9 @@ const AdminListListnear = () => {
                             <td className="table-border"></td>
                         </tr>
                     </table>
-                    <div style={{marginLeft: '10px'}}>
+                    {/* <div style={{marginLeft: '10px'}}>
                         <button className="btn-default">Зарегистрировать все</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div>
