@@ -37,8 +37,21 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
             </Switch> */}
+
+            {/* <PersonAccountListnear />
+            <PersonalAccountApplicant /> */}
+            {/* <PersonalAccountSupervisor /> */}
+            {/* <PersonalAccountModerator /> */}
+            {/* <RegistrationListnear /> */}
+            {/* <RegistrationApplicant/> */}
+            {/* <ApplicantAppeal /> */}
+            {/* <Admin /> */}
+            {/* <Dashboard /> */}
+            {/* <div className="nav">
+                <NavCenter />
+            </div> */}
+
             <FirstHome />
-            {/* <RegistrationApplicant /> */}
         </div>
     );
 }
