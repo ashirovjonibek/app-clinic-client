@@ -49,9 +49,15 @@ function App() {
             {/* <Dashboard /> */}
             {/* <div className="nav">
                 <NavCenter />
+
+            </div>
+
             </div> */}
 
+
             {/* <FirstHome /> */}
+
+            <FirstHome />
         </div>
     );
 }
