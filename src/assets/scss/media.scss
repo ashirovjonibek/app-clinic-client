@@ -107,10 +107,11 @@
             position: relative;
             div {
               overflow-x: auto;
+              display: block;
               ul {
                 display: none;
               }
-              select {
+              #kafedra {
                 margin-top: 30px;
                 display: flex;
                 width: 288px;
@@ -121,6 +122,7 @@
                 border-radius: 20px;
                 outline: none;
                 position: relative;
+
               }
               table {
                 width: 1100px;
@@ -135,9 +137,6 @@
                 position: absolute;
                 left: 20px;
               }
-            }
-            .btn-default {
-              display: none;
             }
           }
         }

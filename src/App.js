@@ -37,7 +37,6 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
             </Switch> */}
-<<<<<<< HEAD
             {/* <PersonAccountListnear />
             <PersonalAccountApplicant /> */}
             {/* <PersonalAccountSupervisor /> */}
@@ -50,9 +49,6 @@ function App() {
             <div className="nav">
                 <NavCenter />
             </div>
-=======
-            <FirstHome />
->>>>>>> 2fc5537f26e6fe8ef16d80c0170d1a9bf197180c
         </div>
     );
 }

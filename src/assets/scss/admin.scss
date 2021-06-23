@@ -1,93 +1,114 @@
 .admin {
-    background-color: #f4f8ff;
-    padding: 20px;
-    .admin-navigation {
-        margin: 20px 0;
-        ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            li {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 10px;
-                height: 40px;
-                width: 180px;
-                background-color: white;
-                border-radius: 30px;
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                a {
-                    color: black;
-                }
-            }
+  background-color: #f4f8ff;
+  padding: 20px;
+  .admin-navigation {
+    margin: 20px 0;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        height: 40px;
+        width: 180px;
+        background-color: white;
+        border-radius: 30px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        a {
+          color: black;
         }
+      }
     }
-    .admin-table {
-        .table-title {
-            color: #78baf3;
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-        .admin-list-appeal {
-            padding: 20px;
-            height: 600px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                margin: 20px 0;
-                li {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 10px;
-                    height: 40px;
-                    width: 180px;
-                    background-color: white;
-                    border-radius: 30px;
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                    a {
-                        color: black;
-                    }
-                }
-            }
+  }
+  .admin-table {
+    ::-webkit-scrollbar {
+      height: 30px;
+    }
 
-            select{
-                display: none;
-            }
-            table {
-                tr {
-                    .table-border {
-                        text-align: center;
-                        background: #ffffff;
-                        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                        border-radius: 5px;
-                        padding: 10px 15px;
-                        margin: 1px;
-                    }
-                    .applicant-name {
-                        width: 190px;
-                        text-align: start;
-                    }
-                    .gender {
-                        width: 70px;
-                    }
-                    .citi {
-                        width: 120px;
-                    }
-                    .tel {
-                        width: 160px;
-                    }
-                    .pochta {
-                        width: 180px;
-                    }
-                }
-            }
-        }
+    ::-webkit-scrollbar-track {
+      background: #e0e0e0;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 10px
     }
+
+    ::-webkit-scrollbar-thumb {
+      height: 10px;
+      background: #ffffff;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #bbb6b6;
+    }
+    .table-title {
+      color: #78baf3;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .admin-list-appeal {
+      padding: 20px;
+      height: 600px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 10px;
+          height: 40px;
+          width: 180px;
+          background-color: white;
+          border-radius: 30px;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+          a {
+            color: black;
+          }
+        }
+      }
+
+      select {
+        display: none;
+      }
+      table {
+        tr {
+          .table-border {
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 1px;
+          }
+          .applicant-name {
+            width: 190px;
+            text-align: start;
+          }
+          .gender {
+            width: 70px;
+          }
+          .citi {
+            width: 120px;
+          }
+          .tel {
+            width: 160px;
+          }
+          .pochta {
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
 }
