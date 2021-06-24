@@ -34,7 +34,7 @@ const AdminListListnear = () => {
           <option value="">Название кафедры</option>
         </select>
       </div>
-      <div style={{ marginBottom: "70px" }}>
+      <div style={{ marginBottom: "80px" }}>
         <h5 className="table-title">Новые</h5>
         {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
         <table>
