@@ -42,9 +42,9 @@ function App() {
             {/* <RegistrationListnear /> */}
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
-            {/* <Admin /> */}
+            <Admin />
             {/* <Dashboard /> */}
-            <Login />
+            {/* <Login /> */}
         </div>
     );
 }
