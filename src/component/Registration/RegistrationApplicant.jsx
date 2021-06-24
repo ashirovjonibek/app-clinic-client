@@ -99,7 +99,7 @@ const RegistrationApplicant = () => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="">Область</label>
-                                                <div>
+                                                <div>ferwefrwerfwef
                                                     <select id="lorem2" className="category">
                                                         <option value="lorem">lorem</option>
                                                         <option value="lorem">lorem</option>
