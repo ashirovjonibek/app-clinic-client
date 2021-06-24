@@ -48,6 +48,10 @@ function RegistrationListnear(props) {
                                                 placeholder="Введите ваше Ф.И.О" />
                                         </li>
                                         <li>
+                                            <label className="label" for="">Дата рождения</label>
+                                            <input className="input-date" type="date" />
+                                        </li>
+                                        <li>
                                             <label className="label" for="">Должность</label>
                                             <div>
                                                 <select id="lorem2" className="category">
@@ -89,6 +93,12 @@ function RegistrationListnear(props) {
                                                     <option value="lorem" >lorem</option>
                                                     <option value="lorem" >lorem</option>
                                                 </select>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <label className="label" for="">Пароль</label>
+                                                <input onChange="" className="input-text" type="text" placeholder="Введите вашу почту" />
                                             </div>
                                         </li>
                                         <li>
