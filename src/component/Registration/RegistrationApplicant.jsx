@@ -77,33 +77,39 @@ const RegistrationApplicant = () => {
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
                                                 <div>
-                                                    <select id="nationId" name="nationId" className="category">
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
+                                                    <select id="nationId" name="nationId" onChange={handleChange}
+                                                            className="category">
+                                                        <option value="">Выберите ваш национальность</option>
+                                                        {nations && nations.map((item, i) =>
+                                                            <option key={i} value={item.id}>{item.name.uz}</option>
+                                                        )}
                                                     </select>
                                                 </div>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="gender">Пол</label>
                                                 <div>
-                                                    <select id="gender" name="gender" className="category">
+                                                    <select id="gender" onChange={handleChange} name="gender"
+                                                            className="category">
                                                         <option value="erkak">Erkak</option>
                                                         <option value="ayol">Ayol</option>
                                                     </select>
                                                 </div>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="">Дата рождения</label>
-                                                <input className="input-date" type="date"/>
+                                                <label className="label" htmlFor="birthDate">Дата рождения</label>
+                                                <input className="input-date" onChange={handleChange} name="birthDate"
+                                                       id="birthDate" type="date"/>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="">Область</label>
+                                                <label className="label" htmlFor="regionId">Область</label>
                                                 <div>
-                                                    <select id="lorem2" className="category">
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
+                                                    <select name="regionId" id="regionId" onChange={handleChange}
+                                                            className="category">
+                                                        <option value="lorem">Выберите ваш Область</option>
+                                                        {regions && regions.map((item, id) =>
+                                                            <option key={i} value={item.id}>{item.name.uz}</option>
+                                                        )}
                                                     </select>
                                                 </div>
 
