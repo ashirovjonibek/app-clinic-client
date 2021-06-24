@@ -27,33 +27,23 @@ const RegistrationApplicant = () => {
                                             <li>
                                                 <label className="label" for="">Национальность</label>
                                                 <div>
-                                                    <div className="category">
-                                                        <input onChange="" list="lorem" name="lorem" placeholder="Выберите национальность"
-                                                        />
-                                                        <img src={iconDropdown} alt="" />
-                                                    </div>
-                                                    <datalist id="lorem">
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                    </datalist>
+                                                    <select id="lorem2" className="category">
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                    </select>
                                                 </div>
                                             </li>
                                             <li>
                                                 <label className="label" for="">Пол</label>
                                                 <div>
-                                                    <div className="category">
-                                                        <input onChange="" list="lorem" name="lorem" placeholder="Выберите пол"
-                                                        />
-                                                        <img src={iconDropdown} alt="" />
-                                                    </div>
-                                                    <datalist id="lorem">
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                    </datalist>
+                                                    <select id="lorem2" className="category">
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                    </select>
                                                 </div>
-                                            </li>
+                                                                                            </li>
                                             <li>
                                                 <label className="label" for="">Дата рождения</label>
                                                 <input className="input-date" type="date" />
@@ -61,17 +51,13 @@ const RegistrationApplicant = () => {
                                             <li>
                                                 <label className="label" for="">Область</label>
                                                 <div>
-                                                    <div className="category">
-                                                        <input onChange="" list="lorem" name="lorem" placeholder="Выберите область"
-                                                        />
-                                                        <img src={iconDropdown} alt="" />
-                                                    </div>
-                                                    <datalist id="lorem">
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                    </datalist>
+                                                    <select id="lorem2" className="category">
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                    </select>
                                                 </div>
+                                                
                                             </li>
                                         </ul>
                                     </li>
@@ -80,16 +66,11 @@ const RegistrationApplicant = () => {
                                             <li>
                                                 <label className="label" for="">Город (район)</label>
                                                 <div>
-                                                    <div className="category">
-                                                        <input onChange="" list="lorem" name="lorem" placeholder="Выберите город (район)"
-                                                        />
-                                                        <img src={iconDropdown} alt="" />
-                                                    </div>
-                                                    <datalist id="lorem">
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                    </datalist>
+                                                    <select id="lorem2" className="category">
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                    </select>
                                                 </div>
                                             </li>
                                             <li>
@@ -107,16 +88,11 @@ const RegistrationApplicant = () => {
                                             <li>
                                                 <label className="label" for="">Категория льгот</label>
                                                 <div>
-                                                    <div className="category">
-                                                        <input onChange="" list="lorem" name="lorem" placeholder="Выберите категорию"
-                                                        />
-                                                        <img src={iconDropdown} alt="" />
-                                                    </div>
-                                                    <datalist id="lorem">
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                        <option value="lorem" />
-                                                    </datalist>
+                                                    <select id="lorem2" className="category">
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                        <option value="lorem" >lorem</option>
+                                                    </select>
                                                 </div>
                                             </li>
                                         </ul>
@@ -131,7 +107,7 @@ const RegistrationApplicant = () => {
                                             </div>
                                         </li>
                                         <li>
-                                            <div style={{marginBottom: '20px'}}>
+                                            <div style={{ marginBottom: '20px' }}>
                                                 <label className="label" for="">Пароль</label>
                                                 <input onChange="" className="input-text" type="text" placeholder="Введите вашу почту" />
                                             </div>
