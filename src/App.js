@@ -39,16 +39,12 @@ function App() {
             <PersonalAccountApplicant /> */}
             {/* <PersonalAccountSupervisor /> */}
             {/* <PersonalAccountModerator /> */}
-            <RegistrationListnear />
-            <RegistrationApplicant/>
+            {/* <RegistrationListnear /> */}
+            {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
             <Admin />
             {/* <Dashboard /> */}
             {/* <Login /> */}
-<<<<<<< HEAD
-=======
-
->>>>>>> 6e097105d8817b6d5c343be2d27fd89bcc5c1881
         </div>
     );
 }
