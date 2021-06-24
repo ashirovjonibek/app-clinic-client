@@ -85,32 +85,32 @@ function Register(props) {
     const [socialStatus, setSocialStatus] = useState([]);
 
 
-    useEffect(() => {
-        axios.get("/api/region").then(res => {
-            setRegions(res.data._embedded.regions)
-        });
-    }, [])
-
-    useEffect(() => {
-        axios.get("/api/district").then(res => {
-            setDistricts(res.data._embedded.districts);
-        })
-    }, [])
-    useEffect(() => {
-        axios.get("/api/socialStatus").then(res => {
-            setSocialStatus(res.data._embedded.socialStatuses)
-        })
-    }, [])
-    useEffect(() => {
-        axios.get("/api/nation").then(res => {
-            setNations(res.data._embedded.nations)
-        })
-    }, [])
-    useEffect(() => {
-        axios.get("/api/section").then(res => {
-            console.log(res);
-        })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("/api/region").then(res => {
+    //         setRegions(res.data._embedded.regions)
+    //     });
+    // }, [])
+    //
+    // useEffect(() => {
+    //     axios.get("/api/district").then(res => {
+    //         setDistricts(res.data._embedded.districts);
+    //     })
+    // }, [])
+    // useEffect(() => {
+    //     axios.get("/api/socialStatus").then(res => {
+    //         setSocialStatus(res.data._embedded.socialStatuses)
+    //     })
+    // }, [])
+    // useEffect(() => {
+    //     axios.get("/api/nation").then(res => {
+    //         setNations(res.data._embedded.nations)
+    //     })
+    // }, [])
+    // useEffect(() => {
+    //     axios.get("/api/section").then(res => {
+    //         console.log(res);
+    //     })
+    // }, [])
 
 
     const handleChange = (e) => {

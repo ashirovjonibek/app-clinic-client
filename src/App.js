@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./assets/scss/style.scss";
 import {Route, Switch} from "react-router-dom";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
@@ -12,15 +12,24 @@ import PersonalAccountApplicant from "./component/PersonalAccountApplicant/Perso
 import PersonalAccountModerator from "./component/PersonalAccountModerator/PersonalAccountModerator";
 import Login from "./component/Registration/Login";
 import Admin from "./component/Admin/Admin";
-import NavCenter from "./component/Nav/NavCenter";
 import Nav from "./component/Nav/Nav";
-import Footer from "./component/Footer/Footer";
-import FooterUsaid from "./component/Footer/FooterUsaid";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+
+    // function multi(a, b) {
+    //     if (a == 1) {
+    //         return b;
+    //     } else {
+    //         return b + multi(a - 1, b)
+    //     }
+    // }
+
     return (
         <div className="App">
-            {/* <Nav/>
+            <Nav/>
+            <ToastContainer/>
             <Switch>
                 <Route exact path="/" component={FirstHome}/>
                 <Route exact path="/auth/login" component={Login}/>
@@ -31,20 +40,8 @@ function App() {
                 <Route exact path="/personalAccountListnear" component={PersonalAccountListnear}/>
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
-
-                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
-            </Switch> */} 
-
-            {/* <PersonAccountListnear />
-            <PersonalAccountApplicant /> */}
-            {/* <PersonalAccountSupervisor /> */}
-            {/* <PersonalAccountModerator /> */}
-            {/* <RegistrationListnear /> */}
-            {/* <RegistrationApplicant/> */}
-            {/* <ApplicantAppeal /> */}
-            <Admin />
-            {/* <Dashboard /> */}
-            {/* <Login /> */}
+                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
+            </Switch>
         </div>
     );
 }
