@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <div className="App">
-            <Nav/>
+            {/* <Nav/>
             <ToastContainer/>
             <Switch>
                 <Route exact path="/" component={FirstHome}/>
@@ -32,7 +32,8 @@ function App() {
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
-            </Switch>
+            </Switch> */}
+            <Login />
         </div>
     );
 }
