@@ -118,17 +118,10 @@ function Register(props) {
             ...values,
             [e.target.name]: e.target.value
         })
-
-
-        // setValues({
-        //     ...values,
-        //     [event.target.name]: event.target.value,
-        // });
     };
     const handleSave = (e) => {
         e.preventDefault();
         console.log(values)
-
     }
 
 

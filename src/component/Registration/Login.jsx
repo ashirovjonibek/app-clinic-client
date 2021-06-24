@@ -1,49 +1,59 @@
-import React from "react";
-import { API_URL } from "../../utils/Api";
+import React, {useState} from "react";
 import ButtonDefault from "../ButtonDefault";
 import InputText from "../InputText";
 import Label from "../Label";
 import Title from "../Title";
 import axios from "axios";
+import {STORAGE_NAME} from "../../utils/constant";
+import {withRouter} from 'react-router-dom';
 
-const Login = () => {
-
+const Login = (props) => {
+    const {history} = props;
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [password, setPassword] = useState('');
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log("ishladi")
-        // axios.post("http://192.168.111.136:8080/api/auth/login", { "phoneNumber": "+998919687077", "password": "1" })
-        //     .then(res => console.log(res))
-        axios({
-            url: "http://192.168.111.136:8080/api/auth/login",
-            method: "POST",
-            data: {
-                "phoneNumber": "+998919687077",
-                "password": "1"
-            }
-        }).then(res => console.log(res))
+        if (phoneNumber != undefined && password != undefined) {
+            axios.post("/api/auth/login", {phoneNumber, password})
+                .then(res => {
+                    if (res.status === 200) {
+                        localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
+                        history.push("/personalAccountListnear")
+                    }
+                })
+        }
+    }
+
+    const changeLogin = (e) => {
+        setPhoneNumber(e.target.value);
+    }
+    const changePassword = (e) => {
+        setPassword(e.target.value);
     }
 
     return (
 
-        <div className="desctop4 container-fluit" >
-            <div className="container" >
+        <div className="desctop4 container-fluit">
+            <div className="container">
                 <div className="desctop4-wrapper">
-                    <Title text="Вход в личный кабинет" />
+                    <Title text="Вход в личный кабинет"/>
                     <div className="form">
                         <form onSubmit={handleLogin}>
                             <ul>
                                 <li>
                                     <div className="first-label">
-                                        <label className="label" for="">Логин</label>
+                                        <label className="label" for="phoneNumber">Телефон</label>
                                     </div>
-                                    <input className="input-text" type="text" placeholder="Логин (email)" />
-                                  
+                                    <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
+                                        placeholder="+998 (__) ___-__-__"/>
+
                                 </li>
                                 <li>
                                     <div className="last-label">
-                                        <label className="label" for="">Пароль</label>
+                                        <label className="label" for="password">Пароль</label>
                                     </div>
-                                    <input className="input-text" type="text" placeholder="Пароль" />
+                                    <input className="input-text" id="password" onChange={changePassword} type="text"
+                                           placeholder="Пароль"/>
                                 </li>
                                 <li>
                                     <button type="submit" className="btn-default">Войти</button>
@@ -60,4 +70,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default withRouter(Login);

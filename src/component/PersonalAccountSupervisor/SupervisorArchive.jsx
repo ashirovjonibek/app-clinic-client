@@ -1,5 +1,5 @@
 import React from "react";
-import DirectoryPdf from "../PersonAccountListnear/DirectoryPdf";
+import DirectoryPdf from "../PersonalAccountListnear/DirectoryPdf";
 
 const SupervisorArchive = () => {
     return (
