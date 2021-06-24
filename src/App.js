@@ -39,12 +39,13 @@ function App() {
             <PersonalAccountApplicant /> */}
             {/* <PersonalAccountSupervisor /> */}
             {/* <PersonalAccountModerator /> */}
-            {/* <RegistrationListnear /> */}
-            {/* <RegistrationApplicant/> */}
+            <RegistrationListnear />
+            <RegistrationApplicant/>
             {/* <ApplicantAppeal /> */}
             {/* <Admin /> */}
             {/* <Dashboard /> */}
-            <Login />
+            {/* <Login /> */}
+
         </div>
     );
 }
