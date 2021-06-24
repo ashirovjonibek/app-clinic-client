@@ -17,15 +17,6 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
-    // function multi(a, b) {
-    //     if (a == 1) {
-    //         return b;
-    //     } else {
-    //         return b + multi(a - 1, b)
-    //     }
-    // }
-
     return (
         <div className="App">
             <Nav/>
