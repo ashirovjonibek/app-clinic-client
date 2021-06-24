@@ -2,8 +2,8 @@ import React from "react";
 import "./assets/scss/style.scss";
 import {Route, Switch} from "react-router-dom";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
-import PersonalAccountListnear from "./component/PersonalAccountListnear/PersonalAccountListnear";
-import RegistrationListnear from "./component/Registration/RegistrationListnear";
+import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
+import RegistrationListener from "./component/Registration/RegistrationListener";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
 import FirstHome from "./component/Home/FirstHome";
@@ -27,8 +27,8 @@ function App() {
                 <Route exact path="/Dashboard" component={Dashboard}/>
                 <Route exact path="/Admin" component={Admin}/>
                 <Route exact path="/registrationApplicant" component={RegistrationApplicant}/>
-                <Route exact path="/registrationListnear" component={RegistrationListnear}/>
-                <Route exact path="/personalAccountListnear" component={PersonalAccountListnear}/>
+                <Route exact path="/registrationListnear" component={RegistrationListener}/>
+                <Route exact path="/personalAccountListnear" component={PersonalAccountListener}/>
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
