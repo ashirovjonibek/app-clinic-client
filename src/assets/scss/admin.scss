@@ -25,20 +25,21 @@
   }
   .admin-table {
     ::-webkit-scrollbar {
-      height: 30px;
+      height: 20px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #e0e0e0;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      background: #ececec;
+      box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
-      padding: 10px
+      padding: 10px;
     }
 
     ::-webkit-scrollbar-thumb {
       height: 10px;
-      background: #ffffff;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      width: 100px;
+      background: #bdbaba;
+
       border-radius: 10px;
     }
 
@@ -57,6 +58,13 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      .table-registration {
+        display: flex;
+        flex-wrap: wrap;
+        .table-registration-button {
+          margin-left: 20px;
+        }
+      }
       ul {
         display: flex;
         flex-direction: row;
@@ -106,6 +114,77 @@
           }
           .pochta {
             width: 180px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1260px) {
+  .admin {
+    .container-fluit {
+      .container {
+        .admin-table {
+          .admin-list-appeal {
+            .table-scroll {
+              .table-registration {
+                .table-registration-button {
+                  margin: 20px auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .admin {
+    .container-fluit {
+      .container {
+        padding: 0;
+        .admin-navigation {
+          display: none;
+        }
+        .admin-table {
+          .admin-list-appeal {
+            .table-scroll {
+              padding-bottom: 20px;
+              overflow-x: auto;
+              display: block;
+              .table-registration {
+                .table-registration-button {
+                  margin: 20px auto;
+                }
+              }
+              ul {
+                display: none;
+              }
+              #kafedra {
+                margin-top: 30px;
+                display: flex;
+                width: 288px;
+                height: 50px;
+
+                background: #ffffff;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                outline: none;
+                position: relative;
+              }
+              table {
+                width: 1100px;
+                margin-top: 30px;
+                tr {
+                  .nation {
+                    width: 90px;
+                  }
+                }
+              }
+            }
           }
         }
       }
