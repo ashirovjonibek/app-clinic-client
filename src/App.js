@@ -45,19 +45,9 @@ function App() {
             {/* <RegistrationListnear /> */}
             {/* <RegistrationApplicant/> */}
             {/* <ApplicantAppeal /> */}
-            <Admin />
+            {/* <Admin /> */}
             {/* <Dashboard /> */}
-            {/* <div className="nav">
-                <NavCenter />
-
-            </div>
-
-            </div> */}
-
-
-            {/* <FirstHome /> */}
-
-            <FirstHome />
+            <Login />
         </div>
     );
 }
