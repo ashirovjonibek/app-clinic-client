@@ -12,7 +12,10 @@ const Login = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const handleLogin = (e) => {
-        e.preventDefault();
+        e.preventDefault()
+
+        console.log(phoneNumber)
+        console.log(password)
         if (phoneNumber != undefined && password != undefined) {
             axios.post("/api/auth/login", {phoneNumber, password})
                 .then(res => {
@@ -45,14 +48,14 @@ const Login = (props) => {
                                         <label className="label" for="phoneNumber">Телефон</label>
                                     </div>
                                     <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
-                                        placeholder="+998 (__) ___-__-__"/>
+                                           placeholder="+998 (__) ___-__-__"/>
 
                                 </li>
                                 <li>
                                     <div className="last-label">
                                         <label className="label" for="password">Пароль</label>
                                     </div>
-                                    <input className="input-text" id="password" onChange={changePassword} type="text"
+                                    <input className="input-text" id="password" name="password" onChange={changePassword} type="text"
                                            placeholder="Пароль"/>
                                 </li>
                                 <li>

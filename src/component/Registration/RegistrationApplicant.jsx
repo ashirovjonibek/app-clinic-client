@@ -2,22 +2,27 @@ import React, {useEffect, useState} from "react";
 import Footer from "../Footer/Footer";
 import Title from "../Title";
 import axios from "axios";
+import {toast} from "react-toastify";
+import {withRouter} from 'react-router-dom';
 
-const RegistrationApplicant = () => {
-    const [positions, setPositions] = useState([]);
+const RegistrationApplicant = (props) => {
+    const {history} = props;
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
-    const [sections, setSections] = useState([]);
     const [nations, setNations] = useState([]);
     const [socialStatus, setSocialStatus] = useState([]);
     const [values, setValues] = useState(({
         fullName: '',
-        positionId: '',
-        courseId: '',
         sectionId: '',
         phoneNumber: '',
         email: '',
-        status: false
+        districtId: '',
+        status: true,
+        password: '',
+        birthDate: '',
+        address: '',
+        prePassword: '',
+        socialStatusId: ''
     }))
 
     useEffect(() => {
@@ -54,6 +59,19 @@ const RegistrationApplicant = () => {
     };
     const handleSend = (e) => {
         e.preventDefault();
+
+        if (values.password === values.prePassword) {
+            console.log(values)
+            axios.post("/api/auth/createApplicant", {...values}).then(res => {
+                console.log(res)
+                if (res.data.success) {
+                    history.push("/auth/login")
+                    toast.success(res.data.message)
+                }
+            });
+        } else {
+            toast.error('Password Not match')
+        }
         console.log(values)
     }
     return (
@@ -107,7 +125,7 @@ const RegistrationApplicant = () => {
                                                     <select name="regionId" id="regionId" onChange={handleChange}
                                                             className="category">
                                                         <option value="lorem">Выберите ваш Область</option>
-                                                        {regions && regions.map((item, id) =>
+                                                        {regions && regions.map((item, i) =>
                                                             <option key={i} value={item.id}>{item.name.uz}</option>
                                                         )}
                                                     </select>
@@ -119,37 +137,37 @@ const RegistrationApplicant = () => {
                                     <li className="form-last">
                                         <ul>
                                             <li>
-                                                <label className="label" htmlFor="">Город (район)</label>
-                                                <div>
-                                                    <select id="lorem2" className="category">
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
-                                                    </select>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <label className="label" htmlFor="">Домашний адрес</label>
-                                                <input onChange="" className="input-text" type="text"
+                                                <label className="label" htmlFor="address">Домашний адрес</label>
+                                                <input required={true} onChange={handleChange} name="address"
+                                                       id="address"
+                                                       className="input-text"
+                                                       type="text"
                                                        placeholder="Введите ваш домашний адрес"/>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="">Телефон</label>
-                                                <input onChange="" className="input-text" type="text"
+                                                <label className="label" htmlFor="phoneNumber">Телефон</label>
+                                                <input required={true} onChange={handleChange} name="phoneNumber"
+                                                       id="phoneNumber"
+                                                       className="input-text" type="text"
                                                        placeholder="+998 (__) ___-__-__"/>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="">Почта</label>
-                                                <input onChange="" className="input-text" type="text"
+                                                <label className="label" htmlFor="email">Почта</label>
+                                                <input required={true} onChange={handleChange} name="email" id="email"
+                                                       className="input-text" type="text"
                                                        placeholder="Введите вашу почту"/>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="">Категория льгот</label>
+                                                <label className="label" htmlFor="socialStatusId">Категория
+                                                    льгот</label>
                                                 <div>
-                                                    <select id="lorem2" className="category">
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
-                                                        <option value="lorem">lorem</option>
+                                                    <select id="socialStatusId" name="socialStatusId"
+                                                            onChange={handleChange}
+                                                            className="category">
+                                                        <option value="lorem">Выберите льгот</option>
+                                                        {socialStatus && socialStatus.map((item, id) =>
+                                                            <option value={item.id}>{item.name.uz}</option>
+                                                        )}
                                                     </select>
                                                 </div>
                                             </li>
@@ -159,22 +177,32 @@ const RegistrationApplicant = () => {
                                 <div className="form-center">
                                     <ul>
                                         <li>
+                                            <label className="label" htmlFor="districtId">Город (район)</label>
                                             <div>
-                                                <label className="label" htmlFor="">Ваш логин</label>
-                                                <input onChange="" className="input-text" type="text"
-                                                       placeholder="Логин"/>
+                                                <select required id="districtId" onChange={handleChange}
+                                                        name="districtId"
+                                                        className="category">
+                                                    <option value="">Выберите ваш раён</option>
+                                                    {districts && districts.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
                                             </div>
                                         </li>
                                         <li>
                                             <div style={{marginBottom: '20px'}}>
-                                                <label className="label" htmlFor="">Пароль</label>
-                                                <input onChange="" className="input-text" type="text"
+                                                <label className="label" htmlFor="password">Пароль</label>
+                                                <input required={true} onChange={handleChange} name="password"
+                                                       id="password"
+                                                       className="input-text" type="text"
                                                        placeholder="Введите вашу почту"/>
                                             </div>
 
                                             <div>
-                                                <label className="label" htmlFor="">Вводите пароль</label>
-                                                <input onChange="" className="input-text" type="text"
+                                                <label className="label" htmlFor="prePassword">Вводите пароль</label>
+                                                <input required={true} onChange={handleChange} name="prePassword"
+                                                       id="prePassword"
+                                                       className="input-text" type="text"
                                                        placeholder="Повторно вводите пароль"/>
                                             </div>
                                         </li>
@@ -185,7 +213,8 @@ const RegistrationApplicant = () => {
 
                                         <div className="checked">
 
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+                                            <input required={true} type="checkbox" id="vehicle1" name="vehicle1"
+                                                   value="Bike"/>
                                             <label htmlFor="vehicle1"> Я даю согласие на обработку своих персональных
                                                 данных
                                                 и ознакомлен с <a href=""><strong>политикой конфиденциальности</strong></a></label>
@@ -204,4 +233,4 @@ const RegistrationApplicant = () => {
     )
 }
 
-export default RegistrationApplicant;
+export default withRouter(RegistrationApplicant);
