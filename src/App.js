@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./assets/scss/style.scss";
 import {Route, Switch} from "react-router-dom";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";

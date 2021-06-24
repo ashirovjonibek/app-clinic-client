@@ -179,4 +179,4 @@ function RegistrationListnear(props) {
     );
 }
 
-export default withRouter(RegistrationListnear);
+export default RegistrationListnear;
