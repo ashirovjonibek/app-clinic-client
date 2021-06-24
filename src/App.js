@@ -45,7 +45,6 @@ function App() {
             <Admin />
             {/* <Dashboard /> */}
             {/* <Login /> */}
-
         </div>
     );
 }
