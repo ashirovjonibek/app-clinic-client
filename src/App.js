@@ -13,13 +13,13 @@ import Login from "./component/Registration/Login";
 import NewPassword from "./component/Registration/NewPassword";
 import Admin from "./component/Admin/Admin";
 import Nav from "./component/Nav/Nav";
+import ApplicantAppeal from './component/PersonalAccountApplicant/ApplicantAppeal';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <div className="App">
-
             <Nav />
             <ToastContainer />
             <Switch>
@@ -35,6 +35,7 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
                 <Route exact path="/newPassword" component={NewPassword} />
             </Switch>
+            {/* <ApplicantAppeal /> */}
         </div>
     );
 }
