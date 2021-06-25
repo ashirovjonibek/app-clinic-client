@@ -8,7 +8,7 @@ import YourAppelSection from "./YourAppelSection";
 import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
-import SendSection from "../PersonalAccountListener/SendSection";
+import SendSection from "../PersonalAccountListnear/SendSection";
 
 const PersonalAccountApplicant = () => {
     return (

@@ -4,7 +4,7 @@ import axios from "axios";
 import {withRouter} from 'react-router-dom';
 import {toast} from "react-toastify";
 
-function RegistrationListener(props) {
+function RegistrationListnear(props) {
     const {history} = props;
     const [positions, setPositions] = useState([]);
     const [regions, setRegions] = useState([]);
@@ -202,4 +202,4 @@ function RegistrationListener(props) {
     );
 }
 
-export default RegistrationListener;
+export default RegistrationListnear;

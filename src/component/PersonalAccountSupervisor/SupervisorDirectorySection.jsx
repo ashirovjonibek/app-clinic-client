@@ -1,5 +1,5 @@
 import React from "react";
-import DirectorySection from "../PersonalAccountListener/DirectorySection";
+import DirectorySection from "../PersonalAccountListnear/DirectorySection";
 
 const SupervisorDirectorySection = () => {
     return (
