@@ -1,5 +1,5 @@
 import React from "react";
-import DirectorySection from "../PersonalAccountListnear/DirectorySection";
+import DirectorySection from "../PersonalAccountListener/DirectorySection";
 
 const ModeratorLegalBaseSection = () => {
     return (
