@@ -1,8 +1,7 @@
 import React from "react";
 import "./assets/scss/style.scss";
 import { Route, Switch } from "react-router-dom";
-import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
-import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
+import PersonalAccountListnear from "./component/PersonalAccountListnear/PersonalAccountListnear";
 import RegistrationListnear from "./component/Registration/RegistrationListnear";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
@@ -20,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <div className="App">
+
             <Nav />
             <ToastContainer />
             <Switch>
@@ -29,7 +29,7 @@ function App() {
                 <Route exact path="/Admin" component={Admin} />
                 <Route exact path="/registrationApplicant" component={RegistrationApplicant} />
                 <Route exact path="/registrationListnear" component={RegistrationListnear} />
-                <Route exact path="/personalAccountListnear" component={PersonalAccountListener} />
+                <Route exact path="/personalAccountListnear" component={PersonalAccountListnear} />
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant} />
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />

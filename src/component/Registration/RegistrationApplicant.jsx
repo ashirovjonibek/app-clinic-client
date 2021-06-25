@@ -193,7 +193,6 @@ const RegistrationApplicant = (props) => {
                                 </ul>
                                 <div className="form-bottom">
                                     <div className="confidential">
-
                                         <div className="checked">
 
                                             <input required={true} type="checkbox" id="vehicle1" name="vehicle1"

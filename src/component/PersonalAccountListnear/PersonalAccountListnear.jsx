@@ -17,7 +17,7 @@ import IncomingRequestSection from "./IncomingRequestSection";
 import axios from "axios";
 
 
-const PersonalAccountListener = (props) => {
+const PersonalAccountListnear = (props) => {
 
     return (
         <div>
@@ -45,4 +45,4 @@ const PersonalAccountListener = (props) => {
     );
 }
 
-export default PersonalAccountListener;
+export default PersonalAccountListnear;
