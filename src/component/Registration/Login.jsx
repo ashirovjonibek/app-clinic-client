@@ -57,13 +57,8 @@ const Login = (props) => {
                                     <div className="last-label">
                                         <label className="label" for="password">Пароль</label>
                                     </div>
-
                                     <input className="input-text" id="password" onChange={changePassword} type="text"
                                         placeholder="Пароль" />
-
-                                    <input className="input-text" id="password" name="password" onChange={changePassword} type="text"
-                                           placeholder="Пароль"/>
-
                                 </li>
                                 <li>
                                     <button type="submit" className="btn-default">Войти</button>

@@ -3,7 +3,7 @@ import "./assets/scss/style.scss";
 import { Route, Switch } from "react-router-dom";
 import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
-import RegistrationListener from "./component/Registration/RegistrationListener";
+import RegistrationListnear from "./component/Registration/RegistrationListnear";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
 import FirstHome from "./component/Home/FirstHome";
@@ -35,7 +35,7 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
                 <Route exact path="/newPassword" component={NewPassword} />
             </Switch> */}
-            <NewPassword />
+            <RegistrationListnear />
         </div>
     );
 }

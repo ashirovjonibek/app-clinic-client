@@ -4,7 +4,7 @@ import axios from "axios";
 import {withRouter} from 'react-router-dom';
 import {toast} from "react-toastify";
 
-function RegistrationListener(props) {
+function RegistrationListnear(props) {
     const {history} = props;
     const [positions, setPositions] = useState([]);
     const [regions, setRegions] = useState([]);
@@ -121,15 +121,11 @@ function RegistrationListener(props) {
                                                 </select>
                                             </div>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li className="form-last">
-                                    <ul>
                                         <li>
                                             <label className="label" htmlFor="districtId">Раён</label>
                                             <div>
                                                 <select id="districtId" name="districtId" onChange={handleChange}
-                                                        className="category">
+                                                    className="category">
                                                     <option value="">Выберите ваш раён</option>
                                                     {districts && districts.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -137,6 +133,11 @@ function RegistrationListener(props) {
                                                 </select>
                                             </div>
                                         </li>
+                                    </ul>
+                                </li>
+                                <li className="form-last">
+                                    <ul>
+                                        
                                         <li>
                                             <label className="label" htmlFor="address">Адрес</label>
                                             <input onChange={handleChange} id="address" name="address"
@@ -164,6 +165,13 @@ function RegistrationListener(props) {
                                                    placeholder="+998 (__) ___-__-__"/>
                                         </li>
                                         <li>
+                                            <label className="label" htmlFor="email">Почта</label>
+                                            <input onChange={handleChange} id="email" name="email"
+                                                className="input-text"
+                                                type="text"
+                                                placeholder="Введите вашу почту" />
+                                        </li>
+                                        <li>
                                             <div>
                                                 <label className="label" htmlFor="password">Пароль</label>
                                                 <input onChange={handleChange} id="password" name="password"
@@ -172,13 +180,13 @@ function RegistrationListener(props) {
                                             </div>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="email">Почта</label>
-                                            <input onChange={handleChange} id="email" name="email"
-                                                   className="input-text"
-                                                   type="text"
-                                                   placeholder="Введите вашу почту"/>
+                                            <div>
+                                                <label className="label" htmlFor="password">Повторите пароль</label>
+                                                <input onChange={handleChange} id="password" name="password"
+                                                    className="input-text" type="text"
+                                                    placeholder="Повторите пароль" />
+                                            </div>
                                         </li>
-
                                     </ul>
                                 </li>
                             </ul>
@@ -194,4 +202,4 @@ function RegistrationListener(props) {
     );
 }
 
-export default RegistrationListener;
+export default RegistrationListnear;

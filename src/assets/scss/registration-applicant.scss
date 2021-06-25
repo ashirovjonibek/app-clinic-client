@@ -1,7 +1,7 @@
 .registration-applicant {
     background-color: #f4f8ff;
     .registration-applicant-wrapper {
-        padding: 100px;
+        padding: 100px 50px;
         h5 {
             font-weight: bold;
             font-size: 22px;
@@ -18,6 +18,7 @@
                 .form-first,
                 .form-last {
                     width: 50%;
+                    padding: 0 10px;
                     ul {
                         display: flex;
                         flex-direction: column;
@@ -27,9 +28,16 @@
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+                            justify-content: flex-end;
+                            width: 100%;
+                            input {
+                                width: 50%;
+                            }
+                            .category {
+                                width: 50%;
+                            }
                             .input-date {
                                 height: 40px;
-                                width: 320px;
                                 border-radius: 10px;
                                 background-color: #ffffff;
                                 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -42,29 +50,6 @@
                     }
                 }
             }
-            // .form-center {
-            //     ul {
-            //         display: flex;
-            //         flex-direction: row;
-            //         justify-content: space-between;
-            //         li {
-            //             width: 50%;
-            //             display: flex;
-            //             flex-direction: column;
-            //             align-items: flex-end;
-            //             div {
-            //                 display: flex;
-            //                 flex-direction: row;
-            //                 align-items: center;
-            //                 margin-bottom: 10px;
-            //             }
-
-            //             label {
-            //                 margin-right: 20px;
-            //             }
-            //         }
-            //     }
-            // }
             .form-bottom {
                 display: flex;
                 flex-direction: row;
@@ -95,6 +80,105 @@
                 }
                 button {
                     margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .registration-applicant {
+        .registration-applicant-wrapper {
+            padding: 100px 80px 100px 0;
+            .form-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .form {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    .form-first,
+                    .form-last {
+                        width: 100%;
+                        padding: 0 10px;
+                        ul {
+                            li {
+                                input {
+                                    width: 60%;
+                                }
+                                .category {
+                                    width: 60%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .registration-applicant {
+        .registration-applicant-wrapper {
+            padding: 100px 35px 100px 0;
+            .form-wrapper {
+                .form {
+                    .form-first,
+                    .form-last {
+                        ul {
+                            li {
+                                input {
+                                    width: 55%;
+                                }
+                                .category {
+                                    width: 55%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .registration-applicant {
+        .registration-applicant-wrapper {
+            padding: 100px 0;
+            .form-wrapper {
+                .form {
+                    .form-first,
+                    .form-last {
+                        ul {
+                            li {
+                                display: flex;
+                                flex-direction: column;
+                                .label {
+                                    margin-bottom: 15px;
+                                }
+                                input {
+                                    width: 100%;
+                                }
+                                .category {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+                .form-bottom {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .confidential {
+                        margin-bottom: 20px;
+                    }
+                    button {
+                        margin-left: 10px;
+                    }
                 }
             }
         }
