@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ButtonDefault from "../ButtonDefault";
 import InputText from "../InputText";
 import Label from "../Label";
 import Title from "../Title";
 import axios from "axios";
-import { STORAGE_NAME } from "../../utils/constant";
-import { withRouter } from 'react-router-dom';
+import {STORAGE_NAME} from "../../utils/constant";
+import {withRouter} from 'react-router-dom';
 
 const Login = (props) => {
-    const { history } = props;
+    const {history} = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const handleLogin = (e) => {
@@ -17,11 +17,11 @@ const Login = (props) => {
         console.log(phoneNumber)
         console.log(password)
         if (phoneNumber != undefined && password != undefined) {
-            axios.post("/api/auth/login", { phoneNumber, password })
+            axios.post("/api/auth/login", {phoneNumber, password})
                 .then(res => {
                     if (res.status === 200) {
                         localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
-                        history.push("/personalAccountListnear")
+                        history.push("/personalAccountListener")
                     }
                 })
         }
@@ -39,7 +39,7 @@ const Login = (props) => {
         <div className="login container-fluit">
             <div className="container">
                 <div className="login-wrapper">
-                    <Title text="Вход в личный кабинет" />
+                    <Title text="Вход в личный кабинет"/>
                     <div className="form">
                         <form onSubmit={handleLogin}>
                             <ul>
@@ -49,7 +49,7 @@ const Login = (props) => {
                                     </div>
                                     <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
 
-                                        placeholder="+998 (__) ___-__-__" />
+                                           placeholder="+998 (__) ___-__-__"/>
 
 
                                 </li>
@@ -58,7 +58,7 @@ const Login = (props) => {
                                         <label className="label" for="password">Пароль</label>
                                     </div>
                                     <input className="input-text" id="password" onChange={changePassword} type="text"
-                                        placeholder="Пароль" />
+                                           placeholder="Пароль"/>
                                 </li>
                                 <li>
                                     <button type="submit" className="btn-default">Войти</button>

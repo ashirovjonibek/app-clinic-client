@@ -22,7 +22,8 @@ const RegistrationApplicant = (props) => {
         birthDate: '',
         address: '',
         prePassword: '',
-        socialStatusId: ''
+        socialStatusId: '',
+        gender: ''
     }))
 
     useEffect(() => {
@@ -45,11 +46,7 @@ const RegistrationApplicant = (props) => {
             setNations(res.data._embedded.nations)
         })
     }, []);
-    useEffect(() => {
-        axios.get("/api/section").then(res => {
-            console.log(res);
-        })
-    }, []);
+
 
     const handleChange = (e) => {
         setValues({
@@ -59,9 +56,7 @@ const RegistrationApplicant = (props) => {
     };
     const handleSend = (e) => {
         e.preventDefault();
-
         if (values.password === values.prePassword) {
-            console.log(values)
             axios.post("/api/auth/createApplicant", {...values}).then(res => {
                 console.log(res)
                 if (res.data.success) {
@@ -72,7 +67,6 @@ const RegistrationApplicant = (props) => {
         } else {
             toast.error('Password Not match')
         }
-        console.log(values)
     }
     return (
         <div>
@@ -106,13 +100,15 @@ const RegistrationApplicant = (props) => {
                                                 <label className="label" htmlFor="gender">Пол</label>
                                                 <select id="gender" onChange={handleChange} name="gender"
                                                         className="category">
+                                                    <option value="">Выберите ваш пол</option>
                                                     <option value="erkak">Erkak</option>
                                                     <option value="ayol">Ayol</option>
                                                 </select>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="birthDate">Дата рождения</label>
-                                                <input className="input-date" onChange={handleChange} name="birthDate"
+                                                <input className="input-date"
+                                                       onChange={handleChange} name="birthDate"
                                                        id="birthDate" type="date"/>
                                             </li>
                                             <li>
