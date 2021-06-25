@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import "./assets/scss/style.scss";
 import {Route, Switch} from "react-router-dom";
-import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
 import RegistrationListener from "./component/Registration/RegistrationListener";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
@@ -17,6 +16,7 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserAppealItem from "./component/UserAppealItem";
 import {withRouter} from 'react-router-dom';
+import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
 
 function App(props) {
 

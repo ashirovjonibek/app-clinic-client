@@ -121,15 +121,14 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="regionId">Область</label>
-                                                <div>
-                                                    <select name="regionId" id="regionId" onChange={handleChange}
-                                                            className="category">
-                                                        <option value="lorem">Выберите ваш Область</option>
-                                                        {regions && regions.map((item, i) =>
-                                                            <option key={i} value={item.id}>{item.name.uz}</option>
-                                                        )}
-                                                    </select>
-                                                </div>
+
+                                                <select name="regionId" id="regionId" onChange={handleChange}
+                                                        className="category">
+                                                    <option value="lorem">Выберите ваш Область</option>
+                                                    {regions && regions.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
 
                                             </li>
                                             <li>
