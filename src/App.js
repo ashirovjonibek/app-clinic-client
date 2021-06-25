@@ -12,7 +12,8 @@ import Login from "./component/Registration/Login";
 import NewPassword from "./component/Registration/NewPassword";
 import Admin from "./component/Admin/Admin";
 import Nav from "./component/Nav/Nav";
-import {ToastContainer} from 'react-toastify';
+import ApplicantAppeal from './component/PersonalAccountApplicant/ApplicantAppeal';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserAppealItem from "./component/UserAppealItem";
 import {withRouter} from 'react-router-dom';
@@ -39,6 +40,7 @@ function App() {
 
     return (
         <div className="App">
+
             <Nav/>
             <ToastContainer/>
             <Switch>
@@ -55,6 +57,7 @@ function App() {
                 <Route exact path="/newPassword" component={NewPassword}/>
                 <Route exact path="/userAppealItem" component={UserAppealItem}/>
             </Switch>
+            {/* <ApplicantAppeal /> */}
         </div>
     );
 }
