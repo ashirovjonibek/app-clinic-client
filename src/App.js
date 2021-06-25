@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <div className="App">
-            {/* <Nav />
+            <Nav />
             <ToastContainer />
             <Switch>
                 <Route exact path="/" component={FirstHome} />
@@ -28,14 +28,13 @@ function App() {
                 <Route exact path="/Dashboard" component={Dashboard} />
                 <Route exact path="/Admin" component={Admin} />
                 <Route exact path="/registrationApplicant" component={RegistrationApplicant} />
-                <Route exact path="/registrationListnear" component={RegistrationListener} />
+                <Route exact path="/registrationListnear" component={RegistrationListnear} />
                 <Route exact path="/personalAccountListnear" component={PersonalAccountListener} />
                 <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant} />
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
                 <Route exact path="/newPassword" component={NewPassword} />
-            </Switch> */}
-            <RegistrationListnear />
+            </Switch>
         </div>
     );
 }
