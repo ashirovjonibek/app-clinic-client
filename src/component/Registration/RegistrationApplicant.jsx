@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Footer from "../Footer/Footer";
 import Title from "../Title";
 import axios from "axios";
-import { toast } from "react-toastify";
-import { withRouter } from 'react-router-dom';
+import {toast} from "react-toastify";
+import {withRouter} from 'react-router-dom';
 
 const RegistrationApplicant = (props) => {
-    const { history } = props;
+    const {history} = props;
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [nations, setNations] = useState([]);
@@ -62,7 +62,7 @@ const RegistrationApplicant = (props) => {
 
         if (values.password === values.prePassword) {
             console.log(values)
-            axios.post("/api/auth/createApplicant", { ...values }).then(res => {
+            axios.post("/api/auth/createApplicant", {...values}).then(res => {
                 console.log(res)
                 if (res.data.success) {
                     history.push("/auth/login")
@@ -79,7 +79,7 @@ const RegistrationApplicant = (props) => {
             <div className="registration-applicant container-fluit">
                 <div className="container">
                     <div className="registration-applicant-wrapper">
-                        <Title text="Регистрация" />
+                        <Title text="Регистрация"/>
                         <h5>Анкетные данные</h5>
                         <form onSubmit={handleSend}>
                             <div className="form-wrapper">
@@ -90,7 +90,7 @@ const RegistrationApplicant = (props) => {
                                                 <label className="label" htmlFor="">Ф.И.О</label>
                                                 <input onChange={handleChange} name="fullName" className="input-text"
                                                        type="text"
-                                                       placeholder="Введите ваше Ф.И.О" />
+                                                       placeholder="Введите ваше Ф.И.О"/>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
@@ -117,7 +117,7 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="birthDate">Дата рождения</label>
                                                 <input className="input-date" onChange={handleChange} name="birthDate"
-                                                       id="birthDate" type="date" />
+                                                       id="birthDate" type="date"/>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="regionId">Область</label>
@@ -155,20 +155,20 @@ const RegistrationApplicant = (props) => {
                                                        id="address"
                                                        className="input-text"
                                                        type="text"
-                                                       placeholder="Введите ваш домашний адрес" />
+                                                       placeholder="Введите ваш домашний адрес"/>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="phoneNumber">Телефон</label>
                                                 <input required={true} onChange={handleChange} name="phoneNumber"
                                                        id="phoneNumber"
                                                        className="input-text" type="text"
-                                                       placeholder="+998 (__) ___-__-__" />
+                                                       placeholder="+998 (__) ___-__-__"/>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="email">Почта</label>
                                                 <input required={true} onChange={handleChange} name="email" id="email"
                                                        className="input-text" type="text"
-                                                       placeholder="Введите вашу почту" />
+                                                       placeholder="Введите вашу почту"/>
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="socialStatusId">Категория
@@ -189,7 +189,7 @@ const RegistrationApplicant = (props) => {
                                                 <input required={true} onChange={handleChange} name="password"
                                                        id="password"
                                                        className="input-text" type="text"
-                                                       placeholder="Введите вашу почту" />
+                                                       placeholder="Введите вашу почту"/>
                                             </li>
 
                                             <li>
@@ -197,7 +197,7 @@ const RegistrationApplicant = (props) => {
                                                 <input required={true} onChange={handleChange} name="prePassword"
                                                        id="prePassword"
                                                        className="input-text" type="text"
-                                                       placeholder="Повторно вводите пароль" />
+                                                       placeholder="Повторно вводите пароль"/>
                                             </li>
                                         </ul>
                                     </li>
@@ -217,7 +217,7 @@ const RegistrationApplicant = (props) => {
                                         <div className="checked">
 
                                             <input required={true} type="checkbox" id="vehicle1" name="vehicle1"
-                                                   value="Bike" />
+                                                   value="Bike"/>
                                             <label htmlFor="vehicle1"> Я даю согласие на обработку своих персональных
                                                 данных
                                                 и ознакомлен с <a href=""><strong>политикой конфиденциальности</strong></a></label>
@@ -231,7 +231,7 @@ const RegistrationApplicant = (props) => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     )
 }
