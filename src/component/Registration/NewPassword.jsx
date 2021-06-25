@@ -3,14 +3,14 @@ import Title from "../Title";
 
 const NewPassword = () => {
     return (
-        <div className="desctop8 container-fluit" >
+        <div className="newpassword container-fluit" >
             <div className="container" >
                 <Title text="Восстановление аккаунта" />
                 <div className="form">
                     <h3>Придумайте теперь новый пароль</h3>
                     <form action="">
                         <ul>
-                            <li style={{ marginRight: '-50px' }}>
+                            <li>
                                 <label className="label" for="">Новый пароль</label>
                                 <input className="input-text" type="text" placeholder="Пароль" />
                             </li>
