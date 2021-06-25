@@ -1,7 +1,6 @@
 import React from "react";
 import "./assets/scss/style.scss";
 import { Route, Switch } from "react-router-dom";
-import ApplicantAppeal from "./component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
 import RegistrationListener from "./component/Registration/RegistrationListener";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
