@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
-import ButtonDefault from "../ButtonDefault";
 import NavLanguage from "./NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import Enter from "./Enter";
 
 const NavCenter = () => {
     const [sitebar, setSitebar] = useState(false);
@@ -47,7 +47,7 @@ const NavCenter = () => {
                                 <img src={iconGlass} alt="" />
                             </div>
                         </div>
-                        <ButtonDefault type="submit" text="Войти" />
+                        <Enter />
                     </div>
                 </div>
             </div>
