@@ -18,17 +18,25 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserAppealItem from "./component/UserAppealItem";
 import {withRouter} from 'react-router-dom';
 import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
+import {useHistory} from 'react-router-dom'
 
-function App(props) {
+function App() {
 
-    const {history} = props;
+    const history = useHistory();
+
+    // useEffect(() => {
+    //     // console.log('> Router', history.action, history.location);
+    //     history.listen((location, action) => {
+    //         // location is an object like window.location
+    //         console.log(action, location.pathname, location.state)
+    //     });
+    // })
     useEffect(() => {
-        history.listen((location, action) => {
-            // location is an object like window.location
-            console.log(action, location.pathname, location.state)
+        history.listen((location) => {
+            console.log(location)
         });
-    })
 
+    }, [])
 
     return (
         <div className="App">
@@ -54,4 +62,4 @@ function App(props) {
     );
 }
 
-export default withRouter(App);
+export default App;

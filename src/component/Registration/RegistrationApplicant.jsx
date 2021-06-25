@@ -94,22 +94,22 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
-                                                                                                   <select id="nationId" name="nationId" onChange={handleChange}
-                                                            className="category">
-                                                        <option value="">Выберите ваш национальность</option>
-                                                        {nations && nations.map((item, i) =>
-                                                            <option key={i} value={item.id}>{item.name.uz}</option>
-                                                        )}
-                                                    </select>
-                                                                                        </li>
+                                                <select id="nationId" name="nationId" onChange={handleChange}
+                                                        className="category">
+                                                    <option value="">Выберите ваш национальность</option>
+                                                    {nations && nations.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
+                                            </li>
                                             <li>
                                                 <label className="label" htmlFor="gender">Пол</label>
-                                                                                                <select id="gender" onChange={handleChange} name="gender"
-                                                            className="category">
-                                                        <option value="erkak">Erkak</option>
-                                                        <option value="ayol">Ayol</option>
-                                                    </select>
-                                                                                         </li>
+                                                <select id="gender" onChange={handleChange} name="gender"
+                                                        className="category">
+                                                    <option value="erkak">Erkak</option>
+                                                    <option value="ayol">Ayol</option>
+                                                </select>
+                                            </li>
                                             <li>
                                                 <label className="label" htmlFor="birthDate">Дата рождения</label>
                                                 <input className="input-date" onChange={handleChange} name="birthDate"
@@ -129,15 +129,15 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="districtId">Город (область) </label>
-                                                                                                 <select required id="districtId" onChange={handleChange}
-                                                            name="districtId"
-                                                            className="category">
-                                                        <option value="">Выберите ваш раён</option>
-                                                        {districts && districts.map((item, i) =>
-                                                            <option key={i} value={item.id}>{item.name.uz}</option>
-                                                        )}
-                                                    </select>
-                                                                                         </li>
+                                                <select required id="districtId" onChange={handleChange}
+                                                        name="districtId"
+                                                        className="category">
+                                                    <option value="">Выберите ваш раён</option>
+                                                    {districts && districts.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li className="form-last">
@@ -166,15 +166,15 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="socialStatusId">Категория
                                                     льгот</label>
-                                                                                               <select id="socialStatusId" name="socialStatusId"
-                                                            onChange={handleChange}
-                                                            className="category">
-                                                        <option value="lorem">Выберите льгот</option>
-                                                        {socialStatus && socialStatus.map((item, id) =>
-                                                            <option value={item.id}>{item.name.uz}</option>
-                                                        )}
-                                                    </select>
-                                                                                        </li>
+                                                <select id="socialStatusId" name="socialStatusId"
+                                                        onChange={handleChange}
+                                                        className="category">
+                                                    <option value="lorem">Выберите льгот</option>
+                                                    {socialStatus && socialStatus.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
+                                            </li>
                                             <li>
                                                 <label className="label" htmlFor="password">Пароль</label>
                                                 <input required={true} onChange={handleChange} name="password"
