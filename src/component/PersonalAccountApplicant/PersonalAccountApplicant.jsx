@@ -3,33 +3,43 @@ import Title from "../Title";
 import YouAppSiteBar from "./YouAppSiteBar";
 import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
-import { Route, Switch } from "react-router";
+import {Route, Switch} from "react-router-dom";
 import YourAppelSection from "./YourAppelSection";
 import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonalAccountListener/SendSection";
+import Login from "../Registration/Login";
 
 const PersonalAccountApplicant = () => {
+    function pushBar(n) {
+        switch (n) {
+            case 1:
+                return <Login/>
+            case 2:
+                return <Login/>
+            case 3:
+                return <Login/>
+            case 4:
+                return <Login/>
+            case 5:
+                return <Login/>
+        }
+    }
+
     return (
         <div>
-            <div className="nav">
-                <NavCenter />
-                <NavBottom />
-            </div>
+
+
             <div className="acount-applicant container-fluit">
                 <div className="container">
-                    <Title text="Личный кабинет" />
+                    <Title text="Личный кабинет"/>
                     <section className="section-body">
-                        <YouAppSiteBar />
+                        <YouAppSiteBar/>
                         <div className="content-wrapper">
-                            <Switch>
-                                <Route exact path="/" component={YourAppelSection} />
-                                <Route exact path="/perAccAppCallFlow" component={PerAccAppCallFlowSection} />
-                                <Route exact path="/perAccAppPeriodSection" component={PerAccAppPeriodSection} />
-                                <Route exact path="/perAccAppResponseRequest" component={PerAccAppResponseRequest} />
-                                <Route exact path="/sendSection" component={SendSection} />
-                            </Switch>
+                            {
+                                pushBar(2)
+                            }
                         </div>
                     </section>
                 </div>

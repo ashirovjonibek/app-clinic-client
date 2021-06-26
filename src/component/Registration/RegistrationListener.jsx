@@ -21,7 +21,8 @@ function RegistrationListener(props) {
         status: true,
         password: '',
         birthDate: '',
-        address: ''
+        address: '',
+        gender: ''
     }));
 
     useEffect(() => {
@@ -125,7 +126,7 @@ function RegistrationListener(props) {
                                             <label className="label" htmlFor="districtId">Раён</label>
                                             <div>
                                                 <select id="districtId" name="districtId" onChange={handleChange}
-                                                    className="category">
+                                                        className="category">
                                                     <option value="">Выберите ваш раён</option>
                                                     {districts && districts.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -137,7 +138,7 @@ function RegistrationListener(props) {
                                 </li>
                                 <li className="form-last">
                                     <ul>
-                                        
+
                                         <li>
                                             <label className="label" htmlFor="address">Адрес</label>
                                             <input onChange={handleChange} id="address" name="address"
@@ -167,9 +168,9 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="email">Почта</label>
                                             <input onChange={handleChange} id="email" name="email"
-                                                className="input-text"
-                                                type="text"
-                                                placeholder="Введите вашу почту" />
+                                                   className="input-text"
+                                                   type="text"
+                                                   placeholder="Введите вашу почту"/>
                                         </li>
                                         <li>
                                             <div>
@@ -183,8 +184,8 @@ function RegistrationListener(props) {
                                             <div>
                                                 <label className="label" htmlFor="password">Повторите пароль</label>
                                                 <input onChange={handleChange} id="password" name="password"
-                                                    className="input-text" type="text"
-                                                    placeholder="Повторите пароль" />
+                                                       className="input-text" type="text"
+                                                       placeholder="Повторите пароль"/>
                                             </div>
                                         </li>
                                     </ul>

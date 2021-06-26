@@ -15,27 +15,61 @@ import DirectorySection from "./DirectorySection";
 import SendSection from "./SendSection";
 import IncomingRequestSection from "./IncomingRequestSection";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import ResponseRequestItem from "./ResponseRequestItem";
+import AppealItem from "./AppealItem";
 
 
 const PersonalAccountListener = (props) => {
+
+    function Applications(n) {
+        switch (n) {
+            case 1:
+                return <AppealSection/>
+        }
+    }
 
     return (
         <div>
             <div className="personal-account-listnear container-fluit">
                 <div className="container">
                     <section className="section-body">
-                        <PerAccLisSiteBar/>
+                        <div>
+                            <div className="navbar-wrapper">
+                                <div className="navbarr">
+                                    <ul>
+                                        <li className="navbar-items active">
+                                            <Link to="/">Поступившие обращения</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/responseRequestSection">Ответы на обращения</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/deadlineRequests">Срок исполнения обращений</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/appeals">Обращения</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/callFlow">Ход обращений</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/fedbeckSection">Ваши отзывы</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="/directorySection">Нормативно-правовая база</Link>
+                                        </li>
+                                        <li className="navbar-items">
+                                            <Link to="sendSection">Центр сообщений</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div className="content-wrapper">
-                            <Switch>
-                                <Route exact path="/" component={IncomingRequestSection}/>
-                                <Route exact path="/responseRequestSection" component={ResponseRequestSection}/>
-                                <Route exact path="/deadlineRequests" component={DeadlineRequestSection}/>
-                                <Route exact path="/appeals" component={AppealSection}/>
-                                <Route exact path="/callFlow" component={CallFlowSection}/>
-                                <Route exact path="/fedbeckSection" component={FedbeckSection}/>
-                                <Route exact path="/directorySection" component={DirectorySection}/>
-                                <Route exact path="/sendSection" component={SendSection}/>
-                            </Switch>
+                            {
+                                Applications(1)
+                            }
                         </div>
                     </section>
                 </div>
