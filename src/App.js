@@ -41,7 +41,7 @@ function App() {
     return (
         <div className="App">
 
-            <Nav/>
+            {/* <Nav/>
             <ToastContainer/>
             <Switch>
                 <Route exact path="/" component={FirstHome}/>
@@ -56,7 +56,7 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                 <Route exact path="/newPassword" component={NewPassword}/>
                 <Route exact path="/userAppealItem" component={UserAppealItem}/>
-            </Switch>
+            </Switch> */}
             {/* <ApplicantAppeal /> */}
         </div>
     );
