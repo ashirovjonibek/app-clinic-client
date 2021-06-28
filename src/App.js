@@ -73,7 +73,9 @@ function App() {
 
     return (
         <div className="App">
-            <Nav/>
+
+
+            {/* <Nav/>
             <ToastContainer/>
             <Switch>
                 <Route exact path="/" component={FirstHome}/>
@@ -87,23 +89,13 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                 <Route exact path="/newPassword" component={NewPassword}/>
-                <Route exact path="/applicantAppeal" component={ApplicantAppeal}/>
-                <Route exact path="/" component={YourAppelSection}/>
-                <Route exact path="/perAccAppCallFlow" component={PerAccAppCallFlowSection}/>
-                <Route exact path="/perAccAppPeriodSection" component={PerAccAppPeriodSection}/>
-                <Route exact path="/perAccAppResponseRequest" component={PerAccAppResponseRequest}/>
-                <Route exact path="/sendSection" component={SendSection}/>
-                <Route exact path="/appealItem" component={AppealItem}/>
-                <Route exact path="/incomingRequestSection" component={IncomingRequestSection}/>
-                <Route exact path="/responseRequestSection" component={ResponseRequestSection}/>
-                <Route exact path="/deadlineRequests" component={DeadlineRequestSection}/>
-                <Route exact path="/appeals" component={AppealSection}/>
-                <Route exact path="/callFlow" component={CallFlowSection}/>
-                <Route exact path="/fedbeckSection" component={FedbeckSection}/>
-                <Route exact path="/directorySection" component={DirectorySection}/>
-                <Route exact path="/sendSection" component={SendSection}/>
-            </Switch>
-            {/* <ApplicantAppeal /> */}
+
+                <Route exact path="/userAppealItem" component={UserAppealItem}/>
+            </Switch> */}
+
+            <ApplicantAppeal />
+
+            {/* <Admin /> */}
         </div>
     );
 }

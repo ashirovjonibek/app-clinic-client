@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import iconVideo from "../../assets/icon/video-camera.svg";
 import iconAudio from "../../assets/icon/microphone.svg";
 import Title from "../Title";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Footer from "../Footer/Footer";
-import NavCenter from "../Nav/NavCenter";
-import iconDropdown from "../../assets/icon/icon-down.svg";
 import axios from "axios";
-import {STORAGE_NAME} from "../../utils/constant";
-import {toast} from "react-toastify";
+import { STORAGE_NAME } from "../../utils/constant";
+import { toast } from "react-toastify";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const ApplicantAppeal = (props) => {
-    const {history} = props;
+    const { history } = props;
     const [sections, setSections] = useState([]);
     const [values, setValues] = useState({
         title: '',
@@ -59,20 +58,20 @@ const ApplicantAppeal = (props) => {
 
     return (
         <div>
-            <div className="desctop3 container-fluit">
+            <div className="applicant-appeal container-fluit">
                 <div className="container">
-                    <Title text="Обращение"/>
+                    <Title text="Обращение" />
 
                     <div className="requests">
                         <div>
                             <button className="video-request">
-                                <img src={iconVideo} alt=""/>
+                                <img src={iconVideo} alt="" />
                                 Сделать видео обращение
                             </button>
                         </div>
                         <div>
                             <button className="audio-request">
-                                <img src={iconAudio} alt=""/>
+                                <img src={iconAudio} alt="" />
                                 Сделать аудио обращение
                             </button>
                         </div>
@@ -83,34 +82,56 @@ const ApplicantAppeal = (props) => {
                                 <div>
                                     <label for="">Тема обращения:</label>
                                     <input className="theme-request" onChange={handleChange} name="title" id="title"
-                                           type="text" placeholder="Введите тему обращения"/>
+                                        type="text" placeholder="Введите тему обращения" />
                                 </div>
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
-                                          rows="10"
-                                          placeholder="Введите тему обращения"/>
+                                    rows="10"
+                                    placeholder="Введите тему обращения" />
                             </li>
                             <li className="last-form">
                                 <ul>
                                     <li>
-                                        <div className="lb">
-                                            <label className="label" for="">Категория обращения</label>
+                                        <div style={{ marginBottom: '20px' }}>
+                                            <div className="lb">
+                                                <label className="label" for="">Категория обращения</label>
+                                            </div>
+                                            <div>
+                                                <select onChange={handleChange} id="sectionId" name="sectionId"
+                                                    className="category">
+                                                    <option value="">Выберите ваш обращения</option>
+                                                    {sections && sections.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.title.uz}</option>
+                                                    )}
+                                                </select>
+                                            </div>
                                         </div>
                                         <div>
-                                            <select onChange={handleChange} id="sectionId" name="sectionId"
+                                            <div className="lb">
+                                                <label className="label" for="">Категория обращения</label>
+                                            </div>
+                                            <div>
+                                                <select onChange={handleChange} id="sectionId" name="sectionId"
                                                     className="category">
-                                                <option value="">Выберите ваш обращения</option>
-                                                {sections && sections.map((item, i) =>
-                                                    <option key={i} value={item.id}>{item.title.uz}</option>
-                                                )}
-                                            </select>
+                                                    <option value="">Выберите ваш обращения</option>
+                                                    {sections && sections.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.title.uz}</option>
+                                                    )}
+                                                </select>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div className="lb">
-                                            <label className="label" for="">Прикрепить файл</label>
+                                        <div style={{ marginBottom: '20px' }}>
+                                            <div className="lb">
+                                                <label className="label" for="">Прикрепить файл</label>
+                                            </div>
+                                            <div className="file" >
+                                                <input type="file" />
+                                            </div>
                                         </div>
-                                        <div className="file">
-                                            <input type="file"/>
+                                        <div className="input-item">
+                                            <input className="input-item-name"></input>
+                                            <DeleteIcon />
                                         </div>
                                     </li>
                                     <li className="confidential">
@@ -121,7 +142,7 @@ const ApplicantAppeal = (props) => {
                                         }}>Конфиденциально</label>
                                         <div className="about">
                                             <input required type="checkbox" id="vehicle1"
-                                                   name="statusFull"/>
+                                                name="statusFull" />
                                             <label for="vehicle1">
                                                 данный вопрос не будет отображаться в разделе «Популярные вопросы» в АИС
                                                 Клиника.</label>
@@ -137,7 +158,7 @@ const ApplicantAppeal = (props) => {
                     </form>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

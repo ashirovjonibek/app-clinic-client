@@ -1,4 +1,4 @@
-.desctop3 {
+.applicant-appeal {
     background-color: #f4f8ff;
     .container {
         padding: 50px 100px;
@@ -65,10 +65,31 @@
                         justify-content: space-between;
                         margin-top: 10px;
                         li {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
                             width: 290px;
                             margin: 0 20px;
+                            .category,
+                            .file {
+                                width: 100%;
+                            }
                             .lb {
                                 margin-bottom: 10px;
+                            }
+                            .input-item {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                .input-item-name {
+                                    height: 40px;
+                                    width: 180px;
+                                    border-radius: 10px;
+                                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                                    background-color: white;
+                                    padding: 10px;
+                                    margin-right: 10px;
+                                }
                             }
                         }
                         .confidential {
@@ -96,10 +117,9 @@
                 }
                 .send-button {
                     display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
                     margin-top: 30px;
-                    button {
-                        margin-left: auto;
-                    }
                 }
             }
         }
@@ -107,15 +127,19 @@
 }
 
 @media (max-width: 1200px) {
-    .desctop3 {
+    .applicant-appeal {
         .container {
             .appeal {
                 ul {
                     .last-form {
                         ul {
+                            display: flex;
+                            justify-content: center;
+                            flex-wrap: wrap;
                             li {
-                                width: 250px;
-                                margin: 0 10px;
+                                // width: 250px;
+                                // margin: 0 10px;
+                                margin-bottom: 20px;
                                 .category,
                                 .file {
                                     width: 100%;
@@ -130,23 +154,18 @@
 }
 
 @media (max-width: 992px) {
-    .desctop3 {
+    .applicant-appeal {
         .container {
             .appeal {
                 ul {
                     .last-form {
                         ul {
+                            justify-content: center;
                             li {
-                                width: 250px;
+                                width: 275px;
                                 margin: 0 10px 20px 10px;
-                                &:first-child {
-                                    margin-right: auto;
-                                }
                             }
                         }
-                    }
-                    .send-button {
-                        margin-top: -70px;
                     }
                 }
             }
@@ -155,34 +174,106 @@
 }
 
 @media (max-width: 768px) {
-    .desctop3 {
+    .applicant-appeal {
         .container {
-            padding: 50px 20px;
+            padding: 50px 90px;
             .requests {
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: column;
+                align-items: center;
                 margin: 10px 0;
                 width: 100%;
-                .video-request {
-                    margin: 0;
+                .video-request,
+                .audio-request {
+                    margin: 10px 0;
                 }
             }
             .appeal {
                 ul {
                     .last-form {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                         ul {
+                            flex-direction: column;
+                            align-items: center;
                             li {
-                                width: 230px;
+                                width: 300px;
                                 margin: 0 10px 20px 10px;
-                                &:first-child {
-                                    margin-right: auto;
-                                }
                             }
                         }
                     }
                     .send-button {
-                        margin-top: -70px;
+                        margin: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .applicant-appeal {
+        .container {
+            padding: 50px 90px;
+            .requests {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 10px 0;
+                width: 100%;
+                .video-request,
+                .audio-request {
+                    margin: 10px 0;
+                }
+            }
+            .appeal {
+                ul {
+                    .last-form {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        ul {
+                            flex-direction: column;
+                            align-items: center;
+                            li {
+                                width: 300px;
+                                margin: 0 10px 20px 10px;
+                            }
+                        }
+                    }
+                    .send-button {
+                        margin: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .applicant-appeal {
+        .container {
+            padding: 50px 10px;
+            .appeal {
+                ul {
+                    .last-form {
+                        ul {
+                            li {
+                                width: 290px;
+                            }
+                        }
+                    }
+                    .confidential {
+                        width: 300px;
+                    }
+                    .send-button {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        .button {
+                            margin-left: 0;
+                        }
                     }
                 }
             }
