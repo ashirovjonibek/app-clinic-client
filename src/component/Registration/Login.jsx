@@ -4,7 +4,7 @@ import InputText from "../InputText";
 import Label from "../Label";
 import Title from "../Title";
 import axios from "axios";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withRouter} from 'react-router-dom';
 
 const Login = (props) => {
@@ -18,14 +18,13 @@ const Login = (props) => {
         console.log(password)
         if (phoneNumber != undefined && password != undefined) {
             axios({
-                url: "https://proclinicserver.herokuapp.com/api/auth/login",
+                url: API_URL + "auth/login",
                 method: 'POST',
                 data:
                     {
                         phoneNumber, password
                     }
             }).then(res => {
-                console.log(res)
                 if (res.status === 200) {
                     localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
                     history.push("/personalAccountListener")

@@ -36,7 +36,6 @@ import AppealSection from "./component/PersonalAccountListener/AppealSection";
 import CallFlowSection from "./component/PersonalAccountListener/CallFlowSection";
 import FedbeckSection from "./component/PersonalAccountListener/FedbeckSection";
 import DirectorySection from "./component/PersonalAccountListener/DirectorySection";
-
 function App() {
     const [currentUser, setCurrentUser] = useState({});
     const history = useHistory();
@@ -75,7 +74,7 @@ function App() {
         <div className="App">
 
 
-            {/* <Nav/>
+            <Nav/>
             <ToastContainer/>
             <Switch>
                 <Route exact path="/" component={FirstHome}/>
@@ -89,13 +88,8 @@ function App() {
                 <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                 <Route exact path="/newPassword" component={NewPassword}/>
-
                 <Route exact path="/userAppealItem" component={UserAppealItem}/>
-            </Switch> */}
-
-            <ApplicantAppeal />
-
-            {/* <Admin /> */}
+            </Switch>
         </div>
     );
 }

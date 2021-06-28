@@ -4,6 +4,7 @@ import Title from "../Title";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {withRouter} from 'react-router-dom';
+import {API_URL} from "../../utils/constant";
 
 const RegistrationApplicant = (props) => {
     const {history} = props;
@@ -27,22 +28,22 @@ const RegistrationApplicant = (props) => {
     }))
 
     useEffect(() => {
-        axios.get("/api/region").then(res => {
+        axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
         });
     }, []);
     useEffect(() => {
-        axios.get("/api/district").then(res => {
+        axios.get(API_URL + "/district").then(res => {
             setDistricts(res.data._embedded.districts);
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/socialStatus").then(res => {
+        axios.get(API_URL + "/socialStatus").then(res => {
             setSocialStatus(res.data._embedded.socialStatuses)
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/nation").then(res => {
+        axios.get(API_URL + "/nation").then(res => {
             setNations(res.data._embedded.nations)
         })
     }, []);
@@ -57,7 +58,7 @@ const RegistrationApplicant = (props) => {
     const handleSend = (e) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
-            axios.post("/api/auth/createApplicant", {...values}).then(res => {
+            axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
                 console.log(res)
                 if (res.data.success) {
                     history.push("/auth/login")
