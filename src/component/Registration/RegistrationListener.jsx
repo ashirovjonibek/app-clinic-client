@@ -26,22 +26,22 @@ function RegistrationListener(props) {
     }));
 
     useEffect(() => {
-        axios.get('/api/position').then(res => {
+        axios.get('https://proclinicserver.herokuapp.com/api/position').then(res => {
             setPositions(res.data);
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/region").then(res => {
+        axios.get("https://proclinicserver.herokuapp.com/api/region").then(res => {
             setRegions(res.data._embedded.regions)
         });
     }, []);
     useEffect(() => {
-        axios.get("/api/district").then(res => {
+        axios.get("https://proclinicserver.herokuapp.com/api/district").then(res => {
             setDistricts(res.data._embedded.districts);
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/section").then(res => {
+        axios.get("https://proclinicserver.herokuapp.com/api/section").then(res => {
             setSections(res.data._embedded.sections);
         })
     }, []);
@@ -54,7 +54,7 @@ function RegistrationListener(props) {
     }
     const handleSend = (e) => {
         e.preventDefault();
-        axios.post("/api/auth/createListener", {...values}).then(res => {
+        axios.post("https://proclinicserver.herokuapp.com/api/auth/createListener", {...values}).then(res => {
             console.log(res)
             if (res.data.success) {
                 history.push("/auth/login")

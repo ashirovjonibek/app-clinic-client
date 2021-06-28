@@ -17,13 +17,20 @@ const Login = (props) => {
         console.log(phoneNumber)
         console.log(password)
         if (phoneNumber != undefined && password != undefined) {
-            axios.post("/api/auth/login", {phoneNumber, password})
-                .then(res => {
-                    if (res.status === 200) {
-                        localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
-                        history.push("/personalAccountListener")
+            axios({
+                url: "https://proclinicserver.herokuapp.com/api/auth/login",
+                method: 'POST',
+                data:
+                    {
+                        phoneNumber, password
                     }
-                })
+            }).then(res => {
+                console.log(res)
+                if (res.status === 200) {
+                    localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
+                    history.push("/personalAccountListener")
+                }
+            })
         }
     }
 
