@@ -1,12 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import enterImg from '../../assets/img/enter-img.svg';
 
 const Enter = () => {
 
-    
+
 
     return (
         <div className="enter">
-            <div className="btn-default">Войти</div>
+            <div className="enter-btn">
+                <div className="enter-img">
+                    <img src={enterImg} alt="enter img" />
+                </div>
+                Войти
+            </div>
             <div className="enter-content">
                 <ul>
                     <li>
