@@ -93,6 +93,12 @@ function App() {
             <div className="nav">
                 <NavCenter />
             </div>            
+            {/* <RegistrationListener /> */}
+            {/* <PersonalAccountListener /> */}
+            {/* <PersonalAccountModerator /> */}
+            {/* <RegistrationApplicant /> */}
+            {/* <PersonalAccountSupervisor /> */}
+
             <PersonalAccountApplicant/>
         </div>
     );
