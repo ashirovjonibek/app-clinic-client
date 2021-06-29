@@ -76,7 +76,7 @@ const PersonalAccountListener = (props) => {
                     </section>
                 </div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }
