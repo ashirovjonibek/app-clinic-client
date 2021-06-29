@@ -90,16 +90,16 @@ function App() {
                 <Route exact path="/newPassword" component={NewPassword} />
                 <Route exact path="/userAppealItem" component={UserAppealItem} />
             </Switch> */}
-            <div className="nav">
+            {/* <div className="nav">
                 <NavCenter />
-            </div>            
+            </div>             */}
             {/* <RegistrationListener /> */}
             {/* <PersonalAccountListener /> */}
             {/* <PersonalAccountModerator /> */}
             {/* <RegistrationApplicant /> */}
-            {/* <PersonalAccountSupervisor /> */}
+            <PersonalAccountSupervisor />
 
-            <PersonalAccountApplicant/>
+            {/* <PersonalAccountApplicant/> */}
         </div>
     );
 }
