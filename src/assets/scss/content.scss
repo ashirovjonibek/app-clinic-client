@@ -934,6 +934,12 @@
             .close {
                 width: 120px;
             }
+            .progressing{
+                h3{
+                    width: 120px;
+                    text-align: center;
+                }
+            }
             align-items: center;
             div {
                 display: flex;
@@ -1214,7 +1220,7 @@
         align-items: center;
         margin: 10px auto;
         height: 30px;
-        width: 300px;
+        max-width: 300px;
         background: url(../icon/plus.svg) no-repeat left/20px 20px;
         text-decoration: none;
         padding-left: 40px;
