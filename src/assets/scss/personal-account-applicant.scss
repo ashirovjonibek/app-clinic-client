@@ -125,8 +125,27 @@
             padding: 0 20px;
             .section-body {
                 .content-wrapper {
-                    .new-request{
-                        text-align: center;
+                    .per-acc-app-call-flow-item {
+                        .document-prosses {
+                            text-align: center;
+                            .new,
+                            .progressing,
+                            .close {
+                                width: 100px;
+                            }
+                            h3 {
+                                font-size: 14px;
+                            }
+                        }
+                        .document-text {
+                            .document-text-title {
+                                display: flex;
+                                flex-direction: column;
+                                h4 {
+                                    margin-bottom: 15px;
+                                }
+                            }
+                        }
                     }
                 }
             }
