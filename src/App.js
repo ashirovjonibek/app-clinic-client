@@ -23,7 +23,7 @@ import { openPages } from "./utils/config";
 import axios from "axios";
 import { STORAGE_NAME } from "./utils/constant";
 import { userMe } from "./utils/service";
-import YourAppelSection from "./component/PersonalAccountApplicant/YourAppelSection";
+import YourAppealSection from "./component/PersonalAccountApplicant/YourAppealSection";
 import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./component/PersonalAccountApplicant/PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./component/PersonalAccountApplicant/PerAccAppResponseRequest";
@@ -74,8 +74,8 @@ function App() {
 
     return (
         <div className="App">
-            <Nav />
-            <ToastContainer />
+            {/* <Nav /> */}
+            {/* <ToastContainer />
             <Switch>
                 <Route exact path="/" component={FirstHome} />
                 <Route exact path="/auth/login" component={Login} />
@@ -89,7 +89,13 @@ function App() {
                 <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
                 <Route exact path="/newPassword" component={NewPassword} />
                 <Route exact path="/userAppealItem" component={UserAppealItem} />
-            </Switch>
+            </Switch> */}
+            {/* <div className="nav">
+                <NavCenter />
+            </div>            
+            <PersonalAccountApplicant /> */}
+            <RegistrationListener />
+            {/* <RegistrationApplicant /> */}
         </div>
     );
 }
