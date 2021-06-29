@@ -3,6 +3,7 @@ import Title from "../Title";
 import axios from "axios";
 import {withRouter} from 'react-router-dom';
 import {toast} from "react-toastify";
+import {API_URL} from "../../utils/constant";
 
 function RegistrationListener(props) {
     const {history} = props;
@@ -26,22 +27,22 @@ function RegistrationListener(props) {
     }));
 
     useEffect(() => {
-        axios.get('/api/position').then(res => {
+        axios.get(API_URL + '/position').then(res => {
             setPositions(res.data);
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/region").then(res => {
+        axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
         });
     }, []);
     useEffect(() => {
-        axios.get("/api/district").then(res => {
+        axios.get(API_URL + "/district").then(res => {
             setDistricts(res.data._embedded.districts);
         })
     }, []);
     useEffect(() => {
-        axios.get("/api/section").then(res => {
+        axios.get(API_URL + "/section").then(res => {
             setSections(res.data._embedded.sections);
         })
     }, []);
@@ -54,7 +55,7 @@ function RegistrationListener(props) {
     }
     const handleSend = (e) => {
         e.preventDefault();
-        axios.post("/api/auth/createListener", {...values}).then(res => {
+        axios.post(API_URL + "/auth/createListener", {...values}).then(res => {
             console.log(res)
             if (res.data.success) {
                 history.push("/auth/login")
