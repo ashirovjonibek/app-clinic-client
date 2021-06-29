@@ -4,7 +4,7 @@ import PerAccAppPeriodItem from "./PerAccAppPeriodItem";
 
 const PerAccAppPeriodSection = () => {
     return (
-        <div>
+        <div className="per-acc-app-period-section">
             <PerAccAppPeriodItem />
         </div>
     );

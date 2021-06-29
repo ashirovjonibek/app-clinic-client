@@ -112,37 +112,38 @@
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 576px) {
-    .acount-applicant {
-        .container {
-            padding: 0 20px;
-            .section-body {
-                .content-wrapper {
-                    .per-acc-app-call-flow-item {
-                        .document-prosses {
-                            text-align: center;
-                            .new,
-                            .progressing,
-                            .close {
-                                width: 100px;
+                        .per-acc-app-call-flow-item {
+                            .document-prosses {
+                                text-align: center;
+                                .new,
+                                .progressing,
+                                .close {
+                                    width: 100px;
+                                }
+                                h3 {
+                                    font-size: 14px;
+                                }
                             }
-                            h3 {
-                                font-size: 14px;
+                            .document-text {
+                                .document-text-title {
+                                    display: flex;
+                                    flex-direction: column;
+                                    h4 {
+                                        margin-bottom: 15px;
+                                    }
+                                }
                             }
                         }
-                        .document-text {
-                            .document-text-title {
-                                display: flex;
-                                flex-direction: column;
-                                h4 {
-                                    margin-bottom: 15px;
+                    }
+                    .per-acc-app-period-section {
+                        .period-section-title {
+                            text-align: center;
+                        }
+                        .content {
+                            .period-section {
+                                .bottom-inform {
+                                    width: 100%;
+                                    text-align: center;
                                 }
                             }
                         }
