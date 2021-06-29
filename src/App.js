@@ -23,7 +23,7 @@ import { openPages } from "./utils/config";
 import axios from "axios";
 import { STORAGE_NAME } from "./utils/constant";
 import { userMe } from "./utils/service";
-import YourAppelSection from "./component/PersonalAccountApplicant/YourAppelSection";
+import YourAppealSection from "./component/PersonalAccountApplicant/YourAppealSection";
 import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./component/PersonalAccountApplicant/PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./component/PersonalAccountApplicant/PerAccAppResponseRequest";
@@ -74,25 +74,29 @@ function App() {
 
     return (
         <div className="App">
-
-{/* 
-            <Nav/>
-            <ToastContainer/>
+            {/* <Nav /> */}
+            {/* <ToastContainer />
             <Switch>
-                <Route exact path="/" component={FirstHome}/>
-                <Route exact path="/auth/login" component={Login}/>
-                <Route exact path="/Dashboard" component={Dashboard}/>
-                <Route exact path="/Admin" component={Admin}/>
-                <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
-                <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
-                <Route exact path="/personalAccountListener" component={PersonalAccountListener}/>
-                <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
-                <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
-                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
-                <Route exact path="/newPassword" component={NewPassword}/>
-                <Route exact path="/userAppealItem" component={UserAppealItem}/>
+                <Route exact path="/" component={FirstHome} />
+                <Route exact path="/auth/login" component={Login} />
+                <Route exact path="/Dashboard" component={Dashboard} />
+                <Route exact path="/Admin" component={Admin} />
+                <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant} />
+                <Route exact path="/auth/registrationListener" component={RegistrationListener} />
+                <Route exact path="/personalAccountListener" component={PersonalAccountListener} />
+                <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant} />
+                <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
+                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
+                <Route exact path="/newPassword" component={NewPassword} />
+                <Route exact path="/userAppealItem" component={UserAppealItem} />
             </Switch> */}
-            <PersonalAccountListener />
+            {/* <div className="nav">
+                <NavCenter />
+            </div>            
+            <PersonalAccountApplicant /> */}
+            <RegistrationListener />
+            {/* <RegistrationApplicant /> */}
+
         </div>
     );
 }

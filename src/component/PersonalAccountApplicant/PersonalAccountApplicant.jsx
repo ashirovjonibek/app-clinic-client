@@ -4,7 +4,7 @@ import YouAppSiteBar from "./YouAppSiteBar";
 import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
 import {Route, Switch} from "react-router-dom";
-import YourAppelSection from "./YourAppelSection";
+import YourAppealSection from "./YourAppealSection";
 import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
@@ -29,17 +29,16 @@ const PersonalAccountApplicant = () => {
 
     return (
         <div>
-
-
             <div className="acount-applicant container-fluit">
                 <div className="container">
                     <Title text="Личный кабинет"/>
                     <section className="section-body">
                         <YouAppSiteBar/>
                         <div className="content-wrapper">
-                            {
+                            {/* {
                                 pushBar(2)
-                            }
+                            } */}
+                            <YourAppealSection />
                         </div>
                     </section>
                 </div>

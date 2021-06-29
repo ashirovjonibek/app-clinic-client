@@ -2,3 +2,26 @@
     padding: 100px 0;
     background-color: #f4f8ff;
 }
+
+@media (max-width: 1200px) {
+    .acount-applicant {
+        .container {
+            .section-body {
+                padding: 50px 0px;
+                .content-wrapper {
+                    .content-item {
+                        .categories {
+                            ul {
+                                li {
+                                    input {
+                                        // max-width: 300px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
