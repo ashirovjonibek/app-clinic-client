@@ -7,18 +7,126 @@
     .acount-applicant {
         .container {
             .section-body {
-                padding: 50px 0px;
+                padding: 50px 13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .acount-applicant {
+        .container {
+            .section-body {
+                display: flex;
+                padding: 50px 0;
+                // flex-direction: column;
+                .navbar-wrapper {
+                    width: 45%;
+                    .navbarr {
+                        width: 100%;
+                        padding: 20px 10px;
+                        ul {
+                            li {
+                                a {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .acount-applicant {
+        .container {
+            .section-body {
+                flex-direction: column;
+                .navbar-wrapper {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .navbarr {
+                        ul {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            li {
+                                max-width: 46%;
+                                margin: 7px 12px;
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .acount-applicant {
+        .container {
+            .section-body {
+                .navbar-wrapper {
+                    width: 100%;
+                    .navbarr {
+                        width: 100%;
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            li {
+                                max-width: 100%;
+                                margin: 7px 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .acount-applicant {
+        .container {
+            padding: 0 20px;
+            .section-body {
                 .content-wrapper {
                     .content-item {
                         .categories {
                             ul {
+                                display: flex;
+                                flex-direction: column;
                                 li {
-                                    input {
-                                        // max-width: 300px;
-                                    }
+                                    width: 100%;
+                                    margin-bottom: 20px;
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .acount-applicant {
+        .container {
+            padding: 0 20px;
+            .section-body {
+                .content-wrapper {
+                    .new-request{
+                        text-align: center;
                     }
                 }
             }
