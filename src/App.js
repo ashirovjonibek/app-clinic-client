@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./assets/scss/style.scss";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import RegistrationListener from "./component/Registration/RegistrationListener";
 import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
 import Dashboard from "./component/Dashboard/Dashboard";
@@ -13,16 +13,16 @@ import NewPassword from "./component/Registration/NewPassword";
 import Admin from "./component/Admin/Admin";
 import Nav from "./component/Nav/Nav";
 import ApplicantAppeal from './component/PersonalAccountApplicant/ApplicantAppeal';
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserAppealItem from "./component/UserAppealItem";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
-import {useHistory, useLocation} from 'react-router-dom'
-import {openPages} from "./utils/config";
+import { useHistory, useLocation } from 'react-router-dom'
+import { openPages } from "./utils/config";
 import axios from "axios";
-import {STORAGE_NAME} from "./utils/constant";
-import {userMe} from "./utils/service";
+import { STORAGE_NAME } from "./utils/constant";
+import { userMe } from "./utils/service";
 import YourAppelSection from "./component/PersonalAccountApplicant/YourAppelSection";
 import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./component/PersonalAccountApplicant/PerAccAppPeriodSection";
@@ -36,6 +36,7 @@ import AppealSection from "./component/PersonalAccountListener/AppealSection";
 import CallFlowSection from "./component/PersonalAccountListener/CallFlowSection";
 import FedbeckSection from "./component/PersonalAccountListener/FedbeckSection";
 import DirectorySection from "./component/PersonalAccountListener/DirectorySection";
+import NavCenter from "./component/Nav/NavCenter";
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
@@ -73,29 +74,22 @@ function App() {
 
     return (
         <div className="App">
-
-
-            {/* <Nav/>
-            <ToastContainer/>
+            <Nav />
+            <ToastContainer />
             <Switch>
-                <Route exact path="/" component={FirstHome}/>
-                <Route exact path="/auth/login" component={Login}/>
-                <Route exact path="/Dashboard" component={Dashboard}/>
-                <Route exact path="/Admin" component={Admin}/>
-                <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
-                <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
-                <Route exact path="/personalAccountListener" component={PersonalAccountListener}/>
-                <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
-                <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
-                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
-                <Route exact path="/newPassword" component={NewPassword}/>
-
-                <Route exact path="/userAppealItem" component={UserAppealItem}/>
-            </Switch> */}
-
-            <ApplicantAppeal />
-
-            {/* <Admin /> */}
+                <Route exact path="/" component={FirstHome} />
+                <Route exact path="/auth/login" component={Login} />
+                <Route exact path="/Dashboard" component={Dashboard} />
+                <Route exact path="/Admin" component={Admin} />
+                <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant} />
+                <Route exact path="/auth/registrationListener" component={RegistrationListener} />
+                <Route exact path="/personalAccountListener" component={PersonalAccountListener} />
+                <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant} />
+                <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
+                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
+                <Route exact path="/newPassword" component={NewPassword} />
+                <Route exact path="/userAppealItem" component={UserAppealItem} />
+            </Switch>
         </div>
     );
 }
