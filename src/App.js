@@ -92,23 +92,7 @@ function App() {
                 <Route exact path="/newPassword" component={NewPassword}/>
                 <Route exact path="/userAppealItem" component={UserAppealItem}/>
             </Switch> */}
-            {/* <PersonalAccountListener /> */}
-            <Nav />
-            <ToastContainer />
-            <Switch>
-                <Route exact path="/" component={FirstHome} />
-                <Route exact path="/auth/login" component={Login} />
-                <Route exact path="/Dashboard" component={Dashboard} />
-                <Route exact path="/Admin" component={Admin} />
-                <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant} />
-                <Route exact path="/auth/registrationListener" component={RegistrationListener} />
-                <Route exact path="/personalAccountListener" component={PersonalAccountListener} />
-                <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant} />
-                <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
-                <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
-                <Route exact path="/newPassword" component={NewPassword} />
-                <Route exact path="/userAppealItem" component={UserAppealItem} />
-            </Switch>
+            <PersonalAccountListener />
         </div>
     );
 }

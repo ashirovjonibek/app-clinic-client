@@ -13,21 +13,23 @@
 @media (max-width: 768px) {
   .personal-account-listnear {
     .container {
-      padding:0;
-      max-width: 970px;
+      padding: 0;
       .section-body {
         padding: 0;
         flex-wrap: wrap;
         div {
           .navbar-wrapper {
-            .navbarr{
-              width: 100%;
-              ul{
+            width: 100%;
+            .navbarr {
+              width: 90%;
+              margin: 10px auto;
+              ul {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-around;
-                li{
-                  width: 25%;
+                justify-content: center;
+                li {
+                  width: 268px;
+                  height: 50px;
                   text-align: center;
                   font-size: 12px;
                 }
@@ -38,6 +40,26 @@
         .content-wrapper {
           margin-left: 0;
           width: 900px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px){
+  .personal-account-listnear {
+    .container {
+      .section-body {
+        div {
+          .navbar-wrapper {
+            .navbarr {
+              ul {
+                li {
+                  width: 350px;
+                }
+              }
+            }
+          }
         }
       }
     }
