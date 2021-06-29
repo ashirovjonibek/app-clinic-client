@@ -26,6 +26,8 @@ const PersonalAccountListener = (props) => {
         switch (n) {
             case 1:
                 return <AppealSection/>
+            case 2:
+                return <ResponseRequestItem/>
         }
     }
 

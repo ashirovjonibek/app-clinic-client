@@ -92,7 +92,7 @@ function App() {
                 <Route exact path="/newPassword" component={NewPassword}/>
                 <Route exact path="/userAppealItem" component={UserAppealItem}/>
             </Switch> */}
-            <PersonalAccountListener />
+            {/* <PersonalAccountListener /> */}
             <Nav />
             <ToastContainer />
             <Switch>

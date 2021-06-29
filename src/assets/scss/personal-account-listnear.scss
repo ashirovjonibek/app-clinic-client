@@ -17,9 +17,22 @@
       max-width: 970px;
       .section-body {
         padding: 0;
+        flex-wrap: wrap;
         div {
           .navbar-wrapper {
-            display: none;
+            .navbarr{
+              width: 100%;
+              ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                li{
+                  width: 25%;
+                  text-align: center;
+                  font-size: 12px;
+                }
+              }
+            }
           }
         }
         .content-wrapper {
