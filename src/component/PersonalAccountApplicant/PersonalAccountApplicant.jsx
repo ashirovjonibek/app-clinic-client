@@ -57,9 +57,9 @@ const PersonalAccountApplicant = () => {
                             {/* {
                                 pushBar(2)
                             } */}
-                            {/* <YourAppealSection /> */}
+                            <YourAppealSection />
                             {/* <PerAccAppCallFlowSection /> */}
-                            <PerAccAppPeriodSection />
+                            {/* <PerAccAppPeriodSection /> */}
                         </div>
                     </section>
                 </div>
