@@ -97,9 +97,9 @@ function App() {
             {/* <PersonalAccountListener /> */}
             {/* <PersonalAccountModerator /> */}
             {/* <RegistrationApplicant /> */}
-            <PersonalAccountSupervisor />
+            {/* <PersonalAccountSupervisor /> */}
 
-            {/* <PersonalAccountApplicant/> */}
+            <PersonalAccountApplicant/>
         </div>
     );
 }

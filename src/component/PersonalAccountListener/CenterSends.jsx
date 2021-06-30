@@ -10,7 +10,10 @@ const CenterSends = (props) => {
             </div>
             <div className="content">
                 <div className="fedbeck">
-                    <UserName text="Турсунов Тулкин Мирзаевич" />
+                    <div className="request-content-title-name">
+                        <div className="applicant-image"></div>
+                        <div className="name"><h3>Aliyev Vali Galievich</h3></div>
+                    </div>
                     <div className="fedbeck-right">
                         {/* <div className="new">1</div> */}
                         <ButtonDefault text="Открыть" />

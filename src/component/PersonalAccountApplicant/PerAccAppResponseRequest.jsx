@@ -9,7 +9,7 @@ import ButtonWhite from "../ButtonWhite";
 
 const PerAccAppResponseRequest = () => {
     return (
-        <div className="content">
+        <div className="content per-acc-app-response-request">
             <div className="request-theme" style={{ marginBottom: '40px' }}>
                 <div>
                     <h3>Пришел ответ на ваше обращение от <strong>Тулкина Мирзавевича</strong></h3>
