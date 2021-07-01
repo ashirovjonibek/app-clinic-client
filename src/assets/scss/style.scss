@@ -8,6 +8,7 @@
 @import "home.scss";
 @import "applicant-appeal.scss";
 @import "personal-account-listnear.scss";
+@import "personal-account-supervisor.scss";
 @import "registration-listnear.scss";
 @import "registration-applicant.scss";
 @import "personal-account-applicant.scss";
@@ -131,7 +132,7 @@
     flex-direction: row;
     align-items: center;
     select {
-        width: 190px;
+        width: 150px;
         height: 40px;
         background-color: #ffffff;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);

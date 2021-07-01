@@ -1,0 +1,167 @@
+.personal-account-supervisor {
+    padding: 100px 0;
+    background-color: #f4f8ff;
+    .container {
+        .section-body {
+            .content-wrapper {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .personal-account-supervisor {
+        .container {
+            .section-body {
+                padding: 50px 13px;
+                .content-wrapper {
+                    .peraccsup-listeners-section {
+                        .listnears-section-top {
+                            flex-wrap: wrap;
+                            justify-content: space-around;
+                            .list-generation,
+                            .send-list,
+                            .request-sort {
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .personal-account-supervisor {
+        .container {
+            .section-body {
+                display: flex;
+                padding: 50px 0;
+                flex-direction: column;
+                .navbar-wrapper {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .navbarr {
+                        width: 100%;
+                        padding: 20px 10px;
+                        ul {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            li {
+                                max-width: 46%;
+                                margin: 7px 12px;
+                                a {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .personal-account-supervisor {
+        .container {
+            .section-body {
+                .navbar-wrapper {
+                    .navbarr {
+                        ul {
+                            li {
+                                max-width: 100%;
+                                margin: 7px 0px;
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    .peraccsup-listeners-section {
+                        .peraccsup-listnears-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .personal-account-supervisor {
+        .container {
+            padding: 0 20px;
+            .section-body {
+                .content-wrapper {
+                    .peraccsup-listeners-section {
+                        .peraccsup-listnears-item {
+                            .content {
+                                .fedbeck {
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-wrap: wrap;
+                                            justify-content: center;
+                                        }
+                                    }
+                                    .fedbeck-right {
+                                        .redaction-date {
+                                            margin: 20px auto 0 auto;
+                                            padding: 0;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .personal-account-supervisor {
+        .container {
+            .section-body {
+                .content-wrapper {
+                    .peraccsup-listeners-section {
+                        .peraccsup-listnears-item {
+                            .content {
+                                .fedbeck {
+                                    text-align: center;
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-wrap: wrap;
+                                            justify-content: center;
+                                            .user-img {
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

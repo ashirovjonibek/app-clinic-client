@@ -93,11 +93,11 @@ function App() {
             {/* <div className="nav">
                 <NavCenter />
             </div>             */}
-            {/* <PersonalAccountListener /> */}
+            <PersonalAccountListener />
             {/* <PersonalAccountModerator /> */}
-            {/* <PersonalAccountSupervisor /> */}
+            <PersonalAccountSupervisor />
 
-            <PersonalAccountApplicant/>
+            {/* <PersonalAccountApplicant/> */}
         </div>
     );
 }

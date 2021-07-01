@@ -875,7 +875,7 @@
         //     margin: 0;
         // }
         .user-item {
-            height: 50px;
+            min-height: 50px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -1143,6 +1143,7 @@
             border-radius: 30px;
             border: 2px solid black;
             background: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
         }
         .category-audio {
             height: 100px;
@@ -1329,7 +1330,7 @@
         // }
 
         .user-item {
-            height: 50px;
+            min-height: 50px;
             display: flex;
             flex-direction: row;
             align-items: center;
