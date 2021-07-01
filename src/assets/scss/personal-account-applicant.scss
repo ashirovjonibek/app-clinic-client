@@ -162,13 +162,6 @@
           .send-section {
             .fedbeck {
               flex-direction: column;
-              .request-content-title-name {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 10px;
-              }
             }
           }
         }
@@ -270,14 +263,19 @@
           .send-section {
             .fedbeck {
               .request-content-title-name {
-                flex-direction: column;
-                align-items: center;
+                text-align: center;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin-bottom: 10px;
                 .applicant-image {
                   margin-bottom: 10px;
                 }
                 .name {
                   align-items: center;
                 }
+                // .name {
+                //   align-items: center;
+                // }
               }
             }
           }

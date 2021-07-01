@@ -6,6 +6,7 @@ const FedbeckSection = () => {
     return (
         <div className="fedbeck-section">
             <Fedbeck />
+            <FedbeckDiz />
         </div>
     );
 }

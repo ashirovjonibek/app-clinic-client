@@ -164,6 +164,17 @@
               }
             }
           }
+          .fedbeck-section {
+            .content {
+              .fedbeck {
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .request-content-title-name {
+                  margin-bottom: 5px;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -347,6 +358,44 @@
                     .applicant-image {
                       margin-bottom: 10px;
                     }
+                  }
+                }
+              }
+            }
+          }
+          .fedbeck-section {
+            .content {
+              text-align: center;
+              .fedbeck {
+                .request-content-title-name {
+                  margin-bottom: 5px;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  margin-bottom: 20px;
+                  .applicant-image {
+                    margin-bottom: 10px;
+                  }
+                }
+              }
+            }
+          }
+          .send-section {
+            .content {
+              .fedbeck {
+                flex-wrap: wrap;
+                justify-content: space-around;
+                .hours {
+                  position: absolute;
+                  bottom: -10px;
+                  right: -10px;
+                }
+                .request-content-title-name {
+                  text-align: center;
+                  flex-wrap: wrap;
+                  justify-content: space-around;
+                  margin-bottom: 10px;
+                  .applicant-image {
+                    margin-bottom: 10px;
                   }
                 }
               }

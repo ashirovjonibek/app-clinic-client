@@ -19,10 +19,10 @@ const PersonalAccountSupervisor = () => {
     return (
         <div>
             <div>
-                <div className="nav">
+                {/* <div className="nav">
                     <NavCenter />
-                </div>
-                <div className="acount-applicant container-fluit">
+                </div> */}
+                <div className="personal-account-supervisor container-fluit">
                     <div className="container">
                         <section className="section-body">
                             <PerAccSupervisorSiteBar />
