@@ -8,7 +8,7 @@ const Fedbeck = (props) => {
             <div className="fedbeck">
                 <UserName text="Турсунов Тулкин Мирзаевич" />
                 <div className="request-content-title-date">
-                    <ButtonWhite />
+                    <button className="fedbeck-green-btn">Удовлетворительно</button>
                 </div>
             </div>
         </div>

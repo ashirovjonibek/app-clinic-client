@@ -839,7 +839,7 @@
                     height: 520px;
                     .periods-table {
                         border-collapse: collapse;
-                        tr{
+                        tr {
                             height: 37px;
                         }
                         .table-name-cities {
@@ -854,9 +854,8 @@
                             text-align: center;
                             padding: 8px;
                             font-size: 15px;
-
                         }
-                        .table-date{
+                        .table-date {
                             width: 135px;
                             text-align: center;
                         }
@@ -906,7 +905,6 @@
                     }
                 }
             }
-            
         }
         .content-line {
             height: 1px;
@@ -924,8 +922,8 @@
             .close {
                 width: 120px;
             }
-            .progressing{
-                h3{
+            .progressing {
+                h3 {
                     width: 120px;
                     text-align: center;
                 }
@@ -1047,11 +1045,17 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-
+            position: relative;
+            .hours {
+                position: absolute;
+                bottom: -15px;
+                right: -10px;
+            }
             .fedbeck-right {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
+                position: relative;
                 .redaction-date {
                     margin-left: auto;
                     margin-top: 10px;
@@ -1102,6 +1106,20 @@
                     font-size: 18px;
                 }
             }
+            .fedbeck-red-btn {
+                padding: 5px 10px;
+                border-radius: 30px;
+                border: 2px solid #ff4500;
+                color: #ff4500;
+                background-color: white;
+            }
+            .fedbeck-green-btn {
+                padding: 5px 10px;
+                border-radius: 30px;
+                border: 2px solid #63aa55;
+                color: #63aa55;
+                background-color: white;
+            }
         }
 
         .file-upload {
@@ -1114,6 +1132,7 @@
             }
         }
         .fedbeck-content {
+            margin-top: 20px;
             p {
                 margin: 15px 0;
                 line-height: 20px;
@@ -1138,17 +1157,16 @@
             flex-wrap: wrap;
             margin-bottom: 15px;
 
-                a {
-                    font-weight: 500;
-                    font-size: 16px;
-                    text-decoration-line: underline;
-                    color: #242f47;
-                    margin-bottom: 10px;
-                }
-                button {
-                    margin-left: 10px;
-                }
-
+            a {
+                font-weight: 500;
+                font-size: 16px;
+                text-decoration-line: underline;
+                color: #242f47;
+                margin-bottom: 10px;
+            }
+            button {
+                margin-left: 10px;
+            }
         }
         .answer-score {
             display: flex;
@@ -1191,7 +1209,7 @@
         padding-left: 40px;
         font-size: 18px;
         color: #c4c4c4;
-        a{
+        a {
             color: rgb(158, 156, 156);
             font-weight: 500;
         }
@@ -1356,39 +1374,38 @@
     }
 }
 
-
-@media (max-width: 768px){
-    .content-wrapper{
+@media (max-width: 768px) {
+    .content-wrapper {
         margin-left: 0;
         ::-webkit-scrollbar {
             height: 20px;
-          }
-      
-          ::-webkit-scrollbar-track {
+        }
+
+        ::-webkit-scrollbar-track {
             background: #ececec;
             box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             padding: 10px;
-          }
-      
-          ::-webkit-scrollbar-thumb {
+        }
+
+        ::-webkit-scrollbar-thumb {
             height: 10px;
             width: 100px;
             background: #bdbaba;
-      
+
             border-radius: 10px;
-          }
-        .statistic-section-item{
-            &-body{
+        }
+        .statistic-section-item {
+            &-body {
                 overflow-x: auto;
                 position: relative;
             }
 
-            .statistic-regions{
-                .statistic-section-item-body{
+            .statistic-regions {
+                .statistic-section-item-body {
                     height: 800px;
                 }
             }
-        }   
+        }
     }
 }

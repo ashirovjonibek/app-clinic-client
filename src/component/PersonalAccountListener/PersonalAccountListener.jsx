@@ -69,11 +69,14 @@ const PersonalAccountListener = (props) => {
                             </div>
                         </div>
                         <div className="content-wrapper">
-                            <IncomingRequestSection />
-                           {/* <AppealSection /> */}
-                           {/* <CallFlowSection /> */}
-                           {/* <ResponseRequestSection /> */}
-                           <DeadlineRequestSection /> 
+                            {/* <IncomingRequestSection />
+                           <AppealSection />
+                           <CallFlowSection />
+                           <ResponseRequestSection />
+                           <DeadlineRequestSection />  */}
+                           {/* <FedbeckSection /> */}
+                           {/* <DirectorySection /> */}
+                           <SendSection />
                         </div>
                     </section>
                 </div>

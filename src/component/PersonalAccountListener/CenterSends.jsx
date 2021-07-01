@@ -8,17 +8,16 @@ const CenterSends = (props) => {
             <div className="new">
                 <div className="new-item">1</div>
             </div>
-            <div className="content">
+            <div className="content" style={{ marginBottom: '-7px' }}>
                 <div className="fedbeck">
                     <div className="request-content-title-name">
                         <div className="applicant-image"></div>
                         <div className="name"><h3>Aliyev Vali Galievich</h3></div>
                     </div>
                     <div className="fedbeck-right">
-                        {/* <div className="new">1</div> */}
                         <ButtonDefault text="Открыть" />
-                        <p>12ч назад</p>
                     </div>
+                    <p className="hours">12ч назад</p>
                 </div>
             </div>
         </div>
