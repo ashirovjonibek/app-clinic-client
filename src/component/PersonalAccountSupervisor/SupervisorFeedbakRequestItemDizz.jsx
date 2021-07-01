@@ -10,7 +10,7 @@ const SupervisorFeedbakRequestItemDizz = () => {
             <div className="content">
                 <UserItem />
                 <div className="content-line" />
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: '20px' }}>
+                <div className='avatar'>
                     <UserName text="Aliyev Valijon" />
                     <div>
                         <ButtonWhite />

@@ -9,9 +9,9 @@ const ModeratorPerformerItem = () => {
         <div className="moderator-performer-item">
             <div className="content">
                 <div className="request-content-title">
-                    <div className="request-content-title-name">
+                    <div className="request-content-title-name with-margin-20">
                         <UserName text="Турсунов Тулкин Мирзаевич" />
-                        <div>id: 12345</div>
+                        <div className='id'>id: 12345</div>
                     </div>
                     <div className="request-content-title-date">
                         <div className="date-label">
@@ -25,7 +25,7 @@ const ModeratorPerformerItem = () => {
                 <RequestTheme />
                 <div className="category-audio"></div>
                 <div className="content-line"></div>
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className='avatar' >
                     <UserItem />
                     <ButtonDefault text="Заменить исполнителя" />
                 </div>

@@ -94,8 +94,8 @@ function App() {
                 <NavCenter />
             </div>             */}
             {/* <RegistrationListener /> */}
-            <PersonalAccountListener />
-            {/* <PersonalAccountModerator /> */}
+            {/* <PersonalAccountListener /> */}
+            <PersonalAccountModerator />
             {/* <RegistrationApplicant /> */}
             {/* <PersonalAccountSupervisor /> */}
 

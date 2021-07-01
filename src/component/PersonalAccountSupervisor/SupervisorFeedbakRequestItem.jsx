@@ -9,7 +9,7 @@ const SupervisorFeedbakRequestItem = () => {
             <div className="content">
                 <UserItem />
                 <div className="content-line" />
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                <div className='avatar'>
                     <UserName text="Aliyev Valijon" />
                     <div>
                         <ButtonWhite />
