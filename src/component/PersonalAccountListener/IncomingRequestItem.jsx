@@ -10,7 +10,7 @@ const IncomingRequestItem = () => {
                 <div className="request-content-title">
                     <div className="request-content-title-name">
                         <UserName text="Турсунов Тулкин Мирзаевич" />
-                        <div>id: 12345</div>
+                        <div className="id">id: 12345</div>
                     </div>
                     <div className="request-content-title-date">
                         <div className="date-label">
@@ -24,11 +24,9 @@ const IncomingRequestItem = () => {
                 <RequestTheme />
                 <div className="category-audio"></div>
                 <div className="request-bottom">
-                    <a href="" className="request-bottom-left">Отправить модератору на замену исполнителя</a>
-                    <div className="request-bottom-right">
-                        <a href="">Написать сообщение</a>
-                        <ButtonDefault type="submit" text="Ответить" />
-                    </div>
+                    <a href="">Отправить модератору на замену исполнителя</a>
+                    <a href="">Написать сообщение</a>
+                    <ButtonDefault type="submit" text="Ответить" />
                 </div>
             </div>
         </div>

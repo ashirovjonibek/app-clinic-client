@@ -61,6 +61,24 @@
 
 .response-request-2 {
     margin-bottom: 20px;
+    .user-item-wrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        .user-reaction-stars {
+                .us-re-label {
+                    margin-bottom: 10px;
+                    font-weight: 500;
+                }
+                .stars {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+    }
 }
 
 

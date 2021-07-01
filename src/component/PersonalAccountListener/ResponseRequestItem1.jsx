@@ -8,7 +8,9 @@ const ResponseRequestItem1 = () => {
     return (
         <div className="response-request">
             <div className="content-line" />
-            <UserItem />
+            <div style={{marginBottom: '20px'}}>
+                <UserItem />
+            </div>
             <div className="file-upload">
                 <Label text="Ответ:" />
                 <InputFile />

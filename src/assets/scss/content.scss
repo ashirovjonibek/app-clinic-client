@@ -14,7 +14,7 @@
         justify-content: space-between;
         margin-bottom: 20px;
         .request-items {
-            width: 260px;
+            max-width: 260px;
             height: 40px;
             display: flex;
             flex-direction: row;
@@ -44,7 +44,7 @@
             .search-form {
                 display: flex;
                 flex-direction: row;
-                width: 100px;
+                max-width: 100px;
             }
             input {
                 height: 40px;
@@ -63,7 +63,7 @@
             flex-direction: row;
             align-items: center;
             select {
-                width: 180px;
+                max-width: 125px;
                 height: 40px;
                 background-color: #ffffff;
                 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -906,17 +906,7 @@
                     }
                 }
             }
-            .user-reaction-stars {
-                .us-re-label {
-                    margin-bottom: 10px;
-                    font-weight: 500;
-                }
-                .stars {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                }
-            }
+            
         }
         .content-line {
             height: 1px;
@@ -1001,10 +991,12 @@
             justify-content: space-between;
             align-items: center;
             margin: 15px 0;
+            flex-wrap: wrap;
             h3 {
                 font-weight: 500;
                 font-size: 20px;
                 color: #000000;
+                margin-bottom: 10px;
             }
             span {
                 color: grey;
@@ -1024,10 +1016,14 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            position: relative;
             .request-content-title-date {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
                 .date-item {
                     padding: 6px 18px;
                     background-color: #d80027;
@@ -1137,26 +1133,22 @@
         .request-bottom {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
+            flex-wrap: wrap;
             margin-bottom: 15px;
-            .request-bottom-left {
-                font-size: 16px;
-                line-height: 22px;
-                text-decoration-line: underline;
-                color: #222d44;
-            }
-            .request-bottom-right {
+
                 a {
                     font-weight: 500;
                     font-size: 16px;
                     text-decoration-line: underline;
                     color: #242f47;
+                    margin-bottom: 10px;
                 }
                 button {
                     margin-left: 10px;
                 }
-            }
+
         }
         .answer-score {
             display: flex;
