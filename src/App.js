@@ -37,6 +37,7 @@ import CallFlowSection from "./component/PersonalAccountListener/CallFlowSection
 import FedbeckSection from "./component/PersonalAccountListener/FedbeckSection";
 import DirectorySection from "./component/PersonalAccountListener/DirectorySection";
 import NavCenter from "./component/Nav/NavCenter";
+import ReqoverAccount from "./component/Registration/ReqoverAccount";
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
@@ -93,16 +94,7 @@ function App() {
             {/* <div className="nav">
                 <NavCenter />
             </div>             */}
-            {/* <RegistrationListener /> */}
-            {/* <PersonalAccountListener /> */}
-            <PersonalAccountModerator />
-            {/* <RegistrationApplicant /> */}
-            {/* <PersonalAccountSupervisor /> */}
-            <PersonalAccountListener />
-            {/* <PersonalAccountModerator /> */}
-            <PersonalAccountSupervisor />
-
-            {/* <PersonalAccountApplicant/> */}
+            <ReqoverAccount />
         </div>
     );
 }

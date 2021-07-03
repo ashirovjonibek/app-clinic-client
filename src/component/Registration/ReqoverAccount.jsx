@@ -3,7 +3,7 @@ import Title from "../Title";
 
 const ReqoverAccount = () => {
     return (
-        <div className="desctop7 container-fluit" >
+        <div className="reqover-account container-fluit" >
             <div className="container" >
                 <Title text="Восстановление аккаунта" />
                 <div className="form">
@@ -13,7 +13,7 @@ const ReqoverAccount = () => {
                             <div className="label">
                                 <label className="label" for="" >Введите код</label>
                             </div>
-                            <input type="password" />
+                            <input className="input-password" type="password" />
                         </div>
                         <button type="submit" className="btn-default">Отправить</button>
                     </form>
