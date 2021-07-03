@@ -312,6 +312,7 @@
     .container {
       .section-body {
         .content-wrapper {
+          text-align: center;
           .incoming-request-section {
             .content {
               text-align: center;
@@ -447,7 +448,6 @@
               .content {
                 text-align: center;
                   .request-content-title-name {
-                    background-color: red;
                     justify-content: center;
                     flex-wrap: wrap;
                     text-align: center;

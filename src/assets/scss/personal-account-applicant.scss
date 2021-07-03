@@ -110,7 +110,9 @@
               }
             }
             .document-text {
+              align-items: center;
               .document-text-title {
+                align-items: center;
                 display: flex;
                 flex-direction: column;
                 h4 {
@@ -162,6 +164,21 @@
           .send-section {
             .fedbeck {
               flex-direction: column;
+            }
+          }
+          .your-appeal-item-section {
+            .content-item {
+              .categories {
+                ul {
+                  flex-direction: column;
+                  width: 100%;
+                  text-align: center;
+                  li {
+                    margin-bottom: 20px;
+                    width: 100%;
+                  }
+                }
+              }
             }
           }
         }
@@ -259,6 +276,19 @@
         .content-wrapper {
           .per-acc-app-response-request {
             height: 1150px;
+            text-align: center;
+          }
+          .per-acc-app-call-flow-item {
+            .content {
+              .document-text-item {
+                text-align: center;
+              }
+            }
+          }
+          .per-acc-app-period-section{
+            .content{
+              text-align: center;
+            }
           }
           .send-section {
             .fedbeck {
