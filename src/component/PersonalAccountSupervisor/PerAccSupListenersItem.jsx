@@ -1,8 +1,7 @@
 import React from "react";
-import ButtonWhite from "../ButtonWhite";
 import UserItem from "../UserItem";
 
-const PerAccSupListenersItem = () => {
+const PerAccSupListenersItem = (props) => {
     return (
         <div className="peraccsup-listnears-item">
             <div className="content">
@@ -10,8 +9,8 @@ const PerAccSupListenersItem = () => {
                     <UserItem />
                     <div className="fedbeck-right">
                         <div>
-                            <ButtonWhite>Включить</ButtonWhite>
-                            <ButtonWhite>Включить</ButtonWhite>
+                            <button className="button-white">Включить</button>
+                            <button className="button-white" style={{borderColor: 'white', marginLeft: '10px'}}>Включить</button>
                         </div>
                         <div className="redaction-date">
                             <a href="">Редактировать данные</a>

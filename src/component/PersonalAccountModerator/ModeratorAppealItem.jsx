@@ -11,9 +11,9 @@ const ModeratorAppealItem = () => {
                 <DocumentProsses />
                 <div className="request-content">
                     <div className="request-content-title">
-                        <div className="request-content-title-name">
+                        <div className="request-content-title-name with-margin-20">
                             <UserName text="Турсунов Тулкин Мирзаевич" />
-                            <div>id: 12345</div>
+                            <div className='id'>id: 12345</div>
                         </div>
                         <div className="request-content-title-date">
                             <div className="date-label">

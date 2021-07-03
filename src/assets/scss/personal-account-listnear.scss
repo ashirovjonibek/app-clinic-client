@@ -1,11 +1,408 @@
 .personal-account-listnear {
-    background-color: #f4f8ff;
-    .document-item {
-        min-height: 300px;
-        background: #ffffff;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 30px;
+  width: 100%;
+  background-color: #f4f8ff;
+  .container {
+    .section-body {
+      .content-wrapper {
+        width: 100%;
+      }
     }
+  }
+  // .document-item {
+  //   min-height: 300px;
+  //   background: #ffffff;
+  //   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  //   border-radius: 10px;
+  //   padding: 20px;
+  //   margin-bottom: 30px;
+  // }
+}
+
+@media (max-width: 1200px) {
+  .personal-account-listnear {
+    .container {
+      .section-body {
+        padding: 50px 13px;
+        .content-wrapper {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .personal-account-listnear {
+    .container {
+      .section-body {
+        display: flex;
+        padding: 50px 0;
+        flex-direction: column;
+        .navbar-wrapper {
+          width: 100%;
+          margin-bottom: 15px;
+          .navbarr {
+            width: 100%;
+            padding: 20px 10px;
+            ul {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              width: 100%;
+              li {
+                max-width: 46%;
+                margin: 7px 12px;
+                a {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+        .content-wrapper {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .personal-account-listnear {
+    .container {
+      .section-body {
+        .navbar-wrapper {
+          .navbarr {
+            ul {
+              li {
+                max-width: 100%;
+                margin: 7px 0px;
+              }
+            }
+          }
+        }
+        .content-wrapper {
+          .incoming-request-section {
+            .content-top {
+              flex-wrap: wrap;
+              justify-content: space-around;
+              .request-items,
+              .request-search,
+              .request-sort {
+                margin-bottom: 10px;
+              }
+            }
+            .content {
+              .request-content-title {
+                .request-content-title-name {
+                  margin-top: 20px;
+                  .id {
+                    position: absolute;
+                    top: 5px;
+                  }
+                }
+              }
+              .request-theme {
+                flex-wrap: wrap;
+                h3 {
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
+          .response-request-section {
+            .response-request-item {
+              .content {
+                .request-content-title {
+                  .request-content-title-name {
+                    margin-top: 20px;
+                    .id {
+                      position: absolute;
+                      top: 5px;
+                      left: 0;
+                    }
+                  }
+                }
+                .response-request-2 {
+                  .user-item-wrapper {
+                    height: 110px;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    .user-item {
+                      margin-bottom: 15px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .deadline-request-section {
+            .deadline-request-item {
+              .content {
+                .request-content-title {
+                  .request-content-title-name {
+                    margin-top: 20px;
+                    .id {
+                      position: absolute;
+                      top: 8px;
+                      left: 0;
+                    }
+                  }
+                }
+                .response-request-2 {
+                  .user-item-wrapper {
+                    height: 110px;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    .user-item {
+                      margin-bottom: 15px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .fedbeck-section {
+            .content {
+              .fedbeck {
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .request-content-title-name {
+                  margin-bottom: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .personal-account-listnear {
+    .container {
+      padding: 0 20px;
+      .section-body {
+        .content-wrapper {
+          .incoming-request-section {
+            .content {
+              .request-content-title {
+                .request-content-title-name {
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  .id {
+                    left: 0;
+                  }
+                }
+              }
+              .request-bottom {
+                text-align: center;
+              }
+            }
+          }
+          .appeal-section {
+            .appeal-item {
+              .content {
+                .request-content-title {
+                  .id {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                  }
+                  .request-content-title-name {
+                    margin-top: 15px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    .applicant-image {
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+                .response-request {
+                  .file-upload {
+                    flex-direction: column;
+                    .file {
+                      width: 100%;
+                      margin-top: 15px;
+                    }
+                  }
+                  .button {
+                    margin: 0 auto;
+                  }
+
+                  .response-request-2 {
+                    .user-item {
+                      flex-wrap: wrap;
+                      justify-content: space-around;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .response-request-section {
+            .response-request-item {
+              .content {
+                .response-request {
+                  .user-item {
+                    .user-person-inform {
+                      margin: 0 auto;
+                    }
+                  }
+                  .file-upload {
+                    flex-direction: column;
+                    .file {
+                      width: 100%;
+                      margin-top: 15px;
+                    }
+                  }
+                  .button {
+                    margin: 0 auto;
+                  }
+                }
+                .response-request-item {
+                  .button {
+                    margin: 0 auto;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-account-listnear {
+    .container {
+      .section-body {
+        .content-wrapper {
+          .appeal-section {
+            .appeal-item {
+              .content {
+                .response-request {
+                  .user-item {
+                    height: 120px;
+                    .user-person-inform {
+                      flex-direction: column;
+                      margin: 0 auto;
+                      text-align: center;
+                      .user-img,
+                      .user-infrom {
+                        margin-bottom: 15px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .response-request-section {
+            .response-request-item {
+              .content {
+                text-align: center;
+                .request-content-title {
+                  .request-content-title-name {
+                    margin-top: 15px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    .applicant-image {
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+                .response-request {
+                  .user-item {
+                    min-height: 100px;
+                    .user-person-inform {
+                      flex-wrap: wrap;
+                      justify-content: center;
+                      .user-img {
+                        margin-bottom: 10px;
+                      }
+                    }
+                  }
+                }
+                .response-request-2 {
+                  .user-item-wrapper {
+                    min-height: 150px;
+                    .user-person-inform {
+                      flex-wrap: wrap;
+                      justify-content: center;
+                      .user-img {
+                        margin-bottom: 10px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .deadline-request-section {
+            .deadline-request-item {
+              .content {
+                text-align: center;
+                .request-content-title {
+                  .request-content-title-name {
+                    margin-top: 15px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    .applicant-image {
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .fedbeck-section {
+            .content {
+              text-align: center;
+              .fedbeck {
+                .request-content-title-name {
+                  margin-bottom: 5px;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  margin-bottom: 20px;
+                  .applicant-image {
+                    margin-bottom: 10px;
+                  }
+                }
+              }
+            }
+          }
+          .send-section {
+            .content {
+              .fedbeck {
+                flex-wrap: wrap;
+                justify-content: space-around;
+                .hours {
+                  position: absolute;
+                  bottom: -10px;
+                  right: -10px;
+                }
+                .request-content-title-name {
+                  text-align: center;
+                  flex-wrap: wrap;
+                  justify-content: space-around;
+                  margin-bottom: 10px;
+                  .applicant-image {
+                    margin-bottom: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

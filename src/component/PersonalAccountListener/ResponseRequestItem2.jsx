@@ -8,7 +8,7 @@ const ResponseRequestItem2 = () => {
     return (
         <div className="response-request-2">
             <div className="content-line" />
-            <div className="user-item">
+            <div className="user-item-wrapper">
                 <UserItem />
                 <ReactionStars />
             </div>

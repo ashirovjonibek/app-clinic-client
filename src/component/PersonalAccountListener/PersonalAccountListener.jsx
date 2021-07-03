@@ -26,6 +26,8 @@ const PersonalAccountListener = (props) => {
         switch (n) {
             case 1:
                 return <AppealSection/>
+            case 2:
+                return <ResponseRequestItem/>
         }
     }
 
@@ -67,14 +69,19 @@ const PersonalAccountListener = (props) => {
                             </div>
                         </div>
                         <div className="content-wrapper">
-                            {
-                                Applications(1)
-                            }
+                            <IncomingRequestSection />
+                           {/* <AppealSection />
+                           <CallFlowSection />
+                           <ResponseRequestSection />
+                           <DeadlineRequestSection />  */}
+                           {/* <FedbeckSection /> */}
+                           {/* <DirectorySection /> */}
+                           {/* <SendSection /> */}
                         </div>
                     </section>
                 </div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }

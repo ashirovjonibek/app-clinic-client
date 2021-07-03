@@ -1,7 +1,7 @@
 import React from "react";
 import UserAppealItem from "../UserAppealItem";
 
-const YourAppelSection = () => {
+const YourAppealSection = () => {
     return (
         <div>
             <UserAppealItem />
@@ -14,4 +14,4 @@ const YourAppelSection = () => {
     );
 }
 
-export default YourAppelSection;
+export default YourAppealSection;

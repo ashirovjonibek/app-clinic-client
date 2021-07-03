@@ -9,7 +9,7 @@ const UserItem = () => {
                     <img height="55px" width="55px" src={user1Img} alt="" />
                 </div>
                 <div className="user-inform">
-                    <div className="user-name">Турсунов Тулкин Мирзаевич</div>
+                    <div className="user-name">Турсунов Тулкин </div>
                     <div className="user-porofeesion">Эксперт по гражданскому праву</div>
                 </div>
             </div>

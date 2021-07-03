@@ -11,7 +11,7 @@ const ResponseRequestItem = () => {
                 <div className="request-content-title">
                     <div className="request-content-title-name">
                         <UserName text="Турсунов Тулкин Мирзаевич" />
-                        <div>id: 12345</div>
+                        <div className="id">id: 12345</div>
                     </div>
                 </div>
                 <RequestTheme />

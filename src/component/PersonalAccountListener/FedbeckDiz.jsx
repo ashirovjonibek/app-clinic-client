@@ -4,11 +4,11 @@ import UserName from "../UserName";
 
 const FedbeckDiz = (props) => {
     return (
-        <div className="fedbeck">
-            <div className="fedbeck-title">
+        <div className="content">
+            <div className="fedbeck">
                 <UserName text="Турсунов Тулкин Мирзаевич" />
                 <div className="request-content-title-date">
-                    <button style={{ borderColor: '#FF4500', color: '#FF4500' }}>Неудовлетворительно</button>
+                    <button className="fedbeck-red-btn">Неудовлетворительно</button>
                 </div>
             </div>
             <div className="fedbeck-content">

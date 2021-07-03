@@ -68,7 +68,7 @@ function RegistrationListener(props) {
         <div className="registration-listnear container-fluit">
             <div className="container">
                 <div className="registration-listnear-wrapper">
-                    <Title text="Регистрация"/>
+                    <Title text="Регистрация" />
                     <h5>Анкетные данные</h5>
                     <form onSubmit={handleSend}>
                         <div className="form-wrapper">
@@ -183,7 +183,7 @@ function RegistrationListener(props) {
                                     </ul>
                                 </li>
                             </ul>
-                            <div style={{margin: '20px 0 0 auto'}}>
+                            <div className="button-submit">
                                 <button type="submit" className="btn-default">Регистрация</button>
                             </div>
 

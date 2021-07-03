@@ -1,4 +1,332 @@
 .acount-applicant {
-    padding: 100px 0;
-    background-color: #f4f8ff;
+  padding: 100px 0;
+  background-color: #f4f8ff;
+  .container {
+    .section-body {
+      .content-wrapper {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .acount-applicant {
+    .container {
+      .section-body {
+        padding: 50px 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .acount-applicant {
+    .container {
+      .section-body {
+        display: flex;
+        padding: 50px 0;
+        flex-direction: column;
+        .navbar-wrapper {
+          width: 100%;
+          margin-bottom: 15px;
+          .navbarr {
+            width: 100%;
+            padding: 20px 10px;
+            ul {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              width: 100%;
+              li {
+                max-width: 46%;
+                margin: 7px 12px;
+                a {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+        .content-wrapper {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .acount-applicant {
+    .container {
+      .section-body {
+        .navbar-wrapper {
+          width: 100%;
+          .navbarr {
+            width: 100%;
+            ul {
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+              li {
+                max-width: 100%;
+                margin: 7px 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .acount-applicant {
+    .container {
+      padding: 0 20px;
+      .section-body {
+        .content-wrapper {
+          .per-acc-app-call-flow-item {
+            .document-prosses {
+              text-align: center;
+              .new,
+              .progressing,
+              .close {
+                width: 100px;
+                .prosses-item {
+                  height: 32px;
+                  width: 32px;
+                  .prosses-item-active {
+                    height: 18px;
+                    width: 18px;
+                  }
+                }
+              }
+              .line {
+                margin-top: 15px;
+              }
+              h3 {
+                font-size: 14px;
+              }
+            }
+            .document-text {
+              .document-text-title {
+                display: flex;
+                flex-direction: column;
+                h4 {
+                  margin-bottom: 15px;
+                }
+              }
+            }
+          }
+          .per-acc-app-period-section {
+            .period-section-title {
+              text-align: center;
+            }
+            .bottom-inform {
+              text-align: center;
+              width: 100%;
+            }
+          }
+          .per-acc-app-response-request {
+            height: 1050px;
+            .document-text-title {
+              flex-direction: column;
+              h4 {
+                margin-bottom: 10px;
+              }
+            }
+            .categories {
+              ul {
+                flex-direction: column;
+                li {
+                  margin-bottom: 10px;
+                  text-align: center;
+                  width: 100%;
+                }
+              }
+            }
+            .answer-score {
+              flex-direction: column;
+              h4 {
+                margin-bottom: 15px;
+              }
+              .answer-score-button {
+                flex-direction: column;
+                button {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+          }
+          .send-section {
+            .fedbeck {
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 768px) {
+//   .acount-applicant {
+//     .container {
+//       padding: 0;
+//       .section-body {
+//         padding: 0;
+//         flex-wrap: wrap;
+//         div {
+//           .navbar-wrapper {
+//             // width: 100vw;
+//             .navbarr {
+//               width: 90%;
+//               // margin: 10px auto;
+//               ul {
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 justify-content: center;
+//                 gap: 10px;
+//                 li {
+//                   margin-bottom: 0;
+//                   width: 268px;
+//                   height: 50px;
+//                   text-align: center;
+//                   font-size: 12px;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .content-wrapper {
+//           width: 90%;
+//           margin: 0 auto;
+//           .supervisor-statistic-section {
+//             .statistic-section-item {
+//               .statistic-regions {
+//                 .statistic-section-item-body {
+//                   height: 600px;
+//                 }
+//               }
+
+//               .statistic-year-categories {
+//                 .statistic-section-item-body {
+//                   height: 700px;
+//                 }
+//               }
+//               .statistic-gender {
+//                 .statistic-section-item-body {
+//                   height: 660px;
+//                 }
+//               }
+//               .statistic-overdue {
+//                 .statistic-section-item-body {
+//                   height: 600px;
+//                 }
+//               }
+
+//               .statistic-status {
+//                 .statistic-section-item-body {
+//                   height: 660px;
+//                 }
+//               }
+
+//               .statistic-categories {
+//                 .statistic-section-item-body {
+//                   height: 660px;
+//                 }
+//               }
+
+//               .statistic-lgots {
+//                 .statistic-section-item-body {
+//                   height: 860px;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 480px) {
+  .acount-applicant {
+    .container {
+      padding: 0 20px;
+      .section-body {
+        .content-wrapper {
+          .per-acc-app-response-request {
+            height: 1150px;
+          }
+          .send-section {
+            .fedbeck {
+              .request-content-title-name {
+                text-align: center;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin-bottom: 10px;
+                .applicant-image {
+                  margin-bottom: 10px;
+                }
+                .name {
+                  align-items: center;
+                }
+                // .name {
+                //   align-items: center;
+                // }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .acount-applicant {
+    .container {
+      padding: 0 20px;
+      .section-body {
+        .content-wrapper {
+          .per-acc-app-response-request {
+            height: 1350px;
+            .user-item {
+              height: 100px;
+              margin: 20px;
+              text-align: center;
+              .user-person-inform {
+                flex-direction: column;
+                margin: 20px 0;
+              }
+            }
+
+            .file-upload {
+              flex-direction: column;
+              .file {
+                margin-top: 15px;
+                width: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .acount-applicant {
+    .container {
+      .section-body {
+        .content-wrapper {
+          .per-acc-app-response-request {
+            height: 1500px;
+          }
+        }
+      }
+    }
+  }
 }
