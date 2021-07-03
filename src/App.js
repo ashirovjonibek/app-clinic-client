@@ -22,20 +22,6 @@ import {useHistory, useLocation} from 'react-router-dom'
 import {openPages} from "./utils/config";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
-
-import YourAppelSection from "./component/PersonalAccountApplicant/YourAppelSection";
-import PerAccAppCallFlowSection from "./component/PersonalAccountApplicant/PerAccAppCallFlowSection";
-import PerAccAppPeriodSection from "./component/PersonalAccountApplicant/PerAccAppPeriodSection";
-import PerAccAppResponseRequest from "./component/PersonalAccountApplicant/PerAccAppResponseRequest";
-import SendSection from "./component/PersonalAccountListener/SendSection";
-import AppealItem from "./component/PersonalAccountListener/AppealItem";
-import IncomingRequestSection from "./component/PersonalAccountListener/IncomingRequestSection";
-import ResponseRequestSection from "./component/PersonalAccountListener/ResponseRequestSection";
-import DeadlineRequestSection from "./component/PersonalAccountListener/DeadlineRequestSection";
-import AppealSection from "./component/PersonalAccountListener/AppealSection";
-import CallFlowSection from "./component/PersonalAccountListener/CallFlowSection";
-import FedbeckSection from "./component/PersonalAccountListener/FedbeckSection";
-import DirectorySection from "./component/PersonalAccountListener/DirectorySection";
 import {ApiContext} from "./utils/ApiContext";
 
 // import {userMe} from "./utils/UserService";

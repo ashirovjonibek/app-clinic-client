@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react';
 import {Link} from "react-router-dom";
 import {Button} from "@material-ui/core";
 import {STORAGE_NAME} from "../../utils/constant";
+import enterImg from '../../assets/img/enter-img.svg'
 
 
 const Enter = () => {
@@ -14,7 +15,7 @@ const Enter = () => {
         <div className="enter">
             <div className="enter-btn">
                 <div className="enter-img">
-                    <img src={enterImg} alt="enter img" />
+                    <img src={enterImg} alt="enter img"/>
                 </div>
                 Войти
             </div>

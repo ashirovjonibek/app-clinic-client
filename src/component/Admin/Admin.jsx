@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {withStyles, fade} from "@material-ui/core/styles";
@@ -211,7 +211,7 @@ class Admin extends Component {
             this.setState({openDropDown: !openDropDown})
         };
         const handleClickCatalog = () => {
-            router.push('/catalog')
+
             this.setState({openDropDownCatalog: !openDropDownCatalog})
         };
 
@@ -370,7 +370,7 @@ class Admin extends Component {
                         </div>
                         <Divider/>
                         <List>
-                            <ListItem button onClick={() => router.push('/')}>
+                            <ListItem button>
                                 <ListItemIcon>
                                     <HomeIcon/>
                                 </ListItemIcon>
@@ -388,13 +388,13 @@ class Admin extends Component {
                             <Collapse in={openDropDown} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
 
-                                    <ListItem button onClick={() => router.push('/event')} className={classes.nested}>
+                                    <ListItem button  className={classes.nested}>
                                         <ListItemIcon>
                                             <DnsIcon/>
                                         </ListItemIcon>
                                         <ListItemText>About Conference</ListItemText>
                                     </ListItem>
-                                    <ListItem button onClick={() => router.push('/event')} className={classes.nested}>
+                                    <ListItem button  className={classes.nested}>
                                         <ListItemIcon>
                                             <CardGiftcardIcon/>
                                         </ListItemIcon>
@@ -403,7 +403,7 @@ class Admin extends Component {
                                     </ListItem>
                                 </List>
                             </Collapse>
-                            <ListItem button onClick={() => router.push('/history')}>
+                            <ListItem button >
                                 <ListItemIcon>
                                     <ListIcon color="primary"/>
                                 </ListItemIcon>
@@ -411,13 +411,13 @@ class Admin extends Component {
                                     History
                                 </ListItemText>
                             </ListItem>
-                            <ListItem button onClick={() => router.push('/news')}>
+                            <ListItem button >
                                 <ListItemIcon>
                                     <TvIcon/>
                                 </ListItemIcon>
                                 <ListItemText><Link style={{color: "black"}} to="/news">News</Link></ListItemText>
                             </ListItem>
-                            <ListItem button onClick={() => router.push('/contact')}>
+                            <ListItem button >
                                 <ListItemIcon>
                                     <ContactPhoneIcon/>
                                 </ListItemIcon>
@@ -437,7 +437,7 @@ class Admin extends Component {
                             </ListItem>
                             <Collapse in={openDropDownCatalog} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
-                                    <ListItem button onClick={() => router.push('/catalog/country')}
+                                    <ListItem button
                                               className={classes.nested}>
                                         <ListItemIcon>
                                             <DnsIcon/>
@@ -445,14 +445,14 @@ class Admin extends Component {
                                         <ListItemText><Link style={{color: "black"}}
                                                             to="/catalog/country">Country</Link></ListItemText>
                                     </ListItem>
-                                    <ListItem button onClick={() => router.push('/catalog/region')}
+                                    <ListItem button
                                               className={classes.nested}>
                                         <ListItemIcon>
                                             <CardGiftcardIcon/>
                                         </ListItemIcon>
                                         <ListItemText><Link style={{color: "black"}} to="/catalog/region">Region</Link></ListItemText>
                                     </ListItem>
-                                    <ListItem button onClick={() => router.push('/catalog/district')}
+                                    <ListItem button
                                               className={classes.nested}>
                                         <ListItemIcon>
                                             <PublicIcon/>
@@ -468,9 +468,6 @@ class Admin extends Component {
                         [classes.contentShift]: isOpen,
                     })}>
                         <div className={classes.drawerHeader}/>
-                        <ToastContainer/>
-                        {props.children}
-                        <Footer/>
 
                     </main>
 
@@ -485,4 +482,4 @@ Admin.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(useStyles, {withTheme: true})(BasicLayout);
+export default withStyles(useStyles, {withTheme: true})(Admin);
