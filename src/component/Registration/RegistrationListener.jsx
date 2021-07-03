@@ -88,52 +88,45 @@ function RegistrationListener(props) {
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="positionId">Должность</label>
-                                            <div>
-                                                <select id="positionId" name="positionId" onChange={handleChange}
-                                                        className="category">
-                                                    <option value="">Выберите ваш должность</option>
-                                                    {positions && positions.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.title.uz}</option>
-                                                    )}
-                                                </select>
-                                            </div>
+                                            <select id="positionId" name="positionId" onChange={handleChange}
+                                                    className="category">
+                                                <option value="">Выберите ваш должность</option>
+                                                {positions && positions.map((item, i) =>
+                                                    <option key={i} value={item.id}>{item.title.uz}</option>
+                                                )}
+                                            </select>
                                         </li>
                                         <li>
 
                                             <label className="label" htmlFor="course">Курс</label>
-                                            <div>
-                                                <select id="course" name="course" onChange={handleChange}
-                                                        className="category">
-                                                    <option value="">Выберите ваш курс</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
-                                            </div>
+
+                                            <select id="course" name="course" onChange={handleChange}
+                                                    className="category">
+                                                <option value="">Выберите ваш курс</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="regionId">Городь</label>
-                                            <div>
-                                                <select id="regionId" name="regionId" onChange={handleChange}
-                                                        className="category">
-                                                    <option value="">Выберите ваш городь</option>
-                                                    {regions && regions.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.name.uz}</option>
-                                                    )}
-                                                </select>
-                                            </div>
+                                            <select id="regionId" name="regionId" onChange={handleChange}
+                                                    className="category">
+                                                <option value="">Выберите ваш городь</option>
+                                                {regions && regions.map((item, i) =>
+                                                    <option key={i} value={item.id}>{item.name.uz}</option>
+                                                )}
+                                            </select>
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="districtId">Раён</label>
-                                            <div>
-                                                <select id="districtId" name="districtId" onChange={handleChange}
-                                                        className="category">
-                                                    <option value="">Выберите ваш раён</option>
-                                                    {districts && districts.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.name.uz}</option>
-                                                    )}
-                                                </select>
-                                            </div>
+                                            <select id="districtId" name="districtId" onChange={handleChange}
+                                                    className="category">
+                                                <option value="">Выберите ваш раён</option>
+                                                {districts && districts.map((item, i) =>
+                                                    <option key={i} value={item.id}>{item.name.uz}</option>
+                                                )}
+                                            </select>
                                         </li>
                                     </ul>
                                 </li>
@@ -149,15 +142,13 @@ function RegistrationListener(props) {
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="sectionId">Кафедра</label>
-                                            <div>
-                                                <select id="sectionId" name="sectionId" onChange={handleChange}
-                                                        className="category">
-                                                    <option value="">Кафедра</option>
-                                                    {sections && sections.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.title.uz}</option>
-                                                    )}
-                                                </select>
-                                            </div>
+                                            <select id="sectionId" name="sectionId" onChange={handleChange}
+                                                    className="category">
+                                                <option value="">Кафедра</option>
+                                                {sections && sections.map((item, i) =>
+                                                    <option key={i} value={item.id}>{item.title.uz}</option>
+                                                )}
+                                            </select>
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="phoneNumber">Телефон</label>

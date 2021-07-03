@@ -6,32 +6,71 @@ import Title from "../Title";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withRouter} from 'react-router-dom';
+import {toast} from "react-toastify";
 
 const Login = (props) => {
     const {history} = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
+    const [currentUser, setCurrentUser] = useState({});
+    // if (app.currentUser.roles.filter(i =>
+    //     i.name === 'ROLE_ADMIN'
+    // ).length === 0) {
+    //     router.push("/event")
+    // }
     const handleLogin = (e) => {
         e.preventDefault()
-
-        console.log(phoneNumber)
-        console.log(password)
-        if (phoneNumber != undefined && password != undefined) {
+        if (phoneNumber !== undefined && password !== undefined) {
             axios({
-                url: API_URL + "auth/login",
+                url: "http://localhost:8080/api/auth/login",
                 method: 'POST',
-                data:
-                    {
-                        phoneNumber, password
-                    }
+                data: {
+                    phoneNumber, password
+                }
             }).then(res => {
                 if (res.status === 200) {
                     localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
-                    history.push("/personalAccountListener")
+                    // history.push("/personalAccountListener")
+                    const token = localStorage.getItem(STORAGE_NAME);
+                    axios({
+                        url: 'http://localhost:8080/api/auth/me',
+                        method: 'GET',
+                        headers: {
+                            'Authorization': token
+                        }
+                    }).then(res => {
+                        console.log(res)
+                        if (!res.data.success) {
+                            localStorage.removeItem(STORAGE_NAME);
+                            history.push('/auth/login');
+                        } else {
+                            if (res.data.object != null) {
+                                setCurrentUser(res.data.object);
+                                if (res.data.object.authorities.filter(i => i.name === 'ADMIN').length > 0) {
+                                    history.push('/admin')
+                                } else if (res.data.object.authorities.filter(i => i.name === 'BOSS').length > 0) {
+                                    history.push('/personalAccountSupervisor')
+                                } else if (res.data.object.authorities.filter(i => i.name === 'MODERATOR').length > 0) {
+                                    history.push('/personalAccountModerator')
+                                }
+                                if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'LISTENER')) {
+                                    history.push('/personalAccountListener')
+                                } else if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'USER')) {
+                                    history.push('/personalAccountApplicant')
+                                }
+                            } else {
+                                history.push('/auth/login')
+                            }
+                        }
+                    })
                 }
+            }).catch(error => {
+                toast.error("User Not found !")
             })
         }
+
     }
+
 
     const changeLogin = (e) => {
         setPhoneNumber(e.target.value);
@@ -83,7 +122,7 @@ const Login = (props) => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 export default withRouter(Login);

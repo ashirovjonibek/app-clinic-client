@@ -1,5 +1,4 @@
 import React from "react";
-
 const NavBottom = () => {
     return (
         <nav className="nav-bottom container-fluit">

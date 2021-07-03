@@ -1,8 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef} from 'react';
+import {Link} from "react-router-dom";
+import {Button} from "@material-ui/core";
+import {STORAGE_NAME} from "../../utils/constant";
+
 
 const Enter = () => {
+    const logOut = () => {
+        localStorage.removeItem(STORAGE_NAME);
+    };
 
-    
 
     return (
         <div className="enter">
@@ -10,16 +16,16 @@ const Enter = () => {
             <div className="enter-content">
                 <ul>
                     <li>
-                        <a href="">Логинь </a>
+                        <Link to="/auth/login">Логинь</Link>
                     </li>
                     <li>
-                        <a href="">Заявитель</a>
+                        <Link to="/auth/registrationApplicant">Заявитель</Link>
                     </li>
                     <li>
-                        <a href="">Слушатель</a>
+                        <Link to="/auth/registrationListener">Слушатель</Link>
                     </li>
                     <li>
-                        <a href="">Выйти</a>
+                        <Link onClick={logOut} to="/">Выйти</Link>
                     </li>
                 </ul>
             </div>
