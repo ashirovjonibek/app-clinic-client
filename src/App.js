@@ -67,8 +67,8 @@ function App() {
         location.pathname !== '/admin' ?
             <div className="App">
                 <ApiContext.Provider value={{currentUser}}>
-                    <Nav/>
-                    <ToastContainer/>
+                    {/* <Nav/>
+                    <ToastContainer/> */}
                     <Switch>
                         <Route exact path="/" component={FirstHome}/>
                         <Route exact path="/auth/login" component={Login}/>

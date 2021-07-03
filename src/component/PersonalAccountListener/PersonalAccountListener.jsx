@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Route, Switch} from "react-router";
 
-// import CenterSends from "./CenterSends";
+import CenterSends from "./CenterSends";
 import DirectoryPdf from "./DirectoryPdf";
 import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
@@ -70,13 +70,13 @@ const PersonalAccountListener = (props) => {
                         </div>
                         <div className="content-wrapper">
                             <IncomingRequestSection />
-                           {/* <AppealSection />
+                           <AppealSection />
                            <CallFlowSection />
                            <ResponseRequestSection />
-                           <DeadlineRequestSection />  */}
-                           {/* <FedbeckSection /> */}
-                           {/* <DirectorySection /> */}
-                           {/* <SendSection /> */}
+                           <DeadlineRequestSection /> 
+                           <FedbeckSection />
+                           <DirectorySection />
+                           <SendSection />
                         </div>
                     </section>
                 </div>

@@ -27,19 +27,17 @@ const PersonalAccountSupervisor = () => {
                         <section className="section-body">
                             <PerAccSupervisorSiteBar />
                             <div className="content-wrapper">
-                                <Switch>
-                                    <Route exact path="/" component={PerAccSupListenersSection} />
-                                    <Route exact path="/supervisorIncomingRequestSection" component={SupervisorIncomingRequestSection} />
-                                    <Route exact path="/supervisorResponsesRequestSection" component={SupervisorResponsesSection} />
-                                    <Route exact path="/supervisorApplicantSection" component={SupervisorApplicantSection} />
-                                    <Route exact path="/supervisorAppeals" component={SupervisorAppealSection} />
-                                    <Route exact path="/supervisorCallFlow" component={SupervisorCallFlowSection} />
-                                    <Route exact path="/supervisorFeedbakRequest" component={SupervisorFeedbakRequestSection} />
-                                    <Route exact path="/supervisorDirectorySection" component={SupervisorDirectorySection} />
-                                    <Route exact path="/supervisorReytingListnear" component={SupervisorReytingListnear} />
-                                    <Route exact path="/supervisorStatisticSection" component={SupervisorStatisticSection} />
-                                    <Route exact path="/supervisorArchive" component={SupervisorArchive} />
-                                </Switch>
+                                <PerAccSupListenersSection />
+                                <SupervisorIncomingRequestSection />
+                                <SupervisorResponsesSection />
+                                <SupervisorApplicantSection />
+                                <SupervisorAppealSection />
+                                <SupervisorCallFlowSection />
+                                <SupervisorFeedbakRequestSection />
+                                <SupervisorDirectorySection />
+                                <SupervisorReytingListnear />
+                                <SupervisorStatisticSection />
+                                <SupervisorArchive />
                             </div>
                         </section>
                     </div>
