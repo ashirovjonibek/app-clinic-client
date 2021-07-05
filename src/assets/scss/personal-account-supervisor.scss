@@ -51,6 +51,56 @@
                         }
                     }
                 }
+                .supervisor-feedbak-request-section {
+                    .supervisor-feedbak-request-dizz,
+                    .supervisor-feedbak-request-item {
+                        .content {
+                            .avatar {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin-bottom: 15px;
+                                .red-btn {
+                                    border: 2px solid #e91f1f;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #e91f1f;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                                .green-btn {
+                                    border: 2px solid #63aa55;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #63aa55;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .supervisor-reyting-listnear-section {
+                    .supervisor-reyting-listnear-item {
+                        .content {
+                            .fedbeck {
+                                .reyting-stars {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    img {
+                                        margin: 0 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .supervisor-statistic-section {
+                    .responsive-nav-top {
+                        display: none;
+                    }
+                }
             }
         }
     }
@@ -226,6 +276,32 @@
                             }
                         }
                     }
+                    .supervisor-reyting-listnear-section {
+                        .supervisor-reyting-listnear-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .supervisor-statistic-section {
+                        .statistic-section-nav-top {
+                            display: none;
+                        }
+                        .responsive-nav-top {
+                            display: block;
+                            border-radius: 20px;
+                            box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                            margin: 20px auto;
+                            width: 240px;
+                            padding: 10px;
+                        }
+                    }
                 }
             }
         }
@@ -398,6 +474,61 @@
                             }
                         }
                     }
+                    .sipervisor-call-falow-section {
+                        .sipervisor-call-falow-item {
+                            .content {
+                                .document-prosses {
+                                    .new,
+                                    .progressing,
+                                    .close {
+                                        width: 100px;
+                                        .prosses-item {
+                                            height: 32px;
+                                            width: 32px;
+                                            .prosses-item-active {
+                                                height: 18px;
+                                                width: 18px;
+                                            }
+                                        }
+                                    }
+                                    .line {
+                                        margin-top: 15px;
+                                    }
+                                    h3 {
+                                        font-size: 14px;
+                                    }
+                                }
+                                .document-text {
+                                    align-items: center;
+                                    .document-text-title {
+                                        align-items: center;
+                                        display: flex;
+                                        flex-direction: column;
+                                        h4 {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .supervisor-feedbak-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                .user-item {
+                                    justify-content: center;
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -441,6 +572,64 @@
                                 .document-text {
                                     .document-text-title {
                                         text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .sipervisor-call-falow-item {
+                        .content {
+                            .document-text-item {
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .supervisor-feedbak-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                text-align: center;
+                                .user-item {
+                                    .user-person-inform {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .user-img {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .supervisor-reyting-listnear-section {
+                        .supervisor-reyting-listnear-item {
+                            .content {
+                                text-align: center;
+                                .fedbeck {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .user-img {
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .reyting-stars {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .stars {
+                                            margin-top: 15px;
+                                        }
                                     }
                                 }
                             }
