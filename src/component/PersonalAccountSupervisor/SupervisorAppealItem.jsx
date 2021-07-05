@@ -12,18 +12,16 @@ const SupervisorAppealItem = () => {
             <div className="content">
                 <UserName text="Aliyev Vali" />
                 <DocumentText />
-                <div style={{ marginTop: '20px' }}>
+                <div className="request-categoriyes">
                     <SectionCategory />
                 </div>
                 <div className="content-line"></div>
-                <div style={{ marginBottom: '20px' }}>
+                <div className="request-categoriyes">
                     <UserItem />
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                    <div>
+                <div className="request-bottom">
+                    <div className="file-upload">
                         <Label text="Ответ:" />
-                    </div>
-                    <div style={{ marginLeft: '10px' }}>
                         <InputFile />
                     </div>
                 </div>

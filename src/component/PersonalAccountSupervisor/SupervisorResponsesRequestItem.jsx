@@ -5,7 +5,6 @@ import InputFile from "../InputFile";
 import SectionCategory from "../SectionCategory";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
-import ButtonWhite from "../ButtonWhite";
 
 const SupervisorResponsesRequestItem = () => {
     return (
@@ -13,20 +12,20 @@ const SupervisorResponsesRequestItem = () => {
             <div className="content">
                 <UserName text="Aliyev Vali" />
                 <DocumentText />
-                <div style={{ marginTop: '20px' }}>
+                <div className="request-categoriyes">
                     <SectionCategory />
                 </div>
                 <div className="content-line"></div>
-                <div style={{ marginBottom: '20px' }}>
+                <div className="request-categoriyes">
                     <UserItem />
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+                <div className="request-bottom">
                     <div className="file-upload">
                         <Label text="Ответ:" />
                         <InputFile />
                     </div>
                     <div>
-                        <ButtonWhite />
+                        <button className="green-btn">Удовлетворительно</button>
                     </div>
                 </div>
             </div>
