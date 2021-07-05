@@ -1,0 +1,151 @@
+.account-moderator {
+    padding: 100px 0;
+    background-color: #f4f8ff;
+    .container {
+        .section-body {
+            .content-wrapper {
+                width: 100%;
+                .moderator-heads-department-section {
+                    .moderator-heads-department-item {
+                        .content {
+                            .fedbeck {
+                                flex-wrap: wrap;
+                                .user-item {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                padding: 50px 13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                display: flex;
+                padding: 50px 0;
+                flex-direction: column;
+                .navbar-wrapper {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .navbarr {
+                        width: 100%;
+                        padding: 20px 10px;
+                        ul {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            li {
+                                max-width: 46%;
+                                margin: 7px 12px;
+                                a {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                .navbar-wrapper {
+                    .navbarr {
+                        ul {
+                            li {
+                                max-width: 100%;
+                                margin: 7px 0px;
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    .moderator-heads-department-section {
+                        .listnears-section-top {
+                            flex-wrap: wrap;
+                            justify-content: space-around;
+                            .send-list {
+                                margin-bottom: 10px;
+                            }
+                            .request-sort {
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                label {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                        .moderator-heads-department-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                .content-wrapper {
+                    .moderator-heads-department-section {
+                        .moderator-heads-department-item {
+                            .content {
+                                text-align: center;
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .user-img {
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .departmens {
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
