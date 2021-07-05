@@ -32,6 +32,18 @@
                         }
                     }
                 }
+                .supervisor-incoming-request-section {
+                    .supervisor-incoming-request-item {
+                        .content {
+                            .fedbeck {
+                                flex-wrap: wrap;
+                                .user-item {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
                 .supervisor-appeal-section {
                     .supervisor-appeal-item {
                         .content {
