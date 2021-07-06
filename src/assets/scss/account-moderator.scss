@@ -64,6 +64,35 @@
                         }
                     }
                 }
+                .moderator-fedbeck-request-section {
+                    .supervisor-feedbak-request-dizz,
+                    .supervisor-feedbak-request-item {
+                        .content {
+                            .avatar {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin-bottom: 15px;
+                                .red-btn {
+                                    border: 2px solid #e91f1f;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #e91f1f;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                                .green-btn {
+                                    border: 2px solid #63aa55;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #63aa55;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -317,6 +346,23 @@
                             }
                         }
                     }
+                    .moderator-fedbeck-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                .user-item {
+                                    justify-content: center;
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -411,6 +457,30 @@
                                     }
                                     .supervisor-applicants {
                                         align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-fedbeck-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                text-align: center;
+                                .user-item {
+                                    .user-person-inform {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .user-img {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
                                     }
                                 }
                             }
