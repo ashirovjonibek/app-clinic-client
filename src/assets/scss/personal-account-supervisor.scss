@@ -63,6 +63,18 @@
                         }
                     }
                 }
+                .supervisor-applicant-section{
+                    .supervisor-applicant-item{
+                        .content{
+                            .fedbeck{
+                                flex-wrap: wrap;
+                                .request-content-title-name{
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
                 .supervisor-feedbak-request-section {
                     .supervisor-feedbak-request-dizz,
                     .supervisor-feedbak-request-item {
