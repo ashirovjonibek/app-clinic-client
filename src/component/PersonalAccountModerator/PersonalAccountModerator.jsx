@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import NavCenter from "../Nav/NavCenter";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ModeratorHeadsDepartmentSection from "./ModeratorHeadsDepartmentSection";
 import ModeratorPerformerSection from "./ModeratorPerformerSection";
 import ModeratorListnearSection from "./ModeratorListnearSection";
@@ -10,6 +10,7 @@ import ModeratorFedbeckRequestSection from "./ModeratorFedbeckRequestSection";
 import ModeratorLegalBaseSection from "./ModeratorLegalBaseSection";
 import ModeratorListnearReytingSection from "./ModeratorListnearReytingSection";
 import ModeratorArchive from "./ModeratorArchive";
+import SupervisorStatisticSection from "../PersonalAccountSupervisor/SupervisorStatisticSection/SupervisorStatisticSection";
 
 const PersonalAccountModerator = () => {
 
@@ -42,6 +43,9 @@ const PersonalAccountModerator = () => {
                 return <ModeratorListnearReytingSection />
 
             case 9:
+                return <SupervisorStatisticSection/>
+
+            case 10:
                 return <ModeratorArchive />
 
         }

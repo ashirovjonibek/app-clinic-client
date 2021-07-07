@@ -93,6 +93,27 @@
                         }
                     }
                 }
+                .moderator-listnear-reyting-section {
+                    .moderator-listnear-reyting-item {
+                        .content {
+                            .fedbeck {
+                                .reyting-stars {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    img {
+                                        margin: 0 3px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .supervisor-statistic-section {
+                    .responsive-nav-top {
+                        display: none;
+                    }
+                }
             }
         }
     }
@@ -259,6 +280,32 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                    .moderator-listnear-reyting-section {
+                        .moderator-listnear-reyting-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .supervisor-statistic-section {
+                        .statistic-section-nav-top {
+                            display: none;
+                        }
+                        .responsive-nav-top {
+                            display: block;
+                            border-radius: 20px;
+                            box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                            margin: 20px auto;
+                            width: 240px;
+                            padding: 10px;
                         }
                     }
                 }
@@ -465,6 +512,29 @@
                     .moderator-fedbeck-request-section {
                         .supervisor-feedbak-request-dizz,
                         .supervisor-feedbak-request-item {
+                            .content {
+                                text-align: center;
+                                .user-item {
+                                    .user-person-inform {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .user-img {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-listnear-reyting-section {
+                        .moderator-listnear-reyting-item {
                             .content {
                                 text-align: center;
                                 .user-item {
