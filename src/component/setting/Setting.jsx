@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
 
 const Setting = () => {
     return (
@@ -32,6 +33,10 @@ const Setting = () => {
                     </div>
                 </div> */}
                 <div className="kafedr">
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '20px', fontWeight: '500'}}>
+                        <AddIcon fontSize='large' style={{ boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25', borderRadius: '50%', marginRight: '10px'}}/>
+                        Добавить кафедру
+                    </div>
                     <div className="table-scroll">
                         <h5 className="table-title">Кафедры</h5>
                         <table>
