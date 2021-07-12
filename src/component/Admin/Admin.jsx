@@ -7,7 +7,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import AdminListListnear from './AdminListListnear';
 import AdminListAppeal from './AdminListAppeal';
-import Setting from '../setting/Setting';
+import AdminListSupervisor from './AdminListSupervisor';
+import AdminListModerator from './AdminListModerator';
+import AdminListSetting from './AdminListSetting';
+import Setting from './Setting';
 
 const Admin = () => {
     const [sitebar, setSitebar] = useState(false);
@@ -24,11 +27,11 @@ const Admin = () => {
             case 2:
                 return <AdminListListnear />
             case 3:
-                return <AdminListListnear />
+                return <AdminListSupervisor />
             case 4:
-                return <AdminListListnear />
+                return <AdminListModerator />
             case 5:
-                return <Setting />
+                return <AdminListSetting />
         }
     }
 
@@ -74,15 +77,15 @@ const Admin = () => {
                             <ul>
                                 <li>
                                     Название кафедры
-                                    <div>9</div>
+                                    {/* <div>9</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>2</div>
+                                    {/* <div>2</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>13</div>
+                                    {/* <div>13</div> */}
                                 </li>
                             </ul>
                         </div>
@@ -95,15 +98,15 @@ const Admin = () => {
                             <ul>
                                 <li>
                                     Название кафедры
-                                    <div>9</div>
+                                    {/* <div>9</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>2</div>
+                                    {/* <div>2</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>13</div>
+                                    {/* <div>13</div> */}
                                 </li>
                             </ul>
                         </div>
@@ -116,15 +119,15 @@ const Admin = () => {
                             <ul>
                                 <li>
                                     Название кафедры
-                                    <div>9</div>
+                                    {/* <div>9</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>2</div>
+                                    {/* <div>2</div> */}
                                 </li>
                                 <li>
                                     Название кафедры
-                                    <div>13</div>
+                                    {/* <div>13</div> */}
                                 </li>
                             </ul>
                         </div>
@@ -150,7 +153,7 @@ const Admin = () => {
                                 />
                             </div>
                             <div className="header-logo">
-                                <MenuIcon fontSize='large' onClick={() => setSitebar(!sitebar)} />
+                                <MenuIcon fontSize='large' style={{cursor: 'pointer'}} onClick={() => setSitebar(!sitebar)} />
                             </div>
                             <div className="header-right">
                                 <div className="header-right-desctop">

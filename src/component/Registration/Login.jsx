@@ -19,7 +19,7 @@ const Login = (props) => {
         e.preventDefault()
         if (phoneNumber !== undefined && password !== undefined) {
             axios({
-                url: API_URL + "api/auth/login",
+                url: API_URL + "/auth/login",
                 method: 'POST',
                 data: {
                     phoneNumber, password
@@ -30,7 +30,7 @@ const Login = (props) => {
                     // history.push("/personalAccountListener")
                     const token = localStorage.getItem(STORAGE_NAME);
                     axios({
-                        url: API_URL +  'api/auth/me',
+                        url: API_URL +  '/auth/me',
                         method: 'GET',
                         headers: {
                             'Authorization': token

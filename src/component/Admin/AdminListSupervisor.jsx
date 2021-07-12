@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react";
 import { API_URL } from "../../utils/constant";
 import axios from "axios";
 
-const AdminListListnear = () => {
+const AdminListSupervisor = () => {
 
-  const [listnear, setListnear] = useState([]);
+  const [supervisor, setSupervisor] = useState([]);
 
   useEffect(() => {
     axios.get(API_URL + "/auth/applicants").then(res => {
-            setListnear(res.data);
+            setSupervisor(res.data);
         });
   }, [])
 
@@ -63,7 +63,7 @@ const AdminListListnear = () => {
               <th className="table-border tel">Телефон</th>
               <th className="table-border pochta">Почта</th>
             </tr>
-            {listnear && listnear.map((item, i) => 
+            {supervisor && supervisor.map((item, i) => 
             <tr key={i} value={item.id}>
               <td className="table-border applicant-name">{item.fullName}</td>
               <td className="table-border">{item.nationId}</td>
@@ -80,4 +80,4 @@ const AdminListListnear = () => {
   );
 }
 
-export default AdminListListnear;
+export default AdminListSupervisor;

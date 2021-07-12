@@ -19,8 +19,10 @@
       justify-content: flex-end;
       align-items: center;
       border-bottom: 1px solid rgb(226, 219, 219);
+      cursor: pointer;
     }
     .accordion__section {
+      cursor: pointer;
       .accordion {
         display: flex;
         flex-direction: row;
@@ -216,6 +218,67 @@
         }
         .date {
           width: 170px;
+        }
+      }
+    }
+  }
+  .admin-list-setting {
+    padding: 20px;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    .table-scroll {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #e2e2e2;
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #c2c2c2;
+      }
+    }
+    .list-add {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    table {
+      margin-bottom: 10px;
+      width: 1260px;
+      tr {
+        width: 100%;
+        .table-border {
+          text-align: center;
+          background: #ffffff;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+          padding: 10px 15px;
+          margin: 1px;
+        }
+        .number {
+          width: 60px;
+        }
+        .name-uz {
+          width: 370px;
+        }
+        .name-ru {
+          width: 370px;
+        }
+        .name-en {
+          width: 370px;
+        }
+        .edit{
+          width: 80px;
+          height: 40px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
         }
       }
     }
