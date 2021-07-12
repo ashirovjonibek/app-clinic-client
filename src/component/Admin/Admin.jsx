@@ -17,7 +17,7 @@ const Admin = () => {
     const [listnearContentItem, setListnearContentItem] = useState(false);
     const [supervisorContentItem, setSupervisorContentItem] = useState(false);
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
-    const [contentItem, setContentItem] = useState(false);
+    const [settingContentItem, setSettingContentItem] = useState(false);
     const [pageQount, setPageQount] = useState(1);
 
     function AdminSitebarItem(n) {
@@ -52,6 +52,11 @@ const Admin = () => {
     const handleModerator = () => {
         getPage(4);
         setModeratorContentItem(!moderatorContentItem);
+    }
+
+    const handleSetting = () => {
+        getPage(5);
+        setSettingContentItem(!settingContentItem);
     }
 
     return (
@@ -133,11 +138,20 @@ const Admin = () => {
                         </div>
                     </li>
                     <li className="accordion__section">
-                        <div className="accordion" onClick={() => getPage(5)}>
+                        <div className="accordion" onClick={handleSetting}>
                             <h3 className="accordion__title">Настройки</h3>
                         </div>
-                        <div className="accordion__content" id={contentItem ? "content__items" : ""}>
-                            <p className="accordion__text">sdsasf</p>
+                        <div className="accordion__content" id={settingContentItem ? "content__items" : ""}>
+                            <ul>
+                                <li>
+                                    Название кафедры
+                                    {/* <div>9</div> */}
+                                </li>
+                                <li>
+                                    Название лготь
+                                    {/* <div>2</div> */}
+                                </li>
+                            </ul>
                         </div>
                     </li>
                 </ul>

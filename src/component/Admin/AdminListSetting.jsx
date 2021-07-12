@@ -28,10 +28,10 @@ const AdminListSetting = () => {
                                 <td className="table-border">Jinoiy ishlar</td>
                                 <td className="table-border">Уголовные дела</td>
                                 <td className="table-border">Criminal cases</td>
-                                <div className="edit">
+                                <td className="table-border edit">
                                     <EditIcon />
                                     <DeleteIcon />
-                                </div>
+                                </td>
                             </tr>
                         </table>
                     </div>
