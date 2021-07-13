@@ -1,7 +1,7 @@
 .home {
     background-color: #f4f8ff;
     .header-img {
-        height: 100vh;
+        height: 600px;
         background: url(../img/header-img.jpg) center/cover no-repeat;
         margin-bottom: 10px;
         button {
@@ -11,10 +11,10 @@
     #what-clinic {
         display: flex;
         flex-direction: row;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         .what-clinic-text,
         .what-clinic-mini {
-            height: 350px;
+            height: 340px;
             border-radius: 10px;
             margin: 10px;
             background-color: white;
@@ -33,12 +33,92 @@
         }
     }
     #cel-clinic,
-    #purpose-clinic,
-    #popular-clinic,
     #legal-clinic,
     #adres-procuratura {
-        height: 400px;
+        height: 320px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 15px 10px 30px 10px;
     }
+
+    #cel-clinic {
+        padding: 20px;
+        h5 {
+            margin: 20px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222d44;
+        }
+        .cel-clinic-text {
+            display: flex;
+            flex-direction: row;
+            .text-inform {
+                width: 50%;
+                padding-left: 35px;
+                ul {
+                    li {
+                        list-style-type: disc;
+                        margin-bottom: 20px;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+    }
+    #statistic-clinic {
+        height: 430px;
+        margin: 15px 10px 30px 10px;
+        .statistic-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 20px;
+            div {
+                height: 180px;
+                width: 290px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                h3 {
+                    font-size: 70px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    color: #222d44;
+                }
+                p {
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+    #purpose-clinic {
+        height: 620px;
+        margin: 15px 10px 20px 10px;
+        .porpose-text {
+            height: 170px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 15px;
+            p {
+                line-height: 25px;
+            }
+        }
+    }
+    #popular-clinic{
+        height: 500px;
+        margin: 15px 10px 20px 10px;
+    }
+
     #home-slider {
         background-color: white;
         height: 500px;

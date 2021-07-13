@@ -23,12 +23,12 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function WhatSlider() {
     return (
-        <div>
+        <div className="what-slider">
             <Swiper
-                spaceBetween={30}
+                spaceBetween={100}
                 centeredSlides={true}
                 autoplay={{
-                    "delay": 2500,
+                    "delay": 3000,
                     "disableOnInteraction": false
                 }}
                 pagination={{
