@@ -4,15 +4,20 @@ import Stars from "../Stars";
 
 const SupervisorReytingListnear = () => {
     return (
-        <div className="content">
-            <div className="fedbeck">
-                <UserItem />
-                <div className="reyting-stars" style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                    <div style={{marginRight: '10px'}}>Рейтинг:</div>
-                    <Stars />
+        <div className="supervisor-reyting-listnear-section">
+            <div className="supervisor-reyting-listnear-item">
+                <div className="content">
+                    <div className="fedbeck">
+                        <UserItem />
+                        <div className="reyting-stars" >
+                            <div style={{ marginRight: '10px' }}>Рейтинг:</div>
+                            <Stars />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     );
 }
 

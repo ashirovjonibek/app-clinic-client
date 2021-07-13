@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../Title";
 import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
@@ -8,22 +8,28 @@ import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonalAccountListener/SendSection";
-import Login from "../Registration/Login";
 
 const PersonalAccountApplicant = () => {
+
+    const [pageQount, setPageQount] = useState(1);
+
     function pushBar(n) {
         switch (n) {
             case 1:
-                return <Login />
+                return <YourAppealSection />
             case 2:
-                return <Login />
+                return <PerAccAppCallFlowSection />
             case 3:
-                return <Login />
+                return <PerAccAppPeriodSection />
             case 4:
-                return <Login />
+                return <PerAccAppResponseRequest />
             case 5:
-                return <Login />
+                return <SendSection />
         }
+    }
+
+    const getPage = (n) => {
+        setPageQount(n);
     }
 
     return (
@@ -36,32 +42,27 @@ const PersonalAccountApplicant = () => {
                             <div className="navbarr">
                                 <ul>
                                     <li className="navbar-items active">
-                                        <Link to="/">Ваше обращение</Link>
+                                        <Link onClick={() => getPage(1)}>Ваше обращение</Link>
                                     </li>
                                     <li className="navbar-items ">
-                                        <Link to="/perAccAppCallFlow">Статус документа</Link>
+                                        <Link onClick={() => getPage(2)}>Статус документа</Link>
                                     </li>
                                     <li className="navbar-items">
-                                        <Link to="/perAccAppPeriodSection">Срок рассмотрения</Link>
+                                        <Link onClick={() => getPage(3)}>Срок рассмотрения</Link>
                                     </li>
                                     <li className="navbar-items">
-                                        <Link to="/perAccAppResponseRequest">Ответы на обращения</Link>
+                                        <Link onClick={() => getPage(4)}>Ответы на обращения</Link>
                                     </li>
                                     <li className="navbar-items">
-                                        <Link to="/sendSection">Центр сообщений</Link>
+                                        <Link onClick={() => getPage(5)}>Центр сообщений</Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div className="content-wrapper">
-                            {/* {
-                                pushBar(2)
-                            } */}
-                            {/* <YourAppealSection /> */}
-                            {/* <PerAccAppCallFlowSection /> */}
-                            {/* <PerAccAppPeriodSection /> */}
-                            {/* <PerAccAppResponseRequest /> */}
-                            <SendSection />
+                            {
+                                pushBar(pageQount)
+                            }
                         </div>
                     </section>
                 </div>

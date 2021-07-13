@@ -110,7 +110,9 @@
               }
             }
             .document-text {
+              align-items: center;
               .document-text-title {
+                align-items: center;
                 display: flex;
                 flex-direction: column;
                 h4 {
@@ -164,92 +166,26 @@
               flex-direction: column;
             }
           }
+          .your-appeal-item-section {
+            .content-item {
+              .categories {
+                ul {
+                  flex-direction: column;
+                  width: 100%;
+                  text-align: center;
+                  li {
+                    margin-bottom: 20px;
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
-
-// @media (max-width: 768px) {
-//   .acount-applicant {
-//     .container {
-//       padding: 0;
-//       .section-body {
-//         padding: 0;
-//         flex-wrap: wrap;
-//         div {
-//           .navbar-wrapper {
-//             // width: 100vw;
-//             .navbarr {
-//               width: 90%;
-//               // margin: 10px auto;
-//               ul {
-//                 display: flex;
-//                 flex-wrap: wrap;
-//                 justify-content: center;
-//                 gap: 10px;
-//                 li {
-//                   margin-bottom: 0;
-//                   width: 268px;
-//                   height: 50px;
-//                   text-align: center;
-//                   font-size: 12px;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//         .content-wrapper {
-//           width: 90%;
-//           margin: 0 auto;
-//           .supervisor-statistic-section {
-//             .statistic-section-item {
-//               .statistic-regions {
-//                 .statistic-section-item-body {
-//                   height: 600px;
-//                 }
-//               }
-
-//               .statistic-year-categories {
-//                 .statistic-section-item-body {
-//                   height: 700px;
-//                 }
-//               }
-//               .statistic-gender {
-//                 .statistic-section-item-body {
-//                   height: 660px;
-//                 }
-//               }
-//               .statistic-overdue {
-//                 .statistic-section-item-body {
-//                   height: 600px;
-//                 }
-//               }
-
-//               .statistic-status {
-//                 .statistic-section-item-body {
-//                   height: 660px;
-//                 }
-//               }
-
-//               .statistic-categories {
-//                 .statistic-section-item-body {
-//                   height: 660px;
-//                 }
-//               }
-
-//               .statistic-lgots {
-//                 .statistic-section-item-body {
-//                   height: 860px;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 
 @media (max-width: 480px) {
   .acount-applicant {
@@ -259,6 +195,19 @@
         .content-wrapper {
           .per-acc-app-response-request {
             height: 1150px;
+            text-align: center;
+          }
+          .per-acc-app-call-flow-item {
+            .content {
+              .document-text-item {
+                text-align: center;
+              }
+            }
+          }
+          .per-acc-app-period-section{
+            .content{
+              text-align: center;
+            }
           }
           .send-section {
             .fedbeck {
@@ -269,9 +218,6 @@
                 margin-bottom: 10px;
                 .applicant-image {
                   margin-bottom: 10px;
-                }
-                .name {
-                  align-items: center;
                 }
                 // .name {
                 //   align-items: center;

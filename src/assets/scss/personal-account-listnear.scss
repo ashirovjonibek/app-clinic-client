@@ -8,14 +8,6 @@
       }
     }
   }
-  // .document-item {
-  //   min-height: 300px;
-  //   background: #ffffff;
-  //   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  //   border-radius: 10px;
-  //   padding: 20px;
-  //   margin-bottom: 30px;
-  // }
 }
 
 @media (max-width: 1200px) {
@@ -272,6 +264,43 @@
               }
             }
           }
+          .call-flow-section {
+            .call-flow-item {
+              .content {
+                .document-prosses {
+                  text-align: center;
+                  .new,
+                  .progressing,
+                  .close {
+                    width: 100px;
+                    .prosses-item {
+                      height: 32px;
+                      width: 32px;
+                      .prosses-item-active {
+                        height: 18px;
+                        width: 18px;
+                      }
+                    }
+                  }
+                  .line {
+                    margin-top: 15px;
+                  }
+                  h3 {
+                    font-size: 14px;
+                  }
+                }
+                .document-text {
+                  .document-text-title {
+                    display: flex;
+                    flex-direction: column;
+                    h4 {
+                      margin-bottom: 15px;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -283,6 +312,19 @@
     .container {
       .section-body {
         .content-wrapper {
+          text-align: center;
+          .incoming-request-section {
+            .content {
+              text-align: center;
+              .request-content-title {
+                .request-content-title-name {
+                  .applicant-image {
+                    margin-bottom: 10px;
+                  }
+                }
+              }
+            }
+          }
           .appeal-section {
             .appeal-item {
               .content {
@@ -398,6 +440,21 @@
                     margin-bottom: 10px;
                   }
                 }
+              }
+            }
+          }
+          .call-flow-section {
+            .call-flow-item {
+              .content {
+                text-align: center;
+                  .request-content-title-name {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    .applicant-image {
+                      margin-bottom: 10px;
+                    }
+                  }
               }
             }
           }

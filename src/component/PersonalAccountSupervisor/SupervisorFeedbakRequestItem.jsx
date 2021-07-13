@@ -11,9 +11,7 @@ const SupervisorFeedbakRequestItem = () => {
                 <div className="content-line" />
                 <div className='avatar'>
                     <UserName text="Aliyev Valijon" />
-                    <div>
-                        <ButtonWhite />
-                    </div>
+                    <button className="green-btn">Удовлетворительно</button>
                 </div>
             </div>
         </div>

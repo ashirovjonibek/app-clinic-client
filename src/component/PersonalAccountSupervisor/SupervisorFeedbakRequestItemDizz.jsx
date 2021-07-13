@@ -1,7 +1,6 @@
 import React from "react";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
-import ButtonWhite from "../ButtonWhite";
 import SupervisorComments from "../SupervisorComments";
 
 const SupervisorFeedbakRequestItemDizz = () => {
@@ -10,11 +9,9 @@ const SupervisorFeedbakRequestItemDizz = () => {
             <div className="content">
                 <UserItem />
                 <div className="content-line" />
-                <div className='avatar'>
+                <div className="avatar">
                     <UserName text="Aliyev Valijon" />
-                    <div>
-                        <ButtonWhite />
-                    </div>
+                    <button className="red-btn">Неудовлетворительно</button>
                 </div>
                 <SupervisorComments />
             </div>

@@ -3,8 +3,7 @@ import UserAppealItem from "../UserAppealItem";
 
 const YourAppealSection = () => {
     return (
-        <div>
-            <UserAppealItem />
+        <div className="your-appeal-item-section">
             <UserAppealItem />
             <div className="content-line"></div>
             <div className="new-request">

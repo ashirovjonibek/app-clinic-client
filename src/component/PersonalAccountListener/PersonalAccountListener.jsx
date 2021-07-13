@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
-import {Route, Switch} from "react-router";
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router";
 
-// import CenterSends from "./CenterSends";
+import CenterSends from "./CenterSends";
 import DirectoryPdf from "./DirectoryPdf";
 import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
@@ -15,20 +15,37 @@ import DirectorySection from "./DirectorySection";
 import SendSection from "./SendSection";
 import IncomingRequestSection from "./IncomingRequestSection";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import ResponseRequestItem from "./ResponseRequestItem";
 import AppealItem from "./AppealItem";
 
 
 const PersonalAccountListener = (props) => {
+    const [pageQount, setPageQount] = useState(1);
 
     function Applications(n) {
         switch (n) {
             case 1:
-                return <AppealSection/>
+                return <IncomingRequestSection />
             case 2:
-                return <ResponseRequestItem/>
+                return <AppealSection />
+            case 3:
+                return <CallFlowSection />
+            case 4:
+                return <ResponseRequestSection />
+            case 5:
+                return <DeadlineRequestSection />
+            case 6:
+                return <FedbeckSection />
+            case 7:
+                return <DirectorySection />
+            case 8:
+                return <SendSection />
         }
+    }
+
+    const getPage = (n) => {
+        setPageQount(n)
     }
 
     return (
@@ -41,42 +58,37 @@ const PersonalAccountListener = (props) => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items active">
-                                            <Link to="/">Поступившие обращения</Link>
+                                            <Link onClick={() => getPage(1)}>Поступившие обращения</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/responseRequestSection">Ответы на обращения</Link>
+                                            <Link onClick={() => getPage(2)}>Ответы на обращения</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/deadlineRequests">Срок исполнения обращений</Link>
+                                            <Link onClick={() => getPage(3)}>Срок исполнения обращений</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/appeals">Обращения</Link>
+                                            <Link onClick={() => getPage(4)}>Обращения</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/callFlow">Ход обращений</Link>
+                                            <Link onClick={() => getPage(5)}>Ход обращений</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/fedbeckSection">Ваши отзывы</Link>
+                                            <Link onClick={() => getPage(6)}>Ваши отзывы</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="/directorySection">Нормативно-правовая база</Link>
+                                            <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
                                         </li>
                                         <li className="navbar-items">
-                                            <Link to="sendSection">Центр сообщений</Link>
+                                            <Link onClick={() => getPage(8)}>Центр сообщений</Link>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div className="content-wrapper">
-                            <IncomingRequestSection />
-                           {/* <AppealSection />
-                           <CallFlowSection />
-                           <ResponseRequestSection />
-                           <DeadlineRequestSection />  */}
-                           {/* <FedbeckSection /> */}
-                           {/* <DirectorySection /> */}
-                           {/* <SendSection /> */}
+                            {
+                                Applications(pageQount)
+                            }
                         </div>
                     </section>
                 </div>

@@ -1,0 +1,563 @@
+.account-moderator {
+    padding: 100px 0;
+    background-color: #f4f8ff;
+    .container {
+        .section-body {
+            .content-wrapper {
+                width: 100%;
+                .moderator-heads-department-section {
+                    .moderator-heads-department-item {
+                        .content {
+                            .fedbeck {
+                                flex-wrap: wrap;
+                                .user-item {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .moderator-performer-section {
+                    .moderator-performer-item {
+                        .content {
+                            .avatar {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+                .moderator-listnear-section {
+                    .moderator-listnear-item {
+                        .content {
+                            .fedbeck {
+                                flex-wrap: wrap;
+                                .user-item {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .moderator-applicant-section {
+                    .moderator-applicant-item {
+                        .content {
+                            .fedbeck {
+                                flex-wrap: wrap;
+                                .request-content-title-name {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .moderator-appeals-section {
+                    .content-top {
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        .request-items,
+                        .request-search,
+                        .request-sort {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .moderator-fedbeck-request-section {
+                    .supervisor-feedbak-request-dizz,
+                    .supervisor-feedbak-request-item {
+                        .content {
+                            .avatar {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin-bottom: 15px;
+                                .red-btn {
+                                    border: 2px solid #e91f1f;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #e91f1f;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                                .green-btn {
+                                    border: 2px solid #63aa55;
+                                    box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                                    border-radius: 30px;
+                                    color: #63aa55;
+                                    background: white;
+                                    padding: 8px 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .moderator-listnear-reyting-section {
+                    .moderator-listnear-reyting-item {
+                        .content {
+                            .fedbeck {
+                                .reyting-stars {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    img {
+                                        margin: 0 3px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .supervisor-statistic-section {
+                    .responsive-nav-top {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                padding: 50px 13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                display: flex;
+                padding: 50px 0;
+                flex-direction: column;
+                .navbar-wrapper {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    .navbarr {
+                        width: 100%;
+                        padding: 20px 10px;
+                        ul {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            li {
+                                max-width: 46%;
+                                margin: 7px 12px;
+                                a {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                .navbar-wrapper {
+                    .navbarr {
+                        ul {
+                            li {
+                                max-width: 100%;
+                                margin: 7px 0px;
+                            }
+                        }
+                    }
+                }
+                .content-wrapper {
+                    .moderator-heads-department-section {
+                        .listnears-section-top {
+                            flex-wrap: wrap;
+                            justify-content: space-around;
+                            .send-list {
+                                margin-bottom: 10px;
+                            }
+                            .request-sort {
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                label {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                        .moderator-heads-department-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-performer-section {
+                        .moderator-performer-item {
+                            .content {
+                                .request-content-title {
+                                    .request-content-title-name {
+                                        margin-top: 20px;
+                                        .id {
+                                            position: absolute;
+                                            top: 5px;
+                                        }
+                                    }
+                                }
+                                .request-theme {
+                                    flex-wrap: wrap;
+                                    h3 {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                                .avatar {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-listnear-section {
+                        .moderator-listnear-item {
+                            .content {
+                                .fedbeck {
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-applicant-section {
+                        .moderator-applicant-item {
+                            .content {
+                                .fedbeck {
+                                    justify-content: space-around;
+                                    .request-content-title-name {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-appeals-section {
+                        .moderator-appeals-item {
+                            .content {
+                                .request-content {
+                                    .request-content-title {
+                                        .request-content-title-name {
+                                            margin-top: 20px;
+                                            .id {
+                                                position: absolute;
+                                                top: 5px;
+                                            }
+                                        }
+                                    }
+                                    .request-theme {
+                                        flex-wrap: wrap;
+                                        h3 {
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-listnear-reyting-section {
+                        .moderator-listnear-reyting-item {
+                            .content {
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .supervisor-statistic-section {
+                        .statistic-section-nav-top {
+                            display: none;
+                        }
+                        .responsive-nav-top {
+                            display: block;
+                            border-radius: 20px;
+                            box-shadow: (0px 0px 15px rgba(0, 0, 0, 0.1));
+                            margin: 20px auto;
+                            width: 240px;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .account-moderator {
+        .container {
+            padding: 0 20px;
+            .section-body {
+                .content-wrapper {
+                    .moderator-listnear-section {
+                        .moderator-listnear-item {
+                            .content {
+                                .fedbeck {
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .user-img {
+                                                margin-bottom: 10px;
+                                            }
+                                            .user-inform {
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-appeals-section {
+                        .moderator-appeals-item {
+                            .content {
+                                text-align: center;
+                                .document-prosses {
+                                    margin-bottom: 30px;
+                                    .new,
+                                    .progressing,
+                                    .close {
+                                        width: 100px;
+                                        .prosses-item {
+                                            height: 32px;
+                                            width: 32px;
+                                            .prosses-item-active {
+                                                height: 18px;
+                                                width: 18px;
+                                            }
+                                        }
+                                    }
+                                    .line {
+                                        margin-top: 15px;
+                                    }
+                                    h3 {
+                                        font-size: 14px;
+                                    }
+                                }
+                                .request-content {
+                                    .request-content-title {
+                                        .request-content-title-name {
+                                            margin-top: 20px;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            margin: 0 auto;
+                                            .applicant-image {
+                                                margin: 50px 0 10px 0;
+                                            }
+                                            .id {
+                                                position: absolute;
+                                                top: 5px;
+                                                left: 0;
+                                            }
+                                        }
+                                    }
+                                    .request-theme {
+                                        flex-wrap: wrap;
+                                        h3 {
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-fedbeck-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                .user-item {
+                                    justify-content: center;
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .account-moderator {
+        .container {
+            .section-body {
+                .content-wrapper {
+                    .moderator-heads-department-section {
+                        .moderator-heads-department-item {
+                            .content {
+                                text-align: center;
+                                .fedbeck {
+                                    flex-wrap: wrap;
+                                    justify-content: space-around;
+                                    .user-item {
+                                        .user-person-inform {
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .user-img {
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .departmens {
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-performer-section {
+                        .moderator-performer-item {
+                            .content {
+                                text-align: center;
+                                .request-content-title {
+                                    .request-content-title-name {
+                                        flex-direction: column;
+                                        .applicant-image {
+                                            margin-bottom: 10px;
+                                        }
+                                        .id {
+                                            left: 0;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    .user-item {
+                                        margin-bottom: 20px;
+                                        .user-person-inform {
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .user-img {
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-listnear-section {
+                        .moderator-listnear-item {
+                            .content {
+                                .fedbeck {
+                                    text-align: center;
+                                    .user-item {
+                                        margin-bottom: 20px;
+                                    }
+                                    .count-request {
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-applicant-section {
+                        .moderator-applicant-item {
+                            .content {
+                                .fedbeck {
+                                    text-align: center;
+                                    .request-content-title-name {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        margin-bottom: 20px;
+                                        .applicant-image {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                    .supervisor-applicants {
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-fedbeck-request-section {
+                        .supervisor-feedbak-request-dizz,
+                        .supervisor-feedbak-request-item {
+                            .content {
+                                text-align: center;
+                                .user-item {
+                                    .user-person-inform {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .user-img {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .moderator-listnear-reyting-section {
+                        .moderator-listnear-reyting-item {
+                            .content {
+                                text-align: center;
+                                .user-item {
+                                    .user-person-inform {
+                                        flex-direction: column;
+                                        align-items: center;
+                                        .user-img {
+                                            margin-bottom: 15px;
+                                        }
+                                    }
+                                }
+                                .avatar {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    .request-content-title-name {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

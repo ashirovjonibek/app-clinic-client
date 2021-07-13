@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import ButtonDefault from "../ButtonDefault";
-import InputText from "../InputText";
-import Label from "../Label";
 import Title from "../Title";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
@@ -22,7 +19,7 @@ const Login = (props) => {
         e.preventDefault()
         if (phoneNumber !== undefined && password !== undefined) {
             axios({
-                url: "http://localhost:8080/api/auth/login",
+                url: API_URL + "/auth/login",
                 method: 'POST',
                 data: {
                     phoneNumber, password
@@ -33,7 +30,7 @@ const Login = (props) => {
                     // history.push("/personalAccountListener")
                     const token = localStorage.getItem(STORAGE_NAME);
                     axios({
-                        url: 'http://localhost:8080/api/auth/me',
+                        url: API_URL +  '/auth/me',
                         method: 'GET',
                         headers: {
                             'Authorization': token
@@ -72,7 +69,6 @@ const Login = (props) => {
 
     }
 
-
     const changeLogin = (e) => {
         setPhoneNumber(e.target.value);
     }
@@ -94,9 +90,7 @@ const Login = (props) => {
                                         <label className="label" for="phoneNumber">Телефон</label>
                                     </div>
                                     <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
-
                                            placeholder="+998 (__) ___-__-__"/>
-
 
                                 </li>
                                 <li>
