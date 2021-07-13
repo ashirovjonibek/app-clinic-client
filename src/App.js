@@ -23,6 +23,7 @@ import {openPages} from "./utils/config";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
 import {ApiContext} from "./utils/ApiContext";
+import AdminListAppeal from "./component/Admin/AdminListAppeal";
 
 // import {userMe} from "./utils/UserService";
 
@@ -33,7 +34,7 @@ function App() {
 
     useEffect(() => {
         if (!openPages.includes(history.location.pathname)) {
-            userMe(history.location.pathname);
+            // userMe(history.location.pathname);
         }
     }, []);
 
@@ -82,11 +83,13 @@ function App() {
                         <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                         <Route exact path="/newPassword" component={NewPassword}/>
                         <Route exact path="/userAppealItem" component={UserAppealItem}/>
+
                     </Switch>
                 </ApiContext.Provider>
             </div>
             : <Switch>
                 <Route exact path="/admin" component={Admin}/>
+                <Route exact path="/adminListAppeal" component={AdminListAppeal}/>
             </Switch>
     );
 }

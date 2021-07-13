@@ -31,6 +31,7 @@ import PublicIcon from '@material-ui/icons/Public';
 import TvIcon from '@material-ui/icons/Tv';
 import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
+import AdminListAppeal from "./AdminListAppeal";
 
 const drawerWidth = 250;
 
@@ -388,13 +389,13 @@ class Admin extends Component {
                             <Collapse in={openDropDown} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
 
-                                    <ListItem button  className={classes.nested}>
+                                    <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <DnsIcon/>
                                         </ListItemIcon>
                                         <ListItemText>About Conference</ListItemText>
                                     </ListItem>
-                                    <ListItem button  className={classes.nested}>
+                                    <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <CardGiftcardIcon/>
                                         </ListItemIcon>
@@ -403,7 +404,7 @@ class Admin extends Component {
                                     </ListItem>
                                 </List>
                             </Collapse>
-                            <ListItem button >
+                            <ListItem button>
                                 <ListItemIcon>
                                     <ListIcon color="primary"/>
                                 </ListItemIcon>
@@ -411,13 +412,13 @@ class Admin extends Component {
                                     History
                                 </ListItemText>
                             </ListItem>
-                            <ListItem button >
+                            <ListItem button>
                                 <ListItemIcon>
                                     <TvIcon/>
                                 </ListItemIcon>
                                 <ListItemText><Link style={{color: "black"}} to="/news">News</Link></ListItemText>
                             </ListItem>
-                            <ListItem button >
+                            <ListItem button>
                                 <ListItemIcon>
                                     <ContactPhoneIcon/>
                                 </ListItemIcon>
@@ -468,7 +469,7 @@ class Admin extends Component {
                         [classes.contentShift]: isOpen,
                     })}>
                         <div className={classes.drawerHeader}/>
-
+                        <AdminListAppeal/>
                     </main>
 
                 </div>
