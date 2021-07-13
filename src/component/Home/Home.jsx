@@ -3,6 +3,7 @@ import Title from "../Title";
 import { useHistory } from "react-router-dom";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
+import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
 
 const Home = () => {
     const history = useHistory();
@@ -115,27 +116,23 @@ const Home = () => {
                             проведение семинаров и тренингов, направленных на формирование правовой профессиональной этики, навыков профессиональной деятельности у студентов, проходящих практику в клинике;</p>
                     </div>
                 </div>
-
                 <div id="popular-clinic">
                     <Title text="Популярные вопросы" />
                     <PopularSlider />
                 </div>
                 <div id="legal-clinic">
                     <Title text="Нормативно-правовая база" />
-                    <div style={{ width: '60%', lineHeight: '22px' }}>
-                        <p style={{ margin: '10px' }}>Клиника ўз фаолиятини Ўзбекистон Республикасининг Конституцияси ва
-                            қонунларига, Ўзбекистон Республикаси Олий Мажлиси палаталари қарорларига, Ўзбекистон
-                            Республикаси Президентининг фармон, қарор ва фармойишларига, Ўзбекистон Республикаси
-                            Вазирлар Маҳкамасининг қарор ва фармойишларига, Ўзбекистон Республикаси Адлия вазирлиги,
-                            Олий ва ўрта махсус таълим вазирлигининг ҳайъат қарорлари ва буйруқлари, Академия Устави
-                            ҳамда мазкур низомга мувофиқ олиб боради..</p>
-
-                        <p style={{ margin: '10px' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo error
-                            tenetur molestiae quod voluptates nisi voluptatum possimus praesentium adipisci! Libero
-                            vitae accusamus animi hic quis, fugit molestias vero ullam nihil.Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Quo error tenetur molestiae quod voluptates nisi voluptatum
-                            possimus praesentium adipisci! Libero vitae accusamus animi hic quis, fugit molestias vero
-                            ullam nihil.</p>
+                    <div className="legal-body">
+                        <div className="legal-body-items">
+                            <DirectoryPdf />
+                            <DirectoryPdf />
+                            <DirectoryPdf />
+                        </div>
+                        <div className="legal-body-items">
+                            <DirectoryPdf />
+                            <DirectoryPdf />
+                            <DirectoryPdf />
+                        </div>
                     </div>
                 </div>
             </div>
