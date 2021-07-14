@@ -48,7 +48,7 @@ function App() {
                 'Authorization': token
             }
         }).then(res => {
-            console.log(res)
+            // console.log(res)
             if (!res.data.success) {
                 localStorage.removeItem(STORAGE_NAME);
                 history.push('/auth/login');
@@ -71,17 +71,6 @@ function App() {
                     <Nav/>
                     <ToastContainer/>
                     <Switch>
-                        <Route exact path="/" component={FirstHome}/>
-                        <Route exact path="/auth/login" component={Login}/>
-                        <Route exact path="/dashboard" component={Dashboard}/>
-                        <Route exact path="/admin" component={Admin}/>
-                        <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
-                        <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
-                        <Route exact path="/personalAccountListener" component={PersonalAccountListener}/>
-                        <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
-                        <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
-                        <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
-                        <Route exact path="/newPassword" component={NewPassword}/>
                         <Route exact path="/" component={FirstHome}/>
                         <Route exact path="/auth/login" component={Login}/>
                         <Route exact path="/dashboard" component={Dashboard}/>

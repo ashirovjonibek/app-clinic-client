@@ -57,6 +57,7 @@ const RegistrationApplicant = (props) => {
     const handleSend = (e) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
+            console.log(values)
             axios.post(API_URL + "/auth/createApplicant", { ...values }).then(res => {
                 console.log(res)
                 if (res.data.success) {
@@ -68,6 +69,13 @@ const RegistrationApplicant = (props) => {
             toast.error('Password Not match')
         }
     }
+
+    // validation
+
+    // const { register, handleSubmit, errors } = useForm();
+
+    //
+
     return (
         <div>
             <div className="registration-applicant container-fluit">
@@ -82,9 +90,14 @@ const RegistrationApplicant = (props) => {
                                         <ul>
                                             <li>
                                                 <label className="label" htmlFor="">Ф.И.О</label>
-                                                <input onChange={handleChange} name="fullName" className="input-text"
+                                                <input
+                                                    onChange={handleChange}
+                                                    name="fullName"
+                                                    className="input-text"
                                                     type="text"
-                                                    placeholder="Введите ваше Ф.И.О" />
+                                                    placeholder="Введите ваше Ф.И.О"
+                                                // ref={register}
+                                                />
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>

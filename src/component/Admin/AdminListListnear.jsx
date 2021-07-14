@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { API_URL } from "../../utils/constant";
 import axios from "axios";
 
@@ -7,9 +7,10 @@ const AdminListListnear = () => {
   const [listnear, setListnear] = useState([]);
 
   useEffect(() => {
-    axios.get(API_URL + "/auth/applicants").then(res => {
-            setListnear(res.data);
-        });
+    axios.get(API_URL + "/auth/listeners").then(res => {
+      console.log(res);
+      setListnear(res.data);
+    });
   }, [])
 
   return (
@@ -63,15 +64,15 @@ const AdminListListnear = () => {
               <th className="table-border tel">Телефон</th>
               <th className="table-border pochta">Почта</th>
             </tr>
-            {listnear && listnear.map((item, i) => 
-            <tr key={i} value={item.id}>
-              <td className="table-border applicant-name">{item.fullName}</td>
-              <td className="table-border">{item.nationId}</td>
-              <td className="table-border">{item.gender}</td>
-              <td className="table-border">{item.districtId}</td>
-              <td className="table-border">{item.phoneNumber}</td>
-              <td className="table-border">{item.email}</td>
-            </tr>
+            {listnear && listnear.map((item, i) =>
+              <tr key={i} value={item.id}>
+                <td className="table-border applicant-name">{item.fullName}</td>
+                <td className="table-border">{item.position.title.ru}</td>
+                <td className="table-border">{item.course}</td>
+                <td className="table-border">{item.section.title.ru}</td>
+                <td className="table-border">{item.phoneNumber}</td>
+                <td className="table-border">{item.email}</td>
+              </tr>
             )}
           </table>
         </div>

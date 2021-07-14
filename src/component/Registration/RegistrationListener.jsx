@@ -131,7 +131,6 @@ function RegistrationListener(props) {
                                 </li>
                                 <li className="form-last">
                                     <ul>
-
                                         <li>
                                             <label className="label" htmlFor="address">Адрес</label>
                                             <input onChange={handleChange} id="address" name="address"
