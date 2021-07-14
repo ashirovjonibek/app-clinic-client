@@ -48,7 +48,7 @@ function App() {
                 'Authorization': token
             }
         }).then(res => {
-            console.log(res)
+            // console.log(res)
             if (!res.data.success) {
                 localStorage.removeItem(STORAGE_NAME);
                 history.push('/auth/login');

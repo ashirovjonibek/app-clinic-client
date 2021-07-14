@@ -18,7 +18,7 @@ const AdminListAppeal = () => {
                 'Authorization': token
             }
         }).then(res => {
-            console.log(res)
+            // console.log(res)
         })
         // axios.get(API_URL + "/auth/applicants").then(res => {
         //     console.log(res)

@@ -7,7 +7,7 @@ const AdminListListnear = () => {
   const [listnear, setListnear] = useState([]);
 
   useEffect(() => {
-    axios.get(API_URL + "/auth/listnear").then(res => {
+    axios.get(API_URL + "/auth/listeners").then(res => {
       console.log(res);
       setListnear(res.data);
     });
@@ -67,9 +67,9 @@ const AdminListListnear = () => {
             {listnear && listnear.map((item, i) =>
               <tr key={i} value={item.id}>
                 <td className="table-border applicant-name">{item.fullName}</td>
-                <td className="table-border">{item.nation.name.ru}</td>
-                <td className="table-border">{item.gender}</td>
-                <td className="table-border">{item.districtId}</td>
+                <td className="table-border">{item.position.title.ru}</td>
+                <td className="table-border">{item.course}</td>
+                <td className="table-border">{item.section.title.ru}</td>
                 <td className="table-border">{item.phoneNumber}</td>
                 <td className="table-border">{item.email}</td>
               </tr>
