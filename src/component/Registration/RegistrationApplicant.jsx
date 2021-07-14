@@ -5,6 +5,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { withRouter } from 'react-router-dom';
 import { API_URL } from "../../utils/constant";
+import { useForm } from 'react-hook-form';
+
 
 const RegistrationApplicant = (props) => {
     const { history } = props;
@@ -72,7 +74,7 @@ const RegistrationApplicant = (props) => {
 
     // validation
 
-    // const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     //
 
