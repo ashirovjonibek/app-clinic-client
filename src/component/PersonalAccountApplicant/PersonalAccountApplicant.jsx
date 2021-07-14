@@ -8,6 +8,7 @@ import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonalAccountListener/SendSection";
+import ApplicantAppeal from "./ApplicantAppeal";
 
 const PersonalAccountApplicant = () => {
 
@@ -41,6 +42,9 @@ const PersonalAccountApplicant = () => {
                         <div className="navbar-wrapper">
                             <div className="navbarr">
                                 <ul>
+                                    <li className="navbar-items ">
+                                        <Link to="/applicantAppeal">Создать новое обращение</Link>
+                                    </li>
                                     <li className="navbar-items active">
                                         <Link onClick={() => getPage(1)}>Ваше обращение</Link>
                                     </li>
