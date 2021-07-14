@@ -52,7 +52,11 @@ const Login = (props) => {
                                 }
                                 if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'LISTENER')) {
                                     history.push('/personalAccountListener')
+
                                 } else if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === "USER")) {
+
+                                }
+                                if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'USER')) {
                                     history.push('/personalAccountApplicant')
                                 }
                             } else {

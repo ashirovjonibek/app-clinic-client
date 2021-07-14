@@ -8,6 +8,7 @@ const AdminListAppeal = () => {
 
     useEffect(() => {
         axios.get(API_URL + "/auth/applicants").then(res => {
+            // console.log(res)
             setApplicants(res.data);
         });
     }, []);

@@ -21,8 +21,9 @@ import PersonalAccountListener from "./component/PersonalAccountListener/Persona
 import { useHistory, useLocation } from 'react-router-dom'
 import { openPages } from "./utils/config";
 import axios from "axios";
-import { API_URL, STORAGE_NAME } from "./utils/constant";
 import { ApiContext } from "./utils/ApiContext";
+import {API_URL, STORAGE_NAME} from "./utils/constant";
+import AdminListAppeal from "./component/Admin/AdminListAppeal";
 
 // import {userMe} from "./utils/UserService";
 
@@ -33,7 +34,7 @@ function App() {
 
     useEffect(() => {
         if (!openPages.includes(history.location.pathname)) {
-            userMe(history.location.pathname);
+            // userMe(history.location.pathname);
         }
     }, []);
 
@@ -81,6 +82,19 @@ function App() {
                         <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor} />
                         <Route exact path="/personalAccountModerator" component={PersonalAccountModerator} />
                         <Route exact path="/newPassword" component={NewPassword} />
+                        <Route exact path="/" component={FirstHome}/>
+                        <Route exact path="/auth/login" component={Login}/>
+                        <Route exact path="/dashboard" component={Dashboard}/>
+                        <Route exact path="/admin" component={Admin}/>
+                        <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
+                        <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
+                        <Route exact path="/personalAccountListener" component={PersonalAccountListener}/>
+                        <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
+                        <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
+                        <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
+                        <Route exact path="/newPassword" component={NewPassword}/>
+                        <Route exact path="/userAppealItem" component={UserAppealItem}/>
+
                     </Switch>
                 </ApiContext.Provider>
             </div>
