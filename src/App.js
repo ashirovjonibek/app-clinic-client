@@ -94,7 +94,7 @@ function App() {
                         <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                         <Route exact path="/newPassword" component={NewPassword}/>
                         <Route exact path="/userAppealItem" component={UserAppealItem}/>
-
+                        <Route exact path="/applicantAppeal" component={ApplicantAppeal}/>
                     </Switch>
                 </ApiContext.Provider>
             </div>
