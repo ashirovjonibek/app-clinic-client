@@ -72,7 +72,7 @@ const AdminListAppeal = () => {
                                 <th className="table-border applicant-name">Ф.И.О</th>
                                 <th className="table-border nation">Национальность</th>
                                 <th className="table-border gender">Пол</th>
-                                <th className="table-border citi">Область</th>
+                                <th className="table-border citi">Адрес</th>
                                 <th className="table-border tel">Телефон</th>
                                 <th className="table-border pochta">Почта</th>
                                 <th className="table-border lgot">Категория льгот</th>
