@@ -27,9 +27,6 @@ const RegistrationApplicant = (props) => {
         gender: ''
     }))
 
-    const [name, setName] = useState('');
-    const [nameDirty, setNameDirty] = useState(false);
-
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
@@ -87,9 +84,13 @@ const RegistrationApplicant = (props) => {
                                         <ul>
                                             <li>
                                                 <label className="label" htmlFor="">Ф.И.О</label>
-                                                <input onChange={handleChange} name="fullName" className="input-text"
+                                                <input
+                                                    onChange={handleChange}
+                                                    name="fullName"
+                                                    className="input-text"
                                                     type="text"
-                                                    placeholder="Введите ваше Ф.И.О" />
+                                                    placeholder="Введите ваше Ф.И.О"
+                                                />
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
