@@ -18,7 +18,6 @@ const RegistrationApplicant = (props) => {
         phoneNumber: '',
         email: '',
         districtId: '',
-        status: true,
         password: '',
         birthDate: '',
         address: '',
