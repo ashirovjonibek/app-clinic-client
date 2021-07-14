@@ -21,8 +21,8 @@ import PersonalAccountListener from "./component/PersonalAccountListener/Persona
 import {useHistory, useLocation} from 'react-router-dom'
 import {openPages} from "./utils/config";
 import axios from "axios";
-import { ApiContext } from "./utils/ApiContext";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
+import {ApiContext} from "./utils/ApiContext";
 import AdminListAppeal from "./component/Admin/AdminListAppeal";
 
 // import {userMe} from "./utils/UserService";
@@ -83,7 +83,7 @@ function App() {
                         <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
                         <Route exact path="/newPassword" component={NewPassword}/>
                         <Route exact path="/userAppealItem" component={UserAppealItem}/>
-                        <Route exact path="/applicantAppeal" component={ApplicantAppeal} />
+                        <Route exact path="/applicantAppeal" component={ApplicantAppeal}/>
                     </Switch>
                 </ApiContext.Provider>
             </div>
