@@ -27,6 +27,9 @@ const RegistrationApplicant = (props) => {
         gender: ''
     }))
 
+    const [name, setName] = useState('');
+    const [nameDirty, setNameDirty] = useState(false);
+
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
