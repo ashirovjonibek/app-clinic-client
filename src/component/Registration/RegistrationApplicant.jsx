@@ -18,7 +18,6 @@ const RegistrationApplicant = (props) => {
         phoneNumber: '',
         email: '',
         districtId: '',
-        status: true,
         password: '',
         birthDate: '',
         address: '',
@@ -70,6 +69,13 @@ const RegistrationApplicant = (props) => {
             toast.error('Password Not match')
         }
     }
+
+    // validation
+
+    // const { register, handleSubmit, errors } = useForm();
+
+    //
+
     return (
         <div>
             <div className="registration-applicant container-fluit">
@@ -90,6 +96,7 @@ const RegistrationApplicant = (props) => {
                                                     className="input-text"
                                                     type="text"
                                                     placeholder="Введите ваше Ф.И.О"
+                                                // ref={register}
                                                 />
                                             </li>
                                             <li>

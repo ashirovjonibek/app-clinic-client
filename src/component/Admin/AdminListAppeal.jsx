@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { API_URL } from "../../utils/constant";
+import React, {useState, useEffect} from "react";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
 const AdminListAppeal = () => {
 
@@ -8,15 +8,28 @@ const AdminListAppeal = () => {
 
     useEffect(() => {
         axios.get(API_URL + "/auth/applicants").then(res => {
-            // console.log(res)
             setApplicants(res.data);
         });
+        const token = localStorage.getItem(STORAGE_NAME);
+        axios({
+            url: API_URL + '/auth/applicants',
+            method: 'GET',
+            headers: {
+                'Authorization': token
+            }
+        }).then(res => {
+            console.log(res)
+        })
+        // axios.get(API_URL + "/auth/applicants").then(res => {
+        //     console.log(res)
+        //     setApplicants(res.data);
+        // });
     }, []);
 
     return (
         <div className="admin">
             <div className="admin-list-appeal">
-                <div style={{ margin: '20px 0' }}>
+                <div style={{margin: '20px 0'}}>
                     {/* <div className="table-scroll">
                         <h5 className="table-title">Новые</h5>
                         <table>
@@ -52,7 +65,7 @@ const AdminListAppeal = () => {
                             </tr>
                         </table>
                     </div> */}
-                    <div className="table-scroll" style={{ marginTop: '10px' }}>
+                    <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 className="table-title">Список</h5>
                         <table>
                             <tr>
@@ -68,12 +81,12 @@ const AdminListAppeal = () => {
                             {applicants && applicants.map((item, i) =>
                                 <tr key={i} value={item.id}>
                                     <td className="table-border applicant-name">{item.fullName}</td>
-                                    <td className="table-border">{item.nationId}</td>
+                                    <td className="table-border">{item.nation.name.ru}</td>
                                     <td className="table-border">{item.gender}</td>
-                                    <td className="table-border">{item.districtId}</td>
+                                    <td className="table-border">{item.region.name.ru}</td>
                                     <td className="table-border">{item.phoneNumber}</td>
                                     <td className="table-border">{item.email}</td>
-                                    <td className="table-border">{item.socialStatusId}</td>
+                                    <td className="table-border">{item.socialStatus.name.ru}</td>
                                     <td className="table-border">{item.birthDate.slice(0, 10)}</td>
                                 </tr>
                             )}
