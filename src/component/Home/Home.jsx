@@ -180,21 +180,7 @@ const Home = () => {
             <div className="container">
                 <div id="adres-procuratura">
                     <Title text="Адреса прокуратур" />
-                    <div style={{ width: '60%', lineHeight: '22px' }}>
-                        <p style={{ margin: '10px' }}>Клиника ўз фаолиятини Ўзбекистон Республикасининг Конституцияси ва
-                            қонунларига, Ўзбекистон Республикаси Олий Мажлиси палаталари қарорларига, Ўзбекистон
-                            Республикаси Президентининг фармон, қарор ва фармойишларига, Ўзбекистон Республикаси
-                            Вазирлар Маҳкамасининг қарор ва фармойишларига, Ўзбекистон Республикаси Адлия вазирлиги,
-                            Олий ва ўрта махсус таълим вазирлигининг ҳайъат қарорлари ва буйруқлари, Академия Устави
-                            ҳамда мазкур низомга мувофиқ олиб боради.</p>
-
-                        <p style={{ margin: '10px' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo error
-                            tenetur molestiae quod voluptates nisi voluptatum possimus praesentium adipisci! Libero
-                            vitae accusamus animi hic quis, fugit molestias vero ullam nihil.Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Quo error tenetur molestiae quod voluptates nisi voluptatum
-                            possimus praesentium adipisci! Libero vitae accusamus animi hic quis, fugit molestias vero
-                            ullam nihil.</p>
-                    </div>
+                    
                 </div>
                 <div className="cel-clinic" style={{ height: '600px' }}>
                     <Title text="Мы на карте" />
