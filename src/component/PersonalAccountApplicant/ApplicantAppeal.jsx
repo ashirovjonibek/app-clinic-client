@@ -21,7 +21,7 @@ const ApplicantAppeal = (props) => {
     })
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
-            console.log(res)
+            // console.log(res)
             setSections(res.data._embedded.sections);
         })
     }, []);
@@ -36,7 +36,7 @@ const ApplicantAppeal = (props) => {
         e.preventDefault();
         console.log(values)
         axios({
-            url: '/api/application/create',
+            url: API_URL + '/application/create',
             method: 'POST',
             data: {
                 ...values

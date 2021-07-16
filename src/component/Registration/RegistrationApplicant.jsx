@@ -5,8 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { withRouter } from 'react-router-dom';
 import { API_URL } from "../../utils/constant";
-import { useForm } from 'react-hook-form';
-
+import { useForm } from "react-hook-form";
 
 const RegistrationApplicant = (props) => {
     const { history } = props;
@@ -54,7 +53,9 @@ const RegistrationApplicant = (props) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
-        })
+        });
+
+
     };
     const handleSend = (e) => {
         e.preventDefault();
@@ -71,12 +72,6 @@ const RegistrationApplicant = (props) => {
             toast.error('Password Not match')
         }
     }
-
-    // validation
-
-    const { register, handleSubmit, errors } = useForm();
-
-    //
 
     return (
         <div>
@@ -98,7 +93,6 @@ const RegistrationApplicant = (props) => {
                                                     className="input-text"
                                                     type="text"
                                                     placeholder="Введите ваше Ф.И.О"
-                                                // ref={register}
                                                 />
                                             </li>
                                             <li>

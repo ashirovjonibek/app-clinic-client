@@ -4,6 +4,11 @@ import { useHistory } from "react-router-dom";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
 import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
+import prokuraturaImg from '../../assets/img/useful/prokuratura.jpg';
+import gerbImg from '../../assets/img/useful/gerb.jpg';
+import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
+
+
 
 const Home = () => {
     const history = useHistory();
@@ -136,11 +141,34 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div id="home-slider">
+            <div id="home-useful-links">
                 <div className="container">
                     <Title text="Полезные ссылки" />
+                    <div className="useful-links-body">
+                        <a className="useful-links-item">
+                            <img src={prokuraturaImg} alt="" />
+                            <p>Генеральная прокуратура Республики Узбекистан</p>
+                        </a>
+                        <a className="useful-links-item">
+                            <img src={gerbImg} alt="" />
+                            <p>Официальный веб-сайт Президента Республики Узбекистан</p>
+                        </a>
+                        <a className="useful-links-item">
+                            <img src={tashabbusImg} alt="" />
+                            <p>Центр “Стратегия развития”</p>
+                        </a>
+                        <a className="useful-links-item">
+                            <img src={prokuraturaImg} alt="" />
+                            <p>Генеральная прокуратура Республики Узбекистан</p>
+                        </a>
+                        <a className="useful-links-item">
+                            <img src={prokuraturaImg} alt="" />
+                            <p>Генеральная прокуратура Республики Узбекистан</p>
+                        </a>
+                    </div>
                 </div>
             </div>
+
             <div className="container">
                 <div id="adres-procuratura">
                     <Title text="Адреса прокуратур" />

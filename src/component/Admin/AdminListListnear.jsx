@@ -8,7 +8,7 @@ const AdminListListnear = () => {
 
   useEffect(() => {
     axios.get(API_URL + "/auth/listeners").then(res => {
-      console.log(res);
+      // console.log(res);
       setListnear(res.data);
     });
   }, [])
