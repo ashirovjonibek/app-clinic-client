@@ -15,10 +15,11 @@ const Home = () => {
     return (
         <div className="home fluit">
             <div className="header-img">
-                <div>
+                {/* <div className="container">
                     <button onClick={() => history.push('/applicantAppeal')} className="btn-default">Обращение</button>
-                </div>
+                </div> */}
             </div>
+
             <div className="container">
                 <div id="what-clinic">
                     <div className="what-clinic-text">
@@ -64,39 +65,47 @@ const Home = () => {
                 <div id="statistic-clinic">
                     <Title text="Статистика" />
                     <div className="statistic-row">
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className="statistic-items">
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className="statistic-items">
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
                     </div>
                     <div className="statistic-row">
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className="statistic-items">
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div>
-                            <h3>124</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className="statistic-items">
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="statistic">
+                                <h3>124</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,7 +177,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
             <div className="container">
                 <div id="adres-procuratura">
                     <Title text="Адреса прокуратур" />
@@ -201,6 +209,7 @@ const Home = () => {
                         }}></iframe>
                 </div>
             </div>
+
         </div>
     );
 }
