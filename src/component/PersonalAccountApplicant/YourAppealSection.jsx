@@ -36,7 +36,7 @@ const YourAppealSection = () => {
                             </li>
                             <li>
                                 <label for="">Файл</label>
-                                <div className="file-item"></div>
+                                <div className="file-item">{item.section.id}</div>
                             </li>
                         </ul>
                     </div>
