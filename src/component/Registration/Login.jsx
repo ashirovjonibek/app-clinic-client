@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Title from "../Title";
 import axios from "axios";
-import { API_URL, STORAGE_NAME } from "../../utils/constant";
-import { withRouter } from 'react-router-dom';
-import { toast } from "react-toastify";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {withRouter} from 'react-router-dom';
+import {toast} from "react-toastify";
 
 const Login = (props) => {
-    const { history } = props;
+    const {history} = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
@@ -49,15 +49,10 @@ const Login = (props) => {
                                     history.push('/personalAccountSupervisor')
                                 } else if (res.data.object.authorities.filter(i => i.name === 'MODERATOR').length > 0) {
                                     history.push('/personalAccountModerator')
-                                }
-                                if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'LISTENER')) {
-                                    history.push('/personalAccountListener')
-
-                                } else if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === "USER")) {
-
-                                }
-                                if (res.data.object.authorities.length === 1 && res.data.object.authorities.filter(i => i.name === 'USER')) {
+                                } else if (res.data.object.authorities.filter(i => i.name === 'USER').length > 0) {
                                     history.push('/personalAccountApplicant')
+                                } else if (res.data.object.authorities.filter(i => i.name === 'LISTENER').length > 0) {
+                                    history.push('/personalAccountListener')
                                 }
                             } else {
                                 history.push('/auth/login')
@@ -84,7 +79,7 @@ const Login = (props) => {
         <div className="login container-fluit">
             <div className="container">
                 <div className="login-wrapper">
-                    <Title text="Вход в личный кабинет" />
+                    <Title text="Вход в личный кабинет"/>
                     <div className="form">
                         <form onSubmit={handleLogin}>
                             <ul>
@@ -93,7 +88,7 @@ const Login = (props) => {
                                         <label className="label" for="phoneNumber">Телефон</label>
                                     </div>
                                     <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
-                                        placeholder="+998 (__) ___-__-__" />
+                                           placeholder="+998 (__) ___-__-__"/>
 
                                 </li>
                                 <li>
@@ -101,7 +96,7 @@ const Login = (props) => {
                                         <label className="label" for="password">Пароль</label>
                                     </div>
                                     <input className="input-text" id="password" onChange={changePassword} type="text"
-                                        placeholder="Пароль" />
+                                           placeholder="Пароль"/>
                                 </li>
                                 <li>
                                     <button type="submit" className="btn-default">Войти</button>

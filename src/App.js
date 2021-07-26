@@ -90,7 +90,6 @@ function App() {
             : <Switch>
                 <Route exact path="/admin" component={Admin}/>
             </Switch>
-            // 5rtg4e5tg
     );
 }
 
