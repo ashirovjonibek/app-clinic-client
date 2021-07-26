@@ -34,7 +34,7 @@ const ApplicantAppeal = (props) => {
     const handleSend = (e) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
-        console.log(values)
+        // console.log(values);
         axios({
             url: API_URL + '/application/create',
             method: 'POST',

@@ -5,6 +5,24 @@
     .section-body {
       .content-wrapper {
         width: 100%;
+        .your-appeal-item-section {
+          .categories {
+            ul {
+              li {
+                .category-item,
+                .file-item {
+                  height: 40px;
+                  width: 100%;
+                  background: #ffffff;
+                  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                  border-radius: 10px;
+                  color: grey;
+                  padding: 10px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -167,7 +185,7 @@
             }
           }
           .your-appeal-item-section {
-            .content-item {
+            .content {
               .categories {
                 ul {
                   flex-direction: column;
@@ -204,8 +222,8 @@
               }
             }
           }
-          .per-acc-app-period-section{
-            .content{
+          .per-acc-app-period-section {
+            .content {
               text-align: center;
             }
           }

@@ -8,6 +8,8 @@ const AdminListAppeal = () => {
 
     useEffect(() => {
         axios.get(API_URL + "/auth/applicants").then(res => {
+            console.log(res.data);
+            console.log(applicants);
             setApplicants(res.data);
         });
         const token = localStorage.getItem(STORAGE_NAME);
