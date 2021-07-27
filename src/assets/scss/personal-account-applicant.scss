@@ -18,7 +18,36 @@
                   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
                   border-radius: 10px;
                   color: grey;
-                  padding: 10px;
+                  padding: 14px;
+                }
+              }
+            }
+          }
+          .page-numbers{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 10px auto;
+            li{
+              height: 25px;
+              width: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50%;
+              background-color: rgba(128, 128, 128, 0.5);
+              margin: 0 5px;
+              cursor: pointer;
+              &.active{
+                background: rgba(128, 128, 128, 0.8);
+              }
+              button{
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background-color: transparent;
+                &:hover{
+                  background-color: rgba(71, 127, 153, 0.609);
                 }
               }
             }
