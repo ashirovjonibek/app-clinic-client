@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API_URL } from "../../utils/constant";
+import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import axios from "axios";
 import UserAppealItem from "../UserAppealItem";
 import CheckboxConfidensial from "../CheckboxConfidensial";
@@ -78,10 +78,19 @@ const YourAppealSection = () => {
     // pagination /\
 
     useEffect(() => {
-        axios.get(API_URL + "/application/myApplications").then(res => {
-            setAppeal(res.data.object);
-            console.log(res.data.object);
-        });
+        const token = localStorage.getItem(STORAGE_NAME);
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/application/myApplications",
+            method: 'GET'
+        }).then(res => {
+            console.log(res)
+        })
+        // axios.get(API_URL + "/application/myApplications").then(res => {
+        //     setAppeal(res.data.object);
+        // });
     }, []);
 
     return (
