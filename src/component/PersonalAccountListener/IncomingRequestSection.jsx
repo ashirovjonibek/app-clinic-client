@@ -20,7 +20,8 @@ const IncomingRequestSection = () => {
             url: API_URL +"/application/myApplications",
             method:'GET'
         }).then(res=>{
-            console.log(res)
+            setRequest(res.data.object.object);
+            console.log(res.data.object);
         })
         // axios.get(API_URL + "/application/myApplications").then(res => {
         //     setRequest(res.data.object);
@@ -105,6 +106,64 @@ const IncomingRequestSection = () => {
     return (
         <div className="incoming-request-section">
             <ContentTop />
+            <div className="incoming-request-item" >
+                <div className="content">
+                    <div className="request-content-title">
+                        <div className="request-content-title-name">
+                            <UserName text="Турсунов Тулкин Мирзаевич" />
+                            <div className="id">id: 12345</div>
+                        </div>
+                        <div className="request-content-title-date">
+                            <div className="date-label">
+                                Осталось:
+                            </div>
+                            <div className="date-item">
+                                5 день
+                            </div>
+                        </div>
+                    </div>
+                        <div className="request-theme">
+                            <div className="request-theme-title">
+                                <h3>Тема обращения:</h3>
+                                <p>rstgr tgvbrtz dfvsder fvgsretgfv xfj hftctchjctf ghjcgfhjcgy tgcyj</p>
+                            </div> 
+                            <div>
+                                <input type="checkbox" />
+                                <label htmlFor="">Конфиденциально</label>
+                            </div>
+                        </div>
+                        <div className="request-content-item">
+                        <p>Повседневная практика показывает, что сложившаяся структура организации создаёт
+                            необходимость включения в
+                            производственный план целого ряда внеочередных мероприятий с учётом комплекса
+                            системы обучения кадров, соответствующей
+                            насущным потребностям. Явные признаки победы институционализации формируют
+                            глобальную экономическую сеть и при этом - в
+                            равной степени предоставлены сами себе. А также независимые государства и по сей
+                            день остаются уделом либералов, которые
+                            жаждут быть описаны максимально подробно.</p>
+                        </div>
+                    {/* <RequestTheme /> */}
+                    <div className="categories">
+                        <ul>
+                            <li>
+                                <label for="">Категория обращения</label>
+                                <div className="category-item">Уголовная</div>
+                            </li>
+                            <li>
+                                <label for="">Файл</label>
+                                <div className="file-item">Обращение. Mp4</div>
+                            </li>
+                        </ul>
+                    </div>
+                    {/* <div className="category-audio"></div> */}
+                    <div className="request-bottom">
+                        <a href="">Отправить модератору на замену исполнителя</a>
+                        <a href="">Написать сообщение</a>
+                        <ButtonDefault type="submit" text="Ответить" />
+                    </div>
+                </div>
+            </div>
             {request && request.map((item, i) =>
                 <div className="incoming-request-item" key={i} value={item.id}>
                     <div className="content">

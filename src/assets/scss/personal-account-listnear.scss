@@ -5,6 +5,40 @@
     .section-body {
       .content-wrapper {
         width: 100%;
+        .incoming-request-section {
+          .content {
+            .request-theme {
+              .request-theme-title {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                p {
+                  font-size: 16px;
+                  color: grey;
+                  margin-left: 10px;
+                  margin-top: 3px;
+                }
+              }
+            }
+            .categories {
+              margin: 20px 0;
+              ul {
+                li {
+                  .category-item,
+                  .file-item {
+                    height: 40px;
+                    width: 100%;
+                    background: #ffffff;
+                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                    color: grey;
+                    padding: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -190,6 +224,23 @@
                   }
                 }
               }
+              .request-theme {
+                .request-theme-title {
+                  justify-content: space-around;
+                  margin-bottom: 10px;
+                }
+              }
+              .categories {
+                ul {
+                  flex-direction: column;
+                  width: 100%;
+                  text-align: center;
+                  li {
+                    margin-bottom: 20px;
+                    width: 100%;
+                  }
+                }
+              }
               .request-bottom {
                 text-align: center;
               }
@@ -323,6 +374,14 @@
                   }
                 }
               }
+              .request-theme {
+                width: 100%;
+                .request-theme-title {
+                   width: 100%;
+                 flex-direction: column;
+                 text-align: center;
+                }
+              }
             }
           }
           .appeal-section {
@@ -447,14 +506,14 @@
             .call-flow-item {
               .content {
                 text-align: center;
-                  .request-content-title-name {
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    text-align: center;
-                    .applicant-image {
-                      margin-bottom: 10px;
-                    }
+                .request-content-title-name {
+                  justify-content: center;
+                  flex-wrap: wrap;
+                  text-align: center;
+                  .applicant-image {
+                    margin-bottom: 10px;
                   }
+                }
               }
             }
           }

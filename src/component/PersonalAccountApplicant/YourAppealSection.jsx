@@ -86,7 +86,7 @@ const YourAppealSection = () => {
             url: API_URL + "/application/myApplications",
             method: 'GET'
         }).then(res => {
-            console.log(res)
+            setAppeal(res.data.object.object)
         })
         // axios.get(API_URL + "/application/myApplications").then(res => {
         //     setAppeal(res.data.object);
