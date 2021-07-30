@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Route, Switch } from "react-router";
 
 import CenterSends from "./CenterSends";
@@ -18,10 +18,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ResponseRequestItem from "./ResponseRequestItem";
 import AppealItem from "./AppealItem";
+import { ApiContext } from "../../utils/ApiContext";
+import IncomingRequestItem from "./IncomingRequestItem";
 
 
 const PersonalAccountListener = (props) => {
     const [pageQount, setPageQount] = useState(1);
+
+    const { idUser, setIdUser, currentItem } = useContext(ApiContext);
+    console.log(idUser);
+    console.log(currentItem)
 
     function Applications(n) {
         switch (n) {
@@ -41,11 +47,13 @@ const PersonalAccountListener = (props) => {
                 return <DirectorySection />
             case 8:
                 return <SendSection />
+            case 9:
+                return <IncomingRequestItem currentItem={currentItem} />
         }
     }
 
     const getPage = (n) => {
-        setPageQount(n)
+        setPageQount(n);
     }
 
     return (
@@ -87,7 +95,8 @@ const PersonalAccountListener = (props) => {
                         </div>
                         <div className="content-wrapper">
                             {
-                                Applications(pageQount)
+
+                                Applications(pageQount > idUser ? pageQount : idUser)
                             }
                         </div>
                     </section>

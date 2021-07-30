@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import axios from "axios";
 import { API_URL, STORAGE_NAME } from "./constant";
 

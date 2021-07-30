@@ -6,6 +6,17 @@
       .content-wrapper {
         width: 100%;
         .your-appeal-item-section {
+          .content{
+            .document-text{
+              .document-text-title{
+                flex-wrap: wrap;
+                h4,
+                p{
+                  margin-bottom: 5px;
+                }
+              }
+            }
+          }
           .categories {
             margin: 20px 0;
             ul {
