@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Title from "../Title";
 import axios from "axios";
-import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {withRouter} from 'react-router-dom';
-import {toast} from "react-toastify";
+import { API_URL, STORAGE_NAME } from "../../utils/constant";
+import { withRouter } from 'react-router-dom';
+import { toast } from "react-toastify";
+import NavCenter from "../Nav/NavCenter";
+import NavTop from "../Nav/NavTop";
 
 const Login = (props) => {
-    const {history} = props;
+    const { history } = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
@@ -75,47 +77,52 @@ const Login = (props) => {
     }
 
     return (
+        <div>
+            <div className="nav" >
+                <NavTop />
+                <NavCenter />
+            </div>
+            <div className="login container-fluit">
+                <div className="container">
+                    <div className="login-wrapper">
+                        <Title text="Вход в личный кабинет" />
+                        <div className="form">
+                            <form onSubmit={handleLogin}>
+                                <ul>
+                                    <li>
+                                        <div className="first-label">
+                                            <label className="label" for="phoneNumber">Телефон</label>
+                                        </div>
+                                        <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
+                                            placeholder="+998 (__) ___-__-__" />
 
-        <div className="login container-fluit">
-            <div className="container">
-                <div className="login-wrapper">
-                    <Title text="Вход в личный кабинет"/>
-                    <div className="form">
-                        <form onSubmit={handleLogin}>
-                            <ul>
-                                <li>
-                                    <div className="first-label">
-                                        <label className="label" for="phoneNumber">Телефон</label>
+                                    </li>
+                                    <li>
+                                        <div className="last-label">
+                                            <label className="label" for="password">Пароль</label>
+                                        </div>
+                                        <input className="input-text" id="password" onChange={changePassword} type="text"
+                                            placeholder="Пароль" />
+                                    </li>
+                                    <li>
+                                        <button type="submit" className="btn-default">Войти</button>
+                                    </li>
+                                    <div className="form-link">
+                                        <div className="link">
+                                            <a href="">Забыли пароль?</a>
+                                        </div>
+                                        <div className="link">
+                                            <a href="">Еще нет аккаунта</a>
+                                        </div>
                                     </div>
-                                    <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
-                                           placeholder="+998 (__) ___-__-__"/>
-
-                                </li>
-                                <li>
-                                    <div className="last-label">
-                                        <label className="label" for="password">Пароль</label>
-                                    </div>
-                                    <input className="input-text" id="password" onChange={changePassword} type="text"
-                                           placeholder="Пароль"/>
-                                </li>
-                                <li>
-                                    <button type="submit" className="btn-default">Войти</button>
-                                </li>
-                                <div className="form-link">
-                                    <div className="link">
-                                        <a href="">Забыли пароль?</a>
-                                    </div>
-                                    <div className="link">
-                                        <a href="">Еще нет аккаунта</a>
-                                    </div>
-                                </div>
-                            </ul>
-                        </form>
+                                </ul>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default withRouter(Login);

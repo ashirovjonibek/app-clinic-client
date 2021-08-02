@@ -157,7 +157,7 @@ const Admin = () => {
                 </ul>
             </div>
             <div className="nav">
-                <div className="nav-center container-fluit">
+                <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px'}}>
                     <div className="container">
                         <div className="navbar" style={{ height: '70px' }}>
                             <div className="menu-icon" >
@@ -188,7 +188,7 @@ const Admin = () => {
                 </div >
             </div>
 
-            <div className="container-fluit admin-body">
+            <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
                     {AdminSitebarItem(pageQount)}
                 </div>

@@ -99,14 +99,7 @@
     .container {
       .section-body {
         .navbar-wrapper {
-          .navbarr {
-            ul {
-              li {
-                max-width: 100%;
-                margin: 7px 0px;
-              }
-            }
-          }
+          display: none;
         }
         .content-wrapper {
           .incoming-request-section {
