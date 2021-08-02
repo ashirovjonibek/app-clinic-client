@@ -7,7 +7,10 @@ import FooterUsaid from "../Footer/FooterUsaid";
 const FirstHome = () => {
     return (
         <div>
-            <Home/>
+            <Nav />
+            <Home />
+            <Footer />
+            <FooterUsaid />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 .home {
     background-color: #c8faf7;
+    padding-top: 100px;
     .header-img {
         height: 600px;
         background: url(../img/header-img.jpg) center/cover no-repeat;
@@ -197,10 +198,7 @@
                 }
             }
             #statistic-clinic {
-                // min-height: 430px;
-                // margin: 15px 10px 30px 10px;
                 .statistic-row {
-                    // display: flex;
                     flex-direction: column;
                     width: 100%;
                     margin-top: 15px;

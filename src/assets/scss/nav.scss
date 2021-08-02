@@ -3,6 +3,8 @@
         height: 30px;
         background-color: white;
         padding-top: 5px;
+        position: fixed;
+        z-index: 100;
         ul {
             display: flex;
             flex-direction: row;
@@ -31,6 +33,10 @@
     }
     .nav-center {
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        background-color: white;
+        top: 30px;
+        z-index: 100;
         .navbar {
             height: 100px;
             display: flex;
@@ -193,6 +199,10 @@
     }
     .nav-bottom {
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        position: fixed;
+        top: 130px;
+        z-index: 100;
         ul {
             height: 55px;
             display: flex;
@@ -214,7 +224,7 @@
     }
 }
 
-@media screen and (max-width: 992px) and (min-width: 768px) {
+@media screen and (max-width: 992px)  {
     .nav {
         .nav-top {
             display: none;
@@ -223,6 +233,7 @@
             display: none;
         }
         .nav-center {
+            top: 0;
             .navbar {
                 .header-right {
                     .search-form {
@@ -234,15 +245,16 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media  (max-width: 768px) {
     .nav {
-        .nav-top {
-            display: none;
-        }
-        .nav-bottom {
-            display: none;
-        }
+        // .nav-top {
+        //     display: none;
+        // }
+        // .nav-bottom {
+        //     display: none;
+        // }
         .nav-center {
+            // position: relative;
             .navbar {
                 .header-logo {
                     display: none;
@@ -290,7 +302,7 @@
     }
 }
 
-@media screen and (max-width: 576px) {
+@media  (max-width: 576px) {
     .nav {
         .nav-center {
             .navbar {

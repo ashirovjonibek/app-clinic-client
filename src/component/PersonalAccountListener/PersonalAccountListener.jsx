@@ -23,11 +23,10 @@ import IncomingRequestItem from "./IncomingRequestItem";
 
 
 const PersonalAccountListener = (props) => {
-    const [pageQount, setPageQount] = useState(1);
+    // const [pageQount, setPageQount] = useState(1);
 
     const { idUser, setIdUser, currentItem } = useContext(ApiContext);
     console.log(idUser);
-    console.log(currentItem)
 
     function Applications(n) {
         switch (n) {
@@ -53,7 +52,7 @@ const PersonalAccountListener = (props) => {
     }
 
     const getPage = (n) => {
-        setPageQount(n);
+        setIdUser(n);
     }
 
     return (
@@ -96,7 +95,7 @@ const PersonalAccountListener = (props) => {
                         <div className="content-wrapper">
                             {
 
-                                Applications(pageQount > idUser ? pageQount : idUser)
+                                Applications(idUser)
                             }
                         </div>
                     </section>

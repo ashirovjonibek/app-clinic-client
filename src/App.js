@@ -30,7 +30,7 @@ import IncomingRequestItem from "./component/PersonalAccountListener/IncomingReq
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
-    const [idUser, setIdUser] = useState(0);
+    const [idUser, setIdUser] = useState(1);
     const [currentItem, setCurrentItem] = useState([]);
     const history = useHistory();
     const location = useLocation();
@@ -73,7 +73,6 @@ function App() {
         location.pathname !== '/admin' ?
             <div className="App">
                 <ApiContext.Provider value={{ currentUser, idUser, setIdUser, setCurrentItem, currentItem }}>
-                    <Nav />
                     <ToastContainer />
                     <Switch>
                         <Route exact path="/" component={FirstHome} />

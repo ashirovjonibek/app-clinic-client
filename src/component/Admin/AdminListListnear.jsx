@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API_URL } from "../../utils/constant";
 import axios from "axios";
+import SimpleModal from "./SimpleModal";
 
 const AdminListListnear = () => {
 
@@ -8,7 +9,7 @@ const AdminListListnear = () => {
 
   useEffect(() => {
     axios.get(API_URL + "/auth/listeners").then(res => {
-      // console.log(res);
+      console.log(res);
       setListnear(res.data);
     });
   }, [])
@@ -63,6 +64,7 @@ const AdminListListnear = () => {
               <th className="table-border citi">Кафедра</th>
               <th className="table-border tel">Телефон</th>
               <th className="table-border pochta">Почта</th>
+              <th className="table-border "></th>
             </tr>
             {listnear && listnear.map((item, i) =>
               <tr key={i} value={item.id}>
@@ -72,9 +74,11 @@ const AdminListListnear = () => {
                 <td className="table-border">{item.section.title.ru}</td>
                 <td className="table-border">{item.phoneNumber}</td>
                 <td className="table-border">{item.email}</td>
+                <td className="table-border edit"><SimpleModal item={item}/></td>
               </tr>
             )}
           </table>
+         
         </div>
       </div>
     </div>

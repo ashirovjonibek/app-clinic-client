@@ -54,7 +54,7 @@ const AdminListAppeal = () => {
                                     <td className="table-border">{item.phoneNumber}</td>
                                     <td className="table-border">{item.email}</td>
                                     <td className="table-border">{item.socialStatus.name.ru}</td>
-                                    <td className="table-border">{item.birthDate.slice(0, 10)}</td>
+                                    <td className="table-border">{item.birthDate.slice(0,2)}</td>
                                 </tr>
                             )}
                         </table>
