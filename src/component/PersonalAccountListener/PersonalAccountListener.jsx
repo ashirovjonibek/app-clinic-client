@@ -162,28 +162,28 @@ const PersonalAccountListener = (props) => {
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
-                                        <li className="navbar-items active">
+                                        <li className="navbar-items" id={idUser === 1 ? 'active' : ''}>
                                             <Link onClick={() => getPage(1)}>Поступившие обращения</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 2 ? 'active' : ''}>
                                             <Link onClick={() => getPage(2)}>Ответы на обращения</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 3 ? 'active' : ''}>
                                             <Link onClick={() => getPage(3)}>Срок исполнения обращений</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 4 ? 'active' : ''}>
                                             <Link onClick={() => getPage(4)}>Обращения</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 5 ? 'active' : ''}>
                                             <Link onClick={() => getPage(5)}>Ход обращений</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 6 ? 'active' : ''}>
                                             <Link onClick={() => getPage(6)}>Ваши отзывы</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 7 ? 'active' : ''}>
                                             <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
                                         </li>
-                                        <li className="navbar-items">
+                                        <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
                                             <Link onClick={() => getPage(8)}>Центр сообщений</Link>
                                         </li>
                                     </ul>

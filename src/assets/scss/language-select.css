@@ -1,6 +1,7 @@
 .navlanguage {
     height: 40px;
     margin: 0 20px;
+    z-index: 1000;
 }
 
 .navlanguage-item {
