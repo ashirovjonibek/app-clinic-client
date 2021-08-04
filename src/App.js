@@ -35,7 +35,7 @@ function App() {
     const history = useHistory();
     const location = useLocation();
 
-    console.log(idUser);
+    // console.log(idUser);
 
     useEffect(() => {
         if (!openPages.includes(location.pathname)) {

@@ -98,28 +98,22 @@ const PersonalAccountApplicant = () => {
                                     </div>
                                     <ul>
                                         <li>
-                                            <Link onClick={() => getPage(1)}>Поступившие обращения</Link>
+                                            <Link to="/applicantAppeal">Создать новое обращение</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(2)}>Ответы на обращения</Link>
+                                            <Link onClick={() => getPage(1)}>Ваше обращение</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(3)}>Срок исполнения обращений</Link>
+                                            <Link onClick={() => getPage(2)}>Статус документа</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(4)}>Обращения</Link>
+                                            <Link onClick={() => getPage(3)}>Срок рассмотрения</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(5)}>Ход обращений</Link>
+                                            <Link onClick={() => getPage(4)}>Ответы на обращения</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(6)}>Ваши отзывы</Link>
-                                        </li>
-                                        <li>
-                                            <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
-                                        </li>
-                                        <li>
-                                            <Link onClick={() => getPage(8)}>Центр сообщений</Link>
+                                            <Link onClick={() => getPage(5)}>Центр сообщений</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -135,7 +129,7 @@ const PersonalAccountApplicant = () => {
                     </div>
                 </div >
             </div>
-            <div className="acount-applicant container-fluit" style={{ paddingTop: '100px' }}>
+            <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
                 <div className="container">
                     <Title text="Личный кабинет" />
                     <section className="section-body">

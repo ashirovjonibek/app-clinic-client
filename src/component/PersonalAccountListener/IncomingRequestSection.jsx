@@ -27,10 +27,6 @@ const IncomingRequestSection = (props) => {
         }).then(res => {
             setRequest(res.data.object);
         })
-        // axios.get(API_URL + "/application/myApplications").then(res => {
-        //     setRequest(res.data.object);
-        //     console.log(res.data);
-        // });
     }, []);
 
     // pagination \/

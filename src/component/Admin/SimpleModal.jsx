@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API_URL, STORAGE_NAME } from '../../utils/constant';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 
-export default function SimpleModal({item}) {
-    const [open, setOpen] = React.useState(false);
+export default function SimpleModal({ item }) {
+    const [open, setOpen] = useState(false);
+    const [roles, setRoles] = useState([]);
+    const [select, setSelect] = useState(item.roles[0].name);
+    const [handleSelect, setHandleSelect] = useState('');
+    console.log(select);
+    console.log(handleSelect);
+
+    const changeRoles = () => {
+        if (handleSelect !== select) {
+            return roles.filter(item => item.name.includes(handleSelect));
+        }
+        return false;
+    }
+    console.log(changeRoles())
 
     const handleOpen = () => {
         setOpen(true);
@@ -12,6 +27,26 @@ export default function SimpleModal({item}) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleRol = (e) => {
+        setHandleSelect(
+            e.target.value
+        );
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem(STORAGE_NAME);
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/auth/roles",
+            method: 'GET'
+        }).then(res => {
+            setRoles(res.data);
+        })
+    }, []);
+
 
     return (
         <div>
@@ -49,6 +84,16 @@ export default function SimpleModal({item}) {
                         <li>
                             <div className="label">Почта</div>
                             <div className="inform">{item.email}</div>
+                        </li>
+                        <li>
+                            <div className="label">Рол</div>
+                            <select onChange={handleRol} className="inform">
+                                <option value={item.roles[0].name}>{item.roles[0].name}</option>
+                                {roles && roles.map((rol) =>
+                                    <option key={rol.id
+                                    } value={rol.name}>{rol.name}</option>
+                                )}
+                            </select>
                         </li>
                     </ul>
                     <button className="change-btn">Изменить</button>

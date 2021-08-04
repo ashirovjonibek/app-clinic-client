@@ -12,7 +12,9 @@ const AdminListListnear = () => {
       console.log(res);
       setListnear(res.data);
     });
-  }, [])
+  }, []);
+
+  console.log(listnear);
 
   return (
     <div className="admin">
