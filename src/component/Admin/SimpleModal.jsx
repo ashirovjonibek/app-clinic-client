@@ -9,16 +9,34 @@ export default function SimpleModal({ item }) {
     const [roles, setRoles] = useState([]);
     const [select, setSelect] = useState(item.roles[0].name);
     const [handleSelect, setHandleSelect] = useState('');
-    console.log(select);
-    console.log(handleSelect);
+    
+    let changeRolesItem 
 
     const changeRoles = () => {
         if (handleSelect !== select) {
-            return roles.filter(item => item.name.includes(handleSelect));
+            return changeRolesItem = roles.filter(item => item.name.includes(handleSelect));
         }
         return false;
     }
-    console.log(changeRoles())
+    changeRoles();
+    // console.log(changeRoles());
+    // console.log(item.id)
+
+    const changeUpdate = () => {
+        const token = localStorage.getItem(STORAGE_NAME);
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/auth/createListener",
+            method: 'POST',
+            data:{
+                id: item.id,
+                roles: changeRolesItem,
+            }
+        })
+    }
+    console.log(changeUpdate);
 
     const handleOpen = () => {
         setOpen(true);
@@ -96,7 +114,7 @@ export default function SimpleModal({ item }) {
                             </select>
                         </li>
                     </ul>
-                    <button className="change-btn">Изменить</button>
+                    <button className="change-btn" onClick={changeUpdate}>Изменить</button>
                 </div>
             </Modal>
         </div>
