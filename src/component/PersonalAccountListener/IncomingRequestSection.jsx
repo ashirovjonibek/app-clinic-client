@@ -28,6 +28,7 @@ const IncomingRequestSection = (props) => {
             setRequest(res.data.object);
         })
     }, []);
+    console.log(request);
 
     // pagination \/
 
