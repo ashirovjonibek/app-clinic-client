@@ -1,24 +1,27 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import iconVideo from "../../assets/icon/video-camera.svg";
 import iconAudio from "../../assets/icon/microphone.svg";
 import Title from "../Title";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import axios from "axios";
-import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {toast} from "react-toastify";
+import { API_URL, STORAGE_NAME } from "../../utils/constant";
+import { toast } from "react-toastify";
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const ApplicantAppeal = (props) => {
-    const {history} = props;
+    const { history } = props;
     const [sections, setSections] = useState([]);
+    const [file, setFile] = useState([]);
+    console.log(file);
     const [values, setValues] = useState({
         title: '',
         description: '',
         sectionId: '',
         top: '',
         attachmentId: []
-    })
+    });
+    console.log(values);
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
             // console.log(res)
@@ -54,7 +57,6 @@ const ApplicantAppeal = (props) => {
         })
     }
     const handleUpload = (e) => {
-        console.log(e.target.files[0]);
         if (e.target.files[0]) {
             const formData = new FormData();
             formData.append("file", e.target.files[0]);
@@ -67,8 +69,8 @@ const ApplicantAppeal = (props) => {
                 },
                 data: formData
             }).then(res => {
-                    console.log(res)
-                }
+                setFile(res);
+            }
             )
         }
 
@@ -79,18 +81,18 @@ const ApplicantAppeal = (props) => {
         <div>
             <div className="applicant-appeal container-fluit">
                 <div className="container">
-                    <Title text="Обращение"/>
+                    <Title text="Обращение" />
 
                     <div className="requests">
                         <div>
                             <button className="video-request">
-                                <img src={iconVideo} alt=""/>
+                                <img src={iconVideo} alt="" />
                                 Сделать видео обращение
                             </button>
                         </div>
                         <div>
                             <button className="audio-request">
-                                <img src={iconAudio} alt=""/>
+                                <img src={iconAudio} alt="" />
                                 Сделать аудио обращение
                             </button>
                         </div>
@@ -101,22 +103,22 @@ const ApplicantAppeal = (props) => {
                                 <div>
                                     <label for="">Тема обращения:</label>
                                     <input className="theme-request" onChange={handleChange} name="title" id="title"
-                                           type="text" placeholder="Введите тему обращения"/>
+                                        type="text" placeholder="Введите тему обращения" />
                                 </div>
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
-                                          rows="10"
-                                          placeholder="Введите тему обращения"/>
+                                    rows="10"
+                                    placeholder="Введите тему обращения" />
                             </li>
                             <li className="last-form">
                                 <ul>
                                     <li>
-                                        <div style={{marginBottom: '20px'}}>
+                                        <div style={{ marginBottom: '20px' }}>
                                             <div className="lb">
                                                 <label className="label" for="">Категория обращения</label>
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
-                                                        className="category">
+                                                    className="category">
                                                     <option value="">Выберите ваш обращения</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>
@@ -130,7 +132,7 @@ const ApplicantAppeal = (props) => {
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
-                                                        className="category">
+                                                    className="category">
                                                     <option value="">Выберите ваш обращения</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>
@@ -140,17 +142,17 @@ const ApplicantAppeal = (props) => {
                                         </div>
                                     </li>
                                     <li>
-                                        <div style={{marginBottom: '20px'}}>
+                                        <div style={{ marginBottom: '20px' }}>
                                             <div className="lb">
                                                 <label className="label" for="">Прикрепить файл</label>
                                             </div>
                                             <div className="file">
-                                                <input onChange={handleUpload} type="file"/>
+                                                <input onChange={handleUpload} type="file" />
                                             </div>
                                         </div>
                                         <div className="input-item">
                                             <input className="input-item-name"></input>
-                                            <DeleteIcon/>
+                                            <DeleteIcon />
                                         </div>
                                     </li>
                                     <li className="confidential">
@@ -161,7 +163,7 @@ const ApplicantAppeal = (props) => {
                                         }}>Конфиденциально</label>
                                         <div className="about">
                                             <input required type="checkbox" id="vehicle1"
-                                                   name="statusFull"/>
+                                                name="statusFull" />
                                             <label for="vehicle1">
                                                 данный вопрос не будет отображаться в разделе «Популярные вопросы» в АИС
                                                 Клиника.</label>
@@ -177,7 +179,7 @@ const ApplicantAppeal = (props) => {
                     </form>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

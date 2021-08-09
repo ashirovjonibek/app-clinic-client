@@ -109,6 +109,21 @@ const IncomingRequestSection = (props) => {
         setCurrentItem(item);
     }
 
+    const changeAppeal = (item) => {
+        const token = localStorage.getItem(STORAGE_NAME);
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/answer/updateAnswerByListener ",
+            method: 'PUT',
+            data: {
+                id: item.id,
+            }
+        })
+        console.log(item.id);
+    }
+
     return (
         <div className="incoming-request-section">
             <ContentTop />
@@ -154,8 +169,8 @@ const IncomingRequestSection = (props) => {
                         </ul>
                     </div>
                     <div className="request-bottom">
-                        <a href="">Отправить модератору на замену исполнителя</a>
-                        <a href="">Написать сообщение</a>
+                        <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
+                        <button className="blue-btn">Написать сообщение</button>
                         <button type="submit" className="btn-default"
                             onClick={() => testPage(item)} >Ответить</button>
                     </div>

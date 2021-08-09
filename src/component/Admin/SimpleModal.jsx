@@ -28,15 +28,14 @@ export default function SimpleModal({ item }) {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/auth/createListener",
-            method: 'POST',
+            url: API_URL + "/auth/update/listenerByRole",
+            method: 'PUT',
             data:{
-                id: item.id,
-                roles: changeRolesItem,
+                userId: item.id,
+                roleId: changeRolesItem,
             }
         })
     }
-    console.log(changeUpdate);
 
     const handleOpen = () => {
         setOpen(true);
