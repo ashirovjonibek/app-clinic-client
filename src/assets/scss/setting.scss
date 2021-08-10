@@ -19,43 +19,6 @@
             font-weight: 600;
             color: #78baf3;
         }
-        // .row-inside {
-        //     width: 100%;
-        //     display: flex;
-        //     align-items: center;
-        //     margin: 10px 0;
-        //     font-family: 500;
-        //     .groupOne,
-        //     .groupTwo {
-        //         font-size: 18px;
-        //         line-height: 29px;
-        //         color: #000000;
-        //     }
-        //     .number {
-        //         width: 200px;
-        //         display: flex;
-        //         justify-content: space-evenly;
-        //         align-items: center;
-        //         button {
-        //             border-radius: 50%;
-        //             display: flex;
-        //             height: 35px;
-        //             width: 35px;
-        //             color: grey;
-        //             font-size: 26px;
-        //             box-shadow: 0px 0px 15px rgb(194, 194, 194);
-        //             background-color: white;
-        //         }
-        //         .number-item {
-        //             font-weight: bold;
-        //             font-size: 30px;
-        //             color: #222d44;
-        //         }
-        //         h4 {
-        //             font-size: 18px;
-        //         }
-        //     }
-        // }
         .kafedr {
             min-height: 400px;
             h3 {
@@ -84,6 +47,7 @@
                             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
                             border-radius: 5px;
                             margin: 1px;
+                           
                         }
                         .number {
                             width: 30px;
@@ -99,6 +63,7 @@
                         }
                         .edit {
                             width: 20px;
+                            
                         }
                         .delete {
                             width: 20px;

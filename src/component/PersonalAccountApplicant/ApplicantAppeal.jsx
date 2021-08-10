@@ -13,7 +13,6 @@ const ApplicantAppeal = (props) => {
     const { history } = props;
     const [sections, setSections] = useState([]);
     const [file, setFile] = useState([]);
-    console.log(file);
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -69,7 +68,8 @@ const ApplicantAppeal = (props) => {
                 },
                 data: formData
             }).then(res => {
-                setFile(res);
+                setFile(prevState => [...prevState, res.data.object]);
+                setValues({...values, attachmentId: [file]})
             }
             )
         }

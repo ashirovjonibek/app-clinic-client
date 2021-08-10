@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API_URL } from "../../utils/constant";
+import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import axios from "axios";
 import SimpleModal from "./SimpleModal";
 
@@ -14,7 +14,8 @@ const AdminListListnear = () => {
     });
   }, []);
 
-  console.log(listnear);
+  // console.log(listnear);
+
 
   return (
     <div className="admin">
@@ -76,11 +77,11 @@ const AdminListListnear = () => {
                 <td className="table-border">{item.section.title.ru}</td>
                 <td className="table-border">{item.phoneNumber}</td>
                 <td className="table-border">{item.email}</td>
-                <td className="table-border edit"><SimpleModal item={item}/></td>
+                <td className="table-border edit"><SimpleModal item={item} /></td>
               </tr>
             )}
           </table>
-         
+          
         </div>
       </div>
     </div>

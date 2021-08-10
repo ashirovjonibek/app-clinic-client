@@ -8,19 +8,18 @@ export default function SimpleModal({ item }) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const [select, setSelect] = useState(item.roles[0].name);
-    const [handleSelect, setHandleSelect] = useState('');
-    
-    let changeRolesItem 
+    // const [handleSelect, setHandleSelect] = useState('');
+    const [changeRolesItem, setChangeRolesItem] = useState();
 
-    const changeRoles = () => {
-        if (handleSelect !== select) {
-            return changeRolesItem = roles.filter(item => item.name.includes(handleSelect));
-        }
-        return false;
-    }
-    changeRoles();
-    // console.log(changeRoles());
-    // console.log(item.id)
+
+    // const changeRoles = () => {
+    //     if (handleSelect !== select) {
+    //         return setChangeRolesItem(roles.filter(item => item.name.includes(handleSelect)));
+    //     }
+    //     return false;
+    // }
+    console.log(item.id);
+    console.log(changeRolesItem);
 
     const changeUpdate = () => {
         const token = localStorage.getItem(STORAGE_NAME);
@@ -30,7 +29,7 @@ export default function SimpleModal({ item }) {
             },
             url: API_URL + "/auth/update/listenerByRole",
             method: 'PUT',
-            data:{
+            data: {
                 userId: item.id,
                 roleId: changeRolesItem,
             }
@@ -46,9 +45,12 @@ export default function SimpleModal({ item }) {
     };
 
     const handleRol = (e) => {
-        setHandleSelect(
-            e.target.value
-        );
+        let rolesItemObj;
+        if (e.target.value !== select) {
+            rolesItemObj = roles.filter(el => el.name.includes(e.target.value));
+            return setChangeRolesItem(rolesItemObj[0].id);
+        }
+        return false;
     }
 
     useEffect(() => {
