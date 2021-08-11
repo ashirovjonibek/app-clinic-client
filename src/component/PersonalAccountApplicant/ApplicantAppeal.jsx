@@ -20,19 +20,24 @@ const ApplicantAppeal = (props) => {
         top: '',
         attachmentId: []
     });
+    
+    console.log(file);
     console.log(values);
+
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
             // console.log(res)
             setSections(res.data._embedded.sections);
         })
     }, []);
+
     const handleChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
         });
     }
+
     const handleSend = (e) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
@@ -53,8 +58,10 @@ const ApplicantAppeal = (props) => {
             } else {
                 toast.error(res.data.message);
             }
-        })
+        });
+        setValues({ ...values, attachmentId: [file] });
     }
+
     const handleUpload = (e) => {
         if (e.target.files[0]) {
             const formData = new FormData();
@@ -69,7 +76,7 @@ const ApplicantAppeal = (props) => {
                 data: formData
             }).then(res => {
                 setFile(prevState => [...prevState, res.data.object]);
-                setValues({...values, attachmentId: [file]})
+                
             }
             )
         }
