@@ -29,6 +29,7 @@ const RegistrationApplicant = (props) => {
         gender: ''
     }))
 
+
     useEffect(() => {
         // ServerApi.get
         // ("/region").then(res => { console.log(res) })
@@ -58,9 +59,50 @@ const RegistrationApplicant = (props) => {
             ...values,
             [e.target.name]: e.target.value
         });
-
-
+        nameHandler(e);
+        yearHandler(e);
     };
+
+    // validation \|/
+    const [nameDirty, setNameDirty] = useState(false);
+    const [errorName, setErrorName] = useState('Ism yozilishi kerak!');
+    const [yearDirty, setYearDirty] = useState(false);
+    const [errorYear, setErorYear] = useState('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+    console.log();
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'fullName':
+                setNameDirty(true);
+                break;
+            case 'birthDate':
+                setYearDirty(true);
+                break;
+        }
+        console.log(e.target.name);
+    }
+
+    const yearHandler = (e) => {
+        const fullYear = new Date().getFullYear();
+        const userYear = e.target.value.slice(0, 4);
+        console.log(fullYear - userYear);
+        if ((fullYear - userYear) < 16) {
+            setErorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+            console.log('<16');
+        } else {
+            setErorYear('');
+            console.log('>16');
+        }
+    }
+
+    const nameHandler = (e) => {
+        let regName = /^[a-zA-Z]+$/;
+        if (!regName.test(String(e.target.value).toLowerCase())) {
+            setErrorName('Ism faqat harflardan iborat bo\'lsin');
+        } else {
+            setErrorName('');
+        }
+    }
+
     const handleSend = (e) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
@@ -92,17 +134,20 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="">Ф.И.О</label>
                                                 <input
+                                                    onBlur={e => blurHandler(e)}
                                                     onChange={handleChange}
                                                     name="fullName"
                                                     className="input-text"
                                                     type="text"
                                                     placeholder="Введите ваше Ф.И.О"
+                                                    required
                                                 />
                                             </li>
+                                            {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
                                                 <select id="nationId" name="nationId" onChange={handleChange}
-                                                    className="category">
+                                                    className="category" required>
                                                     <option value="">Выберите ваш национальность</option>
                                                     {nations && nations.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -112,7 +157,7 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="gender">Пол</label>
                                                 <select id="gender" onChange={handleChange} name="gender"
-                                                    className="category">
+                                                    className="category" required>
                                                     <option value="">Выберите ваш пол</option>
                                                     <option value="erkak">Erkak</option>
                                                     <option value="ayol">Ayol</option>
@@ -120,10 +165,17 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="birthDate">Дата рождения</label>
-                                                <input className="input-date"
-                                                    onChange={handleChange} name="birthDate"
-                                                    id="birthDate" type="date" />
+                                                <input
+                                                    className="input-date"
+                                                    onBlur={e => blurHandler(e)}
+                                                    onChange={handleChange}
+                                                    name="birthDate"
+                                                    id="birthDate"
+                                                    type="date"
+                                                    required
+                                                />
                                             </li>
+                                            {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
                                             <li>
                                                 <label className="label" htmlFor="regionId">Область</label>
 
