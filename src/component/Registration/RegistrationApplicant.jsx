@@ -59,47 +59,64 @@ const RegistrationApplicant = (props) => {
             ...values,
             [e.target.name]: e.target.value
         });
-        nameHandler(e);
+        // nameHandler(e);
         yearHandler(e);
+        numberHandler(e);
+        emailHandler(e);
     };
 
     // validation \|/
     const [nameDirty, setNameDirty] = useState(false);
     const [errorName, setErrorName] = useState('Ism yozilishi kerak!');
     const [yearDirty, setYearDirty] = useState(false);
-    const [errorYear, setErorYear] = useState('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
-    console.log();
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'fullName':
-                setNameDirty(true);
-                break;
-            case 'birthDate':
-                setYearDirty(true);
-                break;
-        }
-        console.log(e.target.name);
-    }
-
-    const yearHandler = (e) => {
-        const fullYear = new Date().getFullYear();
-        const userYear = e.target.value.slice(0, 4);
-        console.log(fullYear - userYear);
-        if ((fullYear - userYear) < 16) {
-            setErorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
-            console.log('<16');
-        } else {
-            setErorYear('');
-            console.log('>16');
-        }
-    }
+    const [errorYear, setErrorYear] = useState('foydalanuvchi 16 yoshdan katta bo\'lishi kerak!');
+    const [numberDirty, setNumberDirty] = useState(false);
+    const [errorNumber, setErrorNumber] = useState('telefon raqamingizni kiriting!');
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
 
     const nameHandler = (e) => {
-        let regName = /^[a-zA-Z]+$/;
-        if (!regName.test(String(e.target.value).toLowerCase())) {
+        const name = e.target.name;
+        const regName = /^[a-zA-Z]+$/;
+        if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
+            setNameDirty(true);
             setErrorName('Ism faqat harflardan iborat bo\'lsin');
         } else {
             setErrorName('');
+        }
+    }
+
+    const yearHandler = (e) => {
+        const name = e.target.name;
+        const fullYear = new Date().getFullYear();
+        const userYear = e.target.value.slice(0, 4);
+        if ((fullYear - userYear) < 16 && name === 'birthDate') {
+            setYearDirty(true);
+            setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+        } else {
+            setErrorYear('');
+        }
+    }
+
+    const numberHandler = (e) => {
+        const name = e.target.name;
+        const regNumber = /^\d+/;
+        if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
+            setNumberDirty(true);
+            setErrorNumber('faqat raqam kiriting!');
+        } else {
+            setErrorNumber('');
+        }
+    }
+
+    const emailHandler = (e) => {
+        const name = e.target.name;
+        const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!regEmail.test(String(e.target.value).toLowerCase()) && name === 'email') {
+            setEmailDirty(true);
+            setErrorEmail('elektron po\'chtangizda abs@abs.com bo\'lishi kerak!');
+        } else {
+            setErrorEmail('');
         }
     }
 
@@ -134,7 +151,7 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="">Ф.И.О</label>
                                                 <input
-                                                    onBlur={e => blurHandler(e)}
+                                                    onBlur={e => nameHandler(e)}
                                                     onChange={handleChange}
                                                     name="fullName"
                                                     className="input-text"
@@ -167,7 +184,7 @@ const RegistrationApplicant = (props) => {
                                                 <label className="label" htmlFor="birthDate">Дата рождения</label>
                                                 <input
                                                     className="input-date"
-                                                    onBlur={e => blurHandler(e)}
+                                                    onBlur={e => yearHandler(e)}
                                                     onChange={handleChange}
                                                     name="birthDate"
                                                     id="birthDate"
@@ -179,8 +196,13 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="regionId">Область</label>
 
-                                                <select name="regionId" id="regionId" onChange={handleChange}
-                                                    className="category">
+                                                <select
+                                                    name="regionId"
+                                                    id="regionId"
+                                                    onChange={handleChange}
+                                                    className="category"
+                                                    required
+                                                >
                                                     <option value="lorem">Выберите ваш Область</option>
                                                     {regions && regions.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -190,9 +212,13 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="districtId">Город (область) </label>
-                                                <select required id="districtId" onChange={handleChange}
+                                                <select
+                                                    id="districtId"
+                                                    onChange={handleChange}
                                                     name="districtId"
-                                                    className="category">
+                                                    className="category"
+                                                    required={true}
+                                                >
                                                     <option value="">Выберите ваш раён</option>
                                                     {districts && districts.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -209,21 +235,35 @@ const RegistrationApplicant = (props) => {
                                                     id="address"
                                                     className="input-text"
                                                     type="text"
-                                                    placeholder="Введите ваш домашний адрес" />
+                                                    placeholder="Введите ваш домашний адрес"
+                                                    required />
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="phoneNumber">Телефон</label>
-                                                <input required={true} onChange={handleChange} name="phoneNumber"
+                                                <input
+                                                    required={true}
+                                                    onBlur={e => numberHandler(e)}
+                                                    onChange={handleChange}
+                                                    name="phoneNumber"
                                                     id="phoneNumber"
                                                     className="input-text" type="text"
                                                     placeholder="+998 (__) ___-__-__" />
                                             </li>
+                                            {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                             <li>
                                                 <label className="label" htmlFor="email">Почта</label>
-                                                <input required={true} onChange={handleChange} name="email" id="email"
-                                                    className="input-text" type="text"
-                                                    placeholder="Введите вашу почту" />
+                                                <input
+                                                    required={true}
+                                                    onBlur={e => emailHandler(e)}
+                                                    onChange={handleChange}
+                                                    name="email"
+                                                    id="email"
+                                                    className="input-text"
+                                                    type="text"
+                                                    placeholder="Введите вашу почту"
+                                                />
                                             </li>
+                                            {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
                                             <li>
                                                 <label className="label" htmlFor="socialStatusId">Категория
                                                     льгот</label>
@@ -238,10 +278,15 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="password">Пароль</label>
-                                                <input required={true} onChange={handleChange} name="password"
+                                                <input
+                                                    required={true}
+                                                    onChange={handleChange}
+                                                    name="password"
                                                     id="password"
-                                                    className="input-text" type="text"
-                                                    placeholder="Введите вашу почту" />
+                                                    className="input-text"
+                                                    type="text"
+                                                    placeholder="Введите вашу почту"
+                                                />
                                             </li>
 
                                             <li>
