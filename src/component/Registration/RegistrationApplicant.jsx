@@ -59,10 +59,6 @@ const RegistrationApplicant = (props) => {
             ...values,
             [e.target.name]: e.target.value
         });
-        // nameHandler(e);
-        yearHandler(e);
-        numberHandler(e);
-        emailHandler(e);
     };
 
     // validation \|/
