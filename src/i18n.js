@@ -4,7 +4,6 @@ import { initReactI18next } from "react-i18next"
 
 import translationRU from "./locale/ru/translation.json"
 import translationUZ from "./locale/uz/translation.json"
-import translationENG from "./locale/en/translation.json"
 
 const resources = {
     ru: {
@@ -12,10 +11,7 @@ const resources = {
     },
     uz: {
         translation: translationUZ,
-    },
-    eng: {
-        translation: translationENG,
-    },
+    }
 };
 
 const language = localStorage.getItem("I18N_LANGUAGE");

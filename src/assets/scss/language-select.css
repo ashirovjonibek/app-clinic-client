@@ -4,6 +4,7 @@
     z-index: 1000;
 }
 
+
 .navlanguage-item {
     background-color: white;
     height: 40px;
@@ -45,6 +46,7 @@
 .navlanguage:hover .navlanguage-item {
     border-radius: 20px 20px 0px 0px ;
 }
+
 
 .uzb-item {
     background: url("../icon/flag-uzb.svg") center left 10px / 25px 25px no-repeat;

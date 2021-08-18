@@ -30,7 +30,7 @@ const NavCenter = ({t}) => {
                             <div className="logo-right">
                                 <div>
                                     <span><strong>{t("Legal clinic")}</strong></span><br />
-                                    {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
+                                    <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                 </div>
 
                             </div>
