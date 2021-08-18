@@ -22,7 +22,7 @@ const ApplicantAppeal = (props) => {
     });
     
     console.log(file);
-    console.log(values);
+    console.log("VALUES ",values);
 
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {

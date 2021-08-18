@@ -25,10 +25,10 @@ import { API_URL, STORAGE_NAME } from "./utils/constant";
 import { ApiContext } from "./utils/ApiContext";
 import AdminListAppeal from "./component/Admin/AdminListAppeal";
 import IncomingRequestItem from "./component/PersonalAccountListener/IncomingRequestItem";
+import TestRequests from "./requests/TestRequests";
 
 // import {userMe} from "./utils/UserService";
 
-// commit test
 function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [idUser, setIdUser] = useState(1);
@@ -76,6 +76,7 @@ function App() {
             <div className="App">
                 <ApiContext.Provider value={{ currentUser, idUser, setIdUser, setCurrentItem, currentItem,i18}}>
                     <ToastContainer />
+                    {/*<TestRequests/>*/}
                     <Switch>
                         <Route exact path="/" component={FirstHome} />
                         <Route exact path="/auth/login" component={Login} />
