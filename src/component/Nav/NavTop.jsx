@@ -2,8 +2,9 @@ import React from "react";
 import iconAdress from "../../assets/icon/icon-adress.svg";
 import iconEmail from "../../assets/icon/icon-email.svg";
 import iconContact from "../../assets/icon/icon-contact.svg";
+import {withTranslation} from "react-i18next";
 
-const NavTop = () => {
+const NavTop = ({t}) => {
     return (
         <div className="nav-top container-fluit">
             <div className="container">
@@ -11,7 +12,7 @@ const NavTop = () => {
                     <li>
                         <a href="" className="adress">
                             <img width="18px" src={iconAdress} alt="" />
-                            <p>100047, г. Ташкент, Мирабадский район, ул. Шахрисабз, д.42.</p>
+                            <p>{t("100047, Tashkent, Mirabad district, st. Shakhrisabz, 42")}.</p>
                         </a>
                     </li>
                     <li>
@@ -32,4 +33,4 @@ const NavTop = () => {
     );
 }
 
-export default NavTop;
+export default withTranslation()(NavTop);

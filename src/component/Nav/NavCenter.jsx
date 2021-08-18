@@ -6,8 +6,9 @@ import NavLanguage from "./NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "./Enter";
+import {withTranslation} from "react-i18next";
 
-const NavCenter = () => {
+const NavCenter = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
 
     return (
@@ -28,9 +29,8 @@ const NavCenter = () => {
                             </div>
                             <div className="logo-right">
                                 <div>
-                                    <span><strong>Юридическая клиника</strong></span><br />
-                                    Академии Генеральной прокуратуры<br />
-                                    Республики Узбекистан.
+                                    <span><strong>{t("Legal clinic")}</strong></span><br />
+                                    {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
                                 </div>
 
                             </div>
@@ -39,7 +39,7 @@ const NavCenter = () => {
                     <div className="header-right">
                         <div className="header-right-desctop">
                             <form role="search" method="get" action="#" className="search-form">
-                                <input type="" placeholder="Поиск..." />
+                                <input type="" placeholder={t("Search")+"..."} />
                                 <button type=""><img src={iconSearch} alt="search-icon" /></button>
                             </form>
                             <NavLanguage />
@@ -99,4 +99,4 @@ const NavCenter = () => {
     );
 }
 
-export default NavCenter;
+export default withTranslation()(NavCenter);

@@ -1,29 +1,31 @@
 import React from "react";
-const NavBottom = () => {
+import {withTranslation} from "react-i18next";
+
+const NavBottom = ({t}) => {
     return (
         <nav className="nav-bottom container-fluit">
             <div className="container">
                 <ul>
                     <li>
-                        <a href="#what-clinic">Что такое<br /> клиника</a>
+                        <a href="#what-clinic">{t("What is clinic")}</a>
                     </li>
                     <li>
-                        <a href="#cel-clinic">Цель<br /> клиники</a>
+                        <a href="#cel-clinic">{t("Target clinics")}</a>
                     </li>
                     <li>
-                        <a href="#purpose-clinic">Предназначение<br /> клиники</a>
+                        <a href="#purpose-clinic">{t("Purpose clinics")}</a>
                     </li>
                     <li>
-                        <a href="#popular-clinic">Популярные<br /> вопросы</a>
+                        <a href="#popular-clinic">{t("Popular questions")}</a>
                     </li>
                     <li>
-                        <a href="#legal-clinic">Нормативно-правовая<br /> база</a>
+                        <a href="#legal-clinic">{t("Regulatory base")}</a>
                     </li>
                     <li>
-                        <a href="#home-slider">Полезные<br /> ссылки</a>
+                        <a href="#home-slider">{t("Useful links")}</a>
                     </li>
                     <li>
-                        <a href="#adres-procuratura">Адреса<br /> прокуратур</a>
+                        <a href="#adres-procuratura">{t("Addresses prosecutors")}</a>
                     </li>
                 </ul>
             </div>
@@ -31,4 +33,4 @@ const NavBottom = () => {
     );
 }
 
-export default NavBottom;
+export default withTranslation()(NavBottom);

@@ -30,6 +30,12 @@
     display: block;
     padding: 15px 0 15px 50px;
 }
+.navlanguage-content a:hover {
+    background-color: rgba(0,0,0,0.1);
+    text-decoration: none;
+    display: block;
+    padding: 15px 0 15px 50px;
+}
 
 
 .navlanguage:hover .navlanguage-content {

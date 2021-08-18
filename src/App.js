@@ -33,6 +33,7 @@ function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [idUser, setIdUser] = useState(1);
     const [currentItem, setCurrentItem] = useState([]);
+    const [i18, setI18] = useState(localStorage.getItem('I18N_LANGUAGE'));
     const history = useHistory();
     const location = useLocation();
 
@@ -73,7 +74,7 @@ function App() {
     return (
         location.pathname !== '/admin' ?
             <div className="App">
-                <ApiContext.Provider value={{ currentUser, idUser, setIdUser, setCurrentItem, currentItem }}>
+                <ApiContext.Provider value={{ currentUser, idUser, setIdUser, setCurrentItem, currentItem,i18}}>
                     <ToastContainer />
                     <Switch>
                         <Route exact path="/" component={FirstHome} />
