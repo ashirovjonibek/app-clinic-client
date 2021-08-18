@@ -23,9 +23,9 @@ import { openPages } from "./utils/config";
 import axios from "axios";
 import { API_URL, STORAGE_NAME } from "./utils/constant";
 import { ApiContext } from "./utils/ApiContext";
-import AdminListAppeal from "./component/Admin/AdminListAppeal";
-import IncomingRequestItem from "./component/PersonalAccountListener/IncomingRequestItem";
-import TestRequests from "./requests/TestRequests";
+// import AdminListAppeal from "./component/Admin/AdminListAppeal";
+// import IncomingRequestItem from "./component/PersonalAccountListener/IncomingRequestItem";
+// import TestRequests from "./requests/TestRequests";
 
 // import {userMe} from "./utils/UserService";
 

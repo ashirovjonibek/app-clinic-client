@@ -25,10 +25,12 @@ const IncomingRequestSection = (props) => {
             url: API_URL + "/application/listener",
             method: 'GET'
         }).then(res => {
+            console.log(res.data)
             setRequest(res.data.object);
         })
+        console.log(request);
     }, []);
-    console.log(request);
+
 
     // pagination \/
 

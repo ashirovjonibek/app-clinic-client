@@ -3,8 +3,9 @@ import InputFile from "../InputFile";
 import ButtonDefault from "../ButtonDefault";
 import Label from "../Label";
 import UserItem from "../UserItem";
+import {withTranslation} from "react-i18next";
 
-const ResponseRequestItem1 = () => {
+const ResponseRequestItem1 = ({t}) => {
     return (
         <div className="response-request">
             <div className="content-line" />
@@ -12,14 +13,14 @@ const ResponseRequestItem1 = () => {
                 <UserItem />
             </div>
             <div className="file-upload">
-                <Label text="Ответ:" />
+                <Label text={t("Answer")+":"} />
                 <InputFile />
             </div>
             <div className="button">
-                <ButtonDefault text="Отправить на рассмотрение" />
+                <ButtonDefault text={t("Submit for review")} />
             </div>
         </div>
     );
 }
 
-export default ResponseRequestItem1;
+export default withTranslation()(ResponseRequestItem1);

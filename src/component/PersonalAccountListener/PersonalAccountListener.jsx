@@ -28,9 +28,10 @@ import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
+import {withTranslation} from "react-i18next";
 
 
-const PersonalAccountListener = (props) => {
+const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
 
     const { idUser, setIdUser, currentItem } = useContext(ApiContext);
@@ -83,18 +84,16 @@ const PersonalAccountListener = (props) => {
                                     </div>
                                     <div className="logo-right">
                                         <div>
-                                            <span><strong>Юридическая клиника</strong></span><br />
-                                            Академии Генеральной прокуратуры<br />
-                                            Республики Узбекистан.
+                                            <span><strong>{t("Legal clinic")}</strong></span><br />
+                                            <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                         </div>
-
                                     </div>
                                 </a>
                             </div>
                             <div className="header-right">
                                 <div className="header-right-desctop">
                                     <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder="Поиск..." />
+                                        <input type="" placeholder={t("Search")+"..."} />
                                         <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                     </form>
                                     <NavLanguage />
@@ -118,28 +117,28 @@ const PersonalAccountListener = (props) => {
                                     </div>
                                     <ul>
                                         <li>
-                                            <Link onClick={() => getPage(1)}>Поступившие обращения</Link>
+                                            <Link onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(2)}>Ответы на обращения</Link>
+                                            <Link onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(3)}>Срок исполнения обращений</Link>
+                                            <Link onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(4)}>Обращения</Link>
+                                            <Link onClick={() => getPage(4)}>{t("Appeals")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(5)}>Ход обращений</Link>
+                                            <Link onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(6)}>Ваши отзывы</Link>
+                                            <Link onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                            <Link onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(8)}>Центр сообщений</Link>
+                                            <Link onClick={() => getPage(8)}>{t("Message center")}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -163,28 +162,28 @@ const PersonalAccountListener = (props) => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={idUser === 1 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(1)}>Поступившие обращения</Link>
+                                            <Link onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 2 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(2)}>Ответы на обращения</Link>
+                                            <Link onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 3 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(3)}>Срок исполнения обращений</Link>
+                                            <Link onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 4 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(4)}>Обращения</Link>
+                                            <Link onClick={() => getPage(4)}>{t("Appeals")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 5 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(5)}>Ход обращений</Link>
+                                            <Link onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 6 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(6)}>Ваши отзывы</Link>
+                                            <Link onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 7 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                            <Link onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(8)}>Центр сообщений</Link>
+                                            <Link onClick={() => getPage(8)}>{t("Message center")}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -204,4 +203,4 @@ const PersonalAccountListener = (props) => {
     );
 }
 
-export default PersonalAccountListener;
+export default withTranslation()(PersonalAccountListener);

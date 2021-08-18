@@ -42,6 +42,24 @@
   "Role": "Рол",
   "Edit": "Изменить",
   "Add department": "Добавить кафедру",
-  "Delete": "Удалить"
+  "Delete": "Удалить",
+  "Incoming requests": "Поступившие обращения",
+  "Responses to requests": "Ответы на обращения",
+  "Deadline for the execution of requests": "Срок исполнения обращений",
+  "Appeals": "Обращения",
+  "Call flow": "Ход обращений",
+  "Your feedback": "Ваши отзывы",
+  "Legal and regulatory framework": "Нормативно-правовая база",
+  "Message center": "Центр сообщений",
+  "Date of creation": "Дате создания",
+  "Period of execution": "Срок исполнения",
+  "A priority": "Приоритет",
+  "Sort by": "Сортировать по",
+
+  "Everyday practice shows that the existing structure of the organization creates need to be included in production plan for a number of extraordinary events taking into account the complex personnel training system corresponding urgent needs. Clear signs of the victory of institutionalization form the global economic network and at the same time-in are equally on their own. As well as independent states to this day day remain the lot of liberals who eager to be described in as much detail as possible.": "Повседневная практика показывает, что сложившаяся структура организации создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса системы обучения кадров, соответствующей насущным потребностям. Явные признаки победы институционализации формируют глобальную экономическую сеть и при этом - в равной степени предоставлены сами себе. А также независимые государства и по сей день остаются уделом либералов, которые жаждут быть описаны максимально подробно.",
+  "Subject of the appeal": "Тема обращения",
+  "Confidentially": "Конфиденциально",
+  "Answer": "Ответ",
+  "Submit for review": "Отправить на рассмотрение"
 
 }
