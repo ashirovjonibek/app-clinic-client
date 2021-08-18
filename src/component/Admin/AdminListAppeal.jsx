@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
-const AdminListAppeal = () => {
+const AdminListAppeal = ({t}) => {
 
     const [applicants, setApplicants] = useState([]);
 
@@ -33,17 +34,17 @@ const AdminListAppeal = () => {
             <div className="admin-list-appeal">
                 <div style={{ margin: '20px 0' }}>
                     <div className="table-scroll" style={{ marginTop: '10px' }}>
-                        <h5 className="table-title">Список</h5>
+                        <h5 className="table-title">{t("List")}</h5>
                         <table>
                             <tr>
-                                <th className="table-border applicant-name">Ф.И.О</th>
-                                <th className="table-border nation">Национальность</th>
-                                <th className="table-border gender">Пол</th>
-                                <th className="table-border citi">Адрес</th>
-                                <th className="table-border tel">Телефон</th>
-                                <th className="table-border pochta">Почта</th>
-                                <th className="table-border lgot">Категория льгот</th>
-                                <th className="table-border date">Дата рождения</th>
+                                <th className="table-border applicant-name">{t("Full name")}</th>
+                                <th className="table-border nation">{t("Nationality")}</th>
+                                <th className="table-border gender">{t("Gender")}</th>
+                                <th className="table-border citi">{t("Address")}</th>
+                                <th className="table-border tel">{t("Phone number")}</th>
+                                <th className="table-border pochta">{t("Email")}</th>
+                                <th className="table-border lgot">{t("Benefit category")}</th>
+                                <th className="table-border date">{t("Date of birth")}</th>
                             </tr>
                             {applicants && applicants.map((item, i) =>
                                 <tr key={i} value={item.id}>
@@ -66,4 +67,4 @@ const AdminListAppeal = () => {
     );
 }
 
-export default AdminListAppeal;
+export default withTranslation()(AdminListAppeal);

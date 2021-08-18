@@ -3,8 +3,9 @@ import axios from 'axios';
 import { API_URL, STORAGE_NAME } from '../../utils/constant';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
+import {withTranslation} from "react-i18next";
 
-export default function SimpleModal({ item }) {
+function SimpleModal({ item,t }) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const [select, setSelect] = useState(item.roles[0].name);
@@ -81,31 +82,31 @@ export default function SimpleModal({ item }) {
                 <div className="simple-modal">
                     <ul>
                         <li>
-                            <div className="label">Ф.И.О</div>
+                            <div className="label">{t("Full name")}</div>
                             <div className="inform">{item.fullName}</div>
                         </li>
                         <li>
-                            <div className="label">Должность</div>
+                            <div className="label">{t("Position")}</div>
                             <div className="inform">{item.position.title.ru}</div>
                         </li>
                         <li>
-                            <div className="label">Курс</div>
+                            <div className="label">{t("Course")}</div>
                             <div className="inform">{item.course}</div>
                         </li>
                         <li>
-                            <div className="label">Кафедра</div>
+                            <div className="label">{t("Department")}</div>
                             <div className="inform">{item.section.title.ru}</div>
                         </li>
                         <li>
-                            <div className="label">Телефон</div>
+                            <div className="label">{t("Phone number")}</div>
                             <div className="inform">{item.phoneNumber}</div>
                         </li>
                         <li>
-                            <div className="label">Почта</div>
+                            <div className="label">{t("Email")}</div>
                             <div className="inform">{item.email}</div>
                         </li>
                         <li>
-                            <div className="label">Рол</div>
+                            <div className="label">{t("Role")}</div>
                             <select onChange={handleRol} className="inform">
                                 <option value={item.roles[0].name}>{item.roles[0].name}</option>
                                 {roles && roles.map((rol) =>
@@ -115,9 +116,10 @@ export default function SimpleModal({ item }) {
                             </select>
                         </li>
                     </ul>
-                    <button className="change-btn" onClick={changeUpdate}>Изменить</button>
+                    <button className="change-btn" onClick={changeUpdate}>{t("Edit")}</button>
                 </div>
             </Modal>
         </div>
     );
 }
+export default withTranslation()(SimpleModal)

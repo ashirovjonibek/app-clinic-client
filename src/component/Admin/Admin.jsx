@@ -11,14 +11,21 @@ import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
 import AdminListSetting from './AdminListSetting';
 import Setting from './Setting';
+import {withTranslation} from "react-i18next";
+import enterImg from "../../assets/img/enter-img.svg";
+import LockIcon from '@material-ui/icons/Lock';
+import { useHistory} from 'react-router-dom'
+import {STORAGE_NAME} from "../../utils/constant";
 
-const Admin = () => {
+
+const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [listnearContentItem, setListnearContentItem] = useState(false);
     const [supervisorContentItem, setSupervisorContentItem] = useState(false);
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
     const [settingContentItem, setSettingContentItem] = useState(false);
     const [pageQount, setPageQount] = useState(1);
+    const history=useHistory();
 
     function AdminSitebarItem(n) {
         switch (n) {
@@ -71,25 +78,25 @@ const Admin = () => {
                 <ul>
                     <li className="accordion__section">
                         <div className="accordion" onClick={() => getPage(1)} >
-                            <h3 className="accordion__title">Список заявителей</h3>
+                            <h3 className="accordion__title">{t("List of applicants")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleListnear}>
-                            <h3 className="accordion__title">Список слушателей</h3>
+                            <h3 className="accordion__title">{t("List of listeners")}</h3>
                         </div>
                         <div className="accordion__content" id={listnearContentItem ? "content__items" : ""}>
                             <ul>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>9</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>2</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>13</div> */}
                                 </li>
                             </ul>
@@ -97,20 +104,20 @@ const Admin = () => {
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSupervisor}>
-                            <h3 className="accordion__title">Список начальников</h3>
+                            <h3 className="accordion__title">{t("List of bosses")}</h3>
                         </div>
                         <div className="accordion__content" id={supervisorContentItem ? "content__items" : ""}>
                             <ul>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>9</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>2</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>13</div> */}
                                 </li>
                             </ul>
@@ -118,20 +125,20 @@ const Admin = () => {
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleModerator}>
-                            <h3 className="accordion__title">Список модераторов</h3>
+                            <h3 className="accordion__title">{t("List of moderators")}</h3>
                         </div>
                         <div className="accordion__content" id={moderatorContentItem ? "content__items" : ""}>
                             <ul>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>9</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>2</div> */}
                                 </li>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>13</div> */}
                                 </li>
                             </ul>
@@ -139,16 +146,16 @@ const Admin = () => {
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSetting}>
-                            <h3 className="accordion__title">Настройки</h3>
+                            <h3 className="accordion__title">{t("Settings")}</h3>
                         </div>
                         <div className="accordion__content" id={settingContentItem ? "content__items" : ""}>
                             <ul>
                                 <li>
-                                    Название кафедры
+                                    {t("Department name")}
                                     {/* <div>9</div> */}
                                 </li>
                                 <li>
-                                    Название лготь
+                                    {t("Department name")}
                                     {/* <div>2</div> */}
                                 </li>
                             </ul>
@@ -172,7 +179,7 @@ const Admin = () => {
                             <div className="header-right">
                                 <div className="header-right-desctop">
                                     <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder="Поиск..." />
+                                        <input type="" placeholder={t("Search")+"..."} />
                                         <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                     </form>
                                     <NavLanguage />
@@ -180,7 +187,17 @@ const Admin = () => {
                                         <img src={iconGlass} alt="" />
                                     </div>
                                 </div>
-                                <Enter />
+                                <div className="enter" >
+                                    <div className="enter-btn" onClick={()=>{
+                                        localStorage.removeItem(STORAGE_NAME);
+                                        history.push("/")
+                                    }} style={{cursor:"pointer"}}>
+                                        <div className="enter-img">
+                                            <LockIcon/>
+                                        </div>
+                                        {t("Go out")}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -198,5 +215,5 @@ const Admin = () => {
     );
 }
 
-export default Admin;
+export default withTranslation()(Admin);
 

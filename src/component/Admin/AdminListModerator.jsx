@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { API_URL } from "../../utils/constant";
 import axios from "axios";
+import {withTranslation} from "react-i18next";
 
-const AdminListModerator = () => {
+const AdminListModerator = ({t}) => {
 
   const [moderator, setModerator] = useState([]);
 
@@ -16,17 +17,17 @@ const AdminListModerator = () => {
     <div className="admin">
       <div className="admin-list-listnear">
         <div className="table-scroll" style={{ paddingBottom: '20px', marginBottom: '20px' }}>
-          <h5 className="table-title">Новые</h5>
+          <h5 className="table-title">{t("New")}</h5>
           <div className="table-registration">
             <div>
               <table>
                 <tr>
-                  <th className="table-border applicant-name">Ф.И.О</th>
-                  <th className="table-border nation">Должность</th>
-                  <th className="table-border gender">Курс</th>
-                  <th className="table-border citi">Кафедра</th>
-                  <th className="table-border tel">Телефон</th>
-                  <th className="table-border pochta">Почта</th>
+                  <th className="table-border applicant-name">{t("Full name")}</th>
+                  <th className="table-border nation">{t("Position")}</th>
+                  <th className="table-border gender">{t("Course")}</th>
+                  <th className="table-border citi">{t("Department")}</th>
+                  <th className="table-border tel">{t("Phone number")}</th>
+                  <th className="table-border pochta">{t("Email")}</th>
                 </tr>
                 <tr>
                   <td className="table-border applicant-name">Darlene Robertson</td>
@@ -48,20 +49,20 @@ const AdminListModerator = () => {
 
             </div>
             <div className="table-registration-button">
-              <button className="btn-default">Зарегистрировать все</button>
+              <button className="btn-default">{t("Register all")}</button>
             </div>
           </div>
         </div>
         <div className="table-scroll" style={{ paddingBottom: '20px', marginBottom: '20px' }}>
-          <h5 className="table-title">Список</h5>
+          <h5 className="table-title">{t("List")}</h5>
           <table>
             <tr>
-              <th className="table-border applicant-name">Ф.И.О</th>
-              <th className="table-border nation">Должность</th>
-              <th className="table-border gender">Курс</th>
-              <th className="table-border citi">Кафедра</th>
-              <th className="table-border tel">Телефон</th>
-              <th className="table-border pochta">Почта</th>
+              <th className="table-border applicant-name">{t("Full name")}</th>
+              <th className="table-border nation">{t("Position")}</th>
+              <th className="table-border gender">{t("Course")}</th>
+              <th className="table-border citi">{t("Department")}</th>
+              <th className="table-border tel">{t("Phone number")}</th>
+              <th className="table-border pochta">{t("Email")}</th>
             </tr>
             {moderator && moderator.map((item, i) => 
             <tr key={i} value={item.id}>
@@ -80,4 +81,4 @@ const AdminListModerator = () => {
   );
 }
 
-export default AdminListModerator;
+export default withTranslation()(AdminListModerator);

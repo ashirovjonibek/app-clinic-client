@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { toast } from "react-toastify";
 import NavCenter from "../Nav/NavCenter";
 import NavTop from "../Nav/NavTop";
+import {withTranslation} from "react-i18next";
 
 const Login = (props) => {
     const { history } = props;
@@ -85,13 +86,13 @@ const Login = (props) => {
             <div className="login container-fluit">
                 <div className="container">
                     <div className="login-wrapper">
-                        <Title text="Вход в личный кабинет" />
+                        <Title text={props.t("Login to your personal account")} />
                         <div className="form">
                             <form onSubmit={handleLogin}>
                                 <ul>
                                     <li>
                                         <div className="first-label">
-                                            <label className="label" for="phoneNumber">Телефон</label>
+                                            <label className="label" for="phoneNumber">{props.t("Phone number")}</label>
                                         </div>
                                         <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
                                             placeholder="+998 (__) ___-__-__" />
@@ -99,20 +100,20 @@ const Login = (props) => {
                                     </li>
                                     <li>
                                         <div className="last-label">
-                                            <label className="label" for="password">Пароль</label>
+                                            <label className="label" for="password">{props.t("Password")}</label>
                                         </div>
                                         <input className="input-text" id="password" onChange={changePassword} type="text"
-                                            placeholder="Пароль" />
+                                            placeholder={props.t("Password")} />
                                     </li>
                                     <li>
-                                        <button type="submit" className="btn-default">Войти</button>
+                                        <button type="submit" className="btn-default">{props.t("Login")}</button>
                                     </li>
                                     <div className="form-link">
                                         <div className="link">
-                                            <a href="">Забыли пароль?</a>
+                                            <a href="">{props.t("Forgot your password")}?</a>
                                         </div>
                                         <div className="link">
-                                            <a href="">Еще нет аккаунта</a>
+                                            <a href="">{props.t("No account yet")}</a>
                                         </div>
                                     </div>
                                 </ul>
@@ -123,6 +124,6 @@ const Login = (props) => {
             </div>
         </div>
     );
-}
+};
 
-export default withRouter(Login);
+export default withTranslation()(withRouter(Login));

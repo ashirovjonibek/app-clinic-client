@@ -2,8 +2,9 @@ import React from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
+import {withTranslation} from "react-i18next";
 
-const Setting = () => {
+const Setting = ({t}) => {
     return (
         <div className="setting">
             <div className="row">
@@ -35,18 +36,18 @@ const Setting = () => {
                 <div className="kafedr">
                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '20px', fontWeight: '500'}}>
                         <AddIcon fontSize='large' style={{ boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25', borderRadius: '50%', marginRight: '10px'}}/>
-                        Добавить кафедру
+                        {t("Add department")}
                     </div>
                     <div className="table-scroll">
-                        <h5 className="table-title">Кафедры</h5>
+                        <h5 className="table-title">{t("Department")}</h5>
                         <table>
                             <tr>
                                 <th className="table-border number">#</th>
                                 <th className="table-border name-uz">Name Uz</th>
                                 <th className="table-border name-ru">Name Ру</th>
                                 <th className="table-border name-en">Name En</th>
-                                <th className="table-border edit">Изменить</th>
-                                <th className="table-border delete">Удалить</th>
+                                <th className="table-border edit">{t("Edit")}</th>
+                                <th className="table-border delete">{t("Delete")}</th>
                             </tr>
                             <tr>
                                 <td className="table-border">1</td>
@@ -66,4 +67,4 @@ const Setting = () => {
     )
 }
 
-export default Setting;
+export default withTranslation()(Setting);
