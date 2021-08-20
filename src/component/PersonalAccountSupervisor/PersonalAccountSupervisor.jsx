@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import PerAccSupListenersSection from "./PerAccSupListenersSection";
 import SupervisorIncomingRequestSection from "./SupervisorIncomingRequestSection";
@@ -21,11 +21,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import { light } from "@material-ui/core/styles/createPalette";
+import RequestFunctions from "../../requests/RequestFunctions";
+import {useSelector} from "react-redux";
+import meReducer from "../../redux/me/reducer";
 
 const PersonalAccountSupervisor = () => {
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
+    const me=useSelector(state=>state.meReducer)
 
     function pushBar(n) {
         switch (n) {
@@ -53,6 +57,15 @@ const PersonalAccountSupervisor = () => {
                 return <SupervisorArchive />
         }
     }
+
+    useEffect(()=>{
+        console.log("this is redux->",me)
+       RequestFunctions.getWords().then((r)=>{
+           console.log(r)
+       }).catch((er)=>{
+           console.log(er)
+       })
+    },[])
 
     const getPage = (n) => {
         setPageQount(n);

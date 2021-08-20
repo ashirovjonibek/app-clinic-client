@@ -7,12 +7,17 @@ import { toast } from "react-toastify";
 import NavCenter from "../Nav/NavCenter";
 import NavTop from "../Nav/NavTop";
 import {withTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
+import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
+import meReducer from "../../redux/me/reducer";
 
 const Login = (props) => {
     const { history } = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
+    const meTools=useSelector(state => state.meReducer);
+    const dispatch=useDispatch()
     // if (app.currentUser.roles.filter(i =>
     //     i.name === 'ROLE_ADMIN'
     // ).length === 0) {
@@ -40,6 +45,10 @@ const Login = (props) => {
                         }
                     }).then(res => {
                         console.log(res)
+                        dispatch({type:ME_DATA,data:res.data.object})
+                        dispatch({type:ME_USERNAME,data:res.data.object.username})
+                        dispatch({type:ME_EMAIL,data:res.data.object.email})
+                        dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
                             history.push('/auth/login');
