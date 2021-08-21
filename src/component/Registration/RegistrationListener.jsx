@@ -75,7 +75,7 @@ function RegistrationListener(props) {
 
     const nameHandler = (e) => {
         const name = e.target.name;
-        const regName = /^[a-zA-Z]+$/;
+        const regName = /^[a-zA-Z\s]+$/;
         if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
             setNameDirty(true);
             setErrorName('Ism faqat harflardan iborat bo\'lsin');

@@ -36,11 +36,11 @@ const NavLanguage = () => {
     },[]);
 
     const changeLang=(lang)=>{
-        console.log(lang);
+        // console.log("language "+lang);
         setSelectedLang(lang);
         localStorage.setItem("I18N_LANGUAGE",lang);
         i18n.changeLanguage(lang)
-        console.log(i18n)
+        // console.log(i18n)
     };
 
     return (

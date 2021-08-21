@@ -14,8 +14,9 @@ import Setting from './Setting';
 import {withTranslation} from "react-i18next";
 import enterImg from "../../assets/img/enter-img.svg";
 import LockIcon from '@material-ui/icons/Lock';
-import { useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
+import {adminNavbarr,adminNavbar,navbarItems} from "../../assets/scss/adminList.scss"
 
 
 const Admin = ({t}) => {
@@ -46,7 +47,7 @@ const Admin = ({t}) => {
         setPageQount(n)
     }
 
-    const handleListnear = () => {
+    const handleListener = () => {
         getPage(2);
         setListnearContentItem(!listnearContentItem);
     }
@@ -82,7 +83,7 @@ const Admin = ({t}) => {
                         </div>
                     </li>
                     <li className="accordion__section">
-                        <div className="accordion" onClick={handleListnear}>
+                        <div className="accordion" onClick={handleListener}>
                             <h3 className="accordion__title">{t("List of listeners")}</h3>
                         </div>
                         <div className="accordion__content" id={listnearContentItem ? "content__items" : ""}>
@@ -207,6 +208,27 @@ const Admin = ({t}) => {
 
             <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
+                        <div className="admin-navbar">
+                            <div className="admin-navbarr">
+                                <ul>
+                                    <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
+                                        <Link onClick={() => getPage(1)}>List of applicants</Link>
+                                    </li>
+                                    <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
+                                        <Link onClick={() => getPage(2)}>List of listeners</Link>
+                                    </li>
+                                    <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
+                                        <Link onClick={() => getPage(3)}>List of bosses</Link>
+                                    </li>
+                                    <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
+                                        <Link onClick={() => getPage(4)}>List of moderators</Link>
+                                    </li>
+                                    <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
+                                        <Link onClick={() => getPage(5)}>Settings</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     {AdminSitebarItem(pageQount)}
                 </div>
             </div>

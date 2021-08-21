@@ -45,25 +45,25 @@ const Login = (props) => {
                         }
                     }).then(res => {
                         console.log(res)
-                        dispatch({type:ME_DATA,data:res.data.object})
-                        dispatch({type:ME_USERNAME,data:res.data.object.username})
-                        dispatch({type:ME_EMAIL,data:res.data.object.email})
-                        dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
+                        // dispatch({type:ME_DATA,data:res.data.object})ok
+                        // dispatch({type:ME_USERNAME,data:res.data.object.username})
+                        // dispatch({type:ME_EMAIL,data:res.data.object.email})
+                        // dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
                             history.push('/auth/login');
                         } else {
                             if (res.data.object != null) {
                                 setCurrentUser(res.data.object);
-                                if (res.data.object.authorities.filter(i => i.name === 'ADMIN').length > 0) {
+                                if (res.data.object.roles.filter(i => i.name === 'ADMIN').length > 0) {
                                     history.push('/admin')
-                                } else if (res.data.object.authorities.filter(i => i.name === 'BOSS').length > 0) {
+                                } else if (res.data.object.roles.filter(i => i.name === 'BOSS').length > 0) {
                                     history.push('/personalAccountSupervisor')
-                                } else if (res.data.object.authorities.filter(i => i.name === 'MODERATOR').length > 0) {
+                                } else if (res.data.object.roles.filter(i => i.name === 'MODERATOR').length > 0) {
                                     history.push('/personalAccountModerator')
-                                } else if (res.data.object.authorities.filter(i => i.name === 'USER').length > 0) {
+                                } else if (res.data.object.roles.filter(i => i.name === 'USER').length > 0) {
                                     history.push('/personalAccountApplicant')
-                                } else if (res.data.object.authorities.filter(i => i.name === 'LISTENER').length > 0) {
+                                } else if (res.data.object.roles.filter(i => i.name === 'LISTENER').length > 0) {
                                     history.push('/personalAccountListener')
                                 }
                             } else {

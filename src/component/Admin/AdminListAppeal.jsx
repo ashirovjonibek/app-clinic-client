@@ -1,39 +1,27 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { API_URL, STORAGE_NAME } from "../../utils/constant";
+import React, {useEffect, useState} from "react";
 import {withTranslation} from "react-i18next";
+import RequestFunctions from "../../requests/RequestFunctions";
+import SimpleModal from "./SimpleModal";
+import AppealModal from "./AppealModal";
 
 const AdminListAppeal = ({t}) => {
 
     const [applicants, setApplicants] = useState([]);
+    const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     useEffect(() => {
-        axios.get(API_URL + "/auth/applicants").then(res => {
-            console.log(res.data);
-            console.log(applicants);
-            setApplicants(res.data);
-        });
-        const token = localStorage.getItem(STORAGE_NAME);
-        axios({
-            url: API_URL + '/auth/applicants',
-            method: 'GET',
-            headers: {
-                'Authorization': token
-            }
-        }).then(res => {
-            // console.log(res)
-        })
-        // axios.get(API_URL + "/auth/applicants").then(res => {
-        //     console.log(res)
-        //     setApplicants(res.data);
-        // });
-    }, []);
+        RequestFunctions.getApplicants()
+            .then(res =>
+                setApplicants(res)
+            ).catch(error =>
+            console.log(error))
+    });
 
     return (
         <div className="admin">
             <div className="admin-list-appeal">
-                <div style={{ margin: '20px 0' }}>
-                    <div className="table-scroll" style={{ marginTop: '10px' }}>
+                <div style={{margin: '20px 0'}}>
+                    <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 className="table-title">{t("List")}</h5>
                         <table>
                             <tr>
@@ -45,17 +33,21 @@ const AdminListAppeal = ({t}) => {
                                 <th className="table-border pochta">{t("Email")}</th>
                                 <th className="table-border lgot">{t("Benefit category")}</th>
                                 <th className="table-border date">{t("Date of birth")}</th>
+                                <th className="table-border "></th>
                             </tr>
                             {applicants && applicants.map((item, i) =>
-                                <tr key={i} value={item.id}>
+
+                                <tr key={item.id} value={item.id}>
                                     <td className="table-border applicant-name">{item.fullName}</td>
-                                    <td className="table-border">{item.nation.name.ru}</td>
+                                    <td className="table-border">{item.nation.name[i18]}</td>
                                     <td className="table-border">{item.gender}</td>
-                                    <td className="table-border" style={{ textAlign: 'start' }}>{item.region.name.ru},  {item.district.name.ru},  {item.address}</td>
+                                    <td className="table-border"
+                                        style={{textAlign: 'start'}}> {item.address}</td>
                                     <td className="table-border">{item.phoneNumber}</td>
                                     <td className="table-border">{item.email}</td>
-                                    <td className="table-border">{item.socialStatus.name.ru}</td>
-                                    <td className="table-border">{item.birthDate.slice(0,2)}</td>
+                                    <td className="table-border">{item.socialStatus.name[i18]}</td>
+                                    <td className="table-border">{item.birthDate.slice(0, 10)}</td>
+                                    <td className="table-border edit"><AppealModal item={item}/></td>
                                 </tr>
                             )}
                         </table>

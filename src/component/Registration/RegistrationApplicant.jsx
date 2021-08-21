@@ -8,6 +8,7 @@ import { API_URL } from "../../utils/constant";
 import TokenAPI from "../../utils/TokenAPI";
 import { useForm } from "react-hook-form";
 import ServerApi from "../../utils/TokenAPI";
+import Nav from "../Nav/Nav";
 
 const RegistrationApplicant = (props) => {
     const { history } = props;
@@ -73,7 +74,7 @@ const RegistrationApplicant = (props) => {
 
     const nameHandler = (e) => {
         const name = e.target.name;
-        const regName = /^[a-zA-Z]+$/;
+        const regName = /^[a-zA-Z\s]+$/;
         if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
             setNameDirty(true);
             setErrorName('Ism faqat harflardan iborat bo\'lsin');

@@ -22,12 +22,15 @@ export const apiPath = {
     loginUser: '/auth/login',
     createListener: '/auth/createListener',
     createApplicant: '/auth/createApplicant',
-    getListeners: '/auth/listeners',
-    getApplicant: '/auth/applicants',
+    getListeners: '/auth/listeners/',
+    getApplicants: '/auth/applicants',
     getMe: '/auth/me',
-    updateUser: '/auth/',
+    updateListener: '/auth/updateListener/',
+    updateApplicant: '/auth/updateApplicant/',
     updateListenerByRole: '/auth/update/listenerByRole',
     getRoles: '/auth/roles',
+    getModerators: '/auth/moderators',
+    getBosses: '/auth/bosses',
 
 
     /**     application-controller    **/

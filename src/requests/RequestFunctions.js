@@ -162,10 +162,9 @@ class RequestFunctions {
         return response
     }
 
-//ERROR
-    static async getListeners() {
+    static async getListeners(sectionId) {
         let response;
-        await axios.get(API_URL + apiPath.getListeners, configHeader)
+        await axios.get(API_URL + apiPath.getListeners+'?sectionId='+sectionId, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
@@ -174,9 +173,9 @@ class RequestFunctions {
         return response
     }
 
-    static async getApplicant() {
+    static async getApplicants() {
         let response;
-        await axios.get(API_URL + apiPath.getApplicant, configHeader)
+        await axios.get(API_URL + apiPath.getApplicants, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
@@ -208,9 +207,42 @@ class RequestFunctions {
         return response
     }
 
-    static async updateUser(id, data) {
+    static async getModerators() {
         let response;
-        await axios.put(API_URL + apiPath.updateUser + id, data, configHeader)
+        await axios.get(API_URL + apiPath.getModerators, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async getBosses() {
+        let response;
+        await axios.get(API_URL + apiPath.getBosses, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async updateListener(id, data) {
+        let response;
+        await axios.put(API_URL + apiPath.updateListener + id, data, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async updateApplicant(id, data) {
+        let response;
+        await axios.put(API_URL + apiPath.updateApplicant + id, data, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
@@ -221,12 +253,7 @@ class RequestFunctions {
 
     static async updateListenerByRole(roleId, userId) {
         let response;
-        await axios.put(API_URL + apiPath.updateListenerByRole, {
-            params: {
-                roleId: roleId,
-                userId: userId
-            }
-        }, configHeader)
+        await axios.put(API_URL + apiPath.updateListenerByRole + `?roleId=` + roleId + `&userId=` + userId, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {

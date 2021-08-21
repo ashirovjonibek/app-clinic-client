@@ -6,7 +6,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 
-function SimpleModal({item, t}) {
+function AppealModal({item, t}) {
+    const [open, setOpen] = useState(false);
+    const [socialStatus, setSocialStatus] = useState([]);
+    const [nations, setNations] = useState([]);
+    const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [nameDirty, setNameDirty] = useState(false);
     const [errorName, setErrorName] = useState('Ism yozilishi kerak!');
     const [yearDirty, setYearDirty] = useState(false);
@@ -15,54 +19,37 @@ function SimpleModal({item, t}) {
     const [errorNumber, setErrorNumber] = useState('telefon raqamingizni kiriting!');
     const [emailDirty, setEmailDirty] = useState(false);
     const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
-    const [open, setOpen] = useState(false);
-    const [roles, setRoles] = useState([]);
-    const [select, setSelect] = useState(item.roles[0].name);
-    const [changeRolesItem, setChangeRolesItem] = useState();
-    const [sections, setSections] = useState([]);
-    const [positions, setPositions] = useState([]);
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
 
-
-    const [listener, setListener] = React.useState({
-        id: "6f49cf61-3314-4cb3-a7cf-1e2e8ae6c681",
-        fullName: "BOSS",
-        positionId: 1,
-        course: 1,
-        sectionId: 1,
-        phoneNumber: "998888888888",
-        email: "string",
-        districtId: 1,
-        password: "998888888888",
-        birthDate: "1994-04-26T00:00:00.000+00:00"
+    const [user, setUser] = React.useState({
+        id: item.id,
+        fullName: item.fullName,
+        nationId: item.nation.id,
+        gender: item.gender,
+        birthDate: item.birthDate,
+        districtId: item.districtId,
+        address: item.address,
+        email: item.email,
+        phoneNumber: item.phoneNumber,
+        socialStatusId: item.socialStatus.id,
+        password: item.phoneNumber
     })
+    useEffect(() => {
+    })
+    const changeUpdate = (e) => {
+        e.preventDefault();
 
-    const changeUpdate = () => {
-        // RequestFunctions.updateUser(item.id,user)
-        //     .then(res => {
-        //             console.log(res)
-        //         }
-        //     ).catch(error => {
-        //     console.log(error)
-        // })
-
-        RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
+        console.log(user)
+        RequestFunctions.updateApplicant(user.id, user)
             .then(res => {
                     console.log(res)
                 }
             ).catch(error => {
             console.log(error)
         })
+        console.log(user)
         handleClose()
     }
-    const handleChange = (e) => {
-        let value = e.target.value;
 
-        setListener({
-            ...listener,
-            [e.target.name]: value
-        });
-    };
     const handleOpen = () => {
         setOpen(true);
     };
@@ -71,33 +58,24 @@ function SimpleModal({item, t}) {
         setOpen(false);
     };
 
-    const handleRol = (e) => {
-        let rolesItemObj;
-        if (e.target.value !== select) {
-            rolesItemObj = roles.filter(el => el.name.includes(e.target.value));
-            return setChangeRolesItem(rolesItemObj[0].id);
-        }
-        return false;
-    }
-
     useEffect(() => {
         const token = localStorage.getItem(STORAGE_NAME);
-        axios({
-            headers: {
-                'Authorization': token
-            },
-            url: API_URL + "/auth/roles",
-            method: 'GET'
-        }).then(res => {
-            setRoles(res.data);
+        axios.get(API_URL + "/socialStatus").then(res => {
+            setSocialStatus(res.data._embedded.socialStatuses)
         })
-        axios.get(API_URL + '/position').then(res => {
-            setPositions(res.data);
-        })
-        axios.get(API_URL + "/section").then(res => {
-            setSections(res.data._embedded.sections);
+        axios.get(API_URL + "/nation").then(res => {
+            setNations(res.data._embedded.nations)
         })
     }, []);
+
+    const handleChange = (e) => {
+        let value = e.target.value;
+
+        setUser({
+            ...user,
+            [e.target.name]: value
+        });
+    };
 
     const nameHandler = (e) => {
         const name = e.target.name;
@@ -105,8 +83,8 @@ function SimpleModal({item, t}) {
         if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
             setNameDirty(true);
             setErrorName('Ism faqat harflardan iborat bo\'lsin');
-            setListener({
-                ...listener,
+            setUser({
+                ...user,
                 fullName: ""
             });
         } else {
@@ -121,8 +99,8 @@ function SimpleModal({item, t}) {
         if ((fullYear - userYear) < 16 && name === 'birthDate') {
             setYearDirty(true);
             setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
-            setListener({
-                ...listener,
+            setUser({
+                ...user,
                 birthDate: ""
             });
         } else {
@@ -136,9 +114,9 @@ function SimpleModal({item, t}) {
         if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
             setNumberDirty(true);
             setErrorNumber('faqat raqam kiriting!');
-            setListener({
-                ...listener,
-                phoneNumber: ""
+            setUser({
+                ...user,
+                fullName: ""
             });
         } else {
             setErrorNumber('');
@@ -151,23 +129,19 @@ function SimpleModal({item, t}) {
         if (!regEmail.test(String(e.target.value).toLowerCase()) && name === 'email') {
             setEmailDirty(true);
             setErrorEmail('elektron po\'chtangizda abs@abs.com bo\'lishi kerak!');
-            setListener({
-                ...listener,
-                email: ""
+            setUser({
+                ...user,
+                fullName: ""
             });
         } else {
             setErrorEmail('');
         }
     }
     return (
-        <div
-            className="appealModal">
-            < button
-                type="button"
-                className="editIcon"
-                onClick={handleOpen}>
-                < EditIcon />
-            < /button>
+        <div className="appealModal">
+            <button type="button" className="editIcon" onClick={handleOpen}>
+                <EditIcon/>
+            </button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -184,53 +158,13 @@ function SimpleModal({item, t}) {
                                     name="fullName"
                                     className="input-text"
                                     type="text"
-                                    value={listener.fullName}
+                                    value={user.fullName}
                                     onChange={handleChange}
                                     required
                                 />
                             </li>
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
-                            <li>
-                                <label className="label" htmlFor="positionId">{t("Position")}</label>
-                                <select id="positionId" name="positionId" onChange={handleChange}
-                                        className="category" required>
-                                    {positions && positions.map((item, i) =>
-                                        <option key={i} value={item.id}>{item.title[i18]}</option>
-                                    )}
-                                </select>
-                            </li>
-                            <li>
-                                <label className="label" htmlFor="sectionId">{t("Department")}</label>
-                                <select id="sectionId" name="sectionId" onChange={handleChange}
-                                        className="category">
-                                    <option value="">{item.section.title[i18]}</option>
-                                    {sections && sections.map((item, i) =>
-                                        <option key={item.id} value={item.id}>{item.title[i18]}</option>
-                                    )}
-                                </select>
-                            </li>
-                            <li>
-                                <label className="label" htmlFor="course">{t("Course")}</label>
-                                <select id="course" name="course" onChange={handleChange}
-                                        className="category">
-                                    <option value="">{item.course}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </li>
-                            <li>
-                                <label className="label" htmlFor="">{t("Phone number")}</label>
-                                <input
-                                    onBlur={e => numberHandler(e)}
-                                    className="input-text"
-                                    name="phoneNumber"
-                                    type="text"
-                                    value={listener.phoneNumber}
-                                    onChange={handleChange}
-                                    required/>
-                            </li>
-                            {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
+
                             <li>
                                 <label className="label" htmlFor="">{t("Email")}</label>
                                 <input
@@ -238,11 +172,61 @@ function SimpleModal({item, t}) {
                                     name="email"
                                     className="input-text"
                                     type="text"
-                                    value={listener.email}
+                                    value={user.email}
                                     onChange={handleChange}
                                 />
                             </li>
                             {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
+
+                            <li>
+                                <label className="label" htmlFor="">{t("Phone number")}</label>
+                                <input
+                                    onBlur={e => numberHandler(e)}
+                                    className="input-text"
+                                    name="phoneNumber"
+                                    type="text"
+                                    value={user.phoneNumber}
+                                    onChange={handleChange}
+                                    required/>
+                            </li>
+                            {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
+                            <li>
+                                <label className="label" htmlFor="">{t("Address")}</label>
+                                <input className="input-text"
+                                       type="text"
+                                       name="address"
+                                       value={user.address}
+                                       onChange={handleChange}
+                                       required/>
+                            </li>
+                            <li>
+                                <label className="label" htmlFor="socialStatusId">{t("Social status")}</label>
+                                <select id="socialStatusId" name="socialStatusId"
+                                        onChange={handleChange}
+                                        className="category">
+                                    {socialStatus && socialStatus.map((item, i) =>
+                                        <option key={i} value={item.id}>{item.name[i18]}</option>
+                                    )}
+                                </select>
+                            </li>
+                            <li>
+                                <label className="label" htmlFor="gender">{t("Gender")}</label>
+                                <select id="gender" onChange={handleChange} name="gender"
+                                        className="category" required>
+                                    <option value="erkak">Erkak</option>
+                                    <option value="ayol">Ayol</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label className="label" htmlFor="nationId">{t("Nation")}</label>
+                                <select id="nationId" name="nationId" onChange={handleChange}
+                                        className="category">
+                                    <option value="">{item.nation.name[i18]}</option>
+                                    {nations && nations.map((item, i) =>
+                                        <option key={i} value={item.id}>{item.name[i18]}</option>
+                                    )}
+                                </select>
+                            </li>
                             <li>
                                 <label className="label" htmlFor="birthDate">{t("Date")}</label>
                                 <input
@@ -252,28 +236,17 @@ function SimpleModal({item, t}) {
                                     name="birthDate"
                                     id="birthDate"
                                     type="date"
-                                    value={listener.birthDate.slice(0, 10)}
+                                    value={user.birthDate.slice(0, 10)}
                                 />
                             </li>
                             {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
-                            <li>
-                                <div className="label">{t("Role")}</div>
-                                <select onChange={handleRol} className="inform">
-                                    <option value={item.roles[0].name}>{item.roles[0].name}</option>
-                                    {roles && roles.map((rol) =>
-                                        <option key={rol.id
-                                        } value={rol.name}>{rol.name}</option>
-                                    )}
-                                </select>
-                            </li>
                         </ul>
                         <button type="submit" className="change-btn">{t("Edit")}</button>
                     </form>
                 </div>
             </Modal>
         </div>
-
     );
 }
 
-export default withTranslation()(SimpleModal)
+export default withTranslation()(AppealModal)

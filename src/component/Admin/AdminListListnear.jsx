@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { API_URL, STORAGE_NAME } from "../../utils/constant";
-import axios from "axios";
 import SimpleModal from "./SimpleModal";
 import {withTranslation} from "react-i18next";
+import RequestFunctions from "../../requests/RequestFunctions";
 
-const AdminListListnear = ({t}) => {
-
-  const [listnear, setListnear] = useState([]);
+const AdminListListener = ({t}) => {
+  const [listeners, setListeners] = useState([]);
+  const i18 = localStorage.getItem('I18N_LANGUAGE')
 
   useEffect(() => {
-    axios.get(API_URL + "/auth/listeners").then(res => {
-      console.log(res);
-      setListnear(res.data);
-    });
+      RequestFunctions.getListeners(2)
+          .then(res => {
+                setListeners(res)
+              }
+          ).catch(error =>
+          console.log(error))
   }, []);
-
-  // console.log(listnear);
 
 
   return (
@@ -70,12 +69,12 @@ const AdminListListnear = ({t}) => {
               <th className="table-border pochta">{t("Email")}</th>
               <th className="table-border "></th>
             </tr>
-            {listnear && listnear.map((item, i) =>
+            {listeners && listeners.map((item, i) =>
               <tr key={i} value={item.id}>
                 <td className="table-border applicant-name">{item.fullName}</td>
-                <td className="table-border">{item.position.title.ru}</td>
+                <td className="table-border">{item.position.title[i18]}</td>
                 <td className="table-border">{item.course}</td>
-                <td className="table-border">{item.section.title.ru}</td>
+                <td className="table-border">{item.section.title[i18]}</td>
                 <td className="table-border">{item.phoneNumber}</td>
                 <td className="table-border">{item.email}</td>
                 <td className="table-border edit"><SimpleModal item={item} /></td>
@@ -89,4 +88,4 @@ const AdminListListnear = ({t}) => {
   );
 }
 
-export default withTranslation()(AdminListListnear);
+export default withTranslation()(AdminListListener);
