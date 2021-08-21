@@ -33,7 +33,7 @@ const AdminListAppeal = ({t}) => {
                                 <th className="table-border pochta">{t("Email")}</th>
                                 <th className="table-border lgot">{t("Benefit category")}</th>
                                 <th className="table-border date">{t("Date of birth")}</th>
-                                <th className="table-border "></th>
+                                <th className="table-border ">{t("Action")}</th>
                             </tr>
                             {applicants && applicants.map((item, i) =>
 

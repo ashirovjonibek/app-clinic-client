@@ -8,7 +8,7 @@ const AdminListListener = ({t}) => {
   const i18 = localStorage.getItem('I18N_LANGUAGE')
 
   useEffect(() => {
-      RequestFunctions.getListeners(2)
+      RequestFunctions.getListeners()
           .then(res => {
                 setListeners(res)
               }

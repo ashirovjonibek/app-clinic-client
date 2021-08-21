@@ -25,16 +25,26 @@ function SimpleModal({item, t}) {
 
 
     const [listener, setListener] = React.useState({
-        id: "6f49cf61-3314-4cb3-a7cf-1e2e8ae6c681",
-        fullName: "BOSS",
-        positionId: 1,
-        course: 1,
-        sectionId: 1,
-        phoneNumber: "998888888888",
-        email: "string",
-        districtId: 1,
-        password: "998888888888",
-        birthDate: "1994-04-26T00:00:00.000+00:00"
+        id: item.id,
+        fullName: item.fullName,
+        positionId: item.position.id,
+        course: item.course,
+        sectionId: item.section.id,
+        phoneNumber: item.phoneNumber,
+        email: item.email,
+        districtId: item.districtId,
+        password: item.section.id,
+        birthDate: item.section.id
+        // id: "6f49cf61-3314-4cb3-a7cf-1e2e8ae6c681",
+        // fullName: "BOSS",
+        // positionId: 1,
+        // course: 1,
+        // sectionId: 1,
+        // phoneNumber: "998888888888",
+        // email: "string",
+        // districtId: 1,
+        // password: "998888888888",
+        // birthDate: "1994-04-26T00:00:00.000+00:00"
     })
 
     const changeUpdate = () => {
@@ -191,6 +201,30 @@ function SimpleModal({item, t}) {
                             </li>
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                             <li>
+                                <label className="label" htmlFor="">{t("Email")}</label>
+                                <input
+                                    onBlur={e => emailHandler(e)}
+                                    name="email"
+                                    className="input-text"
+                                    type="text"
+                                    value={listener.email}
+                                    onChange={handleChange}
+                                />
+                            </li>
+                            {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
+                            <li>
+                                <label className="label" htmlFor="">{t("Phone number")}</label>
+                                <input
+                                    onBlur={e => numberHandler(e)}
+                                    className="input-text"
+                                    name="phoneNumber"
+                                    type="text"
+                                    value={listener.phoneNumber}
+                                    onChange={handleChange}
+                                    required/>
+                            </li>
+                            {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
+                            <li>
                                 <label className="label" htmlFor="positionId">{t("Position")}</label>
                                 <select id="positionId" name="positionId" onChange={handleChange}
                                         className="category" required>
@@ -219,30 +253,7 @@ function SimpleModal({item, t}) {
                                     <option value="3">3</option>
                                 </select>
                             </li>
-                            <li>
-                                <label className="label" htmlFor="">{t("Phone number")}</label>
-                                <input
-                                    onBlur={e => numberHandler(e)}
-                                    className="input-text"
-                                    name="phoneNumber"
-                                    type="text"
-                                    value={listener.phoneNumber}
-                                    onChange={handleChange}
-                                    required/>
-                            </li>
-                            {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
-                            <li>
-                                <label className="label" htmlFor="">{t("Email")}</label>
-                                <input
-                                    onBlur={e => emailHandler(e)}
-                                    name="email"
-                                    className="input-text"
-                                    type="text"
-                                    value={listener.email}
-                                    onChange={handleChange}
-                                />
-                            </li>
-                            {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
+
                             <li>
                                 <label className="label" htmlFor="birthDate">{t("Date")}</label>
                                 <input

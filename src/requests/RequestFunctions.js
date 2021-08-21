@@ -162,9 +162,9 @@ class RequestFunctions {
         return response
     }
 
-    static async getListeners(sectionId) {
+    static async getListeners() {
         let response;
-        await axios.get(API_URL + apiPath.getListeners+'?sectionId='+sectionId, configHeader)
+        await axios.get(API_URL + apiPath.getListeners, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
@@ -243,6 +243,17 @@ class RequestFunctions {
     static async updateApplicant(id, data) {
         let response;
         await axios.put(API_URL + apiPath.updateApplicant + id, data, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async deleteUser(id) {
+        let response;
+        await axios.delete(API_URL + apiPath.deleteUser + id, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {

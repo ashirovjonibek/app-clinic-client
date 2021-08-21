@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function AppealModal({item, t}) {
     const [open, setOpen] = useState(false);
@@ -37,12 +38,20 @@ function AppealModal({item, t}) {
     })
     const changeUpdate = (e) => {
         e.preventDefault();
-
-        console.log(user)
         RequestFunctions.updateApplicant(user.id, user)
             .then(res => {
                     console.log(res)
                 }
+            ).catch(error => {
+            console.log(error)
+        })
+        handleClose()
+    }
+
+    const deleteMethod = () => {
+        RequestFunctions.deleteUser(user.id)
+            .then(res =>
+                    console.log(res)
             ).catch(error => {
             console.log(error)
         })
@@ -142,6 +151,9 @@ function AppealModal({item, t}) {
             <button type="button" className="editIcon" onClick={handleOpen}>
                 <EditIcon/>
             </button>
+            <button type="button" className="deleteIcon" onClick={deleteMethod}>
+                <DeleteIcon/>
+            </button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -199,16 +211,7 @@ function AppealModal({item, t}) {
                                        onChange={handleChange}
                                        required/>
                             </li>
-                            <li>
-                                <label className="label" htmlFor="socialStatusId">{t("Social status")}</label>
-                                <select id="socialStatusId" name="socialStatusId"
-                                        onChange={handleChange}
-                                        className="category">
-                                    {socialStatus && socialStatus.map((item, i) =>
-                                        <option key={i} value={item.id}>{item.name[i18]}</option>
-                                    )}
-                                </select>
-                            </li>
+
                             <li>
                                 <label className="label" htmlFor="gender">{t("Gender")}</label>
                                 <select id="gender" onChange={handleChange} name="gender"

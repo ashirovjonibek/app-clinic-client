@@ -35,6 +35,7 @@ const Login = (props) => {
             }).then(res => {
                 if (res.status === 200) {
                     localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
+
                     // history.push("/personalAccountListener")
                     const token = localStorage.getItem(STORAGE_NAME);
                     axios({
