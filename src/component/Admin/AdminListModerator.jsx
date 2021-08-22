@@ -8,13 +8,15 @@ const AdminListModerator = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     useEffect(() => {
+        getListeners()
+    })
+    const getListeners = () => {
         RequestFunctions.getModerators()
             .then(res => {
                 setModerator(res)
             }).catch(error =>
             console.log(error))
-    })
-
+    }
     return (
         <div className="admin">
             <div className="admin-list-listnear">
@@ -75,7 +77,7 @@ const AdminListModerator = ({t}) => {
                                 <td className="table-border">{item.section.title[i18]}</td>
                                 <td className="table-border">{item.phoneNumber}</td>
                                 <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal item={item}/></td>
+                                <td className="table-border edit"><SimpleModal item={item}  getListeners={getListeners}/></td>
                             </tr>
                         )}
                     </table>

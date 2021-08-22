@@ -28,6 +28,7 @@ import {ApiContext} from "./utils/ApiContext";
 // import TestRequests from "./requests/TestRequests";
 
 import {userMe} from "./utils/UserService";
+import TestRequests from "./requests/TestRequests";
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
@@ -72,8 +73,8 @@ function App() {
         location.pathname !== '/admin' ?
             <div className="App">
                 <ApiContext.Provider value={{currentUser, idUser, setIdUser, setCurrentItem, currentItem, i18}}>
-                    {/*<TestRequests/>*/}
                     <ToastContainer/>
+
                     <Switch>
                         <Route exact path="/" component={FirstHome}/>
                         <Route exact path="/auth/login" component={Login}/>

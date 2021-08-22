@@ -7,7 +7,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function AppealModal({item, t}) {
+function AppealModal({item, t, getApplicants}) {
     const [open, setOpen] = useState(false);
     const [socialStatus, setSocialStatus] = useState([]);
     const [nations, setNations] = useState([]);
@@ -65,6 +65,7 @@ function AppealModal({item, t}) {
 
     const handleClose = () => {
         setOpen(false);
+        getApplicants()
     };
 
     useEffect(() => {

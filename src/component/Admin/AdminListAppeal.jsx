@@ -3,6 +3,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import AppealModal from "./AppealModal";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const AdminListAppeal = ({t}) => {
 
@@ -10,13 +11,25 @@ const AdminListAppeal = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     useEffect(() => {
+        getApplicants()
+    }, [applicants]);
+
+    const getApplicants = () => {
         RequestFunctions.getApplicants()
             .then(res =>
                 setApplicants(res)
             ).catch(error =>
             console.log(error))
-    });
-
+    }
+    const deleteMethod = (id) => {
+        RequestFunctions.deleteUser(id)
+            .then(res =>
+                console.log(res)
+            ).catch(error => {
+            console.log(error)
+        })
+        getApplicants()
+    }
     return (
         <div className="admin">
             <div className="admin-list-appeal">
@@ -47,7 +60,12 @@ const AdminListAppeal = ({t}) => {
                                     <td className="table-border">{item.email}</td>
                                     <td className="table-border">{item.socialStatus.name[i18]}</td>
                                     <td className="table-border">{item.birthDate.slice(0, 10)}</td>
-                                    <td className="table-border edit"><AppealModal item={item}/></td>
+                                    {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
+                                    <td className="table-border edit">
+                                        <button type="button" className="deleteIcon" onClick={()=>deleteMethod(item.id)}>
+                                            <DeleteIcon/>
+                                        </button>
+                                    </td>
                                 </tr>
                             )}
                         </table>

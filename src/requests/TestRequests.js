@@ -1,37 +1,32 @@
 import React, {useEffect} from 'react';
 import RequestFunctions from "./RequestFunctions";
+import {STORAGE_NAME} from "../utils/constant";
+import axios from "axios";
 
-//admin
-//+998919687077
-//1
+/*admin
++998919687077
+1
 
-// applicant / zayavitel
-// phoneNumber: "998998887744",
-// password: "998998887744",
+applicant / zayavitel
+phoneNumber: "998998887744",
+password: "998998887744",
 
-// listener
-// phoneNumber: "",
-// password: "",
+applicant / zayavitel
+phoneNumber: "998336665544",
+password: "998336665544",
 
-// moderator
-// phoneNumber: "",
-// password: "",
+listener
+phoneNumber: "",
+password: "",
 
-// supervisor /boss
-// phoneNumber: "998112223344",
-// password: "998112223344",
+moderator
+phoneNumber: "",
+password: "",
+
+supervisor /boss
+phoneNumber: "998112223344",
+password: "998112223344",*/
 function TestRequests() {
-    const [state, setState] = React.useState({
-        firstName: "",
-        lastName: ""
-    })
-    const [test, setTest] = React.useState({
-        firstName: "test",
-        lastName: "test"
-    })
-useEffect(()=>{
-    setState(test)
-},[])
     function testRequests() {
         let data = {
             id: "0a64e801-d963-4d98-815e-bd90d55542dc",
@@ -50,22 +45,38 @@ useEffect(()=>{
             course: 1,
             sectionId: 1
         }
-
-        RequestFunctions.getModerators()
+      /*  RequestFunctions.updateListenerByRole(3,"cc4fd4e5-6997-4105-ae97-004890ea2961")
             .then(res =>
                 console.log(res)
             ).catch(error =>
-            console.log(error))
+            console.log(error))*/
+        var axios = require('axios');
+
+        var config = {
+            method: 'put',
+            url: 'http://67.205.182.147:9090/api/auth/update/listenerByRole?roleId=5&userId=cc4fd4e5-6997-4105-ae97-004890ea2961',
+            headers: {
+                'Authorization': localStorage.getItem('app-clinic')
+            }
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
-    function handleChange(evt) {
+    /*function handleChange(evt) {
         const value = evt.target.value;
         setState({
             ...state,
             [evt.target.name]: value
         });
         console.log(state)
-    }
+    }*/
 
     {/*function testRequests() {*/
     }
@@ -87,7 +98,7 @@ useEffect(()=>{
             <button onClick={testRequests} className="btn-default">
                 Click me !
             </button>
-            <form>
+            {/*<form>
                 <label>
                     First name
                     <input
@@ -108,7 +119,7 @@ useEffect(()=>{
                         onChange={handleChange}
                     />
                 </label>
-            </form>
+            </form>*/}
         </div>
     );
 }

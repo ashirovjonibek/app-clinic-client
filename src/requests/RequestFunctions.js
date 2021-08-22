@@ -1,4 +1,4 @@
-import {API_URL} from "../utils/constant";
+import {API_URL, STORAGE_NAME} from "../utils/constant";
 import axios from "axios";
 import {configHeader} from "./congifHeader";
 
@@ -262,15 +262,22 @@ class RequestFunctions {
         return response
     }
 
-    static async updateListenerByRole(roleId, userId) {
-        let response;
-        await axios.put(API_URL + apiPath.updateListenerByRole + `?roleId=` + roleId + `&userId=` + userId, configHeader)
-            .then(res => {
-                response = res.data
-            }).catch(error => {
-                response = error.response.data
+    static updateListenerByRole(roleId, userId) {
+        const config = {
+            method: 'put',
+            url: API_URL + apiPath.updateListenerByRole + '?roleId=' + roleId + '&userId=' + userId + '',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
             })
-        return response
+            .catch(function (error) {
+                console.log(error);
+            });
+        // return response
     }
 
 

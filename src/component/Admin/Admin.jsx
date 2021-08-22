@@ -17,6 +17,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import {Link, useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import {adminNavbarr,adminNavbar,navbarItems} from "../../assets/scss/adminList.scss"
+import TestRequests from "../../requests/TestRequests";
 
 
 const Admin = ({t}) => {
@@ -210,6 +211,7 @@ const Admin = ({t}) => {
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
                         <div className="admin-navbar">
                             <div className="admin-navbarr">
+                                <TestRequests/>
                                 <ul>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
                                         <Link onClick={() => getPage(1)}>List of applicants</Link>

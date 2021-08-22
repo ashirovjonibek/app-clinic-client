@@ -8,17 +8,17 @@ const AdminListSupervisor = ({t}) => {
     const [supervisor, setSupervisor] = useState([]);
 
     useEffect(() => {
+       getListeners()
+         },[supervisor])
+
+    const getListeners = () => {
         RequestFunctions.getBosses()
             .then(res => {
                 setSupervisor(res)
                 console.log(res)
             }).catch(error =>
             console.log(error))
-        // axios.get(API_URL + "/auth/applicants").then(res => {
-        //         setSupervisor(res.data);
-        //     });
-    },[])
-
+    }
     return (
         <div className="admin">
             <div className="admin-list-listnear">
@@ -80,7 +80,8 @@ const AdminListSupervisor = ({t}) => {
                                 <td className="table-border">{item.section.title[i18]}</td>
                                 <td className="table-border">{item.phoneNumber}</td>
                                 <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal item={item}/></td>
+                                <td className="table-border edit"><SimpleModal item={item}
+                                                                               getListeners={getListeners}/></td>
                             </tr>
                         )}
                     </table>
