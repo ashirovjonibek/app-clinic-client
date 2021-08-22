@@ -18,7 +18,6 @@ export default function SimpleModal({item, getListeners}) {
         RequestFunctions.getRoles()
             .then(res => {
                     setRoles(res)
-                    console.log(res)
                 }
             ).catch(error =>
             console.log(error))
@@ -30,8 +29,6 @@ export default function SimpleModal({item, getListeners}) {
     }
 
     const handleOpen = () => {
-        console.log("roles")
-        console.log(roles)
         setOpen(true);
     };
 

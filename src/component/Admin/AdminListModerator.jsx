@@ -9,7 +9,7 @@ const AdminListModerator = ({t}) => {
 
     useEffect(() => {
         getListeners()
-    },[moderator])
+    },[])
     const getListeners = () => {
         RequestFunctions.getModerators()
             .then(res => {
