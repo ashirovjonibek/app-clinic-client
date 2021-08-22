@@ -9,12 +9,24 @@ import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import { toast } from "react-toastify";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {CircularProgress} from "@material-ui/core";
+import NavTop from "../Nav/NavTop";
+import MenuIcon from "@material-ui/icons/Menu";
+import iconLogo from "../../assets/icon/icon-logo.svg";
+import iconSearch from "../../assets/icon/icon-search.svg";
+import NavLanguage from "../Nav/NavLanguage";
+import iconGlass from "../../assets/icon/icon-glass.svg";
+import Enter from "../Nav/Enter";
+import GetAppIcon from '@material-ui/icons/GetApp';
+import DoneIcon from '@material-ui/icons/Done';
 
 const ApplicantAppeal = (props) => {
     const { history } = props;
     const [sections, setSections] = useState([]);
     const [isLoading,setLoading]=useState(false);
     const [file, setFile] = useState([]);
+    const [fileName, setFileName] = useState("");
+    const [done,setDone]=useState(false)
+    const [errorUpload,setErrorUpload]=useState("")
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -29,7 +41,7 @@ const ApplicantAppeal = (props) => {
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
             console.log(res)
-            setSections(res.data._embedded.sections);
+            setSections(res.data);
         })
     }, []);
 
@@ -43,29 +55,25 @@ const ApplicantAppeal = (props) => {
     const handleSend = (e) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
-        let a=new FormData()
-
-        a.append("title",values.title)
-        a.append("sectionId",values.sectionId)
-        a.append("attachmentId",values.attachmentId)
-        a.append("top",values.top)
-        a.append("description",values.description)
         // console.log(values);
         axios({
             url: API_URL + '/application/create',
             method: 'POST',
-            data: a ,
+            data: values ,
             headers: {
                 'Authorization': token,
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'application/json'
             }
         }).then(res => {
             if (res.data.success) {
-                toast.success(res.data.message);
-                history.push('/personalAccountApplicant')
+                console.log(res)
+                // toast.success(res.data.message);
+                // history.push('/personalAccountApplicant')
             } else {
                 toast.error(res.data.message);
             }
+        }).catch((err)=>{
+            console.log(err)
         });
         setValues({ ...values, attachmentId: file });
     }
@@ -85,10 +93,15 @@ const ApplicantAppeal = (props) => {
                 data: formData
             }).then(res => {
                     console.log(res)
+                setFileName(e.target.files[0].name)
                 setFile(prevState => [...prevState, res.data.object]);
                 setLoading(false)
+                setDone(true)
             }
             )
+        }else {
+            setErrorUpload("File yuklanmadi!!!")
+            setLoading(false)
         }
 
     }
@@ -96,7 +109,50 @@ const ApplicantAppeal = (props) => {
 
     return (
         <div>
-            <div className="applicant-appeal container-fluit">
+            <div className="nav">
+                <NavTop />
+                <div className="nav-center container-fluit">
+                    <div className="container">
+                        <div className="navbar">
+                            <div className="menu-icon" >
+                                <MenuIcon
+                                    fontSize={'large'}
+                                    onClick={() => props.setSitebar(!props.sitebar)}
+                                />
+                            </div>
+                            <div className="header-logo">
+                                <a href="#">
+                                    <div className="logo-left">
+                                        <img src={iconLogo} alt="logo" />
+                                    </div>
+                                    <div className="logo-right">
+                                        <div>
+                                            <span><strong>Юридическая клиника</strong></span><br />
+                                            Академии Генеральной прокуратуры<br />
+                                            Республики Узбекистан.
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="header-right">
+                                <div className="header-right-desctop">
+                                    <form role="search" method="get" action="#" className="search-form">
+                                        <input type="" placeholder="Поиск..." />
+                                        <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                    </form>
+                                    <NavLanguage />
+                                    <div className="glas">
+                                        <img src={iconGlass} alt="" />
+                                    </div>
+                                </div>
+                                <Enter />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style={{paddingTop:"88px"}} className="applicant-appeal">
                 <div className="container">
                     <Title text="Обращение" />
 
@@ -143,30 +199,19 @@ const ApplicantAppeal = (props) => {
                                                 </select>
                                             </div>
                                         </div>
-                                        {/*<div>*/}
-                                        {/*    <div className="lb">*/}
-                                        {/*        <label className="label" for="">Категория обращения</label>*/}
-                                        {/*    </div>*/}
-                                        {/*    <div>*/}
-                                        {/*        <select onChange={handleChange} id="sectionId" name="sectionId"*/}
-                                        {/*            className="category">*/}
-                                        {/*            <option value="">Выберите ваш обращения</option>*/}
-                                        {/*            {sections && sections.map((item, i) =>*/}
-                                        {/*                <option key={i} value={item.id}>{item.title.uz}</option>*/}
-                                        {/*            )}*/}
-                                        {/*        </select>*/}
-                                        {/*    </div>*/}
-                                        {/*</div>*/}
                                     </li>
                                     <li>
                                         <div style={{ marginBottom: '20px' }}>
                                             <div className="lb">
                                                 <label className="label" for="">Прикрепить файл</label>
                                             </div>
-                                            <div className="file">
-                                                {isLoading?<CircularProgress color="primary"/>:""}
-                                                <input onChange={handleUpload} type="file" />
+                                            <div className="file" style={{cursor:"pointer"}}>
+                                                {!isLoading?done?<DoneIcon style={{cursor:"pointer"}}/>:<GetAppIcon style={{cursor:"pointer"}}/>:""}
+                                                {isLoading?<CircularProgress style={{width:"15px",height:"15px",marginTop:"3px"}} color="primary"/>:""}
+                                                <input title={done?fileName:"Fayl yuklanmagan"} onChange={handleUpload} type="file" />
                                             </div>
+                                            <div className="file1">{fileName}</div>
+                                            <p className="text-danger">{errorUpload}</p>
                                         </div>
                                     </li>
                                     <li className="confidential">

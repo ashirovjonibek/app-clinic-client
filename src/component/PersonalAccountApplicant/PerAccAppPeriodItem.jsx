@@ -1,7 +1,9 @@
 import React from "react";
 import RequestTheme from "../RequestTheme";
 
-const PerAccAppPeriodItem = () => {
+const PerAccAppPeriodItem = ({item}) => {
+    let a=new Date(item.createdAt)
+    let b=new Date();
     return (
         <div>
             <div className="period-section-title">Срок рассмотрения вашего обращения:<strong>15 </strong>дней</div>
@@ -9,22 +11,14 @@ const PerAccAppPeriodItem = () => {
                 <div className="period-section">
                     <div className="request-theme">
                         <div>
-                            <h3>Тема обращения:<span>Lorem ipsum dolor sit amet</span></h3>
+                            <h3>Тема обращения:<span>{item.title}</span></h3>
                         </div>
                     </div>
                     <div className="request-content-item">
-                        <p>Повседневная практика показывает, что сложившаяся структура организации создаёт
-                            необходимость включения в
-                            производственный план целого ряда внеочередных мероприятий с учётом комплекса
-                            системы обучения кадров, соответствующей
-                            насущным потребностям. Явные признаки победы институционализации формируют
-                            глобальную экономическую сеть и при этом - в
-                            равной степени предоставлены сами себе. А также независимые государства и по сей
-                            день остаются уделом либералов, которые
-                            жаждут быть описаны максимально подробно.</p>
+                        <p>{item.description}</p>
                     </div>
                     <div className="bottom-inform">
-                        До окончания осталось:<strong>15 </strong>дней
+                        До окончания осталось:<strong>{15-(b.getDate()-a.getDate())}</strong>дней
                     </div>
                 </div>
             </div>

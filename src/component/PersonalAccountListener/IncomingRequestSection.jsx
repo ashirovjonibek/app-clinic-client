@@ -8,6 +8,7 @@ import ButtonDefault from "../ButtonDefault";
 import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
 import { ApiContext } from "../../utils/ApiContext";
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 const IncomingRequestSection = (props) => {
 
@@ -15,9 +16,10 @@ const IncomingRequestSection = (props) => {
     const history = useHistory();
     const { idUser, setIdUser, setCurrentItem } = useContext(ApiContext);
     console.log(idUser);
+    const token = localStorage.getItem(STORAGE_NAME);
+
 
     useEffect(() => {
-        const token = localStorage.getItem(STORAGE_NAME);
         axios({
             headers: {
                 'Authorization': token
@@ -25,90 +27,31 @@ const IncomingRequestSection = (props) => {
             url: API_URL + "/application/listener",
             method: 'GET'
         }).then(res => {
-            console.log(res.data)
-            setRequest(res.data.object);
+            setRequest(res.data.object)
+            console.log(res);
         })
-        console.log(request);
     }, []);
 
-
-    // pagination \/
-
-    // const [page, setPage] = useState();
-    // const [size, setSize] = useState();
-    // const [paginations, setPaginations] = useState();
-    // const [pagination, setPagination] = useState();
-    // const [currentPage, setCurrentPage] = useState();
-    // const [totalPages, setTotalPages] = useState();
-
-    // const getNewsPegeable = (page) => {
-    //     this.setState({ currentPage: page + 1 })
-    //     request({
-    //         url: API_URL + "/application/myApplications",
-    //         method: 'GET',
-    //         data: {
-    //             page: page,
-    //             size: size
-    //         }
-    //     }).then(res => {
-    //         if (res.success) {
-    //             this.setState({
-    //                 news: res.content,
-    //                 totalPages: res.totalPages,
-    //                 size: res.size,
-    //                 page: res.number,
-    //                 paginations: pagination(res.pageable.pageNumber, res.totalPages)
-    //             });
-    //         }
-
-    //     });
-    // }
-
-    // function pegination(page, totalPages) {
-    //     let res = [];
-    //     let from = 1;
-    //     let to = totalPages;
-    //     if (totalPages > 10) {
-    //         from = Math.max(page - 2, 1);
-    //         to = Math.max(Math.min(page + 2, totalPages), 5);
-    //         if (to > 5) {
-    //             res.push(1);
-    //             if (from > 2) res.push(2);
-    //             if (from > 3) {
-    //                 if (from === 4) {
-    //                     res.push(3);
-    //                 } else {
-    //                     res.push("...");
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     for (let i = from; i <= to; i++) {
-    //         res.push(i);
-    //     }
-
-    //     if (totalPages > 10) {
-    //         if (to < (totalPages - 2)) {
-    //             if (to === 8) {
-    //                 res.push(9);
-    //             } else {
-    //                 res.push("...");
-    //             }
-    //         }
-    //         if (to < totalPages)
-    //             res.push(totalPages - 1);
-    //         if (to !== totalPages)
-    //             res.push(totalPages);
-    //     }
-    //     return res;
-
-    // }
-
-    // pagination /\
     const testPage = (item) => {
-        // history.push('/personalAccountListener/' + id);
         setIdUser(9);
         setCurrentItem(item);
+    }
+
+    const download = (id,name) => {
+        axios.get(API_URL+"/attach/"+id,{
+            headers:{
+                'Authorization':token,
+                'Content-Type':'application/pdf'
+            }
+        }).then((r)=>{
+            const type = r.headers['content-type']
+            const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' })
+            const link = document.createElement('a')
+            link.href = window.URL.createObjectURL(blob)
+            link.download = ''+name+' arizasi.pdf'
+            link.click()
+        })
+
     }
 
     const changeAppeal = (item) => {
@@ -117,11 +60,16 @@ const IncomingRequestSection = (props) => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/answer/updateAnswerByListener ",
+            url: API_URL + "/answer/"+item.id,
             method: 'PUT',
             data: {
                 id: item.id,
+                description:item.description,
+                status:true,
+                deniedMessage:"null"
             }
+        }).then((r)=>{
+            console.log(r)
         })
         console.log(item.id);
     }
@@ -166,14 +114,18 @@ const IncomingRequestSection = (props) => {
                             </li>
                             <li>
                                 <label for="">Файл</label>
-                                <div className="file-item">Обращение. Mp4</div>
+                                <div onClick={()=>{
+                                    item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
+                                }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
                             </li>
                         </ul>
                     </div>
                     <div className="request-bottom">
                         <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
                         <button className="blue-btn">Написать сообщение</button>
-                        <button type="submit" className="btn-default"
+                        <button type="submit" className="btn-default" style={{
+                            marginTop:"15px"
+                        }}
                             onClick={() => testPage(item)} >Ответить</button>
                     </div>
                 </div>

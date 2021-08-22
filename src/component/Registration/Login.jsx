@@ -46,10 +46,10 @@ const Login = (props) => {
                         }
                     }).then(res => {
                         console.log(res)
-                        // dispatch({type:ME_DATA,data:res.data.object})ok
-                        // dispatch({type:ME_USERNAME,data:res.data.object.username})
-                        // dispatch({type:ME_EMAIL,data:res.data.object.email})
-                        // dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
+                        dispatch({type:ME_DATA,data:res.data.object})
+                        dispatch({type:ME_USERNAME,data:res.data.object.username})
+                        dispatch({type:ME_EMAIL,data:res.data.object.email})
+                        dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
                             history.push('/auth/login');

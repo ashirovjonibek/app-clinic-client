@@ -7,7 +7,7 @@ import UserItem from "../UserItem";
 import DocumentText from "../DocumentText";
 import ButtonWhite from "../ButtonWhite";
 
-const PerAccAppResponseRequest = () => {
+const PerAccAppResponseRequest = ({appeal}) => {
     return (
         <div className="content per-acc-app-response-request">
             <div className="request-theme" style={{ marginBottom: '40px' }}>
@@ -16,7 +16,7 @@ const PerAccAppResponseRequest = () => {
                 </div>
             </div>
             <div style={{ marginBottom: '20px' }}>
-                <DocumentText />
+                <DocumentText appeal={appeal}/>
             </div>
             <SectionCategory />
             <CheckboxConfidensial />

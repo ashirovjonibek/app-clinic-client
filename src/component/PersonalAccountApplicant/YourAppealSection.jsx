@@ -5,10 +5,16 @@ import UserAppealItem from "../UserAppealItem";
 import CheckboxConfidensial from "../CheckboxConfidensial";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import {Dialog} from "@material-ui/core";
 
-const YourAppealSection = () => {
+const YourAppealSection = (props) => {
 
     const [appeal, setAppeal] = useState([]);
+    const [currentFile,setCurrentFile]=useState("");
+    const [openFileDialog,setFileDialog]=useState(false)
+
 
     // pagination \/
 
@@ -24,7 +30,7 @@ const YourAppealSection = () => {
     // }
 
     // const pages = [];
-    // for (let i = 1; i <= Math.ceil(appeal.length / itemsPerPage); i++) {
+    // htmlFor={} (let i = 1; i <= Math.ceil(appeal.length / itemsPerPage); i++) {
     //     pages.push(i);
     // }
 
@@ -70,15 +76,15 @@ const YourAppealSection = () => {
     //     pageIncrementBtn = <li onClick={handleNextbtn}>&hellip;</li>
     // }
 
+    const token = localStorage.getItem(STORAGE_NAME);
+
     // let pageDecrementBtn = null;
     // if (minPageNumberLimit >= 1) {
     //     pageDecrementBtn = <li onClick={handlePrevbtn}>&hellip;</li>
     // }
 
     // pagination /\
-
     useEffect(() => {
-        const token = localStorage.getItem(STORAGE_NAME);
         axios({
             headers: {
                 'Authorization': token
@@ -87,18 +93,34 @@ const YourAppealSection = () => {
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
-            console.log(res.data.object.object);
+            props.setAppeal(res.data.object.object);
+            console.log(res);
         })
-        // axios.get(API_URL + "/application/myApplications").then(res => {
-        //     setAppeal(res.data.object);
-        //     console.log(res.data);
-        // });
     }, []);
+
+    const fileLoad=(id,name)=>{
+        if (id){
+            axios.get(API_URL + "/attach/" + id,{
+                headers:{
+                    'Authorization':token,
+                    'Content-Type':'application/pdf'
+            }
+            }).then((r)=>{
+                console.log(r)
+                const type = r.headers['content-type']
+                const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' })
+                const link = document.createElement('a')
+                link.href = window.URL.createObjectURL(blob)
+                link.download = ''+name+' arizasi.pdf'
+                link.click()
+            })
+        }
+    }
 
     return (
         <div className="your-appeal-item-section">
-            {appeal && appeal.map((item, i) =>
-                <div className="content" key={i} value={item.id}>
+            {appeal && appeal.map((item) =>
+                <div className="content" key={item.id} value={item.id}>
                     <div className="document-text">
                         <div className="document-text-title">
                             <h4>Тема обращения:</h4>
@@ -111,12 +133,16 @@ const YourAppealSection = () => {
                     <div className="categories">
                         <ul>
                             <li>
-                                <label for="">Категория обращения</label>
-                                <div className="category-item">{item.section.title.ru}</div>
+                                <label htmlFor="">Категория обращения</label>
+                                <div className="category-item">{item.section?.title?.ru}</div>
                             </li>
                             <li>
-                                <label for="">Файл</label>
-                                <div className="file-item">{item.section.id}</div>
+                                <label htmlFor="">Файл</label>
+                                <div title={item.attachmentsId?"Arizani yuklash":"doc not found"} onClick={(e)=>{
+                                    item.attachmentsId?fileLoad(item.attachmentsId[0],item.applicant?.fullName):console.log("doc not found")
+                                }} style={{textAlign:"center",cursor:"pointer"}} className="file-item">
+                                    <GetAppIcon/>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -127,7 +153,9 @@ const YourAppealSection = () => {
             {/* <UserAppealItem /> */}
             <div className="content-line"></div>
             <div className="new-request">
-                <a href="">Создать новое обращение</a>
+                <a  onClick={()=>{
+                    console.log(appeal)
+                }}>Создать новое обращение</a>
             </div>
             {/* <ul className="page-numbers">
                 <li>

@@ -10,7 +10,7 @@ const AdminListListener = ({t}) => {
 
     useEffect(() => {
         getListeners()
-    }, [listeners]);
+    }, []);
 
     const getListeners = () => {
         RequestFunctions.getListeners()

@@ -68,11 +68,23 @@
                             display: flex;
                             flex-direction: column;
                             justify-content: flex-start;
-                            width: 290px;
+                            width: 350px;
                             margin: 0 20px;
-                            .category,
-                            .file {
+                            .category{
                                 width: 100%;
+                                cursor: pointer;
+                            }
+                            .file {
+                                cursor: pointer;
+                                display: inline-block;
+                                text-align: center;
+                                padding-top: 3px;
+                                width: 25%;
+                            }
+                            .file1 {
+                                display: inline;
+                                width: 75%;
+                                cursor: pointer;
                             }
                             .lb {
                                 margin-bottom: 10px;

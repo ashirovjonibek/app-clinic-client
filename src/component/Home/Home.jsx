@@ -7,10 +7,11 @@ import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
 import prokuraturaImg from '../../assets/img/useful/prokuratura.jpg';
 import gerbImg from '../../assets/img/useful/gerb.jpg';
 import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
+import {withTranslation} from "react-i18next";
 
 
 
-const Home = () => {
+const Home = ({t}) => {
     const history = useHistory();
     return (
         <div className="home fluit">
@@ -23,10 +24,10 @@ const Home = () => {
             <div className="container">
                 <div id="what-clinic">
                     <div className="what-clinic-text">
-                        <Title text="Что такое клиника" />
-                        <p>Клиника является неотъемлемой частью Академии, которая осуществляет деятельность по обеспечению интеграции теоретических знаний студентов с практикой, развитию практических навыков у студентов и предоставлению недискриминационных юридических консультаций физическим и юридическим лицам.</p>
+                        <Title text={t("What is clinic")} />
+                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
 
-                        <p>Клиника является неотъемлемой частью Академии, которая осуществляет деятельность по обеспечению интеграции теоретических знаний студентов с практикой, развитию практических навыков у студентов и предоставлению недискриминационных юридических консультаций физическим и юридическим лицам.</p>
+                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
                     <div className="what-clinic-mini"></div>
                 </div>
@@ -35,29 +36,29 @@ const Home = () => {
                         <WhatSlider />
                     </div>
                     <div className="what-clinic-text">
-                        <p>Клиника является неотъемлемой частью Академии, которая осуществляет деятельность по обеспечению интеграции теоретических знаний студентов с практикой, развитию практических навыков у студентов и предоставлению недискриминационных юридических консультаций физическим и юридическим лицам.</p>
+                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
 
-                        <p>Клиника является неотъемлемой частью Академии, которая осуществляет деятельность по обеспечению интеграции теоретических знаний студентов с практикой, развитию практических навыков у студентов и предоставлению недискриминационных юридических консультаций физическим и юридическим лицам.</p>
+                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
                 </div>
                 <div id="cel-clinic">
                     <Title text="Цель клиники" />
-                    <h5>Основными задачами клиники являются:</h5>
+                    <h5>{t("The main tasks of the clinic are")}:</h5>
                     <div className="cel-clinic-text">
                         <div className="text-inform">
                             <ul>
-                                <li>Обеспечение соответствия теоретических знаний студентов практике</li>
-                                <li>Оказание бесплатной юридической помощи физическим лицам</li>
-                                <li>Обеспечение соответствия теоретических знаний студентов практике</li>
-                                <li>Оказание бесплатной юридической помощи физическим лицам</li>
+                                <li>{t("Ensuring the correspondence of theoretical knowledge of students to practice")}</li>
+                                <li>{t("Provision of free legal aid to individuals")}</li>
+                                <li>{t("Ensuring the correspondence of theoretical knowledge of students to practice")}</li>
+                                <li>{t("Provision of free legal aid to individuals")}</li>
                             </ul>
                         </div>
                         <div className="text-inform">
                             <ul>
-                                <li>Формирование и развитие практических навыков у студентов</li>
-                                <li>Повышение правосознания и правовой культуры населения</li>
-                                <li>Формирование и развитие практических навыков у студентов</li>
-                                <li>Повышение правосознания и правовой культуры населения</li>
+                                <li>{t("Ensuring the correspondence of theoretical knowledge of students to practice")}</li>
+                                <li>{t("Provision of free legal aid to individuals")}</li>
+                                <li>{t("Ensuring the correspondence of theoretical knowledge of students to practice")}</li>
+                                <li>{t("Provision of free legal aid to individuals")}</li>
                             </ul>
                         </div>
                     </div>
@@ -200,4 +201,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default withTranslation()(Home);

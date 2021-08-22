@@ -9,7 +9,7 @@ const AdminListSupervisor = ({t}) => {
 
     useEffect(() => {
        getListeners()
-         },[supervisor])
+         },[])
 
     const getListeners = () => {
         RequestFunctions.getBosses()

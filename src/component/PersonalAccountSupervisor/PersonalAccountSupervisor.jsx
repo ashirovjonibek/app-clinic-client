@@ -24,8 +24,9 @@ import { light } from "@material-ui/core/styles/createPalette";
 import RequestFunctions from "../../requests/RequestFunctions";
 import {useSelector} from "react-redux";
 import meReducer from "../../redux/me/reducer";
+import {withTranslation} from "react-i18next";
 
-const PersonalAccountSupervisor = () => {
+const PersonalAccountSupervisor = ({t}) => {
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
@@ -92,9 +93,8 @@ const PersonalAccountSupervisor = () => {
                                         </div>
                                         <div className="logo-right">
                                             <div>
-                                                <span><strong>Юридическая клиника</strong></span><br />
-                                                Академии Генеральной прокуратуры<br />
-                                                Республики Узбекистан.
+                                                <span><strong>{t("Legal clinic")}</strong></span><br />
+                                                <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                             </div>
 
                                         </div>
@@ -103,7 +103,7 @@ const PersonalAccountSupervisor = () => {
                                 <div className="header-right">
                                     <div className="header-right-desctop">
                                         <form role="search" method="get" action="#" className="search-form">
-                                            <input type="" placeholder="Поиск..." />
+                                            <input type="" placeholder={t("Search")+"..."} />
                                             <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                         </form>
                                         <NavLanguage />
@@ -127,37 +127,37 @@ const PersonalAccountSupervisor = () => {
                                         </div>
                                         <ul>
                                             <li>
-                                                <Link onClick={() => getPage(1)}>Слушатели</Link>
+                                                <Link onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(2)}>Поступившие обращения</Link>
+                                                <Link onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(3)}>Ответы на обращения </Link>
+                                                <Link onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(4)}>Заявители</Link>
+                                                <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(5)}>Обращения</Link>
+                                                <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(6)}>Ход обращений</Link>
+                                                <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(7)}>Отзывы по обращений </Link>
+                                                <Link onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(8)}>Нормативно-правовая база</Link>
+                                                <Link onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(9)}>Рейтинг слушателей</Link>
+                                                <Link onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(10)}>Статистика и отчеты</Link>
+                                                <Link onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                             </li>
                                             <light>
-                                                <Link onClick={() => getPage(11)}>Архив</Link>
+                                                <Link onClick={() => getPage(11)}>{t("Archive")}</Link>
                                             </light>
                                         </ul>
                                     </div>
@@ -180,37 +180,37 @@ const PersonalAccountSupervisor = () => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(1)}>Слушатели</Link>
+                                            <Link onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 2 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(2)}>Поступившие обращения</Link>
+                                            <Link onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(3)}>Ответы на обращения </Link>
+                                            <Link onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(4)}>Заявители</Link>
+                                            <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(5)}>Обращения</Link>
+                                            <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(6)}>Ход обращений</Link>
+                                            <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 7 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(7)}>Отзывы по обращений </Link>
+                                            <Link onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 8 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(8)}>Нормативно-правовая база</Link>
+                                            <Link onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 9 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(9)}>Рейтинг слушателей</Link>
+                                            <Link onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(10)}>Статистика и отчеты</Link>
+                                            <Link onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(11)}>Архив</Link>
+                                            <Link onClick={() => getPage(11)}>{t("Archive")}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -228,4 +228,4 @@ const PersonalAccountSupervisor = () => {
     );
 }
 
-export default PersonalAccountSupervisor;
+export default withTranslation()(PersonalAccountSupervisor);
