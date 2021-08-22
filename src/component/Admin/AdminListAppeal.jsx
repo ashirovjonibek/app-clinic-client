@@ -12,7 +12,7 @@ const AdminListAppeal = ({t}) => {
 
     useEffect(() => {
         getApplicants()
-    }, [applicants]);
+    }, []);
 
     const getApplicants = () => {
         RequestFunctions.getApplicants()
