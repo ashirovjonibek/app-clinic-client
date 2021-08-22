@@ -50,9 +50,9 @@ function TestRequests() {
                 console.log(res)
             ).catch(error =>
             console.log(error))*/
-        var axios = require('axios');
+        const axios = require('axios');
 
-        var config = {
+        const config = {
             method: 'put',
             url: 'http://67.205.182.147:9090/api/auth/update/listenerByRole?roleId=5&userId=cc4fd4e5-6997-4105-ae97-004890ea2961',
             headers: {

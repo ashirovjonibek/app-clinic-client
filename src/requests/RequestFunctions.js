@@ -198,13 +198,32 @@ class RequestFunctions {
 
     static async getRoles() {
         let response;
+
         await axios.get(API_URL + apiPath.getRoles, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
                 response = error.response.data
             })
+        // let axios = require('axios');
+        // let config = {
+        //     method: 'get',
+        //     url: 'http://67.205.182.147:9090/api/auth/roles',
+        //     headers: {
+        //         'Authorization': localStorage.getItem(STORAGE_NAME)
+        //     }
+        // };
+        // axios(config)
+        //     .then(function (res) {
+        //         // console.log(JSON.stringify(res.data));
+        //         response=res.data
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //         response=error
+        //     });
         return response
+
     }
 
     static async getModerators() {

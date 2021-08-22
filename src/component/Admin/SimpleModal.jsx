@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import {API_URL, STORAGE_NAME} from '../../utils/constant';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
@@ -13,11 +11,18 @@ export default function SimpleModal({item, getListeners}) {
     const [changeRolesItem, setChangeRolesItem] = useState(0);
 
     useEffect(() => {
-        RequestFunctions.getRoles()
-            .then(res => setRoles(res)
-            ).catch(error => console.log(error)
-        )
+        getRoles()
     }, []);
+
+    const getRoles = () => {
+        RequestFunctions.getRoles()
+            .then(res => {
+                    setRoles(res)
+                    console.log(res)
+                }
+            ).catch(error =>
+            console.log(error))
+    }
 
     const changeUpdate = () => {
         RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
@@ -25,6 +30,8 @@ export default function SimpleModal({item, getListeners}) {
     }
 
     const handleOpen = () => {
+        console.log("roles")
+        console.log(roles)
         setOpen(true);
     };
 
