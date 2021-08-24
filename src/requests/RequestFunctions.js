@@ -198,9 +198,8 @@ class RequestFunctions {
 
     static async getRoles() {
         let response;
-        let config = configHeader;
 
-        await axios.get(API_URL + apiPath.getRoles, config)
+        await axios.get(API_URL + apiPath.getRoles, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
