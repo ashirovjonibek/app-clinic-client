@@ -52,7 +52,7 @@ const AdminListSupervisor = ({t}) => {
                                                 <button
                                                     onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
                                             </div>)
-                                    }
+                                    }return null
                                 }
                             )}
                         </div>

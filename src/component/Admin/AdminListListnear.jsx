@@ -59,6 +59,7 @@ const AdminListListener = ({t}) => {
                                                     onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
                                             </div>)
                                     }
+                                    return null
                                 }
                             )}
                         </div>

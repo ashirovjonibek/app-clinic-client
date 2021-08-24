@@ -3,7 +3,6 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
-import {set} from "react-hook-form";
 
 const AdminListModerator = ({t}) => {
     const [items, setItems] = useState([]);
@@ -55,7 +54,7 @@ const AdminListModerator = ({t}) => {
                                                 <button
                                                     onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
                                             </div>)
-                                    }
+                                    }return null
                                 }
                             )}
                         </div>

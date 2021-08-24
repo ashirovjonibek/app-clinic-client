@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import { toast } from "react-toastify";
-import DeleteIcon from '@material-ui/icons/Delete';
 import {CircularProgress} from "@material-ui/core";
 import NavTop from "../Nav/NavTop";
 import MenuIcon from "@material-ui/icons/Menu";
