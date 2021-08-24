@@ -2,16 +2,18 @@ import React, {useEffect, useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
-import DeleteIcon from "@material-ui/icons/Delete";
 
 export default function SimpleModal({item, getListeners}) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
-    const [select, setSelect] = useState(item.roles[0].name);
+    const [select] = useState(item.roles[0].name);
     const [changeRolesItem, setChangeRolesItem] = useState(0);
 
     useEffect(() => {
         getRoles()
+        return () => {
+            setRoles([]); // This worked for me
+        };
     }, []);
 
     const getRoles = () => {
@@ -25,7 +27,8 @@ export default function SimpleModal({item, getListeners}) {
 
     const changeUpdate = () => {
         RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
-        handleClose()
+        handleClose();
+        getListeners();
     }
 
     const handleOpen = () => {
@@ -33,19 +36,11 @@ export default function SimpleModal({item, getListeners}) {
     };
 
     const handleClose = () => {
-        getListeners()
+        getListeners();
         setOpen(false);
     };
 
-    const deleteMethod = () => {
-        RequestFunctions.deleteUser(item.id)
-            .then(res =>
-                console.log(res)
-            ).catch(error => {
-            console.log(error)
-        })
-        getListeners()
-    }
+
 
     const handleRol = (e) => {
         let rolesItemObj;
@@ -55,15 +50,12 @@ export default function SimpleModal({item, getListeners}) {
         }
     }
 
-
     return (
         <div>
             <button type="button" onClick={handleOpen}>
                 <EditIcon/>
             </button>
-            <button type="button" className="deleteIcon" onClick={deleteMethod}>
-                <DeleteIcon/>
-            </button>
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -107,7 +99,7 @@ export default function SimpleModal({item, getListeners}) {
                             </select>
                         </li>
                     </ul>
-                    <button className="change-btn" onClick={changeUpdate}>Изменить</button>
+                    <button className="change-btn" onClick={changeUpdate} >Изменить</button>
                 </div>
             </Modal>
         </div>

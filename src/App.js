@@ -11,63 +11,54 @@ import PersonalAccountModerator from "./component/PersonalAccountModerator/Perso
 import Login from "./component/Registration/Login";
 import NewPassword from "./component/Registration/NewPassword";
 import Admin from "./component/Admin/Admin";
-import Nav from "./component/Nav/Nav";
 import ApplicantAppeal from './component/PersonalAccountApplicant/ApplicantAppeal';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserAppealItem from "./component/UserAppealItem";
-import {withRouter} from 'react-router-dom';
 import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
 import {useHistory, useLocation} from 'react-router-dom'
 import {openPages} from "./utils/config";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
 import {ApiContext} from "./utils/ApiContext";
-// import AdminListAppeal from "./component/Admin/AdminListAppeal";
-// import IncomingRequestItem from "./component/PersonalAccountListener/IncomingRequestItem";
-// import TestRequests from "./requests/TestRequests";
-
-import {userMe} from "./utils/UserService";
-import TestRequests from "./requests/TestRequests";
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [idUser, setIdUser] = useState(1);
     const [currentItem, setCurrentItem] = useState([]);
-    const [i18, setI18] = useState(localStorage.getItem('I18N_LANGUAGE'));
-    // const i18= localStorage.getItem('I18N_LANGUAGE')
+    const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
     const history = useHistory();
     const location = useLocation();
 
     useEffect(() => {
         if (!openPages.includes(location.pathname)) {
-            userMe(location.pathname);
+            const userMe = () => {
+                const token = localStorage.getItem(STORAGE_NAME);
+                axios({
+                    url: API_URL+'/auth/me',
+                    method: 'GET',
+                    headers: {
+                        'Authorization': token
+                    }
+                }).then(res => {
+                    if (!res.data.success) {
+                        localStorage.removeItem(STORAGE_NAME);
+                        history.push('/auth/login');
+                        setCurrentUser({})
+                    } else {
+                        if (res.data.object != null) {
+                            setCurrentUser(res.data.object);
+                        } else {
+                            history.push('/auth/login')
+                        }
+                    }
+                })
+            };
+            userMe();
         }
     }, []);
 
-    const userMe = (pathname) => {
-        const token = localStorage.getItem(STORAGE_NAME);
-        axios({
-            url: API_URL+'/auth/me',
-            method: 'GET',
-            headers: {
-                'Authorization': token
-            }
-        }).then(res => {
-            if (!res.data.success) {
-                localStorage.removeItem(STORAGE_NAME);
-                history.push('/auth/login');
-                setCurrentUser({})
-            } else {
-                if (res.data.object != null) {
-                    setCurrentUser(res.data.object);
-                } else {
-                    history.push('/auth/login')
-                }
 
-            }
-        })
-    };
 
     return (
         location.pathname !== '/admin' ?

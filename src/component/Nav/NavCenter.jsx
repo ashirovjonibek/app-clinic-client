@@ -23,7 +23,7 @@ const NavCenter = ({t}) => {
                         />
                     </div>
                     <div className="header-logo">
-                        <a href="#">
+                        <a href="/#">
                             <div className="logo-left">
                                 <img src={iconLogo} alt="logo" />
                             </div>
@@ -63,25 +63,25 @@ const NavCenter = ({t}) => {
                             </div>
                             <ul>
                                 <li>
-                                    <a href="">Что такое клиника</a>
+                                    <a href="/#">Что такое клиника</a>
                                 </li>
                                 <li>
-                                    <a href="">Цель клиники</a>
+                                    <a href="/#">Цель клиники</a>
                                 </li>
                                 <li>
-                                    <a href="">Предназначение клиники</a>
+                                    <a href="/#">Предназначение клиники</a>
                                 </li>
                                 <li>
-                                    <a href="">Популярные вопросы</a>
+                                    <a href="/#">Популярные вопросы</a>
                                 </li>
                                 <li>
-                                    <a href="">Нормативно-правовая база</a>
+                                    <a href="/#">Нормативно-правовая база</a>
                                 </li>
                                 <li>
-                                    <a href="">Полезные ссылки</a>
+                                    <a href="/#">Полезные ссылки</a>
                                 </li>
                                 <li>
-                                    <a href="">Адреса прокуратур</a>
+                                    <a href="/#">Адреса прокуратур</a>
                                 </li>
                             </ul>
                         </div>

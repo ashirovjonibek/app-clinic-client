@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
-import SimpleModal from "./SimpleModal";
-import AppealModal from "./AppealModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const AdminListAppeal = ({t}) => {
@@ -37,6 +35,7 @@ const AdminListAppeal = ({t}) => {
                     <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 className="table-title">{t("List")}</h5>
                         <table>
+                            <tbody>
                             <tr>
                                 <th className="table-border applicant-name">{t("Full name")}</th>
                                 <th className="table-border nation">{t("Nationality")}</th>
@@ -49,7 +48,6 @@ const AdminListAppeal = ({t}) => {
                                 <th className="table-border ">{t("Action")}</th>
                             </tr>
                             {applicants && applicants.map((item, i) =>
-
                                 <tr key={item.id} value={item.id}>
                                     <td className="table-border applicant-name">{item.fullName}</td>
                                     <td className="table-border">{item.nation.name[i18]}</td>
@@ -62,12 +60,14 @@ const AdminListAppeal = ({t}) => {
                                     <td className="table-border">{item.birthDate.slice(0, 10)}</td>
                                     {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
                                     <td className="table-border edit">
-                                        <button type="button" className="deleteIcon" onClick={()=>deleteMethod(item.id)}>
+                                        <button type="button" className="deleteIcon"
+                                                onClick={() => deleteMethod(item.id)}>
                                             <DeleteIcon/>
                                         </button>
                                     </td>
                                 </tr>
                             )}
+                            </tbody>
                         </table>
                     </div>
                 </div>

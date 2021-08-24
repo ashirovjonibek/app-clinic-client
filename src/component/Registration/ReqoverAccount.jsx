@@ -11,7 +11,7 @@ const ReqoverAccount = () => {
                     <form action="">
                         <div className="form-password">
                             <div className="label">
-                                <label className="label" for="" >Введите код</label>
+                                <label className="label" htmlFor="" >Введите код</label>
                             </div>
                             <input className="input-password" type="password" />
                         </div>

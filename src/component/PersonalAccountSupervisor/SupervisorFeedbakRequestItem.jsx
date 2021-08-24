@@ -1,7 +1,6 @@
 import React from "react";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
-import ButtonWhite from "../ButtonWhite";
 
 const SupervisorFeedbakRequestItem = () => {
     return (

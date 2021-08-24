@@ -1,5 +1,4 @@
 import React from "react";
-import ContentTop from "../ContentTop";
 import DocumentProsses from "../DocumentProsses";
 import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
@@ -25,7 +24,7 @@ const ModeratorAppealItem = () => {
                         </div>
                     </div>
                     <RequestTheme />
-                    <div className="category-audio"></div>
+                    <div className="category-audio"/>
                 </div>
             </div>
         </div>

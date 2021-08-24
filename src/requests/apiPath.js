@@ -71,7 +71,13 @@ export const apiPath = {
 
 
 
+    /**     section-controller    **/
 
+    getSections: '/section',
+    getSection: '/section/',
+    updateSection: '/section/',
+    deleteSection: '/section/',
+    createSection: '/section',
 
 
 

@@ -23,8 +23,8 @@ const ModeratorPerformerItem = () => {
                     </div>
                 </div>
                 <RequestTheme />
-                <div className="category-audio"></div>
-                <div className="content-line"></div>
+                <div className="category-audio"/>
+                <div className="content-line"/>
                 <div className="avatar" >
                     <UserItem />
                     <ButtonDefault text="Заменить исполнителя" />

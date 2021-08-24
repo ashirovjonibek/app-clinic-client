@@ -1,23 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Route, Switch } from "react-router";
-
-import CenterSends from "./CenterSends";
-import DirectoryPdf from "./DirectoryPdf";
-import Footer from "../Footer/Footer";
-import NavCenter from "../Nav/NavCenter";
+import React, {useState, useContext } from "react";
 import ResponseRequestSection from "./ResponseRequestSection";
 import DeadlineRequestSection from "./DeadlineRequestSection";
-import PerAccLisSiteBar from "./PerAccSiteBar";
 import AppealSection from "./AppealSection";
 import CallFlowSection from "./CallFlowSection";
 import FedbeckSection from "./FedbeckSection";
 import DirectorySection from "./DirectorySection";
 import SendSection from "./SendSection";
 import IncomingRequestSection from "./IncomingRequestSection";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import ResponseRequestItem from "./ResponseRequestItem";
-import AppealItem from "./AppealItem";
 import { ApiContext } from "../../utils/ApiContext";
 import IncomingRequestItem from "./IncomingRequestItem";
 import NavTop from "../Nav/NavTop";
@@ -57,6 +47,8 @@ const PersonalAccountListener = ({t}) => {
                 return <SendSection />
             case 9:
                 return <IncomingRequestItem currentItem={currentItem} />
+            default:
+                return <IncomingRequestSection />
         }
     }
 
@@ -78,7 +70,7 @@ const PersonalAccountListener = ({t}) => {
                                 />
                             </div>
                             <div className="header-logo">
-                                <a href="#">
+                                <a href="/#">
                                     <div className="logo-left">
                                         <img src={iconLogo} alt="logo" />
                                     </div>

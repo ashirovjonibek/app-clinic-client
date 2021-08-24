@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PerAccSupListenersSection from "./PerAccSupListenersSection";
 import SupervisorIncomingRequestSection from "./SupervisorIncomingRequestSection";
 import SupervisorResponsesSection from "./SupervisorResponsesRequestSection";
-import SupervisorApplicantItem from "./SupervisorApplicantItem";
 import SupervisorAppealSection from "./SupervisorAppealSection";
 import SupervisorCallFlowSection from "./SupervisorCallFlowSection";
 import SupervisorFeedbakRequestSection from "./SupervisorFeedbakRequestSection";
@@ -22,15 +21,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import { light } from "@material-ui/core/styles/createPalette";
 import RequestFunctions from "../../requests/RequestFunctions";
-import {useSelector} from "react-redux";
-import meReducer from "../../redux/me/reducer";
+// import {useSelector} from "react-redux";
 import {withTranslation} from "react-i18next";
 
 const PersonalAccountSupervisor = ({t}) => {
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
-    const me=useSelector(state=>state.meReducer)
+    // const me=useSelector(state=>state.meReducer)
 
     function pushBar(n) {
         switch (n) {
@@ -56,11 +54,13 @@ const PersonalAccountSupervisor = ({t}) => {
                 return <SupervisorStatisticSection />
             case 11:
                 return <SupervisorArchive />
+            default:
+                return <PerAccSupListenersSection />
         }
     }
 
     useEffect(()=>{
-        console.log("this is redux->",me)
+        // console.log("this is redux->",me)
        RequestFunctions.getWords().then((r)=>{
            console.log(r)
        }).catch((er)=>{
@@ -87,7 +87,7 @@ const PersonalAccountSupervisor = ({t}) => {
                                     />
                                 </div>
                                 <div className="header-logo">
-                                    <a href="#">
+                                    <a href="/#">
                                         <div className="logo-left">
                                             <img src={iconLogo} alt="logo" />
                                         </div>

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import axios from "axios";
-import { withRouter } from 'react-router-dom';
-import { toast } from "react-toastify";
-import { API_URL } from "../../utils/constant";
+import {toast} from "react-toastify";
+import {API_URL} from "../../utils/constant";
+import RequestFunctions from "../../requests/RequestFunctions";
 
 function RegistrationListener(props) {
-    const { history } = props;
+    const {history} = props;
     const [positions, setPositions] = useState([]);
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
@@ -41,9 +41,12 @@ function RegistrationListener(props) {
         })
     }, []);
     useEffect(() => {
-        axios.get(API_URL + "/section").then(res => {
-            setSections(res.data._embedded.sections);
-        })
+        RequestFunctions.getSections()
+            .then(res => {
+                    setSections(res)
+                }
+            ).catch(error =>
+            console.log(error))
     }, []);
 
     const handleChange = (e) => {
@@ -54,7 +57,7 @@ function RegistrationListener(props) {
     }
     const handleSend = (e) => {
         e.preventDefault();
-        axios.post(API_URL + "/auth/createListener", { ...values }).then(res => {
+        axios.post(API_URL + "/auth/createListener", {...values}).then(res => {
             console.log(res)
             if (res.data.success) {
                 history.push("/auth/login")
@@ -122,7 +125,7 @@ function RegistrationListener(props) {
         <div className="registration-listnear container-fluit">
             <div className="container">
                 <div className="registration-listnear-wrapper">
-                    <Title text="Регистрация" />
+                    <Title text="Регистрация"/>
                     <h5>Анкетные данные</h5>
                     <form onSubmit={handleSend}>
                         <div className="form-wrapper">
@@ -139,7 +142,7 @@ function RegistrationListener(props) {
                                                 className="input-text"
                                                 type="text"
                                                 placeholder="Введите ваше Ф.И.О"
-                                                required />
+                                                required/>
                                         </li>
                                         {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                         <li>
@@ -158,7 +161,7 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="positionId">Должность</label>
                                             <select id="positionId" name="positionId" onChange={handleChange}
-                                                className="category" required >
+                                                    className="category" required>
                                                 <option value="">Выберите ваш должность</option>
                                                 {positions && positions.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.title.uz}</option>
@@ -168,7 +171,7 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="course">Курс</label>
                                             <select id="course" name="course" onChange={handleChange}
-                                                className="category">
+                                                    className="category">
                                                 <option value="">Выберите ваш курс</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -178,7 +181,7 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="regionId">Городь</label>
                                             <select id="regionId" name="regionId" onChange={handleChange}
-                                                className="category">
+                                                    className="category">
                                                 <option value="">Выберите ваш городь</option>
                                                 {regions && regions.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
@@ -188,7 +191,7 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="districtId">Раён</label>
                                             <select id="districtId" name="districtId" onChange={handleChange}
-                                                className="category">
+                                                    className="category">
                                                 <option value="">Выберите ваш раён</option>
                                                 {districts && districts.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
@@ -214,7 +217,7 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="sectionId">Кафедра</label>
                                             <select id="sectionId" name="sectionId" onChange={handleChange}
-                                                className="category">
+                                                    className="category">
                                                 <option value="">Кафедра</option>
                                                 {sections && sections.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.title.uz}</option>

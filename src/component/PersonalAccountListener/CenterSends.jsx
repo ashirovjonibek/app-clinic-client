@@ -1,8 +1,7 @@
 import React from "react";
 import ButtonDefault from "../ButtonDefault";
-import UserName from "../UserName";
 
-const CenterSends = (props) => {
+const CenterSends = () => {
     return (
         <div>
             <div className="new">
@@ -11,7 +10,7 @@ const CenterSends = (props) => {
             <div className="content" style={{ marginBottom: '-7px' }}>
                 <div className="fedbeck">
                     <div className="request-content-title-name">
-                        <div className="applicant-image"></div>
+                        <div className="applicant-image"/>
                         <div className="name"><h3>Aliyev Vali Galievich</h3></div>
                     </div>
                     <div className="fedbeck-right">

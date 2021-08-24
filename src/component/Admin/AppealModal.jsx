@@ -69,7 +69,7 @@ function AppealModal({item, t, getApplicants}) {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem(STORAGE_NAME);
+        // const token = localStorage.getItem(STORAGE_NAME);
         axios.get(API_URL + "/socialStatus").then(res => {
             setSocialStatus(res.data._embedded.socialStatuses)
         })
@@ -212,7 +212,6 @@ function AppealModal({item, t, getApplicants}) {
                                        onChange={handleChange}
                                        required/>
                             </li>
-
                             <li>
                                 <label className="label" htmlFor="gender">{t("Gender")}</label>
                                 <select id="gender" onChange={handleChange} name="gender"
@@ -227,6 +226,16 @@ function AppealModal({item, t, getApplicants}) {
                                         className="category">
                                     <option value="">{item.nation.name[i18]}</option>
                                     {nations && nations.map((item, i) =>
+                                        <option key={i} value={item.id}>{item.name[i18]}</option>
+                                    )}
+                                </select>
+                            </li>
+                            <li>
+                                <label className="label" htmlFor="socialStatusId">{t("Social Status")}</label>
+                                <select id="socialStatusId" name="socialStatusId" onChange={handleChange}
+                                        className="category">
+                                    <option value="">{item.nation.name[i18]}</option>
+                                    {socialStatus && socialStatus.map((item, i) =>
                                         <option key={i} value={item.id}>{item.name[i18]}</option>
                                     )}
                                 </select>

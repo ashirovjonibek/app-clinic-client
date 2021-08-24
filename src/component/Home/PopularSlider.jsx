@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import UserName from '../UserName';
-import DocumentText from '../DocumentText';
+// import DocumentText from '../DocumentText';
 
 // Import Swiper styles
 import "swiper/swiper.min.css";

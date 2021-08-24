@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../Footer/Footer";
 import Title from "../Title";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { withRouter } from 'react-router-dom';
 import { API_URL } from "../../utils/constant";
-import TokenAPI from "../../utils/TokenAPI";
-import { useForm } from "react-hook-form";
-import ServerApi from "../../utils/TokenAPI";
-import Nav from "../Nav/Nav";
 
 const RegistrationApplicant = (props) => {
     const { history } = props;
@@ -32,8 +27,6 @@ const RegistrationApplicant = (props) => {
 
 
     useEffect(() => {
-        // ServerApi.get
-        // ("/region").then(res => { console.log(res) })
         axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
         });
@@ -233,7 +226,7 @@ const RegistrationApplicant = (props) => {
                                                     className="input-text"
                                                     type="text"
                                                     placeholder="Введите ваш домашний адрес"
-                                                    required />
+                                                    />
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="phoneNumber">Телефон</label>
@@ -306,7 +299,7 @@ const RegistrationApplicant = (props) => {
                                                 value="Bike" />
                                             <label htmlFor="vehicle1"> Я даю согласие на обработку своих персональных
                                                 данных
-                                                и ознакомлен с <a href=""><strong>политикой конфиденциальности</strong></a></label>
+                                                и ознакомлен с <a href="/#"><strong>политикой конфиденциальности</strong></a></label>
                                         </div>
                                     </div>
                                     <button type="submit" className="btn-default">Регистрация</button>

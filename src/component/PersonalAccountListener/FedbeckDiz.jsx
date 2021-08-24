@@ -2,7 +2,7 @@ import React from "react";
 import Label from "../Label";
 import UserName from "../UserName";
 
-const FedbeckDiz = (props) => {
+const FedbeckDiz = () => {
     return (
         <div className="content">
             <div className="fedbeck">

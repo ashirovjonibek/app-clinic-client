@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonWhite from "../ButtonWhite";
 import UserName from "../UserName";
 
 const Fedbeck = (props) => {
