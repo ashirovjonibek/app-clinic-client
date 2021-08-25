@@ -4,7 +4,7 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
-
+//
 const AdminListSupervisor = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [supervisor, setSupervisor] = useState([]);
