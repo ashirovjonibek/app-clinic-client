@@ -7,6 +7,8 @@ import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonalAccountListener/SendSection";
 import ApplicationNav from "./ApplicationNav";
+import Footer from "../Footer/Footer";
+import {CustomPagination} from "../catalog/Pagenation";
 
 const PersonalAccountApplicant = () => {
 
@@ -68,10 +70,15 @@ const PersonalAccountApplicant = () => {
                             {
                                 pushBar(pageQount)
                             }
+                            <div style={{clear:"both"}}></div>
+                            <div style={{display:"block"}}><CustomPagination/></div>
                         </div>
+
                     </section>
+
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }
