@@ -4,6 +4,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
+import {STORAGE_NAME} from "../../utils/constant";
 
 const AdminListListener = ({t}) => {
     const [items, setItems] = useState([]);
@@ -16,13 +17,24 @@ const AdminListListener = ({t}) => {
     }, []);
 
     const getListeners = () => {
-        RequestFunctions.getListeners()
-            .then(res => {
-                    setListeners(res)
-                    setItems(res)
-                }
-            ).catch(error =>
-            console.log(error))
+        const axios = require('axios');
+        const config = {
+            method: 'get',
+            url: 'http://67.205.182.147:9090/api/auth/listeners',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME),
+                'Content-Type': 'application/json'
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                setListeners(response.data)
+                setItems(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
 
     const deleteMethod = (id) => {
@@ -87,14 +99,7 @@ const AdminListListener = ({t}) => {
                                     <td className="table-border"></td>
                                     <td className="table-border"></td>
                                 </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>

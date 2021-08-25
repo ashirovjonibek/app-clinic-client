@@ -72,7 +72,6 @@ const Admin = ({t}) => {
         history.push("/")
     }
 
-
     return (
         <div className="admin">
             <div className="admin-sitebar-wrapper" id={sitebar ? "admin-sitebar" : ""}>

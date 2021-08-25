@@ -38,7 +38,6 @@ const NavLanguage = () => {
         setSelectedLang(lang);
         localStorage.setItem("I18N_LANGUAGE",lang);
         i18n.changeLanguage(lang).then(r => console.log(r))
-        // console.log(i18n)
     };
 
     return (
@@ -52,7 +51,7 @@ const NavLanguage = () => {
             <div className="navlanguage-content">
                 {
                     languagesList.map((lang)=>
-                        <a href="/#" key={lang.val} onClick={(e)=>{
+                        <a key={lang.val} onClick={(e)=>{
                             changeLang(e.target.id)
                         }} id={lang.val} className={lang.className}>{lang.label}</a>
                     )

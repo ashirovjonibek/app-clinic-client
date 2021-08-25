@@ -3,6 +3,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
+import {STORAGE_NAME} from "../../utils/constant";
 
 const AdminListSupervisor = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -15,12 +16,23 @@ const AdminListSupervisor = ({t}) => {
     }, [])
 
     const getListeners = () => {
-        RequestFunctions.getBosses()
-            .then(res => {
-                setItems(res)
-                setSupervisor(res)
-            }).catch(error =>
-            console.log(error))
+        const axios = require('axios');
+        const config = {
+            method: 'get',
+            url: 'http://67.205.182.147:9090/api/auth/bosses',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME),
+                'Content-Type': 'application/json'
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                setItems(response.data)
+                setSupervisor(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)

@@ -58,7 +58,7 @@ const AdminListSetting = ({t}) => {
                                 <th className="table-border name-uz">Name Uz</th>
                                 <th className="table-border name-ru">Name Ру</th>
                                 <th className="table-border name-en">Name En</th>
-                                <th className="table-border edit">{t("Edit")}</th>
+                                {/*<th className="table-border edit">{t("Edit")}</th>*/}
                                 <th className="table-border delete">{t("Delete")}</th>
                             </tr>
                             {departments && departments.map((item, i) =>
@@ -67,9 +67,9 @@ const AdminListSetting = ({t}) => {
                                     <td className="table-border">{item.title["uz"]}</td>
                                     <td className="table-border">{item.title["ru"]}</td>
                                     <td className="table-border">{item.title["en"]}</td>
-                                    <td className="table-border edit">
-                                        <EditIcon/>
-                                    </td>
+                                    {/*<td className="table-border edit">*/}
+                                    {/*    <EditIcon/>*/}
+                                    {/*</td>*/}
                                     <td className="table-border delete">
                                         <button className="deleteIcon">
                                             <DeleteIcon onClick={() => deleteMethod(item.id)}/>
