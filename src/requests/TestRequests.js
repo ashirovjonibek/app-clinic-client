@@ -1,7 +1,4 @@
-import React, {useEffect} from 'react';
-import RequestFunctions from "./RequestFunctions";
-import {STORAGE_NAME} from "../utils/constant";
-import axios from "axios";
+import React from 'react';
 
 /*admin
 +998919687077

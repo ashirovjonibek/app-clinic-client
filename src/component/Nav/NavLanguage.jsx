@@ -6,7 +6,6 @@ const NavLanguage = () => {
 
     const [selectedLang,setSelectedLang]=useState("");
 
-
     const languagesList = [
         {
             label: "O'ZB",
@@ -36,25 +35,24 @@ const NavLanguage = () => {
     },[]);
 
     const changeLang=(lang)=>{
-        // console.log("language "+lang);
         setSelectedLang(lang);
         localStorage.setItem("I18N_LANGUAGE",lang);
-        i18n.changeLanguage(lang)
+        i18n.changeLanguage(lang).then(r => console.log(r))
         // console.log(i18n)
     };
 
     return (
         <div className="navlanguage">
             {
-                languagesList.map((lang)=>
+                languagesList.map((lang,index)=>
                 lang.val===selectedLang?
-                    <div id="selectedLang" className={"navlanguage-item "+lang.className}>{lang.label}</div>:""
+                    <div id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>{lang.label}</div>:""
                 )
             }
             <div className="navlanguage-content">
                 {
                     languagesList.map((lang)=>
-                        <a href="#" key={lang.val} onClick={(e)=>{
+                        <a href="/#" key={lang.val} onClick={(e)=>{
                             changeLang(e.target.id)
                         }} id={lang.val} className={lang.className}>{lang.label}</a>
                     )

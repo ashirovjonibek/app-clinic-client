@@ -1,6 +1,5 @@
 import React from "react";
 import Label from "../Label";
-import iconUpload from "../../assets/icon/upload.svg";
 
 const DirectoryPdf = () => {
     return (

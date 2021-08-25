@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../Title";
-import { useHistory } from "react-router-dom";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
 import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
@@ -10,9 +9,7 @@ import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
 import {withTranslation} from "react-i18next";
 
 
-
 const Home = ({t}) => {
-    const history = useHistory();
     return (
         <div className="home fluit">
             <div className="header-img">
@@ -24,16 +21,16 @@ const Home = ({t}) => {
             <div className="container">
                 <div id="what-clinic">
                     <div className="what-clinic-text">
-                        <Title text={t("What is clinic")} />
+                        <Title text={t("What is clinic")}/>
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
 
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
-                    <div className="what-clinic-mini"></div>
+                    <div className="what-clinic-mini"/>
                 </div>
                 <div id="what-clinic">
                     <div className="what-clinic-mini">
-                        <WhatSlider />
+                        <WhatSlider/>
                     </div>
                     <div className="what-clinic-text">
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
@@ -42,7 +39,7 @@ const Home = ({t}) => {
                     </div>
                 </div>
                 <div id="cel-clinic">
-                    <Title text="Цель клиники" />
+                    <Title text="Цель клиники"/>
                     <h5>{t("The main tasks of the clinic are")}:</h5>
                     <div className="cel-clinic-text">
                         <div className="text-inform">
@@ -64,7 +61,7 @@ const Home = ({t}) => {
                     </div>
                 </div>
                 <div id="statistic-clinic">
-                    <Title text="Статистика" />
+                    <Title text="Статистика"/>
                     <div className="statistic-row">
                         <div className="statistic-items">
                             <div className="statistic">
@@ -111,68 +108,81 @@ const Home = ({t}) => {
                     </div>
                 </div>
                 <div id="purpose-clinic">
-                    <Title text="Предназначение клиники" />
+                    <Title text="Предназначение клиники"/>
                     <div className="porpose-text">
-                        <p>На основе взаимодействия с государственным и хозяйственным управлением, судебными и правоохранительными органами, адвокатскими и другими организациями для обеспечения стажировки студентов в поликлинике на период обучения:
+                        <p>На основе взаимодействия с государственным и хозяйственным управлением, судебными и
+                            правоохранительными органами, адвокатскими и другими организациями для обеспечения
+                            стажировки студентов в поликлинике на период обучения:
                             принять организационные меры по организации практики студентов в клинике;
-                            широкое вовлечение студентов в правоприменительную практику за счет неразрывной связи их теоретических знаний с практикой,
+                            широкое вовлечение студентов в правоприменительную практику за счет неразрывной связи их
+                            теоретических знаний с практикой,
                             принять организационные меры по организации практики студентов в клинике;
-                            широкое вовлечение студентов в правоприменительную практику за счет неразрывной связи их теоретических знаний с практикой</p>
+                            широкое вовлечение студентов в правоприменительную практику за счет неразрывной связи их
+                            теоретических знаний с практикой</p>
                     </div>
                     <div className="porpose-text">
                         <p>О предоставлении бесплатной юридической помощи физическим и юридическим лицам:
-                            обеспечение своевременного и качественного рассмотрения обращений физических и юридических лиц за юридической консультацией;
-                            давать рекомендации о необходимости обращения в соответствующие органы государственного и хозяйственного управления, суды, правоохранительные органы и адвокатские структуры для их разрешения, исходя из характера и сложности обращений физических и юридических лиц, суды, правоохранительные органы и адвокатские структуры для их разрешения, исходя из характера и сложности обращений физических и юридических лиц;</p>
+                            обеспечение своевременного и качественного рассмотрения обращений физических и юридических
+                            лиц за юридической консультацией;
+                            давать рекомендации о необходимости обращения в соответствующие органы государственного и
+                            хозяйственного управления, суды, правоохранительные органы и адвокатские структуры для их
+                            разрешения, исходя из характера и сложности обращений физических и юридических лиц, суды,
+                            правоохранительные органы и адвокатские структуры для их разрешения, исходя из характера и
+                            сложности обращений физических и юридических лиц;</p>
                     </div>
                     <div className="porpose-text">
-                        <p>По повышению уровня профессиональной подготовки студентов и формированию у них навыков работы с юридическими и физическими лицами:
-                            подготовка аналитических данных по правовым вопросам, разработка новых программ, способствующих развитию практических навыков;
-                            проведение семинаров и тренингов, направленных на формирование правовой профессиональной этики, навыков профессиональной деятельности у студентов, проходящих практику в клинике,
-                            проведение семинаров и тренингов, направленных на формирование правовой профессиональной этики, навыков профессиональной деятельности у студентов, проходящих практику в клинике;</p>
+                        <p>По повышению уровня профессиональной подготовки студентов и формированию у них навыков работы
+                            с юридическими и физическими лицами:
+                            подготовка аналитических данных по правовым вопросам, разработка новых программ,
+                            способствующих развитию практических навыков;
+                            проведение семинаров и тренингов, направленных на формирование правовой профессиональной
+                            этики, навыков профессиональной деятельности у студентов, проходящих практику в клинике,
+                            проведение семинаров и тренингов, направленных на формирование правовой профессиональной
+                            этики, навыков профессиональной деятельности у студентов, проходящих практику в клинике;</p>
                     </div>
                 </div>
                 <div id="popular-clinic">
-                    <Title text="Популярные вопросы" />
-                    <PopularSlider />
+                    <Title text="Популярные вопросы"/>
+                    <PopularSlider/>
                 </div>
                 <div id="legal-clinic">
-                    <Title text="Нормативно-правовая база" />
+                    <Title text="Нормативно-правовая база"/>
                     <div className="legal-body">
                         <div className="legal-body-items">
-                            <DirectoryPdf />
-                            <DirectoryPdf />
-                            <DirectoryPdf />
+                            <DirectoryPdf/>
+                            <DirectoryPdf/>
+                            <DirectoryPdf/>
                         </div>
                         <div className="legal-body-items">
-                            <DirectoryPdf />
-                            <DirectoryPdf />
-                            <DirectoryPdf />
+                            <DirectoryPdf/>
+                            <DirectoryPdf/>
+                            <DirectoryPdf/>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="home-useful-links">
                 <div className="container">
-                    <Title text="Полезные ссылки" />
+                    <Title text="Полезные ссылки"/>
                     <div className="useful-links-body">
-                        <a className="useful-links-item">
-                            <img src={prokuraturaImg} alt="" />
+                        <a href="/#" className="useful-links-item">
+                            <img src={prokuraturaImg} alt=""/>
                             <p>Генеральная прокуратура Республики Узбекистан</p>
                         </a>
-                        <a className="useful-links-item">
-                            <img src={gerbImg} alt="" />
+                        <a href="/#" className="useful-links-item">
+                            <img src={gerbImg} alt=""/>
                             <p>Официальный веб-сайт Президента Республики Узбекистан</p>
                         </a>
-                        <a className="useful-links-item">
-                            <img src={tashabbusImg} alt="" />
+                        <a href="/#" className="useful-links-item">
+                            <img src={tashabbusImg} alt=""/>
                             <p>Центр “Стратегия развития”</p>
                         </a>
-                        <a className="useful-links-item">
-                            <img src={prokuraturaImg} alt="" />
+                        <a href="/#" className="useful-links-item">
+                            <img src={prokuraturaImg} alt=""/>
                             <p>Генеральная прокуратура Республики Узбекистан</p>
                         </a>
-                        <a className="useful-links-item">
-                            <img src={prokuraturaImg} alt="" />
+                        <a href="/#" className="useful-links-item">
+                            <img src={prokuraturaImg} alt=""/>
                             <p>Генеральная прокуратура Республики Узбекистан</p>
                         </a>
                     </div>
@@ -180,20 +190,20 @@ const Home = ({t}) => {
             </div>
             <div className="container">
                 <div id="adres-procuratura">
-                    <Title text="Адреса прокуратур" />
-                    
+                    <Title text="Адреса прокуратур"/>
+
                 </div>
-                <div className="cel-clinic" style={{ height: '600px' }}>
-                    <Title text="Мы на карте" />
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.0329210425926!2d69.28706118608989!3d41.3074374422724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad54d47a56f%3A0x87547e5307b77db5!2z0JPQtdC90LXRgNCw0LvRjNC90LDRjyDQv9GA0L7QutGD0YDQsNGC0YPRgNCwINCg0LXRgdC_0YPQsdC70LjQutC4INCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1624433459932!5m2!1sru!2s"
-                        loading="lazy" style={{
-                            height: '500px',
-                            width: '100%',
-                            borderRadius: '10px',
-                            margin: '20px 0',
-                            boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)'
-                        }}></iframe>
+                <div className="cel-clinic" style={{height: '600px'}}>
+                    <Title text="Мы на карте"/>
+                    <iframe title="This is a unique title"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.0329210425926!2d69.28706118608989!3d41.3074374422724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad54d47a56f%3A0x87547e5307b77db5!2z0JPQtdC90LXRgNCw0LvRjNC90LDRjyDQv9GA0L7QutGD0YDQsNGC0YPRgNCwINCg0LXRgdC_0YPQsdC70LjQutC4INCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1624433459932!5m2!1sru!2s"
+                            loading="lazy" style={{
+                        height: '500px',
+                        width: '100%',
+                        borderRadius: '10px',
+                        margin: '20px 0',
+                        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)'
+                    }}/>
                 </div>
             </div>
 

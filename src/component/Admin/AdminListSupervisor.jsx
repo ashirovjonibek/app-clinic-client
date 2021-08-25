@@ -2,55 +2,93 @@ import React, {useState, useEffect} from "react";
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const AdminListSupervisor = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [supervisor, setSupervisor] = useState([]);
+    const [items, setItems] = useState([]);
+    const sectionIds = []
 
     useEffect(() => {
-       getListeners()
-         },[])
+        getListeners()
+    }, [])
 
     const getListeners = () => {
         RequestFunctions.getBosses()
             .then(res => {
+                setItems(res)
                 setSupervisor(res)
-                console.log(res)
             }).catch(error =>
             console.log(error))
+    }
+    const deleteMethod = (id) => {
+        RequestFunctions.deleteUser(id)
+            .then(res =>
+                console.log(res)
+            ).catch(error => {
+            console.log(error)
+        })
+        getListeners()
+    }
+    const activeSection = (id) => {
+        setSupervisor(items.filter(item => item.section.id === id))
     }
     return (
         <div className="admin">
             <div className="admin-list-listnear">
+                <div className="admin-listener">
+                    <div className="listener">
+                        <div className="listener-divs">
+                            <div className="listener-items">
+                                <button
+                                    onClick={() => getListeners()}>{t("All")}</button>
+                            </div>
+                            {items && items.map((item, i) => {
+                                    if (!sectionIds.includes(item.section.id)) {
+                                        sectionIds.push(item.section.id)
+                                        return (
+                                            <div key={item.id} className="listener-items">
+                                                <button
+                                                    onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
+                                            </div>)
+                                    }return null
+                                }
+                            )}
+                        </div>
+                    </div>
+                </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("New")}</h5>
                     <div className="table-registration">
                         <div>
                             <table>
-                                <tr>
-                                    <th className="table-border applicant-name">{t("Full name")}</th>
-                                    <th className="table-border nation">{t("Position")}</th>
-                                    <th className="table-border gender">{t("Course")}</th>
-                                    <th className="table-border citi">{t("Department")}</th>
-                                    <th className="table-border tel">{t("Phone number")}</th>
-                                    <th className="table-border pochta">{t("Email")}</th>
-                                </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                </tr>
+                               <tbody>
+                               <tr>
+                                   <th className="table-border applicant-name">{t("Full name")}</th>
+                                   <th className="table-border nation">{t("Position")}</th>
+                                   <th className="table-border gender">{t("Course")}</th>
+                                   <th className="table-border citi">{t("Department")}</th>
+                                   <th className="table-border tel">{t("Phone number")}</th>
+                                   <th className="table-border pochta">{t("Email")}</th>
+                               </tr>
+                               <tr>
+                                   <td className="table-border applicant-name">Darlene Robertson</td>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                               </tr>
+                               <tr>
+                                   <td className="table-border applicant-name">Darlene Robertson</td>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                                   <td className="table-border"/>
+                               </tr>
+                               </tbody>
                             </table>
 
                         </div>
@@ -62,6 +100,7 @@ const AdminListSupervisor = ({t}) => {
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     <table>
+                        <tbody>
                         <tr>
                             <th className="table-border applicant-name">{t("Full name")}</th>
                             <th className="table-border nation">{t("Position")}</th>
@@ -69,7 +108,8 @@ const AdminListSupervisor = ({t}) => {
                             <th className="table-border citi">{t("Department")}</th>
                             <th className="table-border tel">{t("Phone number")}</th>
                             <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border"></th>
+                            <th className="table-border ">Edit</th>
+                            <th className="table-border ">Delete</th>
 
                         </tr>
                         {supervisor && supervisor.map((item, i) =>
@@ -81,9 +121,16 @@ const AdminListSupervisor = ({t}) => {
                                 <td className="table-border">{item.phoneNumber}</td>
                                 <td className="table-border">{item.email}</td>
                                 <td className="table-border edit"><SimpleModal item={item}
-                                                                               getListeners={getListeners}/></td>
+                                                                               getListeners={getListeners}/>
+                                </td>
+                                <td className="table-border edit">
+                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                        <DeleteIcon/>
+                                    </button>
+                                </td>
                             </tr>
                         )}
+                        </tbody>
                     </table>
                 </div>
             </div>

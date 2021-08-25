@@ -3,6 +3,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 import {withTranslation} from "react-i18next";
+import SettingModal from "./SettingModal";
 
 const Setting = ({t}) => {
     return (
@@ -34,13 +35,11 @@ const Setting = ({t}) => {
                     </div>
                 </div> */}
                 <div className="kafedr">
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '20px', fontWeight: '500'}}>
-                        <AddIcon fontSize='large' style={{ boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25', borderRadius: '50%', marginRight: '10px'}}/>
-                        {t("Add department")}
-                    </div>
+
                     <div className="table-scroll">
                         <h5 className="table-title">{t("Department")}</h5>
                         <table>
+                            <tbody>
                             <tr>
                                 <th className="table-border number">#</th>
                                 <th className="table-border name-uz">Name Uz</th>
@@ -57,6 +56,7 @@ const Setting = ({t}) => {
                                 <td className="table-border"><EditIcon /></td>
                                 <td className="table-border"><DeleteIcon /></td>
                             </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

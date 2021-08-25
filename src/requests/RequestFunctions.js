@@ -550,6 +550,66 @@ class RequestFunctions {
         return response
     }
 
+    /**
+     *************************************** section-controller operations *******************************************************************************************
+     **/
+
+    static async getSections() {
+        let response;
+        await axios.get(API_URL + apiPath.getSections, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(res => {
+                console.log(res)
+                response = res
+            })
+        return response
+    }
+
+    static async getSection(id) {
+        let response;
+        await axios.get(API_URL + apiPath.getSection+id, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(res => {
+                console.log(res)
+                response = res
+            })
+        return response
+    }
+
+    static async deleteSection(id) {
+        let response;
+        await axios.delete(API_URL + apiPath.deleteSection + id, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async createSection(data) {
+        let response;
+        await axios.post(API_URL + apiPath.createSection, data, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
+
+    static async updateSection(id,data) {
+        let response;
+        await axios.put(API_URL + apiPath.updateSection+id, data, configHeader)
+            .then(res => {
+                response = res.data
+            }).catch(error => {
+                response = error.response.data
+            })
+        return response
+    }
 
 }
 

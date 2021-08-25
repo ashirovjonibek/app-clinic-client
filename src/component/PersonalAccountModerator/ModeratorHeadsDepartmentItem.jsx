@@ -19,7 +19,7 @@ const ModeratorHeadsDepartmentItem = () => {
                     <div className="supervisor-applicants">
                         <div className="departmens">
                             <h6>Кафедра:<strong>Название кафедры</strong></h6>
-                            <a>Редактировать данные</a>
+                            <a href="/#">Редактировать данные</a>
                         </div>
                     </div>
                 </div>

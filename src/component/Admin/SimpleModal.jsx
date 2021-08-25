@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
-import DeleteIcon from "@material-ui/icons/Delete";
+import {STORAGE_NAME} from "../../utils/constant";
 
 export default function SimpleModal({item, getListeners}) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
-    const [select, setSelect] = useState(item.roles[0].name);
+    const select = item.roles[0].name;
     const [changeRolesItem, setChangeRolesItem] = useState(0);
 
     useEffect(() => {
@@ -15,17 +15,42 @@ export default function SimpleModal({item, getListeners}) {
     }, []);
 
     const getRoles = () => {
-        RequestFunctions.getRoles()
-            .then(res => {
-                    setRoles(res)
-                }
-            ).catch(error =>
-            console.log(error))
+        const axios = require('axios');
+        const config = {
+            method: 'get',
+            url: 'http://67.205.182.147:9090/api/auth/roles',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                setRoles(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // RequestFunctions.getRoles()
+        //     .then(res => {
+        //             if (res.message && res.message === "Access is denied") {
+        //                 console.log("access")
+        //                 // window.location.reload();
+        //                 localStorage.getItem(STORAGE_NAME)
+        //             } else {
+        //                 console.log("OK")
+        //                 setRoles(res)
+        //                 console.log(res)
+        //             }
+        //         }
+        //     ).catch(error =>
+        //     console.log(error))
     }
 
     const changeUpdate = () => {
         RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
-        handleClose()
+        handleClose();
+        getListeners();
     }
 
     const handleOpen = () => {
@@ -33,19 +58,10 @@ export default function SimpleModal({item, getListeners}) {
     };
 
     const handleClose = () => {
-        getListeners()
+        getListeners();
         setOpen(false);
     };
 
-    const deleteMethod = () => {
-        RequestFunctions.deleteUser(item.id)
-            .then(res =>
-                console.log(res)
-            ).catch(error => {
-            console.log(error)
-        })
-        getListeners()
-    }
 
     const handleRol = (e) => {
         let rolesItemObj;
@@ -55,15 +71,12 @@ export default function SimpleModal({item, getListeners}) {
         }
     }
 
-
     return (
         <div>
             <button type="button" onClick={handleOpen}>
                 <EditIcon/>
             </button>
-            <button type="button" className="deleteIcon" onClick={deleteMethod}>
-                <DeleteIcon/>
-            </button>
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -100,9 +113,10 @@ export default function SimpleModal({item, getListeners}) {
                             <div className="label">Рол</div>
                             <select onChange={handleRol} className="inform">
                                 <option value={item.roles[0].name}>{item.roles[0].name}</option>
-                                {roles && roles.map((rol) =>
-                                    <option key={rol.id
-                                    } value={rol.name}>{rol.name}</option>
+                                {roles && roles.map(rol =>
+                                    <option key={rol.id}
+                                            value={rol.name}>{rol.name}
+                                    </option>
                                 )}
                             </select>
                         </li>

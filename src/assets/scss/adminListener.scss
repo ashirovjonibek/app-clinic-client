@@ -1,0 +1,48 @@
+.admin-listener {
+    .listener {
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 10px;
+        .listener-divs {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            .listener-items {
+                height: 40px;
+                width: 150px;
+                background-color: #ffffff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border: 2px solid #ffffff;
+                border-radius: 30px;
+                text-align: center;
+                align-items: center;
+                margin:15px;
+                transition: all .2s;
+                &:not(:last-child) {
+                }
+                button {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #222d44;
+                    background-color: white;
+                }
+            }
+            .listener-items:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+            .listener-items:active {
+                transform: translateY(-1px);
+                box-shadow: 0 0 10px rgba(70, 85, 117, 0.1);
+            }
+        }
+    }
+}

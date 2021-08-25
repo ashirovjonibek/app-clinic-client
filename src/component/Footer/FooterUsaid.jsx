@@ -3,9 +3,9 @@ import imageUsaid from "../../assets/icon/footer/usaid.jpg";
 
 const FooterUsaid = () => {
     return (
-        <div class="usaid-wrapper container-fluid">
-            <div class="container">
-                <div class="usaid">
+        <div className="usaid-wrapper container-fluid">
+            <div className="container">
+                <div className="usaid">
                     <img src={imageUsaid} alt="" />
                     <p>Данный вебсайт стал возможным благодаря помощи американского народа, оказанной через Агентство
                     США по международному

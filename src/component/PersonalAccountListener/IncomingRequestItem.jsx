@@ -1,6 +1,5 @@
 import React from "react";
 import UserName from "../UserName";
-import RequestTheme from "../RequestTheme";
 
 const IncomingRequestItem = ({ currentItem }) => {
     console.log(currentItem)
@@ -38,18 +37,18 @@ const IncomingRequestItem = ({ currentItem }) => {
                 <div className="categories">
                     <ul>
                         <li>
-                            <label for="">Категория обращения</label>
+                            <label htmlFor="">Категория обращения</label>
                             <div className="category-item">{currentItem.section.title.uz}</div>
                         </li>
                         <li>
-                            <label for="">Файл</label>
+                            <label htmlFor="">Файл</label>
                             <div className="file-item">Обращение. Mp4</div>
                         </li>
                     </ul>
                 </div>
                 <div className="request-bottom">
-                    <a href="">Отправить модератору на замену исполнителя</a>
-                    <a href="">Написать сообщение</a>
+                    <a href="/#">Отправить модератору на замену исполнителя</a>
+                    <a href="/#">Написать сообщение</a>
                 </div>
                 <button type="submit" className="btn-default">Назад</button>
             </div>

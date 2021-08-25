@@ -10,7 +10,7 @@ const NavTop = ({t}) => {
             <div className="container">
                 <ul>
                     <li>
-                        <a href="" className="adress">
+                        <a href="/#" className="adress">
                             <img width="18px" src={iconAdress} alt="" />
                             <p>{t("100047, Tashkent, Mirabad district, st. Shakhrisabz, 42")}.</p>
                         </a>

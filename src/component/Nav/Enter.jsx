@@ -1,14 +1,11 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
-import {Button} from "@material-ui/core";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import enterImg from '../../assets/img/enter-img.svg'
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
 import axios from "axios";
-import TestRequests from "../../requests/TestRequests";
-
 
 const Enter = ({t}) => {
     const me=useSelector(state => state.meReducer)

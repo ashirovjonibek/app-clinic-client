@@ -9,7 +9,7 @@ import NavTop from "../Nav/NavTop";
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
-import meReducer from "../../redux/me/reducer";
+// import meReducer from "../../redux/me/reducer";
 
 const Login = (props) => {
     const { history } = props;
@@ -102,7 +102,7 @@ const Login = (props) => {
                                 <ul>
                                     <li>
                                         <div className="first-label">
-                                            <label className="label" for="phoneNumber">{props.t("Phone number")}</label>
+                                            <label className="label" htmlFor="phoneNumber">{props.t("Phone number")}</label>
                                         </div>
                                         <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
                                             placeholder="+998 (__) ___-__-__" />
@@ -110,7 +110,7 @@ const Login = (props) => {
                                     </li>
                                     <li>
                                         <div className="last-label">
-                                            <label className="label" for="password">{props.t("Password")}</label>
+                                            <label className="label" htmlFor="password">{props.t("Password")}</label>
                                         </div>
                                         <input className="input-text" id="password" onChange={changePassword} type="text"
                                             placeholder={props.t("Password")} />

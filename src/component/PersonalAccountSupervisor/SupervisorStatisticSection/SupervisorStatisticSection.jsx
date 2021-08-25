@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import ButtonDefault from "../../ButtonDefault";
 import StatisticYearCategories from "./StatisticYearCategories";
 import StatisticGender from "./StatisticGender";
@@ -32,6 +32,8 @@ const SupervisorStatisticSection = () => {
                 return <StatisticLgots />
             case 8:
                 return <StatisticPeriods />
+            default:
+                return <StatisticRegions />
         }
     }
 

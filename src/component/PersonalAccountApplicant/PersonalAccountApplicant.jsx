@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import Title from "../Title";
-import NavCenter from "../Nav/NavCenter";
-import NavBottom from "../Nav/NavBottom";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link} from "react-router-dom";
 import YourAppealSection from "./YourAppealSection";
 import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
 import PerAccAppResponseRequest from "./PerAccAppResponseRequest";
 import SendSection from "../PersonalAccountListener/SendSection";
-// import ApplicantAppeal from "./ApplicantAppeal";
-// import IncomingRequestItem from "./IncomingRequestItem";
-import NavTop from "../Nav/NavTop";
-import iconLogo from "../../assets/icon/icon-logo.svg";
-import iconSearch from "../../assets/icon/icon-search.svg";
-import iconGlass from "../../assets/icon/icon-glass.svg";
-import NavLanguage from "../Nav/NavLanguage";
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import Enter from "../Nav/Enter";
 import ApplicationNav from "./ApplicationNav";
 
 const PersonalAccountApplicant = () => {

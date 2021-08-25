@@ -57,10 +57,10 @@ function SimpleModal({item, t}) {
         // })
 
         RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
-            .then(res => console.log(res)
-            ).catch(error => {
-            console.log(error)
-        })
+        //     .then(res => console.log(res)
+        //     ).catch(error => {
+        //     console.log(error)
+        // })
         handleClose()
     }
     const handleChange = (e) => {

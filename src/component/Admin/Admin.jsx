@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "../Nav/NavLanguage";
-import Enter from "../Nav/Enter";
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import AdminListListnear from './AdminListListnear';
@@ -10,14 +9,11 @@ import AdminListAppeal from './AdminListAppeal';
 import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
 import AdminListSetting from './AdminListSetting';
-import Setting from './Setting';
 import {withTranslation} from "react-i18next";
-import enterImg from "../../assets/img/enter-img.svg";
 import LockIcon from '@material-ui/icons/Lock';
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
-import {adminNavbarr,adminNavbar,navbarItems} from "../../assets/scss/adminList.scss"
-import TestRequests from "../../requests/TestRequests";
+import "../../assets/scss/adminList.scss"
 
 
 const Admin = ({t}) => {
@@ -41,6 +37,8 @@ const Admin = ({t}) => {
                 return <AdminListModerator />
             case 5:
                 return <AdminListSetting />
+            default:
+                return <AdminListAppeal />
         }
     }
 
@@ -67,6 +65,13 @@ const Admin = ({t}) => {
         getPage(5);
         setSettingContentItem(!settingContentItem);
     }
+
+    const handleGoOut = () => {
+        localStorage.removeItem(STORAGE_NAME);
+        console.log(localStorage.getItem(STORAGE_NAME))
+        history.push("/")
+    }
+
 
     return (
         <div className="admin">
@@ -190,10 +195,7 @@ const Admin = ({t}) => {
                                     </div>
                                 </div>
                                 <div className="enter" >
-                                    <div className="enter-btn" onClick={()=>{
-                                        localStorage.removeItem(STORAGE_NAME);
-                                        history.push("/")
-                                    }} style={{cursor:"pointer"}}>
+                                    <div className="enter-btn" onClick={handleGoOut} style={{cursor:"pointer"}}>
                                         <div className="enter-img">
                                             <LockIcon/>
                                         </div>
@@ -211,22 +213,21 @@ const Admin = ({t}) => {
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
                         <div className="admin-navbar">
                             <div className="admin-navbarr">
-                                <TestRequests/>
                                 <ul>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
-                                        <Link onClick={() => getPage(1)}>List of applicants</Link>
+                                        <button onClick={() => getPage(1)}>List of applicants</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
-                                        <Link onClick={() => getPage(2)}>List of listeners</Link>
+                                        <button  onClick={() => getPage(2)}>List of listeners</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <Link onClick={() => getPage(3)}>List of bosses</Link>
+                                        <button onClick={() => getPage(3)}>List of bosses</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <Link onClick={() => getPage(4)}>List of moderators</Link>
+                                        <button onClick={() => getPage(4)}>List of moderators</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <Link onClick={() => getPage(5)}>Settings</Link>
+                                        <button  onClick={() => getPage(5)}>Settings</button>
                                     </li>
                                 </ul>
                             </div>

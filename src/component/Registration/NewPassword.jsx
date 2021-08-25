@@ -11,11 +11,11 @@ const NewPassword = () => {
                     <form action="">
                         <ul>
                             <li>
-                                <label className="label" for="">Новый пароль</label>
+                                <label className="label" htmlFor="">Новый пароль</label>
                                 <input className="input-text" type="text" placeholder="Пароль" />
                             </li>
                             <li>
-                                <label className="label" for="">Повторите пароль</label>
+                                <label className="label" htmlFor="">Повторите пароль</label>
                                 <input className="input-text" type="text" placeholder="Пароль" />
                             </li>
                             <li>

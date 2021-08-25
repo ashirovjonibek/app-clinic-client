@@ -13,7 +13,7 @@ const PerAccSupListenersItem = (props) => {
                             <button className="button-white" style={{borderColor: 'white', marginLeft: '10px'}}>Включить</button>
                         </div>
                         <div className="redaction-date">
-                            <a href="">Редактировать данные</a>
+                            <a href="/#">Редактировать данные</a>
                         </div>
                     </div>
                 </div>

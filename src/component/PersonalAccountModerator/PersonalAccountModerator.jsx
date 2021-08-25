@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavCenter from "../Nav/NavCenter";
 import { Link } from "react-router-dom";
 import ModeratorHeadsDepartmentSection from "./ModeratorHeadsDepartmentSection";
 import ModeratorPerformerSection from "./ModeratorPerformerSection";
@@ -56,6 +55,8 @@ const PersonalAccountModerator = () => {
 
             case 10:
                 return <ModeratorArchive />
+            default:
+                return <ModeratorHeadsDepartmentSection />
 
         }
     }
@@ -79,7 +80,7 @@ const PersonalAccountModerator = () => {
                                     />
                                 </div>
                                 <div className="header-logo">
-                                    <a href="#">
+                                    <a href="/#">
                                         <div className="logo-left">
                                             <img src={iconLogo} alt="logo" />
                                         </div>
