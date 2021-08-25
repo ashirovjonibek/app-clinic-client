@@ -82,7 +82,6 @@ const IncomingRequestSection = (props) => {
                     <div className="request-content-title">
                         <div className="request-content-title-name">
                             <UserName text={`${item.applicant.fullName}`} />
-                            <div className="id">id: 12345</div>
                         </div>
                         <div className="request-content-title-date">
                             <div className="date-label">

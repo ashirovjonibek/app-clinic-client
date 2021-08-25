@@ -5,7 +5,7 @@ const PerAccAppPeriodItem = ({item}) => {
     let b=new Date();
     return (
         <div>
-            <div className="period-section-title">Срок рассмотрения вашего обращения:<strong>15 </strong>дней</div>
+            <div className="period-section-title">Срок рассмотрения вашего обращения:<strong>{item?.deadlineDay} </strong>дней</div>
             <div className="content">
                 <div className="period-section">
                     <div className="request-theme">

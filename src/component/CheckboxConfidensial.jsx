@@ -1,10 +1,10 @@
 import React from "react";
 
-const CheckboxConfidensial = () => {
+const CheckboxConfidensial = (props) => {
     return (
         <div>
             <div className="confidential">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                <input type="checkbox" checked={props.top} id="vehicle1" name="vehicle1" value="Bike" />
 
                 <div>
                     <label for="">Конфиденциально</label>

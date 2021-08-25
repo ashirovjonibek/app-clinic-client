@@ -1,7 +1,8 @@
 import React from "react";
 import ButtonDefault from "../ButtonDefault";
+import UserName from "../UserName";
 
-const CenterSends = () => {
+const CenterSends = (props) => {
     return (
         <div>
             <div className="new">
@@ -9,10 +10,12 @@ const CenterSends = () => {
             </div>
             <div className="content" style={{ marginBottom: '-7px' }}>
                 <div className="fedbeck">
-                    <div className="request-content-title-name">
-                        <div className="applicant-image"/>
-                        <div className="name"><h3>Aliyev Vali Galievich</h3></div>
-                    </div>
+                    {/*<div className="request-content-title-name">*/}
+                    {/*    <div className="applicant-image"></div>*/}
+                    {/*    <div className="name"><h3>Aliyev Vali Galievich</h3></div>*/}
+                    {/*</div>*/}
+                    <UserName text={"Aliyev Vali Galievich"}/>
+
                     <div className="fedbeck-right">
                         <ButtonDefault text="Открыть" />
                     </div>
