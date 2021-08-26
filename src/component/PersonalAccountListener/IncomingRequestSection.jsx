@@ -17,10 +17,11 @@ const IncomingRequestSection = (props) => {
     const history = useHistory();
     const { idUser, setIdUser, setCurrentItem } = useContext(ApiContext);
     console.log(idUser);
-    const [nS,setNS]=useState(1)
-    const [newApps,setNewApps]=useState([])
-    const [inpApps,setInpApps]=useState([])
-    const [doneApps,setDoneApps]=useState([])
+    const [nS,setNS]=useState(1);
+    const [r,setR]=useState(false);
+    const [newApps,setNewApps]=useState([]);
+    const [inpApps,setInpApps]=useState([]);
+    const [doneApps,setDoneApps]=useState([]);
     const token = localStorage.getItem(STORAGE_NAME);
 
 
@@ -51,14 +52,23 @@ const IncomingRequestSection = (props) => {
                 setNewApps(cr);
                 setInpApps(ac);
                 setDoneApps(dn)
+                section(1)
             })
         })
-    }, []);
+    }, [r]);
 
-    const testPage = (item) => {
-        setIdUser(9);
-        setCurrentItem(item);
-    }
+    const acceptApp = (id) => {
+        axios({
+            method:'put',
+            url:API_URL+'/application/accepted?id='+id,
+            headers:{
+                'Authorization':token
+            }
+        }).then((r)=>{
+            console.log(r)
+            setR(!r);
+        })
+    };
 
     const download = (id,name) => {
         axios.get(API_URL+"/attach/"+id,{
@@ -125,11 +135,10 @@ const IncomingRequestSection = (props) => {
                           </div>
                           <div className="request-bottom">
                               <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
-                              <button className="blue-btn">Написать сообщение</button>
                               <button type="submit" className="btn-default" style={{
                                   marginTop:"15px"
                               }}
-                                      onClick={() => testPage(item)} >Ответить</button>
+                                      onClick={() => acceptApp(item.id)} >Qabul qilish</button>
                           </div>
                       </div>
                   )}
@@ -185,7 +194,8 @@ const IncomingRequestSection = (props) => {
                               <button type="submit" className="btn-default" style={{
                                   marginTop:"15px"
                               }}
-                                      onClick={() => testPage(item)} >Ответить</button>
+                                      // onClick={() => testPage(item)}
+                              >Ответить</button>
                           </div>
                       </div>
                   )}
@@ -241,7 +251,8 @@ const IncomingRequestSection = (props) => {
                               <button type="submit" className="btn-default" style={{
                                   marginTop:"15px"
                               }}
-                                      onClick={() => testPage(item)} >Ответить</button>
+                                      // onClick={() => testPage(item)}
+                              >Ответить</button>
                           </div>
                       </div>
                   )}
