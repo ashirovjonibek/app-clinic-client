@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import axios from "axios";
-import UserAppealItem from "../UserAppealItem";
 import CheckboxConfidensial from "../CheckboxConfidensial";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import {Dialog} from "@material-ui/core";
 import {CustomPagination} from "../catalog/Pagenation";
 
 const YourAppealSection = (props) => {
