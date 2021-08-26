@@ -8,12 +8,13 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {Dialog} from "@material-ui/core";
+import {CustomPagination} from "../catalog/Pagenation";
 
 const YourAppealSection = (props) => {
 
     const [appeal, setAppeal] = useState([]);
-
-
+    const [pageSize,setPageSize]=useState(0)
+    const [active,setActive]=useState(1)
 
     const token = localStorage.getItem(STORAGE_NAME);
 
@@ -22,14 +23,15 @@ const YourAppealSection = (props) => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant",
+            url: API_URL + "/application/applicant?size=3&page="+(active-1),
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
             props.setAppeal(res.data.object.object);
             console.log(res);
+            setPageSize(res.data.object.totalPages)
         })
-    }, []);
+    }, [active]);
 
     const fileLoad=(id,name)=>{
         if (id){
@@ -53,26 +55,26 @@ const YourAppealSection = (props) => {
     return (
         <div className="your-appeal-item-section">
             {appeal && appeal.map((item) =>
-                <div className="content" key={item.id} value={item.id}>
+                <div className="content" key={item?.id} value={item?.id}>
                     <div className="document-text">
                         <div className="document-text-title">
                             <h4>Тема обращения:</h4>
-                            <p>{item.title}</p>
+                            <p>{item?.title}</p>
                         </div>
                         <div className="document-text-item">
-                            <p>{item.description}</p>
+                            <p>{item?.description}</p>
                         </div>
                     </div>
                     <div className="categories">
                         <ul>
                             <li>
                                 <label htmlFor="">Категория обращения</label>
-                                <div className="category-item">{item.section?.title?.ru}</div>
+                                <div className="category-item">{item?.section?.title?.ru}</div>
                             </li>
                             <li>
                                 <label htmlFor="">Файл</label>
-                                <div title={item.attachmentsId?"Arizani yuklash":"doc not found"} onClick={(e)=>{
-                                    item.attachmentsId?fileLoad(item.attachmentsId[0],item.applicant?.fullName):console.log("doc not found")
+                                <div title={item?.attachmentsId?"Arizani yuklash":"doc not found"} onClick={(e)=>{
+                                    item?.attachmentsId?fileLoad(item?.attachmentsId[0],item?.applicant?.fullName):console.log("doc not found")
                                 }} style={{textAlign:"center",cursor:"pointer"}} className="file-item">
                                     <GetAppIcon/>
                                 </div>
@@ -105,6 +107,14 @@ const YourAppealSection = (props) => {
                     </button>
                 </li>
             </ul> */}
+            <div style={{clear:"both"}}></div>
+            <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
+                <CustomPagination
+                    pageLength={pageSize}
+                    setActive={setActive}
+                    active={active}
+                />
+            </div>
         </div>
     );
 }

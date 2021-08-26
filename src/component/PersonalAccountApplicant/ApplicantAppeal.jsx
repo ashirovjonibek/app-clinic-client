@@ -66,8 +66,8 @@ const ApplicantAppeal = (props) => {
         }).then(res => {
             if (res.data.success) {
                 console.log(res)
-                // toast.success(res.data.message);
-                // history.push('/personalAccountApplicant')
+                toast.success(res.data.message);
+                history.push('/personalAccountApplicant')
             } else {
                 toast.error(res.data.message);
             }

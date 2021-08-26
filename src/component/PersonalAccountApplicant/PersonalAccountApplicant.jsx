@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import { Link} from "react-router-dom";
 import YourAppealSection from "./YourAppealSection";
@@ -16,10 +16,12 @@ const PersonalAccountApplicant = () => {
     const [sitebar, setSitebar] = useState(false);
     const [appeal, setAppeal] = useState([]);
 
+
+    // console.log(pageSize)
     function pushBar(n) {
         switch (n) {
             case 1:
-                return <YourAppealSection setAppeal={setAppeal}/>
+                return <YourAppealSection n={n} setAppeal={setAppeal}/>
             case 2:
                 return <PerAccAppCallFlowSection />
             case 3:
@@ -49,19 +51,19 @@ const PersonalAccountApplicant = () => {
                                         <Link to="/applicantAppeal">Создать новое обращение</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
-                                        <Link onClick={() => getPage(1)}>Ваше обращение</Link>
+                                        <Link to="#" onClick={() => getPage(1)}>Ваше обращение</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
-                                        <Link onClick={() => getPage(2)}>Статус документа</Link>
+                                        <Link to="#" onClick={() => getPage(2)}>Статус документа</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <Link onClick={() => getPage(3)}>Срок рассмотрения</Link>
+                                        <Link to="#" onClick={() => getPage(3)}>Срок рассмотрения</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <Link onClick={() => getPage(4)}>Ответы на обращения</Link>
+                                        <Link to="#" onClick={() => getPage(4)}>Ответы на обращения</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <Link onClick={() => getPage(5)}>Центр сообщений</Link>
+                                        <Link to="#" onClick={() => getPage(5)}>Центр сообщений</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -70,8 +72,7 @@ const PersonalAccountApplicant = () => {
                             {
                                 pushBar(pageQount)
                             }
-                            <div style={{clear:"both"}}></div>
-                            <div style={{display:"block"}}><CustomPagination/></div>
+
                         </div>
 
                     </section>
