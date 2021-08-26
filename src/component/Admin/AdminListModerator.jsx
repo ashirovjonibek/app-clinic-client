@@ -53,29 +53,6 @@ const AdminListModerator = ({t}) => {
     return (
         <div className="admin">
             <div className="admin-list-listnear">
-                <div className="admin-listener">
-                    <div className="listener">
-                        <div className="listener-divs">
-                            <div className="listener-items">
-                                <button
-                                    onClick={() => getListeners()}>{t("All")}</button>
-                            </div>
-                            {items && items.map((item, i) => {
-                                    if (!sectionIds.includes(item.section.id)) {
-                                        sectionIds.push(item.section.id)
-                                        return (
-                                            <div key={item.id} className="listener-items">
-                                                <button
-                                                    onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
-                                            </div>)
-                                    }
-                                    return null
-                                }
-                            )}
-                        </div>
-                    </div>
-                </div>
-
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     <table>
