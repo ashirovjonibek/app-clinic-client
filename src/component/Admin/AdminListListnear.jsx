@@ -5,16 +5,18 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
+import {CheckCircle} from "@material-ui/icons";
 
 const AdminListListener = ({t}) => {
     const [items, setItems] = useState([]);
     const [listeners, setListeners] = useState([]);
+    const [reLoad, setReLoad] = useState(true);
     const sectionIds = []
     const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     useEffect(() => {
         getListeners()
-    }, []);
+    }, [reLoad]);
 
     const getListeners = () => {
         const axios = require('axios');
@@ -34,7 +36,6 @@ const AdminListListener = ({t}) => {
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
     const deleteMethod = (id) => {
@@ -45,6 +46,29 @@ const AdminListListener = ({t}) => {
             console.log(error)
         })
         getListeners()
+        setReLoad(!reLoad)
+    }
+    const changeViewed = (id) => {
+        const axios = require('axios');
+
+        const config = {
+            method: 'put',
+            url: 'http://67.205.182.147:9090/api/auth/updateListenerByView/'+id,
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        getListeners()
+        setReLoad(!reLoad)
     }
 
     const activeSection = (id) => {
@@ -78,35 +102,36 @@ const AdminListListener = ({t}) => {
                     </div>
                 </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                    {/* <h5 className="table-title">{t("New")}</h5>
-                    <div className="table-registration">
-                        <div>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <th className="table-border applicant-name">{t("Full name")}</th>
-                                    <th className="table-border nation">{t("Position")}</th>
-                                    <th className="table-border gender">{t("Course")}</th>
-                                    <th className="table-border citi">{t("Department")}</th>
-                                    <th className="table-border tel">{t("Phone number")}</th>
-                                    <th className="table-border pochta">{t("Email")}</th>
-                                </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                    <td className="table-border"></td>
-                                </tr>
+                    <h5 className="table-title">{t("List")}</h5>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th className="table-border applicant-name">{t("Full name")}</th>
+                            <th className="table-border nation">{t("Position")}</th>
+                            <th className="table-border gender">{t("Course")}</th>
+                            <th className="table-border citi">{t("Department")}</th>
+                            <th className="table-border tel">{t("Phone number")}</th>
+                            <th className="table-border pochta">{t("Email")}</th>
+                            <th className="table-border ">{t("Accept")}</th>
+                        </tr>
+                        {listeners && listeners.filter(item=>item.viewed===false).map((item, i) =>
+                            <tr key={i} value={item.id}>
+                                <td className="table-border applicant-name">{item.fullName}</td>
+                                <td className="table-border">{item.position.title[i18]}</td>
+                                <td className="table-border">{item.course}</td>
+                                <td className="table-border">{item.section.title[i18]}</td>
+                                <td className="table-border">{item.phoneNumber}</td>
+                                <td className="table-border">{item.email}</td>
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="table-registration-button">
-                            <button className="btn-default">{t("Register all")}</button>
-                        </div>
-                    </div>*/}
+                                <td className="table-border edit">
+                                    <button type="button" className="checkIcon" onClick={() => changeViewed(item.id)}>
+                                        <CheckCircle/>
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+                        </tbody>
+                    </table>
                 </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>

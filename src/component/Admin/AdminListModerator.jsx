@@ -10,10 +10,11 @@ const AdminListModerator = ({t}) => {
     const [moderator, setModerator] = useState([]);
     const sectionIds = []
     const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const [reLoad, setReLoad] = useState(true);
 
     useEffect(() => {
         getListeners()
-    },[])
+    }, [reLoad])
 
     const getListeners = () => {
         const axios = require('axios');
@@ -42,6 +43,7 @@ const AdminListModerator = ({t}) => {
             console.log(error)
         })
         getListeners()
+        setReLoad(!reLoad)
     }
 
     const activeSection = (id) => {
@@ -66,51 +68,14 @@ const AdminListModerator = ({t}) => {
                                                 <button
                                                     onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
                                             </div>)
-                                    }return null
+                                    }
+                                    return null
                                 }
                             )}
                         </div>
                     </div>
                 </div>
-                <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                   {/* <h5 className="table-title">{t("New")}</h5>
-                    <div className="table-registration">
-                        <div>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <th className="table-border applicant-name">{t("Full name")}</th>
-                                    <th className="table-border nation">{t("Position")}</th>
-                                    <th className="table-border gender">{t("Course")}</th>
-                                    <th className="table-border citi">{t("Department")}</th>
-                                    <th className="table-border tel">{t("Phone number")}</th>
-                                    <th className="table-border pochta">{t("Email")}</th>
-                                </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                </tr>
-                                <tr>
-                                    <td className="table-border applicant-name">Darlene Robertson</td>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                    <td className="table-border"/>
-                                </tr>
-                                </tbody>
-                            </table>
 
-                        </div>
-                        <div className="table-registration-button">
-                            <button className="btn-default">{t("Register all")}</button>
-                        </div>
-                    </div>*/}
-                </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     <table>
@@ -133,7 +98,8 @@ const AdminListModerator = ({t}) => {
                                 <td className="table-border">{item.section.title[i18]}</td>
                                 <td className="table-border">{item.phoneNumber}</td>
                                 <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal item={item}  getListeners={getListeners}/></td>
+                                <td className="table-border edit"><SimpleModal item={item} getListeners={getListeners}/>
+                                </td>
                                 <td className="table-border edit">
                                     <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
                                         <DeleteIcon/>

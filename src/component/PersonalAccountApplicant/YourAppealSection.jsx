@@ -4,7 +4,6 @@ import axios from "axios";
 import CheckboxConfidensial from "../CheckboxConfidensial";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {CustomPagination} from "../catalog/Pagenation";
-
 const YourAppealSection = (props) => {
 
     const [appeal, setAppeal] = useState([]);

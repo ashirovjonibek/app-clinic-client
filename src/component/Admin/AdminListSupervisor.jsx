@@ -10,10 +10,12 @@ const AdminListSupervisor = ({t}) => {
     const [supervisor, setSupervisor] = useState([]);
     const [items, setItems] = useState([]);
     const sectionIds = []
+    const [reLoad, setReLoad] = useState(true);
+
 
     useEffect(() => {
         getListeners()
-    }, [])
+    }, [reLoad])
 
     const getListeners = () => {
         const axios = require('axios');
@@ -42,6 +44,7 @@ const AdminListSupervisor = ({t}) => {
             console.log(error)
         })
         getListeners()
+        setReLoad(!reLoad)
     }
     const activeSection = (id) => {
         setSupervisor(items.filter(item => item.section.id === id))
@@ -70,45 +73,7 @@ const AdminListSupervisor = ({t}) => {
                         </div>
                     </div>
                 </div>
-                <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                    <h5 className="table-title">{t("New")}</h5>
-                    <div className="table-registration">
-                        <div>
-                            <table>
-                               <tbody>
-                               <tr>
-                                   <th className="table-border applicant-name">{t("Full name")}</th>
-                                   <th className="table-border nation">{t("Position")}</th>
-                                   <th className="table-border gender">{t("Course")}</th>
-                                   <th className="table-border citi">{t("Department")}</th>
-                                   <th className="table-border tel">{t("Phone number")}</th>
-                                   <th className="table-border pochta">{t("Email")}</th>
-                               </tr>
-                               <tr>
-                                   <td className="table-border applicant-name">Darlene Robertson</td>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                               </tr>
-                               <tr>
-                                   <td className="table-border applicant-name">Darlene Robertson</td>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                                   <td className="table-border"/>
-                               </tr>
-                               </tbody>
-                            </table>
 
-                        </div>
-                        <div className="table-registration-button">
-                            <button className="btn-default">{t("Register all")}</button>
-                        </div>
-                    </div>
-                </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     <table>
