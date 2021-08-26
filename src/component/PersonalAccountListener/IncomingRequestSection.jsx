@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
-import { useHistory, Router, useParams, useLocation, useRouteMatch } from "react-router-dom";
+import {useHistory, Router, useParams, useLocation, useRouteMatch, Link} from "react-router-dom";
 import axios from "axios";
 import ContentTop from "../ContentTop";
 import IncomingRequestItem from "./IncomingRequestItem";
@@ -9,6 +9,7 @@ import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
 import { ApiContext } from "../../utils/ApiContext";
 import GetAppIcon from '@material-ui/icons/GetApp';
+import {withTranslation} from "react-i18next";
 
 const IncomingRequestSection = (props) => {
 
@@ -16,6 +17,10 @@ const IncomingRequestSection = (props) => {
     const history = useHistory();
     const { idUser, setIdUser, setCurrentItem } = useContext(ApiContext);
     console.log(idUser);
+    const [nS,setNS]=useState(1)
+    const [newApps,setNewApps]=useState([])
+    const [inpApps,setInpApps]=useState([])
+    const [doneApps,setDoneApps]=useState([])
     const token = localStorage.getItem(STORAGE_NAME);
 
 
@@ -29,6 +34,24 @@ const IncomingRequestSection = (props) => {
         }).then(res => {
             setRequest(res.data.object)
             console.log(res);
+            let cr=[];
+            let ac=[];
+            let dn=[];
+            res.data.object.map((item)=>{
+                if (item.status==="CREATED"){
+                    cr.push(item)
+                }
+                if (item.status==="INPROCESS"){
+                    ac.push(item)
+                }
+                if (item.status==="COMPLETED"||item.status==="DENIED"){
+                    dn.push(item)
+                }
+
+                setNewApps(cr);
+                setInpApps(ac);
+                setDoneApps(dn)
+            })
         })
     }, []);
 
@@ -54,6 +77,179 @@ const IncomingRequestSection = (props) => {
 
     }
 
+    const section = (n) => {
+      switch (n){
+          case 1:return (
+              <>
+                  {newApps && newApps.map((item, i) =>
+                      <div className="content" key={i} value={item.id}>
+                          <div className="request-content-title">
+                              <div className="request-content-title-name">
+                                  <UserName text={`${item.applicant.fullName}`} />
+                              </div>
+                              <div className="request-content-title-date">
+                                  <div className="date-label">
+                                      Осталось:
+                                  </div>
+                                  <div className="date-item">
+                                      5 день
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="request-theme">
+                              <div className="request-theme-title">
+                                  <h3>Тема обращения:</h3>
+                                  <p>{item.title}</p>
+                              </div>
+                              <div>
+                                  <input type="checkbox" />
+                                  <label htmlFor="">Конфиденциально</label>
+                              </div>
+                          </div>
+                          <div className="request-content-item">
+                              <p>{item.description}</p>
+                          </div>
+                          <div className="categories">
+                              <ul>
+                                  <li>
+                                      <label for="">Категория обращения</label>
+                                      <div className="category-item">{item.section.title.uz}</div>
+                                  </li>
+                                  <li>
+                                      <label for="">Файл</label>
+                                      <div onClick={()=>{
+                                          item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
+                                      }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div className="request-bottom">
+                              <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
+                              <button className="blue-btn">Написать сообщение</button>
+                              <button type="submit" className="btn-default" style={{
+                                  marginTop:"15px"
+                              }}
+                                      onClick={() => testPage(item)} >Ответить</button>
+                          </div>
+                      </div>
+                  )}
+              </>
+          )
+          case 2:return (
+              <>
+                  {inpApps && inpApps.map((item, i) =>
+                      <div className="content" key={i} value={item.id}>
+                          <div className="request-content-title">
+                              <div className="request-content-title-name">
+                                  <UserName text={`${item.applicant.fullName}`} />
+                              </div>
+                              <div className="request-content-title-date">
+                                  <div className="date-label">
+                                      Осталось:
+                                  </div>
+                                  <div className="date-item">
+                                      5 день
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="request-theme">
+                              <div className="request-theme-title">
+                                  <h3>Тема обращения:</h3>
+                                  <p>{item.title}</p>
+                              </div>
+                              <div>
+                                  <input type="checkbox" />
+                                  <label htmlFor="">Конфиденциально</label>
+                              </div>
+                          </div>
+                          <div className="request-content-item">
+                              <p>{item.description}</p>
+                          </div>
+                          <div className="categories">
+                              <ul>
+                                  <li>
+                                      <label for="">Категория обращения</label>
+                                      <div className="category-item">{item.section.title.uz}</div>
+                                  </li>
+                                  <li>
+                                      <label for="">Файл</label>
+                                      <div onClick={()=>{
+                                          item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
+                                      }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div className="request-bottom">
+                              <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
+                              <button className="blue-btn">Написать сообщение</button>
+                              <button type="submit" className="btn-default" style={{
+                                  marginTop:"15px"
+                              }}
+                                      onClick={() => testPage(item)} >Ответить</button>
+                          </div>
+                      </div>
+                  )}
+              </>
+          )
+          default:return (
+              <>
+                  {doneApps && doneApps.map((item, i) =>
+                      <div className="content" key={i} value={item.id}>
+                          <div className="request-content-title">
+                              <div className="request-content-title-name">
+                                  <UserName text={`${item.applicant.fullName}`} />
+                              </div>
+                              <div className="request-content-title-date">
+                                  <div className="date-label">
+                                      Осталось:
+                                  </div>
+                                  <div className="date-item">
+                                      5 день
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="request-theme">
+                              <div className="request-theme-title">
+                                  <h3>Тема обращения:</h3>
+                                  <p>{item.title}</p>
+                              </div>
+                              <div>
+                                  <input type="checkbox" />
+                                  <label htmlFor="">Конфиденциально</label>
+                              </div>
+                          </div>
+                          <div className="request-content-item">
+                              <p>{item.description}</p>
+                          </div>
+                          <div className="categories">
+                              <ul>
+                                  <li>
+                                      <label for="">Категория обращения</label>
+                                      <div className="category-item">{item.section.title.uz}</div>
+                                  </li>
+                                  <li>
+                                      <label for="">Файл</label>
+                                      <div onClick={()=>{
+                                          item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
+                                      }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div className="request-bottom">
+                              <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
+                              <button className="blue-btn">Написать сообщение</button>
+                              <button type="submit" className="btn-default" style={{
+                                  marginTop:"15px"
+                              }}
+                                      onClick={() => testPage(item)} >Ответить</button>
+                          </div>
+                      </div>
+                  )}
+              </>
+          )
+      }
+    }
+
     const changeAppeal = (item) => {
         const token = localStorage.getItem(STORAGE_NAME);
         axios({
@@ -77,58 +273,32 @@ const IncomingRequestSection = (props) => {
     return (
         <div className="incoming-request-section">
             <ContentTop />
-            {request && request.map((item, i) =>
-                <div className="content" key={i} value={item.id}>
-                    <div className="request-content-title">
-                        <div className="request-content-title-name">
-                            <UserName text={`${item.applicant.fullName}`} />
-                        </div>
-                        <div className="request-content-title-date">
-                            <div className="date-label">
-                                Осталось:
-                            </div>
-                            <div className="date-item">
-                                5 день
-                            </div>
-                        </div>
-                    </div>
-                    <div className="request-theme">
-                        <div className="request-theme-title">
-                            <h3>Тема обращения:</h3>
-                            <p>{item.title}</p>
-                        </div>
-                        <div>
-                            <input type="checkbox" />
-                            <label htmlFor="">Конфиденциально</label>
-                        </div>
-                    </div>
-                    <div className="request-content-item">
-                        <p>{item.description}</p>
-                    </div>
-                    <div className="categories">
-                        <ul>
-                            <li>
-                                <label for="">Категория обращения</label>
-                                <div className="category-item">{item.section.title.uz}</div>
-                            </li>
-                            <li>
-                                <label for="">Файл</label>
-                                <div onClick={()=>{
-                                    item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
-                                }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="request-bottom">
-                        <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
-                        <button className="blue-btn">Написать сообщение</button>
-                        <button type="submit" className="btn-default" style={{
-                            marginTop:"15px"
-                        }}
-                            onClick={() => testPage(item)} >Ответить</button>
-                    </div>
+            <div className="navbar-wrapper">
+                <div className="content-top">
+                    <p className="request-items">
+                    </p>
+                    <p style={{padding:"0px 10px",border:nS===1?"1px solid rgba(0,0,0,0.5)":""}} className="request-items">
+                        <Link onClick={()=>{
+                            setNS(1)
+                        }}>{props.t("Yangi")}</Link>
+                    </p>
+                    <p style={{padding:"0px 10px",border:nS===2?"1px solid rgba(0,0,0,0.5)":""}}  className="request-items">
+                        <Link onClick={()=>{
+                            setNS(2)
+                        }}>{props.t("Qabul qilinganlar")}</Link>
+                    </p>
+                    <p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">
+                        <Link onClick={()=>{
+                            setNS(3)
+                        }}>{props.t("Ko'rib chiqilganlar")}</Link>
+                    </p>
+                    <p className="request-items">
+                    </p>
                 </div>
-            )}
+            </div>
+            {
+                section(nS)
+            }
             {/* <nav className="pagination">
                 <ul>
                     <li><a href="#1" onClick={page === 0 ? (e) => (e.preventDefault()) : () => getNewsPegeable(0)}>{"<<"}</a></li>
@@ -144,6 +314,6 @@ const IncomingRequestSection = (props) => {
     );
 }
 
-export default IncomingRequestSection;
+export default withTranslation()(IncomingRequestSection);
 
 

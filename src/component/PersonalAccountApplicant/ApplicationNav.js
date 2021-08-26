@@ -64,22 +64,22 @@ const ApplicationNav=(props)=>{
                                 </div>
                                 <ul>
                                     <li>
-                                        <Link onClick={()=>props.getPage(0)}>Создать новое обращение</Link>
+                                        <Link to="#" onClick={()=>props.getPage(0)}>Создать новое обращение</Link>
                                     </li>
                                     <li>
-                                        <Link onClick={() => props.getPage(1)}>Ваше обращение</Link>
+                                        <Link to="#" onClick={() => props.getPage(1)}>Ваше обращение</Link>
                                     </li>
                                     <li>
-                                        <Link onClick={() => props.getPage(2)}>Статус документа</Link>
+                                        <Link to="#" onClick={() => props.getPage(2)}>Статус документа</Link>
                                     </li>
                                     <li>
-                                        <Link onClick={() => props.getPage(3)}>Срок рассмотрения</Link>
+                                        <Link to="#" onClick={() => props.getPage(3)}>Срок рассмотрения</Link>
                                     </li>
                                     <li>
-                                        <Link onClick={() => props.getPage(4)}>Ответы на обращения</Link>
+                                        <Link to="#" onClick={() => props.getPage(4)}>Ответы на обращения</Link>
                                     </li>
                                     <li>
-                                        <Link onClick={() => props.getPage(5)}>Центр сообщений</Link>
+                                        <Link to="#" onClick={() => props.getPage(5)}>Центр сообщений</Link>
                                     </li>
                                 </ul>
                             </div>
