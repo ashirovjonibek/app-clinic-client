@@ -48,28 +48,7 @@ function TestRequests() {
             <button onClick={testRequests} className="btn-default">
                 Click me !
             </button>
-            {/*<form>
-                <label>
-                    First name
-                    <input
-                        name="firstName"
-                        className="input-text"
-                        type="text"
-                        value={state.firstName}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Last name
-                    <input
-                        className="input-text"
-                        type="text"
-                        name="lastName"
-                        value={state.lastName}
-                        onChange={handleChange}
-                    />
-                </label>
-            </form>*/}
+
         </div>
     );
 }

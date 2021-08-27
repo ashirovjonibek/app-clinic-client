@@ -26,7 +26,6 @@ function PopularSlider() {
             method:'get',
             url:API_URL+"/application/top"
         }).then((r)=>{
-            console.log(r.data)
             setTop(r.data)
         })
     },[]);
@@ -46,9 +45,9 @@ function PopularSlider() {
             >
                 <SwiperSlide>
                 {
-                    top&&top?.map((item)=>
+                    top&&top?.map((item,i)=>
 
-                            <div className="popular-text">
+                            <div key={i} className="popular-text">
                                 <UserName text={item?.applicant.fullName} />
                                 <div className="document-text">
                                     <div className="document-text-title">

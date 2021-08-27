@@ -6,6 +6,7 @@ import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
+import {get} from "react-hook-form";
 
 const AdminListListener = ({t}) => {
     const [items, setItems] = useState([]);
@@ -20,40 +21,10 @@ const AdminListListener = ({t}) => {
 
     const getListeners = () => {
         const axios = require('axios');
+
         const config = {
             method: 'get',
             url: 'http://67.205.182.147:9090/api/auth/listeners',
-            headers: {
-                'Authorization': localStorage.getItem(STORAGE_NAME),
-                'Content-Type': 'application/json'
-            }
-        };
-        axios(config)
-            .then(function (response) {
-                setListeners(response.data)
-                setItems(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
-    const deleteMethod = (id) => {
-        RequestFunctions.deleteUser(id)
-            .then(res =>
-                console.log(res)
-            ).catch(error => {
-            console.log(error)
-        })
-        getListeners()
-        setReLoad(!reLoad)
-    }
-    const changeViewed = (id) => {
-        const axios = require('axios');
-
-        const config = {
-            method: 'put',
-            url: 'http://67.205.182.147:9090/api/auth/updateListenerByView/'+id,
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -61,19 +32,60 @@ const AdminListListener = ({t}) => {
 
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                setItems(response.data)
+                setListeners(response.data)
             })
             .catch(function (error) {
                 console.log(error);
             });
 
-        getListeners()
-        setReLoad(!reLoad)
+    }
+
+    const deleteMethod = (id) => {
+        RequestFunctions.deleteUser(id)
+            .then(res =>{}
+            ).catch(error => {
+            console.log(error)
+        })
+        setTimeout(() => {
+            getListeners()
+            setReLoad(!reLoad)
+        }, 1500)
+    }
+
+    const changeViewed = (id) => {
+        const axios = require('axios');
+        const config = {
+            method: 'put',
+            url: 'http://67.205.182.147:9090/api/auth/updateListenerByView/' + id + '',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+        axios(config)
+            .then(function (response) {
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        setTimeout(() => {
+            setReLoad(!reLoad)
+        }, 1700)
     }
 
     const activeSection = (id) => {
         setListeners(items.filter(item => item.section.id === id))
     }
+
+    // const notify = () => {
+    //     let count = 0;
+    //     items.forEach(item => {
+    //         if (item.viewed === false) {
+    //             count++
+    //         }
+    //     })
+    //     setNotification(count)
+    // }
 
     return (
         <div className="admin">
@@ -83,8 +95,14 @@ const AdminListListener = ({t}) => {
                     <div className="listener">
                         <div className="listener-divs">
                             <div className="listener-items">
-                                <button
-                                    onClick={() => getListeners()}>{t("All")}</button>
+                                <button className="notification"
+                                        onClick={() => getListeners()}>{t("All")}
+                                    {/*{*/}
+                                    {/*    notification > 0 ?*/}
+                                    {/*        <span className="badge">{notification}</span>*/}
+                                    {/*        : null*/}
+                                    {/*}*/}
+                                </button>
                             </div>
                             {items && items.map((item, i) => {
                                     if (!sectionIds.includes(item.section.id)) {
@@ -102,7 +120,7 @@ const AdminListListener = ({t}) => {
                     </div>
                 </div>
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                    <h5 className="table-title">{t("List")}</h5>
+                    <h5 className="table-title">{t("New")}</h5>
                     <table>
                         <tbody>
                         <tr>
@@ -114,7 +132,7 @@ const AdminListListener = ({t}) => {
                             <th className="table-border pochta">{t("Email")}</th>
                             <th className="table-border ">{t("Accept")}</th>
                         </tr>
-                        {listeners && listeners.filter(item=>item.viewed===false).map((item, i) =>
+                        {listeners && listeners.filter(item => item.viewed === false).map((item, i) =>
                             <tr key={i} value={item.id}>
                                 <td className="table-border applicant-name">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>

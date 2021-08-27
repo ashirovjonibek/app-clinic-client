@@ -25,7 +25,6 @@ export default function SimpleModal({item, getListeners}) {
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setRoles(response.data)
             })
             .catch(function (error) {

@@ -4,7 +4,6 @@ import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import AdminListListnear from './AdminListListnear';
 import AdminListAppeal from './AdminListAppeal';
 import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
@@ -14,6 +13,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import {useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import "../../assets/scss/adminList.scss"
+import AdminListListener from "./AdminListListenear";
 
 
 const Admin = ({t}) => {
@@ -30,7 +30,7 @@ const Admin = ({t}) => {
             case 1:
                 return <AdminListAppeal />
             case 2:
-                return <AdminListListnear />
+                return <AdminListListener />
             case 3:
                 return <AdminListSupervisor />
             case 4:

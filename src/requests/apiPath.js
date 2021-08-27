@@ -31,7 +31,7 @@ export const apiPath = {
     getRoles: '/auth/roles',
     getModerators: '/auth/moderators',
     getBosses: '/auth/bosses',
-    deleteUser: '/auth/',
+    deleteUser: '/auth/delete',
 
 
 

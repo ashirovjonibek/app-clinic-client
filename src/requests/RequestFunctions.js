@@ -272,7 +272,7 @@ class RequestFunctions {
 
     static async deleteUser(id) {
         let response;
-        await axios.delete(API_URL + apiPath.deleteUser + id, configHeader)
+        await axios.delete(API_URL + apiPath.deleteUser+"?id=" + id, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
