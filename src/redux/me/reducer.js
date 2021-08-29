@@ -1,10 +1,12 @@
-import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "./actionType";
+import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "./actionType";
+import {allRoles} from "../../routes/authRoles";
 
 const initialState = {
     me: {},
     meUsername:"",
     meEmail:"",
-    meFullName:""
+    meFullName:"",
+    role:[]
 }
 
 const meReducer = (state = initialState, action) => {
@@ -28,6 +30,11 @@ const meReducer = (state = initialState, action) => {
             return {
                 ...state,
                 meEmail:action.data
+            }
+        case ROLE:
+            return {
+                ...state,
+                role:action.data
             }
         default:
             return state

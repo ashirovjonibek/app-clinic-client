@@ -6,6 +6,8 @@ import CheckboxConfidensial from "../CheckboxConfidensial";
 import UserItem from "../UserItem";
 import DocumentText from "../DocumentText";
 import ButtonWhite from "../ButtonWhite";
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
 const PerAccAppResponseRequest = ({appeal}) => {
     return (
@@ -33,8 +35,12 @@ const PerAccAppResponseRequest = ({appeal}) => {
             <div className="answer-score">
                 <h4>Оценка ответа:</h4>
                 <div className="answer-score-button">
-                    <ButtonWhite>Неудовлетворительно</ButtonWhite>
-                    <ButtonWhite>Удовлетворительно</ButtonWhite>
+                    <span style={{padding:"3px 5px",cursor:"pointer"}}>
+                        <ThumbUpIcon/>
+                    </span>
+                    <span style={{padding:"3px 5px",cursor:"pointer"}}>
+                        <ThumbDownIcon />
+                    </span>
                 </div>
             </div>
         </div>

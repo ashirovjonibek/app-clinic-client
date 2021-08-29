@@ -8,9 +8,10 @@ import NavCenter from "../Nav/NavCenter";
 import NavTop from "../Nav/NavTop";
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
+import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "../../redux/me/actionType";
 import meReducer from "../../redux/me/reducer";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import {allRoles} from "../../routes/authRoles";
 
 const Login = (props) => {
     const { history } = props;
@@ -36,42 +37,38 @@ const Login = (props) => {
             }).then(res => {
                 if (res.status === 200) {
                     localStorage.setItem(STORAGE_NAME, res.data.tokenType + ' ' + res.data.tokenBody);
-
-                    // history.push("/personalAccountListener")
-                    const token = localStorage.getItem(STORAGE_NAME);
+                    axios.defaults.headers.Authorization=res.data.tokenType+" "+res.data.tokenBody;
                     axios({
                         url: API_URL + '/auth/me',
-                        method: 'GET',
-                        headers: {
-                            'Authorization': token
-                        }
+                        method: 'GET'
                     }).then(res => {
                         console.log(res)
-                        dispatch({type:ME_DATA,data:res.data.object})
-                        dispatch({type:ME_USERNAME,data:res.data.object.username})
-                        dispatch({type:ME_EMAIL,data:res.data.object.email})
-                        dispatch({type:ME_FULL_NAME,data:res.data.object.fullName})
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
+                            delete axios.defaults.headers.Authorization;
                             history.push('/auth/login');
                         } else {
                             if (res.data.object != null) {
-                                setCurrentUser(res.data.object);
-                                if (res.data.object.roles.filter(i => i.name === 'ADMIN').length > 0) {
-                                    history.push('/admin')
-                                } else if (res.data.object.roles.filter(i => i.name === 'BOSS').length > 0) {
-                                    history.push('/personalAccountSupervisor')
-                                } else if (res.data.object.roles.filter(i => i.name === 'MODERATOR').length > 0) {
-                                    history.push('/personalAccountModerator')
-                                } else if (res.data.object.roles.filter(i => i.name === 'USER').length > 0) {
-                                    history.push('/personalAccountApplicant')
-                                } else if (res.data.object.roles.filter(i => i.name === 'LISTENER').length > 0) {
-                                    history.push('/personalAccountListener')
-                                }
+                                dispatch({type:ME_DATA,data:res?.data?.object})
+                                dispatch({type:ME_USERNAME,data:res?.data?.object?.username})
+                                dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
+                                dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
+                                dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0].authority]})
+                                let a=allRoles[res?.data?.object?.roles[0].authority]
+                                console.log(a)
+                                history.push(a[1])
                             } else {
                                 history.push('/auth/login')
                             }
                         }
+                    }).catch((e)=>{
+                        dispatch({type:ME_DATA,data:{}})
+                        dispatch({type:ME_USERNAME,data:""})
+                        dispatch({type:ME_EMAIL,data:""})
+                        dispatch({type:ME_FULL_NAME,data:""})
+                        dispatch({type:ROLE,data:[]})
+                        localStorage.removeItem(STORAGE_NAME);
+                        delete axios.defaults.headers.Authorization;
                     })
                 }
             }).catch(error => {
@@ -109,7 +106,7 @@ const Login = (props) => {
                                 <ul>
                                     <li>
                                         <div className="first-label">
-                                            <label className="label" for="phoneNumber">{props.t("Phone number")}</label>
+                                            <label className="label" htmlFor="phoneNumber">{props.t("Phone number")}</label>
                                         </div>
                                         <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
                                             placeholder="+998 (__) ___-__-__" />
@@ -117,7 +114,7 @@ const Login = (props) => {
                                     </li>
                                     <li>
                                         <div className="last-label">
-                                            <label className="label" for="password">{props.t("Password")}</label>
+                                            <label className="label" htmlFor="password">{props.t("Password")}</label>
                                         </div>
                                         <input className="input-text" id="password" onChange={changePassword} type="text"
                                             placeholder={props.t("Password")} />

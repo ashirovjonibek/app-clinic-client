@@ -23,6 +23,7 @@ export const CustomPagination=(props)=> {
                 }
             }
             setPages(a)
+            window.scrollTo(0, 0);
         }
     },[props])
     return (

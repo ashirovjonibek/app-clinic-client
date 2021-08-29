@@ -1,8 +1,10 @@
 import React from "react";
 
-const PerAccAppPeriodItem = ({item}) => {
-    let a=new Date(item.createdAt)
+const   PerAccAppPeriodItem = ({item}) => {
+    let a=new Date(item.deadLineDate)
     let b=new Date();
+    let d=new Date(a.getTime()-b.getTime())
+    console.log(d.getDate())
     return (
         <div>
             <div className="period-section-title">Срок рассмотрения вашего обращения:<strong>{item?.deadlineDay} </strong>дней</div>
@@ -17,7 +19,7 @@ const PerAccAppPeriodItem = ({item}) => {
                         <p>{item.description}</p>
                     </div>
                     <div className="bottom-inform">
-                        До окончания осталось:<strong>{15-(b.getDate()-a.getDate())}</strong>дней
+                        До окончания осталось:<strong>{d.getDate()} </strong>дней
                     </div>
                 </div>
             </div>
