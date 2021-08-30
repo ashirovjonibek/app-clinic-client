@@ -1,13 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {Link} from "react-router-dom";
-import {Button} from "@material-ui/core";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import enterImg from '../../assets/img/enter-img.svg'
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
 import axios from "axios";
-import TestRequests from "../../requests/TestRequests";
 import UserName from "../UserName";
 
 
@@ -23,33 +20,17 @@ const Enter = ({t}) => {
     };
 
     useEffect(()=>{
-        if (localStorage.getItem(STORAGE_NAME)){
-            const token=localStorage.getItem(STORAGE_NAME)
-            axios({
-                url: API_URL + '/auth/me',
-                method: 'GET',
-                headers: {
-                    'Authorization': token
-                }
-            }).then((res)=>{
-                console.log(res)
-                dispatch({type:ME_DATA,data:res?.data?.object})
-                dispatch({type:ME_USERNAME,data:res?.data?.object?.username})
-                dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
-                dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName?.substring(0,res.data.object.fullName.indexOf(" "))})
-
-            })
-        }
 
     },[])
     const getRed=()=>{
         console.log(me)
     }
+
     return (
         <div className="enter" >
             <div className="enter-btn" onClick={getRed} style={{cursor:"pointer"}}>
                 <div className="enter-img" style={{padding:"3px"}}>
-                    <UserName width={"30px"} height={"30px"} fontSize={"20px"} lineHeight={"30px"} top={true} text={me.meFullName!==""?me.meFullName:t("Login")}/>
+                    <UserName width={"30px"} height={"30px"} fontSize={"20px"} lineHeight={"30px"} top={true} text={me.meFullName!==""?me.meFullName:me.meUsername?me.meUsername:t("Login")}/>
                 </div>
                 <span style={{fontSize:me.meFullName?"12px":"17px",paddingLeft:"3px",float:"left",textAlign:"left"}}> {me.meFullName!==""?me.meFullName:t("Login")}</span>
             </div>

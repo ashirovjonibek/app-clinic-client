@@ -1,38 +1,28 @@
 import React, {useEffect, useState} from "react";
 import "./assets/scss/style.scss";
-import {Route, Switch} from "react-router-dom";
-import RegistrationListener from "./component/Registration/RegistrationListener";
-import RegistrationApplicant from "./component/Registration/RegistrationApplicant";
-import Dashboard from "./component/Dashboard/Dashboard";
-import FirstHome from "./component/Home/FirstHome";
-import PersonalAccountSupervisor from "./component/PersonalAccountSupervisor/PersonalAccountSupervisor";
-import PersonalAccountApplicant from "./component/PersonalAccountApplicant/PersonalAccountApplicant";
-import PersonalAccountModerator from "./component/PersonalAccountModerator/PersonalAccountModerator";
-import Login from "./component/Registration/Login";
-import NewPassword from "./component/Registration/NewPassword";
-import Admin from "./component/Admin/Admin";
-import ApplicantAppeal from './component/PersonalAccountApplicant/ApplicantAppeal';
-import {ToastContainer} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-import UserAppealItem from "./component/UserAppealItem";
-import PersonalAccountListener from "./component/PersonalAccountListener/PersonalAccountListener";
 import {useHistory, useLocation} from 'react-router-dom'
 import {openPages} from "./utils/config";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
-import {ApiContext} from "./utils/ApiContext";
+import {Routes} from "./routes/Routes";
+import {useDispatch, useSelector} from "react-redux";
+import {LOADING, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "./redux/me/actionType";
+import {Loading} from "./component/catalog/Loading";
+import {allRoles} from "./routes/authRoles";
 
 function App() {
-    const [currentUser, setCurrentUser] = useState({});
-    const [idUser, setIdUser] = useState(1);
-    const [currentItem, setCurrentItem] = useState([]);
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
     const history = useHistory();
     const location = useLocation();
+    const dispatch=useDispatch()
+    const loading=useSelector(state => state.loading)
 
+    console.log(loading)
     useEffect(() => {
-        if (!openPages.includes(location.pathname)) {
-            const userMe = () => {
+        if (openPages.includes(location.pathname)) {
+            dispatch({type:LOADING})
                 const token = localStorage.getItem(STORAGE_NAME);
                 axios({
                     url: API_URL+'/auth/me',
@@ -41,51 +31,43 @@ function App() {
                         'Authorization': token
                     }
                 }).then(res => {
+
                     if (!res.data.success) {
                         localStorage.removeItem(STORAGE_NAME);
+                        dispatch({type:LOADING})
                         history.push('/auth/login');
-                        setCurrentUser({})
                     } else {
                         if (res.data.object != null) {
-                            setCurrentUser(res.data.object);
+                            console.log("success bo'ldi")
+                            dispatch({type:ME_DATA,data:res?.data?.object})
+                            dispatch({type:ME_USERNAME,data:res?.data?.object?.username})
+                            dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
+                            dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
+                            dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0]?.authority]})
+                            dispatch({type:LOADING})
+                            history.push(location.pathname);
                         } else {
                             history.push('/auth/login')
+                            console.log("success bo'madi")
                         }
                     }
+                }).catch((e)=> {
+                    console.log('cathda')
+                    history.push("/auth/login")
+                    localStorage.removeItem(STORAGE_NAME);
+                    dispatch({type:LOADING})
                 })
             };
-            userMe();
-        }
     }, []);
 
 
 
     return (
-        location.pathname !== '/admin' ?
-            <div className="App">
-                <ApiContext.Provider value={{currentUser, idUser, setIdUser, setCurrentItem, currentItem, i18}}>
-                    <ToastContainer/>
-
-                    <Switch>
-                        <Route exact path="/" component={FirstHome}/>
-                        <Route exact path="/auth/login" component={Login}/>
-                        <Route exact path="/dashboard" component={Dashboard}/>
-                        <Route exact path="/admin" component={Admin}/>
-                        <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
-                        <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
-                        <Route exact path="/personalAccountListener" component={PersonalAccountListener}/>
-                        <Route exact path="/personalAccountApplicant" component={PersonalAccountApplicant}/>
-                        <Route exact path="/personalAccountSupervisor" component={PersonalAccountSupervisor}/>
-                        <Route exact path="/personalAccountModerator" component={PersonalAccountModerator}/>
-                        <Route exact path="/newPassword" component={NewPassword}/>
-                        <Route exact path="/userAppealItem" component={UserAppealItem}/>
-                        <Route exact path="/applicantAppeal" component={ApplicantAppeal}/>
-                    </Switch>
-                </ApiContext.Provider>
-            </div>
-            : <Switch>
-                <Route exact path="/admin" component={Admin}/>
-            </Switch>
+        <>
+            {
+                loading.isLoading?<Loading/>:<Routes/>
+            }
+        </>
     );
 }
 

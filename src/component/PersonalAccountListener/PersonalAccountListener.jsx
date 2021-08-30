@@ -23,9 +23,7 @@ import {withTranslation} from "react-i18next";
 
 const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
-
-    const { idUser, setIdUser, currentItem } = useContext(ApiContext);
-    console.log(idUser);
+    const [idUser, setIdUser] = useState(1);
 
     function Applications(n) {
         switch (n) {
@@ -46,7 +44,7 @@ const PersonalAccountListener = ({t}) => {
             case 8:
                 return <SendSection />
             case 9:
-                return <IncomingRequestItem currentItem={currentItem} />
+                return <IncomingRequestItem currentItem="{currentItem}" />
             default:
                 return <IncomingRequestSection />
         }

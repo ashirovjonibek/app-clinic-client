@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
-import {useHistory, Router, useParams, useLocation, useRouteMatch, Link} from "react-router-dom";
+import {useHistory, Link} from "react-router-dom";
 import axios from "axios";
 import ContentTop from "../ContentTop";
-import IncomingRequestItem from "./IncomingRequestItem";
-import ButtonDefault from "../ButtonDefault";
 import UserName from "../UserName";
-import RequestTheme from "../RequestTheme";
-import { ApiContext } from "../../utils/ApiContext";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {withTranslation} from "react-i18next";
 
@@ -15,7 +11,7 @@ const IncomingRequestSection = (props) => {
 
     const [request, setRequest] = useState([]);
     const history = useHistory();
-    const { idUser, setIdUser, setCurrentItem } = useContext(ApiContext);
+    const [idUser, setIdUser] = useState(1)
     console.log(idUser);
     const [nS,setNS]=useState(1);
     const [r,setR]=useState(false);
@@ -42,18 +38,10 @@ const IncomingRequestSection = (props) => {
                 if (item.status==="CREATED"){
                     cr.push(item)
                 }
-                if (item.status==="INPROCESS"){
-                    ac.push(item)
-                }
-                if (item.status==="COMPLETED"||item.status==="DENIED"){
-                    dn.push(item)
-                }
-
-                setNewApps(cr);
-                setInpApps(ac);
-                setDoneApps(dn)
-                section(1)
             })
+            setNewApps(cr);
+            section(1)
+
         })
     }, [r]);
 
@@ -69,6 +57,19 @@ const IncomingRequestSection = (props) => {
             setR(!r);
         })
     };
+
+    const acceptedApp=()=>{
+        axios({
+            method:'get',
+            url:API_URL+'/application/unchecked',
+            headers: {
+                'Authorization': token
+            }
+        }).then((r)=>{
+            console.log(r)
+            setInpApps(r.data.object)
+        })
+    }
 
     const download = (id,name) => {
         axios.get(API_URL+"/attach/"+id,{
@@ -296,6 +297,7 @@ const IncomingRequestSection = (props) => {
                     <p style={{padding:"0px 10px",border:nS===2?"1px solid rgba(0,0,0,0.5)":""}}  className="request-items">
                         <Link onClick={()=>{
                             setNS(2)
+                            acceptedApp();
                         }}>{props.t("Qabul qilinganlar")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">

@@ -3,12 +3,12 @@ import iconSearch from "../assets/icon/icon-search.svg";
 import SortDate from "./SortDate";
 import {withTranslation} from "react-i18next";
 
-const ContentTop = ({t}) => {
+const ContentTop = ({count,t}) => {
     return (
         <div className="content-top">
             <div className="request-items">
                 <p>{t("Incoming requests")}:</p>
-                <p className="reuest-item-number">15</p>
+                <p className="reuest-item-number">{count}</p>
             </div>
             <div className="request-search">
                 <form role="search" method="get" action="#" className="search-form">

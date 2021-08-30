@@ -22,7 +22,7 @@ const ApplicantAppeal = (props) => {
     const { history } = props;
     const [sections, setSections] = useState([]);
     const [isLoading,setLoading]=useState(false);
-    const [file, setFile] = useState([]);
+    const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
     const [done,setDone]=useState(false)
     const [errorUpload,setErrorUpload]=useState("")
@@ -82,7 +82,6 @@ const ApplicantAppeal = (props) => {
         if (e.target.files[0]) {
             const formData = new FormData();
             formData.append("file", e.target.files[0]);
-            formData.append("type", 'PDF');
             axios({
                 url: API_URL + '/attach/upload',
                 method: "POST",
@@ -93,7 +92,11 @@ const ApplicantAppeal = (props) => {
             }).then(res => {
                     console.log(res)
                 setFileName(e.target.files[0].name)
-                setFile(prevState => [...prevState, res.data.object]);
+                setFile([res.data.object]);
+                    setValues({
+                        ...values,
+                        attachmentId: [res.data.object]
+                    })
                 setLoading(false)
                 setDone(true)
             }
