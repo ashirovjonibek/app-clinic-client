@@ -45,7 +45,8 @@ const NavLanguage = () => {
             {
                 languagesList.map((lang,index)=>
                 lang.val===selectedLang?
-                    <div id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>{lang.label}</div>:""
+                    <div id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>
+                        <span>{lang.label}</span></div>:""
                 )
             }
             <div className="navlanguage-content">

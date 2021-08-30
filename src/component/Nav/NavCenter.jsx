@@ -3,7 +3,6 @@ import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "./NavLanguage";
-import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "./Enter";
 import {withTranslation} from "react-i18next";
@@ -17,10 +16,10 @@ const NavCenter = ({t}) => {
             <div className="container">
                 <div className="navbar">
                     <div className="menu-icon" >
-                        <MenuIcon
-                            fontSize={'large'}
-                            onClick={() => setSitebar(!sitebar)}
-                        />
+                        {/*<MenuIcon*/}
+                        {/*    fontSize={'large'}*/}
+                        {/*    onClick={() => setSitebar(!sitebar)}*/}
+                        {/*/>*/}
                     </div>
                     <div className="header-logo">
                         <a href="/#">

@@ -6,7 +6,6 @@ import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
-import {get} from "react-hook-form";
 
 const AdminListListener = ({t}) => {
     const [items, setItems] = useState([]);
@@ -43,7 +42,9 @@ const AdminListListener = ({t}) => {
 
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)
-            .then(res =>{}
+            .then(res => {
+                console.log(res)
+                }
             ).catch(error => {
             console.log(error)
         })
@@ -77,34 +78,20 @@ const AdminListListener = ({t}) => {
         setListeners(items.filter(item => item.section.id === id))
     }
 
-    // const notify = () => {
-    //     let count = 0;
-    //     items.forEach(item => {
-    //         if (item.viewed === false) {
-    //             count++
-    //         }
-    //     })
-    //     setNotification(count)
-    // }
 
     return (
         <div className="admin">
             <div className="admin-list-listnear">
-                <h5 className="table-title">{t("Department")}</h5>
                 <div className="admin-listener">
+                <h5 className="table-title">{t("Department")}</h5>
                     <div className="listener">
                         <div className="listener-divs">
                             <div className="listener-items">
                                 <button className="notification"
                                         onClick={() => getListeners()}>{t("All")}
-                                    {/*{*/}
-                                    {/*    notification > 0 ?*/}
-                                    {/*        <span className="badge">{notification}</span>*/}
-                                    {/*        : null*/}
-                                    {/*}*/}
                                 </button>
                             </div>
-                            {items && items.map((item, i) => {
+                            {items && items.map((item) => {
                                     if (!sectionIds.includes(item.section.id)) {
                                         sectionIds.push(item.section.id)
                                         return (

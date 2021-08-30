@@ -13,8 +13,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import {useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import "../../assets/scss/adminList.scss"
+import "../../assets/scss/adminNav.scss"
 import AdminListListener from "./AdminListListenear";
-
+import iconLogo from "../../assets/icon/icon-logo.svg";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -169,45 +170,54 @@ const Admin = ({t}) => {
                     </li>
                 </ul>
             </div>
-            <div className="nav">
+            <div className="adminnav">
                 <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px'}}>
-                    <div className="container">
-                        <div className="navbar" style={{ height: '70px' }}>
-                            <div className="menu-icon" >
-                                <MenuIcon
-                                    fontSize={'large'}
-                                    onClick={() => setSitebar(!sitebar)}
-                                />
-                            </div>
-                            <div className="header-logo">
-                                <MenuIcon fontSize='large' style={{cursor: 'pointer'}} onClick={() => setSitebar(!sitebar)} />
-                            </div>
-                            <div className="header-right">
-                                <div className="header-right-desctop">
-                                    <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder={t("Search")+"..."} />
-                                        <button type=""><img src={iconSearch} alt="search-icon" /></button>
-                                    </form>
-                                    <NavLanguage />
-                                    <div className="glas">
-                                        <img src={iconGlass} alt="" />
-                                    </div>
+                    <div className="navbar">
+                        <div className="menu-icon" >
+                            <MenuIcon
+                                fontSize={'large'}
+                                onClick={() => setSitebar(!sitebar)}
+                            />
+                        </div>
+                        <div className="header-logo">
+                            <a href="/#">
+                                <div className="logo-left">
+                                    <img src={iconLogo} alt="logo" />
                                 </div>
-                                <div className="enter" >
-                                    <div className="enter-btn" onClick={handleGoOut} style={{cursor:"pointer"}}>
-                                        <div className="enter-img">
-                                            <LockIcon/>
-                                        </div>
-                                        {t("Go out")}
+                                <div className="logo-right">
+                                    <div>
+                                        <span><strong>{t("Legal clinic")}</strong></span><br />
+                                        <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                     </div>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div className="header-right">
+                            <div className="header-right-desctop">
+                                <form role="search" method="get" action="#" className="search-form">
+                                    <input type="" placeholder={t("Search")+"..."} />
+                                    <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                </form>
+                                <NavLanguage />
+                                <div className="glas">
+                                    <img src={iconGlass} alt="" />
+                                </div>
+                            </div>
+                            <div className="enter" >
+                                <div className="enter-btn" onClick={handleGoOut} style={{cursor:"pointer"}}>
+                                    <div className="enter-img">
+                                        <LockIcon/>
+                                    </div>
+                                    {t("Go out")}
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div >
+
+                </div>
             </div>
-//
+
             <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
                         <div className="admin-navbar">
