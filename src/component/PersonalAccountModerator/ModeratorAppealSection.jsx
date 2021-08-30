@@ -26,7 +26,24 @@ const ModeratorAppealSection = () => {
                 setTotal(parseInt((r.data.length/3))+1)
             }else setTotal(r.data.length/3)
         })
-    },[])
+    },[]);
+
+    const refresh=()=>{
+        axios({
+            method:'get',
+            url:API_URL+'/application/applications',
+            headers:{
+                Authorization:token
+            }
+        }).then((r)=>{
+            console.log(r)
+            setItems(r.data)
+            setActive(1)
+            if (r?.data?.length%3>0){
+                setTotal(parseInt((r.data.length/3))+1)
+            }else setTotal(r.data.length/3)
+        })
+    }
 
     useEffect(()=>{
         let a=[];
@@ -43,7 +60,7 @@ const ModeratorAppealSection = () => {
             <>
                 {
                     activeItems&&activeItems.map((item,i)=>
-                    <ModeratorAppealItem key={i} item={item} />
+                    <ModeratorAppealItem refresh={refresh} key={i} item={item} />
                     )
                 }
                 <div style={{clear: "both"}}></div>

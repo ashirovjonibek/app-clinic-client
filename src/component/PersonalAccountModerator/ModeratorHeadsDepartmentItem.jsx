@@ -1,25 +1,46 @@
 import React from "react";
 import user1Img from "../../assets/img/user1.jpg";
+import {useTranslation} from "react-i18next";
 
-const ModeratorHeadsDepartmentItem = () => {
+const ModeratorHeadsDepartmentItem = (props) => {
+    const {i18n}=useTranslation();
+
+    function stringToHslColor(str, s, l) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+
+        let h = hash % 360;
+        return 'hsl('+h+', '+s+'%, '+l+'%)';
+    }
+
     return (
         <div className="moderator-heads-department-item">
             <div className="content">
                 <div className="fedbeck">
                     <div className="user-item">
                         <div className="user-person-inform">
-                            <div className="user-img">
-                                <img height="55px" width="55px" src={user1Img} alt="" />
+                            <div className="user-img" style={{
+                                backgroundColor:stringToHslColor(props?.item?.fullName,50,50),
+                                textAlign:"center",
+                                color:"white",
+                                fontWeight:600,
+                                fontSize:"35px",
+                                paddingTop:9+"px"
+                            }
+                            }>
+                                {props.item.fullName[0].toUpperCase()}
                             </div>
                             <div className="user-inform">
-                                <div className="user-name">Турсунов Тулкин Мирзаевич</div>
+                                <div className="user-name">{props?.item?.fullName}</div>
                             </div>
                         </div>
                     </div>
                     <div className="supervisor-applicants">
                         <div className="departmens">
-                            <h6>Кафедра:<strong>Название кафедры</strong></h6>
-                            <a href="/#">Редактировать данные</a>
+                            <h6>Кафедра:<strong>{props?.item?.section?.title[i18n.language]}</strong></h6>
+                            <a href="/#">O'zgartirish</a>
                         </div>
                     </div>
                 </div>

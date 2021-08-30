@@ -74,7 +74,7 @@ const ApplicantAppeal = (props) => {
         }).catch((err)=>{
             console.log(err)
         });
-        setValues({ ...values, attachmentId: file });
+
     }
 
     const handleUpload = (e) => {

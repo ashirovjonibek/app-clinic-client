@@ -53,8 +53,9 @@ const IncomingRequestSection = (props) => {
                 'Authorization':token
             }
         }).then((r)=>{
-            console.log(r)
-            setR(!r);
+            console.log(r);
+
+            setR(r+1);
         })
     };
 
