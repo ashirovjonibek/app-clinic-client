@@ -207,26 +207,26 @@ const Admin = ({t}) => {
                     </div>
                 </div >
             </div>
-
+//
             <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
                 <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
                         <div className="admin-navbar">
                             <div className="admin-navbarr">
                                 <ul>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
-                                        <button onClick={() => getPage(1)}>List of applicants</button>
+                                        <button onClick={() => getPage(1)}>{t("List of applicants")}</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
-                                        <button  onClick={() => getPage(2)}>List of listeners</button>
+                                        <button  onClick={() => getPage(2)}>{t("List of listeners")}</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <button onClick={() => getPage(3)}>List of bosses</button>
+                                        <button onClick={() => getPage(3)}>{t("List of bosses")}</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <button onClick={() => getPage(4)}>List of moderators</button>
+                                        <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <button  onClick={() => getPage(5)}>Settings</button>
+                                        <button  onClick={() => getPage(5)}>{t("Settings")}</button>
                                     </li>
                                 </ul>
                             </div>

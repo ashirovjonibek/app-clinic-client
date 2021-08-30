@@ -272,7 +272,7 @@ class RequestFunctions {
 
     static async deleteUser(id) {
         let response;
-        await axios.delete(API_URL + apiPath.deleteUser+"?id=" + id, configHeader)
+        await axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {
@@ -568,7 +568,7 @@ class RequestFunctions {
 
     static async getSection(id) {
         let response;
-        await axios.get(API_URL + apiPath.getSection+id, configHeader)
+        await axios.get(API_URL + apiPath.getSection + id, configHeader)
             .then(res => {
                 response = res.data
             }).catch(res => {
@@ -589,20 +589,22 @@ class RequestFunctions {
         return response
     }
 
-    static async createSection(data) {
+    static createSection(data) {
         let response;
-        await axios.post(API_URL + apiPath.createSection, data, configHeader)
+        axios.post(API_URL + apiPath.createSection, data, configHeader)
             .then(res => {
                 response = res.data
+                console.log(response)
             }).catch(error => {
-                response = error.response.data
-            })
+            response = error.response.data
+            console.log(response)
+        })
         return response
     }
 
-    static async updateSection(id,data) {
+    static async updateSection(id, data) {
         let response;
-        await axios.put(API_URL + apiPath.updateSection+id, data, configHeader)
+        await axios.put(API_URL + apiPath.updateSection + id, data, configHeader)
             .then(res => {
                 response = res.data
             }).catch(error => {

@@ -29,12 +29,6 @@ function SettingModal({t,getSections}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         RequestFunctions.createSection(section)
-            .then(res => {
-                    console.log(res)
-                }
-            ).catch(error => {
-            console.log(error)
-        })
         handleClose()
     }
 
@@ -83,7 +77,7 @@ function SettingModal({t,getSections}) {
         });
     };
 
-    const nameHandler = (e) => {
+    const nameHandler = () => {
         // const name = e.target.name;
         // const regName = /^[a-zA-Z\s]+$/;
         // if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
