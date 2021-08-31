@@ -112,7 +112,7 @@ const Footer = () => {
                             </li>
                         </ul>
                         <form action="/#">
-                            <input type="email" placeholder="Адрес электронной почты"/>
+                            <input type="email" placeholder="Эл. адрес"/>
                             <button>Подписаться</button>
                         </form>
                     </div>

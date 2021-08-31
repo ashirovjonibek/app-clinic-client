@@ -29,7 +29,7 @@
                     justify-content: center;
                     align-items: center;
                     text-decoration: none;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 500;
                     color: #222d44;
                     background-color: white;
@@ -46,9 +46,20 @@
         }
     }
 }
-@media (max-width: 800px) {
-    .admin-listener  {
-        display: none;
 
+@media (max-width: 1122px) {
+    .admin-listener .listener .listener-divs .listener-items {
+        font-size: 11px;
+        padding: 5px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .admin-listener .listener .listener-divs .listener-items  {
+        font-size: 10px;
+        padding: 3px;
+        width: 100px;
+        margin: 5px;
     }
 }

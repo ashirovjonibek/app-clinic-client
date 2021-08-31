@@ -4,14 +4,13 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
-//
+
 const AdminListSupervisor = ({t}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [supervisor, setSupervisor] = useState([]);
     const [items, setItems] = useState([]);
     const sectionIds = []
     const [reLoad, setReLoad] = useState(true);
-
 
     useEffect(() => {
         getListeners()
@@ -53,13 +52,14 @@ const AdminListSupervisor = ({t}) => {
         <div className="admin">
             <div className="admin-list-listnear">
                 <div className="admin-listener">
+                    <h5 className="table-title">{t("Department")}</h5>
                     <div className="listener">
                         <div className="listener-divs">
                             <div className="listener-items">
                                 <button
                                     onClick={() => getListeners()}>{t("All")}</button>
                             </div>
-                            {items && items.map((item, i) => {
+                            {items && items.map((item) => {
                                     if (!sectionIds.includes(item.section.id)) {
                                         sectionIds.push(item.section.id)
                                         return (
@@ -67,7 +67,8 @@ const AdminListSupervisor = ({t}) => {
                                                 <button
                                                     onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
                                             </div>)
-                                    }return null
+                                    }
+                                    return null
                                 }
                             )}
                         </div>

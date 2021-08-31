@@ -20,7 +20,6 @@ const AdminListListener = ({t}) => {
 
     const getListeners = () => {
         const axios = require('axios');
-
         const config = {
             method: 'get',
             url: 'http://67.205.182.147:9090/api/auth/listeners',
@@ -28,7 +27,6 @@ const AdminListListener = ({t}) => {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
         };
-
         axios(config)
             .then(function (response) {
                 setItems(response.data)
@@ -37,13 +35,12 @@ const AdminListListener = ({t}) => {
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)
             .then(res => {
-                console.log(res)
+                    console.log(res)
                 }
             ).catch(error => {
             console.log(error)
@@ -83,7 +80,7 @@ const AdminListListener = ({t}) => {
         <div className="admin">
             <div className="admin-list-listnear">
                 <div className="admin-listener">
-                <h5 className="table-title">{t("Department")}</h5>
+                    <h5 className="table-title">{t("Department")}</h5>
                     <div className="listener">
                         <div className="listener-divs">
                             <div className="listener-items">
@@ -143,7 +140,7 @@ const AdminListListener = ({t}) => {
                     <table>
                         <tbody>
                         <tr>
-                            <th className="table-border applicant-name">{t("Full name")}</th>
+                            <th className="table-border ">{t("Full name")}</th>
                             <th className="table-border nation">{t("Position")}</th>
                             <th className="table-border gender">{t("Course")}</th>
                             <th className="table-border citi">{t("Department")}</th>
@@ -154,7 +151,7 @@ const AdminListListener = ({t}) => {
                         </tr>
                         {listeners && listeners.map((item, i) =>
                             <tr key={i} value={item.id}>
-                                <td className="table-border applicant-name">{item.fullName}</td>
+                                <td className="table-border ">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>
                                 <td className="table-border">{item.course}</td>
                                 <td className="table-border">{item.section.title[i18]}</td>

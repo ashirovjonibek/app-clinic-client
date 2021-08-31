@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "../Nav/NavLanguage";
@@ -16,6 +16,7 @@ import "../../assets/scss/adminList.scss"
 import "../../assets/scss/adminNav.scss"
 import AdminListListener from "./AdminListListenear";
 import iconLogo from "../../assets/icon/icon-logo.svg";
+import Footer from "../Footer/Footer";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -24,22 +25,22 @@ const Admin = ({t}) => {
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
     const [settingContentItem, setSettingContentItem] = useState(false);
     const [pageQount, setPageQount] = useState(1);
-    const history=useHistory();
+    const history = useHistory();
 
     function AdminSitebarItem(n) {
         switch (n) {
             case 1:
-                return <AdminListAppeal />
+                return <AdminListAppeal/>
             case 2:
-                return <AdminListListener />
+                return <AdminListListener/>
             case 3:
-                return <AdminListSupervisor />
+                return <AdminListSupervisor/>
             case 4:
-                return <AdminListModerator />
+                return <AdminListModerator/>
             case 5:
-                return <AdminListSetting />
+                return <AdminListSetting/>
             default:
-                return <AdminListAppeal />
+                return <AdminListAppeal/>
         }
     }
 
@@ -79,12 +80,12 @@ const Admin = ({t}) => {
                 <div className="sitebar-chevron">
                     <ChevronLeftIcon
                         fontSize="large"
-                        onClick={() => setSitebar(!sitebar)} />
+                        onClick={() => setSitebar(!sitebar)}/>
                 </div>
 
                 <ul>
                     <li className="accordion__section">
-                        <div className="accordion" onClick={() => getPage(1)} >
+                        <div className="accordion" onClick={() => getPage(1)}>
                             <h3 className="accordion__title">{t("List of applicants")}</h3>
                         </div>
                     </li>
@@ -92,80 +93,20 @@ const Admin = ({t}) => {
                         <div className="accordion" onClick={handleListener}>
                             <h3 className="accordion__title">{t("List of listeners")}</h3>
                         </div>
-                        <div className="accordion__content" id={listnearContentItem ? "content__items" : ""}>
-                            <ul>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>9</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>2</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>13</div> */}
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSupervisor}>
                             <h3 className="accordion__title">{t("List of bosses")}</h3>
-                        </div>
-                        <div className="accordion__content" id={supervisorContentItem ? "content__items" : ""}>
-                            <ul>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>9</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>2</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>13</div> */}
-                                </li>
-                            </ul>
                         </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleModerator}>
                             <h3 className="accordion__title">{t("List of moderators")}</h3>
                         </div>
-                        <div className="accordion__content" id={moderatorContentItem ? "content__items" : ""}>
-                            <ul>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>9</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>2</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>13</div> */}
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSetting}>
                             <h3 className="accordion__title">{t("Settings")}</h3>
-                        </div>
-                        <div className="accordion__content" id={settingContentItem ? "content__items" : ""}>
-                            <ul>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>9</div> */}
-                                </li>
-                                <li>
-                                    {t("Department name")}
-                                    {/* <div>2</div> */}
-                                </li>
-                            </ul>
                         </div>
                     </li>
                 </ul>
@@ -173,7 +114,7 @@ const Admin = ({t}) => {
             <div className="adminnav">
                 <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px'}}>
                     <div className="navbar">
-                        <div className="menu-icon" >
+                        <div className="menu-icon">
                             <MenuIcon
                                 fontSize={'large'}
                                 onClick={() => setSitebar(!sitebar)}
@@ -182,12 +123,12 @@ const Admin = ({t}) => {
                         <div className="header-logo">
                             <a href="/#">
                                 <div className="logo-left">
-                                    <img src={iconLogo} alt="logo" />
+                                    <img src={iconLogo} alt="logo"/>
                                 </div>
                                 <div className="logo-right">
                                     <div>
-                                        <span><strong>{t("Legal clinic")}</strong></span><br />
-                                        <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
+                                        <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                        <p style={{maxWidth: "350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                     </div>
 
                                 </div>
@@ -196,16 +137,16 @@ const Admin = ({t}) => {
                         <div className="header-right">
                             <div className="header-right-desctop">
                                 <form role="search" method="get" action="#" className="search-form">
-                                    <input type="" placeholder={t("Search")+"..."} />
-                                    <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                    <input type="" placeholder={t("Search") + "..."}/>
+                                    <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                 </form>
-                                <NavLanguage />
+                                <NavLanguage/>
                                 <div className="glas">
-                                    <img src={iconGlass} alt="" />
+                                    <img src={iconGlass} alt=""/>
                                 </div>
                             </div>
-                            <div className="enter" >
-                                <div className="enter-btn" onClick={handleGoOut} style={{cursor:"pointer"}}>
+                            <div className="enter">
+                                <div className="enter-btn" onClick={handleGoOut} style={{cursor: "pointer"}}>
                                     <div className="enter-img">
                                         <LockIcon/>
                                     </div>
@@ -219,33 +160,33 @@ const Admin = ({t}) => {
             </div>
 
             <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
-                <div className="container" style={{ padding: '50px 0', minHeight: '89vh' }}>
-                        <div className="admin-navbar">
-                            <div className="admin-navbarr">
-                                <ul>
-                                    <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
-                                        <button onClick={() => getPage(1)}>{t("List of applicants")}</button>
-                                    </li>
-                                    <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
-                                        <button  onClick={() => getPage(2)}>{t("List of listeners")}</button>
-                                    </li>
-                                    <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <button onClick={() => getPage(3)}>{t("List of bosses")}</button>
-                                    </li>
-                                    <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
-                                    </li>
-                                    <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <button  onClick={() => getPage(5)}>{t("Settings")}</button>
-                                    </li>
-                                </ul>
-                            </div>
+                <div className="container" style={{padding: '50px 0', minHeight: '89vh'}}>
+                    <div className="admin-navbar">
+                        <div className="admin-navbarr">
+                            <ul>
+                                <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
+                                    <button onClick={() => getPage(1)}>{t("List of applicants")}</button>
+                                </li>
+                                <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
+                                    <button onClick={() => getPage(2)}>{t("List of listeners")}</button>
+                                </li>
+                                <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
+                                    <button onClick={() => getPage(3)}>{t("List of bosses")}</button>
+                                </li>
+                                <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
+                                    <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
+                                </li>
+                                <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
+                                    <button onClick={() => getPage(5)}>{t("Settings")}</button>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
                     {AdminSitebarItem(pageQount)}
                 </div>
             </div>
-
-        </div >
+            <Footer/>
+        </div>
     );
 }
 
