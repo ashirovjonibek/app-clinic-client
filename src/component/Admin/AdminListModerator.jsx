@@ -5,10 +5,10 @@ import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 
-const AdminListModerator = ({t}) => {
+const AdminListModerator = ({t,searchTerm}) => {
     const [items, setItems] = useState([]);
     const [moderator, setModerator] = useState([]);
-    const sectionIds = []
+    // const sectionIds = []
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [reLoad, setReLoad] = useState(true);
 
@@ -37,8 +37,10 @@ const AdminListModerator = ({t}) => {
     }
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)
-            .then(res =>
+            .then(res => {
                 console.log(res)
+                getListeners()
+                }
             ).catch(error => {
             console.log(error)
         })
@@ -46,9 +48,9 @@ const AdminListModerator = ({t}) => {
         setReLoad(!reLoad)
     }
 
-    const activeSection = (id) => {
-        setModerator(items.filter(item => item.section.id === id))
-    }
+    // const activeSection = (id) => {
+    //     setModerator(items.filter(item => item.section.id === id))
+    // }
 
     return (
         <div className="admin">
@@ -67,7 +69,13 @@ const AdminListModerator = ({t}) => {
                             <th className="table-border ">Edit</th>
                             <th className="table-border ">Delete</th>
                         </tr>
-                        {moderator && moderator.map((item, i) =>
+                        {moderator && moderator.filter(item=>{
+                            if (searchTerm===""){
+                                return item
+                            }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return item
+                            }
+                        }).map((item) =>
                             <tr key={item.id} value={item.id}>
                                 <td className="table-border applicant-name">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>

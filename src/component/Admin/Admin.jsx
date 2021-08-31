@@ -25,22 +25,23 @@ const Admin = ({t}) => {
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
     const [settingContentItem, setSettingContentItem] = useState(false);
     const [pageQount, setPageQount] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
     const history = useHistory();
 
     function AdminSitebarItem(n) {
         switch (n) {
             case 1:
-                return <AdminListAppeal/>
+                return <AdminListAppeal searchTerm={searchTerm}/>
             case 2:
-                return <AdminListListener/>
+                return <AdminListListener searchTerm={searchTerm}/>
             case 3:
-                return <AdminListSupervisor/>
+                return <AdminListSupervisor searchTerm={searchTerm}/>
             case 4:
-                return <AdminListModerator/>
+                return <AdminListModerator searchTerm={searchTerm}/>
             case 5:
-                return <AdminListSetting/>
+                return <AdminListSetting searchTerm={searchTerm}/>
             default:
-                return <AdminListAppeal/>
+                return <AdminListAppeal searchTerm={searchTerm}/>
         }
     }
 
@@ -137,8 +138,10 @@ const Admin = ({t}) => {
                         <div className="header-right">
                             <div className="header-right-desctop">
                                 <form role="search" method="get" action="#" className="search-form">
-                                    <input type="" placeholder={t("Search") + "..."}/>
-                                    <button type=""><img src={iconSearch} alt="search-icon"/></button>
+                                    <input type="text" placeholder={t("Search") + "..."}
+                                           onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                    <button type="button" disabled><img src={iconSearch} alt="search-icon"/></button>
                                 </form>
                                 <NavLanguage/>
                                 <div className="glas">

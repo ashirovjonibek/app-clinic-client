@@ -4,10 +4,10 @@ import {withTranslation} from "react-i18next";
 import SettingModal from "./SettingModal";
 import RequestFunctions from "../../requests/RequestFunctions";
 
-const AdminListSetting = ({t}) => {
+const AdminListSetting = ({t,searchTerm}) => {
     const [departments, setDepartments] = useState([
         {
-            id:0,
+            id: 0,
             title: {
                 ru: "loading...",
                 uz: "loading...",
@@ -23,7 +23,7 @@ const AdminListSetting = ({t}) => {
 
     useEffect(() => {
         getSections()
-    }, []);
+    }, [departments]);
 
     const getSections = () => {
         RequestFunctions.getSections()
@@ -31,7 +31,6 @@ const AdminListSetting = ({t}) => {
                     setDepartments(res)
                 }
             ).catch(error => {
-            setDepartments([]);
             console.log(error)
         })
     }
@@ -39,7 +38,8 @@ const AdminListSetting = ({t}) => {
     const deleteMethod = (id) => {
         RequestFunctions.deleteSection(id)
             .then(res => {
-                getSections()
+                    console.log(res)
+                    getSections()
                 }
             ).catch(error => {
             console.log(error)
@@ -62,7 +62,13 @@ const AdminListSetting = ({t}) => {
                                 {/*<th className="table-border edit">{t("Edit")}</th>*/}
                                 <th className="table-border delete">{t("Delete")}</th>
                             </tr>
-                            {departments && departments.map((item, i) =>
+                            {departments && departments.filter(item=>{
+                                if (searchTerm===""){
+                                    return item
+                                }else if (item.title["uz"].toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return item
+                                }
+                            }).map((item, i) =>
                                 <tr key={item.id} value={item.id}>
                                     <td className="table-border ">{i + 1}</td>
                                     <td className="table-border">{item.title["uz"]}</td>

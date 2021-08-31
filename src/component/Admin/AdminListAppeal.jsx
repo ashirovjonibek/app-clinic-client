@@ -4,7 +4,7 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 
-const AdminListAppeal = ({t}) => {
+const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
     const i18 = localStorage.getItem('I18N_LANGUAGE')
 
@@ -59,7 +59,13 @@ const AdminListAppeal = ({t}) => {
                                 <th className="table-border date">{t("Date of birth")}</th>
                                 <th className="table-border ">{t("Action")}</th>
                             </tr>
-                            {applicants && applicants.map((item, i) =>
+                            {applicants && applicants.filter(item=>{
+                                if (searchTerm===""){
+                                    return item
+                                }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return item
+                                }
+                            }).map((item) =>
                                 <tr key={item.id} value={item.id}>
                                     <td className="table-border applicant-name">{item.fullName}</td>
                                     <td className="table-border">{item.nation.name[i18]}</td>

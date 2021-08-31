@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import AddIcon from "@material-ui/icons/Add";
 
-function SettingModal({t,getSections}) {
+function SettingModal({t, getSections}) {
     const [open, setOpen] = useState(false);
     // const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [nameDirty] = useState(false);
@@ -24,8 +24,6 @@ function SettingModal({t,getSections}) {
         }
     })
 
-    useEffect(() => {
-    })
     const handleSubmit = (e) => {
         e.preventDefault();
         RequestFunctions.createSection(section)
@@ -63,7 +61,7 @@ function SettingModal({t,getSections}) {
             ...section,
             title: {
                 ...section.title,
-                [e.target.name] : e.target.value
+                [e.target.name]: e.target.value
             }
         });
     };
@@ -72,7 +70,7 @@ function SettingModal({t,getSections}) {
             ...section,
             description: {
                 ...section.description,
-                [e.target.name] : e.target.value
+                [e.target.name]: e.target.value
             }
         });
     };

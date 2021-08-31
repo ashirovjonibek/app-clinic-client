@@ -5,7 +5,7 @@ import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 
-const AdminListSupervisor = ({t}) => {
+const AdminListSupervisor = ({t,searchTerm}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [supervisor, setSupervisor] = useState([]);
     const [items, setItems] = useState([]);
@@ -37,8 +37,10 @@ const AdminListSupervisor = ({t}) => {
     }
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)
-            .then(res =>
+            .then(res => {
                 console.log(res)
+                getListeners()
+                }
             ).catch(error => {
             console.log(error)
         })
@@ -88,9 +90,14 @@ const AdminListSupervisor = ({t}) => {
                             <th className="table-border pochta">{t("Email")}</th>
                             <th className="table-border ">Edit</th>
                             <th className="table-border ">Delete</th>
-
                         </tr>
-                        {supervisor && supervisor.map((item, i) =>
+                        {supervisor && supervisor.filter(item=>{
+                            if (searchTerm===""){
+                            return item
+                        }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return item
+                        }
+                        }).map((item, i) =>
                             <tr key={i} value={item.id}>
                                 <td className="table-border applicant-name">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>

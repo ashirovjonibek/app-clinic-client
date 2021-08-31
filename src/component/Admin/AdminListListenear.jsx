@@ -7,7 +7,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
 
-const AdminListListener = ({t}) => {
+const AdminListListener = ({t,searchTerm}) => {
     const [items, setItems] = useState([]);
     const [listeners, setListeners] = useState([]);
     const [reLoad, setReLoad] = useState(true);
@@ -149,7 +149,13 @@ const AdminListListener = ({t}) => {
                             <th className="table-border ">Edit</th>
                             <th className="table-border ">Delete</th>
                         </tr>
-                        {listeners && listeners.map((item, i) =>
+                        {listeners && listeners.filter(item=>{
+                            if (searchTerm===""){
+                                return item
+                            }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return item
+                            }
+                        }).map((item, i) =>
                             <tr key={i} value={item.id}>
                                 <td className="table-border ">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>
