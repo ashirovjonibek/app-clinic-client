@@ -27,20 +27,33 @@ export const CustomPagination=(props)=> {
         }
     },[props])
     return (
-        <div className="pagination" >
-            <span disabled={props.active===1} onClick={()=>{
-                props.setActive(1)
-            }} style={{cursor:"pointer"}}><ArrowBackIosIcon/></span>
+        <div>
             {
-                pages&&pages?.map((item)=>
-                    <span key={item.page}  onClick={()=>{
-                        props.setActive(item.page)
-                    }} style={{cursor:"pointer"}} className={item.classPage}>{item.page}</span>
-                )
+                props?.size?<div className="size-page">
+                    <span style={{fontSize:"20px"}}>Page size: </span>
+                    <select type="number" min={0} max={10} onChange={(e)=>{props?.setSize(e.target.value)
+                        console.log(e.target.value)}} className="input-size-option">
+                        <option selected value={3}>3</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                    </select>
+                </div>:""
             }
-            <span disabled={props.active===props.pageLength} onClick={()=>{
-                props.setActive(props.pageLength)
-            }} style={{cursor:"pointer"}}><ArrowForwardIosIcon/></span>
+            <div className="pagination" >
+                <span disabled={props.active===1} onClick={()=>{
+                    props.setActive(1)
+                }} style={{cursor:"pointer"}}><ArrowBackIosIcon/></span>
+                {
+                    pages&&pages?.map((item)=>
+                        <span key={item.page}  onClick={()=>{
+                            props.setActive(item.page)
+                        }} style={{cursor:"pointer",fontSize:"20px"}} className={item.classPage}>{item.page}</span>
+                    )
+                }
+                <span disabled={props.active===props.pageLength} onClick={()=>{
+                    props.setActive(props.pageLength)
+                }} style={{cursor:"pointer"}}><ArrowForwardIosIcon/></span>
+            </div>
         </div>
     );
 }

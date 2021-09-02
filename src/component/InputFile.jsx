@@ -6,6 +6,6 @@ const InputFile = () => {
             <input type="file" />
         </div>
     );
-}
+};
 
 export default InputFile;

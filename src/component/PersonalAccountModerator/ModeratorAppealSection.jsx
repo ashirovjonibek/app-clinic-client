@@ -6,27 +6,25 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CustomPagination} from "../catalog/Pagenation";
 
 const ModeratorAppealSection = () => {
-    const [items,setItems]=useState([])
+    const [items,setItems]=useState([]);
     const [activeItems,setActiveItems]=useState([])
-    const [active,setActive]=useState(0)
+    const [active,setActive]=useState(1)
+    const [size,setSize]=useState(3)
     const [total,setTotal]=useState(1)
     let token=localStorage.getItem(STORAGE_NAME)
     useEffect(()=>{
         axios({
             method:'get',
-            url:API_URL+'/application/applications',
+            url:API_URL+'/document/applications?size='+size+'&page='+(active-1),
             headers:{
                 Authorization:token
             }
         }).then((r)=>{
-            console.log(r)
-            setItems(r.data)
-            setActive(1)
-            if (r?.data?.length%3>0){
-                setTotal(parseInt((r.data.length/3))+1)
-            }else setTotal(r.data.length/3)
+            console.log(r);
+            setActiveItems(r.data.object);
+            setTotal(r.data.totalPages)
         })
-    },[]);
+    },[active,size]);
 
     const refresh=()=>{
         axios({
@@ -36,24 +34,11 @@ const ModeratorAppealSection = () => {
                 Authorization:token
             }
         }).then((r)=>{
-            console.log(r)
-            setItems(r.data)
-            setActive(1)
-            if (r?.data?.length%3>0){
-                setTotal(parseInt((r.data.length/3))+1)
-            }else setTotal(r.data.length/3)
+            console.log(r);
+            setActiveItems(r.data.object);
+            setTotal(r.data.totalPages)
         })
     }
-
-    useEffect(()=>{
-        let a=[];
-        for (let i = active*3-3; i < active*3; i++) {
-            if (items[i]){
-                a.push(items[i])
-            }
-        }
-        setActiveItems(a)
-    },[active])
     return (
         <div className="moderator-appeals-section">
             <ContentTop count={items.length} />
@@ -64,11 +49,15 @@ const ModeratorAppealSection = () => {
                     )
                 }
                 <div style={{clear: "both"}}></div>
+
                 <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+
                     <CustomPagination
                         pageLength={total}
                         setActive={setActive}
                         active={active}
+                        size={size}
+                        setSize={setSize}
                     />
                 </div>
             </>

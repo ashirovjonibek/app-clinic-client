@@ -33,7 +33,7 @@ const ModeratorAppealItem = (props) => {
     const [e,setE]=useState(false);
 
 
-    let a=new Date(props.item.deadLineDate);
+    let a=new Date(props?.item?.application?.deadLineDate);
     let b=new Date()
     let d=new Date(a.getTime()-b.getTime());
     const [listener,setListener]=useState("");
@@ -72,9 +72,9 @@ const ModeratorAppealItem = (props) => {
 
         axios(config)
             .then(function (response) {
-                let a=[]
+                let a=[];
                 response?.data?.map((item)=>
-                    props.item.section.id===item?.section?.id?a.push(item):a
+                    props?.item?.application?.section?.id===item?.section?.id?a.push(item):""
                 );
                 setItems(a);
             })
@@ -91,11 +91,11 @@ const ModeratorAppealItem = (props) => {
     return (
         <div className="moderator-appeals-item">
             <div className="content">
-                <DocumentProsses status={props?.item?.status} />
+                <DocumentProsses status={props?.item?.application?.status} />
                 <div className="request-content">
                     <div className="request-content-title">
                         <div className="request-content-title-name with-margin-20">
-                            <UserName text={`${props?.item?.applicant?.fullName}`} />
+                            <UserName text={`${props?.item?.application?.applicant?.fullName}`} />
                         </div>
                         <div className="request-content-title-date">
                             <div className="date-label">
@@ -106,7 +106,7 @@ const ModeratorAppealItem = (props) => {
                             </div>
                         </div>
                     </div>
-                    <RequestTheme label={props?.item?.title} description={props?.item?.description}/>
+                    <RequestTheme check={props?.item?.application?.top} label={props?.item?.application?.title} description={props?.item?.application?.description}/>
                     {
                         !edit?<div className="container" onClick={()=>setEdit(true)} style={{display:"block" ,textAlign:"right",textDecoration:"underline",cursor:"pointer"}}><EditIcon titleAccess="Tahrirlash"/></div>:
                             <div className="container">
@@ -119,7 +119,6 @@ const ModeratorAppealItem = (props) => {
                                             onChange={(e)=>{
                                                 setId(e.target.value)
                                             }}
-
                                         >
                                             {
                                                 items&&items.map((item,i)=>

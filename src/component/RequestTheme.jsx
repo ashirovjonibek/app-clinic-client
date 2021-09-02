@@ -1,7 +1,7 @@
 import React from "react";
 import {withTranslation} from "react-i18next";
 
-const RequestTheme = ({label,description,t}) => {
+const RequestTheme = ({label,description,t,check}) => {
     return (
         <div>
             <div className="request-theme">
@@ -11,7 +11,7 @@ const RequestTheme = ({label,description,t}) => {
                     </span></h3>
                 </div>
                 <div>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={!check} />
                     <label htmlFor="">{t("Confidentially")}</label>
                 </div>
             </div>

@@ -36,7 +36,7 @@ const PersonalAccountModerator = () => {
                 return <ModeratorListnearSection />
 
             case 4:
-                return <ModeratorApplicantSection />
+                return <ModeratorApplicantSection n={n}/>
 
             case 5:
                 return <ModeratorAppealSection />

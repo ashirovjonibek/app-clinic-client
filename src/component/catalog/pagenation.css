@@ -1,7 +1,21 @@
 .pagination {
     display: inline-block;
+    float: right;
 }
-
+.size-page{
+    display: inline-block;
+    float: left;
+    padding-left: 25px;
+}
+.input-size-option{
+    width: 50px;
+    padding: 6px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 .pagination span {
     color: black;
     float: left;
