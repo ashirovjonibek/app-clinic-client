@@ -2,8 +2,15 @@
   .nav-center {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     position: fixed;
-    background-color: white;
     top: 30px;
+    background-image: url("../img/Rectanglefornavbar.png"),
+    url("../img/126slash1.png"),
+    url("../img/78slash2.png"),
+    url("../img/right.png");
+    background-repeat: no-repeat;
+    background-position: -13%, 64%, 72%, 111%;
+    //background-size: 150px 100px;
+    background-color: white;
 
     .navbar {
       height: 100px;
@@ -11,6 +18,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      margin: 0 50px;
 
       .menu-icon {
         display: none;
@@ -37,7 +45,7 @@
             flex-direction: column;
             justify-content: center;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             margin-left: 20px;
 
             span {
@@ -224,10 +232,48 @@
   }
 }
 
+@media (max-width: 1060px) {
+  .adminnav {
+    .nav-center {
+      background-position: -13%, 60%, 70%, 111%;
+    }
+  }
+}
+
+
+@media (max-width: 950px) {
+  .adminnav {
+    .nav-center {
+      background-position: -14%, 54%, 66%, 115%;
+
+      .navbar {
+        margin: 0 20px;
+
+        .header-logo a .logo-right {
+          font-size: 12px;
+        }
+
+        .header-logo a .logo-right span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+}
+
+
 @media (max-width: 800px) {
   .adminnav {
     .nav-center {
+      background-image: url("../img/right.png");
+      background-repeat: no-repeat;
+      background-position: 115%;
+      background-color: white;
+
       .navbar {
+        margin: 0 10px;
+
         .menu-icon {
           display: block;
           margin-left: 10px;
@@ -283,3 +329,28 @@
   }
 }
 
+
+@media (max-width: 480px) {
+  .adminnav {
+    .nav-center {
+      background-position: 150% 25px;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .adminnav .nav-center {
+    background-position: 180% 25px;
+
+    .navbar .header-right .search-form {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .adminnav .nav-center {
+    background-position: right 25px;
+    background-size: 150px 100px;
+  }
+}

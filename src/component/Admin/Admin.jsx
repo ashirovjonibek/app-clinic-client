@@ -83,7 +83,6 @@ const Admin = ({t}) => {
                         fontSize="large"
                         onClick={() => setSitebar(!sitebar)}/>
                 </div>
-
                 <ul>
                     <li className="accordion__section">
                         <div className="accordion" onClick={() => getPage(1)}>
@@ -158,12 +157,19 @@ const Admin = ({t}) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <div className="container-fluit admin-body" style={{paddingTop: '60px'}}>
-                <div className="container" style={{padding: '50px 0', minHeight: '89vh'}}>
+
+            <div className="container-fluit admin-body" >
+                <div className="container" style={{padding: '60px 0'}}>
+                    <div className="sitebar-elements ">
+                        <form role="search" method="get" action="#" className="search-form">
+                            <input type="text" placeholder={t("Search") + "..."}
+                                   onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </form>
+                    </div>
                     <div className="admin-navbar">
                         <div className="admin-navbarr">
                             <ul>
