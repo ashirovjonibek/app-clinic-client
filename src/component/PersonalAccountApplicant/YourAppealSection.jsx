@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { API_URL, STORAGE_NAME } from "../../utils/constant";
 import axios from "axios";
+import {useHistory} from 'react-router-dom'
 import CheckboxConfidensial from "../CheckboxConfidensial";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {CustomPagination} from "../catalog/Pagenation";
 import {CircularProgress} from "@material-ui/core";
 const YourAppealSection = (props) => {
 
+    const history=useHistory();
     const [appeal, setAppeal] = useState([]);
     const [pageSize,setPageSize]=useState(0)
     const [active,setActive]=useState(1)
     const [loading,setLoading]=useState(true)
-    const [errorMsg,setErrorMsg]=useState({message:"",status:false})
+    const [errorMsg,setErrorMsg]=useState({message:"",status:false});
+    const [size,setSize]=useState(3);
 
     const token = localStorage.getItem(STORAGE_NAME);
 
@@ -21,7 +24,7 @@ const YourAppealSection = (props) => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant?size=3&page="+(active-1),
+            url: API_URL + "/application/applicant?size="+size+"&page="+(active-1),
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
@@ -37,7 +40,7 @@ const YourAppealSection = (props) => {
                 message: ""+e.message
             });
         })
-    }, [active]);
+    }, [active,size]);
 
     const fileLoad=(id,name)=>{
         if (id){
@@ -70,8 +73,8 @@ const YourAppealSection = (props) => {
                             <CircularProgress/>
                         </div>:
                         <>
-                            {appeal && appeal.map((item) =>
-                                <div className="content" key={item?.id} value={item?.id}>
+                            {appeal && appeal.map((item,i) =>
+                                <div className="content" key={i} value={item?.id}>
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>Тема обращения:</h4>
@@ -105,9 +108,11 @@ const YourAppealSection = (props) => {
                             {/* <UserAppealItem /> */}
                             <div className="content-line"></div>
                             <div className="new-request">
-                                <a onClick={() => {
+                                <span style={{cursor:"pointer"}} onClick={() => {
                                     console.log(appeal)
-                                }}>Создать новое обращение</a>
+                                    history.push("/applicantAppeal")
+                                    window.scrollTo(0,0)
+                                }}>Создать новое обращение</span>
                             </div>
                             <div style={{clear: "both"}}></div>
                             <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
@@ -115,6 +120,8 @@ const YourAppealSection = (props) => {
                                     pageLength={pageSize}
                                     setActive={setActive}
                                     active={active}
+                                    size={size}
+                                    setSize={setSize}
                                 />
                             </div>
                         </>

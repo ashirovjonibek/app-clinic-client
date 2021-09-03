@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import NavTop from "../Nav/NavTop";
 import MenuIcon from "@material-ui/icons/Menu";
 import iconLogo from "../../assets/icon/icon-logo.svg";
@@ -10,6 +10,16 @@ import {Link} from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 
 const ApplicationNav=(props)=>{
+    const [showMenuIcon,setShowMenuIcon]=useState(false);
+
+    window.addEventListener('resize',()=>{
+       if (window.innerWidth<750){
+           setShowMenuIcon(true)
+       }else {
+           setShowMenuIcon(false)
+       }
+    });
+
     return(
         <div className="nav">
             <NavTop />
@@ -17,10 +27,10 @@ const ApplicationNav=(props)=>{
                 <div className="container">
                     <div className="navbar">
                         <div className="menu-icon" >
-                            <MenuIcon
+                            {showMenuIcon?<MenuIcon
                                 fontSize={'large'}
                                 onClick={() => props.setSitebar(!props.sitebar)}
-                            />
+                            />:""}
                         </div>
                         <div className="header-logo">
                             <a href="#">

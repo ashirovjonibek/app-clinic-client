@@ -7,6 +7,11 @@
     float: left;
     padding-left: 25px;
 }
+
+.tree-dots:hover{
+    background-color: #fff!important;
+}
+
 .input-size-option{
     width: 50px;
     padding: 6px 5px;

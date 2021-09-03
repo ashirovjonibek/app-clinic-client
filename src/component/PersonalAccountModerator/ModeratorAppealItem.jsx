@@ -101,7 +101,7 @@ const ModeratorAppealItem = (props) => {
                             <div className="date-label">
                                 Осталось:
                             </div>
-                            <div className="date-item">
+                            <div style={{backgroundColor: d.getDate()>10?"#63AA55":d.getDate()<=10&&d.getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">
                                 {d.getDate()} kun
                             </div>
                         </div>

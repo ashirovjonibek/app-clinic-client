@@ -3,18 +3,17 @@ import ResponseRequestItem1 from "./ResponseRequestItem1";
 import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
 
-const AppealItem = () => {
+const AppealItem = (props) => {
     return (
         <div className="appeal-item">
             <div className="content">
                 <div className="request-content-title">
                     <div className="request-content-title-name">
-                        <UserName text="Турсунов Тулкин Мирзаевич" />
-                        <div className="id">id: 12345</div>
+                        <UserName text={props?.item?.applicant?.fullName} />
                     </div>
                 </div>
-                <RequestTheme />
-                <div className="category-audio"></div>
+                <RequestTheme label={props?.item?.title} description={props?.item?.description} check={props?.item?.top} item={[props?.item]}/>
+                {/*<div className="category-audio"></div>*/}
                 <div className="response-request">
                     <ResponseRequestItem1 />
                 </div>

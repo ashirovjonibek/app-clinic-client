@@ -11,7 +11,7 @@ const RequestTheme = ({label,description,t,check}) => {
                     </span></h3>
                 </div>
                 <div>
-                    <input type="checkbox" checked={!check} />
+                    <input type="checkbox" defaultChecked={!check} />
                     <label htmlFor="">{t("Confidentially")}</label>
                 </div>
             </div>

@@ -8,21 +8,74 @@ export const CustomPagination=(props)=> {
     const [pages,setPages]=useState([])
     useEffect(()=>{
         if (props?.pageLength){
-            let a=[]
-            for (let i = 0; i < props.pageLength; i++) {
-                if (props?.active===(i+1)){
-                    a.push({
-                        page:i+1,
-                        classPage:"active"
-                    })
-                }else {
-                    a.push({
-                        page:i+1,
-                        classPage:""
-                    })
+            let a=[];
+            if (props?.pageLength<4){
+                for (let i = 0; i < props.pageLength; i++) {
+                    if (props?.active===(i+1)){
+                        a.push({
+                            page:i+1,
+                            classPage:"active"
+                        })
+                    }else {
+                        a.push({
+                            page:i+1,
+                            classPage:""
+                        })
+                    }
                 }
-            }
-            setPages(a)
+            }else {
+
+                    if (props?.active===1){
+                        a.push(
+                            {
+                                page:props?.active,
+                                classPage:"active"
+                            },
+                            {
+                                page:props?.active+1,
+                                classPage:""
+                            },
+                            {
+                                page:props?.active+2,
+                                classPage:""
+                            }
+                        )
+                    }
+                    else if (props?.active<props?.pageLength){
+                        a.push(
+
+                            {
+                                page:props?.active-1,
+                                classPage:""
+                            },
+                            {
+                                page:props?.active,
+                                classPage:"active"
+                            },
+                            {
+                                page:props?.active+1,
+                                classPage:""
+                            }
+                        )
+                    }
+                    else if (props?.active===props?.pageLength){
+                        a.push(
+                            {
+                                page:props?.active-2,
+                                classPage:""
+                            },
+                            {
+                                page:props?.active-1,
+                                classPage:""
+                            },
+                            {
+                                page:props?.active,
+                                classPage:"active"
+                            },
+                        )
+                    }
+                }
+            setPages(a);
             window.scrollTo(0, 0);
         }
     },[props])
@@ -31,9 +84,12 @@ export const CustomPagination=(props)=> {
             {
                 props?.size?<div className="size-page">
                     <span style={{fontSize:"20px"}}>Page size: </span>
-                    <select type="number" min={0} max={10} onChange={(e)=>{props?.setSize(e.target.value)
-                        console.log(e.target.value)}} className="input-size-option">
-                        <option selected value={3}>3</option>
+                    <select type="number" defaultValue={props?.size} min={0} max={10} onChange={(e)=>{
+                        props?.setSize(e.target.value)
+                        props?.setActive(1)
+                    }
+                    } className="input-size-option">
+                        <option value={3}>3</option>
                         <option value={5}>5</option>
                         <option value={10}>10</option>
                     </select>
@@ -43,14 +99,33 @@ export const CustomPagination=(props)=> {
                 <span disabled={props.active===1} onClick={()=>{
                     props.setActive(1)
                 }} style={{cursor:"pointer"}}><ArrowBackIosIcon/></span>
-                {
-                    pages&&pages?.map((item)=>
-                        <span key={item.page}  onClick={()=>{
-                            props.setActive(item.page)
-                        }} style={{cursor:"pointer",fontSize:"20px"}} className={item.classPage}>{item.page}</span>
-                    )
-                }
-                <span disabled={props.active===props.pageLength} onClick={()=>{
+               {
+                   props?.pageLength<4?<>
+                       {
+                           pages&&pages?.map((item)=>
+                               <span key={item.page}  onClick={()=>{
+                                   props.setActive(item.page)
+                               }} style={{cursor:"pointer",fontSize:"20px"}} className={item.classPage}>{item.page}</span>
+                           )
+                       }
+                   </>:
+                       <>
+                           {
+                               (props?.active-1)>1?<span className="tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
+                           }
+                           {
+                               pages&&pages?.map((item)=>
+                                   <span key={item.page}  onClick={()=>{
+                                       props.setActive(item.page)
+                                   }} style={{cursor:"pointer",fontSize:"20px"}} className={item.classPage}>{item.page}</span>
+                               )
+                           }
+                           {
+                               (props?.active+1)<props?.pageLength?<span className="tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
+                           }
+                       </>
+               }
+               <span disabled={props.active===props.pageLength} onClick={()=>{
                     props.setActive(props.pageLength)
                 }} style={{cursor:"pointer"}}><ArrowForwardIosIcon/></span>
             </div>

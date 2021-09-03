@@ -45,14 +45,14 @@ const NavLanguage = () => {
             {
                 languagesList.map((lang,index)=>
                 lang.val===selectedLang?
-                    <div id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>
+                    <div style={{cursor:"pointer"}} id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>
                         <span>{lang.label}</span></div>:""
                 )
             }
             <div className="navlanguage-content">
                 {
                     languagesList.map((lang)=>
-                        <a key={lang.val} onClick={(e)=>{
+                        <a style={{cursor:"pointer"}} key={lang.val} onClick={(e)=>{
                             changeLang(e.target.id)
                         }} id={lang.val} className={lang.className}>{lang.label}</a>
                     )

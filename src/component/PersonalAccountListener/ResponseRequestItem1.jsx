@@ -9,12 +9,23 @@ const ResponseRequestItem1 = ({t}) => {
     return (
         <div className="response-request">
             <div className="content-line" />
-            <div style={{marginBottom: '20px'}}>
-                <UserItem />
-            </div>
-            <div className="file-upload">
+            <div>
                 <Label text={t("Answer")+":"} />
-                <InputFile />
+                <textarea style={
+                    {
+                        border:"1px solid rgba(0,0,0,0.3)",
+                        width:"100%",
+                        borderRadius:"5px",
+                        minHeight:"75px",
+                        maxHeight:"85px",
+                        marginBottom:"3px",
+                        padding:"6px"
+                    }
+                }
+                placeholder="Javob matnini kiriting"
+                >
+
+                </textarea>
             </div>
             <div className="button">
                 <ButtonDefault text={t("Submit for review")} />

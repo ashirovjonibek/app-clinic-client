@@ -28,7 +28,7 @@ const ModeratorListnearSection = (props) => {
         <div className="moderator-listnear-section">
             {
                 listeners&&listeners.map((item,i)=>
-                    <ModeratorListnearItem item={item}/>
+                    <ModeratorListnearItem key={i} item={item}/>
                     )
             }
         </div>

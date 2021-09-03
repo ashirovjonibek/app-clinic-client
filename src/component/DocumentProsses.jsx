@@ -6,7 +6,7 @@ const DocumentProsses = ({status}) => {
             <div className="new">
                 <h3 style={{ color: "#222D44" }}>Новое</h3>
                 <div className="prosses-item">
-                    {status?<div className="prosses-item-active"></div>:<div className="prosses-item"></div>}
+                    {status==="CREATE"?<div className="prosses-item-active"></div>:<div className="prosses-item"></div>}
                 </div>
             </div>
             <div className="line"></div>

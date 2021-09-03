@@ -12,7 +12,7 @@ const IncomingRequestSection = (props) => {
 
     const [request, setRequest] = useState([]);
     const history = useHistory();
-    const [idUser, setIdUser] = useState(1)
+    const [idUser, setIdUser] = useState(1);
     console.log(idUser);
     const [nS,setNS]=useState(1);
     const [r,setR]=useState(false);
@@ -20,9 +20,12 @@ const IncomingRequestSection = (props) => {
     const [inpApps,setInpApps]=useState([]);
     const [doneApps,setDoneApps]=useState([]);
     const token = localStorage.getItem(STORAGE_NAME);
-    const [active,setActive]=useState(1)
-    const [size,setSize]=useState(3)
-    const [total,setTotal]=useState(1)
+    const [active,setActive]=useState(1);
+    const [size,setSize]=useState(3);
+    const [total,setTotal]=useState(1);
+    const [active1,setActive1]=useState(1);
+    const [size1,setSize1]=useState(3);
+    const [total1,setTotal1]=useState(1);
 
 
     useEffect(() => {
@@ -45,8 +48,43 @@ const IncomingRequestSection = (props) => {
             setNewApps(cr);
             section(1)
 
+        });
+
+        axios({
+            method:'get',
+            url:API_URL+"/application/unchecked?size="+size1+"&page="+(active1-1),
+            headers: {
+                'Authorization': token
+            }
+        }).then((r)=>{
+            console.log(r);
+            setTotal1(r.data.totalPages);
+            setInpApps(r.data.object)
         })
-    }, [nS]);
+    }, [active,active1,size,size1]);
+
+    const newApplication=()=>{
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/application/listener?size="+size+"&page="+(active-1),
+            method: 'GET'
+        }).then(res => {
+            setRequest(res.data.object)
+            console.log(res);
+            let cr=[];
+            res.data.object.map((item)=>{
+                if (item.status==="CREATED"){
+                    cr.push(item)
+                }
+            });
+            setTotal(res.data.totalPages)
+            setNewApps(cr);
+            section(1)
+
+        })
+    }
 
     const acceptApp = (id) => {
         axios({
@@ -57,7 +95,7 @@ const IncomingRequestSection = (props) => {
             }
         }).then((r)=>{
             console.log(r);
-
+            newApplication();
             setR(r+1);
         })
     };
@@ -79,13 +117,13 @@ const IncomingRequestSection = (props) => {
     const acceptedApp=()=>{
         axios({
             method:'get',
-            url:API_URL+"/application/unchecked?size="+size+"&page="+(active-1),
+            url:API_URL+"/application/unchecked?size="+size1+"&page="+(active1-1),
             headers: {
                 'Authorization': token
             }
         }).then((r)=>{
             console.log(r);
-            setTotal(r.data.totalPages);
+            setTotal1(r.data.totalPages);
             setInpApps(r.data.object)
         })
     };
@@ -125,8 +163,13 @@ const IncomingRequestSection = (props) => {
                                   <div className="date-label">
                                       Осталось:
                                   </div>
-                                  <div className="date-item">
-                                      5 день
+                                  <div style={{backgroundColor: new Date(
+                                      new Date(item.deadLineDate).getTime()-new Date().getTime())
+                                          .getDate()>10?"#63AA55":new Date(
+                                          new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()<=10&&new Date(
+                                          new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">
+                                      {new Date(
+                                          new Date(item.deadLineDate).getTime()-new Date().getTime())} kun
                                   </div>
                               </div>
                           </div>
@@ -170,13 +213,15 @@ const IncomingRequestSection = (props) => {
 
                   <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
-                      <CustomPagination
+                      {total>0?<CustomPagination
                           pageLength={total}
                           setActive={setActive}
                           active={active}
                           size={size}
                           setSize={setSize}
-                      />
+                      />:<div style={{textAlign:"center",paddingTop:"35px"}}>
+                          Yangi arizalar mavjud emas!!!
+                      </div>}
                   </div>
               </>
           )
@@ -190,10 +235,17 @@ const IncomingRequestSection = (props) => {
                               </div>
                               <div className="request-content-title-date">
                                   <div className="date-label">
-                                      Осталось:
+                                      Ko'rib chiqish muddati:
                                   </div>
-                                  <div className="date-item">
-                                      5 день
+                                  <div
+                                      // style={{backgroundColor: new Date(
+//                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime()))
+//                                          .getDate()>10?"#63AA55":new Date(
+//                                          (new Date().getTime())-(new Date().getTime())).getDate()<=10&&new Date(
+//                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
+//                                        className="date-item"
+                                  >
+                                      {" "+item.deadLineDate} gacha
                                   </div>
                               </div>
                           </div>
@@ -224,15 +276,15 @@ const IncomingRequestSection = (props) => {
                                   </li>
                               </ul>
                           </div>
-                          <div className="request-bottom">
-                              <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
-                              <button className="blue-btn">Написать сообщение</button>
-                              <button type="submit" className="btn-default" style={{
-                                  marginTop:"15px"
-                              }}
-                                      // onClick={() => testPage(item)}
-                              >Ответить</button>
-                          </div>
+                          {/*<div className="request-bottom">*/}
+                          {/*    <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>*/}
+                          {/*    <button className="blue-btn">Написать сообщение</button>*/}
+                          {/*    <button type="submit" className="btn-default" style={{*/}
+                          {/*        marginTop:"15px"*/}
+                          {/*    }}*/}
+                          {/*            // onClick={() => testPage(item)}*/}
+                          {/*    >Ответить</button>*/}
+                          {/*</div>*/}
                       </div>
                   )}
                   <div style={{clear: "both"}}></div>
@@ -240,11 +292,11 @@ const IncomingRequestSection = (props) => {
                   <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
                       <CustomPagination
-                          pageLength={total}
-                          setActive={setActive}
-                          active={active}
-                          size={size}
-                          setSize={setSize}
+                          pageLength={total1}
+                          setActive={setActive1}
+                          active={active1}
+                          size={size1}
+                          setSize={setSize1}
                       />
                   </div>
               </>
@@ -351,6 +403,7 @@ const IncomingRequestSection = (props) => {
                     <p style={{padding:"0px 10px",border:nS===1?"1px solid rgba(0,0,0,0.5)":""}} className="request-items">
                         <Link onClick={()=>{
                             setNS(1)
+                            newApplication();
                         }}>{props.t("Yangi")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===2?"1px solid rgba(0,0,0,0.5)":""}}  className="request-items">
