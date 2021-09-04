@@ -163,14 +163,15 @@ const IncomingRequestSection = (props) => {
                                   <div className="date-label">
                                       Осталось:
                                   </div>
-                                  <div style={{backgroundColor: new Date(
-                                      new Date(item.deadLineDate).getTime()-new Date().getTime())
-                                          .getDate()>10?"#63AA55":new Date(
-                                          new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()<=10&&new Date(
-                                          new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">
-                                      {new Date(
-                                          new Date(item.deadLineDate).getTime()-new Date().getTime())} kun
-                                  </div>
+                                  {/*<div */}
+                                  {/*    style={{backgroundColor: new Date(*/}
+                                  {/*    new Date(item.deadLineDate).getTime()-new Date().getTime())*/}
+                                  {/*        .getDate()>10?"#63AA55":new Date(*/}
+                                  {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()<=10&&new Date(*/}
+                                  {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">*/}
+                                  {/*    {new Date(*/}
+                                  {/*        new Date(item.deadLineDate).getTime()-new Date().getTime())} kun*/}
+                                  {/*</div>*/}
                               </div>
                           </div>
                           <div className="request-theme">
@@ -179,7 +180,7 @@ const IncomingRequestSection = (props) => {
                                   <p>{item.title}</p>
                               </div>
                               <div>
-                                  <input type="checkbox" />
+                                  <input type="checkbox" defaultChecked={item.top}/>
                                   <label htmlFor="">Конфиденциально</label>
                               </div>
                           </div>
@@ -189,11 +190,11 @@ const IncomingRequestSection = (props) => {
                           <div className="categories">
                               <ul>
                                   <li>
-                                      <label for="">Категория обращения</label>
+                                      <label htmlFor="">Категория обращения</label>
                                       <div className="category-item">{item.section.title.uz}</div>
                                   </li>
                                   <li>
-                                      <label for="">Файл</label>
+                                      <label htmlFor="">Файл</label>
                                       <div onClick={()=>{
                                           item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
                                       }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
