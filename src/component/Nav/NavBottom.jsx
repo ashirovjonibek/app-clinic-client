@@ -10,10 +10,10 @@ const NavBottom = ({t}) => {
                         <a href="#what-clinic">{t("What is clinic")}</a>
                     </li>
                     <li>
-                        <a href="#cel-clinic">{t("Target clinics")}</a>
+                        <a href="#cel-clinic">{t("Goal of the clinic")}</a>
                     </li>
                     <li>
-                        <a href="#purpose-clinic">{t("Purpose clinics")}</a>
+                        <a href="#purpose-clinic">{t("Purpose of the clinic")}</a>
                     </li>
                     <li>
                         <a href="#popular-clinic">{t("Popular questions")}</a>

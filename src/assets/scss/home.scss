@@ -1,288 +1,338 @@
 .home {
-    background-color: #c8faf7;
-    padding-top: 100px;
-    .header-img {
-        height: 600px;
-        background: url(../img/header-img.jpg) center/cover no-repeat;
-        margin-bottom: 10px;
-        button {
-            margin: 35% 45%;
-        }
+  background-color: #c8faf7;
+  padding-top: 100px;
+  font-family: Montserrat, serif;
+
+  .header-img {
+    height: 600px;
+    background: url(../img/header-img.jpg) center/cover no-repeat;
+    margin-bottom: 10px;
+
+    button {
+      margin: 35% 45%;
     }
-    #what-clinic {
+  }
+
+  #what-clinic {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    .what-clinic-text,
+    .what-clinic-mini {
+      min-height: 340px;
+      border-radius: 10px;
+      margin: 10px;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      font-size: 14px;
+
+      p {
+        line-height: 24px;
+        margin: 10px;
+      }
+    }
+
+    .what-clinic-text {
+      width: 55%;
+    }
+
+    .what-clinic-mini {
+      width: 45%;
+    }
+  }
+
+  #cel-clinic,
+  #adres-procuratura {
+    height: 100%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px 10px 30px 10px;
+    font-size: 16px;
+  }
+
+  #cel-clinic {
+    padding: 20px;
+
+    h5 {
+      margin: 20px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #222d44;
+    }
+
+    .cel-clinic-text {
+      display: flex;
+      flex-direction: row;
+
+      .text-inform {
+        width: 100%;
+        padding-left: 35px;
+
+        ul {
+          li {
+            list-style-type: disc;
+            margin-bottom: 20px;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+  }
+
+  #statistic-clinic {
+    min-height: 430px;
+    margin: 15px 10px 30px 10px;
+
+    .statistic-row {
+      display: flex;
+      flex-direction: row;
+      // justify-content: space-between;
+      margin-top: 20px;
+
+      .statistic-items {
         display: flex;
         flex-direction: row;
-        margin-bottom: 10px;
-        .what-clinic-text,
-        .what-clinic-mini {
-            min-height: 340px;
-            border-radius: 10px;
-            margin: 10px;
-            background-color: white;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            p {
-                line-height: 22px;
-                margin: 10px;
-            }
-        }
-        .what-clinic-text {
-            width: 55%;
-        }
-        .what-clinic-mini {
-            width: 45%;
-        }
-    }
-    #cel-clinic,
-    #adres-procuratura {
-        min-height: 320px;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 15px 10px 30px 10px;
-    }
+        // justify-content: space-between;
+        .statistic {
+          min-height: 180px;
+          max-width: 290px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border-radius: 10px;
+          background-color: white;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          padding: 15px;
+          margin: 0 8px;
 
-    #cel-clinic {
-        padding: 20px;
-        h5 {
-            margin: 20px;
+          h3 {
+            font-size: 70px;
             font-weight: 600;
-            font-size: 16px;
+            margin-bottom: 10px;
             color: #222d44;
+          }
+
+          p {
+            line-height: 24px;
+          }
         }
-        .cel-clinic-text {
-            display: flex;
-            flex-direction: row;
-            .text-inform {
-                width: 50%;
-                padding-left: 35px;
-                ul {
-                    li {
-                        list-style-type: disc;
-                        margin-bottom: 20px;
-                        line-height: 25px;
-                    }
-                }
-            }
-        }
+      }
     }
-    #statistic-clinic {
-        min-height: 430px;
-        margin: 15px 10px 30px 10px;
-        .statistic-row {
-            display: flex;
-            flex-direction: row;
-            // justify-content: space-between;
-            margin-top: 20px;
-            .statistic-items {
-                display: flex;
-                flex-direction: row;
-                // justify-content: space-between;
-                .statistic {
-                    min-height: 180px;
-                    max-width: 290px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    border-radius: 10px;
-                    background-color: white;
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                    padding: 15px;
-                    margin: 0 8px;
-                    h3 {
-                        font-size: 70px;
-                        font-weight: 600;
-                        margin-bottom: 10px;
-                        color: #222d44;
-                    }
-                    p {
-                        line-height: 24px;
-                    }
-                }
-            }
-        }
+  }
+
+  #purpose-clinic {
+    min-height: 99%;
+    margin: 15px 10px 20px 10px;
+
+    .porpose-text {
+      height: 100%;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 16px;
+      p {
+        line-height: 25px;
+      }
     }
-    #purpose-clinic {
-        min-height: 620px;
-        margin: 15px 10px 20px 10px;
-        .porpose-text {
-            min-height: 170px;
-            border-radius: 10px;
+  }
+
+  #popular-clinic {
+    min-height: 420px;
+    margin: 15px 10px 20px 10px;
+  }
+
+  #legal-clinic {
+    min-height: 400px;
+    margin: 15px 10px 20px 10px;
+
+    .legal-body {
+      display: flex;
+      flex-direction: row;
+      padding-top: 30px;
+
+      .legal-body-items {
+        width: 50%;
+        margin: 0 15px;
+
+        .directory-pdf {
+          .directory-file {
             background-color: white;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            padding: 15px;
-            p {
-                line-height: 25px;
-            }
+          }
         }
+      }
     }
-    #popular-clinic {
-        min-height: 420px;
-        margin: 15px 10px 20px 10px;
-    }
+  }
 
-    #legal-clinic {
-        min-height: 400px;
-        margin: 15px 10px 20px 10px;
-        .legal-body {
-            display: flex;
-            flex-direction: row;
-            padding-top: 30px;
-            .legal-body-items {
-                width: 50%;
-                margin: 0 15px;
-                .directory-pdf {
-                    .directory-file {
-                        background-color: white;
-                    }
-                }
-            }
-        }
-    }
+  #home-useful-links {
+    background-color: white;
+    min-height: 380px;
+    padding: 20px;
+    margin-bottom: 20px;
 
-    #home-useful-links {
-        background-color: white;
-        min-height: 380px;
-        padding: 20px;
-        margin-bottom: 20px;
-        .useful-links-body {
-            display: flex;
-            flex-direction: row;
-            min-height: 280px;
-            margin-top: 20px;
-            .useful-links-item {
-                min-height: 280px;
-                width: 250px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                cursor: pointer;
-                margin: 0 10px;
-                padding: 10px;
-                border-radius: 20px;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-                transition: 0.7s all ease;
-                &:hover {
-                    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-                }
-                img {
-                    height: 75px;
-                    width: 75px;
-                    margin: 60px 0 20px 0;
-                }
-                p {
-                    text-align: center;
-                    line-height: 20px;
-                    font-weight: 600;
-                }
-            }
+    .useful-links-body {
+      display: flex;
+      flex-direction: row;
+      min-height: 280px;
+      margin-top: 20px;
+
+      .useful-links-item {
+        min-height: 280px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        transition: 0.7s all ease;
+
+        &:hover {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
+
+        img {
+          height: 75px;
+          width: 75px;
+          margin: 60px 0 20px 0;
+        }
+
+        p {
+          text-align: center;
+          line-height: 20px;
+          font-weight: 600;
+        }
+      }
     }
+  }
 }
 
 @media (max-width: 768px) {
-    .home {
-        .container {
-            padding: 0 15px;
-            #what-clinic {
-                flex-direction: column;
-                margin: 10px;
-                .what-clinic-mini,
-                .what-clinic-text {
-                    width: 100%;
-                    margin: 10px 0;
-                }
-            }
-            #statistic-clinic {
-                .statistic-row {
-                    flex-direction: column;
-                    width: 100%;
-                    margin-top: 15px;
-                    .statistic-items {
-                        width: 100%;
-                        .statistic {
-                            max-width: 70%;
-                            margin-bottom: 15px;
-                            h3 {
-                                font-size: 60px;
-                            }
-                        }
-                    }
-                }
-            }
+  .home {
+    .container {
+      padding: 0 15px;
+
+      #what-clinic {
+        flex-direction: column;
+        margin: 10px;
+
+        .what-clinic-mini,
+        .what-clinic-text {
+          width: 100%;
+          margin: 10px 0;
         }
-        #home-useful-links {
-            background-color: #c8faf7;
-            .useful-links-body {
-                flex-direction: column;
-                .useful-links-item {
-                    margin: 0 auto;
-                    margin-bottom: 20px;
-                    background-color: white;
-                }
+      }
+
+      #statistic-clinic {
+        .statistic-row {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 15px;
+
+          .statistic-items {
+            width: 100%;
+
+            .statistic {
+              max-width: 70%;
+              margin-bottom: 15px;
+
+              h3 {
+                font-size: 60px;
+              }
             }
+          }
         }
+      }
     }
+
+    #home-useful-links {
+      background-color: #c8faf7;
+
+      .useful-links-body {
+        flex-direction: column;
+
+        .useful-links-item {
+          margin: 0 auto;
+          margin-bottom: 20px;
+          background-color: white;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 576px) {
-    .home {
-        .container {
-            #popular-clinic {
-                .popular-slider {
-                    text-align: center;
-                    .popular-text {
-                        .request-content-title-name {
-                            flex-direction: column;
-                            align-items: center;
-                            .applicant-image {
-                                margin-bottom: 10px;
-                            }
-                        }
-                        .document-text {
-                            .document-text-title {
-                                flex-direction: column;
-                                align-items: center;
-                                h4 {
-                                    margin-bottom: 5px;
-                                }
-                            }
-                        }
-                    }
-                }
+  .home {
+    .container {
+      #popular-clinic {
+        .popular-slider {
+          text-align: center;
+
+          .popular-text {
+            .request-content-title-name {
+              flex-direction: column;
+              align-items: center;
+
+              .applicant-image {
+                margin-bottom: 10px;
+              }
             }
-            #legal-clinic {
-                .legal-body {
-                    flex-direction: column;
-                    align-items: center;
-                    .legal-body-items {
-                        width: 100%;
-                        .directory-pdf {
-                            .directory-file {
-                                background-color: white;
-                            }
-                        }
-                    }
+
+            .document-text {
+              .document-text-title {
+                flex-direction: column;
+                align-items: center;
+
+                h4 {
+                  margin-bottom: 5px;
                 }
+              }
             }
+          }
         }
+      }
+
+      #legal-clinic {
+        .legal-body {
+          flex-direction: column;
+          align-items: center;
+
+          .legal-body-items {
+            width: 100%;
+
+            .directory-pdf {
+              .directory-file {
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }
 
 @media (max-width: 480px) {
-    .home {
-        text-align: center;
-        #cel-clinic {
-            .cel-clinic-text {
-                flex-direction: column;
-                .text-inform{
-                    width: 100%;
-                }
-            }
+  .home {
+    text-align: center;
+
+    #cel-clinic {
+      .cel-clinic-text {
+        flex-direction: column;
+
+        .text-inform {
+          width: 100%;
         }
+      }
     }
+  }
 }

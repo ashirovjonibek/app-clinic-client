@@ -1,23 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import UserName from '../UserName';
-// import DocumentText from '../DocumentText';
-
-// Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "../../assets/scss/popular-slider.scss";
-
 import SwiperCore, {
     Autoplay, Pagination, Navigation
 } from 'swiper/core';
 import axios from "axios";
 import {API_URL} from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
-function PopularSlider() {
+function PopularSlider({t}) {
 
     const [top,setTop]=useState([])
 
@@ -51,7 +48,7 @@ function PopularSlider() {
                                 <UserName text={item?.applicant.fullName} />
                                 <div className="document-text">
                                     <div className="document-text-title">
-                                        <h4>Тема обращения:</h4>
+                                        <h4>{t("Subject of the appeal")}:</h4>
                                         <p>{item.title}</p>
                                     </div>
                                     <div className="document-text-item">
@@ -69,4 +66,4 @@ function PopularSlider() {
     );
 }
 
-export default PopularSlider;
+export default withTranslation()(PopularSlider);
