@@ -8,10 +8,9 @@ import gerbImg from '../../assets/img/useful/gerb.jpg';
 import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
 import {withTranslation} from "react-i18next";
 
-
 const Home = ({t}) => {
     return (
-        <div className="home fluit">
+        <div className="home">
             <div className="header-img">
                 {/* <div className="container">
                     <button onClick={() => history.push('/applicantAppeal')} className="btn-default">Обращение</button>
@@ -19,14 +18,14 @@ const Home = ({t}) => {
             </div>
 
             <div className="container">
-                <div id="what-clinic">
+                <div id="what-clinic" className="what-clinic">
                     <div className="what-clinic-text">
                         <Title text={t("What is clinic")}/>
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
                     <div className="what-clinic-mini"/>
                 </div>
-                <div id="what-clinic">
+                <div  className="what-clinic">
                     <div className="what-clinic-mini">
                         <WhatSlider/>
                     </div>

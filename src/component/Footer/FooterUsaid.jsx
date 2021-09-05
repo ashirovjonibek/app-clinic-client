@@ -1,21 +1,18 @@
 import React from "react";
 import imageUsaid from "../../assets/icon/footer/usaid.jpg";
+import {withTranslation} from "react-i18next";
 
-const FooterUsaid = () => {
+const FooterUsaid = ({t}) => {
     return (
         <div className="usaid-wrapper container-fluid">
             <div className="container">
                 <div className="usaid">
-                    <img src={imageUsaid} alt="" />
-                    <p>Данный вебсайт стал возможным благодаря помощи американского народа, оказанной через Агентство
-                    США по международному
-                    развитию (USAID). Tetra Tech DPK (Тетра Тек ДПК) несет ответственность за содержание публикации,
-                    которое не обязательно
-                        отражает позицию USAID или Правительства США</p>
+                    <img src={imageUsaid} alt=""/>
+                    <p>{t("This website is made possible by the assistance of the American people through the United States Agency for International Development (USAID). Tetra Tech DPK is responsible for the content of this publication, which does not necessarily reflect the position of USAID or the US Government.")}</p>
                 </div>
             </div>
         </div>
     );
 }
 
-export default FooterUsaid;
+export default withTranslation()(FooterUsaid);

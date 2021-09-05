@@ -5,7 +5,7 @@
   "Popular questions": "Популярные вопросы",
   "Regulatory base": "Нормативно-правовая база",
   "Useful links": "Полезные ссылки",
-  "Addresses prosecutors": "Адреса прокурату",
+  "Addresses prosecutors": "Адреса прокуратуру",
   "Login": "Войти",
   "The applicant": "Заявитель",
   "Listener": "Слушатель",
@@ -31,7 +31,7 @@
   "Nationality":"Национальность",
   "Gender": "Пол",
   "Address": "Адрес",
-  "Email": "Почта",
+  "Email": "Эл. адрес",
   "Benefit category": "Категория льгот",
   "Date of birth": "Дата рождения",
   "Register all": "Зарегистрировать все",
@@ -100,7 +100,15 @@
   "Prosecutor General's Office of the Republic of Uzbekistan": "Генеральная прокуратура Республики Узбекистан",
   "Official website of the President of the Republic of Uzbekistan": "Официальный веб-сайт Президента Республики Узбекистан",
   "Development strategy center": "Центр “Стратегия развития”",
-  "We are on the map": "Мы на карте"
+  "We are on the map": "Мы на карте",
+
+  "Contacts": "Контакты",
+  "Site navigation": "Навигация по сайту",
+  "We are in social networks": "Мы в социальных сетях",
+  "Subscribe": "Подписаться",
+  "Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.": "Академия Генеральной прокуратуры Республики Узбекистан. Все права защищены.",
+
+  "This website is made possible by the assistance of the American people through the United States Agency for International Development (USAID). Tetra Tech DPK is responsible for the content of this publication, which does not necessarily reflect the position of USAID or the US Government.": "Данный вебсайт стал возможным благодаря помощи американского народа, оказанной через Агентство США по международному развитию (USAID). Tetra Tech DPK (Тетра Тек ДПК) несет ответственность за содержание публикации, которое не обязательно отражает позицию USAID или Правительства США"
 
 
 
