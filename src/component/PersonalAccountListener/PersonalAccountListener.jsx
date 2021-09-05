@@ -19,6 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import {withTranslation} from "react-i18next";
+import Footer from "../Footer/Footer";
 
 
 const PersonalAccountListener = ({t}) => {
@@ -188,7 +189,7 @@ const PersonalAccountListener = ({t}) => {
                     </section>
                 </div>
             </div>
-            {/* <Footer/> */}
+             <Footer/>
         </div>
     );
 }

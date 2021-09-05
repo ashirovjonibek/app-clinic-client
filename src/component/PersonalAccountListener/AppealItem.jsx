@@ -15,7 +15,7 @@ const AppealItem = (props) => {
                 <RequestTheme label={props?.item?.title} description={props?.item?.description} check={props?.item?.top} item={[props?.item]}/>
                 {/*<div className="category-audio"></div>*/}
                 <div className="response-request">
-                    <ResponseRequestItem1 />
+                    <ResponseRequestItem1 id={props?.item?.id} />
                 </div>
             </div>
         </div>
