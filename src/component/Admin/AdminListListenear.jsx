@@ -7,7 +7,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
 
-const AdminListListener = ({t,searchTerm}) => {
+const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
     const [listeners, setListeners] = useState([]);
     const [reLoad, setReLoad] = useState(true);
@@ -103,82 +103,86 @@ const AdminListListener = ({t,searchTerm}) => {
                         </div>
                     </div>
                 </div>
-                <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                    <h5 className="table-title">{t("New")}</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th className="table-border applicant-name">{t("Full name")}</th>
-                            <th className="table-border nation">{t("Position")}</th>
-                            <th className="table-border gender">{t("Course")}</th>
-                            <th className="table-border citi">{t("Department")}</th>
-                            <th className="table-border tel">{t("Phone number")}</th>
-                            <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border ">{t("Accept")}</th>
-                        </tr>
-                        {listeners && listeners.filter(item => item.viewed === false).map((item, i) =>
-                            <tr key={i} value={item.id}>
-                                <td className="table-border applicant-name">{item.fullName}</td>
-                                <td className="table-border">{item.position.title[i18]}</td>
-                                <td className="table-border">{item.course}</td>
-                                <td className="table-border">{item.section.title[i18]}</td>
-                                <td className="table-border">{item.phoneNumber}</td>
-                                <td className="table-border">{item.email}</td>
+                {
+                 listeners && listeners.find(item =>item.viewed === false)
+                     ? <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                     <h5 className="table-title">{t("New")}</h5>
+                     <table>
+                         <tbody>
+                         <tr>
+                             <th className="table-border applicant-name">{t("Full name")}</th>
+                             <th className="table-border nation">{t("Position")}</th>
+                             <th className="table-border gender">{t("Course")}</th>
+                             <th className="table-border citi">{t("Department")}</th>
+                             <th className="table-border tel">{t("Phone number")}</th>
+                             <th className="table-border pochta">{t("Email")}</th>
+                             <th className="table-border ">{t("Accept")}</th>
+                         </tr>
+                         {listeners && listeners.filter(item => item.viewed === false).map((item, i) =>
+                             <tr key={i} value={item.id}>
+                                 <td className="table-border applicant-name">{item.fullName}</td>
+                                 <td className="table-border">{item.position.title[i18]}</td>
+                                 <td className="table-border">{item.course}</td>
+                                 <td className="table-border">{item.section.title[i18]}</td>
+                                 <td className="table-border">{item.phoneNumber}</td>
+                                 <td className="table-border">{item.email}</td>
 
-                                <td className="table-border edit">
-                                    <button type="button" className="checkIcon" onClick={() => changeViewed(item.id)}>
-                                        <CheckCircle/>
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-                </div>
-                <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                                 <td className="table-border edit">
+                                     <button type="button" className="checkIcon" onClick={() => changeViewed(item.id)}>
+                                         <CheckCircle/>
+                                     </button>
+                                 </td>
+                             </tr>
+                         )}
+                         </tbody>
+                     </table>
+                 </div> : null
+                }
+
+                    <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     <table>
-                        <tbody>
-                        <tr>
-                            <th className="table-border ">{t("Full name")}</th>
-                            <th className="table-border nation">{t("Position")}</th>
-                            <th className="table-border gender">{t("Course")}</th>
-                            <th className="table-border citi">{t("Department")}</th>
-                            <th className="table-border tel">{t("Phone number")}</th>
-                            <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border ">Edit</th>
-                            <th className="table-border ">Delete</th>
-                        </tr>
-                        {listeners && listeners.filter(item=>{
-                            if (searchTerm===""){
-                                return item
-                            }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return item
-                            }
-                        }).map((item, i) =>
-                            <tr key={i} value={item.id}>
-                                <td className="table-border ">{item.fullName}</td>
-                                <td className="table-border">{item.position.title[i18]}</td>
-                                <td className="table-border">{item.course}</td>
-                                <td className="table-border">{item.section.title[i18]}</td>
-                                <td className="table-border">{item.phoneNumber}</td>
-                                <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal
-                                    item={item}
-                                    getListeners={() => getListeners()}/></td>
-                                <td className="table-border edit">
-                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
-                                        <DeleteIcon/>
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
+                    <tbody>
+                    <tr>
+                    <th className="table-border ">{t("Full name")}</th>
+                    <th className="table-border nation">{t("Position")}</th>
+                    <th className="table-border gender">{t("Course")}</th>
+                    <th className="table-border citi">{t("Department")}</th>
+                    <th className="table-border tel">{t("Phone number")}</th>
+                    <th className="table-border pochta">{t("Email")}</th>
+                    <th className="table-border ">Edit</th>
+                    <th className="table-border ">Delete</th>
+                    </tr>
+                {listeners && listeners.filter(item=>{
+                    if (searchTerm===""){
+                    return item
+                }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                    return item
+                }
+                }).map((item, i) =>
+                    <tr key={i} value={item.id}>
+                    <td className="table-border ">{item.fullName}</td>
+                    <td className="table-border">{item.position.title[i18]}</td>
+                    <td className="table-border">{item.course}</td>
+                    <td className="table-border">{item.section.title[i18]}</td>
+                    <td className="table-border">{item.phoneNumber}</td>
+                    <td className="table-border">{item.email}</td>
+                    <td className="table-border edit"><SimpleModal
+                    item={item}
+                    getListeners={() => getListeners()}/></td>
+                    <td className="table-border edit">
+                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                    <DeleteIcon/>
+                    </button>
+                    </td>
+                    </tr>
+                    )}
+                    </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-    );
-}
+                    </div>
+                    </div>
+                    </div>
+                    );
+                }
 
-export default withTranslation()(AdminListListener);
+                export default withTranslation()(AdminListListener);

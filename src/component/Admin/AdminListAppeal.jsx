@@ -33,8 +33,10 @@ const AdminListAppeal = ({t, searchTerm}) => {
     }
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)
-            .then(res =>
-                console.log(res)
+            .then(res => {
+                    console.log(res)
+                    getApplicants()
+                }
             ).catch(error => {
             console.log(error)
         })
@@ -59,10 +61,10 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                 <th className="table-border date">{t("Date of birth")}</th>
                                 <th className="table-border ">{t("Action")}</th>
                             </tr>
-                            {applicants && applicants.filter(item=>{
-                                if (searchTerm===""){
+                            {applicants && applicants.filter(item => {
+                                if (searchTerm === "") {
                                     return item
-                                }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                                } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
                                     return item
                                 }
                             }).map((item) =>

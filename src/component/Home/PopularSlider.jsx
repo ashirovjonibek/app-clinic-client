@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 import UserName from '../UserName';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -14,53 +14,60 @@ import {withTranslation} from "react-i18next";
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
+
 function PopularSlider({t}) {
 
-    const [top,setTop]=useState([])
+    const [top, setTop] = useState([])
+    useEffect(() => {
+        fetchTop();
+        return () => {
+            setTop([]); // This worked for me
+        };
+    }, []);
 
-    useEffect(()=>{
+    const fetchTop = () => {
         axios({
-            method:'get',
-            url:API_URL+"/application/top"
-        }).then((r)=>{
+            method: 'get',
+            url: API_URL + "/application/top"
+        }).then((r) => {
             setTop(r.data)
         })
-    },[]);
+    }
+
     return (
         <div className="popular-slider">
             <Swiper
                 slidesPerView={'auto'}
                 centeredSlides={true}
-                loop={true}
                 spaceBetween={35}
-                    autoplay={{
-                        "delay": 3000,
-                        "disableOnInteraction": false
-                    }} pagination={{
-                    "clickable": true
-                }} navigation={true} className="mySwiper"
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false
+                }}
+                pagination={{clickable: true}}
+                navigation={true}
             >
-                <SwiperSlide>
                 {
-                    top&&top?.map((item,i)=>
-
-                            <div key={i} className="popular-text">
-                                <UserName text={item?.applicant.fullName} />
-                                <div className="document-text">
-                                    <div className="document-text-title">
-                                        <h4>{t("Subject of the appeal")}:</h4>
-                                        <p>{item.title}</p>
-                                    </div>
-                                    <div className="document-text-item">
-                                        {
-                                            item.description
-                                        }
+                    top && top?.map((item, i) => {
+                            return <SwiperSlide>
+                                <div key={i} className="popular-text">
+                                    <UserName text={item?.applicant.fullName}/>
+                                    <div className="document-text">
+                                        <div className="document-text-title">
+                                            <h4>{t("Subject of the appeal")}:</h4>
+                                            <p>{item.title}</p>
+                                        </div>
+                                        <div className="document-text-item">
+                                            {
+                                                item.description
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
+                            </SwiperSlide>
+                        }
+                    )
                 }
-                </SwiperSlide>
             </Swiper>
         </div>
     );

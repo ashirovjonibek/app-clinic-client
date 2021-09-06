@@ -57,8 +57,10 @@ export default function SimpleModal({item, getListeners}) {
     };
 
     const handleClose = () => {
-        getListeners();
         setOpen(false);
+        setTimeout(() => {
+            getListeners();
+        }, 1700)
     };
 
 
