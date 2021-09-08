@@ -8,14 +8,14 @@ const CallFlowItem = (props) => {
         <div className="call-flow-item">
             <div className="content">
                 <DocumentProsses status={props?.item?.status}/>
-                <div className="request-content-title-name">
+                <div style={{display:"inline-block"}} className="request-content-title-name">
                     <UserName text={props?.item.applicant?.fullName} />
                 </div>
-                <div className="request-content-title-date">
-                    <div className="date-label">
+                <div style={{display:"inline-block",float:"right"}} className="request-content-title-date">
+                    <div style={{display:"inline-block"}} className="date-label">
                         Ko'rib chiqish muddati:
                     </div>
-                    <div
+                    <div style={{textAlign:"right",display:"inline-block"}}
                         // style={{backgroundColor: new Date(
                         //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime()))
                         //                                          .getDate()>10?"#63AA55":new Date(

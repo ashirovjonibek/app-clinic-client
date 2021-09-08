@@ -8,13 +8,34 @@ import Button from "@material-ui/core/Button";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import {green, red} from "@material-ui/core/colors";
+import axios from "axios";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
-const ResponseRequestItem1 = ({t,id}) => {
+const ResponseRequestItem1 = ({t,id,item}) => {
     const [isAn,setIsAn]=useState(false);
-
+    const token=localStorage.getItem(STORAGE_NAME);
+    const [message,setMessage]=useState("");
 
     const submit=()=>{
         console.log(id)
+        axios({
+            method:'post',
+            url:API_URL+'/answer/create',
+            headers:{
+              Authorization:token
+            },
+            params:{
+                id:id
+            },
+            data:{
+                description: item.description,
+                status: item.status,
+                attachmentId: item.attachmentId,
+                deniedMessage: message
+            }
+        }).then((r)=>{
+            console.log(r)
+        })
     }
     return (
         <div className="response-request">
@@ -38,7 +59,7 @@ const ResponseRequestItem1 = ({t,id}) => {
             {
                 isAn?<div>
                     <Label text={t("Answer")+":"} />
-                    <textarea style={
+                    <textarea onChange={(e)=>setMessage(e.target.value)} style={
                         {
                             border:"1px solid rgba(0,0,0,0.3)",
                             width:"100%",
