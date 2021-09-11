@@ -17,7 +17,7 @@ const AppealSection = () => {
         setLoading(true)
         axios({
             method:'get',
-            url:API_URL+"/application/unchecked?size="+size+"&page="+(active-1),
+            url:API_URL+"/document/sending?size="+size+"&page="+(active-1),
             headers: {
                 'Authorization': token
             }
@@ -29,13 +29,29 @@ const AppealSection = () => {
         })
 
     },[active,size]);
+
+    const refresh=()=>{
+        setLoading(true)
+        axios({
+            method:'get',
+            url:API_URL+"/document/sending?size="+size+"&page="+(active-1),
+            headers: {
+                'Authorization': token
+            }
+        }).then((r)=>{
+            console.log(r);
+            setTotal(r.data.totalPages);
+            setInpApps(r.data.object)
+            setLoading(false)
+        })
+    };
     return (
         <>
             {
                 loading?<Loading/>:<div className="appeal-section">
                     {
                         inpApps&&inpApps.map((item,i)=>
-                            <AppealItem key={i} item={item} />
+                            <AppealItem refresh={refresh} key={i} item={item} />
                         )
                     }
 

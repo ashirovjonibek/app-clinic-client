@@ -12,7 +12,7 @@ const SupervisorIncomingRequestSection = () => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application",
+            url: API_URL + "/document/boss/answers",
             method: 'GET'
         }).then(res => {
             // setAppeal(res.data.object.object);

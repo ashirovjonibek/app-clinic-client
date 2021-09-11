@@ -10,32 +10,85 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import {green, red} from "@material-ui/core/colors";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import DoneIcon from "@material-ui/icons/Done";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import {CircularProgress} from "@material-ui/core";
+import Swal from "sweetalert2";
 
-const ResponseRequestItem1 = ({t,id,item}) => {
+const ResponseRequestItem1 = ({t,id,item,refresh}) => {
     const [isAn,setIsAn]=useState(false);
     const token=localStorage.getItem(STORAGE_NAME);
     const [message,setMessage]=useState("");
+    const [isLoading,setLoading]=useState(false);
+    const [file, setFile] = useState();
+    const [fileName, setFileName] = useState("");
+    const [done,setDone]=useState(false)
+    const [errorUpload,setErrorUpload]=useState("");
+    const [fileId,setFileId]=useState();
+
 
     const submit=()=>{
-        console.log(id)
-        axios({
-            method:'post',
-            url:API_URL+'/answer/create',
-            headers:{
-              Authorization:token
-            },
-            params:{
-                id:id
-            },
-            data:{
-                description: item.description,
-                status: item.status,
-                attachmentId: item.attachmentId,
-                deniedMessage: message
+        console.log(id);
+        Swal.fire({
+            title: 'Tasdiqlash!!!',
+            text: "Ushubu ariza uchun o'zgarishlarni tasdiqlash?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ha!',
+            cancelButtonText:"Yo'q"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios({
+                    method:'post',
+                    url:API_URL+'/answer/create?applicationId='+id,
+                    headers:{
+                        Authorization:token
+                    },
+                    data:{
+                        attachmentId: fileId,
+                        deniedMessage: message
+                    }
+                }).then((r)=>{
+                    console.log(r);
+                    Swal.fire(
+                        'Saqlandi!',
+                        '',
+                        'success'
+                    ).then((res)=>{
+                        refresh()
+                    });
+                })
             }
-        }).then((r)=>{
-            console.log(r)
         })
+    };
+
+    const handleUpload = (e) => {
+        setLoading(true)
+        if (e.target.files[0]) {
+            const formData = new FormData();
+            formData.append("file", e.target.files[0]);
+            axios({
+                url: API_URL + '/attach/upload',
+                method: "POST",
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formData
+            }).then(res => {
+                    console.log(res);
+                    setFileName(e.target.files[0].name);
+                    setFile([res.data.object]);
+                    setFileId([res.data.object]);
+                    setLoading(false);
+                    setDone(true)
+                }
+            )
+        }else {
+            setErrorUpload("File yuklanmadi!!!");
+            setLoading(false)
+        }
+
     }
     return (
         <div className="response-request">
@@ -76,8 +129,24 @@ const ResponseRequestItem1 = ({t,id,item}) => {
                 </textarea>
                 </div>:""
             }
-            <div className="button">
-                <button onClick={submit} className="btn-default">{t("Submit for review")}</button>
+            <div style={{marginTop:"17px"}}>
+                <div style={{marginBottom: '20px',display:"inline-block"}}>
+                    <div className="lb">
+                        <label className="label" htmlFor="">Прикрепить файл</label>
+                    </div>
+                    <div className="file" style={{cursor: "pointer",marginTop:"5px"}}>
+                        {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
+                            <GetAppIcon style={{cursor: "pointer"}}/> : ""}
+                        {isLoading ? <CircularProgress style={{width: "15px", height: "15px", marginTop: "3px"}}
+                                                       color="primary"/> : ""}
+                        <input title={done ? fileName : "Fayl yuklanmagan"} onChange={handleUpload} type="file"/>
+                    </div>
+                    <div className="file1">{fileName}</div>
+                    <p className="text-danger">{errorUpload}</p>
+                </div>
+                <div className="button" style={{marginTop: '20px',display:"inline-block", float:"right"}}>
+                    <button  onClick={submit} className="btn-default">{t("Attach the answer")}</button>
+                </div>
             </div>
         </div>
     );

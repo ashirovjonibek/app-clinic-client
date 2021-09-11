@@ -158,20 +158,20 @@ const ApplicantAppeal = (props) => {
                 <div className="container">
                     <Title text="Обращение" />
 
-                    <div className="requests">
-                        <div>
-                            <button className="video-request">
-                                <img src={iconVideo} alt="" />
-                                Сделать видео обращение
-                            </button>
-                        </div>
-                        <div>
-                            <button className="audio-request">
-                                <img src={iconAudio} alt="" />
-                                Сделать аудио обращение
-                            </button>
-                        </div>
-                    </div>
+                    {/*<div className="requests">*/}
+                    {/*    <div>*/}
+                    {/*        <button className="video-request">*/}
+                    {/*            <img src={iconVideo} alt="" />*/}
+                    {/*            Сделать видео обращение*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
+                    {/*    <div>*/}
+                    {/*        <button className="audio-request">*/}
+                    {/*            <img src={iconAudio} alt="" />*/}
+                    {/*            Сделать аудио обращение*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <form onSubmit={handleSend} className="appeal">
                         <ul>
                             <li className="first-form">

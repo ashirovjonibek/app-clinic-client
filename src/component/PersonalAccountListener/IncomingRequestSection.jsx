@@ -7,6 +7,8 @@ import UserName from "../UserName";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {withTranslation} from "react-i18next";
 import {CustomPagination} from "../catalog/Pagenation";
+import Swal from "sweetalert2";
+import ResponseRequestItem1 from "./ResponseRequestItem1";
 
 const IncomingRequestSection = (props) => {
 
@@ -87,30 +89,67 @@ const IncomingRequestSection = (props) => {
     }
 
     const acceptApp = (id) => {
-        axios({
-            method:'put',
-            url:API_URL+'/application/accepted?id='+id,
-            headers:{
-                'Authorization':token
+        Swal.fire({
+            title: 'Tasdiqlash!!!',
+            text: "Ushubu ariza qabul qilinsinmi?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ha!',
+            cancelButtonText:"Yo'q"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios({
+                    method:'put',
+                    url:API_URL+'/application/accepted?id='+id,
+                    headers:{
+                        'Authorization':token
+                    }
+                }).then((r)=>{
+                    console.log(r);
+                    Swal.fire(
+                        'Tasdiqlandi!',
+                        'Ariza qabul qilindi!!!',
+                        'success'
+                    ).then((res)=>{
+                        newApplication()
+                    });
+                })
+
             }
-        }).then((r)=>{
-            console.log(r);
-            newApplication();
-            setR(r+1);
-        })
+        });
+
     };
 
     const ignoredApp=(id)=>{
-        axios({
-            method:'put',
-            url:API_URL+'/application/ignored?id='+id,
-            headers:{
-                'Authorization':token
-            }
-        }).then((r)=>{
-            console.log(r);
+        Swal.fire({
+            title: 'Tasdiqlash!!!',
+            text: "Ushubu ariza Moderatorga yuborilishiga aminmisiz?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ha!',
+            cancelButtonText:"Yo'q"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios({
+                    method:'put',
+                    url:API_URL+'/application/ignored?id='+id,
+                    headers:{
+                        'Authorization':token
+                    }
+                }).then((r)=>{
+                    console.log(r);
+                    Swal.fire(
+                        'Yuborildi!',
+                        'Ariza Moderatorga yuborildi',
+                        'success'
+                    ).then((res)=>{
+                        newApplication()
+                    });
+                })
 
-            setR(r+1);
+            }
         })
     };
 
@@ -147,7 +186,8 @@ const IncomingRequestSection = (props) => {
             link.click()
         })
 
-    }
+    };
+
 
     const section = (n) => {
       switch (n){
@@ -277,20 +317,14 @@ const IncomingRequestSection = (props) => {
                                   </li>
                               </ul>
                           </div>
-                          {/*<div className="request-bottom">*/}
-                          {/*    <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>*/}
-                          {/*    <button className="blue-btn">Написать сообщение</button>*/}
-                          {/*    <button type="submit" className="btn-default" style={{*/}
-                          {/*        marginTop:"15px"*/}
-                          {/*    }}*/}
-                          {/*            // onClick={() => testPage(item)}*/}
-                          {/*    >Ответить</button>*/}
-                          {/*</div>*/}
+                          <div className="response-request">
+                              <ResponseRequestItem1 refresh={acceptedApp} id={item?.id} item={item} />
+                          </div>
                       </div>
                   )}
                   <div style={{clear: "both"}}></div>
 
-                  <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+                  {inpApps?.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
                       <CustomPagination
                           pageLength={total1}
@@ -299,7 +333,9 @@ const IncomingRequestSection = (props) => {
                           size={size1}
                           setSize={setSize1}
                       />
-                  </div>
+                  </div>:<div style={{textAlign:"center",paddingTop:"35px"}}>
+                      Qabul qlingan arizalar mavjud emas!!!
+                  </div>}
               </>
           )
           default:return (
@@ -359,7 +395,7 @@ const IncomingRequestSection = (props) => {
                   )}
                   <div style={{clear: "both"}}></div>
 
-                  <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+                  {doneApps?.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
                       <CustomPagination
                           pageLength={total}
@@ -368,7 +404,9 @@ const IncomingRequestSection = (props) => {
                           size={size}
                           setSize={setSize}
                       />
-                  </div>
+                  </div>:<div style={{textAlign:"center",paddingTop:"35px"}}>
+                      Ko'rib chiqilgan arizalar mavjud emas!!!
+                  </div>}
               </>
           )
       }

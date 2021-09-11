@@ -49,7 +49,7 @@ const StatisticStatus = () => {
                     <div className="statistic-item-name">Ферганская</div>
                     <div className="statistic-item-progres-section">
                         <div className="item-progres">
-                            <div className="progres-new" style={{width: '390px'}}/>
+                            <div className="progres-new" style={{width: '3px'}}/>
                         </div>
                         <div className="item-progres">
                             <div className="progres-prosses" style={{width: '270px'}}/>

@@ -107,44 +107,7 @@ const ModeratorAppealItem = (props) => {
                         </div>
                     </div>
                     <RequestTheme check={props?.item?.application?.top} label={props?.item?.application?.title} description={props?.item?.application?.description}/>
-                    {
-                        !edit?<div className="container" onClick={()=>setEdit(true)} style={{display:"block" ,textAlign:"right",textDecoration:"underline",cursor:"pointer"}}><EditIcon titleAccess="Tahrirlash"/></div>:
-                            <div className="container">
-                                <div style={{display:"inline-block"}}>
-                                    <FormControl error={e} className={classes.formControl}>
-                                        <InputLabel id="demo-simple-select-label1">Listner</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-label1"
-                                            id="demo-simple-select1"
-                                            onChange={(e)=>{
-                                                setId(e.target.value)
-                                            }}
-                                        >
-                                            {
-                                                items&&items.map((item,i)=>
-                                                    <MenuItem key={i} value={item?.id}>{item?.fullName}</MenuItem>
-                                                )
-                                            }
 
-                                        </Select>
-                                        {
-                                            e?<FormHelperText error>Iltiomos listner tanlang</FormHelperText>:""
-                                        }
-                                    </FormControl>
-                                </div>
-                                <div style={{display:"inline-block",float:"right"}}>
-                                    <FormControl style={{paddingTop:"10px"}} className={classes.formControl}>
-                                        <Button  variant="contained" onClick={()=>setEdit(false)}>Bakor qilish</Button>
-                                    </FormControl>
-                                    <FormControl style={{paddingTop:"10px"}} className={classes.formControl}>
-                                        <Button onClick={uploadAppeal} variant="contained" color="primary">
-                                            Saqlash
-                                        </Button>
-                                    </FormControl>
-                                </div>
-                                <div style={{clear:"both"}}></div>
-                            </div>
-                    }
                 </div>
             </div>
         </div>

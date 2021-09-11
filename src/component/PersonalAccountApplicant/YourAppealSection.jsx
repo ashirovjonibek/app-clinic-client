@@ -47,19 +47,18 @@ const YourAppealSection = (props) => {
             axios.get(API_URL + "/attach/" + id,{
                 headers:{
                     'Authorization':token,
-                    'Content-Type':'application/pdf'
             }
             }).then((r)=>{
                 console.log(r)
-                const type = r.headers['content-type']
-                const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' })
-                const link = document.createElement('a')
-                link.href = window.URL.createObjectURL(blob)
-                link.download = ''+name+' arizasi.pdf'
+                const type = r.headers['content-type'].substring(r.headers['content-type'].indexOf("/_"));
+                const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = ''+name+' arizasi.'+type;
                 link.click()
             })
         }
-    }
+    };
 
     return (
         <div className="your-appeal-item-section">

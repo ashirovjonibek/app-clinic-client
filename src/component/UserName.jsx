@@ -16,9 +16,9 @@ const UserName = (props) => {
             <div className="request-content-title-name">
                 <div className="applicant-image" style={
                     {
-                        width:props?.width,
-                        height:props?.height,
-                        backgroundColor:stringToHslColor(props.text,50,50),
+                        width:props?.width?props?.width:"45px",
+                        height:props?.height?props?.height:"45px",
+                        backgroundColor:stringToHslColor(props.text?props.text:"?",50,50),
                         textAlign:"center",
                         color:"white",
                         fontWeight:600,
