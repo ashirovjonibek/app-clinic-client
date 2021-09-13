@@ -77,6 +77,9 @@ export const CustomPagination=(props)=> {
                 }
             setPages(a);
             window.scrollTo(0, 0);
+            if (props?.active>1&&props?.active>props?.pageLength){
+                props.setActive(props?.active-1)
+            }
         }
     },[props])
     return (

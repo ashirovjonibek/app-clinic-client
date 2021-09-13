@@ -35,7 +35,7 @@ const AdminListListener = ({t, searchTerm}) => {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    };
 
     const deleteMethod = (id) => {
         RequestFunctions.deleteUser(id)

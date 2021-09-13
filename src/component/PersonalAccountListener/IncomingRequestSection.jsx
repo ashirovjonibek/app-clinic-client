@@ -171,6 +171,18 @@ const IncomingRequestSection = (props) => {
         acceptedApp()
     },[size,active]);
 
+    const checkedApp=()=>{
+      axios({
+          method:'get',
+          url:API_URL+"/document/listener/checked",
+          headers:{
+              Authorization:token
+          }
+      }).then((r)=>{
+          console.log(r)
+      })
+    };
+
     const download = (id,name) => {
         axios.get(API_URL+"/attach/"+id,{
             headers:{
@@ -453,7 +465,8 @@ const IncomingRequestSection = (props) => {
                     </p>
                     <p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">
                         <Link onClick={()=>{
-                            setNS(3)
+                            setNS(3);
+                            checkedApp();
                         }}>{props.t("Ko'rib chiqilganlar")}</Link>
                     </p>
                     <p className="request-items">

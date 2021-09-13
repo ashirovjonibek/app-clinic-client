@@ -31,7 +31,7 @@ const UserItem = (props) => {
                 }>{props?.p?.fullName[0]?.toUpperCase()}</div>
                 <div className="user-inform">
                     <div className="user-name">{props?.p?.fullName}</div>
-                    <div className="user-porofeesion">Эксперт по гражданскому праву</div>
+                    <div className="user-porofeesion">{props?.p?.roles[0]?.description}</div>
                 </div>
             </div>
 

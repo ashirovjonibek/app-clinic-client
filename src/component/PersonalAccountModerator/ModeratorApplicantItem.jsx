@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import UserName from "../UserName";
 
 const ModeratorApplicantItem = (props) => {
+    const [info,setInfo]=useState({});
+
+    useEffect(()=>{
+        props?.info?.map((item)=>{
+            if (props?.item?.id===item?.user?.id){
+                setInfo(item);
+            }
+        })
+
+    },[props]);
+
+    console.log(info)
     return (
         <div className="moderator-applicant-item">
             <div className="content">
@@ -9,7 +21,9 @@ const ModeratorApplicantItem = (props) => {
                     <UserName text={props.item.fullName} />
                     <div className="supervisor-applicants">
                         <h5 >Приоритет №1</h5>
-                        <p>Количество обращений:<strong >2</strong></p>
+                        <p>Количество обращений:<strong >{
+                            info?.count>0?info?.count:0
+                        }</strong></p>
                     </div>
                 </div>
             </div>

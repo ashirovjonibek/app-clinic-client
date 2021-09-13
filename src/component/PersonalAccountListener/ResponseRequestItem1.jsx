@@ -22,7 +22,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
     const [isLoading,setLoading]=useState(false);
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
-    const [done,setDone]=useState(false)
+    const [done,setDone]=useState(false);
     const [errorUpload,setErrorUpload]=useState("");
     const [fileId,setFileId]=useState();
 
@@ -46,7 +46,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
                         Authorization:token
                     },
                     data:{
-                        attachmentId: fileId,
+                        attachmentId: fileId?fileId:[],
                         deniedMessage: message
                     }
                 }).then((r)=>{

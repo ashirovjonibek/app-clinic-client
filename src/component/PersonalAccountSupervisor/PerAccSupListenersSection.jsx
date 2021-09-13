@@ -25,6 +25,25 @@ const PerAccSupListenersSection = () => {
                 console.log(error);
             });
     },[]);
+
+    const refresh=()=>{
+        const config = {
+            method: 'get',
+            url: 'http://67.205.182.147:9090/api/auth/listeners',
+            headers: {
+                'Authorization': token
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                setListeners(response.data)
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     return (
         <div className="peraccsup-listeners-section">
             <div className="listnears-section-top">
@@ -37,8 +56,8 @@ const PerAccSupListenersSection = () => {
                 <SortDate />
             </div>
             {
-                listeners&&listeners.map((item)=>
-                    <PerAccSupListenersItem />
+                listeners&&listeners.map((item,i)=>
+                    <PerAccSupListenersItem key={i} refresh={refresh} item={item} />
                 )
             }
         </div>

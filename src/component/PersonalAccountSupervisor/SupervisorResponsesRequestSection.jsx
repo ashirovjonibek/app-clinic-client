@@ -28,15 +28,33 @@ const SupervisorResponsesSection = () => {
            }
         })
     }, [active,size]);
+
+    const refresh=()=>{
+        axios({
+            headers: {
+                'Authorization': token
+            },
+            url: API_URL + "/document/boss/answers?size="+size+"&page="+(active-1),
+            method: 'GET'
+        }).then(res => {
+            console.log(res);
+            if (res.status===200){
+                setAnswers(res?.data?.object);
+                setTotal(res?.data?.totalPages)
+            }else {
+
+            }
+        })
+    };
     return (
         <div className="supervisor-response-section">
             {
                 answers&&answers.map((item,i)=>
-                    <SupervisorResponsesRequestItem key={i} item={item} />)
+                    <SupervisorResponsesRequestItem refresh={refresh} key={i} item={item} />)
             }
 
             <div style={{clear: "both"}}></div>
-            <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+            {answers.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
                 <CustomPagination
                     pageLength={total}
                     setActive={setActive}
@@ -44,7 +62,7 @@ const SupervisorResponsesSection = () => {
                     size={size}
                     setSize={setSize}
                 />
-            </div>
+            </div>:<div style={{textAlign:"center",marginTop:"25px"}}>Arizalar mavjud emas!!!</div>}
         </div>
     );
 }

@@ -66,6 +66,39 @@ const AppealItem = (props) => {
             }
         })
     };
+
+    const sendApplicant=(id)=>{
+        Swal.fire({
+            title: 'Tasdiqlash!!!',
+            text: "Ushbu ariza arizachiga yuborilsinmi?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ha!',
+            cancelButtonText:"Yo'q"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios({
+                    method:'put',
+                    url:API_URL+'/answer/send/applicant?answerId='+id,
+                    headers:{
+                        Authorization:token
+                    }
+                }).then((r)=>{
+                    console.log(r);
+                    Swal.fire(
+                        'Yuborildi!',
+                        '',
+                        'success'
+                    ).then((res)=>{
+                        props.refresh()
+                    });
+                })
+            }
+        })
+    };
+
+
     return (
         <div className="appeal-item">
             <div className="content">
@@ -114,8 +147,12 @@ const AppealItem = (props) => {
                     }
                     <div style={{textAlign:"right"}}>
                         <ButtonDefault onClick={()=>{
-                            sendBoss(props?.item?.answer?.id)
-                        }} text="Ko'rib chiqish uchun yuborish"/>
+                            if (props?.item.status==="INPROCESS"){
+                                sendBoss(props?.item?.answer?.id)
+                            }else {
+                                sendApplicant(props?.item?.answer?.id);
+                            }
+                        }} text={props?.item.status==="INPROCESS"?"Ko'rib chiqish uchun yuborish":"Arizachiga yuborish"}/>
                     </div>
                 </div>
             </div>

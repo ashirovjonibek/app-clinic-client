@@ -48,16 +48,24 @@ const ModeratorPerformerSection = () => {
                     <ModeratorPerformerItem refresh={refresh} key={i} item={item} />)
             }
 
-            <div style={{clear: "both"}}></div>
-            <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
-                <CustomPagination
-                    pageLength={total}
-                    setActive={setActive}
-                    active={active}
-                    size={size}
-                    setSize={setSize}
-                />
+            <div style={{clear: "both"}}>
+
             </div>
+            {
+                activeItems.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+                    <CustomPagination
+                        pageLength={total}
+                        setActive={setActive}
+                        active={active}
+                        size={size}
+                        setSize={setSize}
+                    />
+                </div>:
+                    <div style={{
+                        marginTop:"25px",textAlign:"center"
+                    }
+                    }>Arizalar mavjud emas!!!</div>
+            }
         </div>
     );
 }

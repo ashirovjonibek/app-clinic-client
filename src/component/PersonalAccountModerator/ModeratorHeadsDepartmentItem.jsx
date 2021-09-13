@@ -1,6 +1,7 @@
 import React from "react";
 import user1Img from "../../assets/img/user1.jpg";
 import {useTranslation} from "react-i18next";
+import SimpleModal from "../Admin/SimpleModal";
 
 const ModeratorHeadsDepartmentItem = (props) => {
     const {i18n}=useTranslation();
@@ -40,11 +41,14 @@ const ModeratorHeadsDepartmentItem = (props) => {
                     <div className="supervisor-applicants">
                         <div className="departmens">
                             <h6>Кафедра:<strong>{props?.item?.section?.title[i18n.language]}</strong></h6>
-                            <a href="/#">O'zgartirish</a>
+                            <SimpleModal
+                                item={props.item}
+                                getListeners={props.refresh}/>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }
