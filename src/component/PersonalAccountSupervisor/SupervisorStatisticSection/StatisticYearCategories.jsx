@@ -1,13 +1,16 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
+import StatisticsByAge from "./Statistics/StatisticsByAge";
 
-const StatisticYearCategories = () => {
+const StatisticYearCategories = ({t}) => {
     return (
         <div className="statistic-year-categories">
             <div className="statistic-section-item-title">
-                <h5>По возрастным категориям заявителей</h5>
+                <h5>{t("By age categories of applicants")}</h5>
             </div>
             <div className="statistic-section-item-body">
-                <div className="statistic-item-line">
+                <StatisticsByAge/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -211,7 +214,7 @@ const StatisticYearCategories = () => {
                         <div className="categories-item">
                             <input type="checkbox" className="checkbox" />
                             <div className="categories-color" style={{backgroundColor: '#B393E0'}}/>
-                            <p>Возрастной период заявителей <strong>16-60</strong></p>
+                            <p>Возрастной период заявителей <strong>46-60</strong></p>
                         </div>
                         <div className="categories-item">
                             <input type="checkbox" className="checkbox" />
@@ -219,10 +222,10 @@ const StatisticYearCategories = () => {
                             <p>Возрастной период заявителей <strong>61+</strong></p>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     );
 }
 
-export default StatisticYearCategories;
+export default withTranslation() (StatisticYearCategories);

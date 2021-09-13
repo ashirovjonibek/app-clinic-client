@@ -1,13 +1,18 @@
 import React from "react";
+import TestStatistics from "../../../requests/TestStatistics";
+import {withTranslation} from "react-i18next";
+import RegionStatistics from "./Statistics/StatisticsByRegion";
 
-const StatisticRegions = () => {
+const StatisticRegions = ({t}) => {
     return (
         <div className="statistic-regions">
             <div className="statistic-section-item-title">
-                <h5>В разрезе регионов (район, город, область)</h5>
+                <h5>{t("In the context of regions (district, city, region)")}</h5>
             </div>
+
             <div className="statistic-section-item-body">
-                <div className="statistic-item-line">
+            <RegionStatistics/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -157,11 +162,11 @@ const StatisticRegions = () => {
                             <span className="progres-value">168</span>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
 
         </div>
     );
 }
 
-export default StatisticRegions;
+export default withTranslation() (StatisticRegions);

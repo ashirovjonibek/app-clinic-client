@@ -1,13 +1,16 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
+import StatisticsByOverdue from "./Statistics/StatisticsByOverdue";
 
-const StatisticOverdue = () => {
+const StatisticOverdue = ({t}) => {
     return (
         <div className="statistic-overdue">
             <div className="statistic-section-item-title">
-                <h5>В разрезе регионов (район, город, область)</h5>
+                <h5>{t("Overdue responses")}</h5>
             </div>
             <div className="statistic-section-item-body">
-                <div className="statistic-item-line">
+                <StatisticsByOverdue/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -161,11 +164,11 @@ const StatisticOverdue = () => {
                             <span className="progres-value">168</span>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
 
         </div>
     );
 }
 
-export default StatisticOverdue;
+export default withTranslation()(StatisticOverdue);

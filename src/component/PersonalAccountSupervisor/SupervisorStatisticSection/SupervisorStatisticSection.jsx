@@ -9,8 +9,9 @@ import StatisticStatus from "./StatisticStatus";
 import StatisticCategories from "./StatisticCategories";
 import StatisticLgots from "./StatisticLgots";
 import StatisticPeriods from "./StatisticPeriods";
+import {withTranslation} from "react-i18next";
 
-const SupervisorStatisticSection = () => {
+const SupervisorStatisticSection = ({t}) => {
 
     const [statisticItem, setStatisticItem] = useState(1);
 
@@ -47,45 +48,45 @@ const SupervisorStatisticSection = () => {
                 <div className="nav-top-buttons">
                     <ul>
                         <li>
-                            <Link onClick={() => getStatistic(1)} >В разрезе<br /> регионов </Link>
+                            <Link onClick={() => getStatistic(1)} >{t("In the context of regions")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(2)}>По возрастным<br /> категориям </Link>
+                            <Link onClick={() => getStatistic(2)}>{t("By age categories")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(3)}>По гендерном<br /> признаку </Link>
+                            <Link onClick={() => getStatistic(3)}>{t("By gender")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(4)}>Просроченные<br /> ответы </Link>
+                            <Link onClick={() => getStatistic(4)}>{t("Overdue responses")}</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="nav-top-buttons">
                     <ul>
                         <li>
-                            <Link onClick={() => getStatistic(5)}>По статусу </Link>
+                            <Link onClick={() => getStatistic(5)}>{t("By status")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(6)}>По категориям </Link>
+                            <Link onClick={() => getStatistic(6)}>{t("By category")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(7)}>По видам льгот</Link>
+                            <Link onClick={() => getStatistic(7)}>{t("By type of benefits")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(8)}>За периоды </Link>
+                            <Link onClick={() => getStatistic(8)}>{t("For periods")} </Link>
                         </li>
                     </ul>
                 </div>
             </div>
             <select className="responsive-nav-top" >
-                <option className="responsive-nav-top-show">В разрезе регионов</option>
-                <option className="responsive-nav-top-hidden">По возрастным категориям</option>
-                <option className="responsive-nav-top-hidden">По гендерном признаку</option>
-                <option className="responsive-nav-top-hidden">Просроченные ответы</option>
-                <option className="responsive-nav-top-hidden">По статусу</option>
-                <option className="responsive-nav-top-hidden">По категориям</option>
-                <option className="responsive-nav-top-hidden">По видам льгот</option>
-                <option className="responsive-nav-top-hidden">За периоды</option>
+                <option className="responsive-nav-top-show">{t("In the context of regions")}</option>
+                <option className="responsive-nav-top-hidden">{t("By age categories")}</option>
+                <option className="responsive-nav-top-hidden">{t("By gender")}</option>
+                <option className="responsive-nav-top-hidden">{t("Overdue responses")}</option>
+                <option className="responsive-nav-top-hidden">{t("By status")}</option>
+                <option className="responsive-nav-top-hidden">{t("By type of benefits")}</option>
+                <option className="responsive-nav-top-hidden">{t("By type of benefits")}</option>
+                <option className="responsive-nav-top-hidden">{t("For periods")}</option>
             </select>
             <div className="statistic-section-item">
                 {
@@ -99,4 +100,4 @@ const SupervisorStatisticSection = () => {
     );
 }
 
-export default SupervisorStatisticSection;
+export default withTranslation() (SupervisorStatisticSection);

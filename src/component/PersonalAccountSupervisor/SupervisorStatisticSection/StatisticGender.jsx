@@ -1,13 +1,16 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
+import StatisticsByGender from "./Statistics/StatisticsByGender";
 
-const StatisticGender = () => {
+const StatisticGender = ({t}) => {
     return (
         <div className="statistic-gender">
             <div className="statistic-section-item-title">
-                <h5>По гендерном признаку заявителей</h5>
+                <h5>{t("By gender of applicants")}</h5>
             </div>
             <div className="statistic-section-item-body">
-                <div className="statistic-item-line">
+                <StatisticsByGender/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -227,10 +230,10 @@ const StatisticGender = () => {
                             <p>Женщины</p>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     );
 }
 
-export default StatisticGender;
+export default withTranslation() (StatisticGender);

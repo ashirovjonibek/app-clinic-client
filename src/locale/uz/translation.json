@@ -94,6 +94,22 @@
   "Subscribe": "Obuna bo'lish",
   "Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.": "O'zbekiston Respublikasi Bosh prokuraturasi akademiyasi. Barcha huquqlar himoyalangan.",
   "This website is made possible by the assistance of the American people through the United States Agency for International Development (USAID). Tetra Tech DPK is responsible for the content of this publication, which does not necessarily reflect the position of USAID or the US Government.": "Bu veb -sayt Amerika Xalqaro Taraqqiyot Agentligi (USAID) orqali Amerika xalqining yordami bilan yaratilgan. Tetra Tech DPK ushbu nashrning mazmuni uchun javobgardir, bu USAID yoki AQSh hukumatining pozitsiyasini aks ettirmaydi.",
-  "Attach the answer": "Javob biriktirish"
+  "Attach the answer": "Javob biriktirish",
+
+  "In the context of regions": "Viloyatlar kontekstida",
+  "By age categories": "Yosh bo'yicha",
+  "By gender": "Jins bo'yicha",
+  "Overdue responses": "Kechiktirilgan javoblar",
+  "By status": "Holati bo'yicha",
+  "By category": "Kategoriya bo'yicha",
+  "By type of benefits": "Imtiyozlar turi bo'yicha",
+  "For periods": "Davrlar uchun",
+
+  "In the context of regions (district, city, region)": "Viloyatlar kontekstida (tuman, shahar, viloyat)",
+  "By age categories of applicants": "Ariza beruvchilarning yosh toifalari bo'yicha",
+  "By gender of applicants": "Ariza beruvchilarning jinsi bo'yicha",
+  "List of appeals": "Murojaatlarning ro'yxati",
+  "By types of benefits available to applicants": "Ariza beruvchilar uchun mavjud imtiyozlar turlari bo'yicha",
+  "for periods (day, week, month, year)": "davrlar uchun (kun, hafta, oy, yil)"
 
 }

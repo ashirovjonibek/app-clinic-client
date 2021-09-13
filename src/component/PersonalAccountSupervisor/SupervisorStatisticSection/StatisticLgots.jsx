@@ -1,10 +1,11 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
 
-const StatisticLgots = () => {
+const StatisticLgots = ({t}) => {
     return (
         <div className="statistic-lgots">
             <div className="statistic-section-item-title">
-                <h5>По возрастным категориям заявителей</h5>
+                <h5>{t("By types of benefits available to applicants")}</h5>
             </div>
             <div className="statistic-section-item-body">
                 <div className="statistic-item-line">
@@ -243,5 +244,4 @@ const StatisticLgots = () => {
     );
 }
 
-export default StatisticLgots;
-
+export default withTranslation() (StatisticLgots);

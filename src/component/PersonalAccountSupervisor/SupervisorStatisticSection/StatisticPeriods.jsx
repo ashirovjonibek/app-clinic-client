@@ -1,10 +1,11 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
 
-const StatisticPeriods = () => {
+const StatisticPeriods = ({t}) => {
     return (
         <div className="statistic-periods">
             <div className="statistic-section-item-title">
-                <h5>за периоды (день, неделя, месяц. год)</h5>
+                <h5>{t("for periods (day, week, month, year)")}</h5>
             </div>
             <div className="statistic-section-item-body">
                 <table className="periods-table">
@@ -112,5 +113,5 @@ const StatisticPeriods = () => {
     );
 }
 
-export default StatisticPeriods;
+export default withTranslation() (StatisticPeriods);
 

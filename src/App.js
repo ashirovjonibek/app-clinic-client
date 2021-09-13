@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {LOADING, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "./redux/me/actionType";
 import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
+import TestStatistics from "./requests/TestStatistics";
 
 function App() {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));

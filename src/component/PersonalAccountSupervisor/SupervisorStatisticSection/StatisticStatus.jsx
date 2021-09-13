@@ -1,13 +1,16 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
+import StatisticsByStatus from "./Statistics/StatisticsByStatus";
 
-const StatisticStatus = () => {
+const StatisticStatus = ({t}) => {
     return (
         <div className="statistic-status">
             <div className="statistic-section-item-title">
-                <h5>По гендерном признаку заявителей</h5>
+                <h5>{t("List of appeals")}</h5>
             </div>
             <div className="statistic-section-item-body">
-                <div className="statistic-item-line">
+                <StatisticsByStatus/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -245,10 +248,10 @@ const StatisticStatus = () => {
                             <p>Закрыто</p>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     );
 }
 
-export default StatisticStatus;
+export default withTranslation() (StatisticStatus);

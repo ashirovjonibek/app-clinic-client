@@ -194,11 +194,10 @@ const RegistrationApplicant = (props) => {
                                                     required
                                                 >
                                                     <option value="lorem">Выберите ваш Область</option>
-                                                    {regions && regions.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    {regions && regions.map((item) =>
+                                                        <option key={item.id} value={item.id}>{item.name.uz}</option>
                                                     )}
                                                 </select>
-
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="districtId">Город (область) </label>
