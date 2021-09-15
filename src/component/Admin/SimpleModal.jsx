@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
 export default function SimpleModal({item, getListeners}) {
     const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export default function SimpleModal({item, getListeners}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/roles',
+            url: API_URL+'/auth/roles',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
