@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import iconStar from "../assets/icon/icon-star.svg";
 
-const Stars = () => {
+const Stars = (props) => {
+    const [stars,setStars]=useState([]);
+    useEffect(()=>{
+        let a=[];
+        for (let i = 0; i < props.stars; i++) {
+            a.push(iconStar)
+        }
+        setStars(a)
+    },[props]);
     return (
         <div className="stars">
-            <img height="20px" width="20px" src={iconStar} alt="" />
-            <img height="20px" width="20px" src={iconStar} alt="" />
-            <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
-            <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
-            <img height="20px" width="20px" src={iconStar} alt="" style={{ opacity: '0.6' }} />
+            {
+                stars&&stars.map((item,i)=>
+                    <img key={i} height="20px" width="20px" src={item} alt="" />
+                )
+            }
         </div>
     );
 }

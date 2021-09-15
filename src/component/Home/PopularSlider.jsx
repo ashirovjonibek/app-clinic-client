@@ -49,8 +49,8 @@ function PopularSlider({t}) {
             >
                 {
                     top && top?.map((item, i) => {
-                            return <SwiperSlide>
-                                <div key={i} className="popular-text">
+                            return <SwiperSlide key={i} >
+                                <div className="popular-text">
                                     <UserName text={item?.applicant.fullName}/>
                                     <div className="document-text">
                                         <div className="document-text-title">

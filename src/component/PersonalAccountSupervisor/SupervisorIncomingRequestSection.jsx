@@ -21,7 +21,7 @@ const SupervisorIncomingRequestSection = () => {
             console.log(me)
             axios({
                 method: 'get',
-                url: 'http://67.205.182.147:9090/api/auth/listeners',   //listenerBySection?sectionId=',
+                url: API_URL +'/auth/listeners',   //listenerBySection?sectionId=',
                 headers: {
                     'Authorization': localStorage.getItem(STORAGE_NAME)
                 }
@@ -35,7 +35,7 @@ const SupervisorIncomingRequestSection = () => {
 
             axios({
                 method: 'get',
-                url: 'http://67.205.182.147:9090/api/application/info/listener',
+                url: API_URL +'/application/info/listener',
                 headers: {
                     'Authorization': localStorage.getItem(STORAGE_NAME),
                     'Content-Type': 'application/json'

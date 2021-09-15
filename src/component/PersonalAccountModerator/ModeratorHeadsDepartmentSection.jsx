@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import SortDate from "../SortDate";
 import ModeratorHeadsDepartmentItem from "./ModeratorHeadsDepartmentItem";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {toast} from "react-toastify";
 
 const ModeratorHeadsDepartmentSection = () => {
     const [items,setItems]=useState([]);
@@ -10,7 +11,7 @@ const ModeratorHeadsDepartmentSection = () => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/bosses',
+            url: API_URL +'/auth/bosses',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -19,18 +20,20 @@ const ModeratorHeadsDepartmentSection = () => {
         axios(config)
             .then(function (response) {
                 setItems(response.data);
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch(function (error) {
-                console.log(error);
+                // console.log(error);
+                toast.error("Xatolik yuz berdi!!!")
             });
+
     },[]);
 
     const getListeners = () => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/bosses',
+            url: API_URL +'/auth/bosses',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -40,7 +43,8 @@ const ModeratorHeadsDepartmentSection = () => {
                 setItems(response.data);
             })
             .catch(function (error) {
-                console.log(error);
+                // console.log(error);
+                toast.error("Xatolik yuz berdi")
             });
     };
 
@@ -52,8 +56,8 @@ const ModeratorHeadsDepartmentSection = () => {
                 </div>
             </div>
             {
-                items&&items.map((item)=>
-                    <ModeratorHeadsDepartmentItem refresh={getListeners} item={item}/>
+                items&&items.map((item,i)=>
+                    <ModeratorHeadsDepartmentItem key={i} refresh={getListeners} item={item}/>
                 )
             }
         </div>

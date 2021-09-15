@@ -121,34 +121,34 @@ const PersonalAccountModerator = () => {
                                         </div>
                                         <ul>
                                             <li>
-                                                <Link onClick={() => getPage(1)}>Начальники кафедр</Link>
+                                                <Link to="#" onClick={() => getPage(1)}>Начальники кафедр</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(2)}>Назначение исполнителя</Link>
+                                                <Link to="#" onClick={() => getPage(2)}>Назначение исполнителя</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(3)}>Слушатели</Link>
+                                                <Link to="#" onClick={() => getPage(3)}>Слушатели</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(4)}>Заявители</Link>
+                                                <Link to="#" onClick={() => getPage(4)}>Заявители</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(5)}>Обращения</Link>
+                                                <Link to="#" onClick={() => getPage(5)}>Обращения</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(6)}>Отзывы обращений</Link>
+                                                <Link to="#" onClick={() => getPage(6)}>Отзывы обращений</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                                <Link to="#" onClick={() => getPage(7)}>Нормативно-правовая база</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(8)}>Рейтинг слушателей</Link>
+                                                <Link to="#" onClick={() => getPage(8)}>Рейтинг слушателей</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(9)}>Статистика и отчеты</Link>
+                                                <Link to="#" onClick={() => getPage(9)}>Статистика и отчеты</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(10)}>Архив</Link>
+                                                <Link to="#" onClick={() => getPage(10)}>Архив</Link>
                                             </li>
                                         </ul>
                                     </div>
@@ -171,34 +171,34 @@ const PersonalAccountModerator = () => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(1)}>Начальники кафедр</Link>
+                                            <Link to="#" onClick={() => getPage(1)}>Начальники кафедр</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 2 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(2)}>Назначение исполнителя</Link>
+                                            <Link to="#" onClick={() => getPage(2)}>Назначение исполнителя</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(3)}>Слушатели</Link>
+                                            <Link to="#" onClick={() => getPage(3)}>Слушатели</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(4)}>Заявители</Link>
+                                            <Link to="#" onClick={() => getPage(4)}>Заявители</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(5)}>Обращения</Link>
+                                            <Link to="#" onClick={() => getPage(5)}>Обращения</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(6)}>Отзывы обращений</Link>
+                                            <Link to="#" onClick={() => getPage(6)}>Отзывы обращений</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 7 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                            <Link to="#" onClick={() => getPage(7)}>Нормативно-правовая база</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 8 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(8)}>Рейтинг слушателей</Link>
+                                            <Link to="#" onClick={() => getPage(8)}>Рейтинг слушателей</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 9 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(9)}>Статистика и отчеты</Link>
+                                            <Link to="#" onClick={() => getPage(9)}>Статистика и отчеты</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(10)}>Архив</Link>
+                                            <Link to="#" onClick={() => getPage(10)}>Архив</Link>
                                         </li>
                                     </ul>
                                 </div>

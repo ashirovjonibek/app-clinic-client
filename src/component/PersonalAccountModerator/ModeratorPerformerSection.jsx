@@ -19,7 +19,7 @@ const ModeratorPerformerSection = () => {
                 Authorization:token
             }
         }).then((r)=>{
-            console.log(r);
+            // console.log(r);
             setActiveItems(r.data.object);
             setTotal(r.data.totalPages)
         })

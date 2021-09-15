@@ -42,7 +42,7 @@ const Login = (props) => {
                         url: API_URL + '/auth/me',
                         method: 'GET'
                     }).then(res => {
-                        console.log(res)
+                        // console.log(res)
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
                             delete axios.defaults.headers.Authorization;
@@ -55,10 +55,12 @@ const Login = (props) => {
                                 dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
                                 dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0].authority]})
                                 let a=allRoles[res?.data?.object?.roles[0].authority]
-                                console.log(a)
+                                // console.log(a)
                                 history.push(a[1])
+                                toast.success("Log in successfully!")
                             } else {
                                 history.push('/auth/login')
+                                toast.error("User Not found!")
                             }
                         }
                     }).catch((e)=>{
@@ -69,6 +71,7 @@ const Login = (props) => {
                         dispatch({type:ROLE,data:[]})
                         localStorage.removeItem(STORAGE_NAME);
                         delete axios.defaults.headers.Authorization;
+                        toast.error("User Not found !")
                     })
                 }
             }).catch(error => {

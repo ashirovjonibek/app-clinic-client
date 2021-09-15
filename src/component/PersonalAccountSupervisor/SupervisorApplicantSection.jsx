@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import SupervisorApplicantItem from "./SupervisorApplicantItem";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 
 const SupervisorApplicantSection = () => {
@@ -8,7 +8,7 @@ const SupervisorApplicantSection = () => {
     useEffect(()=>{
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/applicants',
+            url: API_URL +'/auth/applicants',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'

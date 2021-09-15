@@ -44,7 +44,7 @@ const ModeratorPerformerItem = (props) => {
 
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/listeners',
+            url: API_URL +'/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }

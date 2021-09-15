@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ModeratorApplicantItem from "./ModeratorApplicantItem";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 
 const ModeratorApplicantSection = (props) => {
@@ -10,7 +10,7 @@ const ModeratorApplicantSection = (props) => {
     useEffect(()=>{
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/applicants',
+            url: API_URL +'/auth/applicants',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const ModeratorApplicantSection = (props) => {
             });
         axios({
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/application/info/applicant',
+            url: API_URL +'/application/info/applicant',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'

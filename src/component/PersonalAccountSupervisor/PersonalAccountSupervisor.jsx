@@ -139,9 +139,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                             <li>
                                                 <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                             </li>
-                                            <li>
-                                                <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>
-                                            </li>
+                                            {/*<li>*/}
+                                            {/*    <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
+                                            {/*</li>*/}
                                             <li>
                                                 <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                             </li>
@@ -192,9 +192,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
                                             <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>
-                                        </li>
+                                        {/*<li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>*/}
+                                        {/*    <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
+                                        {/*</li>*/}
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
                                             <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                         </li>

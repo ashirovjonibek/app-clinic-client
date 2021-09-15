@@ -42,7 +42,18 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "eqeqeq": "off",
+      "no-unused-vars": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "off",
+      "array-callback-return": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "default-case": "off",
+      "no-warning-comments": "off",
+      "error": "off"
+    }
   },
   "browserslist": {
     "production": [

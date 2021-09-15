@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ModeratorListnearItem from "./ModeratorListnearItem";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 
 const ModeratorListnearSection = (props) => {
@@ -11,7 +11,7 @@ const ModeratorListnearSection = (props) => {
     useEffect(()=>{
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/listeners',
+            url: API_URL +'/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -27,7 +27,7 @@ const ModeratorListnearSection = (props) => {
 
         axios({
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/application/info/listener',
+            url: API_URL +'/application/info/listener',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
