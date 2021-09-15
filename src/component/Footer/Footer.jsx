@@ -94,27 +94,27 @@ const Footer = ({t}) => {
                         <div className="sub-title-line"/>
                         <ul>
                             <li>
-                                <a href="/#">
+                                <a href="#">
                                     <img src={iconFacebook} alt=""/>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#">
+                                <a href="#">
                                     <img src={iconInstagram} alt=""/>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#">
+                                <a href="#">
                                     <img src={iconTwitter} alt=""/>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#">
+                                <a href="#">
                                     <img src={iconTelegram} alt=""/>
                                 </a>
                             </li>
                         </ul>
-                        <form action="/#">
+                        <form action="#">
                             <input type="email" placeholder={t("Email")}/>
                             <button>{t("Subscribe")}</button>
                         </form>
