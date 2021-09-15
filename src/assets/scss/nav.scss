@@ -300,13 +300,14 @@
       background-color: white;
 
       .navbar {
+        .menu-icon {
+          display: block;
+        }
+
         .header-logo {
           display: none;
         }
 
-        .menu-icon {
-          display: block;
-        }
 
         .header-right {
           .search-form {

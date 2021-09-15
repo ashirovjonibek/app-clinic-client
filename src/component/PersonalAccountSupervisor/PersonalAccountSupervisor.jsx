@@ -23,6 +23,7 @@ import { light } from "@material-ui/core/styles/createPalette";
 import RequestFunctions from "../../requests/RequestFunctions";
 // import {useSelector} from "react-redux";
 import {withTranslation} from "react-i18next";
+import Footer from "../Footer/Footer";
 
 const PersonalAccountSupervisor = ({t}) => {
 
@@ -223,6 +224,7 @@ const PersonalAccountSupervisor = ({t}) => {
                         </section>
                     </div>
                 </div>
+                <Footer />
             </div>
         </div>
     );
