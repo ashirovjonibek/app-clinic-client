@@ -42,7 +42,7 @@ function RegistrationListener(props) {
     }, []);
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
-            setDistricts(res.data);
+            setSections(res.data);
         })
     }, []);
 
