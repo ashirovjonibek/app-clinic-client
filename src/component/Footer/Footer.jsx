@@ -20,7 +20,7 @@ const Footer = ({t}) => {
                         <div className="sub-title-line"/>
                         <ul>
                             <li>
-                                <a href="/#" className="adress">
+                                <a href="#" className="adress">
                                     <div className="img">
                                         <img width="18px" src={iconAdreesLight} alt=""/>
                                     </div>
@@ -52,37 +52,37 @@ const Footer = ({t}) => {
                         <div className="sub-title-line"/>
                         <ul>
                             <li>
-                                <a href="/#" className="adress">
+                                <a href="#" className="adress">
                                     {t("What is clinic")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="email">
+                                <a href="#" className="email">
                                     {t("Goal of the clinic")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="contact-number">
+                                <a href="#" className="contact-number">
                                     {t("Purpose of the clinic")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="adress">
+                                <a href="#" className="adress">
                                     {t("Popular questions")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="adress">
+                                <a href="#" className="adress">
                                     {t("Regulatory base")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="email">
+                                <a href="#" className="email">
                                     {t("Useful links")}
                                 </a>
                             </li>
                             <li>
-                                <a href="/#" className="contact-number">
+                                <a href="#" className="contact-number">
                                     {t("Addresses prosecutors")}
                                 </a>
                             </li>
