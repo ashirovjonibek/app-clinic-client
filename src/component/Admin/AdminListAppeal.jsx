@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
@@ -16,7 +16,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/applicants',
+            url: API_URL+'/auth/applicants',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'

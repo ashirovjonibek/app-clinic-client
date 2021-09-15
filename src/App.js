@@ -11,7 +11,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {LOADING, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "./redux/me/actionType";
 import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
-import TestStatistics from "./requests/TestStatistics";
 
 function App() {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
@@ -20,7 +19,6 @@ function App() {
     const dispatch=useDispatch()
     const loading=useSelector(state => state.loading)
 
-    console.log(loading)
     useEffect(() => {
         if (openPages.includes(location.pathname)) {
             dispatch({type:LOADING})
@@ -49,11 +47,9 @@ function App() {
                             history.push(location.pathname);
                         } else {
                             history.push('/auth/login')
-                            console.log("success bo'madi")
                         }
                     }
                 }).catch((e)=> {
-                    console.log('cathda')
                     history.push("/auth/login")
                     localStorage.removeItem(STORAGE_NAME);
                     dispatch({type:LOADING})
@@ -65,6 +61,7 @@ function App() {
 
     return (
         <>
+
             {
                 loading.isLoading?<Loading/>:<Routes/>
             }

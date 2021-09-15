@@ -20,7 +20,7 @@ const renderCustomizedLabel = (props) => {
     const fireOffset = value.toString().length < 5;
     const offset = fireOffset ? -40 : 5;
     return (
-        <text fontSize={9} x={x + width + 10} y={y + height } fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text fontSize={10} x={x + width + 12} y={y + height } fill={fireOffset ? "#000" : "#000"} textAnchor="end">
             {value}
         </text>
     );
@@ -100,15 +100,15 @@ function StatisticsByStatus({t}) {
                     <input type="checkbox"/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
                     <Tooltip/>
-                    <Bar barSize={7}
+                    <Bar barSize={8}
                          dataKey="new" fill="#78BAF3">
                         <LabelList dataKey="new" content={renderCustomizedLabel}/>
                     </Bar>
-                    <Bar barSize={7}
+                    <Bar barSize={8}
                          dataKey="inprocess" fill="#BAFF85">
                         <LabelList dataKey="inprocess" content={renderCustomizedLabel}/>
                     </Bar>
-                    <Bar barSize={7}
+                    <Bar barSize={8}
                          dataKey="completed" fill="#F57670">
                         <LabelList dataKey="completed" content={renderCustomizedLabel}/>
                     </Bar>

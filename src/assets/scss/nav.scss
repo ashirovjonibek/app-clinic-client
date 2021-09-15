@@ -41,6 +41,12 @@
     position: fixed;
     background-color: white;
     top: 30px;
+    background-image: url("../img/Rectanglefornavbar.png"),
+    url("../img/126slash1.png"),
+    url("../img/78slash2.png"),
+    url("../img/right.png");
+    background-repeat: no-repeat;
+    background-position: -13%, 64%, 72%, 111%;
     z-index: 11;
 
     .navbar {
@@ -51,6 +57,7 @@
       align-items: center;
 
       .menu-icon {
+        display: none;
       }
 
       .header-logo {
@@ -287,20 +294,27 @@
 @media (max-width: 800px) {
   .nav {
     .nav-center {
+      background-image: url("../img/right.png");
+      background-repeat: no-repeat;
+      background-position: 115%;
+      background-color: white;
+
       .navbar {
         .header-logo {
-          //display: none;
+          display: none;
         }
 
         .menu-icon {
-          //display: none;
+          display: block;
         }
+
         .header-right {
           .search-form {
             max-width: 150px;
           }
         }
       }
+
       #show-navigation {
         position: fixed;
         height: 100vh;
@@ -334,6 +348,15 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+  .personal-account-supervisor {
+    .container {
+      .section-body {
+        .navbar-wrapper {
+          display: none;
         }
       }
     }
@@ -378,5 +401,29 @@
         }
       }
     }
+  }
+}
+@media (max-width: 480px) {
+  .nav {
+    .nav-center {
+      background-position: 150% 25px;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .nav .nav-center {
+    background-position: 180% 25px;
+
+    .navbar .header-right .search-form {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .nav .nav-center {
+    background-position: right 25px;
+    background-size: 150px 100px;
   }
 }

@@ -17,16 +17,15 @@ const renderCustomizedLabel = (props) => {
     const {
         x, y, width, height, value,
     } = props;
-    const fireOffset = value.toString().length < 5;
-    const offset = fireOffset ? -40 : 5;
     return (
-        <text fontSize={9} x={x + width + 10} y={y + height} fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text fontSize={9} x={x + width + 10} y={y + height} fill="#000" textAnchor="end">
             {value}
         </text>
     );
 };
 
 function StatisticsByCategory({t}) {
+    const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     const [data, setData] = useState([
         {name: 'Toshkent shahar', id: 1},
@@ -45,12 +44,13 @@ function StatisticsByCategory({t}) {
         {name: 'Qoraqalpo g`iston', id: 14}
     ]);
 
-    const [bySocialStatus, setBySocialStatus] = useState([]);
     const [section, setSection] = useState([]);
+    const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
-        fetchData()
         fetchSection()
+        fetchData()
+        createFullData()
     }, [])
 
     function fetchData() {
@@ -89,66 +89,97 @@ function StatisticsByCategory({t}) {
             });
     }
 
-    if (bySocialStatus && bySocialStatus.map(item => {
-        section && section.map(sec => {
-            data && data.map(itemData => {
-                setData({
-                    ...data,
-                    itemData: {
-                        ...itemData,
-                        [section.title.uz]: item.count
+    function createFullData() {
+        if (section) {
+            section.map(sec => {
+                let kafedra = sec.title[i18]
+                let kafedra1 = kafedra.toString()
+                let kafedra3 = kafedra1.replace('-', '_')
+                let kafedra4 = kafedra3.trim()
+                let kafedra5 = kafedra4.replace(' ', '_')
+                console.log(kafedra5)
+                setData(prevstate => {
+                        data.map(itemData => {
+                            return {
+                                ...itemData,
+                                [kafedra5]: 0
+                            }
+                        })
                     }
-                })
+                )
+                console.log(data)
             })
-        })
-    }))
 
-        /*if (fetch && fetch.map(status => {
-            data.map(item => {
-                if (item.id === status.regionId) {
-                    if (status.status === "COMPLETED") {
-                        item.completed = status.count
-                    }
-                    if (status.status === "CREATED") {
-                        item.new = status.count
-                    }
-                    if (status.status === "INPROCESS") {
-                        item.inprocess = status.count
-                    }
-                } else {
-                    item.completed = ""
-                    item.new = ""
-                    item.inprocess = ""
+        }
+        /*
+                if (fetch) {
+                    fetch.map(item => {
+                        console.log(item)
+                        section && section.map(sec => {
+                            let kafedra = sec.title[i18]
+                            let kafedra1=kafedra.toString()
+                            let kafedra3=kafedra1.replace('-','_')
+                            let kafedra4=kafedra3.trim()
+                            let kafedra5=kafedra4.replace(' ','_')
+
+                            if (item.sectionId === sec.id) {
+                                setData(
+                                    data.map(itemData => {
+                                        if (itemData.id === item.regionId) {
+                                            return {
+                                                ...itemData,
+                                                [kafedra5]: item.count
+                                            }
+                                        }
+                                        return {
+                                            ...itemData,
+                                            [kafedra5]: 0
+                                        }
+                                    }))
+                            }
+                        })
+                    })
                 }
-            })
-        }))*/
+        */
+    }
 
-        return (
-            <ResponsiveContainer width="100%" height={"100%"}>
-                <BarChart margin={{
-                    left: 40
-                }} width={400} height={500} data={data} layout="vertical">
-                    <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
-                    <YAxis dataKey="name" type="category"/>
-                    <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
-                    <input type="checkbox"/>
-                    <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip/>
-                    <Bar barSize={7}
-                         dataKey="new" fill="#78BAF3">
-                        <LabelList dataKey="new" content={renderCustomizedLabel}/>
-                    </Bar>
-                    <Bar barSize={7}
-                         dataKey="inprocess" fill="#BAFF85">
-                        <LabelList dataKey="inprocess" content={renderCustomizedLabel}/>
-                    </Bar>
-                    <Bar barSize={7}
-                         dataKey="completed" fill="#F57670">
-                        <LabelList dataKey="completed" content={renderCustomizedLabel}/>
-                    </Bar>
-                </BarChart>
-            </ResponsiveContainer>
-        );
+    return (
+        <ResponsiveContainer width="100%" height={"100%"}>
+            <BarChart margin={{
+                left: 40
+            }} width={400} height={500} data={data} layout="vertical">
+                <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
+                <YAxis dataKey="name" type="category"/>
+                <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
+                <input type="checkbox"/>
+                <Legend wrapperStyle={{position: 'relative'}}/>
+                <Tooltip/>
+
+                {section && section.map((sec, i) => {
+                    let kafedra = sec.title[i18]
+                    let kafedra1 = kafedra.toString()
+                    let kafedra3 = kafedra1.replace('-', '_')
+                    let kafedra4 = kafedra3.trim()
+                    let kafedra5 = kafedra4.replace(' ', '_')
+                    return (
+                        <Bar key={i} barSize={7}
+                             dataKey={kafedra5} fill="#78BAF3">
+                            {/*<LabelList dataKey={sec.title[i18]}*/}
+                            {/*           content={renderCustomizedLabel}/>*/}
+                        </Bar>
+                    )
+                })}
+                {/*<Bar barSize={7}*/}
+                {/*     dataKey="inprocess" fill="#BAFF85">*/}
+                {/*    <LabelList dataKey="inprocess" content={renderCustomizedLabel}/>*/}
+                {/*</Bar>*/}
+                {/*<Bar barSize={7}*/}
+                {/*     dataKey="completed" fill="#F57670">*/}
+                {/*    <LabelList dataKey="completed" content={renderCustomizedLabel}/>*/}
+                {/*</Bar>*/}
+            </BarChart>
+        </ResponsiveContainer>
+    );
 }
 
 export default withTranslation()(StatisticsByCategory);

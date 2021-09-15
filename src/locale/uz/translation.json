@@ -110,6 +110,26 @@
   "By gender of applicants": "Ariza beruvchilarning jinsi bo'yicha",
   "List of appeals": "Murojaatlarning ro'yxati",
   "By types of benefits available to applicants": "Ariza beruvchilar uchun mavjud imtiyozlar turlari bo'yicha",
-  "for periods (day, week, month, year)": "davrlar uchun (kun, hafta, oy, yil)"
+  "for periods (day, week, month, year)": "davrlar uchun (kun, hafta, oy, yil)",
+
+  "invalid": "nogiron",
+  "single_mother": "yolgiz_ona",
+  "others": "boshqalar",
+
+
+  "Tashkent City": "Toshkent shahar",
+  "Tashkent": "Toshkent",
+  "Andijan": "Andijon",
+  "Bukhara": "Buxoro",
+  "Jizzakh": "Jizzax",
+  "Kashka darya": "Qashqa daryo",
+  "Navoi": "Navoiy",
+  "Namangan": "Namangan",
+  "Samarkand": "Samarqand",
+  "Surkhandarya": "Surxondaryo",
+  "Syrdarya": "Sirdaryo",
+  "Fergana": "Farg`ona",
+  "Khorezm": "Xorazm",
+  "Karakalpakstan": "Qoraqalpo g`iston"
 
 }

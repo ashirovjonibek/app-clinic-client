@@ -125,7 +125,28 @@
   "By gender of applicants": "По гендерном признаку заявителей",
   "List of appeals": "Список обращений",
   "By types of benefits available to applicants": "По видам льгот, имеющихся у заявителей",
-  "for periods (day, week, month, year)": "за периоды (день, неделя, месяц. год)"
+  "for periods (day, week, month, year)": "за периоды (день, неделя, месяц. год)",
+
+
+  "invalid": "инвалид",
+  "single_mother": "мать_одиночка",
+  "others": "другие",
+
+  "Tashkent City": "Город Ташкент",
+  "Tashkent": "Ташкент",
+  "Andijan": "Андижан",
+  "Bukhara": "Бухарая область",
+  "Jizzakh": "Джизакская область",
+  "Kashka darya": "Кашкадаря",
+  "Navoi": "Навоий",
+  "Namangan": "Наманган",
+  "Samarkand": "Самарканд",
+  "Surkhandarya": "Сурхан даря",
+  "Syrdarya": "Сырдаря",
+  "Fergana": "Фергана",
+  "Khorezm": "Хорезм",
+  "Karakalpakstan": "Каракалпакс тан"
+
 
 
 

@@ -4,7 +4,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
 
 const AdminListListener = ({t, searchTerm}) => {
@@ -22,7 +22,7 @@ const AdminListListener = ({t, searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: 'http://67.205.182.147:9090/api/auth/listeners',
+            url: API_URL+'api/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }

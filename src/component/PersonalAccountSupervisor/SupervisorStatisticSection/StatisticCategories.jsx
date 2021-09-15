@@ -1,5 +1,6 @@
 import React from "react";
 import {withTranslation} from "react-i18next";
+import StatisticsByCategory from "./Statistics/StatisticsByCategory";
 
 const StatisticCategories = ({t}) => {
     return (
@@ -8,8 +9,8 @@ const StatisticCategories = ({t}) => {
                 <h5>{t("By category")}</h5>
             </div>
             <div className="statistic-section-item-body">
-
-                <div className="statistic-item-line">
+                <StatisticsByCategory/>
+                {/*<div className="statistic-item-line">
                     <div className="item-line">
                         <div className="line"/>
                         <div className="item">0</div>
@@ -271,25 +272,25 @@ const StatisticCategories = ({t}) => {
                 <div className="gender-inform">
                     <div className="gender">
                         <div className="gender-item">
-                            <input type="checkbox" className="checkbox" />
+                            <input type="checkbox" className="checkbox"/>
                             <div className="categories-color" style={{backgroundColor: '#78BAF3'}}/>
                             <p>Уголовная</p>
                         </div>
                         <div className="gender-item">
-                            <input type="checkbox" className="checkbox" />
+                            <input type="checkbox" className="checkbox"/>
                             <div className="categories-color" style={{backgroundColor: '#F57670'}}/>
                             <p>Хозяйственная</p>
                         </div>
-                         <div className="gender-item">
-                            <input type="checkbox" className="checkbox" />
+                        <div className="gender-item">
+                            <input type="checkbox" className="checkbox"/>
                             <div className="categories-color" style={{backgroundColor: '#DAF285'}}/>
                             <p>Гражданско-правовая</p>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     );
 }
 
-export default withTranslation() (StatisticCategories);
+export default withTranslation()(StatisticCategories);

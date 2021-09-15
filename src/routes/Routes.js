@@ -28,15 +28,12 @@ export const Routes=()=>{
             case allRoles.USER[0]: return applicantRoute;
             default:return null
         }
-
     }
 
     useEffect(()=>{
         console.log(userRole?.role[0])
         console.log(roleRoute(userRole?.role[0]))
-
     })
-
 
     return(
         <Switch>

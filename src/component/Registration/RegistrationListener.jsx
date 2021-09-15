@@ -41,13 +41,11 @@ function RegistrationListener(props) {
         })
     }, []);
     useEffect(() => {
-        RequestFunctions.getSections()
-            .then(res => {
-                    setSections(res)
-                }
-            ).catch(error =>
-            console.log(error))
+        axios.get(API_URL + "/section").then(res => {
+            setDistricts(res.data);
+        })
     }, []);
+
 
     const handleChange = (e) => {
         setValues({
