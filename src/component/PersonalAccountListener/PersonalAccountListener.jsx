@@ -1,4 +1,4 @@
-import React, {useState, useContext } from "react";
+import React, {useState, useContext, useEffect} from "react";
 import ResponseRequestSection from "./ResponseRequestSection";
 import DeadlineRequestSection from "./DeadlineRequestSection";
 import AppealSection from "./AppealSection";
@@ -7,7 +7,7 @@ import FedbeckSection from "./FedbeckSection";
 import DirectorySection from "./DirectorySection";
 import SendSection from "./SendSection";
 import IncomingRequestSection from "./IncomingRequestSection";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import { ApiContext } from "../../utils/ApiContext";
 import IncomingRequestItem from "./IncomingRequestItem";
 import NavTop from "../Nav/NavTop";
@@ -20,11 +20,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
+import {STORAGE_NAME} from "../../utils/constant";
 
 
 const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [idUser, setIdUser] = useState(1);
+    const history = useHistory();
+
 
     function Applications(n) {
         switch (n) {
@@ -50,6 +53,14 @@ const PersonalAccountListener = ({t}) => {
                 return <IncomingRequestSection />
         }
     }
+
+    useEffect(() => {
+        // console.log("this is redux->",me)
+        if (!localStorage.getItem(STORAGE_NAME)) {
+            history.push("/auth/login")
+        }
+
+    }, [])
 
     const getPage = (n) => {
         setIdUser(n);

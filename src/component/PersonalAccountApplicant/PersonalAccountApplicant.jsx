@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Title from "../Title";
-import { Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import YourAppealSection from "./YourAppealSection";
 import PerAccAppCallFlowSection from "./PerAccAppCallFlowSection";
 import PerAccAppPeriodSection from "./PerAccAppPeriodSection";
@@ -9,12 +9,14 @@ import SendSection from "../PersonalAccountListener/SendSection";
 import ApplicationNav from "./ApplicationNav";
 import Footer from "../Footer/Footer";
 import {CustomPagination} from "../catalog/Pagenation";
+import {STORAGE_NAME} from "../../utils/constant";
 
 const PersonalAccountApplicant = () => {
 
     const [pageQount, setPageQount] = useState(1);
     const [sitebar, setSitebar] = useState(false);
     const [appeal, setAppeal] = useState([]);
+    const history = useHistory();
 
 
     // console.log(pageSize)
@@ -32,7 +34,13 @@ const PersonalAccountApplicant = () => {
                 return <SendSection />
         }
     }
+    useEffect(() => {
+        // console.log("this is redux->",me)
+        if (!localStorage.getItem(STORAGE_NAME)) {
+            history.push("/auth/login")
+        }
 
+    }, [])
     const getPage = (n) => {
         setPageQount(n);
     }

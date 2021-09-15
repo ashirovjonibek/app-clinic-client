@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import PerAccSupListenersSection from "./PerAccSupListenersSection";
 import SupervisorIncomingRequestSection from "./SupervisorIncomingRequestSection";
 import SupervisorResponsesSection from "./SupervisorResponsesRequestSection";
@@ -24,8 +24,10 @@ import RequestFunctions from "../../requests/RequestFunctions";
 // import {useSelector} from "react-redux";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
+import {STORAGE_NAME} from "../../utils/constant";
 
 const PersonalAccountSupervisor = ({t}) => {
+    const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
@@ -62,6 +64,9 @@ const PersonalAccountSupervisor = ({t}) => {
 
     useEffect(()=>{
         // console.log("this is redux->",me)
+        if (!localStorage.getItem(STORAGE_NAME)){
+            history.push("/")
+        }
        RequestFunctions.getWords().then((r)=>{
            console.log(r)
        }).catch((er)=>{

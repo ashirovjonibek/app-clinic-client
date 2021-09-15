@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
 import ModeratorHeadsDepartmentSection from "./ModeratorHeadsDepartmentSection";
 import ModeratorPerformerSection from "./ModeratorPerformerSection";
 import ModeratorListnearSection from "./ModeratorListnearSection";
@@ -9,7 +9,8 @@ import ModeratorFedbeckRequestSection from "./ModeratorFedbeckRequestSection";
 import ModeratorLegalBaseSection from "./ModeratorLegalBaseSection";
 import ModeratorListnearReytingSection from "./ModeratorListnearReytingSection";
 import ModeratorArchive from "./ModeratorArchive";
-import SupervisorStatisticSection from "../PersonalAccountSupervisor/SupervisorStatisticSection/SupervisorStatisticSection";
+import SupervisorStatisticSection
+    from "../PersonalAccountSupervisor/SupervisorStatisticSection/SupervisorStatisticSection";
 import NavTop from "../Nav/NavTop";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
@@ -18,8 +19,11 @@ import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
+import {STORAGE_NAME} from "../../utils/constant";
+import RequestFunctions from "../../requests/RequestFunctions";
 
 const PersonalAccountModerator = () => {
+    const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
@@ -27,39 +31,47 @@ const PersonalAccountModerator = () => {
     function pushBar(n) {
         switch (n) {
             case 1:
-                return <ModeratorHeadsDepartmentSection />
+                return <ModeratorHeadsDepartmentSection/>
 
             case 2:
-                return <ModeratorPerformerSection />
+                return <ModeratorPerformerSection/>
 
             case 3:
-                return <ModeratorListnearSection />
+                return <ModeratorListnearSection/>
 
             case 4:
                 return <ModeratorApplicantSection n={n}/>
 
             case 5:
-                return <ModeratorAppealSection />
+                return <ModeratorAppealSection/>
 
             case 6:
-                return <ModeratorFedbeckRequestSection />
+                return <ModeratorFedbeckRequestSection/>
 
             case 7:
-                return <ModeratorLegalBaseSection />
+                return <ModeratorLegalBaseSection/>
 
             case 8:
-                return <ModeratorListnearReytingSection />
+                return <ModeratorListnearReytingSection/>
 
             case 9:
-                return <SupervisorStatisticSection />
+                return <SupervisorStatisticSection/>
 
             case 10:
-                return <ModeratorArchive />
+                return <ModeratorArchive/>
             default:
-                return <ModeratorHeadsDepartmentSection />
+                return <ModeratorHeadsDepartmentSection/>
 
         }
     }
+
+    useEffect(() => {
+        // console.log("this is redux->",me)
+        if (!localStorage.getItem(STORAGE_NAME)) {
+            history.push("/auth/login")
+        }
+
+    }, [])
 
     const getPage = (n) => {
         setPageQount(n);
@@ -69,11 +81,11 @@ const PersonalAccountModerator = () => {
         <div>
             <div>
                 <div className="nav">
-                    <NavTop />
+                    <NavTop/>
                     <div className="nav-center container-fluit">
                         <div className="container">
                             <div className="navbar">
-                                <div className="menu-icon" >
+                                <div className="menu-icon">
                                     <MenuIcon
                                         fontSize={'large'}
                                         onClick={() => setSitebar(!sitebar)}
@@ -82,12 +94,12 @@ const PersonalAccountModerator = () => {
                                 <div className="header-logo">
                                     <a href="/#">
                                         <div className="logo-left">
-                                            <img src={iconLogo} alt="logo" />
+                                            <img src={iconLogo} alt="logo"/>
                                         </div>
                                         <div className="logo-right">
                                             <div>
-                                                <span><strong>Юридическая клиника</strong></span><br />
-                                                Академии Генеральной прокуратуры<br />
+                                                <span><strong>Юридическая клиника</strong></span><br/>
+                                                Академии Генеральной прокуратуры<br/>
                                                 Республики Узбекистан.
                                             </div>
 
@@ -97,15 +109,15 @@ const PersonalAccountModerator = () => {
                                 <div className="header-right">
                                     <div className="header-right-desctop">
                                         <form role="search" method="get" action="#" className="search-form">
-                                            <input type="" placeholder="Поиск..." />
-                                            <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                            <input type="" placeholder="Поиск..."/>
+                                            <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                         </form>
-                                        <NavLanguage />
+                                        <NavLanguage/>
                                         <div className="glas">
-                                            <img src={iconGlass} alt="" />
+                                            <img src={iconGlass} alt=""/>
                                         </div>
                                     </div>
-                                    <Enter />
+                                    <Enter/>
                                 </div>
                             </div>
                         </div>
@@ -114,9 +126,9 @@ const PersonalAccountModerator = () => {
                                 <div className="desctop-navigation-body">
                                     <div>
                                         <div className="mobil-language">
-                                            <NavLanguage />
+                                            <NavLanguage/>
                                             <div className="glas">
-                                                <img src={iconGlass} alt="" />
+                                                <img src={iconGlass} alt=""/>
                                             </div>
                                         </div>
                                         <ul>
@@ -155,14 +167,14 @@ const PersonalAccountModerator = () => {
                                     <div className="icon-disable">
                                         <CloseIcon
                                             fontSize={'large'}
-                                            style={{ color: 'white' }}
+                                            style={{color: 'white'}}
                                             onClick={() => setSitebar(!sitebar)}
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div >
+                    </div>
                 </div>
                 <div className="account-moderator container-fluit">
                     <div className="container">
