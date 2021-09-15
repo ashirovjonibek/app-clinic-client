@@ -3,6 +3,7 @@ import {withTranslation} from "react-i18next";
 import StatisticsBySocialStatus from "./Statistics/StatisticsBySocialStatus";
 
 const StatisticLgots = ({t}) => {
+
     return (
         <div className="statistic-lgots">
             <div className="statistic-section-item-title">

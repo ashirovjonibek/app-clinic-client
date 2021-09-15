@@ -1,15 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    LabelList,
-    ResponsiveContainer,
-} from 'recharts';
+import React, {useCallback, useEffect, useState} from 'react';
+import {Bar, BarChart, CartesianGrid, LabelList, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 import {withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../../../utils/constant";
 
@@ -25,8 +15,6 @@ const renderCustomizedLabel = (props) => {
 };
 
 function StatisticsBySocialStatus({t}) {
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
-
     let invalid = t("invalid")
     let singlemother = t("single_mother")
     let others = t("others")
@@ -48,16 +36,10 @@ function StatisticsBySocialStatus({t}) {
         {name: t('Karakalpakstan'), id: 14, [invalid]: '', [singlemother]: '', [others]: ''}
     ]);
     const [fetch, setFetch] = useState([]);
-    const [force, setForce] = useState(true);
 
     useEffect(() => {
         fetchData()
     }, [])
-
-    useEffect(() => {
-        setForce(!force)
-    }, [i18])
-
 
     function fetchData() {
         const axios = require('axios');
@@ -97,32 +79,32 @@ function StatisticsBySocialStatus({t}) {
         })
     }))
 
-    return (
-        <ResponsiveContainer width="100%" height={"100%"}>
-            <BarChart margin={{
-                left: 40
-            }} width={400} height={500} data={data} layout="vertical">
-                <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
-                <YAxis dataKey="name" type="category"/>
-                <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
-                <br/>
-                <Legend wrapperStyle={{position: 'relative'}}/>
-                <Tooltip/>
-                <Bar barSize={8}
-                     dataKey={invalid} fill="#78BAF3">
-                    <LabelList dataKey={invalid} content={renderCustomizedLabel}/>
-                </Bar>
-                <Bar barSize={8}
-                     dataKey={singlemother} fill="#F57670">
-                    <LabelList dataKey={singlemother} content={renderCustomizedLabel}/>
-                </Bar>
-                <Bar barSize={8}
-                     dataKey={others} fill="#B393E0">
-                    <LabelList dataKey={others} content={renderCustomizedLabel}/>
-                </Bar>
-            </BarChart>
-        </ResponsiveContainer>
-    );
+        return (
+            <ResponsiveContainer width="100%" height={"100%"}>
+                <BarChart margin={{
+                    left: 40
+                }} width={400} height={500} data={data} layout="vertical">
+                    <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
+                    <YAxis dataKey="name" type="category"/>
+                    <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
+                    <br/>
+                    <Legend wrapperStyle={{position: 'relative'}}/>
+                    <Tooltip/>
+                    <Bar barSize={8}
+                         dataKey={invalid} fill="#78BAF3">
+                        <LabelList dataKey={invalid} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={singlemother} fill="#F57670">
+                        <LabelList dataKey={singlemother} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={others} fill="#B393E0">
+                        <LabelList dataKey={others} content={renderCustomizedLabel}/>
+                    </Bar>
+                </BarChart>
+            </ResponsiveContainer>
+        );
 }
 
 export default withTranslation()(StatisticsBySocialStatus);
