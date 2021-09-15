@@ -20,7 +20,7 @@ const AdminListSupervisor = ({t,searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/api/auth/bosses',
+            url: API_URL+'/auth/bosses',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'

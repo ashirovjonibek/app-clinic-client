@@ -22,7 +22,7 @@ const AdminListListener = ({t, searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'api/auth/listeners',
+            url: API_URL+'/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }

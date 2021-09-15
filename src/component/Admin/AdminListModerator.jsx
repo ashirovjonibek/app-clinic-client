@@ -20,7 +20,7 @@ const AdminListModerator = ({t,searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/api/auth/moderators',
+            url: API_URL+'/auth/moderators',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
