@@ -35,6 +35,7 @@
   "Benefit category": "Категория льгот",
   "Date of birth": "Дата рождения",
   "Register all": "Зарегистрировать все",
+  "Register": "Зарегистрировать",
   "Position": "Должность",
   "Course": "Курс",
   "Department": "Кафедра",
@@ -145,7 +146,35 @@
   "Syrdarya": "Сырдаря",
   "Fergana": "Фергана",
   "Khorezm": "Хорезм",
-  "Karakalpakstan": "Каракалпакс тан"
+  "Karakalpakstan": "Каракалпакс тан",
+
+  "Create a new ticket": "Создать новое обращение",
+  "Your appeal": "Ваше обращение",
+  "Document status": "Статус документа",
+  "Consideration period": "Срок рассмотрения",
+
+  "Personal account": "Личный кабинет",
+  "Appeal": "Обращение",
+  "Enter the subject of the appeal": "Введите тему обращения",
+  "Category of treatment": "Категория обращения",
+  "Select your appeal": "Выберите ваш обращения",
+  "Attach file": "Прикрепить файл",
+  "This question will not be displayed in the \"Frequently Asked Questions\" section of the AIS Clinic.": "Данный вопрос не будет отображаться в разделе «Популярные вопросы» в АИС Клиника.",
+  "Submit": "Отправить",
+  "Go back": "Назад",
+  "File": "Файл",
+  "Download the application": "Скачать обращения",
+  "Doc not found": "Документ не найден",
+  "In processing": "В обработке",
+  "Closed": "Закрыто",
+  "The term for consideration of your appeal": "Срок рассмотрения вашего обращения",
+  "days": "дней",
+  "Until the end is left": "До окончания осталось",
+  "The answer to your appeal came from": "Пришел ответ на ваше обращение от",
+  "Evaluating the response": "Оценка ответа",
+  "Rejected answers": "Отклоненные ответы",
+  "Responses received": "Получено ответов",
+  "New answers": "Новые ответы"
 
 
 

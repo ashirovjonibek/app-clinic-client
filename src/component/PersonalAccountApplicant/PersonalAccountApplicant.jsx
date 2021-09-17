@@ -10,8 +10,9 @@ import ApplicationNav from "./ApplicationNav";
 import Footer from "../Footer/Footer";
 import {CustomPagination} from "../catalog/Pagenation";
 import {STORAGE_NAME} from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
-const PersonalAccountApplicant = () => {
+const PersonalAccountApplicant = (props) => {
 
     const [pageQount, setPageQount] = useState(1);
     const [sitebar, setSitebar] = useState(false);
@@ -50,28 +51,28 @@ const PersonalAccountApplicant = () => {
             <ApplicationNav getPage={getPage} setSitebar={setSitebar} sitebar={sitebar}/>
             <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
                 <div className="container">
-                    <Title text="Личный кабинет" />
+                    <Title text={props.t("Personal account")} />
                     <section className="section-body">
                         <div className="navbar-wrapper">
                             <div className="navbarr">
                                 <ul>
                                     <li className="navbar-items ">
-                                        <Link to="/applicantAppeal">Создать новое обращение</Link>
+                                        <Link to="/applicantAppeal">{props.t("Create a new ticket")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(1)}>Ваше обращение</Link>
+                                        <Link to="#" onClick={() => getPage(1)}>{props.t("Your appeal")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 2 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(2)}>Статус документа</Link>
+                                        <Link to="#" onClick={() => getPage(2)}>{props.t("Document status")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(3)}>Срок рассмотрения</Link>
+                                        <Link to="#" onClick={() => getPage(3)}>{props.t("Consideration period")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(4)}>Ответы на обращения</Link>
+                                        <Link to="#" onClick={() => getPage(4)}>{props.t("Responses to requests")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(5)}>Центр сообщений</Link>
+                                        <Link to="#" onClick={() => getPage(5)}>{props.t("Message center")}</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -92,4 +93,4 @@ const PersonalAccountApplicant = () => {
     );
 }
 
-export default PersonalAccountApplicant;
+export default withTranslation()(PersonalAccountApplicant);

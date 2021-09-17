@@ -12,8 +12,9 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CustomPagination} from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
+import {withTranslation} from "react-i18next";
 
-const PerAccAppResponseRequest = () => {
+const PerAccAppResponseRequest = ({t}) => {
     let token = localStorage.getItem(STORAGE_NAME);
     const [items, setItems] = useState([]);
     const [appeal, setAppeal] = useState([]);
@@ -50,8 +51,7 @@ const PerAccAppResponseRequest = () => {
                                 <div key={i} className="content per-acc-app-response-request">
                                     <div className="request-theme" style={{marginBottom: '40px'}}>
                                         <div>
-                                            <h3>Пришел ответ на ваше обращение
-                                                от <strong>{item?.checkedBy?.fullName}</strong></h3>
+                                            <h3>{t("The answer to your appeal came from")} <strong>{item?.checkedBy?.fullName}</strong></h3>
                                         </div>
                                     </div>
                                     <div style={{marginBottom: '20px'}}>
@@ -71,7 +71,7 @@ const PerAccAppResponseRequest = () => {
                                         </div>
                                     </div>
                                     <div className="answer-score">
-                                        <h4>Оценка ответа:</h4>
+                                        <h4>{t("Evaluating the response")}:</h4>
                                         <div className="answer-score-button">
                                             <span style={{padding: "3px 5px", cursor: "pointer"}}>
                                                 <ThumbUpIcon/>
@@ -101,4 +101,4 @@ const PerAccAppResponseRequest = () => {
     );
 }
 
-export default PerAccAppResponseRequest;
+export default withTranslation()(PerAccAppResponseRequest);

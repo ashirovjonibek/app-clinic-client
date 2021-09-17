@@ -3,6 +3,7 @@ import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import Swal from "sweetalert2";
 
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
@@ -32,15 +33,37 @@ const AdminListAppeal = ({t, searchTerm}) => {
 
     }
     const deleteMethod = (id) => {
-        RequestFunctions.deleteUser(id)
-            .then(res => {
-                    console.log(res)
-                    getApplicants()
-                }
-            ).catch(error => {
-            console.log(error)
+        Swal.fire({
+            confirmButtonText:"O'chirish!!!",
+            cancelButtonText:"Bekor qilish",
+            confirmButtonColor:"red",
+            showCancelButton:true,
+            title:"Arizachi o'chirib yuborilsinmi?",
+            icon:"warning"
+        }).then((conform)=>{
+            if (conform.isConfirmed){
+                RequestFunctions.deleteUser(id)
+                    .then(res => {
+                        console.log(res);
+                            if (res?.status===200){
+                                Swal.fire("Arizachi o'chirildi!!!","","success").then(r=>{
+                                    getApplicants()
+                                })
+                            }else {
+                                Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                                    getApplicants()
+                                })
+                            }
+                        }
+                    ).catch(error => {
+                    console.log(error);
+
+                    Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                        getApplicants()
+                    })
+                });
+            }
         })
-        getApplicants()
     }
     return (
         <div className="admin">

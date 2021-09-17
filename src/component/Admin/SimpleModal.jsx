@@ -3,6 +3,7 @@ import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import Swal from "sweetalert2";
 
 export default function SimpleModal({item, getListeners}) {
     const [open, setOpen] = useState(false);
@@ -47,9 +48,33 @@ export default function SimpleModal({item, getListeners}) {
     }
 
     const changeUpdate = () => {
-        RequestFunctions.updateListenerByRole(changeRolesItem, item.id)
         handleClose();
-        getListeners();
+        Swal.fire({
+            title:"O'zgarish saqlansinmi?",
+            showCancelButton:true,
+            cancelButtonText:"Bekor qilish!!!",
+            confirmButtonText:"Saqlash!!!",
+            icon:"warning",
+
+        }).then((conform)=>{
+            if (conform.isConfirmed){
+                RequestFunctions.updateListenerByRole(changeRolesItem, item.id).then((r)=>{
+                    if (r.status===202){
+                        Swal.fire("O'zgarishlar saqlandi!!!","","success").then((r)=>{
+                            getListeners();
+                        })
+                    }else {
+                        Swal.fire("Xatolik yuz berdi!!!","","error").then((r)=>{
+                            handleOpen()
+                        })
+                    }
+                }).catch((err)=>{
+                    Swal.fire("Xatolik yuz berdi!!!","","error").then((r)=>{
+                        handleOpen()
+                    })
+                });
+            }
+        })
     }
 
     const handleOpen = () => {

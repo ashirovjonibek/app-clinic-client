@@ -8,6 +8,7 @@ import iconGlass from "../../assets/icon/icon-glass.svg";
 import Enter from "../Nav/Enter";
 import {Link} from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
+import {withTranslation} from "react-i18next";
 
 const ApplicationNav=(props)=>{
     const [showMenuIcon,setShowMenuIcon]=useState(false);
@@ -27,10 +28,9 @@ const ApplicationNav=(props)=>{
                 <div className="container">
                     <div className="navbar">
                         <div className="menu-icon" >
-                            {showMenuIcon?<MenuIcon
+                           <MenuIcon
                                 fontSize={'large'}
-                                onClick={() => props.setSitebar(!props.sitebar)}
-                            />:""}
+                                onClick={() => props.setSitebar(!props.sitebar)}/>
                         </div>
                         <div className="header-logo">
                             <a href="#">
@@ -39,9 +39,8 @@ const ApplicationNav=(props)=>{
                                 </div>
                                 <div className="logo-right">
                                     <div>
-                                        <span><strong>Юридическая клиника</strong></span><br />
-                                        Академии Генеральной прокуратуры<br />
-                                        Республики Узбекистан.
+                                        <span><strong>{props.t("Legal clinic")}</strong></span><br />
+                                        {props.t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
                                     </div>
 
                                 </div>
@@ -50,7 +49,7 @@ const ApplicationNav=(props)=>{
                         <div className="header-right">
                             <div className="header-right-desctop">
                                 <form role="search" method="get" action="#" className="search-form">
-                                    <input type="" placeholder="Поиск..." />
+                                    <input type="" placeholder={props.t("Search")+"..."} />
                                     <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                 </form>
                                 <NavLanguage />
@@ -74,22 +73,22 @@ const ApplicationNav=(props)=>{
                                 </div>
                                 <ul>
                                     <li>
-                                        <Link to="#" onClick={()=>props.getPage(0)}>Создать новое обращение</Link>
+                                        <Link to="#" onClick={()=>props.getPage(0)}>{props.t("Create a new ticket")}</Link>
                                     </li>
                                     <li>
-                                        <Link to="#" onClick={() => props.getPage(1)}>Ваше обращение</Link>
+                                        <Link to="#" onClick={() => props.getPage(1)}>{props.t("Your appeal")}</Link>
                                     </li>
                                     <li>
-                                        <Link to="#" onClick={() => props.getPage(2)}>Статус документа</Link>
+                                        <Link to="#" onClick={() => props.getPage(2)}>{props.t("Document status")}</Link>
                                     </li>
                                     <li>
-                                        <Link to="#" onClick={() => props.getPage(3)}>Срок рассмотрения</Link>
+                                        <Link to="#" onClick={() => props.getPage(3)}>{props.t("Consideration period")}</Link>
                                     </li>
                                     <li>
-                                        <Link to="#" onClick={() => props.getPage(4)}>Ответы на обращения</Link>
+                                        <Link to="#" onClick={() => props.getPage(4)}>{props.t("Responses to requests")}</Link>
                                     </li>
                                     <li>
-                                        <Link to="#" onClick={() => props.getPage(5)}>Центр сообщений</Link>
+                                        <Link to="#" onClick={() => props.getPage(5)}>{props.t("Message center")}</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -108,4 +107,4 @@ const ApplicationNav=(props)=>{
     )
 }
 
-export default ApplicationNav
+export default withTranslation()(ApplicationNav)

@@ -15,11 +15,11 @@ export const Routes=()=>{
     const userRole=useSelector(state => state.meReducer)
 
     useEffect(()=>{
-        console.log(userRole)
+        // console.log(userRole)
     },[])
 
     const roleRoute=(role)=>{
-        console.log(userRole)
+        // console.log(userRole)
         switch (role){
             case allRoles.ADMIN[0]: return adminRoute;
             case allRoles.BOSS[0]: return supervisorRoute;
@@ -31,8 +31,8 @@ export const Routes=()=>{
     }
 
     useEffect(()=>{
-        console.log(userRole?.role[0])
-        console.log(roleRoute(userRole?.role[0]))
+        // console.log(userRole?.role[0])
+        // console.log(roleRoute(userRole?.role[0]))
     })
 
     return(

@@ -4,6 +4,7 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import Swal from "sweetalert2";
 
 const AdminListSupervisor = ({t,searchTerm}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -36,20 +37,40 @@ const AdminListSupervisor = ({t,searchTerm}) => {
             });
     }
     const deleteMethod = (id) => {
-        RequestFunctions.deleteUser(id)
-            .then(res => {
-                console.log(res)
-                getListeners()
-                }
-            ).catch(error => {
-            console.log(error)
-        })
-        getListeners()
-        setReLoad(!reLoad)
-    }
+        Swal.fire({
+            title:"User o'chirilsinmi???",
+            icon:"warning",
+            confirmButtonColor:"red",
+            cancelButtonText:"Bekor qilish",
+            confirmButtonText:"O'chirish",
+            showCancelButton:true
+        }).then((conform)=>{
+            if (conform.isConfirmed){
+                RequestFunctions.deleteUser(id)
+                    .then(res => {
+                            if (res.status===204){
+                                Swal.fire("O'chirildi!!!","","success").then((r)=>{
+                                    getListeners();
+                                })
+                            }else {
+                                Swal.fire("Xatolik yuz berdi","","error").then((r)=>{
+                                    getListeners();
+                                })
+                            }
+                        }
+                    ).catch(error => {
+                    Swal.fire("Xatolik yuz berdi","","error").then((r)=>{
+                        getListeners();
+                    })
+                })
+            }
+        });
+    };
+
     const activeSection = (id) => {
         setSupervisor(items.filter(item => item.section.id === id))
-    }
+    };
+
     return (
         <div className="admin">
             <div className="admin-list-listnear">

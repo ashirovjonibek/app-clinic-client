@@ -1,5 +1,5 @@
 import React from "react";
-import {useTranslation} from "react-i18next";
+import {useTranslation, withTranslation} from "react-i18next";
 import Label from "./Label";
 import InputFile from "./InputFile";
 import axios from "axios";
@@ -33,17 +33,17 @@ const SectionCategory = (props) => {
         <div className="categories">
             <ul>
                 {!props?.showSection?<li>
-                    <label for="">Категория обращения</label>
+                    <label for="">{props.t("Category of treatment")}</label>
                     <input disabled={true} type="text" value={props?.section?.title[''+i18n.language]}/>
                 </li>:""}
                 <li >
-                    <label for="">Файл</label>
+                    <label for="">{props.t("File")}</label>
                     <div onClick={()=>{
                         if (props?.fileId){
                             fileLoad(props.fileId,"answer")
                         }
-                    }} title={props?.fileId?"Arizani yuklash!!!":"Ariza mavjud emas!!!"} style={{cursor:props?.fileId?"pointer":"no-drop"}} className="file">
-                        Faylni yuklash
+                    }} title={props?.fileId?{}:props.t("Doc not found")} style={{cursor:props?.fileId?"pointer":"no-drop"}} className="file">
+                        {props.t("Download the application")}
                     </div>
                 </li>
             </ul>
@@ -51,4 +51,4 @@ const SectionCategory = (props) => {
     );
 }
 
-export default SectionCategory;
+export default withTranslation()(SectionCategory);
