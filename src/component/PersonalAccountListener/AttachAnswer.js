@@ -81,7 +81,7 @@ const AttachAnswer=({item,refresh})=>{
                             </ul>
                         </div>
                         <div className="response-request">
-                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.answer?.id} item={item?.application}/>
+                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.application?.id} docId={item?.id} item={item?.application}/>
                         </div>
                     </div>
                 </>

@@ -47,7 +47,11 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                     headers:{
                         Authorization:token
                     },
-                    data:{
+                    data:type?{
+                        attachmentId: fileId?fileId:[],
+                        deniedMessage: message,
+                        status:"CREATE"
+                    }:{
                         attachmentId: fileId?fileId:[],
                         deniedMessage: message
                     }
@@ -161,4 +165,4 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
     );
 }
 
-export default withTranslation()(ResponseRequestItem1);
+export default  withTranslation()(ResponseRequestItem1);
