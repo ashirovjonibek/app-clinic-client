@@ -7,6 +7,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
 import Swal from "sweetalert2";
+import axios from "axios";
+import {apiPath} from "../../requests/apiPath";
+import {configHeader} from "../../requests/congifHeader";
 
 const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
@@ -48,9 +51,9 @@ const AdminListListener = ({t, searchTerm}) => {
             icon:"warning"
         }).then((confirm)=>{
             if (confirm.isConfirmed){
-                RequestFunctions.deleteUser(id)
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
-                            if (res.status === 204) {
+                            if (res.status === 200) {
                                 Swal.fire("O'chirildi", "", "success").then((r) => {
                                     getListeners()
                                     setReLoad(!reLoad)

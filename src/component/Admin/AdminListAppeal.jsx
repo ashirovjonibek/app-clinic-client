@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {withTranslation} from "react-i18next";
-import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
+import axios from "axios";
+import {configHeader} from "../../requests/congifHeader";
+import {apiPath} from "../../requests/apiPath";
 
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
@@ -42,7 +44,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
             icon:"warning"
         }).then((conform)=>{
             if (conform.isConfirmed){
-                RequestFunctions.deleteUser(id)
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
                         console.log(res);
                             if (res?.status===200){

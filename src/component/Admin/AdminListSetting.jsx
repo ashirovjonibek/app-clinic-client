@@ -3,6 +3,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {withTranslation} from "react-i18next";
 import SettingModal from "./SettingModal";
 import RequestFunctions from "../../requests/RequestFunctions";
+import Swal from "sweetalert2";
+import axios from "axios";
+import {API_URL} from "../../utils/constant";
+import {apiPath} from "../../requests/apiPath";
+import {configHeader} from "../../requests/congifHeader";
 
 const AdminListSetting = ({t,searchTerm}) => {
     const [departments, setDepartments] = useState([
@@ -36,14 +41,35 @@ const AdminListSetting = ({t,searchTerm}) => {
     }
 
     const deleteMethod = (id) => {
-        RequestFunctions.deleteSection(id)
-            .then(res => {
-                    console.log(res)
-                    getSections()
-                }
-            ).catch(error => {
-            console.log(error)
-        })
+        Swal.fire({
+            title:"Kafedra o'chirilsinmi?",
+            cancelButtonText:"Bekor qilish",
+            confirmButtonText:"O'chirish",
+            confirmButtonColor:"red",
+            showCancelButton:true,
+            icon:"warning"
+        }).then((confirm)=>{
+            if (confirm.isConfirmed){
+                axios.delete(API_URL + apiPath.deleteSection + id, configHeader)
+                    .then(res => {
+                            if (res.status === 200) {
+                                Swal.fire("Kafedra o'chirildi", "", "success").then((r) => {
+                                    getSections()
+                                })
+                            } else {
+                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                    getSections()
+                                })
+                            }
+                        }
+                    ).catch(error => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                        getSections()
+                    })
+                })
+            }
+        });
+
     }
     return (
         <div className="admin">

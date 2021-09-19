@@ -88,7 +88,7 @@ function StatisticsByRegion({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     {/*<Legend wrapperStyle={{position: 'relative'}}/>*/}
-                    <Tooltip/>
+                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={15}
                          dataKey="count" fill="#4E5E80">
                         <LabelList dataKey="count" content={renderCustomizedLabel}/>

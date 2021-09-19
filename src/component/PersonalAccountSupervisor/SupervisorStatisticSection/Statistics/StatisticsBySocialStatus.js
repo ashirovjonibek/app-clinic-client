@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Bar, BarChart, CartesianGrid, LabelList, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 import {withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../../../utils/constant";
@@ -19,7 +19,7 @@ function StatisticsBySocialStatus({t}) {
     let singlemother = t("single_mother")
     let others = t("others")
 
-    const [data, setData] = useState([
+    const data = useState([
         {name: t("Tashkent City"), id: 1, [invalid]: null, [singlemother]: null, [others]: null},
         {name: t('Tashkent'), id: 2, [invalid]: '', [singlemother]: '', [others]: ''},
         {name: t('Andijan'), id: 3, [invalid]: '', [singlemother]: '', [others]: ''},
@@ -89,7 +89,7 @@ function StatisticsBySocialStatus({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip/>
+                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={8}
                          dataKey={invalid} fill="#78BAF3">
                         <LabelList dataKey={invalid} content={renderCustomizedLabel}/>

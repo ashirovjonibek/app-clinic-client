@@ -95,7 +95,7 @@ function StatisticsByGender({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip/>
+                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={10}
                          dataKey="erkak" fill="#78BAF3">
                         <LabelList dataKey="erkak" content={renderCustomizedLabel}/>

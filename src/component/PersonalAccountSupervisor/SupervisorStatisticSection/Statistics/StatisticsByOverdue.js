@@ -6,7 +6,6 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend,
     LabelList,
     ResponsiveContainer,
 } from 'recharts';
@@ -18,7 +17,6 @@ const renderCustomizedLabel = (props) => {
         x, y, width, height, value,
     } = props;
     const fireOffset = value.toString().length < 5;
-    const offset = fireOffset ? -40 : 5;
     return (
         <text x={x + width + 20} y={y + height - 2} fill={fireOffset ? "#000" : "#000"} textAnchor="end">
             {value}
@@ -89,7 +87,7 @@ function StatisticsByOverdue({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     {/*<Legend wrapperStyle={{position: 'relative'}}/>*/}
-                    <Tooltip/>
+                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={15}
                          dataKey="count" fill="#78BAF3">
                         <LabelList dataKey="count" content={renderCustomizedLabel}/>

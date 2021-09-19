@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
-import iconVideo from "../../assets/icon/video-camera.svg";
-import iconAudio from "../../assets/icon/microphone.svg";
+import React, {useEffect, useState} from "react";
 import Title from "../Title";
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import axios from "axios";
-import { API_URL, STORAGE_NAME } from "../../utils/constant";
-import { toast } from "react-toastify";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CircularProgress} from "@material-ui/core";
 import NavTop from "../Nav/NavTop";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -20,15 +17,16 @@ import DoneIcon from '@material-ui/icons/Done';
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import {ArrowBack} from "@material-ui/icons";
 
 const ApplicantAppeal = (props) => {
-    const { history } = props;
+    const {history} = props;
     const [sections, setSections] = useState([]);
-    const [isLoading,setLoading]=useState(false);
+    const [isLoading, setLoading] = useState(false);
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
-    const [done,setDone]=useState(false)
-    const [errorUpload,setErrorUpload]=useState("")
+    const [done, setDone] = useState(false)
+    const [errorUpload, setErrorUpload] = useState("")
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -36,9 +34,9 @@ const ApplicantAppeal = (props) => {
         top: false,
         attachmentId: []
     });
-    
+
     console.log(file);
-    console.log("VALUES ",values);
+    console.log("VALUES ", values);
 
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
@@ -50,7 +48,7 @@ const ApplicantAppeal = (props) => {
     const handleChange = (e) => {
         setValues({
             ...values,
-            [e.target.name]: e.target.name==="sectionId"?parseInt(e.target.value):e.target.value
+            [e.target.name]: e.target.name === "sectionId" ? parseInt(e.target.value) : e.target.value
         });
     }
 
@@ -59,33 +57,33 @@ const ApplicantAppeal = (props) => {
         e.preventDefault();
         // console.log(values);
         Swal.fire({
-            showCancelButton:true,
-            confirmButtonText:"Yuborish",
-            title:"Ariza ko'rib chiqish uchun yuborilsinmi",
-            icon:"warning",
-            cancelButtonText:"Bekor qilish"
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
+            showCancelButton: true,
+            confirmButtonText: "Yuborish",
+            title: "Ariza ko'rib chiqish uchun yuborilsinmi",
+            icon: "warning",
+            cancelButtonText: "Bekor qilish"
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
                 axios({
                     url: API_URL + '/application/create',
                     method: 'POST',
-                    data: values ,
+                    data: values,
                     headers: {
                         'Authorization': token,
                         'Content-Type': 'application/json'
                     }
                 }).then(res => {
                     if (res.data.success) {
-                        Swal.fire("Ariza yuborildi","","success").then(r=>{
+                        Swal.fire("Ariza yuborildi", "", "success").then(r => {
                             history.push('/personalAccountApplicant')
                         })
 
                     } else {
-                        Swal.fire(res.data.message,"","error").then(r=>{
+                        Swal.fire(res.data.message, "", "error").then(r => {
                         })
                     }
-                }).catch((err)=>{
-                    Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                }).catch((err) => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(r => {
                         console.log(r)
                     })
                 });
@@ -109,17 +107,17 @@ const ApplicantAppeal = (props) => {
                 data: formData
             }).then(res => {
                     console.log(res)
-                setFileName(e.target.files[0].name)
-                setFile([res.data.object]);
+                    setFileName(e.target.files[0].name)
+                    setFile([res.data.object]);
                     setValues({
                         ...values,
                         attachmentId: [res.data.object]
                     })
-                setLoading(false)
-                setDone(true)
-            }
+                    setLoading(false)
+                    setDone(true)
+                }
             )
-        }else {
+        } else {
             setErrorUpload("File yuklanmadi!!!")
             setLoading(false)
         }
@@ -130,24 +128,25 @@ const ApplicantAppeal = (props) => {
     return (
         <div>
             <div className="nav">
-                <NavTop />
+                <NavTop/>
                 <div className="nav-center container-fluit">
                     <div className="container">
                         <div className="navbar">
-                            <div className="menu-icon" >
-                                <MenuIcon
+                            <div className="menu-icon">
+                                <ArrowBack
                                     fontSize={'large'}
-                                    onClick={() => props.setSitebar(!props.sitebar)}
+                                    onClick={() => history.push("/personalAccountApplicant")}
                                 />
+
                             </div>
                             <div className="header-logo">
                                 <a href="#">
                                     <div className="logo-left">
-                                        <img src={iconLogo} alt="logo" />
+                                        <img src={iconLogo} alt="logo"/>
                                     </div>
                                     <div className="logo-right">
                                         <div>
-                                            <span><strong>{props.t("Legal clinic")}</strong></span><br />
+                                            <span><strong>{props.t("Legal clinic")}</strong></span><br/>
                                             {props.t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
                                         </div>
 
@@ -157,25 +156,25 @@ const ApplicantAppeal = (props) => {
                             <div className="header-right">
                                 <div className="header-right-desctop">
                                     <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder={props.t("Search")+"..."} />
-                                        <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                        <input type="" placeholder={props.t("Search") + "..."}/>
+                                        <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                     </form>
-                                    <NavLanguage />
+                                    <NavLanguage/>
                                     <div className="glas">
-                                        <img src={iconGlass} alt="" />
+                                        <img src={iconGlass} alt=""/>
                                     </div>
                                 </div>
-                                <Enter />
+                                <Enter/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style={{paddingTop:"88px"}} className="applicant-appeal">
+            <div style={{paddingTop: "88px"}} className="applicant-appeal">
                 <div className="container">
-                    <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={()=>{
+                    <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={() => {
                         history.push("/personalAccountApplicant")
-                    }} style={{marginRight:"17px",cursor:"pointer"}}/>{
+                    }} style={{marginRight: "17px", cursor: "pointer"}}/>{
 
                         props.t("Appeal")}
                         </span>}/>
@@ -198,24 +197,25 @@ const ApplicantAppeal = (props) => {
                         <ul>
                             <li className="first-form">
                                 <div>
-                                    <label for="">{props.t("Subject of the appeal")}:</label>
+                                    <label htmlFor="">{props.t("Subject of the appeal")}:</label>
                                     <input className="theme-request" onChange={handleChange} name="title" id="title"
-                                        type="text" placeholder={props.t("Enter the subject of the appeal")} />
+                                           type="text" placeholder={props.t("Enter the subject of the appeal")}/>
                                 </div>
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
-                                    rows="10"
-                                    placeholder={props.t("Enter the subject of the appeal")} />
+                                          rows="10"
+                                          placeholder={props.t("Enter the subject of the appeal")}/>
                             </li>
                             <li className="last-form">
                                 <ul>
                                     <li>
-                                        <div style={{ marginBottom: '20px' }}>
+                                        <div style={{marginBottom: '20px'}}>
                                             <div className="lb">
-                                                <label className="label" for="">{props.t("Category of treatment")}</label>
+                                                <label className="label"
+                                                       htmlFor="">{props.t("Category of treatment")}</label>
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
-                                                    className="category">
+                                                        className="category">
                                                     <option value="">{props.t("Select your appeal")}</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>
@@ -225,50 +225,55 @@ const ApplicantAppeal = (props) => {
                                         </div>
                                     </li>
                                     <li>
-                                        <div style={{ marginBottom: '20px' }}>
+                                        <div style={{marginBottom: '20px'}}>
                                             <div className="lb">
-                                                <label className="label" for="">{props.t("Attach file")}</label>
+                                                <label className="label" htmlFor="">{props.t("Attach file")}</label>
                                             </div>
-                                            <div className="file" style={{cursor:"pointer"}}>
-                                                {!isLoading?done?<DoneIcon style={{cursor:"pointer"}}/>:<GetAppIcon style={{cursor:"pointer"}}/>:""}
-                                                {isLoading?<CircularProgress style={{width:"15px",height:"15px",marginTop:"3px"}} color="primary"/>:""}
-                                                <input title={done?fileName:"Fayl yuklanmagan"} onChange={handleUpload} type="file" />
+                                            <div className="file" style={{cursor: "pointer"}}>
+                                                {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
+                                                    <GetAppIcon style={{cursor: "pointer"}}/> : ""}
+                                                {isLoading ? <CircularProgress
+                                                    style={{width: "15px", height: "15px", marginTop: "3px"}}
+                                                    color="primary"/> : ""}
+                                                <input title={done ? fileName : "Fayl yuklanmagan"}
+                                                       onChange={handleUpload} type="file"/>
                                             </div>
                                             <div className="file1">{fileName}</div>
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
                                     </li>
                                     <li className="confidential">
-                                        <label className="label lb" for="" style={{
+                                        <label className="label lb" htmlFor="" style={{
                                             fontSize: '18px',
                                             fontWeight: '500',
                                             marginLeft: '60px'
                                         }}>{props.t("Confidentially")}</label>
                                         <div className="about">
-                                            <input required checked={values.top} type="checkbox" onChange={(e)=>{
+                                            <input required checked={values.top} type="checkbox" onChange={(e) => {
                                                 console.log(e.target.checked)
                                                 setValues({
                                                     ...values,
-                                                    top:e.target.checked
+                                                    top: e.target.checked
                                                 })
                                             }
                                             } id="vehicle1"
-                                                name="statusFull" />
-                                            <label for="vehicle1">
+                                                   name="statusFull"/>
+                                            <label htmlFor="vehicle1">
                                                 {props.t("This question will not be displayed in the \"Frequently Asked Questions\" section of the AIS Clinic.")}</label>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
                             <li className="send-button">
-                                <button type="submit" disabled={isLoading} className="btn-default">{props.t("Submit")}</button>
+                                <button type="submit" disabled={isLoading}
+                                        className="btn-default">{props.t("Submit")}</button>
                             </li>
 
                         </ul>
                     </form>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }

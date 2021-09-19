@@ -99,7 +99,7 @@ function StatisticsByStatus({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <input type="checkbox"/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip/>
+                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={8}
                          dataKey="new" fill="#78BAF3">
                         <LabelList dataKey="new" content={renderCustomizedLabel}/>

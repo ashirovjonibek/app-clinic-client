@@ -5,6 +5,9 @@ import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
+import axios from "axios";
+import {apiPath} from "../../requests/apiPath";
+import {configHeader} from "../../requests/congifHeader";
 
 const AdminListSupervisor = ({t,searchTerm}) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -46,9 +49,9 @@ const AdminListSupervisor = ({t,searchTerm}) => {
             showCancelButton:true
         }).then((conform)=>{
             if (conform.isConfirmed){
-                RequestFunctions.deleteUser(id)
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
-                            if (res.status===204){
+                            if (res.status===200){
                                 Swal.fire("O'chirildi!!!","","success").then((r)=>{
                                     getListeners();
                                 })

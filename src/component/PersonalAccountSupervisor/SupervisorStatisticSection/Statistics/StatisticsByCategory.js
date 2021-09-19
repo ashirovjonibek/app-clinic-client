@@ -122,7 +122,7 @@ function StatisticsByCategory({t}) {
                 <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                 <input type="checkbox"/>
                 <Legend wrapperStyle={{position: 'relative'}}/>
-                <Tooltip/>
+                <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
 
                 {section && section.map((sec, i) => {
                     let kafedra = sec.title["uz"]

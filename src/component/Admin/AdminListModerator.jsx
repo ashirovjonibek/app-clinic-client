@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from "react";
 import {withTranslation} from "react-i18next";
-import RequestFunctions from "../../requests/RequestFunctions";
 import SimpleModal from "./SimpleModal";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import axios from "axios";
+import {apiPath} from "../../requests/apiPath";
+import {configHeader} from "../../requests/congifHeader";
+import Swal from "sweetalert2";
 
 const AdminListModerator = ({t,searchTerm}) => {
-    const [items, setItems] = useState([]);
+    const setItems = useState([]);
     const [moderator, setModerator] = useState([]);
     // const sectionIds = []
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -36,17 +39,36 @@ const AdminListModerator = ({t,searchTerm}) => {
             });
     }
     const deleteMethod = (id) => {
-        RequestFunctions.deleteUser(id)
-            .then(res => {
-                console.log(res)
-                getListeners()
-                }
-            ).catch(error => {
-            console.log(error)
-        })
-        getListeners()
-        setReLoad(!reLoad)
-    }
+        Swal.fire({
+            title:"User o'chirilsinmi?",
+            cancelButtonText:"Bekor qilish",
+            confirmButtonText:"O'chirish",
+            confirmButtonColor:"red",
+            showCancelButton:true,
+            icon:"warning"
+        }).then((confirm)=>{
+            if (confirm.isConfirmed){
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
+                    .then(res => {
+                            if (res.status === 200) {
+                                Swal.fire("O'chirildi", "", "success").then((r) => {
+                                    getListeners()
+                                    setReLoad(!reLoad)
+                                })
+                            } else {
+                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                    getListeners()
+                                })
+                            }
+                        }
+                    ).catch(error => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                        getListeners()
+                    })
+                })
+            }
+        });
+    };
 
     // const activeSection = (id) => {
     //     setModerator(items.filter(item => item.section.id === id))

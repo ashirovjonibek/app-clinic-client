@@ -17,6 +17,7 @@ import "../../assets/scss/adminNav.scss"
 import AdminListListener from "./AdminListListenear";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import Footer from "../Footer/Footer";
+import Enter from "../Nav/Enter";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -154,12 +155,13 @@ const Admin = ({t}) => {
                                 </div>
                             </div>
                             <div className="enter">
-                                <div className="enter-btn" onClick={handleGoOut} style={{cursor: "pointer"}}>
-                                    <div className="enter-img">
-                                        <LockIcon/>
-                                    </div>
-                                    {t("Go out")}
-                                </div>
+                                {/*<div className="enter-btn" onClick={handleGoOut} style={{cursor: "pointer"}}>*/}
+                                {/*    <div className="enter-img">*/}
+                                {/*        <LockIcon/>*/}
+                                {/*    </div>*/}
+                                {/*    {t("Go out")}*/}
+                                {/*</div>*/}
+                                <Enter />
                             </div>
                         </div>
                     </div>

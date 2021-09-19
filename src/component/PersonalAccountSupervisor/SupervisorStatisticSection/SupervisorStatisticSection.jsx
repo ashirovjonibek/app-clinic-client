@@ -56,13 +56,13 @@ const SupervisorStatisticSection = ({t}) => {
                         <li>
                             <Link to="#" onClick={() => getStatistic(3)}>{t("By gender")}</Link>
                         </li>
-                        <li>
-                            <Link to="#" onClick={() => getStatistic(4)}>{t("Overdue responses")}</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="nav-top-buttons">
-                    <ul>
+                        {/*<li>*/}
+                        {/*    <Link to="#" onClick={() => getStatistic(4)}>{t("Overdue responses")}</Link>*/}
+                        {/*</li>*/}
+                    {/*</ul>*/}
+                {/*</div>*/}
+                {/*<div className="nav-top-buttons">*/}
+                {/*    <ul>*/}
                         <li>
                             <Link to="#" onClick={() => getStatistic(5)}>{t("By status")}</Link>
                         </li>

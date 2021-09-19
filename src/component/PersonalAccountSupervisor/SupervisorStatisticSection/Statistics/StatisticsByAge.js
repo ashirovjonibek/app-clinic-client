@@ -95,7 +95,7 @@ function StatisticsByAge({t}) {
                 <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <input type="checkbox"/>
                 <Legend wrapperStyle={{position: 'relative'}}/>
-                <Tooltip/>
+                <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                 <Bar barSize={7}
                      dataKey="seventeen" fill="#5DDAF0">
                     {/*<LabelList dataKey="seventeen" content={renderCustomizedLabel}/>*/}
