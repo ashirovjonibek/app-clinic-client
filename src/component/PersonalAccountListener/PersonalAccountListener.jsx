@@ -8,7 +8,6 @@ import DirectorySection from "./DirectorySection";
 import SendSection from "./SendSection";
 import IncomingRequestSection from "./IncomingRequestSection";
 import {Link, useHistory} from "react-router-dom";
-import { ApiContext } from "../../utils/ApiContext";
 import IncomingRequestItem from "./IncomingRequestItem";
 import NavTop from "../Nav/NavTop";
 import iconLogo from "../../assets/icon/icon-logo.svg";

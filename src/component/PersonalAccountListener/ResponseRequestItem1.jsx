@@ -15,7 +15,7 @@ import GetAppIcon from "@material-ui/icons/GetApp";
 import {CircularProgress} from "@material-ui/core";
 import Swal from "sweetalert2";
 
-const ResponseRequestItem1 = ({t,id,item,refresh}) => {
+const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
     const [isAn,setIsAn]=useState(false);
     const token=localStorage.getItem(STORAGE_NAME);
     const [message,setMessage]=useState("");
@@ -28,6 +28,8 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
 
 
     const submit=()=>{
+        let path=type?"/answer/":"/answer/create?applicationId=";
+        let method=type?"put":"post";
         console.log(id);
         Swal.fire({
             title: 'Tasdiqlash!!!',
@@ -40,12 +42,16 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios({
-                    method:'post',
-                    url:API_URL+'/answer/create?applicationId='+id,
+                    method:method,
+                    url:API_URL+path+id,
                     headers:{
                         Authorization:token
                     },
-                    data:{
+                    data:type?{
+                        attachmentId: fileId?fileId:[],
+                        deniedMessage: message,
+                        status:"CREATE"
+                    }:{
                         attachmentId: fileId?fileId:[],
                         deniedMessage: message
                     }
@@ -57,6 +63,13 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
                         'success'
                     ).then((res)=>{
                         refresh()
+                    });
+                }).catch((err)=>{
+                    Swal.fire(
+                        'Xatolik yuz berdi!',
+                        '',
+                        'error'
+                    ).then((res)=>{
                     });
                 })
             }
@@ -152,4 +165,4 @@ const ResponseRequestItem1 = ({t,id,item,refresh}) => {
     );
 }
 
-export default withTranslation()(ResponseRequestItem1);
+export default  withTranslation()(ResponseRequestItem1);

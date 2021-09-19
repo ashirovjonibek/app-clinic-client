@@ -6,6 +6,7 @@ import {CustomPagination} from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import {Link} from "react-router-dom";
 import {withTranslation} from "react-i18next";
+import AttachAnswer from "./AttachAnswer";
 
 const AppealSection = (props) => {
     let token = localStorage.getItem(STORAGE_NAME);
@@ -36,7 +37,7 @@ const AppealSection = (props) => {
 
     const refresh = () => {
         setLoading(true);
-        if (nS!==3){
+        if (nS<3){
             axios({
                 method: 'get',
                 url: API_URL + "/document/sending?size=" + size + "&page=" + (active - 1),
@@ -49,7 +50,6 @@ const AppealSection = (props) => {
                 setInpApps(r.data.object);
                 setItems(r.data.object);
                 setLoading(false);
-                setNs(1)
             })
         }else {
             denied()
@@ -66,7 +66,6 @@ const AppealSection = (props) => {
                 }
             });
             setInpApps(a);
-            setNs(2)
         }
 
     };
@@ -83,7 +82,6 @@ const AppealSection = (props) => {
             console.log(r);
             setInpApps(r.data);
             setLoading(false);
-            setNs(3);
             setTotal(1);
         }).catch((e)=>{
             setLoading(false)
@@ -99,23 +97,27 @@ const AppealSection = (props) => {
                            className="request-items">
                             <Link onClick={() => {
                                 refresh()
-                            }}>{props.t("Hammasi")}</Link>
+                                setNs(1)
+                            }}>{props.t("New answers")}</Link>
                         </p>
                         <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items active">
                             <Link onClick={() => {
                                 byStatus("INPROCESS")
-                            }}>{props.t("Arizachiga")}</Link>
+                                setNs(2)
+                            }}>{props.t("Responses received")}</Link>
                         </p>
                         <p style={{padding: "0px 10px", border: nS === 3 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items active">
                             <Link onClick={() => {
                                 denied()
-                            }}>{props.t("Boshliqqa")}</Link>
+                                setNs(3)
+                            }}>{props.t("Rejected answers")}</Link>
                         </p>
                     </div>
                     {
                         inpApps && inpApps.map((item, i) =>
+                            nS===3?<AttachAnswer refresh={refresh} item={item}/>:
                             <AppealItem refresh={refresh} key={i} item={item}/>
                         )
                     }

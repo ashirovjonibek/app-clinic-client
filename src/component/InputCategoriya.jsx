@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import iconDropdown from "../assets/icon/icon-down.svg";
-import {ListenerContext} from "../utils/ListenerContext";
 
 const InputCategoriya = ({nameCourse, namePosition, nameChair}) => {
     // const {course, setCourse, position, setPosition, chair, setChair} = useContext(ListenerContext);

@@ -6,6 +6,7 @@ import CheckboxConfidensial from "../CheckboxConfidensial";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {CustomPagination} from "../catalog/Pagenation";
 import {CircularProgress} from "@material-ui/core";
+import {withTranslation} from "react-i18next";
 const YourAppealSection = (props) => {
 
     const history=useHistory();
@@ -76,7 +77,7 @@ const YourAppealSection = (props) => {
                                 <div className="content" key={i} value={item?.id}>
                                     <div className="document-text">
                                         <div className="document-text-title">
-                                            <h4>Тема обращения:</h4>
+                                            <h4>{props.t("Subject of the appeal")}:</h4>
                                             <p>{item?.title}</p>
                                         </div>
                                         <div className="document-text-item">
@@ -86,12 +87,12 @@ const YourAppealSection = (props) => {
                                     <div className="categories">
                                         <ul>
                                             <li>
-                                                <label htmlFor="">Категория обращения</label>
+                                                <label htmlFor="">{props.t("Category of treatment")}</label>
                                                 <div className="category-item">{item?.section?.title?.ru}</div>
                                             </li>
                                             <li>
-                                                <label htmlFor="">Файл</label>
-                                                <div title={item?.attachmentsId ? "Arizani yuklash" : "doc not found"}
+                                                <label htmlFor="">{props.t("File")}</label>
+                                                <div title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                      onClick={(e) => {
                                                          item?.attachmentsId ? fileLoad(item?.attachmentsId[0], item?.applicant?.fullName) : console.log("doc not found")
                                                      }} style={{textAlign: "center", cursor: "pointer"}} className="file-item">
@@ -111,7 +112,7 @@ const YourAppealSection = (props) => {
                                     console.log(appeal)
                                     history.push("/applicantAppeal")
                                     window.scrollTo(0,0)
-                                }}>Создать новое обращение</span>
+                                }}>{props.t("Create a new ticket")}</span>
                             </div>
                             <div style={{clear: "both"}}></div>
                             <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
@@ -129,4 +130,4 @@ const YourAppealSection = (props) => {
     );
 }
 
-export default YourAppealSection;
+export default withTranslation()(YourAppealSection);

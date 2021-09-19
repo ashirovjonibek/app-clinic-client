@@ -36,6 +36,7 @@
   "Benefit category": "Категория льгот",
   "Date of birth": "Дата рождения",
   "Register all": "Зарегистрировать все",
+  "Register": "Зарегистрировать",
   "Position": "Должность",
   "Course": "Курс",
   "Department": "Кафедра",
@@ -146,14 +147,7 @@
   "Syrdarya": "Сырдаря",
   "Fergana": "Фергана",
   "Khorezm": "Хорезм",
-  "Karakalpakstan": "Каракалпакс тан",
-
-
-  "Registration": "Регистрация",
-  "Personal data": "Анкетные данные",
-  "Region": "Область",
-  "City (region)": "Город (область)",
-  "Home address": "Домашний адрес"
+  "Karakalpakstan": "Каракалпакс тан"
 
 
 

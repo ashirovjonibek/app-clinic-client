@@ -4,6 +4,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { withRouter } from 'react-router-dom';
 import { API_URL } from "../../utils/constant";
+import Swal from "sweetalert2";
+import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import {withTranslation} from "react-i18next";
 
 const RegistrationApplicant = (props) => {
     const { history } = props;
@@ -115,14 +118,36 @@ const RegistrationApplicant = (props) => {
         if (values.password === values.prePassword) {
             console.log(values)
             axios.post(API_URL + "/auth/createApplicant", { ...values }).then(res => {
-                console.log(res)
                 if (res.data.success) {
-                    history.push("/auth/login")
-                    toast.success(res.data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: "Ro'yhatga olindi!!!",
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                        history.push("/auth/login")
+                    });
+                }else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                    });
                 }
             });
         } else {
-            toast.error('Password Not match')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                showConfirmButton: false,
+                timer: 1000
+            }).then(()=>{
+            });
         }
     }
 
@@ -131,7 +156,12 @@ const RegistrationApplicant = (props) => {
             <div className="registration-applicant container-fluit">
                 <div className="container">
                     <div className="registration-applicant-wrapper">
-                        <Title text="Регистрация" />
+                        <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={()=>{
+                            history.goBack()
+                        }} style={{marginRight:"17px",cursor:"pointer"}}/>{
+
+                            props.t("Register")}
+                        </span> }/>
                         <h5>Анкетные данные</h5>
                         <form onSubmit={handleSend}>
                             <div className="form-wrapper">
@@ -314,4 +344,4 @@ const RegistrationApplicant = (props) => {
     )
 }
 
-export default withRouter(RegistrationApplicant);
+export default withTranslation()(withRouter(RegistrationApplicant));

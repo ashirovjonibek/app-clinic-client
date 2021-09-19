@@ -281,7 +281,8 @@ class RequestFunctions {
         return response
     }
 
-    static updateListenerByRole(roleId, userId) {
+    static async updateListenerByRole(roleId, userId) {
+        let response;
         const config = {
             method: 'put',
             url: API_URL + apiPath.updateListenerByRole + '?roleId=' + roleId + '&userId=' + userId + '',
@@ -289,14 +290,14 @@ class RequestFunctions {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
         };
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
+        await axios(config)
+            .then(function (r) {
+                response=r
             })
             .catch(function (error) {
-                console.log(error);
+                response=error
             });
-        // return response
+        return response
     }
 
 

@@ -12,6 +12,7 @@ import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "../../redux/me
 import meReducer from "../../redux/me/reducer";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import {allRoles} from "../../routes/authRoles";
+import Swal from "sweetalert2";
 
 const Login = (props) => {
     const { history } = props;
@@ -49,33 +50,55 @@ const Login = (props) => {
                             history.push('/auth/login');
                         } else {
                             if (res.data.object != null) {
-                                dispatch({type:ME_DATA,data:res?.data?.object})
-                                dispatch({type:ME_USERNAME,data:res?.data?.object?.username})
-                                dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
-                                dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
-                                dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0].authority]})
-                                let a=allRoles[res?.data?.object?.roles[0].authority]
-                                // console.log(a)
-                                history.push(a[1])
-                                toast.success("Log in successfully!")
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Accountga kirildi',
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                }).then(()=>{
+                                    dispatch({type:ME_DATA,data:res?.data?.object})
+                                    dispatch({type:ME_USERNAME,data:res?.data?.object?.username})
+                                    dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
+                                    dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
+                                    dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0].authority]})
+                                    let a=allRoles[res?.data?.object?.roles[0].authority]
+                                    history.push(a[1])
+                                });
                             } else {
-                                history.push('/auth/login')
-                                toast.error("User Not found!")
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                }).then(()=>{
+                                    history.push("/auth/login")
+                                });
                             }
                         }
                     }).catch((e)=>{
-                        dispatch({type:ME_DATA,data:{}})
-                        dispatch({type:ME_USERNAME,data:""})
-                        dispatch({type:ME_EMAIL,data:""})
-                        dispatch({type:ME_FULL_NAME,data:""})
-                        dispatch({type:ROLE,data:[]})
-                        localStorage.removeItem(STORAGE_NAME);
-                        delete axios.defaults.headers.Authorization;
-                        toast.error("User Not found !")
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                            showConfirmButton: false,
+                            timer: 2000
+                        }).then(()=>{
+                            history.push("/auth/login")
+                        });
                     })
                 }
             }).catch(error => {
-                toast.error("User Not found !")
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(()=>{
+                    history.push("/auth/login")
+                });
             })
         }
 
@@ -99,7 +122,7 @@ const Login = (props) => {
                     <div className="login-wrapper">
 
                         <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={()=>{
-                            history.push("/")
+                            history.goBack()
                         }} style={{marginRight:"17px",cursor:"pointer"}}/>{
 
                             props.t("Login to your personal account")}

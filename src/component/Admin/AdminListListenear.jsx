@@ -6,6 +6,7 @@ import "../../assets/scss/adminListener.scss"
 import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CheckCircle} from "@material-ui/icons";
+import Swal from "sweetalert2";
 
 const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
@@ -38,18 +39,36 @@ const AdminListListener = ({t, searchTerm}) => {
     };
 
     const deleteMethod = (id) => {
-        RequestFunctions.deleteUser(id)
-            .then(res => {
-                    console.log(res)
-                }
-            ).catch(error => {
-            console.log(error)
-        })
-        setTimeout(() => {
-            getListeners()
-            setReLoad(!reLoad)
-        }, 1500)
-    }
+        Swal.fire({
+            title:"User o'chirilsinmi?",
+            cancelButtonText:"Bekor qilish",
+            confirmButtonText:"O'chirish",
+            confirmButtonColor:"red",
+            showCancelButton:true,
+            icon:"warning"
+        }).then((confirm)=>{
+            if (confirm.isConfirmed){
+                RequestFunctions.deleteUser(id)
+                    .then(res => {
+                            if (res.status === 204) {
+                                Swal.fire("O'chirildi", "", "success").then((r) => {
+                                    getListeners()
+                                    setReLoad(!reLoad)
+                                })
+                            } else {
+                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                    getListeners()
+                                })
+                            }
+                        }
+                    ).catch(error => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                        getListeners()
+                    })
+                })
+            }
+        });
+    };
 
     const changeViewed = (id) => {
         const axios = require('axios');

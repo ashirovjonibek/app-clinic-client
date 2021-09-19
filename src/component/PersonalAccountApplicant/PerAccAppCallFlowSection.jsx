@@ -12,13 +12,14 @@ const PerAccAppCallFlowSection = () => {
     const [active,setActive]=useState(1)
     const [loading,setLoading]=useState(true)
     const [errorMsg,setErrorMsg]=useState({message:"",status:false})
+    const [size,setSize]=useState(3)
 
     useEffect(()=>{
         axios({
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant?size=5&page="+(active-1),
+            url: API_URL + "/application/applicant?size="+size+"&page="+(active-1),
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
@@ -55,6 +56,8 @@ const PerAccAppCallFlowSection = () => {
                             <div style={{clear:"both"}}></div>
                             <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
                                 <CustomPagination
+                                    size={size}
+                                    setSize={setSize}
                                     pageLength={pageSize}
                                     setActive={setActive}
                                     active={active}

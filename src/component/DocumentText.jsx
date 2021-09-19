@@ -1,11 +1,12 @@
 
 import React from "react";
+import {withTranslation} from "react-i18next";
 
-const DocumentText = ({appeal}) => {
+const DocumentText = ({appeal,t}) => {
     return (
         <div className="document-text">
             <div className="document-text-title">
-                <h4>Тема обращения:</h4>
+                <h4>{t("Subject of the appeal")}:</h4>
                 <p>{appeal?.title}</p>
             </div>
             <div className="document-text-item">
@@ -18,4 +19,4 @@ const DocumentText = ({appeal}) => {
     );
 }
 
-export default DocumentText;
+export default withTranslation()(DocumentText);

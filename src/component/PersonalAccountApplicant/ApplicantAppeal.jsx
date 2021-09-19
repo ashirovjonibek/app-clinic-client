@@ -17,6 +17,9 @@ import iconGlass from "../../assets/icon/icon-glass.svg";
 import Enter from "../Nav/Enter";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import DoneIcon from '@material-ui/icons/Done';
+import Swal from "sweetalert2";
+import {withTranslation} from "react-i18next";
+import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
 const ApplicantAppeal = (props) => {
     const { history } = props;
@@ -55,25 +58,40 @@ const ApplicantAppeal = (props) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
         // console.log(values);
-        axios({
-            url: API_URL + '/application/create',
-            method: 'POST',
-            data: values ,
-            headers: {
-                'Authorization': token,
-                'Content-Type': 'application/json'
+        Swal.fire({
+            showCancelButton:true,
+            confirmButtonText:"Yuborish",
+            title:"Ariza ko'rib chiqish uchun yuborilsinmi",
+            icon:"warning",
+            cancelButtonText:"Bekor qilish"
+        }).then((confirm)=>{
+            if (confirm.isConfirmed){
+                axios({
+                    url: API_URL + '/application/create',
+                    method: 'POST',
+                    data: values ,
+                    headers: {
+                        'Authorization': token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => {
+                    if (res.data.success) {
+                        Swal.fire("Ariza yuborildi","","success").then(r=>{
+                            history.push('/personalAccountApplicant')
+                        })
+
+                    } else {
+                        Swal.fire(res.data.message,"","error").then(r=>{
+                        })
+                    }
+                }).catch((err)=>{
+                    Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                        console.log(r)
+                    })
+                });
             }
-        }).then(res => {
-            if (res.data.success) {
-                console.log(res)
-                toast.success(res.data.message);
-                history.push('/personalAccountApplicant')
-            } else {
-                toast.error(res.data.message);
-            }
-        }).catch((err)=>{
-            console.log(err)
-        });
+        })
+
 
     }
 
@@ -129,9 +147,8 @@ const ApplicantAppeal = (props) => {
                                     </div>
                                     <div className="logo-right">
                                         <div>
-                                            <span><strong>Юридическая клиника</strong></span><br />
-                                            Академии Генеральной прокуратуры<br />
-                                            Республики Узбекистан.
+                                            <span><strong>{props.t("Legal clinic")}</strong></span><br />
+                                            {props.t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
                                         </div>
 
                                     </div>
@@ -140,7 +157,7 @@ const ApplicantAppeal = (props) => {
                             <div className="header-right">
                                 <div className="header-right-desctop">
                                     <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder="Поиск..." />
+                                        <input type="" placeholder={props.t("Search")+"..."} />
                                         <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                     </form>
                                     <NavLanguage />
@@ -156,7 +173,12 @@ const ApplicantAppeal = (props) => {
             </div>
             <div style={{paddingTop:"88px"}} className="applicant-appeal">
                 <div className="container">
-                    <Title text="Обращение" />
+                    <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={()=>{
+                        history.push("/personalAccountApplicant")
+                    }} style={{marginRight:"17px",cursor:"pointer"}}/>{
+
+                        props.t("Appeal")}
+                        </span>}/>
 
                     {/*<div className="requests">*/}
                     {/*    <div>*/}
@@ -176,25 +198,25 @@ const ApplicantAppeal = (props) => {
                         <ul>
                             <li className="first-form">
                                 <div>
-                                    <label for="">Тема обращения:</label>
+                                    <label for="">{props.t("Subject of the appeal")}:</label>
                                     <input className="theme-request" onChange={handleChange} name="title" id="title"
-                                        type="text" placeholder="Введите тему обращения" />
+                                        type="text" placeholder={props.t("Enter the subject of the appeal")} />
                                 </div>
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
                                     rows="10"
-                                    placeholder="Введите тему обращения" />
+                                    placeholder={props.t("Enter the subject of the appeal")} />
                             </li>
                             <li className="last-form">
                                 <ul>
                                     <li>
                                         <div style={{ marginBottom: '20px' }}>
                                             <div className="lb">
-                                                <label className="label" for="">Категория обращения</label>
+                                                <label className="label" for="">{props.t("Category of treatment")}</label>
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
                                                     className="category">
-                                                    <option value="">Выберите ваш обращения</option>
+                                                    <option value="">{props.t("Select your appeal")}</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>
                                                     )}
@@ -205,7 +227,7 @@ const ApplicantAppeal = (props) => {
                                     <li>
                                         <div style={{ marginBottom: '20px' }}>
                                             <div className="lb">
-                                                <label className="label" for="">Прикрепить файл</label>
+                                                <label className="label" for="">{props.t("Attach file")}</label>
                                             </div>
                                             <div className="file" style={{cursor:"pointer"}}>
                                                 {!isLoading?done?<DoneIcon style={{cursor:"pointer"}}/>:<GetAppIcon style={{cursor:"pointer"}}/>:""}
@@ -221,7 +243,7 @@ const ApplicantAppeal = (props) => {
                                             fontSize: '18px',
                                             fontWeight: '500',
                                             marginLeft: '60px'
-                                        }}>Конфиденциально</label>
+                                        }}>{props.t("Confidentially")}</label>
                                         <div className="about">
                                             <input required checked={values.top} type="checkbox" onChange={(e)=>{
                                                 console.log(e.target.checked)
@@ -233,14 +255,13 @@ const ApplicantAppeal = (props) => {
                                             } id="vehicle1"
                                                 name="statusFull" />
                                             <label for="vehicle1">
-                                                данный вопрос не будет отображаться в разделе «Популярные вопросы» в АИС
-                                                Клиника.</label>
+                                                {props.t("This question will not be displayed in the \"Frequently Asked Questions\" section of the AIS Clinic.")}</label>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
                             <li className="send-button">
-                                <button type="submit" disabled={isLoading} className="btn-default">Отправить</button>
+                                <button type="submit" disabled={isLoading} className="btn-default">{props.t("Submit")}</button>
                             </li>
 
                         </ul>
@@ -252,4 +273,4 @@ const ApplicantAppeal = (props) => {
     );
 }
 
-export default withRouter(ApplicantAppeal);
+export default withTranslation()(withRouter(ApplicantAppeal));

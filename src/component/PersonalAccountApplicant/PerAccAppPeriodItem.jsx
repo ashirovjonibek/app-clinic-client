@@ -1,25 +1,25 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
 
-const   PerAccAppPeriodItem = ({item}) => {
+const   PerAccAppPeriodItem = ({item,t}) => {
     let a=new Date(item.deadLineDate)
     let b=new Date();
-    let d=new Date(a.getTime()-b.getTime())
-    console.log(d.getDate())
+    let d=a.getTime()-b.getTime();
     return (
         <div>
-            <div className="period-section-title">Срок рассмотрения вашего обращения:<strong>{item?.deadlineDay} </strong>дней</div>
+            <div className="period-section-title">{t("The term for consideration of your appeal")}:<strong>{item?.deadlineDay} </strong>{t("days")}</div>
             <div className="content">
                 <div className="period-section">
                     <div className="request-theme">
                         <div>
-                            <h3>Тема обращения:<span>{item.title}</span></h3>
+                            <h3>{t("Subject of the appeal")}:<span>{item.title}</span></h3>
                         </div>
                     </div>
                     <div className="request-content-item">
                         <p>{item.description}</p>
                     </div>
                     <div className="bottom-inform">
-                        До окончания осталось:<strong>{d.getDate()} </strong>дней
+                        {t("Until the end is left")}:<strong>{parseInt(d/(1000*60*60*24))} </strong>{t("days")}
                     </div>
                 </div>
             </div>
@@ -27,4 +27,4 @@ const   PerAccAppPeriodItem = ({item}) => {
     );
 }
 
-export default PerAccAppPeriodItem;
+export default withTranslation()(PerAccAppPeriodItem);
