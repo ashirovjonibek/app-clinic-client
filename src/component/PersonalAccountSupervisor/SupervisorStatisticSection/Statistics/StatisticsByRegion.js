@@ -61,7 +61,6 @@ function StatisticsByRegion({t}) {
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setFetch(response.data)
             })
             .catch(function (error) {

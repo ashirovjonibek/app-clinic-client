@@ -232,6 +232,7 @@ function RegistrationListener(props) {
                                                 className="input-text"
                                                 type="text"
                                                 placeholder="+998 (__) ___-__-__"
+                                                required
                                             />
                                         </li>
                                         {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}

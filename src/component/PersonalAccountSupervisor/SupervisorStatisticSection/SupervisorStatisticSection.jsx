@@ -48,33 +48,33 @@ const SupervisorStatisticSection = ({t}) => {
                 <div className="nav-top-buttons">
                     <ul>
                         <li>
-                            <Link onClick={() => getStatistic(1)} >{t("In the context of regions")}</Link>
+                            <Link to="#" onClick={() => getStatistic(1)} >{t("In the context of regions")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(2)}>{t("By age categories")}</Link>
+                            <Link to="#" onClick={() => getStatistic(2)}>{t("By age categories")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(3)}>{t("By gender")}</Link>
+                            <Link to="#" onClick={() => getStatistic(3)}>{t("By gender")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(4)}>{t("Overdue responses")}</Link>
+                            <Link to="#" onClick={() => getStatistic(4)}>{t("Overdue responses")}</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="nav-top-buttons">
                     <ul>
                         <li>
-                            <Link onClick={() => getStatistic(5)}>{t("By status")}</Link>
+                            <Link to="#" onClick={() => getStatistic(5)}>{t("By status")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(6)}>{t("By category")}</Link>
+                            <Link to="#" onClick={() => getStatistic(6)}>{t("By category")}</Link>
                         </li>
                         <li>
-                            <Link onClick={() => getStatistic(7)}>{t("By type of benefits")}</Link>
+                            <Link to="#" onClick={() => getStatistic(7)}>{t("By type of benefits")}</Link>
                         </li>
-                        <li>
-                            <Link onClick={() => getStatistic(8)}>{t("For periods")} </Link>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <Link onClick={() => getStatistic(8)}>{t("For periods")} </Link>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>
             </div>
@@ -86,7 +86,7 @@ const SupervisorStatisticSection = ({t}) => {
                 <option className="responsive-nav-top-hidden">{t("By status")}</option>
                 <option className="responsive-nav-top-hidden">{t("By type of benefits")}</option>
                 <option className="responsive-nav-top-hidden">{t("By type of benefits")}</option>
-                <option className="responsive-nav-top-hidden">{t("For periods")}</option>
+                {/*<option className="responsive-nav-top-hidden">{t("For periods")}</option>*/}
             </select>
             <div className="statistic-section-item">
                 {

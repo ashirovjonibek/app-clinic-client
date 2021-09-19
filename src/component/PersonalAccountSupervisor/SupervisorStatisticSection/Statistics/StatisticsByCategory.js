@@ -48,10 +48,9 @@ function StatisticsByCategory({t}) {
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
-        fetchSection()
         fetchData()
-        createFullData()
     }, [])
+
 
     function fetchData() {
         const axios = require('axios');
@@ -65,6 +64,8 @@ function StatisticsByCategory({t}) {
         axios(config)
             .then(function (response) {
                 setFetch(response.data)
+                fetchSection()
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -83,65 +84,33 @@ function StatisticsByCategory({t}) {
         axios(config)
             .then(function (response) {
                 setSection(response.data)
+                let d = response.data;
+                let a = []
+
+                data.map((item) => {
+                    let b = {region: item.name, id: item.id}
+                    d.map((sec, i) => {
+                        let kafedra = sec.title["uz"]
+                        let kafedra1 = kafedra.toString()
+                        let kafedra3 = kafedra1.replace('-', '_')
+                        let kafedra4 = kafedra3.trim()
+                        let kafedra5 = kafedra4.replace(' ', '_')
+                        console.log(kafedra5)
+
+                        b = {...b, [kafedra5]: i}
+
+                    })
+                    a.push(b)
+                    console.log("all data------------>", a)
+                })
+                setData(a)
+
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
-    function createFullData() {
-        if (section) {
-            section.map(sec => {
-                let kafedra = sec.title[i18]
-                let kafedra1 = kafedra.toString()
-                let kafedra3 = kafedra1.replace('-', '_')
-                let kafedra4 = kafedra3.trim()
-                let kafedra5 = kafedra4.replace(' ', '_')
-                console.log(kafedra5)
-                setData(prevstate => {
-                        data.map(itemData => {
-                            return {
-                                ...itemData,
-                                [kafedra5]: 0
-                            }
-                        })
-                    }
-                )
-                console.log(data)
-            })
-
-        }
-        /*
-                if (fetch) {
-                    fetch.map(item => {
-                        console.log(item)
-                        section && section.map(sec => {
-                            let kafedra = sec.title[i18]
-                            let kafedra1=kafedra.toString()
-                            let kafedra3=kafedra1.replace('-','_')
-                            let kafedra4=kafedra3.trim()
-                            let kafedra5=kafedra4.replace(' ','_')
-
-                            if (item.sectionId === sec.id) {
-                                setData(
-                                    data.map(itemData => {
-                                        if (itemData.id === item.regionId) {
-                                            return {
-                                                ...itemData,
-                                                [kafedra5]: item.count
-                                            }
-                                        }
-                                        return {
-                                            ...itemData,
-                                            [kafedra5]: 0
-                                        }
-                                    }))
-                            }
-                        })
-                    })
-                }
-        */
-    }
 
     return (
         <ResponsiveContainer width="100%" height={"100%"}>
@@ -149,19 +118,21 @@ function StatisticsByCategory({t}) {
                 left: 40
             }} width={400} height={500} data={data} layout="vertical">
                 <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
-                <YAxis dataKey="name" type="category"/>
+                <YAxis dataKey={data.region ? "region" : "name"} type="category"/>
                 <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                 <input type="checkbox"/>
                 <Legend wrapperStyle={{position: 'relative'}}/>
                 <Tooltip/>
 
                 {section && section.map((sec, i) => {
-                    let kafedra = sec.title[i18]
+                    let kafedra = sec.title["uz"]
                     let kafedra1 = kafedra.toString()
                     let kafedra3 = kafedra1.replace('-', '_')
                     let kafedra4 = kafedra3.trim()
                     let kafedra5 = kafedra4.replace(' ', '_')
+                    // console.log(kafedra5)
                     return (
+
                         <Bar key={i} barSize={7}
                              dataKey={kafedra5} fill="#78BAF3">
                             {/*<LabelList dataKey={sec.title[i18]}*/}

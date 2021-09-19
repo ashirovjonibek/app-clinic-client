@@ -133,38 +133,38 @@ const PersonalAccountSupervisor = ({t}) => {
                                         </div>
                                         <ul>
                                             <li>
-                                                <Link onClick={() => getPage(1)}>{t("Listener")}</Link>
+                                                <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
+                                                <Link to="#" onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                                <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
+                                                <Link to="#" onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                             </li>
                                             {/*<li>*/}
-                                            {/*    <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
+                                            {/*    <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
                                             {/*</li>*/}
                                             <li>
-                                                <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
+                                                <Link to="#" onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
+                                                <Link to="#" onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
+                                                <Link to="#" onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(9)}>{t("Listener rating")}</Link>
+                                                <Link to="#" onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                             </li>
                                             <li>
-                                                <Link onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
+                                                <Link to="#" onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                             </li>
-                                            <light>
-                                                <Link onClick={() => getPage(11)}>{t("Archive")}</Link>
-                                            </light>
+                                            <li>
+                                                <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div className="icon-disable">
@@ -186,37 +186,37 @@ const PersonalAccountSupervisor = ({t}) => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(1)}>{t("Listener")}</Link>
+                                            <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 2 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
+                                            <Link to="#" onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                            <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(4)}>{t("The applicant")}</Link>
+                                            <Link to="#" onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                         </li>
                                         {/*<li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>*/}
-                                        {/*    <Link onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
+                                        {/*    <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>*/}
                                         {/*</li>*/}
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(6)}>{t("Call flow")}</Link>
+                                            <Link to="#" onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 7 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
+                                            <Link to="#" onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 8 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
+                                            <Link to="#" onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 9 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(9)}>{t("Listener rating")}</Link>
+                                            <Link to="#" onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
+                                            <Link to="#" onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(11)}>{t("Archive")}</Link>
+                                            <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
                                         </li>
                                     </ul>
                                 </div>

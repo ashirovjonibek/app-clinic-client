@@ -70,7 +70,6 @@ const PersonalAccountModerator = () => {
         if (!localStorage.getItem(STORAGE_NAME)) {
             history.push("/auth/login")
         }
-
     }, [])
 
     const getPage = (n) => {

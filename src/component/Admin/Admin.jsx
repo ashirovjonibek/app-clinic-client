@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "../Nav/NavLanguage";
@@ -74,6 +74,12 @@ const Admin = ({t}) => {
         console.log(localStorage.getItem(STORAGE_NAME))
         history.push("/")
     }
+
+    useEffect(() => {
+        if (!localStorage.getItem(STORAGE_NAME)) {
+            history.push("/auth/login")
+        }
+    }, [])
 
     return (
         <div className="admin">
@@ -161,7 +167,7 @@ const Admin = ({t}) => {
             </div>
 
 
-            <div className="container-fluit admin-body" >
+            <div className="container-fluit admin-body">
                 <div className="container" style={{padding: '60px 0'}}>
                     <div className="sitebar-elements ">
                         <form role="search" method="get" action="#" className="search-form">

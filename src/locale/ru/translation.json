@@ -17,6 +17,7 @@
   "Phone number": "Телефон",
   "Login to your personal account": "Вход в личный кабинет",
   "Password": "Пароль",
+  "Enter your password": "Вводите пароль",
   "Forgot your password": "Забыли пароль",
   "No account yet": "Еще нет аккаунта",
 
@@ -145,7 +146,14 @@
   "Syrdarya": "Сырдаря",
   "Fergana": "Фергана",
   "Khorezm": "Хорезм",
-  "Karakalpakstan": "Каракалпакс тан"
+  "Karakalpakstan": "Каракалпакс тан",
+
+
+  "Registration": "Регистрация",
+  "Personal data": "Анкетные данные",
+  "Region": "Область",
+  "City (region)": "Город (область)",
+  "Home address": "Домашний адрес"
 
 
 
