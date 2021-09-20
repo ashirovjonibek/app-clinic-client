@@ -20,7 +20,7 @@ const renderCustomizedLabel = (props) => {
     const fireOffset = value.toString().length < 5;
     const offset = fireOffset ? -40 : 5;
     return (
-        <text fontSize={10} x={x + width + 12} y={y + height } fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text fontSize={10} x={x + width + 12} y={y + height} fill={"#000"} textAnchor="end">
             {value}
         </text>
     );
@@ -28,22 +28,27 @@ const renderCustomizedLabel = (props) => {
 
 function StatisticsByStatus({t}) {
 
-    const [data, setData] = useState([
-        {name: 'Toshkent shahar', id: 1, completed: 0, inprocess: 0, new: 0},
-        {name: 'Toshkent', id: 2, completed: 0, inprocess: 0, new: 0},
-        {name: 'Andijon', id: 3, completed: 0, inprocess: 0, new: 0},
-        {name: 'Buxoro', id: 4, completed: 0, inprocess: 0, new: 0},
-        {name: 'Jizzax', id: 5, completed: 0, inprocess: 0, new: 0},
-        {name: 'Qashqa daryo', id: 6, completed: 0, inprocess: 0, new: 0},
-        {name: 'Navoiy', id: 7, completed: 0, inprocess: 0, new: 0},
-        {name: 'Namangan', id: 8, completed: 0, inprocess: 0, new: 0},
-        {name: 'Samarqand', id: 9, completed: 0, inprocess: 0, new: 0},
-        {name: 'Surxondaryo', id: 10, completed: 0, inprocess: 0, new: 0},
-        {name: 'Sirdaryo', id: 11, completed: 0, inprocess: 0, new: 0},
-        {name: 'Farg`ona', id: 12, completed: 0, inprocess: 0, new: 0},
-        {name: 'Xorazm', id: 13, completed: 0, inprocess: 0, new: 0},
-        {name: 'Qoraqalpo g`iston', id: 14, completed: 0, inprocess: 0, new: 0}
-    ]);
+    let completed = t("completed")
+    let inprocess = t("inprocess")
+    let newAppeal = t("new")
+
+    const data = [
+        {name: t("Tashkent City"), id: 1, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Tashkent'), id: 2, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Andijan'), id: 3, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Bukhara'), id: 4, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Jizzakh'), id: 5, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Kashka darya'), id: 6, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Navoi'), id: 7, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Namangan'), id: 8, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Samarkand'), id: 9, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Surkhandarya'), id: 10, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Syrdarya'), id: 11, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Fergana'), id: 12, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Khorezm'), id: 13, [completed]: 0, [inprocess]: 0, [newAppeal]: 0},
+        {name: t('Karakalpaks tan'), id: 14, [completed]: 0, [inprocess]: 0, [newAppeal]: 0}
+    ];
+
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
@@ -54,14 +59,13 @@ function StatisticsByStatus({t}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/application/filterByStatus',
+            url: API_URL + '/application/filterByStatus',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setFetch(response.data)
             })
             .catch(function (error) {
@@ -73,18 +77,18 @@ function StatisticsByStatus({t}) {
         data.map(item => {
             if (item.id === status.regionId) {
                 if (status.status === "COMPLETED") {
-                    item.completed = status.count
+                    item[completed] = status.count
                 }
                 if (status.status === "CREATED") {
-                    item.new = status.count
+                    item[newAppeal] = status.count
                 }
                 if (status.status === "INPROCESS") {
-                    item.inprocess = status.count
+                    item[inprocess] = status.count
                 }
             } else {
-                item.completed = ""
-                item.new = ""
-                item.inprocess = ""
+                item[completed] = ""
+                item[newAppeal] = ""
+                item[inprocess] = ""
             }
         })
     }))
@@ -92,25 +96,25 @@ function StatisticsByStatus({t}) {
         return (
             <ResponsiveContainer width="100%" height={"100%"}>
                 <BarChart margin={{
-                    left: 40
+                    left: 45
                 }} width={400} height={500} data={data} layout="vertical">
                     <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
                     <YAxis dataKey="name" type="category"/>
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <input type="checkbox"/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
+                    <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
                     <Bar barSize={8}
-                         dataKey="new" fill="#78BAF3">
-                        <LabelList dataKey="new" content={renderCustomizedLabel}/>
+                         dataKey={t("new")} fill="#78BAF3">
+                        <LabelList dataKey={t("new")} content={renderCustomizedLabel}/>
                     </Bar>
                     <Bar barSize={8}
-                         dataKey="inprocess" fill="#BAFF85">
-                        <LabelList dataKey="inprocess" content={renderCustomizedLabel}/>
+                         dataKey={t("inprocess")} fill="#BAFF85">
+                        <LabelList dataKey={t("inprocess")} content={renderCustomizedLabel}/>
                     </Bar>
                     <Bar barSize={8}
-                         dataKey="completed" fill="#F57670">
-                        <LabelList dataKey="completed" content={renderCustomizedLabel}/>
+                         dataKey={t("completed")} fill="#F57670">
+                        <LabelList dataKey={t("completed")} content={renderCustomizedLabel}/>
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>

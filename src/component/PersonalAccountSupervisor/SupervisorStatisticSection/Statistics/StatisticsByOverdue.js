@@ -26,22 +26,22 @@ const renderCustomizedLabel = (props) => {
 
 function StatisticsByOverdue({t}) {
 
-    const [data, setData] = useState([
-        {name: 'Toshkent shahar', id: 1, count: 88},
-        {name: 'Toshkent', id: 2, count: 32},
-        {name: 'Andijon', id: 3, count: 44},
-        {name: 'Buxoro', id: 4, count: 67},
-        {name: 'Jizzax', id: 5, count: 33},
-        {name: 'Qashqa daryo', id: 6, count: 26},
-        {name: 'Navoiy', id: 7, count: 56},
-        {name: 'Namangan', id: 8, count: 99},
-        {name: 'Samarqand', id: 9, count: 24},
-        {name: 'Surxondaryo', id: 10, count: 54},
-        {name: 'Sirdaryo', id: 11, count: 13},
-        {name: 'Farg`ona', id: 12, count: 45},
-        {name: 'Xorazm', id: 13, count: 66},
-        {name: 'Qoraqalpo g`iston', id: 14, count: 99}
-    ]);
+    const data =[
+        {name: t("Tashkent City"), id: 1, count: 88},
+        {name: t('Tashkent'), id: 2, count: 32},
+        {name: t('Andijan'), id: 3, count: 44},
+        {name: t('Bukhara'), id: 4, count: 67},
+        {name: t('Jizzakh'), id: 5, count: 33},
+        {name: t('Kashka darya'), id: 6, count: 26},
+        {name: t('Navoi'), id: 7, count: 56},
+        {name: t('Namangan'), id: 8, count: 99},
+        {name: t('Samarkand'), id: 9, count: 24},
+        {name: t('Surkhandarya'), id: 10, count: 54},
+        {name: t('Syrdarya'), id: 11, count: 13},
+        {name: t('Fergana'), id: 12, count: 45},
+        {name: t('Khorezm'), id: 13, count: 66},
+        {name: t('Karakalpaks tan'), id: 14, count: 99}
+    ];
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
@@ -80,7 +80,7 @@ function StatisticsByOverdue({t}) {
         return (
             <ResponsiveContainer width="100%" height={"100%"}>
                 <BarChart margin={{
-                    left: 40
+                    left: 45
                 }} width={400} height={500} data={data} layout="vertical">
                     <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
                     <YAxis dataKey="name" type="category"/>

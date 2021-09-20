@@ -28,22 +28,22 @@ const renderCustomizedLabel = (props) => {
 
 function StatisticsByRegion({t}) {
 
-    const [data, setData] = useState([
-        {name: 'Toshkent shahar', id: 1, count: 0},
-        {name: 'Toshkent', id: 2, count: 0},
-        {name: 'Andijon', id: 3, count: 0},
-        {name: 'Buxoro', id: 4, count: 0},
-        {name: 'Jizzax', id: 5, count: 0},
-        {name: 'Qashqa daryo', id: 6, count: 0},
-        {name: 'Navoiy', id: 7, count: 0},
-        {name: 'Namangan', id: 8, count: 0},
-        {name: 'Samarqand', id: 9, count: 0},
-        {name: 'Surxondaryo', id: 10, count: 0},
-        {name: 'Sirdaryo', id: 11, count: 0},
-        {name: 'Farg`ona', id: 12, count: 0},
-        {name: 'Xorazm', id: 13, count: 0},
-        {name: 'Qoraqalpo g`iston', id: 14, count: 0}
-    ]);
+    const data =[
+        {name: t("Tashkent City"), id: 1, count: 0},
+        {name: t('Tashkent'), id: 2, count: 0},
+        {name: t('Andijan'), id: 3, count: 0},
+        {name: t('Bukhara'), id: 4, count: 0},
+        {name: t('Jizzakh'), id: 5, count: 0},
+        {name: t('Kashka darya'), id: 6, count: 0},
+        {name: t('Navoi'), id: 7, count: 0},
+        {name: t('Namangan'), id: 8, count: 0},
+        {name: t('Samarkand'), id: 9, count: 0},
+        {name: t('Surkhandarya'), id: 10, count: 0},
+        {name: t('Syrdarya'), id: 11, count: 0},
+        {name: t('Fergana'), id: 12, count: 0},
+        {name: t('Khorezm'), id: 13, count: 0},
+        {name: t('Karakalpaks tan'), id: 14, count: 0}
+    ];
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
@@ -81,7 +81,7 @@ function StatisticsByRegion({t}) {
         return (
             <ResponsiveContainer width="100%" height={"100%"}>
                 <BarChart margin={{
-                    left: 40
+                    left: 45
                 }} width={400} height={500} data={data} layout="vertical">
                     <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
                     <YAxis dataKey="name" type="category"/>

@@ -20,30 +20,32 @@ const renderCustomizedLabel = (props) => {
     const fireOffset = value.toString().length < 5;
     const offset = fireOffset ? -40 : 5;
     return (
-        <text x={x + width + 20} y={y + height - 2} fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text x={x + width + 20} y={y + height - 2} fill={"#000"} textAnchor="end">
             {value}
         </text>
     );
 };
 
 function StatisticsByGender({t}) {
+    let male = t("male")
+    let female = t("female")
 
-    const [data, setData] = useState([
-        {name: 'Toshkent shahar', id: 1, erkak: 0, ayol: 0},
-        {name: 'Toshkent', id: 2, erkak: 0,ayol: 0},
-        {name: 'Andijon', id: 3, erkak: 0,ayol: 0},
-        {name: 'Buxoro', id: 4, erkak: 0,ayol: 0},
-        {name: 'Jizzax', id: 5, erkak: 0,ayol: 0},
-        {name: 'Qashqa daryo', id: 6, erkak: 0,ayol: 0},
-        {name: 'Navoiy', id: 7, erkak: 0,ayol: 0},
-        {name: 'Namangan', id: 8, erkak: 0,ayol: 0},
-        {name: 'Samarqand', id: 9, erkak: 0,ayol: 0},
-        {name: 'Surxondaryo', id: 10, erkak: 0,ayol: 0},
-        {name: 'Sirdaryo', id: 11, erkak: 0,ayol: 0},
-        {name: 'Farg`ona', id: 12, erkak: 0,ayol: 0},
-        {name: 'Xorazm', id: 13, erkak: 0,ayol: 0},
-        {name: 'Qoraqalpo g`iston', id: 14, erkak: 0,ayol: 0}
-    ]);
+    const  data  =  [
+        {name: t("Tashkent City"), id: 1, [male]: 0, [female]: 0},
+        {name: t('Tashkent'), id: 2, [male]: 0,[female]: 0},
+        {name: t('Andijan'), id: 3, [male]: 0,[female]: 0},
+        {name: t('Bukhara'), id: 4, [male]: 0,[female]: 0},
+        {name: t('Jizzakh'), id: 5, [male]: 0,[female]: 0},
+        {name: t('Kashka darya'), id: 6, [male]: 0,[female]: 0},
+        {name: t('Navoi'), id: 7, [male]: 0,[female]: 0},
+        {name: t('Namangan'), id: 8, [male]: 0,[female]: 0},
+        {name: t('Samarkand'), id: 9, [male]: 0,[female]: 0},
+        {name: t('Surkhandarya'), id: 10, [male]: 0,[female]: 0},
+        {name: t('Syrdarya'), id: 11, [male]: 0,[female]: 0},
+        {name: t('Fergana'), id: 12, [male]: 0,[female]: 0},
+        {name: t('Khorezm'), id: 13, [male]: 0,[female]: 0},
+        {name: t('Karakalpaks tan'), id: 14, [male]: 0,[female]: 0}
+    ];
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
@@ -61,7 +63,6 @@ function StatisticsByGender({t}) {
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setFetch(response.data)
             })
             .catch(function (error) {
@@ -73,14 +74,14 @@ function StatisticsByGender({t}) {
         data.map(item => {
             if (item.id === gender.regionId) {
                 if (gender.gender==="erkak"){
-                item.erkak = gender.count
+                item[male] = gender.count
                 }
                 if (gender.gender==="ayol"){
-                item.ayol = gender.count
+                item[female] = gender.count
                 }
             }else {
-                item.ayol=""
-                item.erkak=""
+                item[female]=""
+                item[male]=""
             }
         })
     }))
@@ -88,7 +89,7 @@ function StatisticsByGender({t}) {
         return (
             <ResponsiveContainer width="100%" height={"100%"}>
                 <BarChart margin={{
-                    left: 40
+                    left: 45
                 }} width={400} height={500} data={data} layout="vertical">
                     <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
                     <YAxis dataKey="name" type="category"/>
@@ -97,12 +98,12 @@ function StatisticsByGender({t}) {
                     <Legend wrapperStyle={{position: 'relative'}}/>
                     <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
                     <Bar barSize={10}
-                         dataKey="erkak" fill="#78BAF3">
-                        <LabelList dataKey="erkak" content={renderCustomizedLabel}/>
+                         dataKey={t("male")} fill="#78BAF3">
+                        <LabelList dataKey={t("male")} content={renderCustomizedLabel}/>
                     </Bar>
                     <Bar barSize={10}
-                         dataKey="ayol" fill="#F57670">
-                        <LabelList dataKey="ayol" content={renderCustomizedLabel}/>
+                         dataKey={t("female")} fill="#F57670">
+                        <LabelList dataKey={t("female")} content={renderCustomizedLabel}/>
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>

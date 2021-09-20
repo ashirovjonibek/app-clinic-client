@@ -23,12 +23,15 @@ const AdminListSetting = ({t,searchTerm}) => {
                 uz: "loading...",
                 en: "loading..."
             }
-        },
+        }
     ]);
 
     useEffect(() => {
         getSections()
-    }, [departments]);
+        return () => {
+            setDepartments([]); // This worked for me
+        };
+    }, []);
 
     const getSections = () => {
         RequestFunctions.getSections()

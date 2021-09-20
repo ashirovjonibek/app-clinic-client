@@ -147,7 +147,13 @@
   "Syrdarya": "Сырдаря",
   "Fergana": "Фергана",
   "Khorezm": "Хорезм",
-  "Karakalpakstan": "Каракалпакс тан"
+  "Karakalpaks tan": "Каракалпакс тан",
+
+  "male": "мужчина",
+  "female": "женщина",
+  "new": "новый",
+  "inprocess": "в процессе",
+  "completed": "завершенный"
 
 
 

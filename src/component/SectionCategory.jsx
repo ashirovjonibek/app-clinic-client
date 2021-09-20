@@ -33,11 +33,11 @@ const SectionCategory = (props) => {
         <div className="categories">
             <ul>
                 {!props?.showSection?<li>
-                    <label for="">{props.t("Category of treatment")}</label>
+                    <label htmlFor="">{props.t("Category of treatment")}</label>
                     <input disabled={true} type="text" value={props?.section?.title[''+i18n.language]}/>
                 </li>:""}
                 <li >
-                    <label for="">{props.t("File")}</label>
+                    <label htmlFor="">{props.t("File")}</label>
                     <div onClick={()=>{
                         if (props?.fileId){
                             fileLoad(props.fileId,"answer")
