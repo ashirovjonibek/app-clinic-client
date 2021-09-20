@@ -115,7 +115,7 @@ function StatisticsByCategory({t}) {
     return (
         <ResponsiveContainer width="100%" height={"100%"}>
             <BarChart margin={{
-                left: 40
+                left: 45
             }} width={400} height={500} data={data} layout="vertical">
                 <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
                 <YAxis dataKey={data.region ? "region" : "name"} type="category"/>

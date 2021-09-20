@@ -53,7 +53,7 @@ const SupervisorResponsesSection = () => {
                     <SupervisorResponsesRequestItem refresh={refresh} key={i} item={item} />)
             }
 
-            <div style={{clear: "both"}}></div>
+            <div style={{clear: "both"}}/>
             {answers.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
                 <CustomPagination
                     pageLength={total}

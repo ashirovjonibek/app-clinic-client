@@ -131,7 +131,7 @@
   "Syrdarya": "Sirdaryo",
   "Fergana": "Farg`ona",
   "Khorezm": "Xorazm",
-  "Karakalpakstan": "Qoraqalpo g`iston",
+  "Karakalpaks tan": "Qoraqalpo g`iston",
 
   "Create a new ticket": "Murojaat yo'llash",
   "Your appeal": "Sizning murojaatingiz",
@@ -158,6 +158,10 @@
   "Evaluating the response": "Javobni baholash",
   "Rejected answers": "Rad etilgan javoblar",
   "Responses received": "Qabul qilingan javoblar",
-  "New answers": "Yangi javoblar"
-
+  "New answers": "Yangi javoblar",
+  "male": "erkak",
+  "female": "ayol",
+  "new": "yangi",
+  "inprocess": "jarayonida",
+  "completed": "tugallangan"
 }
