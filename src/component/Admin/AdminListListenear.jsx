@@ -82,12 +82,28 @@ const AdminListListener = ({t, searchTerm}) => {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
         };
-        axios(config)
-            .then(function (response) {
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        Swal.fire({
+            title:"Eshituvchi qabul qilinsinmi?",
+            confirmButtonText:"Ha",
+            cancelButtonText:"Yo'q",
+            showCancelButton:true,
+            icon:"warning"
+        }).then((confirm)=>{
+            if (confirm.isConfirmed){
+                axios(config)
+                    .then(function (response) {
+                        Swal.fire("Qabul qilindi!!!","","success").then((confirm1)=>{
+                            getListeners()
+                        })
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        Swal.fire("Xatolik yuz berdi!!!","","error").then((confirm1)=>{
+                            getListeners()
+                        })
+                    });
+            }
+        });
         setTimeout(() => {
             setReLoad(!reLoad)
         }, 1700)

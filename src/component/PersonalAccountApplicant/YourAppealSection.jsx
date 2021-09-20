@@ -55,7 +55,7 @@ const YourAppealSection = (props) => {
                 const type = r.headers['content-type'].substring(r.headers['content-type'].indexOf("/_"));
                 const blob = new Blob([r.data], {type: type, encoding: 'UTF-8'});
                 const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
+                window.location.href = URL.createObjectURL(blob);
                 link.download = '' + name + ' arizasi.' + type;
                 link.click()
             })

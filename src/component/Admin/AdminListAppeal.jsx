@@ -44,7 +44,12 @@ const AdminListAppeal = ({t, searchTerm}) => {
             icon:"warning"
         }).then((conform)=>{
             if (conform.isConfirmed){
-                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, {
+                    headers: {
+                        'Authorization': localStorage.getItem(STORAGE_NAME),
+                        'Content-Type': 'application/json'
+                    }
+                })
                     .then(res => {
                         console.log(res);
                             if (res?.status===200){

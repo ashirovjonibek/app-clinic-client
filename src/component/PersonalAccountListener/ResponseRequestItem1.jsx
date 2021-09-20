@@ -47,13 +47,9 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                     headers:{
                         Authorization:token
                     },
-                    data:type?{
+                    data:{
                         attachmentId: fileId?fileId:[],
-                        deniedMessage: message,
-                        status:"CREATE"
-                    }:{
-                        attachmentId: fileId?fileId:[],
-                        deniedMessage: message
+                        description: message,
                     }
                 }).then((r)=>{
                     console.log(r);
@@ -62,7 +58,8 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                         '',
                         'success'
                     ).then((res)=>{
-                        refresh()
+                        refresh();
+                        setMessage("")
                     });
                 }).catch((err)=>{
                     Swal.fire(
@@ -125,7 +122,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
             {
                 isAn?<div>
                     <Label text={t("Answer")+":"} />
-                    <textarea onChange={(e)=>setMessage(e.target.value)} style={
+                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} style={
                         {
                             border:"1px solid rgba(0,0,0,0.3)",
                             width:"100%",
