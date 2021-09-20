@@ -9,9 +9,8 @@ import {configHeader} from "../../requests/congifHeader";
 import Swal from "sweetalert2";
 
 const AdminListModerator = ({t,searchTerm}) => {
-    const setItems = useState([]);
+    const [items,setItems] = useState([]);
     const [moderator, setModerator] = useState([]);
-    // const sectionIds = []
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [reLoad, setReLoad] = useState(true);
 
