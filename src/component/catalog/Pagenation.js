@@ -3,8 +3,9 @@ import './pagenation.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {Link} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 
-export const CustomPagination=(props)=> {
+const CustomPagination=(props)=> {
     const [pages,setPages]=useState([])
     useEffect(()=>{
         if (props?.pageLength){
@@ -86,7 +87,7 @@ export const CustomPagination=(props)=> {
         <div>
             {
                 props?.size?<div className="size-page">
-                    <span style={{fontSize:"20px"}}>Page size: </span>
+                    <span style={{fontSize:"20px"}}> {props.t("Page size")}: </span>
                     <select type="number" defaultValue={props?.size} min={0} max={10} onChange={(e)=>{
                         props?.setSize(e.target.value)
                         props?.setActive(1)
@@ -135,3 +136,4 @@ export const CustomPagination=(props)=> {
         </div>
     );
 }
+export default withTranslation()(CustomPagination);

@@ -4,6 +4,7 @@ import SimpleModal from "../Admin/SimpleModal";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
+import {withTranslation} from "react-i18next";
 
 const PerAccSupListenersItem = (props) => {
 
@@ -46,8 +47,8 @@ const PerAccSupListenersItem = (props) => {
                     <UserItem p={props?.item}/>
                     <div className="fedbeck-right">
                         <div>
-                            <button disabled={props?.item.blocked} onClick={blockUser} style={props?.item.blocked?active:active1} className="button-white">Blocklash</button>
-                            <button disabled={!props?.item.blocked} onClick={blockUser} className="button-white" style={!props?.item.blocked?active:active1} >Blockdan chiqarish</button>
+                            <button disabled={props?.item.blocked} onClick={blockUser} style={props?.item.blocked?active:active1} className="button-white">{props.t("Block")}</button>
+                            <button disabled={!props?.item.blocked} onClick={blockUser} className="button-white" style={!props?.item.blocked?active:active1} >{props.t("Unblock")}</button>
                         </div>
                         <div className="redaction-date">
                             <SimpleModal
@@ -61,4 +62,4 @@ const PerAccSupListenersItem = (props) => {
     );
 }
 
-export default PerAccSupListenersItem;
+export default withTranslation() (PerAccSupListenersItem);

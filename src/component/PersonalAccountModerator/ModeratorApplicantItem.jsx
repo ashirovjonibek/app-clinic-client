@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import UserName from "../UserName";
+import {withTranslation} from "react-i18next";
 
 const ModeratorApplicantItem = (props) => {
     const [info,setInfo]=useState({});
@@ -20,8 +21,8 @@ const ModeratorApplicantItem = (props) => {
                 <div className="fedbeck">
                     <UserName text={props.item.fullName} />
                     <div className="supervisor-applicants">
-                        <h5 >Приоритет №1</h5>
-                        <p>Количество обращений:<strong >{
+                        <h5 >{props.t("Priority")} №1</h5>
+                        <p>{props.t("Number of appeals")}:<strong >{
                             info?.count>0?info?.count:0
                         }</strong></p>
                     </div>
@@ -31,4 +32,4 @@ const ModeratorApplicantItem = (props) => {
     );
 }
 
-export default ModeratorApplicantItem;
+export default withTranslation() (ModeratorApplicantItem);

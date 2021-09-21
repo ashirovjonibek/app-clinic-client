@@ -10,7 +10,7 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import {withTranslation} from "react-i18next";
 

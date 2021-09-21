@@ -1,15 +1,16 @@
 import React from "react";
 import UserItem from "../UserItem";
 import Stars from "../Stars";
+import {withTranslation} from "react-i18next";
 
-const ModeratorListnearReytingItem = () => {
+const ModeratorListnearReytingItem = ({t}) => {
     return (
         <div className="moderator-listnear-reyting-item">
             <div className="content">
                 <div className="fedbeck">
                     <UserItem />
                     <div className="reyting-stars">
-                        <div style={{ marginRight: '10px' }}>Рейтинг:</div>
+                        <div style={{ marginRight: '10px' }}>{t("Rating")}:</div>
                         <Stars />
                     </div>
                 </div>
@@ -18,4 +19,4 @@ const ModeratorListnearReytingItem = () => {
     );
 }
 
-export default ModeratorListnearReytingItem;
+export default withTranslation() (ModeratorListnearReytingItem);

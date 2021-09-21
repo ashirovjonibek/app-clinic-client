@@ -73,7 +73,7 @@ const ApplicationNav=(props)=>{
                                 </div>
                                 <ul>
                                     <li>
-                                        <Link to="/applicantAppeal" onClick={()=>props.getPage(0)}>{props.t("Create a new ticket")}</Link>
+                                        <Link to="/applicantAppeal" onClick={()=>props.getPage(0)}>{props.t("Create a new appeal")}</Link>
                                     </li>
                                     <li>
                                         <Link to="#" onClick={() => props.getPage(1)}>{props.t("Your appeal")}</Link>

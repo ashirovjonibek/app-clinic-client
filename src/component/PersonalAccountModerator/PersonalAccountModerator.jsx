@@ -21,8 +21,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import {STORAGE_NAME} from "../../utils/constant";
 import RequestFunctions from "../../requests/RequestFunctions";
+import {withTranslation} from "react-i18next";
 
-const PersonalAccountModerator = () => {
+const PersonalAccountModerator = ({t}) => {
     const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
@@ -97,9 +98,8 @@ const PersonalAccountModerator = () => {
                                         </div>
                                         <div className="logo-right">
                                             <div>
-                                                <span><strong>Юридическая клиника</strong></span><br/>
-                                                Академии Генеральной прокуратуры<br/>
-                                                Республики Узбекистан.
+                                                <span><strong>{t("Legal clinic")}</strong></span><br />
+                                                <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                             </div>
 
                                         </div>
@@ -108,7 +108,7 @@ const PersonalAccountModerator = () => {
                                 <div className="header-right">
                                     <div className="header-right-desctop">
                                         <form role="search" method="get" action="#" className="search-form">
-                                            <input type="" placeholder="Поиск..."/>
+                                            <input type="" placeholder={t("Search")+"..."}/>
                                             <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                         </form>
                                         <NavLanguage/>
@@ -132,34 +132,34 @@ const PersonalAccountModerator = () => {
                                         </div>
                                         <ul>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(1)}>Начальники кафедр</Link>
+                                                <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(2)}>Назначение исполнителя</Link>
+                                                <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(3)}>Слушатели</Link>
+                                                <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(4)}>Заявители</Link>
+                                                <Link to="#" onClick={() => getPage(4)}>{t("Applicants")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(5)}>Обращения</Link>
+                                                <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(6)}>Отзывы обращений</Link>
+                                                <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                                <Link to="#" onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(8)}>Рейтинг слушателей</Link>
+                                                <Link to="#" onClick={() => getPage(8)}>{t("Listener rating")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(9)}>Статистика и отчеты</Link>
+                                                <Link to="#" onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(10)}>Архив</Link>
+                                                <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>
                                             </li>
                                         </ul>
                                     </div>
@@ -182,34 +182,34 @@ const PersonalAccountModerator = () => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(1)}>Начальники кафедр</Link>
+                                            <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(2)}>Назначение исполнителя</Link>
+                                            <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(3)}>Слушатели</Link>
+                                            <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(4)}>Заявители</Link>
+                                            <Link to="#" onClick={() => getPage(4)}>{t("Applicants")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(5)}>Обращения</Link>
+                                            <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(6)}>Отзывы обращений</Link>
+                                            <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 7 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(7)}>Нормативно-правовая база</Link>
+                                            <Link to="#" onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 8 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(8)}>Рейтинг слушателей</Link>
+                                            <Link to="#" onClick={() => getPage(8)}>{t("Listener rating")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 9 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(9)}>Статистика и отчеты</Link>
+                                            <Link to="#" onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(10)}>Архив</Link>
+                                            <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -227,4 +227,4 @@ const PersonalAccountModerator = () => {
     );
 }
 
-export default PersonalAccountModerator;
+export default withTranslation() (PersonalAccountModerator);

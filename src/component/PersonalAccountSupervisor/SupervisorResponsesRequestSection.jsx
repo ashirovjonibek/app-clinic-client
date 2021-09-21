@@ -2,10 +2,11 @@ import React, {useEffect, useState} from "react";
 import SupervisorResponsesRequestItem from "./SupervisorResponsesRequestItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
+import {withTranslation} from "react-i18next";
 
 
-const SupervisorResponsesSection = () => {
+const SupervisorResponsesSection = ({t}) => {
     let token =localStorage.getItem(STORAGE_NAME);
     const [total,setTotal]=useState(0);
     const [active,setActive]=useState(1);
@@ -62,9 +63,9 @@ const SupervisorResponsesSection = () => {
                     size={size}
                     setSize={setSize}
                 />
-            </div>:<div style={{textAlign:"center",marginTop:"25px"}}>Arizalar mavjud emas!!!</div>}
+            </div>:<div style={{textAlign:"center",marginTop:"25px"}}>{t("Applications are not available")}!!!</div>}
         </div>
     );
 }
 
-export default SupervisorResponsesSection;
+export default withTranslation() (SupervisorResponsesSection);

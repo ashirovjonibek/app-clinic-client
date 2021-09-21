@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import UserItem from "../UserItem";
+import {withTranslation} from "react-i18next";
 
 const ModeratorListnearItem = (props) => {
     const [info,setInfo]=useState({});
@@ -20,8 +21,8 @@ const ModeratorListnearItem = (props) => {
                     <UserItem p={props.item}/>
                     <div className="supervisor-center-sends-right">
                         <div className="count-request">
-                            <div style={{ marginBottom: '15px' }}>Количество обращений:<strong>15</strong></div>
-                            <div>Количество обработанных:<strong>{
+                            <div style={{ marginBottom: '15px' }}>{props.t("Number of appeals")}:<strong>15</strong></div>
+                            <div>{props.t("Number of processed")}:<strong>{
                                 info?.count>0?info?.count:0
                             }</strong></div>
                         </div>
@@ -32,4 +33,4 @@ const ModeratorListnearItem = (props) => {
     );
 }
 
-export default ModeratorListnearItem;
+export default withTranslation() (ModeratorListnearItem);

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import PerAccAppPeriodItem from "./PerAccAppPeriodItem";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import {CircularProgress} from "@material-ui/core";
 
 

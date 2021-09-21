@@ -5,7 +5,7 @@ import InputFile from "../InputFile";
 import SectionCategory from "../SectionCategory";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
-import {useTranslation} from "react-i18next";
+import {useTranslation, withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -115,17 +115,17 @@ const SupervisorResponsesRequestItem = (props) => {
                 <div className="request-categoriyes">
                     <SectionCategory fileId={props?.item?.answer?.attachmentId} section={props?.item?.application?.section}/>
                 </div>
-                <div className="content-line"></div>
+                <div className="content-line"/>
                 <div className="request-categoriyes">
                     <UserItem p={props?.item?.checkedBy} />
                 </div>
                 <div className="request-bottom">
                     <div className="file-upload">
-                        <Label text="Ответ:" />
+                        <Label text={props.t("Answer")+":"} />
                         <div onClick={()=>{
                             fileLoad(props?.item?.answer?.attachmentId,"answer")
                         }} style={{cursor:"pointer"}} className="file">
-                            Listener javobini yuklash
+                            {props.t("Upload listener response")}
                         </div>
                     </div>
                     <br/>
@@ -149,7 +149,7 @@ const SupervisorResponsesRequestItem = (props) => {
                                 }
                             }} cols="30" rows="10" placeholder="Rad etilish sababini kiriting!!!">
                             </textarea>
-                            {error?<FormHelperText error={error}>Minimum 10 ta belgi kiriting!!!</FormHelperText>:""}
+                            {error?<FormHelperText error={error}>{props.t("Enter a minimum of 10 characters")}!!!</FormHelperText>:""}
                         </div>:""
                     }
                     <div style={{
@@ -173,12 +173,12 @@ const SupervisorResponsesRequestItem = (props) => {
                             if (message.length>10&&isM){
                                 denied(props?.item?.id)
                             }
-                        }}>Неудовлетворительно</button>
+                        }}>{props.t("Unsatisfactory")}</button>
                         <button style={{
                             float:"right"
                         }} className="green-btn" onClick={()=>{
                             accept(props?.item?.id)
-                        }}>Удовлетворительно</button>
+                        }}>{props.t("Satisfactorily")}</button>
                     </div>
                 </div>
             </div>
@@ -186,4 +186,4 @@ const SupervisorResponsesRequestItem = (props) => {
     );
 }
 
-export default SupervisorResponsesRequestItem;
+export default withTranslation() (SupervisorResponsesRequestItem);

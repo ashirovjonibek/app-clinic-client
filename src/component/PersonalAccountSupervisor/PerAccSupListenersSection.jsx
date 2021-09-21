@@ -4,8 +4,9 @@ import SortDate from "../SortDate";
 import PerAccSupListenersItem from "./PerAccSupListenersItem";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
+import {withTranslation} from "react-i18next";
 
-const PerAccSupListenersSection = () => {
+const PerAccSupListenersSection = ({t}) => {
     const [listeners,setListeners]=useState();
     let token=localStorage.getItem(STORAGE_NAME);
     useEffect(()=>{
@@ -48,11 +49,9 @@ const PerAccSupListenersSection = () => {
         <div className="peraccsup-listeners-section">
             <div className="listnears-section-top">
                 <div className="list-generation">
-                    Сгенерировать ссылку
+                    {t("Generate link")}
                 </div>
-                <div className="send-list">
-                    Отправить список <br />администратору системы
-                </div>
+
                 <SortDate />
             </div>
             {
@@ -64,4 +63,4 @@ const PerAccSupListenersSection = () => {
     );
 }
 
-export default PerAccSupListenersSection;
+export default withTranslation() (PerAccSupListenersSection);

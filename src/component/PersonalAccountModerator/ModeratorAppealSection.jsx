@@ -3,7 +3,7 @@ import ContentTop from "../ContentTop";
 import ModeratorAppealItem from "./ModeratorAppealItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 
 const ModeratorAppealSection = () => {

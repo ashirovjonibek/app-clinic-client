@@ -4,11 +4,12 @@ import axios from "axios";
 import {useHistory} from 'react-router-dom'
 import CheckboxConfidensial from "../CheckboxConfidensial";
 import GetAppIcon from '@material-ui/icons/GetApp';
-import {CustomPagination} from "../catalog/Pagenation";
 import {CircularProgress} from "@material-ui/core";
 import {withTranslation} from "react-i18next";
+import CustomPagination from "../catalog/Pagenation";
 
 const YourAppealSection = (props) => {
+    const i18 = localStorage.getItem('I18N_LANGUAGE')
 
     const history = useHistory();
     const [appeal, setAppeal] = useState([]);
@@ -90,7 +91,7 @@ const YourAppealSection = (props) => {
                                         <ul>
                                             <li>
                                                 <label htmlFor="">{props.t("Category of treatment")}</label>
-                                                <div className="category-item">{item?.section?.title?.ru}</div>
+                                                <div className="category-item">{item?.section?.title[i18]}</div>
                                             </li>
                                             <li>
                                                 <label htmlFor="">{props.t("File")}</label>
@@ -116,7 +117,7 @@ const YourAppealSection = (props) => {
                                     console.log(appeal)
                                     history.push("/applicantAppeal")
                                     window.scrollTo(0, 0)
-                                }}>{props.t("Create a new ticket")}</span>
+                                }}>{props.t("Create a new appeal")}</span>
                             </div>
                             <div style={{clear: "both"}}/>
                             <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>

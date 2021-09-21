@@ -72,12 +72,12 @@ const PersonalAccountListener = ({t}) => {
                 <div className="nav-center container-fluit">
                     <div className="container">
                         <div className="navbar">
-                            {/*<div className="menu-icon" >*/}
-                            {/*    <MenuIcon*/}
-                            {/*        fontSize={'large'}*/}
-                            {/*        onClick={() => setSitebar(!sitebar)}*/}
-                            {/*    />*/}
-                            {/*</div>*/}
+                            <div className="menu-icon" >
+                                <MenuIcon
+                                    fontSize={'large'}
+                                    onClick={() => setSitebar(!sitebar)}
+                                />
+                            </div>
                             <div className="header-logo">
                                 <a href="/#">
                                     <div className="logo-left">
