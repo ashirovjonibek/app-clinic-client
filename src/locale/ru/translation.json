@@ -153,7 +153,13 @@
   "female": "женщина",
   "new": "новый",
   "inprocess": "в процессе",
-  "completed": "завершенный"
+  "completed": "завершенный",
+
+  "fromZeroToSeventeen": "интервал: 0-17",
+  "fromEighteenToThirty": "интервал: 18-30",
+  "fromThirtyOneToFortyFive": "интервал: 31-45",
+  "fromFortySixToSixty": "интервал: 46-60",
+  "fromSixtyOne": " от Шестьдесят один"
 
 
 

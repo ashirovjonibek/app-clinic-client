@@ -163,5 +163,11 @@
   "female": "ayol",
   "new": "yangi",
   "inprocess": "jarayonida",
-  "completed": "tugallangan"
+  "completed": "tugallangan",
+
+  "fromZeroToSeventeen": "interval: 0-17",
+  "fromEighteenToThirty": "interval: 18-30",
+  "fromThirtyOneToFortyFive": "interval: 31-45",
+  "fromFortySixToSixty": "interval: 46-60",
+  "fromSixtyOne": "61 dan yuqori"
 }
