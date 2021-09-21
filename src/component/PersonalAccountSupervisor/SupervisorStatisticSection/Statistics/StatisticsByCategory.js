@@ -65,7 +65,6 @@ function StatisticsByCategory({t}) {
             .then(function (response) {
                 setFetch(response.data)
                 fetchSection()
-
             })
             .catch(function (error) {
                 console.log(error);
@@ -84,33 +83,31 @@ function StatisticsByCategory({t}) {
         axios(config)
             .then(function (response) {
                 setSection(response.data)
-                let d = response.data;
-                let a = []
+                {
+                    let d = response.data;
+                    let a = []
 
-                data.map((item) => {
-                    let b = {region: item.name, id: item.id}
-                    d.map((sec, i) => {
-                        let kafedra = sec.title["uz"]
-                        let kafedra1 = kafedra.toString()
-                        let kafedra3 = kafedra1.replace('-', '_')
-                        let kafedra4 = kafedra3.trim()
-                        let kafedra5 = kafedra4.replace(' ', '_')
-                        console.log(kafedra5)
-
-                        b = {...b, [kafedra5]: i}
-
+                    data.map((item) => {
+                        let b = {region: item.name, id: item.id}
+                        d.map((sec, i) => {
+                            let kafedra = sec.title["uz"]
+                            let kafedra1 = kafedra.toString()
+                            let kafedra3 = kafedra1.replace('-', '_')
+                            let kafedra4 = kafedra3.trim()
+                            let kafedra5 = kafedra4.replace(' ', '_')
+                            b = {...b, [kafedra5]: 0}
+                        })
+                        a.push(b)
+                        console.log("all data------------>", a)
                     })
-                    a.push(b)
-                    console.log("all data------------>", a)
-                })
-                setData(a)
+                    setData(a)
+                }
 
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-
 
     return (
         <ResponsiveContainer width="100%" height={"100%"}>
@@ -122,7 +119,7 @@ function StatisticsByCategory({t}) {
                 <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                 <input type="checkbox"/>
                 <Legend wrapperStyle={{position: 'relative'}}/>
-                <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
+                <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
 
                 {section && section.map((sec, i) => {
                     let kafedra = sec.title["uz"]
@@ -140,14 +137,7 @@ function StatisticsByCategory({t}) {
                         </Bar>
                     )
                 })}
-                {/*<Bar barSize={7}*/}
-                {/*     dataKey="inprocess" fill="#BAFF85">*/}
-                {/*    <LabelList dataKey="inprocess" content={renderCustomizedLabel}/>*/}
-                {/*</Bar>*/}
-                {/*<Bar barSize={7}*/}
-                {/*     dataKey="completed" fill="#F57670">*/}
-                {/*    <LabelList dataKey="completed" content={renderCustomizedLabel}/>*/}
-                {/*</Bar>*/}
+
             </BarChart>
         </ResponsiveContainer>
     );

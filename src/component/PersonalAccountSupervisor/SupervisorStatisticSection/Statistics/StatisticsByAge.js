@@ -17,51 +17,165 @@ const renderCustomizedLabel = (props) => {
     const {
         x, y, width, height, value,
     } = props;
-    const fireOffset = value.toString().length < 5;
-    const offset = fireOffset ? -40 : 5;
     return (
-        <text x={x + width + 20} y={y + height - 2} fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text fontSize={9} x={x + width + 12} y={y + height} fill={"#000"} textAnchor="end">
             {value}
         </text>
     );
 };
 
 function StatisticsByAge({t}) {
+    let fromZeroToSeventeen = t("fromZeroToSeventeen")
+    let fromEighteenToThirty = t("fromEighteenToThirty")
+    let fromThirtyOneToFortyFive = t("fromThirtyOneToFortyFive")
+    let fromFortySixToSixty = t("fromFortySixToSixty")
+    let fromSixtyOne = t("fromSixtyOne")
 
-    const data =[
-        {name: t("Tashkent City"), id: 1, seventeen: 13, thirty: 22, fortyfive: 14, sixty: 44, sixtyabove: 33},
-        {name: t('Tashkent'), id: 2, seventeen: 33, thirty: 44, fortyfive: 22, sixty: 55, sixtyabove: 23},
-        {name: t('Andijan'), id: 3, seventeen: 25, thirty: 54, fortyfive: 16, sixty: 23, sixtyabove: 44},
-        {name: t('Bukhara'), id: 4, seventeen: 25, thirty: 16, fortyfive: 54, sixty: 16, sixtyabove: 47},
-        {name: t('Jizzakh'), id: 5, seventeen: 34, thirty: 13, fortyfive: 45, sixty: 12, sixtyabove: 56},
-        {name: t('Kashka darya'), id: 6, seventeen: 67, thirty: 43, fortyfive: 35, sixty: 43, sixtyabove: 76},
-        {name: t('Navoi'), id: 7, seventeen: 33, thirty: 44, fortyfive: 16, sixty: 47, sixtyabove: 54},
-        {name: t('Namangan'), id: 8, seventeen: 19, thirty: 13, fortyfive: 65, sixty: 33, sixtyabove: 34},
-        {name: t('Samarkand'), id: 9, seventeen: 20, thirty: 67, fortyfive: 13, sixty: 55, sixtyabove: 23},
-        {name: t('Surkhandarya'), id: 10, seventeen: 43, thirty: 45, fortyfive: 54, sixty: 22, sixtyabove: 55},
-        {name: t('Syrdarya'), id: 11, seventeen: 55, thirty: 34, fortyfive: 13, sixty: 33, sixtyabove: 64},
-        {name: t('Fergana'), id: 12, seventeen: 34, thirty: 22, fortyfive: 23, sixty: 13, sixtyabove: 17},
-        {name: t('Khorezm'), id: 13, seventeen: 22, thirty: 44, fortyfive: 43, sixty: 11, sixtyabove: 25},
-        {name: t('Karakalpaks tan'), id: 14, seventeen: 33, thirty: 76, fortyfive: 13, sixty: 44, sixtyabove: 15}
+    const data = [
+        {
+            name: t("Tashkent City"),
+            id: 1,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Tashkent'),
+            id: 2,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Andijan'),
+            id: 3,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Bukhara'),
+            id: 4,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Jizzakh'),
+            id: 5,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Kashka darya'),
+            id: 6,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Navoi'),
+            id: 7,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Namangan'),
+            id: 8,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Samarkand'),
+            id: 9,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Surkhandarya'),
+            id: 10,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Syrdarya'),
+            id: 11,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Fergana'),
+            id: 12,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Khorezm'),
+            id: 13,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        },
+        {
+            name: t('Karakalpaks tan'),
+            id: 14,
+            [fromZeroToSeventeen]: 0,
+            [fromEighteenToThirty]: 0,
+            [fromThirtyOneToFortyFive]: 0,
+            [fromFortySixToSixty]: 0,
+            [fromSixtyOne]: 0
+        }
     ];
     const [fetch, setFetch] = useState([]);
 
     useEffect(() => {
-        // fetchData()
+        fetchData()
     }, [])
 
     function fetchData() {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/application/filterByAge',
+            url: API_URL + '/application/filterByAge',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setFetch(response.data)
             })
             .catch(function (error) {
@@ -69,56 +183,73 @@ function StatisticsByAge({t}) {
             });
     }
 
-    /* if (fetch && fetch.map(gender => {
-         data.map(item => {
-             if (item.id === gender.regionId) {
-                 if (gender.gender === "erkak") {
-                     item.erkak = gender.count
-                 }
-                 if (gender.gender === "ayol") {
-                     item.ayol = gender.count
-                 }
-             } else {
-                 item.ayol = ""
-                 item.erkak = ""
-             }
-         })
-     }))*/
+    if (fetch && fetch.map(age => {
+        data.map(dataItem => {
+            if (dataItem.id === age.regionId) {
+                age.counts.map(ageItem => {
+                    if (ageItem.age === "fromZeroToSeventeen") {
+                        dataItem[fromZeroToSeventeen] = ageItem.count
+                    }
 
-    return (
-        <ResponsiveContainer width="100%" height={"100%"}>
-            <BarChart margin={{
-                left: 45
-            }} width={400} height={500} data={data} layout="vertical">
-                <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
-                <YAxis dataKey="name" type="category"/>
-                <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
-                    <input type="checkbox"/>
-                <Legend wrapperStyle={{position: 'relative'}}/>
-                <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
-                <Bar barSize={7}
-                     dataKey="seventeen" fill="#5DDAF0">
-                    {/*<LabelList dataKey="seventeen" content={renderCustomizedLabel}/>*/}
-                </Bar>
-                <Bar barSize={7}
-                     dataKey="thirty" fill="#B393E0" >
-                    {/*<LabelList dataKey="thirty" content={renderCustomizedLabel}/>*/}
-                </Bar>
-                <Bar barSize={7}
-                     dataKey="fortyfive" fill="#DAF285">
-                    {/*<LabelList dataKey="fortyfive" content={renderCustomizedLabel}/>*/}
-                </Bar>
-                <Bar barSize={7}
-                     dataKey="sixty" fill="#F57670">
-                    {/*<LabelList dataKey="sixty" content={renderCustomizedLabel}/>*/}
-                </Bar>
-                <Bar barSize={7}
-                     dataKey="sixtyabove" fill="#78BAF3">
-                    {/*<LabelList dataKey="sixtyabove" content={renderCustomizedLabel}/>*/}
-                </Bar>
-            </BarChart>
-        </ResponsiveContainer>
-    );
+                    if (ageItem.age === "fromEighteenToThirty") {
+                        dataItem[fromEighteenToThirty] = ageItem.count
+                    }
+
+                    if (ageItem.age === "fromThirtyOneToFortyFive") {
+                        dataItem[fromThirtyOneToFortyFive] = ageItem.count
+                    }
+
+                    if (ageItem.age === "fromFortySixToSixty") {
+                        dataItem[fromFortySixToSixty] = ageItem.count
+                    }
+
+                    if (ageItem.age === "fromSixtyOne") {
+                        dataItem[fromSixtyOne] = ageItem.count
+                    }
+                })
+            } else {
+                dataItem[fromSixtyOne] = ""
+                dataItem[fromFortySixToSixty] = ""
+                dataItem[fromThirtyOneToFortyFive] = ""
+                dataItem[fromEighteenToThirty] = ""
+                dataItem[fromZeroToSeventeen] = ""
+            }
+        })
+    }))
+
+        return (
+            <ResponsiveContainer width="100%" height={"97%"}>
+                <BarChart margin={{
+                    left: 45
+                }} width={400} height={500} data={data} layout="vertical">
+                    <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
+                    <YAxis dataKey="name" type="category"/>
+                    <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
+                    <Legend wrapperStyle={{position: 'relative'}}/>
+                    <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
+                    <Bar barSize={8}
+                         dataKey={fromZeroToSeventeen} fill="#5DDAF0">
+                        <LabelList dataKey={t("fromZeroToSeventeen")} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={fromEighteenToThirty} fill="#B393E0">
+                        <LabelList dataKey={t("fromEighteenToThirty")} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={fromThirtyOneToFortyFive} fill="#DAF285">
+                        <LabelList dataKey={t("fromThirtyOneToFortyFive")} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={fromFortySixToSixty} fill="#F57670">
+                        <LabelList dataKey={t("fromFortySixToSixty")} content={renderCustomizedLabel}/>
+                    </Bar>
+                    <Bar barSize={8}
+                         dataKey={fromSixtyOne} fill="#78BAF3">
+                        <LabelList dataKey={t("fromSixtyOne")} content={renderCustomizedLabel}/>
+                    </Bar>
+                </BarChart>
+            </ResponsiveContainer>
+        );
 }
 
 export default withTranslation()(StatisticsByAge);
