@@ -52,7 +52,7 @@ const PerAccAppPeriodSection = () => {
                                 <PerAccAppPeriodItem key={i} item={item}/>
                             )
                         }
-                        <div style={{clear:"both"}}></div>
+                        <div style={{clear: "both"}}/>
                         <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
                             <CustomPagination
                                 size={size}

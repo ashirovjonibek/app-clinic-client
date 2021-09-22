@@ -7,21 +7,21 @@ const DocumentProsses = ({status,t}) => {
             <div className="new">
                 <h3 style={{ color: "#222D44" }}>{t("New")}</h3>
                 <div className="prosses-item">
-                    {status==="CREATE"?<div className="prosses-item-active"></div>:<div className="prosses-item"></div>}
+                    {status==="CREATED"?<div className="prosses-item-active bg-warning"/>:<div className="prosses-item"/>}
                 </div>
             </div>
-            <div className="line"></div>
+            <div className="line"/>
             <div className="progressing">
                 <h3>{t("In processing")}</h3>
                 <div className="prosses-item">
-                {status==="INPROCESS"?<div className="prosses-item-active bg-warning"></div>:<div className="prosses-item"></div>}
+                {status==="INPROCESS"?<div className="prosses-item-active bg-warning"/>:<div className="prosses-item"/>}
                 </div>
             </div>
-            <div className="line"></div>
+            <div className="line"/>
             <div className="close">
                 <h3>{t("Closed")}</h3>
                 <div className="prosses-item">
-                {status==="DENIED"||status==="COMPLETED"?<div className="prosses-item-active"></div>:<div className="prosses-item"></div>}
+                {status==="DENIED"||status==="COMPLETED"?<div className="prosses-item-active"/>:<div className="prosses-item"/>}
                 </div>
             </div>
         </div>
