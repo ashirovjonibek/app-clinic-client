@@ -32,7 +32,7 @@ const Enter = ({t}) => {
                 <div className="enter-img" style={{padding:"3px"}}>
                     <UserName width={"30px"} height={"30px"} fontSize={"20px"} lineHeight={"30px"} top={true} text={me.meFullName!==""?me.meFullName:me.meUsername?me.meUsername:t("Login")}/>
                 </div>
-                <span style={{fontSize:me.meFullName?"12px":"17px",paddingLeft:"3px",float:"left",textAlign:"left"}}> {me.meFullName!==""?me.meFullName:t("Login")}</span>
+                <span style={{fontSize:me.meFullName?"12px":"17px",paddingLeft:"3px",float:"left",textAlign:"left", width:"100%" }} > {me.meFullName!==""?me.meFullName:t("Login")}</span>
             </div>
             {
                 me.meUsername===""?<div className="enter-content">
