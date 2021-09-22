@@ -3,6 +3,8 @@ import Modal from '@material-ui/core/Modal';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import AddIcon from "@material-ui/icons/Add";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import Swal from "sweetalert2";
 
 function SettingModal({t, getSections}) {
     const [open, setOpen] = useState(false);
@@ -26,7 +28,31 @@ function SettingModal({t, getSections}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        RequestFunctions.createSection(section)
+        const axios = require('axios');
+        const config = {
+            method: 'post',
+            url: API_URL + '/section',
+            headers: {
+                'Authorization':localStorage.getItem(STORAGE_NAME),
+                'Content-Type': 'application/json'
+            },
+            data: section
+        };
+        axios(config)
+            .then(function (response) {
+                if (response.status === 200) {
+                    Swal.fire("Kafedra yaratildi", "", "success").then((r) => {
+                        getSections()
+                    })
+                } else {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                        getSections()
+                    })
+                }            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         handleClose()
     }
 

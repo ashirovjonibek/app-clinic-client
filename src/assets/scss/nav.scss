@@ -163,16 +163,26 @@
           .enter-btn {
             height: 40px;
             width: 100%;
+            max-width: 400px;
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            //justify-content: space-between;
             color: white;
             background: linear-gradient(180deg, #222d44 0%, #4e5e80 100%);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 30px;
             padding: 0 8px;
-
+            font-size: 12px;
+            span{
+              padding-top: 2px;
+            }
+            p{
+              display: flex;
+              justify-content: center;
+              font-size: 9px;
+              align-items: center;
+            }
             .enter-img {
               display: flex;
               align-items: center;
@@ -185,6 +195,7 @@
               img {
                 height: 20px;
               }
+
             }
           }
 
@@ -197,7 +208,7 @@
           .enter-content {
             display: none;
             height: 120px;
-            width: 120px;
+            width: 100%;
             position: absolute;
             background-color: rgb(255, 255, 255);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -268,6 +279,15 @@
 }
 
 @media screen and (max-width: 992px) {
+  .nav .nav-center .navbar .header-right .enter .enter-btn{
+    min-width: 200px;
+    span{
+      font-size: 11px;
+      p{
+        font-size: 7px;
+      }
+    }
+  }
   .nav {
     .nav-top {
       display: none;
@@ -292,6 +312,10 @@
 }
 
 @media (max-width: 800px) {
+  .nav .nav-center .navbar .header-right .enter .enter-btn{
+   max-width: 200px;
+
+  }
   .nav {
     .nav-center {
       background-image: url("../img/right.png");
@@ -365,6 +389,12 @@
 }
 
 @media (max-width: 576px) {
+  .nav .nav-center .navbar .header-right .enter .enter-btn{
+    span{
+    font-size: 10px;
+    }
+
+  }
   .nav {
     .nav-center {
       .navbar {
@@ -406,6 +436,13 @@
   }
 }
 @media (max-width: 480px) {
+  .nav .nav-center .navbar .header-right .enter .enter-btn{
+    max-width: 180px;
+    min-width: 130px;
+    span{
+      font-size: 10px;
+    }
+  }
   .nav {
     .nav-center {
       background-position: 150% 25px;
