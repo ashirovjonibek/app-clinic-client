@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonDefault from "../ButtonDefault";
 import UserName from "../UserName";
+import {withTranslation} from "react-i18next";
 
 const CenterSends = (props) => {
     return (
@@ -17,14 +18,13 @@ const CenterSends = (props) => {
                     <UserName text={"Aliyev Vali Galievich"}/>
 
                     <div className="fedbeck-right">
-                        <ButtonDefault text="Открыть" />
+                        <ButtonDefault text={props.t("Open")} />
                     </div>
                     <p className="hours">12ч назад</p>
                 </div>
             </div>
         </div>
-
     );
 }
 
-export default CenterSends;
+export default withTranslation()(CenterSends);

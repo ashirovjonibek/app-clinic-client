@@ -57,7 +57,7 @@ const PersonalAccountApplicant = (props) => {
                             <div className="navbarr">
                                 <ul>
                                     <li className="navbar-items ">
-                                        <Link to="/applicantAppeal">{props.t("Create a new ticket")}</Link>
+                                        <Link to="/applicantAppeal">{props.t("Create a new appeal")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
                                         <Link to="#" onClick={() => getPage(1)}>{props.t("Your appeal")}</Link>

@@ -20,7 +20,6 @@
   "Enter your password": "Вводите пароль",
   "Forgot your password": "Забыли пароль",
   "No account yet": "Еще нет аккаунта",
-
   "List of applicants": "Список заявителей",
   "List of listeners": "Список слушателей",
   "Department name": "Название кафедры",
@@ -29,7 +28,7 @@
   "Settings": "Настройки",
   "List": "Список",
   "Full name": "Ф.И.О",
-  "Nationality":"Национальность",
+  "Nationality": "Национальность",
   "Gender": "Пол",
   "Address": "Адрес",
   "Email": "Эл. адрес",
@@ -57,62 +56,48 @@
   "Period of execution": "Срок исполнения",
   "A priority": "Приоритет",
   "Sort by": "Сортировать по",
-
   "Everyday practice shows that the existing structure of the organization creates need to be included in production plan for a number of extraordinary events taking into account the complex personnel training system corresponding urgent needs. Clear signs of the victory of institutionalization form the global economic network and at the same time-in are equally on their own. As well as independent states to this day day remain the lot of liberals who eager to be described in as much detail as possible.": "Повседневная практика показывает, что сложившаяся структура организации создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса системы обучения кадров, соответствующей насущным потребностям. Явные признаки победы институционализации формируют глобальную экономическую сеть и при этом - в равной степени предоставлены сами себе. А также независимые государства и по сей день остаются уделом либералов, которые жаждут быть описаны максимально подробно.",
   "Subject of the appeal": "Тема обращения",
   "Confidentially": "Конфиденциально",
   "Answer": "Ответ",
   "Submit for review": "Отправить на рассмотрение",
-
   "Feedback on requests": "Отзывы по обращений",
   "Listener rating": "Рейтинг слушателей",
   "Statistics and reports": "Статистика и отчеты",
   "Archive": "Архив",
-
   "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities": "Клиника является неотъемлемой частью Академии, которая осуществляет деятельность по обеспечению интеграции теоретических знаний студентов с практикой, развитию практических навыков у студентов и предоставлению недискриминационных юридических консультаций физическим и юридическим лицам",
-
   "The main objectives of the clinic are": "Основными задачами клиники являются",
   "The main tasks of the clinic are": "Основными задачами клиники являются",
-
-  "The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.":"Поликлиника действует в соответствии с Конституцией и законами Республики Узбекистан, постановлениями Олий Мажлиса Республики Узбекистан, указами, постановлениями и распоряжениями Президента Республики Узбекистан, постановлениями и распоряжениями Кабинета Министров Республики Узбекистан. Республики Узбекистан Решения и приказы Коллегии Министерства высшего и среднего специального образования в соответствии с Уставом Академии и настоящим Положением.",
+  "The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.": "Поликлиника действует в соответствии с Конституцией и законами Республики Узбекистан, постановлениями Олий Мажлиса Республики Узбекистан, указами, постановлениями и распоряжениями Президента Республики Узбекистан, постановлениями и распоряжениями Кабинета Министров Республики Узбекистан. Республики Узбекистан Решения и приказы Коллегии Министерства высшего и среднего специального образования в соответствии с Уставом Академии и настоящим Положением.",
   "Ensuring the correspondence of theoretical knowledge of students to practice": "Обеспечение соответствия теоретических знаний студентов практике",
   "Providing impartial legal assistance to individuals and legal entities": "Оказание беспристрастной юридической помощи физическим и юридическим лицам",
   "Formation and development of practical skills in students": "Формирование и развитие практических навыков у студентов",
   "Raising the legal awareness and legal culture of the population": "Повышение правосознания и правовой культуры населения",
-
   "Ensuring that students undergo internships at the clinic during their studies in cooperation with government and business agencies, the judiciary and law enforcement agencies, advocacy and other organizations;": "Обеспечение прохождения студентами стажировки в клинике во время учебы в сотрудничестве с государственными и бизнес-структурами, судебными и правоохранительными органами, правозащитными и другими организациями;",
   "To increase the level of professional training of students and develop their skills in working with legal entities and individuals;": "Повысить уровень профессиональной подготовки студентов и развить их навыки работы с юридическими и физическими лицами;",
   "Providing impartial legal assistance to individuals and legal entities;": "Оказание беспристрастной юридической помощи физическим и юридическим лицам;",
-
   "Statistics": "Статистика",
-
   "In cooperation with the state and economic authorities, the judiciary and law enforcement agencies, the bar and other organizations to ensure the internship of students in the clinic during the study period": "Обеспечение прохождения студентами стажировки в клинике во время учебы в сотрудничестве с государством и бизнесом, судебными и правоохранительными органами, правозащитными и другими организациями",
   "to take organizational measures for the organization of internships for students in the clinic": "принять организационные меры по организации стажировки студентов в клинике",
   "to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice": "вовлекать студентов в правоохранительную практику, обеспечивая неразрывную связь их теоретических знаний с практикой",
-
   "Providing equitable legal assistance to individuals and legal entities": "Оказание справедливой юридической помощи физическим и юридическим лицам",
   "to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice": "обеспечить своевременное и качественное рассмотрение обращений физических и юридических лиц за юридическими консультациями",
   "based on the nature and complexity of the appeals of individuals and legal entities, to make recommendations on the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them": "исходя из характера и сложности обращений физических и юридических лиц, давать рекомендации о необходимости обращения в соответствующие государственные и хозяйственные органы, суды, правоохранительные органы и адвокатские структуры для их решения",
-
   "To increase the level of professional training of students and develop their skills in working with legal entities and individuals": "Повысить уровень профессиональной подготовки студентов и развить их навыки работы с юридическими и физическими лицами",
   "preparation of analytical data on legal issues, development of new programs to help develop practical skills": "подготовка аналитических данных по юридическим вопросам, разработка новых программ для развития практических навыков",
   "conducting seminars and trainings on legal professional ethics and professional skills for students undergoing internships in the clinic": "проведение семинаров и тренингов по юридической профессиональной этике и профессиональным навыкам для студентов, проходящих практику в клинике",
-
   "Directory title": "Название справочника",
   "Prosecutor General's Office of the Republic of Uzbekistan": "Генеральная прокуратура Республики Узбекистан",
   "Official website of the President of the Republic of Uzbekistan": "Официальный веб-сайт Президента Республики Узбекистан",
   "Development strategy center": "Центр “Стратегия развития”",
   "We are on the map": "Мы на карте",
-
   "Contacts": "Контакты",
   "Site navigation": "Навигация по сайту",
   "We are in social networks": "Мы в социальных сетях",
   "Subscribe": "Подписаться",
   "Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.": "Академия Генеральной прокуратуры Республики Узбекистан. Все права защищены.",
-
   "This website is made possible by the assistance of the American people through the United States Agency for International Development (USAID). Tetra Tech DPK is responsible for the content of this publication, which does not necessarily reflect the position of USAID or the US Government.": "Данный вебсайт стал возможным благодаря помощи американского народа, оказанной через Агентство США по международному развитию (USAID). Tetra Tech DPK (Тетра Тек ДПК) несет ответственность за содержание публикации, которое не обязательно отражает позицию USAID или Правительства США",
   "Attach the answer": "Прикрепите ответ",
-
   "In the context of regions": "В разрезе регионов",
   "By age categories": "По возрастным категориям",
   "By gender": "По гендерном признаку",
@@ -121,19 +106,15 @@
   "By category": "По категориям",
   "By type of benefits": "По видам льгот",
   "For periods": "За периоды",
-
   "In the context of regions (district, city, region)": "В разрезе регионов (район, город, область)",
   "By age categories of applicants": "По возрастным категориям заявителей",
   "By gender of applicants": "По гендерном признаку заявителей",
   "List of appeals": "Список обращений",
   "By types of benefits available to applicants": "По видам льгот, имеющихся у заявителей",
   "for periods (day, week, month, year)": "за периоды (день, неделя, месяц. год)",
-
-
   "invalid": "инвалид",
   "single_mother": "мать_одиночка",
   "others": "другие",
-
   "Tashkent City": "Город Ташкент",
   "Tashkent": "Ташкент",
   "Andijan": "Андижан",
@@ -148,12 +129,72 @@
   "Fergana": "Фергана",
   "Khorezm": "Хорезм",
   "Karakalpaks tan": "Каракалпакс тан",
-
   "male": "мужчина",
   "female": "женщина",
   "new": "новый",
   "inprocess": "в процессе",
-  "completed": "завершенный"
+  "completed": "завершенный",
+  "fromZeroToSeventeen": "интервал: 0-17",
+  "fromEighteenToThirty": "интервал: 18-30",
+  "fromThirtyOneToFortyFive": "интервал: 31-45",
+  "fromFortySixToSixty": "интервал: 46-60",
+  "fromSixtyOne": " от Шестьдесят один",
+  "Create a new appeal": "Создать новое обращение",
+  "Your appeal": "Ваше обращение",
+  "Document status": "Статус документа",
+  "Consideration period": "Срок рассмотрения",
+  "File": "Файл",
+  "Category of treatment": "Категория лечения",
+  "Personal account": "Персональный аккаунт",
+  "This question will not be displayed in the \"Frequently Asked Questions\" section of the AIS Clinic.": "Этот вопрос не будет отображаться в разделе «Часто задаваемые вопросы» AIS Clinic.",
+  "Page size": "Размер страницыт",
+  "Appeal": "Обращаться",
+  "Attach file": "Прикрепить файл",
+  "Submit": "Отправлять",
+  "Select your appeal": "Выберите ваше обращение",
+  "In processing": "В процессе",
+  "Closed": "Закрыто",
+  "days": "дней",
+  "Open": "Открыть",
+  "Rating": "Рейтинг",
+  "Until the end is left": "До конца не осталось",
+  "The term for consideration of your appeal": "Срок рассмотрения вашего обращения",
+  "Accepted": "Принято",
+  "Cancel": "Отмена",
+  "Priority": "Приоритет",
+  "Save": "Сохранить",
+  "Satisfactorily": "Удовлетворительно",
+  "Unsatisfactory": "Неудовлетворительно",
+
+  "Number of appeals": "Количество обращений",
+  "Number of processed": "Количество обработанных",
+  "Replace the performer": "Заменить исполнителя",
+  "Reviewed": "Проверено",
+  "New answers": "Новые ответы",
+  "Responses received": "Получено ответов",
+  "Rejected answers": "Отклоненные ответы",
+  "No new appeals are available": "Новых апелляций нет",
+
+  "Heads of departments": "Начальники кафедр",
+  "Appointment of the performer": "Назначение исполнителя",
+  "Listeners": "Слушатели",
+  "Applicants": "Заявители",
+  "Feedback reviews": "Отзывы обращений",
+  "Regulatory and legal framework": "Нормативно - правовая база",
+  "Send the list to the system administrator": "Отправить список администратору системы",
+  "Applications are not available": "Приложения недоступны",
+
+  "Generate link": "Сгенерировать ссылку",
+  "Block": "Блокировать",
+  "Unblock": "Разблокировать",
+  "Enter a minimum of 10 characters": "Введите не менее 10 символов",
+  "Upload listener response": "Загрузить ответ слушателя",
+  "Download the application": "Скачать приложение"
+
+
+
+
+
 
 
 

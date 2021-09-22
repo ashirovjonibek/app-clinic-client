@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import UserItem from "../UserItem";
+import {withTranslation} from "react-i18next";
 
 const SupervisorIncomingRequestItem = (props) => {
     console.log(props.info)
@@ -12,8 +13,8 @@ const SupervisorIncomingRequestItem = (props) => {
                 <div className="fedbeck">
                     <UserItem p={props.info.listener}/>
                     <div className="count-request">
-                        <div style={{ marginBottom: '15px' }}>Количество обращений:<strong>15</strong></div>
-                        <div>Количество обработанных:<strong>{props.info?.counts[0]?.count}</strong></div>
+                        <div style={{ marginBottom: '15px' }}>{props.t("Number of appeals")}:<strong>15</strong></div>
+                        <div>{props.t("Number of processed")}:<strong>{props.info?.counts[0]?.count}</strong></div>
                     </div>
                 </div>
             </div>
@@ -21,4 +22,4 @@ const SupervisorIncomingRequestItem = (props) => {
     );
 }
 
-export default SupervisorIncomingRequestItem;
+export default withTranslation() (SupervisorIncomingRequestItem);

@@ -2,9 +2,10 @@ import React, {useEffect, useState} from "react";
 import ModeratorPerformerItem from "./ModeratorPerformerItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
+import {withTranslation} from "react-i18next";
 
-const ModeratorPerformerSection = () => {
+const ModeratorPerformerSection = ({t}) => {
     const [activeItems,setActiveItems]=useState([]);
     const [total,setTotal]=useState(0);
     const [size,setSize]=useState(3);
@@ -64,10 +65,10 @@ const ModeratorPerformerSection = () => {
                     <div style={{
                         marginTop:"25px",textAlign:"center"
                     }
-                    }>Arizalar mavjud emas!!!</div>
+                    }>{t("Applications are not available")}!!!</div>
             }
         </div>
     );
 }
 
-export default ModeratorPerformerSection;
+export default withTranslation() (ModeratorPerformerSection);

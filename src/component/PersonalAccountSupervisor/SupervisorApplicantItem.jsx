@@ -1,5 +1,6 @@
 import React from "react";
 import UserName from "../UserName";
+import {withTranslation} from "react-i18next";
 
 const SupervisorApplicantItem = (props) => {
     return (
@@ -8,8 +9,8 @@ const SupervisorApplicantItem = (props) => {
                 <div className="fedbeck">
                     <UserName text={props?.item?.fullName} />
                     <div className="supervisor-applicants">
-                        <h5 >Приоритет №1</h5>
-                        <p>Количество обращений:<strong >2</strong></p>
+                        <h5 >{props.t("Priority")} №1</h5>
+                        <p>{props.t("Number of appeals")}:<strong >2</strong></p>
                     </div>
                 </div>
             </div>
@@ -17,4 +18,4 @@ const SupervisorApplicantItem = (props) => {
     );
 }
 
-export default SupervisorApplicantItem;
+export default withTranslation() (SupervisorApplicantItem);

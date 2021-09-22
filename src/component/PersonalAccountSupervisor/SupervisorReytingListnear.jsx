@@ -3,8 +3,9 @@ import UserItem from "../UserItem";
 import Stars from "../Stars";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
-const SupervisorReytingListnear = () => {
+const SupervisorReytingListnear = ({t}) => {
     const token=localStorage.getItem(STORAGE_NAME);
     const [items,setItems]=useState([]);
 
@@ -30,7 +31,7 @@ const SupervisorReytingListnear = () => {
                             <div className="fedbeck">
                                 <UserItem p={item}/>
                                 <div className="reyting-stars" >
-                                    <div style={{ marginRight: '10px' }}>Рейтинг:</div>
+                                    <div style={{ marginRight: '10px' }}>{t("Rating")}:</div>
                                     <Stars stars={item?.stars}/>
                                 </div>
                             </div>
@@ -43,4 +44,4 @@ const SupervisorReytingListnear = () => {
     );
 }
 
-export default SupervisorReytingListnear;
+export default withTranslation() (SupervisorReytingListnear);

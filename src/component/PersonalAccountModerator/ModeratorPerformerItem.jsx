@@ -14,6 +14,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Swal from "sweetalert2";
+import {withTranslation} from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -26,25 +27,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModeratorPerformerItem = (props) => {
-    const [edit,setEdit]=useState(false);
+    const [edit, setEdit] = useState(false);
     const classes = useStyles();
     const [age, setAge] = React.useState('');
-    const [items,setItems]=useState([]);
-    const [id,setId]=useState("");
-    const [e,setE]=useState(false);
-    let date=new Date((new Date(props?.item?.application?.deadLineDate).getTime())-(new Date().getTime())).getDate();
+    const [items, setItems] = useState([]);
+    const [id, setId] = useState("");
+    const [e, setE] = useState(false);
+    let date = new Date((new Date(props?.item?.application?.deadLineDate).getTime()) - (new Date().getTime())).getDate();
     let s;
 
-    if ((new Date(props?.item?.application?.deadLineDate).getTime())-(new Date().getTime())>0){
-        s=""+date+" kun";
-    }else {s="0 kun";date=0};
+    if ((new Date(props?.item?.application?.deadLineDate).getTime()) - (new Date().getTime()) > 0) {
+        s = "" + date + " " + props.t("days");
+    } else {
+        s = "0 "+props.t("days");
+        date = 0
+    }
 
-
-    useEffect(()=>{
+    useEffect(() => {
 
         const config = {
             method: 'get',
-            url: API_URL +'/auth/listeners',
+            url: API_URL + '/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -52,19 +55,19 @@ const ModeratorPerformerItem = (props) => {
 
         axios(config)
             .then(function (response) {
-                let a=[];
-                response?.data?.map((item)=>
-                    props?.item?.application?.section?.id===item?.section?.id?a.push(item):""
+                let a = [];
+                response?.data?.map((item) =>
+                    props?.item?.application?.section?.id === item?.section?.id ? a.push(item) : ""
                 );
                 setItems(a);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    },[props]);
+    }, [props]);
 
-    const uploadAppeal=()=>{
-        if (id){
+    const uploadAppeal = () => {
+        if (id) {
             Swal.fire({
                 title: 'Tasdiqlash!!',
                 text: "Ushbu ma'lumot o'zgarishini tasdiqlaysizmi?",
@@ -75,22 +78,22 @@ const ModeratorPerformerItem = (props) => {
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios({
-                        method:'put',
-                        url:API_URL+'/document/set/listener',
-                        params:{
-                            documentId:props.item.id,
-                            listenerId:id
+                        method: 'put',
+                        url: API_URL + '/document/set/listener',
+                        params: {
+                            documentId: props.item.id,
+                            listenerId: id
                         },
-                        headers:{
-                            Authorization:localStorage.getItem(STORAGE_NAME),
-                            'Content-Type':'application/json'
+                        headers: {
+                            Authorization: localStorage.getItem(STORAGE_NAME),
+                            'Content-Type': 'application/json'
                         }
-                    }).then((r)=>{
+                    }).then((r) => {
                         Swal.fire(
                             'Saqlandi!',
                             '',
                             'success'
-                        ).then((result)=>{
+                        ).then((result) => {
                                 console.log(r);
                                 props?.refresh()
                             }
@@ -99,7 +102,7 @@ const ModeratorPerformerItem = (props) => {
                 }
 
             })
-        }else {
+        } else {
             setE(true)
         }
 
@@ -110,63 +113,68 @@ const ModeratorPerformerItem = (props) => {
             <div className="content">
                 <div className="request-content-title">
                     <div className="request-content-title-name with-margin-20">
-                        <UserName height="45px" width="45px" text={props?.item?.application?.applicant?.fullName} />
+                        <UserName height="45px" width="45px" text={props?.item?.application?.applicant?.fullName}/>
                         {/*<div className="id">id: 12345</div>*/}
                     </div>
                     <div className="request-content-title-date">
                         <div className="date-label">
                             Осталось:
                         </div>
-                        <div style={{backgroundColor: date>10?"#63AA55":date<=10&&date>5?"#FBCE0E":"#d80027"}} className="date-item">
+                        <div
+                            style={{backgroundColor: date > 10 ? "#63AA55" : date <= 10 && date > 5 ? "#FBCE0E" : "#d80027"}}
+                            className="date-item">
                             {s}
                         </div>
                     </div>
                 </div>
-                <RequestTheme label={props?.item?.application?.title} description={props?.item?.application?.description} check={props?.item?.application?.top}/>
+                <RequestTheme label={props?.item?.application?.title}
+                              description={props?.item?.application?.description}
+                              check={props?.item?.application?.top}/>
                 {/*<div className="category-audio"/>*/}
                 <div className="content-line"/>
 
                 {
-                    !edit?<div className="container"  style={{display:"block" ,textAlign:"right"}}>
-                            <div className="avatar" style={{display:props.item.checkedBy?"":"block",textAlign:"right"}}>
-                                {props.item.checkedBy?<UserItem p={props.item.checkedBy}/>:""}
-                                <ButtonDefault text="Заменить исполнителя" onClick={()=>setEdit(true)} />
+                    !edit ? <div className="container" style={{display: "block", textAlign: "right"}}>
+                            <div className="avatar"
+                                 style={{display: props.item.checkedBy ? "" : "block", textAlign: "right"}}>
+                                {props.item.checkedBy ? <UserItem p={props.item.checkedBy}/> : ""}
+                                <ButtonDefault text={props.t("Replace the performer")} onClick={() => setEdit(true)}/>
                             </div>
-                    </div>:
+                        </div> :
                         <div className="container">
-                            <div style={{display:"inline-block"}}>
+                            <div style={{display: "inline-block"}}>
                                 <FormControl error={e} className={classes.formControl}>
                                     <InputLabel id="demo-simple-select-label1">Listner</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label1"
                                         id="demo-simple-select1"
-                                        onChange={(e)=>{
+                                        onChange={(e) => {
                                             setId(e.target.value)
                                         }}
                                     >
                                         {
-                                            items&&items.map((item,i)=>
+                                            items && items.map((item, i) =>
                                                 <MenuItem key={i} value={item?.id}>{item?.fullName}</MenuItem>
                                             )
                                         }
 
                                     </Select>
                                     {
-                                        e?<FormHelperText error>Iltiomos listner tanlang</FormHelperText>:""
+                                        e ? <FormHelperText error>Iltiomos listner tanlang</FormHelperText> : ""
                                     }
                                 </FormControl>
                             </div>
-                            <div style={{display:"inline-block",float:"right"}}>
-                                <FormControl style={{paddingTop:"10px"}} className={classes.formControl}>
-                                    <Button  variant="contained" onClick={()=>setEdit(false)}>Bakor qilish</Button>
+                            <div style={{display: "inline-block", float: "right"}}>
+                                <FormControl style={{paddingTop: "10px"}} className={classes.formControl}>
+                                    <Button variant="contained" onClick={() => setEdit(false)}>{props.t("Cancel")}</Button>
                                 </FormControl>
-                                <FormControl style={{paddingTop:"10px"}} className={classes.formControl}>
+                                <FormControl style={{paddingTop: "10px"}} className={classes.formControl}>
                                     <Button onClick={uploadAppeal} variant="contained" color="primary">
-                                        Saqlash
+                                        {props.t("Save")}
                                     </Button>
                                 </FormControl>
                             </div>
-                            <div style={{clear:"both"}}></div>
+                            <div style={{clear: "both"}}/>
                         </div>
                 }
             </div>
@@ -174,4 +182,4 @@ const ModeratorPerformerItem = (props) => {
     );
 }
 
-export default ModeratorPerformerItem;
+export default withTranslation()(ModeratorPerformerItem);

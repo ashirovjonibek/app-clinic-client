@@ -6,7 +6,7 @@ import ContentTop from "../ContentTop";
 import UserName from "../UserName";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import {withTranslation} from "react-i18next";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import Swal from "sweetalert2";
 import ResponseRequestItem1 from "./ResponseRequestItem1";
 
@@ -262,7 +262,7 @@ const IncomingRequestSection = (props) => {
                           </div>
                       </div>
                   )}
-                  <div style={{clear: "both"}}></div>
+                  <div style={{clear: "both"}}/>
 
                   <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
@@ -334,7 +334,7 @@ const IncomingRequestSection = (props) => {
                           </div>
                       </div>
                   )}
-                  <div style={{clear: "both"}}></div>
+                  <div style={{clear: "both"}}/>
 
                   {inpApps?.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
@@ -405,7 +405,7 @@ const IncomingRequestSection = (props) => {
                           </div>
                       </div>
                   )}
-                  <div style={{clear: "both"}}></div>
+                  <div style={{clear: "both"}}/>
 
                   {doneApps?.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
@@ -455,19 +455,19 @@ const IncomingRequestSection = (props) => {
                         <Link onClick={()=>{
                             setNS(1)
                             newApplication();
-                        }}>{props.t("Yangi")}</Link>
+                        }}>{props.t("New")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===2?"1px solid rgba(0,0,0,0.5)":""}}  className="request-items">
                         <Link onClick={()=>{
                             setNS(2)
                             acceptedApp();
-                        }}>{props.t("Qabul qilinganlar")}</Link>
+                        }}>{props.t("Accepted")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">
                         <Link onClick={()=>{
                             setNS(3);
                             checkedApp();
-                        }}>{props.t("Ko'rib chiqilganlar")}</Link>
+                        }}>{props.t("Reviewed")}</Link>
                     </p>
                     <p className="request-items">
                     </p>

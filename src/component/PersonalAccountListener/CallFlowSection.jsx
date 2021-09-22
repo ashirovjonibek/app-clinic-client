@@ -3,9 +3,10 @@ import CallFlowItem from "./CallFlowItem";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import {Loading} from "../catalog/Loading";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
+import {withTranslation} from "react-i18next";
 
-const CallFlowSection = () => {
+const CallFlowSection = ({t}) => {
 
     let token=localStorage.getItem(STORAGE_NAME);
     const [size,setSize]=useState(3);
@@ -40,7 +41,7 @@ const CallFlowSection = () => {
                             <CallFlowItem item={item} key={i}/>
                         )
                     }
-                    <div style={{clear: "both"}}></div>
+                    <div style={{clear: "both"}}/>
 
                     <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
@@ -51,7 +52,7 @@ const CallFlowSection = () => {
                             size={size}
                             setSize={setSize}
                         />:<div style={{textAlign:"center",paddingTop:"35px"}}>
-                            Yangi arizalar mavjud emas!!!
+                            {t("No new appeals are available")}!!!
                         </div>}
                     </div>
                 </div>
@@ -60,4 +61,5 @@ const CallFlowSection = () => {
     );
 }
 
-export default CallFlowSection;
+export default withTranslation()(CallFlowSection);
+

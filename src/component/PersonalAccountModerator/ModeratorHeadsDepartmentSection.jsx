@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
-import SortDate from "../SortDate";
 import ModeratorHeadsDepartmentItem from "./ModeratorHeadsDepartmentItem";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {toast} from "react-toastify";
+import {withTranslation} from "react-i18next";
 
 const ModeratorHeadsDepartmentSection = () => {
-    const [items,setItems]=useState([]);
+    const [items, setItems] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL +'/auth/bosses',
+            url: API_URL + '/auth/bosses',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -22,18 +22,17 @@ const ModeratorHeadsDepartmentSection = () => {
                 setItems(response.data);
                 // console.log(response.data)
             })
-            .catch(function (error) {
-                // console.log(error);
+            .catch(()=> {
                 toast.error("Xatolik yuz berdi!!!")
             });
 
-    },[]);
+    }, []);
 
     const getListeners = () => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL +'/auth/bosses',
+            url: API_URL + '/auth/bosses',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -50,13 +49,13 @@ const ModeratorHeadsDepartmentSection = () => {
 
     return (
         <div className="moderator-heads-department-section">
-            <div className="listnears-section-top">
-                <div className="send-list">
-                    Отправить список <br />администратору системы
-                </div>
-            </div>
+            {/*<div className="listnears-section-top">*/}
+            {/*    <div className="send-list">*/}
+            {/*        {t("Send the list to the system administrator")}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             {
-                items&&items.map((item,i)=>
+                items && items.map((item, i) =>
                     <ModeratorHeadsDepartmentItem key={i} refresh={getListeners} item={item}/>
                 )
             }
@@ -64,4 +63,4 @@ const ModeratorHeadsDepartmentSection = () => {
     );
 }
 
-export default ModeratorHeadsDepartmentSection;
+export default withTranslation()(ModeratorHeadsDepartmentSection);

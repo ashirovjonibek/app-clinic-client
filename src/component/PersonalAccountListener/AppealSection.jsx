@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import AppealItem from "./AppealItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import {Link} from "react-router-dom";
 import {withTranslation} from "react-i18next";
@@ -122,8 +122,7 @@ const AppealSection = (props) => {
                         )
                     }
 
-
-                    <div style={{clear: "both"}}></div>
+                    <div style={{clear: "both"}}/>
 
                     <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 
@@ -134,7 +133,7 @@ const AppealSection = (props) => {
                             size={size}
                             setSize={setSize}
                         /> : <div style={{textAlign: "center", paddingTop: "35px"}}>
-                            Yangi arizalar mavjud emas!!!
+                            {props.t("No new appeals are available")}!!!
                         </div>}
                     </div>
                 </div>

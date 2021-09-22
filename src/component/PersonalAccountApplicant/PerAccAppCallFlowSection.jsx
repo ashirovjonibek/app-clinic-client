@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import PerAccAppCallFlowItem from "./PerAccAppCallFlowItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import {CustomPagination} from "../catalog/Pagenation";
+import CustomPagination from "../catalog/Pagenation";
 import {CircularProgress} from "@material-ui/core";
 
 const PerAccAppCallFlowSection = () => {
@@ -53,7 +53,7 @@ const PerAccAppCallFlowSection = () => {
                                     <PerAccAppCallFlowItem appeal={item}/>
                                 )
                             }
-                            <div style={{clear:"both"}}></div>
+                            <div style={{clear: "both"}}/>
                             <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
                                 <CustomPagination
                                     size={size}

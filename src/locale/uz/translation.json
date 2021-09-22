@@ -162,6 +162,54 @@
   "male": "erkak",
   "female": "ayol",
   "new": "yangi",
+  "Cancel": "Bekor qilish",
+  "Save": "Saqlash",
+  "Rating": "Baholash",
+
+  "Replace the performer": "Ijrochini almashtirish",
+  "Number of appeals": "Murojaatlar soni",
+  "Number of processed": "Qayta ishlanganlar soni",
+  "Priority": "Birinchi o'ringa",
+  "Satisfactorily": "Qoniqarli",
+  "Unsatisfactory": "Qoniqarsiz",
+
   "inprocess": "jarayonida",
-  "completed": "tugallangan"
+  "completed": "tugallangan",
+
+  "fromZeroToSeventeen": "interval: 0-17",
+  "fromEighteenToThirty": "interval: 18-30",
+  "fromThirtyOneToFortyFive": "interval: 31-45",
+  "fromFortySixToSixty": "interval: 46-60",
+  "fromSixtyOne": "61 dan yuqori",
+  "Page size": "Sahifa soni",
+  "Create a new appeal": "Yangi shikoyat xati yaratish",
+  "Open": "Ochish",
+  "Legal and regulatory framework": "Normativ-huquqiy baza",
+
+  "Accepted": "Qabul qilinganlar",
+  "Reviewed": "Ko'rib chiqilganlar",
+  "No new appeals are available": "Yangi arizalar mavjud emas",
+
+  "Heads of departments": "Bo'lim boshliqlari",
+  "Appointment of the performer": "Ijrochining tayinlanishi",
+  "Listeners": "Tinglovchilar",
+  "Applicants": "Ariza beruvchilar",
+  "Applications are not available": "Arizalar mavjud emas",
+  "Feedback reviews": "Fikr-mulohazalar",
+  "Regulatory and legal framework": "Normativ -huquqiy baza",
+  "Send the list to the system administrator": "Ro'yxatni tizim adminstratoriga yuborish",
+
+  "Generate link": "Havola yaratish",
+  "Block": "Bloklash",
+  "Unblock": "Blokdan chiqarish",
+  "Enter a minimum of 10 characters": "Minimum 10 ta belgi kiriting",
+  "Upload listener response": "Listener javobini yuklash"
+
+
+
+
+
+
+
+
 }

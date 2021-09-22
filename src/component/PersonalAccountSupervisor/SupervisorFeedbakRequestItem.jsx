@@ -3,8 +3,9 @@ import UserItem from "../UserItem";
 import UserName from "../UserName";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
-const SupervisorFeedbakRequestItem = () => {
+const SupervisorFeedbakRequestItem = ({t}) => {
     let token=localStorage.getItem(STORAGE_NAME);
     axios({
         method:'get',
@@ -22,11 +23,11 @@ const SupervisorFeedbakRequestItem = () => {
                 <div className="content-line" />
                 <div className='avatar'>
                     <UserName text="Aliyev Valijon" />
-                    <button className="green-btn">Удовлетворительно</button>
+                    <button className="green-btn">{t("Satisfactorily")}</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default SupervisorFeedbakRequestItem;
+export default withTranslation() (SupervisorFeedbakRequestItem);
