@@ -154,13 +154,13 @@ const PerAccAppResponseRequest = ({t}) => {
                                                 setComLength(true)
                                             }
                                         }} style={{float:"right",backgroundColor:green[400],padding:"6px 8px",color:"white",borderRadius:"3px"}}>Yuborish</button>
-                                        <div style={{clear:"both"}}></div>
+                                        <div style={{clear: "both"}}/>
                                     </div>
                                 </div>
                         )
                     }
 
-                    <div style={{clear: "both"}}></div>
+                    <div style={{clear: "both"}}/>
                     {
                         items.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
                             <CustomPagination

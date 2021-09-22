@@ -9,7 +9,7 @@ const SectionCategory = (props) => {
     const {i18n}=useTranslation();
 
     let token=localStorage.getItem(STORAGE_NAME);
-    console.log(props);
+    // console.log(props);
 
     const fileLoad=(id,name)=>{
         if (id){
@@ -18,13 +18,22 @@ const SectionCategory = (props) => {
                     'Authorization':token,
                 }
             }).then((r)=>{
-                console.log(r)
                 const type = r.headers['content-type'];
                 const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' });
                 const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = ''+name+'.'+type.substring(type.indexOf("pdf"));
+                // setFile(URL.createObjectURL(blob));
+                link.href=URL.createObjectURL(blob);
+                link.target="_blank";
+                // link.download = ''+name+' arizasi.'+type;
                 link.click()
+
+                // console.log(r)
+                // const type = r.headers['content-type'];
+                // const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' });
+                // const link = document.createElement('a');
+                // link.href = URL.createObjectURL(blob);
+                // link.download = ''+name+'.'+type.substring(type.indexOf("pdf"));
+                // link.click()
             })
         }
     };
