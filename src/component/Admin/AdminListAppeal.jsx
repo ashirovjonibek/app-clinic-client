@@ -59,7 +59,6 @@ const AdminListAppeal = ({t, searchTerm}) => {
                         }
                     ).catch(error => {
                     console.log(error);
-
                     Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
                         getApplicants()
                     })
