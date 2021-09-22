@@ -118,28 +118,28 @@ const PersonalAccountListener = ({t}) => {
                                     </div>
                                     <ul>
                                         <li>
-                                            <Link onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(4)}>{t("Appeals")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(5)}>{t("Call flow")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(6)}>{t("Your feedback")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li>
-                                            <Link onClick={() => getPage(8)}>{t("Message center")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -163,28 +163,28 @@ const PersonalAccountListener = ({t}) => {
                                 <div className="navbarr">
                                     <ul>
                                         <li className="navbar-items" id={idUser === 1 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 2 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 3 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 4 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(4)}>{t("Appeals")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 5 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(5)}>{t("Call flow")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 6 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(6)}>{t("Your feedback")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 7 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
-                                            <Link onClick={() => getPage(8)}>{t("Message center")}</Link>
+                                            <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
                                         </li>
                                     </ul>
                                 </div>
