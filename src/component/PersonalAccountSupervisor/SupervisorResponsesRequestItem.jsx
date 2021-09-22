@@ -13,92 +13,92 @@ import {DirectionsWalk} from "@material-ui/icons";
 import {FormHelperText} from "@material-ui/core";
 
 const SupervisorResponsesRequestItem = (props) => {
-    let token=localStorage.getItem(STORAGE_NAME);
-    const [isM,setIsM]=useState(false);
-    const [message,setMessage]=useState("");
-    const [error,setError]=useState(false);
+    let token = localStorage.getItem(STORAGE_NAME);
+    const [isM, setIsM] = useState(false);
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState(false);
 
-    const fileLoad=(id,name)=>{
-        if (id){
-            axios.get(API_URL + "/attach/" + id,{
-                headers:{
-                    'Authorization':token,
+    const fileLoad = (id, name) => {
+        if (id) {
+            axios.get(API_URL + "/attach/" + id, {
+                headers: {
+                    'Authorization': token,
                 }
-            }).then((r)=>{
+            }).then((r) => {
                 console.log(r)
                 const type = r.headers['content-type'];
-                const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' });
+                const blob = new Blob([r.data], {type: type, encoding: 'UTF-8'});
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = ''+name+'.'+type.substring(type.indexOf("pdf"));
+                link.download = '' + name + '.' + type.substring(type.indexOf("pdf"));
                 link.click()
             })
         }
     };
 
-    const accept=(id)=>{
-      Swal.fire({
-          title:"Tasdiqlash!!",
-          html:"Murojaat qabul qilinsinmi?",
-          icon:"warning",
-          confirmButtonText:"Ha",
-          showCancelButton:true,
-          cancelButtonText:"Yo'q",
-          cancelButtonColor:"red",
+    const accept = (id) => {
+        Swal.fire({
+            title: "Tasdiqlash!!",
+            html: "Murojaat qabul qilinsinmi?",
+            icon: "warning",
+            confirmButtonText: "Ha",
+            showCancelButton: true,
+            cancelButtonText: "Yo'q",
+            cancelButtonColor: "red",
 
-      }).then((confirm)=>{
-          if (confirm.isConfirmed){
-              axios({
-                  method:'put',
-                  url:API_URL+'/document/boss/accept/'+id,
-                  headers: {
-                      Authorization: token
-                  }
-              }).then((r)=>{
-                  Swal.fire("Bajarildi!!!","","success").then((ress)=>{
-                      console.log(r)
-                      props.refresh()
-                  })
-              }).catch((e)=>{
-                  Swal.fire("Xatolik yuz berdi!!!","","error").then(()=>{
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
+                axios({
+                    method: 'put',
+                    url: API_URL + '/document/boss/accept/' + id,
+                    headers: {
+                        Authorization: token
+                    }
+                }).then((r) => {
+                    Swal.fire("Bajarildi!!!", "", "success").then((ress) => {
+                        console.log(r)
+                        props.refresh()
+                    })
+                }).catch((e) => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(() => {
 
-                      props.refresh()
-                  })
-              })
-          }
-      })
+                        props.refresh()
+                    })
+                })
+            }
+        })
 
 
     };
 
-    const denied=(id)=>{
+    const denied = (id) => {
         Swal.fire({
-            title:"Tasdiqlash!!",
-            html:"Murojaat rad etilsinmi?",
-            icon:"warning",
-            confirmButtonText:"Ha",
-            showCancelButton:true,
-            cancelButtonText:"Yo'q",
-            confirmButtonColor:"red",
+            title: "Tasdiqlash!!",
+            html: "Murojaat rad etilsinmi?",
+            icon: "warning",
+            confirmButtonText: "Ha",
+            showCancelButton: true,
+            cancelButtonText: "Yo'q",
+            confirmButtonColor: "red",
 
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
                 axios({
-                    method:'put',
-                    url:API_URL+'/document/boss/denied/'+id,
+                    method: 'put',
+                    url: API_URL + '/document/boss/denied/' + id,
                     headers: {
                         Authorization: token
                     },
-                    data:{string:message}
-                }).then((r)=>{
-                    Swal.fire("Bajarildi!!!","","success").then((ress)=>{
+                    data: {string: message}
+                }).then((r) => {
+                    Swal.fire("Bajarildi!!!", "", "success").then((ress) => {
                         console.log(r);
                         props.refresh();
                         setMessage(false);
                         setIsM(false)
                     })
-                }).catch((e)=>{
-                    Swal.fire("Xatolik yuz berdi!!!","","error").then(()=>{
+                }).catch((e) => {
+                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(() => {
 
                         props.refresh()
                     })
@@ -110,73 +110,77 @@ const SupervisorResponsesRequestItem = (props) => {
     return (
         <div className="supervisor-response-request-item">
             <div className="content">
-                <UserName text={props.item.application.applicant.fullName} />
-                <DocumentText appeal={props?.item?.application} />
+                <UserName text={props.item.application.applicant.fullName}/>
+                <DocumentText appeal={props?.item?.application}/>
                 <div className="request-categoriyes">
-                    <SectionCategory fileId={props?.item?.answer?.attachmentId} section={props?.item?.application?.section}/>
+                    <SectionCategory fileId={props?.item?.answer?.attachmentId}
+                                     section={props?.item?.application?.section}/>
                 </div>
                 <div className="content-line"/>
                 <div className="request-categoriyes">
-                    <UserItem p={props?.item?.checkedBy} />
+                    <UserItem p={props?.item?.checkedBy}/>
                 </div>
                 <div className="request-bottom">
                     <div className="file-upload">
-                        <Label text={props.t("Answer")+":"} />
-                        <div onClick={()=>{
-                            fileLoad(props?.item?.answer?.attachmentId,"answer")
-                        }} style={{cursor:"pointer"}} className="file">
+                        <Label text={props.t("Answer") + ":"}/>
+                        <div style={{width: "100%"}}>
+                            {props?.item?.answer?.description}
+                        </div>
+                        <div onClick={() => {
+                            fileLoad(props?.item?.answer?.attachmentId, "answer")
+                        }} style={{cursor: "pointer"}} className="file file1">
                             {props.t("Upload listener response")}
                         </div>
                     </div>
                     <br/>
                     {
-                        isM?<div style={
+                        isM ? <div style={
                             {
-                                display:"block",
-                                width:"100%",
-                                marginTop:"25px",
-                                border:"1px solid rgba(0,0,0,0.1)",
-                                borderRadius:"6px",
-                                padding:"7px",
-                                boxShadow:"0 0 3px 0 rgba(0,0,0,0.3"
+                                display: "block",
+                                width: "100%",
+                                marginTop: "25px",
+                                border: "1px solid rgba(0,0,0,0.1)",
+                                borderRadius: "6px",
+                                padding: "7px",
+                                boxShadow: "0 0 3px 0 rgba(0,0,0,0.3"
                             }
                         }>
-                            <textarea onChange={(e)=>
-                            {
+                            <textarea onChange={(e) => {
                                 setMessage(e.target.value);
-                                if (e.target.value.length>10){
+                                if (e.target.value.length > 10) {
                                     setError(false)
                                 }
                             }} cols="30" rows="10" placeholder="Rad etilish sababini kiriting!!!">
                             </textarea>
-                            {error?<FormHelperText error={error}>{props.t("Enter a minimum of 10 characters")}!!!</FormHelperText>:""}
-                        </div>:""
+                            {error ? <FormHelperText
+                                error={error}>{props.t("Enter a minimum of 10 characters")}!!!</FormHelperText> : ""}
+                        </div> : ""
                     }
                     <div style={{
-                        marginTop:"15px",
-                        textAlign:"right",
-                        display:"block",
-                        width:"100%"
+                        marginTop: "15px",
+                        textAlign: "right",
+                        display: "block",
+                        width: "100%"
                     }}>
                         <button style={{
-                            float:"right"
-                        }} className="red-btn" onClick={()=>{
-                            if (message.length<10&&isM){
+                            float: "right"
+                        }} className="red-btn" onClick={() => {
+                            if (message.length < 10 && isM) {
                                 setError(true)
-                            }else {
+                            } else {
                                 setError(false)
                             }
-                            if (!isM){
+                            if (!isM) {
                                 setIsM(true);
                             }
 
-                            if (message.length>10&&isM){
+                            if (message.length > 10 && isM) {
                                 denied(props?.item?.id)
                             }
                         }}>{props.t("Unsatisfactory")}</button>
                         <button style={{
-                            float:"right"
-                        }} className="green-btn" onClick={()=>{
+                            float: "right"
+                        }} className="green-btn" onClick={() => {
                             accept(props?.item?.id)
                         }}>{props.t("Satisfactorily")}</button>
                     </div>
@@ -186,4 +190,4 @@ const SupervisorResponsesRequestItem = (props) => {
     );
 }
 
-export default withTranslation() (SupervisorResponsesRequestItem);
+export default withTranslation()(SupervisorResponsesRequestItem);

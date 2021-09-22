@@ -71,8 +71,9 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      label{
-      font-size: 12px;
+
+      label {
+        font-size: 12px;
       }
 
       select {
@@ -120,10 +121,12 @@
           flex-direction: row;
           margin-bottom: 15px;
           flex-wrap: wrap;
+
           li {
             width: 25%;
             text-align: center;
             margin-bottom: 13px;
+
             a {
               height: 40px;
               display: flex;
@@ -1324,8 +1327,6 @@
     }
 
     .file-upload {
-      display: flex;
-      flex-direction: row;
       align-items: center;
       margin-bottom: 30px;
 
