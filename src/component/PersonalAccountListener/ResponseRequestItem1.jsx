@@ -59,6 +59,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                         'success'
                     ).then((res)=>{
                         refresh();
+                        setIsAn(false)
                         setMessage("")
                     });
                 }).catch((err)=>{

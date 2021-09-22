@@ -5,6 +5,7 @@ import ResponseRequestItem1 from "./ResponseRequestItem1";
 import {CustomPagination} from "../catalog/Pagenation";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import Label from "../Label";
 
 const AttachAnswer=({item,refresh})=>{
     let token=localStorage.getItem(STORAGE_NAME);
@@ -80,8 +81,11 @@ const AttachAnswer=({item,refresh})=>{
                                 </li>
                             </ul>
                         </div>
+                        <div className="content-line" />
+                        <Label text="Rahbar xulosasi:"/>
+                        <p className="text-warning">{item?.answer?.deniedMessage}</p>
                         <div className="response-request">
-                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.application?.id} docId={item?.id} item={item?.application}/>
+                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.answer?.id} docId={item?.id} item={item?.application}/>
                         </div>
                     </div>
                 </>

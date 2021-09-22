@@ -1,4 +1,4 @@
-.pagination {
+.pagination1 {
     display: inline-block;
     float: right;
 }
@@ -21,20 +21,30 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-.pagination span {
+.pagination1 span {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
 }
 
-.pagination span.active {
+.pagination1 span.active {
     background-color: #4CAF50;
     color: white;
     border-radius: 5px;
 }
 
-.pagination span:hover:not(.active) {
+.pagination1 span:hover:not(.active) {
     background-color: #ddd;
     border-radius: 5px;
+}
+.z-index{
+    z-index: 1;
+}
+
+@media screen and(min-width: 785px) {
+    .pagination1{
+        display: block;
+        float: left;
+    }
 }

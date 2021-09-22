@@ -2,13 +2,13 @@
 import React from "react";
 import {withTranslation} from "react-i18next";
 
-const DocumentText = ({appeal,t}) => {
+const DocumentText = ({appeal,t,type}) => {
     return (
         <div className="document-text">
-            <div className="document-text-title">
+            {type!=="answer"?<div className="document-text-title">
                 <h4>{t("Subject of the appeal")}:</h4>
                 <p>{appeal?.title}</p>
-            </div>
+            </div>:""}
             <div className="document-text-item">
                 {
                     appeal?.description

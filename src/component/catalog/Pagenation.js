@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import './pagenation.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import {Link} from "react-router-dom";
 import {withTranslation} from "react-i18next";
 
 const CustomPagination=(props)=> {
@@ -77,7 +76,7 @@ const CustomPagination=(props)=> {
                     }
                 }
             setPages(a);
-            window.scrollTo(0, 0);
+            // window.scrollTo(0, 0);
             if (props?.active>1&&props?.active>props?.pageLength){
                 props.setActive(props?.active-1)
             }
@@ -87,7 +86,7 @@ const CustomPagination=(props)=> {
         <div>
             {
                 props?.size?<div className="size-page">
-                    <span style={{fontSize:"20px"}}> {props.t("Page size")}: </span>
+                    <span className="span-item" style={{fontSize:"20px"}}> {props.t("Page size")}: </span>
                     <select type="number" defaultValue={props?.size} min={0} max={10} onChange={(e)=>{
                         props?.setSize(e.target.value)
                         props?.setActive(1)
@@ -99,7 +98,7 @@ const CustomPagination=(props)=> {
                     </select>
                 </div>:""
             }
-            <div className="pagination" >
+            <div className="pagination1" >
                 <span disabled={props.active===1} onClick={()=>{
                     props.setActive(1)
                 }} style={{cursor:"pointer"}}><ArrowBackIosIcon/></span>
@@ -115,17 +114,17 @@ const CustomPagination=(props)=> {
                    </>:
                        <>
                            {
-                               (props?.active-1)>1?<span className="tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
+                               (props?.active-1)>1?<span className="span-item tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
                            }
                            {
                                pages&&pages?.map((item)=>
-                                   <span key={item.page}  onClick={()=>{
+                                   <span  key={item.page}  onClick={()=>{
                                        props.setActive(item.page)
-                                   }} style={{cursor:"pointer",fontSize:"20px"}} className={item.classPage}>{item.page}</span>
+                                   }} style={{cursor:"pointer",fontSize:"20px"}} className={"span-item "+item.classPage}>{item.page}</span>
                                )
                            }
                            {
-                               (props?.active+1)<props?.pageLength?<span className="tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
+                               (props?.active+1)<props?.pageLength?<span className="span-item tree-dots" style={{fontSize:"20px",padding:"8px 0",margin:0}}>...</span>:""
                            }
                        </>
                }
