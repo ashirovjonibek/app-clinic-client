@@ -1,4 +1,5 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
 
 const UserName = (props) => {
 
@@ -30,11 +31,11 @@ const UserName = (props) => {
             </div>
             {
                 props.des?<div className="user-inform">
-                    <div className="user-porofeesion">Эксперт по гражданскому праву</div>
+                    <div className="user-porofeesion">{props.t("Civil Law Expert")}</div>
                 </div>:""
             }
         </>
     );
 }
 
-export default UserName;
+export default withTranslation() (UserName);

@@ -57,7 +57,7 @@ const ModeratorAppealSection = () => {
                                 <ModeratorAppealItem refresh={refresh} key={i} item={item} />
                             )
                         }
-                        <div style={{clear: "both"}}></div>
+                        <div style={{clear: "both"}}/>
 
                         <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
 

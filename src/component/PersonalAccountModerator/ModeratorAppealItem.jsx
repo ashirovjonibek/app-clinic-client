@@ -12,6 +12,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Button from "@material-ui/core/Button";
 import EditIcon from '@material-ui/icons/Edit';
+import {withTranslation} from "react-i18next";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -99,10 +100,10 @@ const ModeratorAppealItem = (props) => {
                         </div>
                         <div className="request-content-title-date">
                             <div className="date-label">
-                                Осталось:
+                                {props.t("Left")}:
                             </div>
                             <div style={{backgroundColor: d.getDate()>10?"#63AA55":d.getDate()<=10&&d.getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">
-                                {d.getDate()} kun
+                                {d.getDate()} {props.t("days")}
                             </div>
                         </div>
                     </div>
@@ -114,4 +115,4 @@ const ModeratorAppealItem = (props) => {
     );
 }
 
-export default ModeratorAppealItem;
+export default withTranslation() (ModeratorAppealItem);

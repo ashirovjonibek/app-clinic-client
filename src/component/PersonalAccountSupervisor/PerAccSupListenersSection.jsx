@@ -20,7 +20,6 @@ const PerAccSupListenersSection = ({t}) => {
         axios(config)
             .then(function (response) {
                 setListeners(response.data)
-                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -38,7 +37,6 @@ const PerAccSupListenersSection = ({t}) => {
         axios(config)
             .then(function (response) {
                 setListeners(response.data)
-                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error);

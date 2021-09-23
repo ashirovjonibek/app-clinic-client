@@ -2,7 +2,7 @@ import React from "react";
 import UserName from "../UserName";
 
 const IncomingRequestItem = ({ currentItem }) => {
-    console.log(currentItem)
+    // console.log(currentItem)
     return (
 
         <div className="incoming-request-item">

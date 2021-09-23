@@ -114,7 +114,7 @@ const YourAppealSection = (props) => {
                             <div className="content-line"/>
                             <div className="new-request">
                                 <span style={{cursor: "pointer"}} onClick={() => {
-                                    console.log(appeal)
+                                    // console.log(appeal)
                                     history.push("/applicantAppeal")
                                     window.scrollTo(0, 0)
                                 }}>{props.t("Create a new appeal")}</span>

@@ -39,7 +39,6 @@ const IncomingRequestSection = (props) => {
             method: 'GET'
         }).then(res => {
             setRequest(res.data.object)
-            console.log(res);
             let cr=[];
             res.data.object.map((item)=>{
                 if (item.status==="CREATED"){
@@ -59,7 +58,6 @@ const IncomingRequestSection = (props) => {
                 'Authorization': token
             }
         }).then((r)=>{
-            console.log(r);
             setTotal1(r.data.totalPages);
             setInpApps(r.data.object)
         })
@@ -74,7 +72,6 @@ const IncomingRequestSection = (props) => {
             method: 'GET'
         }).then(res => {
             setRequest(res.data.object)
-            console.log(res);
             let cr=[];
             res.data.object.map((item)=>{
                 if (item.status==="CREATED"){
@@ -106,7 +103,6 @@ const IncomingRequestSection = (props) => {
                         'Authorization':token
                     }
                 }).then((r)=>{
-                    console.log(r);
                     Swal.fire(
                         'Tasdiqlandi!',
                         'Ariza qabul qilindi!!!',
@@ -139,7 +135,6 @@ const IncomingRequestSection = (props) => {
                         'Authorization':token
                     }
                 }).then((r)=>{
-                    console.log(r);
                     Swal.fire(
                         'Yuborildi!',
                         'Ariza Moderatorga yuborildi',
@@ -161,7 +156,6 @@ const IncomingRequestSection = (props) => {
                 'Authorization': token
             }
         }).then((r)=>{
-            console.log(r);
             setTotal1(r.data.totalPages);
             setInpApps(r.data.object)
         })
@@ -179,7 +173,7 @@ const IncomingRequestSection = (props) => {
               Authorization:token
           }
       }).then((r)=>{
-          console.log(r)
+          console.log("checkedApp")
       })
     };
 
@@ -206,34 +200,37 @@ const IncomingRequestSection = (props) => {
           case 1:return (
               <>
                   {newApps && newApps.map((item, i) =>
+
                       <div className="content" key={i} value={item.id}>
                           <div className="request-content-title">
                               <div className="request-content-title-name">
                                   <UserName text={`${item.applicant.fullName}`} />
                               </div>
                               <div className="request-content-title-date">
-                                  <div className="date-label">
-                                      Осталось:
-                                  </div>
-                                  {/*<div */}
+                                  {/*<div className="date-label">*/}
+                                  {/*    {props.t("Осталось")}:*/}
+                                  {/*</div>*/}
+                                  {/*<div*/}
                                   {/*    style={{backgroundColor: new Date(*/}
                                   {/*    new Date(item.deadLineDate).getTime()-new Date().getTime())*/}
                                   {/*        .getDate()>10?"#63AA55":new Date(*/}
                                   {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()<=10&&new Date(*/}
-                                  {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item">*/}
-                                  {/*    {new Date(*/}
+                                  {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item"*/}
+                                  {/*>*/}
+                                  {/*    {*/}
+                                  {/*        new Date(*/}
                                   {/*        new Date(item.deadLineDate).getTime()-new Date().getTime())} kun*/}
                                   {/*</div>*/}
                               </div>
                           </div>
                           <div className="request-theme">
                               <div className="request-theme-title">
-                                  <h3>Тема обращения:</h3>
+                                  <h3>{props.t("Subject of the appeal")}:</h3>
                                   <p>{item.title}</p>
                               </div>
                               <div>
                                   <input type="checkbox" defaultChecked={item.top}/>
-                                  <label htmlFor="">Конфиденциально</label>
+                                  <label htmlFor="">{props.t("Confidentially")}</label>
                               </div>
                           </div>
                           <div className="request-content-item">
@@ -242,11 +239,11 @@ const IncomingRequestSection = (props) => {
                           <div className="categories">
                               <ul>
                                   <li>
-                                      <label htmlFor="">Категория обращения</label>
+                                      <label htmlFor="">{props.t("Category of treatment")}</label>
                                       <div className="category-item">{item.section.title.uz}</div>
                                   </li>
                                   <li>
-                                      <label htmlFor="">Файл</label>
+                                      <label htmlFor="">{props.t("File")}</label>
                                       <div onClick={()=>{
                                           item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
                                       }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
@@ -254,11 +251,11 @@ const IncomingRequestSection = (props) => {
                               </ul>
                           </div>
                           <div className="request-bottom">
-                              <button className="blue-btn" onClick={() => ignoredApp(item.id)}>Отправить модератору на замену исполнителя</button>
+                              <button className="blue-btn" onClick={() => ignoredApp(item.id)}>{props.t("Send to the moderator to replace the listener")}</button>
                               <button type="submit" className="btn-default" style={{
                                   marginTop:"15px"
                               }}
-                                      onClick={() => acceptApp(item.id)} >Qabul qilish</button>
+                                      onClick={() => acceptApp(item.id)} >{props.t("Accept")}</button>
                           </div>
                       </div>
                   )}
@@ -273,7 +270,7 @@ const IncomingRequestSection = (props) => {
                           size={size}
                           setSize={setSize}
                       />:<div style={{textAlign:"center",paddingTop:"35px"}}>
-                          Yangi arizalar mavjud emas!!!
+                          {props.t("No new appeals are available")}!!!
                       </div>}
                   </div>
               </>
@@ -288,7 +285,7 @@ const IncomingRequestSection = (props) => {
                               </div>
                               <div className="request-content-title-date">
                                   <div className="date-label">
-                                      Ko'rib chiqish muddati:
+                                      {props.t("Review period")}:
                                   </div>
                                   <div
                                       // style={{backgroundColor: new Date(
@@ -298,18 +295,18 @@ const IncomingRequestSection = (props) => {
 //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
 //                                        className="date-item"
                                   >
-                                      {" "+item.deadLineDate} gacha
+                                      {" "+item.deadLineDate} {props.t("gacha")}
                                   </div>
                               </div>
                           </div>
                           <div className="request-theme">
                               <div className="request-theme-title">
-                                  <h3>Тема обращения:</h3>
+                                  <h3>{props.t("Subject of the appeal")}:</h3>
                                   <p>{item.title}</p>
                               </div>
                               <div>
                                   <input type="checkbox" />
-                                  <label htmlFor="">Конфиденциально</label>
+                                  <label htmlFor="">{props.t("Confidentially")}</label>
                               </div>
                           </div>
                           <div className="request-content-item">
@@ -318,11 +315,11 @@ const IncomingRequestSection = (props) => {
                           <div className="categories">
                               <ul>
                                   <li>
-                                      <label for="">Категория обращения</label>
+                                      <label for="">{props.t("Category of appeal")}</label>
                                       <div className="category-item">{item.section.title.uz}</div>
                                   </li>
                                   <li>
-                                      <label for="">Файл</label>
+                                      <label for="">{props.t("File")}</label>
                                       <div onClick={()=>{
                                           item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
                                       }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
@@ -346,7 +343,7 @@ const IncomingRequestSection = (props) => {
                           setSize={setSize1}
                       />
                   </div>:<div style={{textAlign:"center",paddingTop:"35px"}}>
-                      Qabul qlingan arizalar mavjud emas!!!
+                      {props.t("Accepted applications are not available")}!!!
                   </div>}
               </>
           )
@@ -363,18 +360,18 @@ const IncomingRequestSection = (props) => {
                                       Осталось:
                                   </div>
                                   <div className="date-item">
-                                      5 день
+                                      5 {props.t("days")}
                                   </div>
                               </div>
                           </div>
                           <div className="request-theme">
                               <div className="request-theme-title">
-                                  <h3>Тема обращения:</h3>
+                                  <h3>{props.t("Subject of the appeal")}:</h3>
                                   <p>{item.title}</p>
                               </div>
                               <div>
                                   <input type="checkbox" />
-                                  <label htmlFor="">Конфиденциально</label>
+                                  <label htmlFor="">{props.t("Confidentially")}</label>
                               </div>
                           </div>
                           <div className="request-content-item">
@@ -383,11 +380,11 @@ const IncomingRequestSection = (props) => {
                           <div className="categories">
                               <ul>
                                   <li>
-                                      <label for="">Категория обращения</label>
+                                      <label for="">{props.t("Category of appeal")}</label>
                                       <div className="category-item">{item.section.title.uz}</div>
                                   </li>
                                   <li>
-                                      <label for="">Файл</label>
+                                      <label for="">{props.t("File")}</label>
                                       <div onClick={()=>{
                                           item.attachmentsId?download(item.attachmentsId[0],item.applicant?.fullName):console.log("not found")
                                       }} style={{textAlign:"center",paddingTop:"10px"}} className="file-item"><GetAppIcon/></div>
@@ -396,12 +393,12 @@ const IncomingRequestSection = (props) => {
                           </div>
                           <div className="request-bottom">
                               <button className="blue-btn" onClick={() => changeAppeal(item)}>Отправить модератору на замену исполнителя</button>
-                              <button className="blue-btn">Написать сообщение</button>
+                              <button className="blue-btn">{props.t("Write a message")}</button>
                               <button type="submit" className="btn-default" style={{
                                   marginTop:"15px"
                               }}
                                       // onClick={() => testPage(item)}
-                              >Ответить</button>
+                              >{props.t("To answer")}</button>
                           </div>
                       </div>
                   )}
@@ -417,7 +414,7 @@ const IncomingRequestSection = (props) => {
                           setSize={setSize}
                       />
                   </div>:<div style={{textAlign:"center",paddingTop:"35px"}}>
-                      Ko'rib chiqilgan arizalar mavjud emas!!!
+                      {props.t("The applications reviewed are not available")}!!!
                   </div>}
               </>
           )
@@ -439,9 +436,9 @@ const IncomingRequestSection = (props) => {
                 deniedMessage:"null"
             }
         }).then((r)=>{
-            console.log(r)
+            console.log("changeAppeal")
         })
-        console.log(item.id);
+        // console.log(item.id);
     }
 
     return (
@@ -452,19 +449,19 @@ const IncomingRequestSection = (props) => {
                     <p className="request-items">
                     </p>
                     <p style={{padding:"0px 10px",border:nS===1?"1px solid rgba(0,0,0,0.5)":""}} className="request-items">
-                        <Link onClick={()=>{
+                        <Link to={"#"} onClick={()=>{
                             setNS(1)
                             newApplication();
                         }}>{props.t("New")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===2?"1px solid rgba(0,0,0,0.5)":""}}  className="request-items">
-                        <Link onClick={()=>{
+                        <Link to={"#"} onClick={()=>{
                             setNS(2)
                             acceptedApp();
                         }}>{props.t("Accepted")}</Link>
                     </p>
                     <p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">
-                        <Link onClick={()=>{
+                        <Link to={"#"} onClick={()=>{
                             setNS(3);
                             checkedApp();
                         }}>{props.t("Reviewed")}</Link>

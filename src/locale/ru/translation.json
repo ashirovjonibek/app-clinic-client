@@ -144,7 +144,8 @@
   "Document status": "Статус документа",
   "Consideration period": "Срок рассмотрения",
   "File": "Файл",
-  "Category of treatment": "Категория лечения",
+  "Category of appeal": "Категория обращения",
+  "Category of treatment": "Категория обращения",
   "Personal account": "Персональный аккаунт",
   "This question will not be displayed in the \"Frequently Asked Questions\" section of the AIS Clinic.": "Этот вопрос не будет отображаться в разделе «Часто задаваемые вопросы» AIS Clinic.",
   "Page size": "Размер страницыт",
@@ -189,7 +190,23 @@
   "Unblock": "Разблокировать",
   "Enter a minimum of 10 characters": "Введите не менее 10 символов",
   "Upload listener response": "Загрузить ответ слушателя",
-  "Download the application": "Скачать приложение"
+  "Download the application": "Скачать приложение",
+
+  "Send to the moderator to replace the listener": "Отправить модератору на замену слушателя",
+  "Accept": "Принимать",
+  "Review period": "Период рассмотрения",
+  "until": "до",
+  "Accepted applications are not available": "Принятые заявки недоступны",
+  "Write a message": "Написать сообщение",
+  "To answer": "Ответить",
+  "The applications reviewed are not available": "Рассмотренные обращений недоступны",
+  "Answer text": "Текст ответа",
+  "Answer file": "Файл ответов",
+  "Send to applicant": "Отправить заявителю",
+  "Section": "Кафедра",
+  "Left": "Осталось",
+  "Civil Law Expert": "Эксперт по гражданскому праву"
+
 
 
 

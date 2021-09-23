@@ -143,7 +143,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
             <div style={{marginTop:"17px"}}>
                 <div style={{marginBottom: '20px',display:"inline-block"}}>
                     <div className="lb">
-                        <label className="label" htmlFor="">Прикрепить файл</label>
+                        <label className="label" htmlFor="">{t("Attach file")}</label>
                     </div>
                     <div className="file" style={{cursor: "pointer",marginTop:"5px"}}>
                         {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :

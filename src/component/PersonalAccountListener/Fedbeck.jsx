@@ -11,7 +11,6 @@ const Fedbeck = (props) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

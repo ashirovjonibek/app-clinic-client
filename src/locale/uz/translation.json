@@ -140,6 +140,7 @@
   "Personal account": "Shaxsiy hisob",
   "Appeal": "Murojaat",
   "Enter the subject of the appeal": "Shikoyat mavzusini kiriting",
+  "Category of appeal": "Murojaat toifasi",
   "Category of treatment": "Murojaat toifasi",
   "Select your appeal": "Bo'lim tanlang",
   "Attach file": "Fayl biriktirish",
@@ -203,11 +204,23 @@
   "Block": "Bloklash",
   "Unblock": "Blokdan chiqarish",
   "Enter a minimum of 10 characters": "Minimum 10 ta belgi kiriting",
-  "Upload listener response": "Listener javobini yuklash"
+  "Upload listener response": "Listener javobini yuklash",
 
+  "Send to the moderator to replace the listener": "Tinglovchini almashtirish uchun moderatorga yuborish",
+  "Accept": "Qabul qilish",
+  "Review period": "Ko'rib chiqish muddati",
+  "until": "gacha",
+  "Accepted applications are not available": "Qabul qilingan arizalar mavjud emas",
 
-
-
+  "Write a message": "Xabar yozish",
+  "To answer": "Javob berish",
+  "The applications reviewed are not available": "Ko'rib chiqilgan arizalar mavjud emas",
+  "Answer text": "Javob matni",
+  "Answer file": "Javob fayli",
+  "Send to applicant": "Arizachiga yuborish",
+  "Section": "Bo'lim",
+  "Left": "Qoldi",
+  "Civil Law Expert": "Fuqarolik huquqi bo'yicha mutaxassis"
 
 
 

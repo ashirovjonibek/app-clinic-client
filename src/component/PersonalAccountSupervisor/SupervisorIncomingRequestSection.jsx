@@ -27,7 +27,6 @@ const SupervisorIncomingRequestSection = () => {
                 }
             }).then(function (response) {
                 setListeners(response.data)
-                console.log(response.data)
             })
                 .catch(function (error) {
                     console.log(error);
@@ -41,7 +40,6 @@ const SupervisorIncomingRequestSection = () => {
                     'Content-Type': 'application/json'
                 }
             }).then((res)=>{
-                console.log(res);
                 setInfo(res.data)
             })
         })

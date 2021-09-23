@@ -6,8 +6,9 @@ import {CustomPagination} from "../catalog/Pagenation";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Label from "../Label";
+import {withTranslation} from "react-i18next";
 
-const AttachAnswer=({item,refresh})=>{
+const AttachAnswer=({item,refresh,t})=>{
     let token=localStorage.getItem(STORAGE_NAME);
     const [size, setSize] = useState(3);
     const [active, setActive] = useState(1);
@@ -39,7 +40,7 @@ const AttachAnswer=({item,refresh})=>{
                             </div>
                             <div className="request-content-title-date">
                                 <div className="date-label">
-                                    Ko'rib chiqish muddati:
+                                    {t("Review period")}:
                                 </div>
                                 <div
                                     // style={{backgroundColor: new Date(
@@ -49,7 +50,7 @@ const AttachAnswer=({item,refresh})=>{
                                     //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
                                     //                                        className="date-item"
                                 >
-                                    {" " + item.deadLineDate} gacha
+                                    {" " + item.deadLineDate} {t("until")}
                                 </div>
                             </div>
                         </div>
@@ -60,7 +61,7 @@ const AttachAnswer=({item,refresh})=>{
                             </div>
                             <div>
                                 <input type="checkbox"/>
-                                <label htmlFor="">Конфиденциально</label>
+                                <label htmlFor="">{t("Confidentially")}</label>
                             </div>
                         </div>
                         <div className="request-content-item">
@@ -69,11 +70,11 @@ const AttachAnswer=({item,refresh})=>{
                         <div className="categories">
                             <ul>
                                 <li>
-                                    <label htmlFor="">Категория обращения</label>
+                                    <label htmlFor="">{t("Category of appeal")}</label>
                                     <div className="category-item">{item?.application?.section.title.uz}</div>
                                 </li>
                                 <li>
-                                    <label htmlFor="">Файл</label>
+                                    <label htmlFor="">{t("File")}</label>
                                     <div onClick={() => {
                                         item?.application?.attachmentsId ? download(item?.application?.attachmentsId[0], item?.application?.applicant?.fullName) : console.log("not found")
                                     }} style={{textAlign: "center", paddingTop: "10px"}} className="file-item">
@@ -92,4 +93,4 @@ const AttachAnswer=({item,refresh})=>{
     )
 }
 
-export default AttachAnswer
+export default withTranslation() (AttachAnswer);

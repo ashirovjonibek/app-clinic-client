@@ -22,7 +22,7 @@ const ModeratorHeadsDepartmentSection = () => {
                 setItems(response.data);
                 // console.log(response.data)
             })
-            .catch(()=> {
+            .catch(() => {
                 toast.error("Xatolik yuz berdi!!!")
             });
 
@@ -49,11 +49,6 @@ const ModeratorHeadsDepartmentSection = () => {
 
     return (
         <div className="moderator-heads-department-section">
-            {/*<div className="listnears-section-top">*/}
-            {/*    <div className="send-list">*/}
-            {/*        {t("Send the list to the system administrator")}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             {
                 items && items.map((item, i) =>
                     <ModeratorHeadsDepartmentItem key={i} refresh={getListeners} item={item}/>

@@ -8,6 +8,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Dialog from "@material-ui/core/Dialog";
 import ButtonDefault from "../ButtonDefault";
 import Swal from "sweetalert2";
+import {withTranslation} from "react-i18next";
 
 const AppealItem = (props) => {
     const [file,setFile]=useState();
@@ -118,7 +119,7 @@ const AppealItem = (props) => {
                         props?.item?.answer?.description?.length>0?
                             <div>
                         <span style={{fontWeight:"bold"}}>
-                            Javob matni:
+                            {props.t("Answer text")}:
                         </span>
                                 <span style={{marginLeft:"5px"}}>
                             {
@@ -133,7 +134,7 @@ const AppealItem = (props) => {
                         props?.item?.answer?.attachmentId?
                             <div>
                         <span style={{fontWeight:"bold",display:"inline-block"}}>
-                            Javob fayli:
+                            {props.t("Answer file")}:
                         </span>
                                 <span  onClick={()=>{
 
@@ -152,7 +153,7 @@ const AppealItem = (props) => {
                             }else {
                                 sendApplicant(props?.item?.answer?.id);
                             }
-                        }} text={props?.item.status==="INPROCESS"?"Ko'rib chiqish uchun yuborish":"Arizachiga yuborish"}/>
+                        }} text={props?.item.status==="INPROCESS"? props.t("Submit for review"):props.t("Send to applicant")}/>
                     </div>
                 </div>
             </div>
@@ -160,4 +161,4 @@ const AppealItem = (props) => {
     );
 }
 
-export default AppealItem;
+export default withTranslation() (AppealItem);

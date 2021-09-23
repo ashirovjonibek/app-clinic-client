@@ -20,7 +20,6 @@ const SupervisorCallFlowSection = () => {
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
-            console.log(res);
             setLoading(false)
             setPageSize(res.data.object.totalPages)
         }).catch((e)=>{

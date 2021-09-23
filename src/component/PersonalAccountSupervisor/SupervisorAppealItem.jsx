@@ -5,8 +5,9 @@ import InputFile from "../InputFile";
 import SectionCategory from "../SectionCategory";
 import UserItem from "../UserItem";
 import UserName from "../UserName";
+import {withTranslation} from "react-i18next";
 
-const SupervisorAppealItem = () => {
+const SupervisorAppealItem = ({t}) => {
     return (
         <div className="supervisor-appeal-item">
             <div className="content">
@@ -15,13 +16,13 @@ const SupervisorAppealItem = () => {
                 <div className="request-categoriyes">
                     <SectionCategory />
                 </div>
-                <div className="content-line"></div>
+                <div className="content-line"/>
                 <div className="request-categoriyes">
                     <UserItem />
                 </div>
                 <div className="request-bottom">
                     <div className="file-upload">
-                        <Label text="Ответ:" />
+                        <Label text={t("Answer")+":"} />
                         <InputFile />
                     </div>
                 </div>
@@ -30,4 +31,4 @@ const SupervisorAppealItem = () => {
     );
 }
 
-export default SupervisorAppealItem;
+export default withTranslation() (SupervisorAppealItem);
