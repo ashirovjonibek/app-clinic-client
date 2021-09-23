@@ -126,9 +126,9 @@ const PersonalAccountListener = ({t}) => {
                                         <li>
                                             <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
-                                        <li>
-                                            <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>
-                                        </li>
+                                        {/*<li>*/}
+                                        {/*    <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>*/}
+                                        {/*</li>*/}
                                         <li>
                                             <Link to={"#"} onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
@@ -171,9 +171,9 @@ const PersonalAccountListener = ({t}) => {
                                         <li className="navbar-items" id={idUser === 3 ? 'active' : ''}>
                                             <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={idUser === 4 ? 'active' : ''}>
-                                            <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>
-                                        </li>
+                                        {/*<li className="navbar-items" id={idUser === 4 ? 'active' : ''}>*/}
+                                        {/*    <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>*/}
+                                        {/*</li>*/}
                                         <li className="navbar-items" id={idUser === 5 ? 'active' : ''}>
                                             <Link to={"#"} onClick={() => getPage(5)}>{t("Call flow")}</Link>
                                         </li>
