@@ -28,7 +28,7 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
 
 
     const submit=()=>{
-        let path=type?"/answer/":"/answer/create?applicationId=";
+        let path=type?"/answer/updateByDocument?documentId=":"/answer/create?applicationId=";
         let method=type?"put":"post";
         console.log(id);
         Swal.fire({

@@ -86,7 +86,7 @@ const AttachAnswer=({item,refresh,t})=>{
                         <Label text="Rahbar xulosasi:"/>
                         <p className="text-warning">{item?.answer?.deniedMessage}</p>
                         <div className="response-request">
-                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.answer?.id} docId={item?.id} item={item?.application}/>
+                            <ResponseRequestItem1 type={true} refresh={refresh} id={item?.id} docId={item?.id} item={item?.application}/>
                         </div>
                     </div>
                 </>
