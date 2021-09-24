@@ -6,6 +6,7 @@ import NavLanguage from "./NavLanguage";
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "./Enter";
 import {withTranslation} from "react-i18next";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const NavCenter = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -16,10 +17,10 @@ const NavCenter = ({t}) => {
             <div className="container">
                 <div className="navbar">
                     <div className="menu-icon" >
-                        {/*<MenuIcon*/}
-                        {/*    fontSize={'large'}*/}
-                        {/*    onClick={() => setSitebar(!sitebar)}*/}
-                        {/*/>*/}
+                        <MenuIcon
+                            fontSize={'large'}
+                            onClick={() => setSitebar(!sitebar)}
+                        />
                     </div>
                     <div className="header-logo">
                         <a href="/#">
@@ -62,25 +63,25 @@ const NavCenter = ({t}) => {
                             </div>
                             <ul>
                                 <li>
-                                    <a href="/#">Что такое клиника</a>
+                                    <a href="/#what-clinic">{t("What is clinic")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Цель клиники</a>
+                                    <a href="/#cel-clinic">{t("Goal of the clinic")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Предназначение клиники</a>
+                                    <a href="/#purpose-clinic">{t("Purpose of the clinic")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Популярные вопросы</a>
+                                    <a href="/#popular-clinic">{t("Popular questions")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Нормативно-правовая база</a>
+                                    <a href="/#legal-clinic">{t("Regulatory base")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Полезные ссылки</a>
+                                    <a href="/#home-useful-links">{t("Useful links")}</a>
                                 </li>
                                 <li>
-                                    <a href="/#">Адреса прокуратур</a>
+                                    <a href="/#adres-procuratura">{t("Addresses prosecutors")}</a>
                                 </li>
                             </ul>
                         </div>

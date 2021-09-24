@@ -138,7 +138,8 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 30px;
             padding: 0 8px;
-            p{
+
+            p {
               //display: flex;
               //justify-content: center;
               margin-left: 33%;
@@ -146,6 +147,7 @@
               font-size: 9px;
               align-items: center;
             }
+
             .enter-img {
               display: flex;
               align-items: center;
@@ -250,6 +252,17 @@
 
 
 @media (max-width: 950px) {
+  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+    min-width: 140px;
+
+    span {
+      font-size: 11px;
+
+      p {
+        font-size: 7px;
+      }
+    }
+  }
   .adminnav {
     .nav-center {
       background-position: -14%, 54%, 66%, 115%;
@@ -272,6 +285,9 @@
 
 
 @media (max-width: 800px) {
+  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+
+  }
   .adminnav {
     .nav-center {
       background-image: url("../img/right.png");
@@ -315,9 +331,9 @@
             justify-content: space-between;
             padding: 20px 0;
 
-            .mobil-language {
-              display: none;
-            }
+            //.mobil-language {
+            //  display: none;
+            //}
 
             ul {
               li {
@@ -337,8 +353,66 @@
   }
 }
 
+@media (max-width: 576px) {
+  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+    span {
+      font-size: 10px;
+    }
+
+  }
+  .adminnav {
+    .nav-center {
+      .navbar {
+        .header-right {
+          .header-right-desctop {
+            display: none;
+          }
+        }
+      }
+
+      #show-navigation {
+        .container {
+          .desctop-navigation-body {
+
+            .mobil-language {
+              display: flex;
+              flex-direction: row;
+              margin-bottom: 20px;
+
+              .navlanguage-item {
+                background-color: white;
+              }
+
+              .glas {
+                padding: 10px;
+                border-radius: 50%;
+                background-color: white;
+
+                img {
+                  height: 20px;
+                  width: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 576px) {
+  .mobil-language-admin{
+    display: none;
+  }
+}
 
 @media (max-width: 480px) {
+  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+    span {
+      font-size: 10px;
+    }
+
+  }
   .adminnav {
     .nav-center {
       background-position: 150% 25px;

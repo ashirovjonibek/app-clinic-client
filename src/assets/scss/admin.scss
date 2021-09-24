@@ -406,7 +406,7 @@
   padding: 10px;
   .search-form {
     height: 40px;
-    max-width: 390px;
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -441,8 +441,8 @@
   }
 }
 
-@media (min-width: 440px) {
-  .sitebar-elements  {
+@media (min-width: 576px) {
+  .searchdiv  {
     display: none;
   }
 }

@@ -86,10 +86,12 @@ const Admin = ({t}) => {
         <div className="admin">
             <div className="admin-sitebar-wrapper" id={sitebar ? "admin-sitebar" : ""}>
                 <div className="sitebar-chevron">
+
                     <ChevronLeftIcon
                         fontSize="large"
                         onClick={() => setSitebar(!sitebar)}/>
                 </div>
+
                 <ul>
                     <li className="accordion__section">
                         <div className="accordion" onClick={() => getPage(1)}>
@@ -117,6 +119,13 @@ const Admin = ({t}) => {
                         </div>
                     </li>
                 </ul>
+                <br/>
+                <div className="mobil-language mobil-language-admin">
+                    <NavLanguage />
+                    {/*<div className="glas">*/}
+                    {/*    <img src={iconGlass} alt="" />*/}
+                    {/*</div>*/}
+                </div>
             </div>
             <div className="adminnav">
                 <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px'}}>
@@ -171,7 +180,7 @@ const Admin = ({t}) => {
 
             <div className="container-fluit admin-body">
                 <div className="container" style={{padding: '60px 0'}}>
-                    <div className="sitebar-elements ">
+                    <div className="sitebar-elements searchdiv ">
                         <form role="search" method="get" action="#" className="search-form">
                             <input type="text" placeholder={t("Search") + "..."}
                                    onChange={(e) => setSearchTerm(e.target.value)}

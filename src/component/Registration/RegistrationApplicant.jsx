@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import axios from "axios";
-import { toast } from "react-toastify";
-import { withRouter } from 'react-router-dom';
-import { API_URL } from "../../utils/constant";
+import {toast} from "react-toastify";
+import {withRouter} from 'react-router-dom';
+import {API_URL} from "../../utils/constant";
 import Swal from "sweetalert2";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {withTranslation} from "react-i18next";
+import Nav from "../Nav/Nav";
+import NavTop from "../Nav/NavTop";
+import NavCenter from "../Nav/NavCenter";
 
 const RegistrationApplicant = (props) => {
-    const { history } = props;
+    const {history} = props;
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [nations, setNations] = useState([]);
@@ -117,7 +120,7 @@ const RegistrationApplicant = (props) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
             console.log(values)
-            axios.post(API_URL + "/auth/createApplicant", { ...values }).then(res => {
+            axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
                 if (res.data.success) {
                     Swal.fire({
                         position: 'top-end',
@@ -125,17 +128,17 @@ const RegistrationApplicant = (props) => {
                         title: "Ro'yhatga olindi!!!",
                         showConfirmButton: false,
                         timer: 1000
-                    }).then(()=>{
+                    }).then(() => {
                         history.push("/auth/login")
                     });
-                }else {
+                } else {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
                         title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
                         showConfirmButton: false,
                         timer: 1000
-                    }).then(()=>{
+                    }).then(() => {
                     });
                 }
             });
@@ -146,22 +149,26 @@ const RegistrationApplicant = (props) => {
                 title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
                 showConfirmButton: false,
                 timer: 1000
-            }).then(()=>{
+            }).then(() => {
             });
         }
     }
 
     return (
         <div>
+            <div className="nav" >
+                <NavTop />
+                <NavCenter />
+            </div>
             <div className="registration-applicant container-fluit">
                 <div className="container">
                     <div className="registration-applicant-wrapper">
-                        <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={()=>{
+                        <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={() => {
                             history.goBack()
-                        }} style={{marginRight:"17px",cursor:"pointer"}}/>{
+                        }} style={{marginRight: "17px", cursor: "pointer"}}/>{
 
                             props.t("Register")}
-                        </span> }/>
+                        </span>}/>
                         <h5>Анкетные данные</h5>
                         <form onSubmit={handleSend}>
                             <div className="form-wrapper">
@@ -184,7 +191,7 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="nationId">Национальность</label>
                                                 <select id="nationId" name="nationId" onChange={handleChange}
-                                                    className="category" required>
+                                                        className="category" required>
                                                     <option value="">Выберите ваш национальность</option>
                                                     {nations && nations.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -194,7 +201,7 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="gender">Пол</label>
                                                 <select id="gender" onChange={handleChange} name="gender"
-                                                    className="category" required>
+                                                        className="category" required>
                                                     <option value="">Выберите ваш пол</option>
                                                     <option value="erkak">Erkak</option>
                                                     <option value="ayol">Ayol</option>
@@ -251,11 +258,11 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="address">Домашний адрес</label>
                                                 <input required={true} onChange={handleChange} name="address"
-                                                    id="address"
-                                                    className="input-text"
-                                                    type="text"
-                                                    placeholder="Введите ваш домашний адрес"
-                                                    />
+                                                       id="address"
+                                                       className="input-text"
+                                                       type="text"
+                                                       placeholder="Введите ваш домашний адрес"
+                                                />
                                             </li>
                                             <li>
                                                 <label className="label" htmlFor="phoneNumber">Телефон</label>
@@ -266,7 +273,7 @@ const RegistrationApplicant = (props) => {
                                                     name="phoneNumber"
                                                     id="phoneNumber"
                                                     className="input-text" type="text"
-                                                    placeholder="+998 (__) ___-__-__" />
+                                                    placeholder="+998 (__) ___-__-__"/>
                                             </li>
                                             {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                             <li>
@@ -287,8 +294,8 @@ const RegistrationApplicant = (props) => {
                                                 <label className="label" htmlFor="socialStatusId">Категория
                                                     льгот</label>
                                                 <select id="socialStatusId" name="socialStatusId"
-                                                    onChange={handleChange}
-                                                    className="category">
+                                                        onChange={handleChange}
+                                                        className="category">
                                                     <option value="lorem">Выберите льгот</option>
                                                     {socialStatus && socialStatus.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
@@ -311,9 +318,9 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="prePassword">Вводите пароль</label>
                                                 <input required={true} onChange={handleChange} name="prePassword"
-                                                    id="prePassword"
-                                                    className="input-text" type="text"
-                                                    placeholder="Повторно вводите пароль" />
+                                                       id="prePassword"
+                                                       className="input-text" type="text"
+                                                       placeholder="Повторно вводите пароль"/>
                                             </li>
                                         </ul>
                                     </li>
@@ -325,10 +332,11 @@ const RegistrationApplicant = (props) => {
                                         <div className="checked">
 
                                             <input required={true} type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike" />
+                                                   value="Bike"/>
                                             <label htmlFor="vehicle1"> Я даю согласие на обработку своих персональных
                                                 данных
-                                                и ознакомлен с <a href="/#"><strong>политикой конфиденциальности</strong></a></label>
+                                                и ознакомлен с <a href="/#"><strong>политикой
+                                                    конфиденциальности</strong></a></label>
                                         </div>
                                     </div>
                                     <button type="submit" className="btn-default">Регистрация</button>

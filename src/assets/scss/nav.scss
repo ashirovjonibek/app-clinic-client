@@ -284,7 +284,7 @@
 
 @media screen and (max-width: 992px) {
   .nav .nav-center .navbar .header-right .enter .enter-btn {
-    min-width: 200px;
+    min-width: 140px;
 
     span {
       font-size: 11px;
@@ -319,7 +319,6 @@
 
 @media (max-width: 800px) {
   .nav .nav-center .navbar .header-right .enter .enter-btn {
-    max-width: 200px;
 
   }
   .nav {
@@ -444,8 +443,6 @@
 
 @media (max-width: 480px) {
   .nav .nav-center .navbar .header-right .enter .enter-btn {
-    max-width: 180px;
-    min-width: 130px;
 
     span {
       font-size: 10px;
