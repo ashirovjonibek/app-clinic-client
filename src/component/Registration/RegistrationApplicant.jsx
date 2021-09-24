@@ -156,10 +156,10 @@ const RegistrationApplicant = (props) => {
 
     return (
         <div>
-            <div className="nav" >
-                <NavTop />
-                <NavCenter />
-            </div>
+            {/*<div className="nav" >*/}
+            {/*    <NavTop />*/}
+            {/*    <NavCenter />*/}
+            {/*</div>*/}
             <div className="registration-applicant container-fluit">
                 <div className="container">
                     <div className="registration-applicant-wrapper">
