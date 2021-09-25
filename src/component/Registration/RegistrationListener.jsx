@@ -38,18 +38,29 @@ function RegistrationListener(props) {
             setRegions(res.data._embedded.regions)
         });
     }, []);
-    useEffect(() => {
-        axios.get(API_URL + "/district").then(res => {
-            setDistricts(res.data._embedded.districts);
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get(API_URL + "/district").then(res => {
+    //         setDistricts(res.data._embedded.districts);
+    //     })
+    // }, []);
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
             setSections(res.data);
         })
     }, []);
 
+    const fetchDistricts = (e) => {
+        let id = e.target.value
 
+        axios.get(API_URL + "/district/search/filterByRegion?id=" + id + "").then(res => {
+            setDistricts(res.data._embedded.districts);
+        })
+
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        });
+    };
     const handleChange = (e) => {
         setValues({
             ...values,
@@ -211,7 +222,7 @@ function RegistrationListener(props) {
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="regionId">Городь</label>
-                                            <select id="regionId" name="regionId" onChange={handleChange}
+                                            <select id="regionId" name="regionId"  onChange={fetchDistricts}
                                                     className="category">
                                                 <option value="">Выберите ваш городь</option>
                                                 {regions && regions.map((item, i) =>
