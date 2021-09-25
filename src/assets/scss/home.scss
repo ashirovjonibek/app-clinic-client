@@ -1,5 +1,5 @@
 .home {
-  background-color: #c8faf7;
+  background-color: #F4F8FF;
   padding-top: 80px;
   font-family: Montserrat, serif;
 
@@ -138,6 +138,7 @@
       margin-top: 20px;
       padding: 15px;
       font-size: 16px;
+
       p {
         line-height: 25px;
       }
@@ -220,6 +221,18 @@
   .home {
     .container {
       padding: 0 15px;
+
+      .what-clinic-slider {
+        flex-direction: column;
+        margin-right: 20px;
+        .what-clinic-text {
+          width: 100%;
+        }
+
+        .what-clinic-mini {
+          width: 100%;
+        }
+      }
 
       #what-clinic {
         flex-direction: column;

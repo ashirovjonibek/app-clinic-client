@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import axios from "axios";
-import {toast} from "react-toastify";
 import {withRouter} from 'react-router-dom';
 import {API_URL} from "../../utils/constant";
 import Swal from "sweetalert2";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {withTranslation} from "react-i18next";
-import Nav from "../Nav/Nav";
-import NavTop from "../Nav/NavTop";
-import NavCenter from "../Nav/NavCenter";
+
 
 const RegistrationApplicant = (props) => {
     const {history} = props;

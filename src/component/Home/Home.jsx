@@ -25,15 +25,16 @@ const Home = ({t}) => {
                     </div>
                     <div className="what-clinic-mini"/>
                 </div>
-                <div  className="what-clinic">
+
+                <div  className="what-clinic what-clinic-slider">
                     <div className="what-clinic-mini">
                         <WhatSlider/>
                     </div>
                     <div className="what-clinic-text">
                         <p>{t("The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.")}.</p>
-
                     </div>
                 </div>
+
                 <div id="cel-clinic">
                     <Title text={t("Goal of the clinic")}/>
                     <h5>{t("The main objectives of the clinic are")}:</h5>
