@@ -29,48 +29,45 @@ const PersonalAccountSupervisor = ({t}) => {
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
+
     // const me=useSelector(state=>state.meReducer)
 
     function pushBar(n) {
         switch (n) {
             case 1:
-                return <PerAccSupListenersSection />
+                return <PerAccSupListenersSection/>
             case 2:
-                return <SupervisorIncomingRequestSection />
+                return <SupervisorIncomingRequestSection/>
             case 3:
-                return <SupervisorResponsesSection />
+                return <SupervisorResponsesSection/>
             case 4:
-                return <SupervisorApplicantSection />
+                return <SupervisorApplicantSection/>
             case 5:
-                return <SupervisorAppealSection />
+                return <SupervisorAppealSection/>
             case 6:
-                return <SupervisorCallFlowSection />
+                return <SupervisorCallFlowSection/>
             case 7:
-                return <SupervisorFeedbakRequestSection />
+                return <SupervisorFeedbakRequestSection/>
             case 8:
-                return <SupervisorDirectorySection />
+                return <SupervisorDirectorySection/>
             case 9:
-                return <SupervisorReytingListnear />
+                return <SupervisorReytingListnear/>
             case 10:
-                return <SupervisorStatisticSection />
+                return <SupervisorStatisticSection/>
             case 11:
-                return <SupervisorArchive />
+                return <SupervisorArchive/>
             default:
-                return <PerAccSupListenersSection />
+                return <PerAccSupListenersSection/>
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         // console.log("this is redux->",me)
-        if (!localStorage.getItem(STORAGE_NAME)){
+        if (!localStorage.getItem(STORAGE_NAME)) {
             history.push("/")
         }
-       RequestFunctions.getWords().then((r)=>{
-           console.log(r)
-       }).catch((er)=>{
-           console.log(er)
-       })
-    },[])
+
+    }, [])
 
     const getPage = (n) => {
         setPageQount(n);
@@ -80,11 +77,11 @@ const PersonalAccountSupervisor = ({t}) => {
         <div>
             <div>
                 <div className="nav">
-                    <NavTop />
+                    <NavTop/>
                     <div className="nav-center container-fluit">
                         <div className="container">
                             <div className="navbar">
-                                <div className="menu-icon" >
+                                <div className="menu-icon">
                                     <MenuIcon
                                         fontSize={'large'}
                                         onClick={() => setSitebar(!sitebar)}
@@ -93,12 +90,12 @@ const PersonalAccountSupervisor = ({t}) => {
                                 <div className="header-logo">
                                     <a href="/#">
                                         <div className="logo-left">
-                                            <img src={iconLogo} alt="logo" />
+                                            <img src={iconLogo} alt="logo"/>
                                         </div>
                                         <div className="logo-right">
                                             <div>
-                                                <span><strong>{t("Legal clinic")}</strong></span><br />
-                                                <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
+                                                <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                                <p style={{maxWidth: "350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                             </div>
 
                                         </div>
@@ -107,15 +104,15 @@ const PersonalAccountSupervisor = ({t}) => {
                                 <div className="header-right">
                                     <div className="header-right-desctop">
                                         <form role="search" method="get" action="#" className="search-form">
-                                            <input type="" placeholder={t("Search")+"..."} />
-                                            <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                            <input type="" placeholder={t("Search") + "..."}/>
+                                            <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                         </form>
-                                        <NavLanguage />
+                                        <NavLanguage/>
                                         <div className="glas">
-                                            <img src={iconGlass} alt="" />
+                                            <img src={iconGlass} alt=""/>
                                         </div>
                                     </div>
-                                    <Enter />
+                                    <Enter/>
                                 </div>
                             </div>
                         </div>
@@ -124,9 +121,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                 <div className="desctop-navigation-body">
                                     <div>
                                         <div className="mobil-language">
-                                            <NavLanguage />
+                                            <NavLanguage/>
                                             <div className="glas">
-                                                <img src={iconGlass} alt="" />
+                                                <img src={iconGlass} alt=""/>
                                             </div>
                                         </div>
                                         <ul>
@@ -137,7 +134,8 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(4)}>{t("The applicant")}</Link>
@@ -149,7 +147,8 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(6)}>{t("Call flow")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(8)}>{t("Regulatory base")}</Link>
@@ -158,7 +157,8 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
@@ -168,14 +168,14 @@ const PersonalAccountSupervisor = ({t}) => {
                                     <div className="icon-disable">
                                         <CloseIcon
                                             fontSize={'large'}
-                                            style={{ color: 'white' }}
+                                            style={{color: 'white'}}
                                             onClick={() => setSitebar(!sitebar)}
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div >
+                    </div>
                 </div>
                 <div className="personal-account-supervisor container-fluit">
                     <div className="container">
@@ -211,7 +211,8 @@ const PersonalAccountSupervisor = ({t}) => {
                                             <Link to="#" onClick={() => getPage(9)}>{t("Listener rating")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
+                                            <Link to="#"
+                                                  onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
@@ -227,7 +228,7 @@ const PersonalAccountSupervisor = ({t}) => {
                         </section>
                     </div>
                 </div>
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );

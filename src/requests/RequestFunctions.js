@@ -22,15 +22,15 @@ class RequestFunctions {
         return response
     }
 
-    static async getWords() {
+    static getWords() {
         let response;
-        await axios.get(API_URL + apiPath.getWords, configHeader)
+        axios.get(API_URL + apiPath.getWords, configHeader)
             .then(res => {
                 response = res.data
             }).catch(res => {
-                console.log(res)
-                response = res
-            })
+            console.log(res)
+            response = res
+        })
         return response
     }
 
@@ -276,8 +276,8 @@ class RequestFunctions {
             .then(res => {
                 response = res.data
             }).catch(error => {
-                response = error.response.data
-            })
+            response = error.response.data
+        })
         return response
     }
 
@@ -292,10 +292,10 @@ class RequestFunctions {
         };
         await axios(config)
             .then(function (r) {
-                response=r
+                response = r
             })
             .catch(function (error) {
-                response=error
+                response = error
             });
         return response
     }

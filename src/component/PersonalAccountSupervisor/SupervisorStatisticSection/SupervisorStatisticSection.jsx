@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import ButtonDefault from "../../ButtonDefault";
 import StatisticYearCategories from "./StatisticYearCategories";
 import StatisticGender from "./StatisticGender";
 import StatisticOverdue from "./StatisticOverdue";
@@ -10,7 +9,6 @@ import StatisticCategories from "./StatisticCategories";
 import StatisticLgots from "./StatisticLgots";
 import StatisticPeriods from "./StatisticPeriods";
 import {withTranslation} from "react-i18next";
-import {get} from "react-hook-form";
 
 const SupervisorStatisticSection = ({t}) => {
 
@@ -44,7 +42,7 @@ const SupervisorStatisticSection = ({t}) => {
     }
     const getStatisticMobile = (e) => {
         let n = parseInt(e.target.value)
-        setStatisticItem(n)
+        getStatistic(n)
     }
 
     return (
@@ -98,9 +96,9 @@ const SupervisorStatisticSection = ({t}) => {
                     pushBar(statisticItem)
                 }
             </div>
-            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0 10px 0'}}>
-                <ButtonDefault text="Экспорт"/>
-            </div>
+            {/*<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 0 10px 0'}}>*/}
+            {/*    <ButtonDefault text={t("Экспорт")}/>*/}
+            {/*</div>*/}
         </div>
     );
 }
