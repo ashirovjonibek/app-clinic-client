@@ -85,9 +85,9 @@ const AdminListSetting = ({t,searchTerm}) => {
                             <tbody>
                             <tr>
                                 <th className="table-border number">#</th>
-                                <th className="table-border name-uz">Name Uz</th>
-                                <th className="table-border name-ru">Name Ру</th>
-                                <th className="table-border name-en">Name En</th>
+                                <th className="table-border name-uz">Bo'lim nomi</th>
+                                <th className="table-border name-ru">Название кафедара</th>
+                                <th className="table-border name-en">Department name</th>
                                 {/*<th className="table-border edit">{t("Edit")}</th>*/}
                                 <th className="table-border delete">{t("Delete")}</th>
                             </tr>

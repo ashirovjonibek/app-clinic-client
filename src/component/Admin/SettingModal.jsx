@@ -145,7 +145,8 @@ function SettingModal({t, getSections}) {
                     <form onSubmit={handleSubmit}>
                         <ul>
                             <li>
-                                <label className="label" htmlFor="">{t("title ru")}</label>
+                                {/*<label className="label" htmlFor="">{t("title ru")}</label>*/}
+                                    <label className="label" htmlFor="">Кафедара</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="ru"
@@ -158,7 +159,8 @@ function SettingModal({t, getSections}) {
                             </li>
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                             <li>
-                                <label className="label" htmlFor="">{t("description ru")}</label>
+                                {/*<label className="label" htmlFor="">{t("description ru")}</label>*/}
+                                <label className="label" htmlFor="">описание</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="ru"
@@ -173,7 +175,8 @@ function SettingModal({t, getSections}) {
 
 
                             <li>
-                                <label className="label" htmlFor="">{t("title uz")}</label>
+                                {/*<label className="label" htmlFor="">{t("title uz")}</label>*/}
+                                <label className="label" htmlFor="">Bo'lim</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="uz"
@@ -187,7 +190,8 @@ function SettingModal({t, getSections}) {
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
 
                             <li>
-                                <label className="label" htmlFor="">{t("description uz")}</label>
+                                {/*<label className="label" htmlFor="">{t("description uz")}</label>*/}
+                                <label className="label" htmlFor="">tavsif</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="uz"
@@ -201,7 +205,7 @@ function SettingModal({t, getSections}) {
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
 
                             <li>
-                                <label className="label" htmlFor="">{t("title en")}</label>
+                                <label className="label" htmlFor="">Department</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="en"
@@ -214,7 +218,8 @@ function SettingModal({t, getSections}) {
                             </li>
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                             <li>
-                                <label className="label" htmlFor="">{t("description en")}</label>
+                                {/*<label className="label" htmlFor="">{t("description en")}</label>*/}
+                                <label className="label" htmlFor="">description</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="en"

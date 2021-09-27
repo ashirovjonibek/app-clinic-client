@@ -38,14 +38,14 @@ const NavCenter = ({t}) => {
                     </div>
                     <div className="header-right">
                         <div className="header-right-desctop">
-                            <form role="search" method="get" action="#" className="search-form">
-                                <input type="" placeholder={t("Search")+"..."} />
-                                <button type=""><img src={iconSearch} alt="search-icon" /></button>
-                            </form>
+                            {/*<form role="search" method="get" action="#" className="search-form">*/}
+                            {/*    <input type="" placeholder={t("Search")+"..."} />*/}
+                            {/*    <button type=""><img src={iconSearch} alt="search-icon" /></button>*/}
+                            {/*</form>*/}
                             <NavLanguage />
-                            <div className="glas">
-                                <img src={iconGlass} alt="" />
-                            </div>
+                            {/*<div className="glas">*/}
+                            {/*    <img src={iconGlass} alt="" />*/}
+                            {/*</div>*/}
                         </div>
                         <Enter />
                     </div>

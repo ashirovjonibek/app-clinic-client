@@ -178,46 +178,48 @@ const RegistrationApplicant = (props) => {
 
                             props.t("Register")}
                         </span>}/>
-                        <h5>Анкетные данные</h5>
+                        <h5>{props.t("Personal data")}</h5>
                         <form onSubmit={handleSend}>
                             <div className="form-wrapper">
                                 <ul className="form">
                                     <li className="form-first">
                                         <ul>
                                             <li>
-                                                <label className="label" htmlFor="">Ф.И.О</label>
+                                                <label className="label" htmlFor="">{props.t("Full name")}</label>
                                                 <input
                                                     onBlur={e => nameHandler(e)}
                                                     onChange={handleChange}
                                                     name="fullName"
                                                     className="input-text"
                                                     type="text"
-                                                    placeholder="Введите ваше Ф.И.О"
+                                                    placeholder={props.t("Enter your full name")}
                                                     required
                                                 />
                                             </li>
                                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                             <li>
-                                                <label className="label" htmlFor="nationId">Национальность</label>
+                                                <label className="label"
+                                                       htmlFor="nationId">"{props.t("Nationality")}"</label>
                                                 <select id="nationId" name="nationId" onChange={handleChange}
                                                         className="category" required>
-                                                    <option value="">Выберите ваш национальность</option>
+                                                    <option value="">{props.t("Choose your nationality")}</option>
                                                     {nations && nations.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
                                                     )}
                                                 </select>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="gender">Пол</label>
+                                                <label className="label" htmlFor="gender">{props.t("Gender")}</label>
                                                 <select id="gender" onChange={handleChange} name="gender"
                                                         className="category" required>
-                                                    <option value="">Выберите ваш пол</option>
-                                                    <option value="erkak">Erkak</option>
-                                                    <option value="ayol">Ayol</option>
+                                                    <option value="">{props.t("Choose your gender")}</option>
+                                                    <option value="erkak">{props.t("Male")}</option>
+                                                    <option value="ayol">{props.t("Female")}</option>
                                                 </select>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="birthDate">Дата рождения</label>
+                                                <label className="label"
+                                                       htmlFor="birthDate">{props.t("Date of Birth")}</label>
                                                 <input
                                                     className="input-date"
                                                     onBlur={e => yearHandler(e)}
@@ -231,7 +233,7 @@ const RegistrationApplicant = (props) => {
                                             {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
 
                                             <li>
-                                                <label className="label" htmlFor="regionId">Область</label>
+                                                <label className="label" htmlFor="regionId">{props.t("Region")}</label>
                                                 <select
                                                     name="regionId"
                                                     id="regionId"
@@ -239,14 +241,15 @@ const RegistrationApplicant = (props) => {
                                                     className="category"
                                                     required
                                                 >
-                                                    <option value="0">Выберите ваш Область</option>
+                                                    <option value="0">{props.t("Select your region")}</option>
                                                     {regions && regions.map((item) =>
                                                         <option key={item.id} value={item.id}>{item.name.uz}</option>
                                                     )}
                                                 </select>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="districtId">Город (область) </label>
+                                                <label className="label"
+                                                       htmlFor="districtId">{props.t("City (region)")} </label>
                                                 <select
                                                     id="districtId"
                                                     onChange={handleChange}
@@ -254,7 +257,7 @@ const RegistrationApplicant = (props) => {
                                                     className="category"
                                                     required={true}
                                                 >
-                                                    <option value="">Выберите ваш раён</option>
+                                                    <option value="">{props.t("Choose your district")}</option>
                                                     {districts && districts.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
                                                     )}
@@ -265,16 +268,18 @@ const RegistrationApplicant = (props) => {
                                     <li className="form-last">
                                         <ul>
                                             <li>
-                                                <label className="label" htmlFor="address">Домашний адрес</label>
+                                                <label className="label"
+                                                       htmlFor="address">{props.t("Home address")}</label>
                                                 <input required={true} onChange={handleChange} name="address"
                                                        id="address"
                                                        className="input-text"
                                                        type="text"
-                                                       placeholder="Введите ваш домашний адрес"
+                                                       placeholder={props.t("Enter your home address")}
                                                 />
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="phoneNumber">Телефон</label>
+                                                <label className="label"
+                                                       htmlFor="phoneNumber">{props.t("Telephone")}</label>
                                                 <input
                                                     required={true}
                                                     onBlur={e => numberHandler(e)}
@@ -286,7 +291,7 @@ const RegistrationApplicant = (props) => {
                                             </li>
                                             {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                             <li>
-                                                <label className="label" htmlFor="email">Почта</label>
+                                                <label className="label" htmlFor="email">{props.t("Email")}</label>
                                                 <input
                                                     required={true}
                                                     onBlur={e => emailHandler(e)}
@@ -295,24 +300,25 @@ const RegistrationApplicant = (props) => {
                                                     id="email"
                                                     className="input-text"
                                                     type="text"
-                                                    placeholder="Введите вашу почту"
+                                                    placeholder={props.t("Enter your mail")}
                                                 />
                                             </li>
                                             {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
                                             <li>
-                                                <label className="label" htmlFor="socialStatusId">Категория
-                                                    льгот</label>
+                                                <label className="label"
+                                                       htmlFor="socialStatusId">{props.t("Benefit category")}</label>
                                                 <select id="socialStatusId" name="socialStatusId"
                                                         onChange={handleChange}
                                                         className="category">
-                                                    <option value="lorem">Выберите льгот</option>
+                                                    <option value="lorem">{props.t("Select benefits")}</option>
                                                     {socialStatus && socialStatus.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
                                                     )}
                                                 </select>
                                             </li>
                                             <li>
-                                                <label className="label" htmlFor="password">Пароль</label>
+                                                <label className="label"
+                                                       htmlFor="password">{props.t("Password")}</label>
                                                 <input
                                                     required={true}
                                                     onChange={handleChange}
@@ -320,16 +326,17 @@ const RegistrationApplicant = (props) => {
                                                     id="password"
                                                     className="input-text"
                                                     type="text"
-                                                    placeholder="Введите вашу почту"
+                                                    placeholder={props.t("Enter your password")}
                                                 />
                                             </li>
 
                                             <li>
-                                                <label className="label" htmlFor="prePassword">Вводите пароль</label>
+                                                <label className="label"
+                                                       htmlFor="prePassword">{props.t("Enter your password")}</label>
                                                 <input required={true} onChange={handleChange} name="prePassword"
                                                        id="prePassword"
                                                        className="input-text" type="text"
-                                                       placeholder="Повторно вводите пароль"/>
+                                                       placeholder={props.t("Re-enter your password")}/>
                                             </li>
                                         </ul>
                                     </li>
@@ -342,13 +349,10 @@ const RegistrationApplicant = (props) => {
 
                                             <input required={true} type="checkbox" id="vehicle1" name="vehicle1"
                                                    value="Bike"/>
-                                            <label htmlFor="vehicle1"> Я даю согласие на обработку своих персональных
-                                                данных
-                                                и ознакомлен с <a href="/#"><strong>политикой
-                                                    конфиденциальности</strong></a></label>
+                                            <label htmlFor="vehicle1">{props.t("I consent to the processing of my personal data and have read the ")} <a href="/#"><strong>{props.t("privacy policy")}</strong></a></label>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn-default">Регистрация</button>
+                                    <button type="submit" className="btn-default">{props.t("Registration")}</button>
                                 </div>
 
                             </div>

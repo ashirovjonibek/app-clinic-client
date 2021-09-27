@@ -175,7 +175,7 @@ function RegistrationListener(props) {
                                 <li className="form-first">
                                     <ul>
                                         <li>
-                                            <label className="label" htmlFor="fullName">Ф.И.О</label>
+                                            <label className="label" htmlFor="fullName">{props.t("Full name")}</label>
                                             <input
                                                 name="fullName"
                                                 id="fullName"
@@ -183,12 +183,12 @@ function RegistrationListener(props) {
                                                 onChange={handleChange}
                                                 className="input-text"
                                                 type="text"
-                                                placeholder="Введите ваше Ф.И.О"
+                                                placeholder={props.t("Enter your full name")}
                                                 required/>
                                         </li>
                                         {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                         <li>
-                                            <label className="label" htmlFor="birthDate">Дата рождения</label>
+                                            <label className="label" htmlFor="birthDate">{props.t("Date of Birth")}</label>
                                             <input
                                                 className="input-date"
                                                 onBlur={e => yearHandler(e)}
@@ -201,40 +201,40 @@ function RegistrationListener(props) {
                                         </li>
                                         {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
                                         <li>
-                                            <label className="label" htmlFor="positionId">Должность</label>
+                                            <label className="label" htmlFor="positionId">{props.t("Position")}</label>
                                             <select id="positionId" name="positionId" onChange={handleChange}
                                                     className="category" required>
-                                                <option value="">Выберите ваш должность</option>
+                                                <option value="">{props.t("Choose your position")}</option>
                                                 {positions && positions.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.title.uz}</option>
                                                 )}
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="course">Курс</label>
+                                            <label className="label" htmlFor="course">{props.t("Course")}</label>
                                             <select id="course" name="course" onChange={handleChange}
                                                     className="category">
-                                                <option value="">Выберите ваш курс</option>
+                                                <option value="">{props.t("Choose your course")}</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="regionId">Городь</label>
+                                            <label className="label" htmlFor="regionId">{props.t("Region")}</label>
                                             <select id="regionId" name="regionId"  onChange={fetchDistricts}
                                                     className="category">
-                                                <option value="">Выберите ваш городь</option>
+                                                <option value="">{props.t("Select your region")}</option>
                                                 {regions && regions.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
                                                 )}
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="districtId">Раён</label>
+                                            <label className="label" htmlFor="districtId">{props.t("City (region)")}</label>
                                             <select id="districtId" name="districtId" onChange={handleChange}
                                                     className="category">
-                                                <option value="">Выберите ваш раён</option>
+                                                <option value="">{props.t("Choose your district")}</option>
                                                 {districts && districts.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
                                                 )}
@@ -245,29 +245,29 @@ function RegistrationListener(props) {
                                 <li className="form-last">
                                     <ul>
                                         <li>
-                                            <label className="label" htmlFor="address">Адрес</label>
+                                            <label className="label" htmlFor="address">{props.t("Home address")}</label>
                                             <input
                                                 onChange={handleChange}
                                                 id="address"
                                                 name="address"
                                                 className="input-text"
                                                 type="text"
-                                                placeholder="Введите вашу адрес"
+                                                placeholder={props.t("Enter your home address")}
                                                 required
                                             />
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="sectionId">Кафедра</label>
+                                            <label className="label" htmlFor="sectionId">{props.t("Department")}</label>
                                             <select id="sectionId" name="sectionId" onChange={handleChange}
                                                     className="category">
-                                                <option value="">Кафедра</option>
+                                                <option value="">{props.t("Choose your department")}</option>
                                                 {sections && sections.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.title.uz}</option>
                                                 )}
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="phoneNumber">Телефон</label>
+                                            <label className="label" htmlFor="phoneNumber">{props.t("Telephone")}</label>
                                             <input
                                                 onBlur={e => numberHandler(e)}
                                                 onChange={handleChange}
@@ -281,7 +281,7 @@ function RegistrationListener(props) {
                                         </li>
                                         {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                         <li>
-                                            <label className="label" htmlFor="email">Почта</label>
+                                            <label className="label" htmlFor="email">{props.t("Email")}</label>
                                             <input
                                                 onBlur={e => emailHandler(e)}
                                                 onChange={handleChange}
@@ -289,36 +289,36 @@ function RegistrationListener(props) {
                                                 name="email"
                                                 className="input-text"
                                                 type="text"
-                                                placeholder="Введите вашу почту"
+                                                placeholder={props.t("Enter your mail")}
                                             />
                                         </li>
                                         {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
                                         <li>
-                                            <label className="label" htmlFor="password">Пароль</label>
+                                            <label className="label" htmlFor="password">{props.t("Password")}</label>
                                             <input
                                                 onChange={handleChange}
                                                 id="password"
                                                 name="password"
                                                 className="input-text" type="text"
-                                                placeholder="Введите вашу почту"
+                                                placeholder={props.t("Enter your password")}
                                             />
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="password">Повторите пароль</label>
+                                            <label className="label" htmlFor="password">{props.t("Repeat password")}</label>
                                             <input
                                                 onChange={handleChange}
                                                 id="password"
                                                 name="password"
                                                 className="input-text"
                                                 type="text"
-                                                placeholder="Повторите пароль"
+                                                placeholder={props.t("Re-enter your password")}
                                             />
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                             <div className="button-submit">
-                                <button type="submit" className="btn-default">Регистрация</button>
+                                <button type="submit" className="btn-default">{props.t("Registration")}</button>
                             </div>
 
                         </div>

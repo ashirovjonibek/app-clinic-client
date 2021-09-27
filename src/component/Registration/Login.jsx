@@ -150,10 +150,10 @@ const Login = (props) => {
                                     </li>
                                     <div className="form-link">
                                         <div className="link">
-                                            <a href="">{props.t("Forgot your password")}?</a>
+                                            {/*<a href="">{props.t("Forgot your password")}?</a>*/}
                                         </div>
                                         <div className="link">
-                                            <a href="">{props.t("No account yet")}</a>
+                                            {/*<a href="">{props.t("No account yet")}</a>*/}
                                         </div>
                                     </div>
                                 </ul>

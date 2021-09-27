@@ -220,9 +220,33 @@
   "Send to applicant": "Arizachiga yuborish",
   "Section": "Bo'lim",
   "Left": "Qoldi",
-  "Civil Law Expert": "Fuqarolik huquqi bo'yicha mutaxassis"
+  "Civil Law Expert": "Fuqarolik huquqi bo'yicha mutaxassis",
 
+  "Enter your full name": "Ism sharfingizni kiriting (F.I.SH)",
+  "Choose your nationality": "Millatingizni tanlang",
+  "Date of Birth": "Tug'ilgan kun",
+  "Choose your gender": "Jinsingizni tanlang",
+  "Male": "Erkak",
+  "Female": "Ayol",
+  "Region": "Viloyat",
+  "Select your region": "Viloyatingizni tanlang",
+  "City (region)": "Shahar (tuman)",
+  "Choose your district": "Tumaningizni tanlang",
+  "Home address": "Uy manzili",
+  "Enter your home address": "Uy manzilingizni kiriting",
+  "Telephone": "Telefon",
+  "Enter your mail": "Pochtangizni kiriting (email)",
+  "Select benefits": "Imtiyozlarni tanlang",
+  "Registration": "Ro'yxatdan o'tish",
+  "Re-enter your password": "Parolni qayta kiriting",
+  "I consent to the processing of my personal data and have read the ": "Men shaxsiy ma'lumotlarimni qayta ishlashga rozilik bildiraman va maxfiylik siyosatini o'qib chiqdim. ",
+  "privacy policy": "Maxfiylik siyosati",
+  "Personal data": "Shaxsiy malumot",
 
+  "Choose your position": "Lavozimingizni tanlang",
+  "Choose your course": "Kursingizni tanlang",
+  "Choose your department": "Bo'limingizni tanlang",
+  "Repeat password": "Parolni qayta kiriting"
 
 
 }

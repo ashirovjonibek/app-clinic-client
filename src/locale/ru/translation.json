@@ -205,7 +205,35 @@
   "Send to applicant": "Отправить заявителю",
   "Section": "Кафедра",
   "Left": "Осталось",
-  "Civil Law Expert": "Эксперт по гражданскому праву"
+  "Civil Law Expert": "Эксперт по гражданскому праву",
+
+
+  "Enter your full name": "Введите ваше Ф.И.О",
+  "Choose your nationality": "Выберите ваш национальность",
+  "Date of Birth": "Дата рождения",
+  "Choose your gender": "Выберите ваш пол",
+  "Male": "Мужчина",
+  "Female": "Женщина",
+  "Region": "Область",
+  "Select your region": "Выберите ваш Область",
+  "City (region)": "Город (область)",
+  "Choose your district": "Выберите ваш раён",
+  "Home address": "Домашний адрес",
+  "Enter your home address": "Введите ваш домашний адрес",
+  "Telephone": "Телефон",
+  "Enter your mail": "Введите вашу почту",
+  "Select benefits": "Выберите льгот",
+  "Registration": "Регистрация",
+  "Re-enter your password": "Повторно вводите пароль",
+  "I consent to the processing of my personal data and have read the ": "Я даю согласие на обработку своих персональных данных и ознакомлен с ",
+  "privacy policy": "политикой конфиденциальности",
+  "Personal data": "Анкетные данные",
+
+  "Choose your position": "Выберите ваш должность",
+  "Choose your course": "Выберите ваш курс",
+  "Choose your department": "Выберите свой кафедра",
+  "Repeat password": "Повторите пароль"
+
 
 
 
