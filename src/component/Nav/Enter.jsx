@@ -22,14 +22,11 @@ const Enter = ({t}) => {
     useEffect(()=>{
 
     },[])
-    const getRed=()=>{
-        console.log("me")
-        console.log(me)
-    }
+
 
     return (
         <div className="enter" >
-            <div className="enter-btn" onClick={getRed} style={{cursor:"pointer"}}>
+            <div className="enter-btn" style={{cursor:"pointer"}}>
                 <div className="enter-img" style={{padding:"3px"}}>
                     <UserName width={"30px"} height={"30px"} fontSize={"20px"} lineHeight={"30px"} top={true} text={me.meFullName!==""?me.meFullName:me.meUsername?me.meUsername:t("Login")}/>
                 </div>

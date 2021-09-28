@@ -20,7 +20,6 @@ const PersonalAccountApplicant = (props) => {
     const history = useHistory();
 
 
-    // console.log(pageSize)
     function pushBar(n) {
         switch (n) {
             case 1:
@@ -72,7 +71,7 @@ const PersonalAccountApplicant = (props) => {
                                         <Link to="#" onClick={() => getPage(4)}>{props.t("Responses to requests")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(5)}>{props.t("Message center")}</Link>
+                                        <Link to="#" onClick={() => getPage(5)}>{props.t("Message")}</Link>
                                     </li>
                                 </ul>
                             </div>

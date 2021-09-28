@@ -119,7 +119,7 @@ function SettingModal({t, getSections}) {
     }
 
     return (
-        <div className="appealModal">
+        <div className="appealModal ">
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -140,8 +140,8 @@ function SettingModal({t, getSections}) {
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                <div className="simple-modal">
-                    <h3 style={{marginLeft: '35%', marginBottom: '25px', fontSize: '25px'}}>Add department</h3>
+                <div className="simple-modal simple-modal-setting">
+                    <h3 >Add department</h3>
                     <form onSubmit={handleSubmit}>
                         <ul>
                             <li>

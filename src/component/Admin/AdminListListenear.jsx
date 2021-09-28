@@ -43,15 +43,20 @@ const AdminListListener = ({t, searchTerm}) => {
 
     const deleteMethod = (id) => {
         Swal.fire({
-            title:"User o'chirilsinmi?",
-            cancelButtonText:"Bekor qilish",
-            confirmButtonText:"O'chirish",
-            confirmButtonColor:"red",
-            showCancelButton:true,
-            icon:"warning"
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
-                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
+            title: t("User o'chirilsinmi?"),
+            cancelButtonText: "Bekor qilish",
+            confirmButtonText: "O'chirish",
+            confirmButtonColor: "red",
+            showCancelButton: true,
+            icon: "warning"
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
+                axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, {
+                    headers: {
+                        'Authorization': localStorage.getItem(STORAGE_NAME),
+                        'Content-Type': 'application/json'
+                    }
+                })
                     .then(res => {
                             if (res.status === 200) {
                                 Swal.fire("O'chirildi", "", "success").then((r) => {
@@ -83,22 +88,22 @@ const AdminListListener = ({t, searchTerm}) => {
             }
         };
         Swal.fire({
-            title:"Eshituvchi qabul qilinsinmi?",
-            confirmButtonText:"Ha",
-            cancelButtonText:"Yo'q",
-            showCancelButton:true,
-            icon:"warning"
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
+            title: "Eshituvchi qabul qilinsinmi?",
+            confirmButtonText: "Ha",
+            cancelButtonText: "Yo'q",
+            showCancelButton: true,
+            icon: "warning"
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
                 axios(config)
                     .then(function (response) {
-                        Swal.fire("Qabul qilindi!!!","","success").then((confirm1)=>{
+                        Swal.fire("Qabul qilindi!!!", "", "success").then((confirm1) => {
                             getListeners()
                         })
                     })
                     .catch(function (error) {
                         console.log(error);
-                        Swal.fire("Xatolik yuz berdi!!!","","error").then((confirm1)=>{
+                        Swal.fire("Xatolik yuz berdi!!!", "", "error").then((confirm1) => {
                             getListeners()
                         })
                     });
@@ -155,6 +160,7 @@ const AdminListListener = ({t, searchTerm}) => {
                                     <th className="table-border tel">{t("Phone number")}</th>
                                     <th className="table-border pochta">{t("Email")}</th>
                                     <th className="table-border ">{t("Accept")}</th>
+                                    <th className="table-border ">Delete</th>
                                 </tr>
                                 {listeners && listeners.filter(item => item.viewed === false).map((item, i) =>
                                     <tr key={i} value={item.id}>
@@ -169,6 +175,12 @@ const AdminListListener = ({t, searchTerm}) => {
                                             <button type="button" className="checkIcon"
                                                     onClick={() => changeViewed(item.id)}>
                                                 <CheckCircle/>
+                                            </button>
+                                        </td>
+                                        <td className="table-border edit">
+                                            <button type="button" className="deleteIcon"
+                                                    onClick={() => deleteMethod(item.id)}>
+                                                <DeleteIcon/>
                                             </button>
                                         </td>
                                     </tr>
@@ -198,7 +210,7 @@ const AdminListListener = ({t, searchTerm}) => {
                             } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
                                 return item
                             }
-                        }).map((item, i) =>
+                        }).filter(item => item.viewed === true).map((item, i) =>
                             <tr key={i} value={item.id}>
                                 <td className="table-border ">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>

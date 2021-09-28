@@ -51,7 +51,7 @@
   "Call flow": "Ход обращений",
   "Your feedback": "Ваши отзывы",
   "Legal and regulatory framework": "Нормативно-правовая база",
-  "Message center": "Центр сообщений",
+  "Messages": "Сообщения",
   "Date of creation": "Дате создания",
   "Period of execution": "Срок исполнения",
   "A priority": "Приоритет",
@@ -232,7 +232,12 @@
   "Choose your position": "Выберите ваш должность",
   "Choose your course": "Выберите ваш курс",
   "Choose your department": "Выберите свой кафедра",
-  "Repeat password": "Повторите пароль"
+  "Repeat password": "Повторите пароль",
+
+  "only ( *.pdf ) format": "только формат (* .pdf)",
+  "The file was not uploaded": "Файл не загружен"
+
+
 
 
 

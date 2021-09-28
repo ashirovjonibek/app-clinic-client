@@ -13,6 +13,8 @@ import meReducer from "../../redux/me/reducer";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import {allRoles} from "../../routes/authRoles";
 import Swal from "sweetalert2";
+import NavBottom from "../Nav/NavBottom";
+import Footer from "../Footer/Footer";
 
 const Login = (props) => {
     const { history } = props;
@@ -116,6 +118,7 @@ const Login = (props) => {
             <div className="nav" >
                 <NavTop />
                 <NavCenter />
+                {/*<NavBottom/>*/}
             </div>
             <div className="login container-fluit">
                 <div className="container">
@@ -162,6 +165,7 @@ const Login = (props) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

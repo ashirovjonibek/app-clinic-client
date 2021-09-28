@@ -7,6 +7,10 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import Footer from "../Footer/Footer";
+import NavTop from "../Nav/NavTop";
+import NavCenter from "../Nav/NavCenter";
+import NavBottom from "../Nav/NavBottom";
 
 function RegistrationListener(props) {
     const {history} = props;
@@ -16,13 +20,14 @@ function RegistrationListener(props) {
     const [sections, setSections] = useState([]);
     const [values, setValues] = useState(({
         fullName: '',
-        positionId: '',
+        positionId: 1,
         course: '',
         sectionId: '',
         phoneNumber: '',
         email: '',
         districtId: '',
         password: '',
+        prePassword: '',
         birthDate: '',
         address: '',
         gender: ''
@@ -78,27 +83,27 @@ function RegistrationListener(props) {
                     title: 'Your work has been saved',
                     showConfirmButton: false,
                     timer: 1000
-                }).then(()=>{
+                }).then(() => {
                     history.push("/auth/login")
                 });
-            }else {
+            } else {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
                     title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
                     showConfirmButton: false,
                     timer: 1000
-                }).then(()=>{
+                }).then(() => {
                 });
             }
-        }).catch((err)=>{
+        }).catch((err) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
                 title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
                 showConfirmButton: false,
                 timer: 1000
-            }).then(()=>{
+            }).then(() => {
             });
         });
     }
@@ -112,6 +117,10 @@ function RegistrationListener(props) {
     const [errorNumber, setErrorNumber] = useState('telefon raqamingizni kiriting!');
     const [emailDirty, setEmailDirty] = useState(false);
     const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
+    const [errorPassword, setErrorPassword] = useState('Parolni kiriting!');
+    const [errorPasswordDirty, setErrorPasswordDirty] = useState(false);
+    const [errorPrePassword, setErrorPrePassword] = useState('Parolingizni kiriting!');
+    const [errorPrePasswordDirty, setErrorPrePasswordDirty] = useState(false);
 
     const nameHandler = (e) => {
         const name = e.target.name;
@@ -119,6 +128,9 @@ function RegistrationListener(props) {
         if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
             setNameDirty(true);
             setErrorName('Ism faqat harflardan iborat bo\'lsin');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorName('');
         }
@@ -131,6 +143,9 @@ function RegistrationListener(props) {
         if ((fullYear - userYear) < 16 && name === 'birthDate') {
             setYearDirty(true);
             setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorYear('');
         }
@@ -142,8 +157,43 @@ function RegistrationListener(props) {
         if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
             setNumberDirty(true);
             setErrorNumber('faqat raqam kiriting!');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 1300)
+        } else if (e.target.value.length < 12 && name === 'phoneNumber') {
+            setNumberDirty(true);
+            setErrorNumber("Tel:  +998 (__) ___-__-__' ko'rinishda bo'lsin");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorNumber('');
+        }
+    }
+
+    const passwordHandler = (e) => {
+        if (e.target.value.length < 8) {
+            setErrorPasswordDirty(true);
+            setErrorPassword("Parol 8 ta belgidan kam bo'lmasin");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 100)
+        } else {
+            setErrorPassword('');
+        }
+    }
+
+    const passwordChacker = (e) => {
+        console.log(e.target.value)
+        console.log(values.password)
+        if (e.target.value !== values.password) {
+            setErrorPrePasswordDirty(true);
+            setErrorPrePassword("Parol mos kelmadi");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 100)
+        }else {
+            setErrorPrePassword('');
         }
     }
 
@@ -153,6 +203,9 @@ function RegistrationListener(props) {
         if (!regEmail.test(String(e.target.value).toLowerCase()) && name === 'email') {
             setEmailDirty(true);
             setErrorEmail('elektron po\'chtangizda abs@abs.com bo\'lishi kerak!');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 1000)
         } else {
             setErrorEmail('');
         }
@@ -160,14 +213,19 @@ function RegistrationListener(props) {
 
     return (
         <div className="registration-listnear container-fluit">
+            <div className="nav">
+                <NavTop/>
+                <NavCenter/>
+                {/*<NavBottom/>*/}
+            </div>
             <div className="container">
                 <div className="registration-listnear-wrapper">
-                    <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={()=>{
+                    <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={() => {
                         history.goBack()
-                    }} style={{marginRight:"17px",cursor:"pointer"}}/>{
+                    }} style={{marginRight: "17px", cursor: "pointer"}}/>{
 
                         props.t("Register")}
-                        </span> }/>
+                        </span>}/>
                     <h5>Анкетные данные</h5>
                     <form onSubmit={handleSend}>
                         <div className="form-wrapper">
@@ -188,7 +246,8 @@ function RegistrationListener(props) {
                                         </li>
                                         {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                         <li>
-                                            <label className="label" htmlFor="birthDate">{props.t("Date of Birth")}</label>
+                                            <label className="label"
+                                                   htmlFor="birthDate">{props.t("Date of Birth")}</label>
                                             <input
                                                 className="input-date"
                                                 onBlur={e => yearHandler(e)}
@@ -200,7 +259,7 @@ function RegistrationListener(props) {
                                             />
                                         </li>
                                         {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
-                                        <li>
+                                       {/* <li>
                                             <label className="label" htmlFor="positionId">{props.t("Position")}</label>
                                             <select id="positionId" name="positionId" onChange={handleChange}
                                                     className="category" required>
@@ -209,10 +268,10 @@ function RegistrationListener(props) {
                                                     <option key={i} value={item.id}>{item.title.uz}</option>
                                                 )}
                                             </select>
-                                        </li>
+                                        </li>*/}
                                         <li>
                                             <label className="label" htmlFor="course">{props.t("Course")}</label>
-                                            <select id="course" name="course" onChange={handleChange}
+                                            <select id="course" name="course" onChange={handleChange} required={true}
                                                     className="category">
                                                 <option value="">{props.t("Choose your course")}</option>
                                                 <option value="1">1</option>
@@ -222,8 +281,8 @@ function RegistrationListener(props) {
                                         </li>
                                         <li>
                                             <label className="label" htmlFor="regionId">{props.t("Region")}</label>
-                                            <select id="regionId" name="regionId"  onChange={fetchDistricts}
-                                                    className="category">
+                                            <select id="regionId" name="regionId" onChange={fetchDistricts}
+                                                    className="category" required={true}>
                                                 <option value="">{props.t("Select your region")}</option>
                                                 {regions && regions.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
@@ -231,19 +290,16 @@ function RegistrationListener(props) {
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="districtId">{props.t("City (region)")}</label>
+                                            <label className="label"
+                                                   htmlFor="districtId">{props.t("City (region)")}</label>
                                             <select id="districtId" name="districtId" onChange={handleChange}
-                                                    className="category">
+                                                    className="category" required={true}>
                                                 <option value="">{props.t("Choose your district")}</option>
                                                 {districts && districts.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.name.uz}</option>
                                                 )}
                                             </select>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li className="form-last">
-                                    <ul>
                                         <li>
                                             <label className="label" htmlFor="address">{props.t("Home address")}</label>
                                             <input
@@ -256,10 +312,15 @@ function RegistrationListener(props) {
                                                 required
                                             />
                                         </li>
+                                    </ul>
+                                </li>
+                                <li className="form-last">
+                                    <ul>
+
                                         <li>
                                             <label className="label" htmlFor="sectionId">{props.t("Department")}</label>
                                             <select id="sectionId" name="sectionId" onChange={handleChange}
-                                                    className="category">
+                                                    className="category" required={true}>
                                                 <option value="">{props.t("Choose your department")}</option>
                                                 {sections && sections.map((item, i) =>
                                                     <option key={i} value={item.id}>{item.title.uz}</option>
@@ -267,7 +328,8 @@ function RegistrationListener(props) {
                                             </select>
                                         </li>
                                         <li>
-                                            <label className="label" htmlFor="phoneNumber">{props.t("Telephone")}</label>
+                                            <label className="label"
+                                                   htmlFor="phoneNumber">{props.t("Telephone")}</label>
                                             <input
                                                 onBlur={e => numberHandler(e)}
                                                 onChange={handleChange}
@@ -282,7 +344,7 @@ function RegistrationListener(props) {
                                         {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                         <li>
                                             <label className="label" htmlFor="email">{props.t("Email")}</label>
-                                            <input
+                                            <input required={true}
                                                 onBlur={e => emailHandler(e)}
                                                 onChange={handleChange}
                                                 id="email"
@@ -295,36 +357,46 @@ function RegistrationListener(props) {
                                         {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
                                         <li>
                                             <label className="label" htmlFor="password">{props.t("Password")}</label>
-                                            <input
+                                            <input required={true}
                                                 onChange={handleChange}
                                                 id="password"
                                                 name="password"
                                                 className="input-text" type="text"
+                                                onBlur={e => passwordHandler(e)}
                                                 placeholder={props.t("Enter your password")}
                                             />
                                         </li>
+                                        {(errorPasswordDirty && errorPassword) &&
+                                        <p className="error">{errorPassword}</p>}
                                         <li>
-                                            <label className="label" htmlFor="password">{props.t("Repeat password")}</label>
-                                            <input
+                                            <label className="label"
+                                                   htmlFor="prePassword">{props.t("Repeat password")}</label>
+                                            <input required={true}
                                                 onChange={handleChange}
+                                                onBlur={e => passwordChacker(e)}
                                                 id="password"
-                                                name="password"
+                                                name="prePassword"
                                                 className="input-text"
                                                 type="text"
                                                 placeholder={props.t("Re-enter your password")}
                                             />
                                         </li>
+                                        {(errorPrePasswordDirty && errorPrePassword) &&
+                                        <p className="error">{errorPrePassword}</p>}
+                                        <div className="button-submit">
+                                            <button type="submit"
+                                                    className="btn-default">{props.t("Registration")}</button>
+                                        </div>
                                     </ul>
                                 </li>
                             </ul>
-                            <div className="button-submit">
-                                <button type="submit" className="btn-default">{props.t("Registration")}</button>
-                            </div>
+
 
                         </div>
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

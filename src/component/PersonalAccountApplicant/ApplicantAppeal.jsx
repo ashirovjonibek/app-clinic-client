@@ -6,7 +6,6 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {CircularProgress} from "@material-ui/core";
 import NavTop from "../Nav/NavTop";
-import MenuIcon from "@material-ui/icons/Menu";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import NavLanguage from "../Nav/NavLanguage";
@@ -228,6 +227,7 @@ const ApplicantAppeal = (props) => {
                                         <div style={{marginBottom: '20px'}}>
                                             <div className="lb">
                                                 <label className="label" htmlFor="">{props.t("Attach file")}</label>
+
                                             </div>
                                             <div className="file" style={{cursor: "pointer"}}>
                                                 {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
@@ -235,9 +235,10 @@ const ApplicantAppeal = (props) => {
                                                 {isLoading ? <CircularProgress
                                                     style={{width: "15px", height: "15px", marginTop: "3px"}}
                                                     color="primary"/> : ""}
-                                                <input title={done ? fileName : "Fayl yuklanmagan"}
+                                                <input title={done ? fileName : props.t("The file was not uploaded")}
                                                        onChange={handleUpload} type="file"/>
                                             </div>
+                                            <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
                                             <div className="file1">{fileName}</div>
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
@@ -250,7 +251,6 @@ const ApplicantAppeal = (props) => {
                                         }}>{props.t("Confidentially")}</label>
                                         <div className="about">
                                             <input required checked={values.top} type="checkbox" onChange={(e) => {
-                                                console.log(e.target.checked)
                                                 setValues({
                                                     ...values,
                                                     top: e.target.checked

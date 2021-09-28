@@ -6,6 +6,10 @@ import {API_URL} from "../../utils/constant";
 import Swal from "sweetalert2";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {withTranslation} from "react-i18next";
+import Footer from "../Footer/Footer";
+import NavCenter from "../Nav/NavCenter";
+import NavBottom from "../Nav/NavBottom";
+import NavTop from "../Nav/NavTop";
 
 
 const RegistrationApplicant = (props) => {
@@ -17,6 +21,7 @@ const RegistrationApplicant = (props) => {
     const [values, setValues] = useState(({
         fullName: '',
         sectionId: '',
+        nationId: 1,
         phoneNumber: '',
         email: '',
         districtId: '',
@@ -77,17 +82,26 @@ const RegistrationApplicant = (props) => {
     const [errorYear, setErrorYear] = useState('foydalanuvchi 16 yoshdan katta bo\'lishi kerak!');
     const [numberDirty, setNumberDirty] = useState(false);
     const [errorNumber, setErrorNumber] = useState('telefon raqamingizni kiriting!');
+    const [errorPassword, setErrorPassword] = useState('Parolni kiriting!');
+    const [errorPasswordDirty, setErrorPasswordDirty] = useState(false);
+    const [errorPrePassword, setErrorPrePassword] = useState('Parolingizni kiriting!');
+    const [errorPrePasswordDirty, setErrorPrePasswordDirty] = useState(false);
     const [emailDirty, setEmailDirty] = useState(false);
     const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
 
     const nameHandler = (e) => {
-        const name = e.target.name;
-        const regName = /^[a-zA-Z\s]+$/;
-        if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
-            setNameDirty(true);
-            setErrorName('Ism faqat harflardan iborat bo\'lsin');
-        } else {
-            setErrorName('');
+        if (e.target.value!==null){
+            const name = e.target.name;
+            const regName = /^[a-zA-Z\s]+$/;
+            if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
+                setNameDirty(true);
+                setErrorName('Ism faqat harflardan iborat bo\'lsin');
+                setTimeout(() => {
+                    e.target.value = ''
+                }, 800)
+            } else {
+                setErrorName('');
+            }
         }
     }
 
@@ -98,6 +112,9 @@ const RegistrationApplicant = (props) => {
         if ((fullYear - userYear) < 16 && name === 'birthDate') {
             setYearDirty(true);
             setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorYear('');
         }
@@ -109,8 +126,41 @@ const RegistrationApplicant = (props) => {
         if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
             setNumberDirty(true);
             setErrorNumber('faqat raqam kiriting!');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 1300)
+        } else if (e.target.value.length < 12 && name === 'phoneNumber') {
+            setNumberDirty(true);
+            setErrorNumber("Tel:  +998 (__) ___-__-__' ko'rinishda bo'lsin");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorNumber('');
+        }
+    }
+
+    const passwordHandler = (e) => {
+        if (e.target.value.length < 8) {
+            setErrorPasswordDirty(true);
+            setErrorPassword("Parol 8 ta belgidan kam bo'lmasin");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 1300)
+        } else {
+            setErrorPassword('');
+        }
+    }
+
+    const passwordChacker = (e) => {
+        if (e.target.value !== values.password) {
+            setErrorPrePasswordDirty(true);
+            setErrorPrePassword("Parol mos kelmadi");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
+        }else {
+            setErrorPrePassword('');
         }
     }
 
@@ -120,6 +170,9 @@ const RegistrationApplicant = (props) => {
         if (!regEmail.test(String(e.target.value).toLowerCase()) && name === 'email') {
             setEmailDirty(true);
             setErrorEmail('elektron po\'chtangizda abs@abs.com bo\'lishi kerak!');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorEmail('');
         }
@@ -165,10 +218,11 @@ const RegistrationApplicant = (props) => {
 
     return (
         <div>
-            {/*<div className="nav" >*/}
-            {/*    <NavTop />*/}
-            {/*    <NavCenter />*/}
-            {/*</div>*/}
+            <div className="nav">
+                <NavTop/>
+                <NavCenter/>
+                {/*<NavBottom/>*/}
+            </div>
             <div className="registration-applicant container-fluit">
                 <div className="container">
                     <div className="registration-applicant-wrapper">
@@ -197,9 +251,9 @@ const RegistrationApplicant = (props) => {
                                                 />
                                             </li>
                                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
-                                            <li>
+                                            {/*<li>
                                                 <label className="label"
-                                                       htmlFor="nationId">"{props.t("Nationality")}"</label>
+                                                       htmlFor="nationId">{props.t("Nationality")}</label>
                                                 <select id="nationId" name="nationId" onChange={handleChange}
                                                         className="category" required>
                                                     <option value="">{props.t("Choose your nationality")}</option>
@@ -207,7 +261,7 @@ const RegistrationApplicant = (props) => {
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
                                                     )}
                                                 </select>
-                                            </li>
+                                            </li>*/}
                                             <li>
                                                 <label className="label" htmlFor="gender">{props.t("Gender")}</label>
                                                 <select id="gender" onChange={handleChange} name="gender"
@@ -235,13 +289,13 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label" htmlFor="regionId">{props.t("Region")}</label>
                                                 <select
-                                                    name="regionId"
                                                     id="regionId"
                                                     onChange={fetchDistricts}
+                                                    name="regionId"
                                                     className="category"
-                                                    required
+                                                    required={true}
                                                 >
-                                                    <option value="0">{props.t("Select your region")}</option>
+                                                    <option value="">{props.t("Select your region")}</option>
                                                     {regions && regions.map((item) =>
                                                         <option key={item.id} value={item.id}>{item.name.uz}</option>
                                                     )}
@@ -263,10 +317,6 @@ const RegistrationApplicant = (props) => {
                                                     )}
                                                 </select>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li className="form-last">
-                                        <ul>
                                             <li>
                                                 <label className="label"
                                                        htmlFor="address">{props.t("Home address")}</label>
@@ -277,6 +327,12 @@ const RegistrationApplicant = (props) => {
                                                        placeholder={props.t("Enter your home address")}
                                                 />
                                             </li>
+                                        </ul>
+                                    </li>
+
+                                    <li className="form-last">
+                                        <ul>
+
                                             <li>
                                                 <label className="label"
                                                        htmlFor="phoneNumber">{props.t("Telephone")}</label>
@@ -309,8 +365,10 @@ const RegistrationApplicant = (props) => {
                                                        htmlFor="socialStatusId">{props.t("Benefit category")}</label>
                                                 <select id="socialStatusId" name="socialStatusId"
                                                         onChange={handleChange}
-                                                        className="category">
-                                                    <option value="lorem">{props.t("Select benefits")}</option>
+                                                        className="category"
+                                                        required={true}
+                                                >
+                                                    <option value="">{props.t("Select benefits")}</option>
                                                     {socialStatus && socialStatus.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.name.uz}</option>
                                                     )}
@@ -326,41 +384,50 @@ const RegistrationApplicant = (props) => {
                                                     id="password"
                                                     className="input-text"
                                                     type="text"
+                                                    onBlur={e => passwordHandler(e)}
                                                     placeholder={props.t("Enter your password")}
                                                 />
                                             </li>
-
+                                            {(errorPasswordDirty && errorPassword) &&
+                                            <p className="error">{errorPassword}</p>}
                                             <li>
                                                 <label className="label"
-                                                       htmlFor="prePassword">{props.t("Enter your password")}</label>
-                                                <input required={true} onChange={handleChange} name="prePassword"
+                                                       htmlFor="prePassword">{props.t("Repeat password")}</label>
+                                                <input onChange={handleChange} required={true} onBlur={e => passwordChacker(e)}  name="prePassword"
                                                        id="prePassword"
                                                        className="input-text" type="text"
                                                        placeholder={props.t("Re-enter your password")}/>
                                             </li>
+                                            {(errorPrePasswordDirty && errorPrePassword) &&
+                                            <p className="error">{errorPrePassword}</p>}
+                                            <div className="form-bottom">
+                                                <div className="confidential">
+
+                                                    <div className="checked">
+
+                                                        <input required={true} type="checkbox" id="vehicle1"
+                                                               name="vehicle1"
+                                                               value="Bike"/>
+                                                        <label
+                                                            htmlFor="vehicle1">{props.t("I consent to the processing of my personal data and have read the ")}
+                                                            <a href="/#"><strong>{props.t("privacy policy")}</strong></a></label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit"
+                                                        className="btn-default">{props.t("Registration")}</button>
+                                            </div>
                                         </ul>
                                     </li>
 
                                 </ul>
-                                <div className="form-bottom">
-                                    <div className="confidential">
 
-                                        <div className="checked">
-
-                                            <input required={true} type="checkbox" id="vehicle1" name="vehicle1"
-                                                   value="Bike"/>
-                                            <label htmlFor="vehicle1">{props.t("I consent to the processing of my personal data and have read the ")} <a href="/#"><strong>{props.t("privacy policy")}</strong></a></label>
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn-default">{props.t("Registration")}</button>
-                                </div>
 
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }

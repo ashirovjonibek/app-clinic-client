@@ -49,7 +49,7 @@
   "Appeals": "Apellyatsiyalar",
   "Call flow": "Qo'ng'iroqlar oqimi",
   "Your feedback": "Sizning fikringiz",
-  "Message center": "Xabar markazi",
+  "Messages": "Xabarlar",
   "Date of creation": "Yaratilgan sanasi",
   "Period of execution": "Bajarish muddati",
   "A priority": "Birinchi o'ringa",
@@ -246,7 +246,13 @@
   "Choose your position": "Lavozimingizni tanlang",
   "Choose your course": "Kursingizni tanlang",
   "Choose your department": "Bo'limingizni tanlang",
-  "Repeat password": "Parolni qayta kiriting"
+  "Repeat password": "Parolni qayta kiriting",
+
+  "only ( *.pdf ) format": "faqat ( *.pdf) format",
+  "The file was not uploaded": "Fayl yuklanmagan"
+
+
+
 
 
 }
