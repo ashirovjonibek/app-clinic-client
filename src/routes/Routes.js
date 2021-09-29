@@ -10,6 +10,8 @@ import RegistrationApplicant from "../component/Registration/RegistrationApplica
 import RegistrationListener from "../component/Registration/RegistrationListener";
 import NotFound from "../component/catalog/NotFound";
 import Authmiddleware from "./routesConfig";
+import NewPassword from "../component/Registration/NewPassword";
+import RequestNewPassword from "../component/Registration/RequestNewPassword";
 
 export const Routes=()=>{
     const userRole=useSelector(state => state.meReducer)
@@ -52,6 +54,8 @@ export const Routes=()=>{
                 )
             }
 
+            <Route path="/requestNewPassword" component={RequestNewPassword}/>
+            <Route path="/newPassword" component={NewPassword}/>
             <Route path="/404" component={NotFound}/>
             <Redirect to="/404"/>
         </Switch>

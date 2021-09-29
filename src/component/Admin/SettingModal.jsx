@@ -130,7 +130,8 @@ function SettingModal({t, getSections}) {
                 <AddIcon onClick={handleOpen} fontSize='large' style={{
                     boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25',
                     borderRadius: '50%',
-                    marginRight: '10px'
+                    marginRight: '10px',
+                    cursor:'pointer'
                 }}/>
                 {t("Add department")}
             </div>

@@ -15,6 +15,7 @@ import {allRoles} from "../../routes/authRoles";
 import Swal from "sweetalert2";
 import NavBottom from "../Nav/NavBottom";
 import Footer from "../Footer/Footer";
+import {Link} from 'react-router-dom'
 
 const Login = (props) => {
     const { history } = props;
@@ -153,10 +154,10 @@ const Login = (props) => {
                                     </li>
                                     <div className="form-link">
                                         <div className="link">
-                                            {/*<a href="">{props.t("Forgot your password")}?</a>*/}
+                                            <Link to="/requestNewPassword">{props.t("Forgot your password")}?</Link>
                                         </div>
                                         <div className="link">
-                                            {/*<a href="">{props.t("No account yet")}</a>*/}
+                                            <a href="">{props.t("No account yet")}</a>
                                         </div>
                                     </div>
                                 </ul>

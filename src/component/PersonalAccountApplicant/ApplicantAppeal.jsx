@@ -250,7 +250,7 @@ const ApplicantAppeal = (props) => {
                                             marginLeft: '60px'
                                         }}>{props.t("Confidentially")}</label>
                                         <div className="about">
-                                            <input required checked={values.top} type="checkbox" onChange={(e) => {
+                                            <input checked={values.top} type="checkbox" onChange={(e) => {
                                                 setValues({
                                                     ...values,
                                                     top: e.target.checked
