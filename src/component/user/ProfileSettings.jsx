@@ -39,7 +39,7 @@ const ProfileSettings = ({t, history}) => {
             });
 
     }, [])
-
+    console.log(userInfo)
 
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
@@ -259,7 +259,8 @@ const ProfileSettings = ({t, history}) => {
                             <p style={{fontSize: "10px"}}>{t("User image")}</p>
                             <div className="profileInfo">
                                 <div className="profileInfoDiv"><Person className="userIcon"/>{userInfo.fullName}</div>
-                                <div className="profileInfoDiv"><Phone className="userIcon"/>{userInfo.phoneNumber}</div>
+                                <div className="profileInfoDiv"><Phone className="userIcon"/>{userInfo.phoneNumber}
+                                </div>
                                 <div className="profileInfoDiv"><Email className="userIcon"/>{userInfo.email}</div>
                                 <div className="profileInfoDiv"><LocationOn className="userIcon"/>{userInfo.address}
                                 </div>
@@ -280,11 +281,12 @@ const ProfileSettings = ({t, history}) => {
                                                         <label className="label" htmlFor="">{t("Full name")}</label>
                                                         <input
                                                             // onBlur={e => nameHandler(e)}
-                                                            // onChange={handleChange}
+                                                            onChange={handleChange}
                                                             name="fullName"
                                                             className="input-text"
                                                             type="text"
                                                             placeholder={t("Enter your full name")}
+                                                            value={userInfo.fullName}
                                                             required
                                                         />
                                                     </li>
@@ -305,7 +307,9 @@ const ProfileSettings = ({t, history}) => {
                                                         <select id="gender"
                                                             // onChange={handleChange}
                                                                 name="gender"
-                                                                className="category" required>
+                                                                className="category" required
+                                                                value={userInfo.gender}
+                                                        >
                                                             <option value="">{t("Choose your gender")}</option>
                                                             <option value="erkak">{t("Male")}</option>
                                                             <option value="ayol">{t("Female")}</option>
@@ -321,6 +325,7 @@ const ProfileSettings = ({t, history}) => {
                                                             name="birthDate"
                                                             id="birthDate"
                                                             type="date"
+                                                            value={userInfo.birthDate}
                                                             required
                                                         />
                                                     </li>
@@ -331,15 +336,15 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="regionId">{t("Region")}</label>
                                                         <select
                                                             id="regionId"
-                                                            // onChange={fetchDistricts}
+                                                            onChange={fetchDistricts}
                                                             name="regionId"
                                                             className="category"
                                                             required={true}
                                                         >
                                                             <option value="">{t("Select your region")}</option>
-                                                            {/*{regions && regions.map((item) =>*/}
-                                                            {/*    <option key={item.id} value={item.id}>{item.name.uz}</option>*/}
-                                                            {/*)}*/}
+                                                            {regions && regions.map((item) =>
+                                                                <option key={item.id} value={item.id}>{item.name.uz}</option>
+                                                            )}
                                                         </select>
                                                     </li>
                                                     <li>
@@ -347,26 +352,28 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="districtId">{t("City (region)")} </label>
                                                         <select
                                                             id="districtId"
-                                                            // onChange={handleChange}
+                                                            onChange={handleChange}
                                                             name="districtId"
                                                             className="category"
+                                                            value={userInfo.districtId}
                                                             required={true}
                                                         >
                                                             <option value="">{t("Choose your district")}</option>
-                                                            {/*{districts && districts.map((item, i) =>*/}
-                                                            {/*    <option key={i} value={item.id}>{item.name.uz}</option>*/}
-                                                            {/*)}*/}
+                                                            {districts && districts.map((item, i) =>
+                                                                <option key={i} value={item.id}>{item.name.uz}</option>
+                                                            )}
                                                         </select>
                                                     </li>
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="address">{t("Home address")}</label>
                                                         <input required={true}
-                                                            // onChange={handleChange}
+                                                            onChange={handleChange}
                                                                name="address"
                                                                id="address"
                                                                className="input-text"
                                                                type="text"
+                                                               value={userInfo.address}
                                                                placeholder={t("Enter your home address")}
                                                         />
                                                     </li>
@@ -381,11 +388,12 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="phoneNumber">{t("Telephone")}</label>
                                                         <input
                                                             required={true}
-                                                            // onBlur={e => numberHandler(e)}
-                                                            // onChange={handleChange}
+                                                            onBlur={e => numberHandler(e)}
+                                                            onChange={handleChange}
                                                             name="phoneNumber"
                                                             id="phoneNumber"
                                                             className="input-text" type="text"
+                                                            value={userInfo.phoneNumber}
                                                             placeholder="+998 (__) ___-__-__"/>
                                                     </li>
                                                     {/*{(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}*/}
@@ -399,6 +407,7 @@ const ProfileSettings = ({t, history}) => {
                                                             id="email"
                                                             className="input-text"
                                                             type="text"
+                                                            value={userInfo.email}
                                                             placeholder={t("Enter your mail")}
                                                         />
                                                     </li>
