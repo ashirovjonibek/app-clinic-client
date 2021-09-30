@@ -21,13 +21,23 @@ const ProfileSettings = ({t, history}) => {
 
 
     useEffect(() => {
-        if (localStorage.getItem(STORAGE_NAME)) {
-            axios.get(API_URL + "/auth/me", configHeader).then(res => {
-                setUserInfo(res.data.object)
+        const axios = require('axios');
+        const config = {
+            method: 'get',
+            url: 'http://83.136.232.228:9090/api/auth/me',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+
+        axios(config)
+            .then(function (response) {
+                setUserInfo(response.data.object)
             })
-        }else {
-            setUserInfo([])
-        }
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }, [])
 
 

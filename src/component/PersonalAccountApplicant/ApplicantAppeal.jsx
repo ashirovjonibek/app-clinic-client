@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {ArrowBack} from "@material-ui/icons";
+import {configHeader} from "../../requests/congifHeader";
 
 const ApplicantAppeal = (props) => {
     const {history} = props;
@@ -34,8 +35,6 @@ const ApplicantAppeal = (props) => {
         attachmentId: []
     });
 
-    console.log(file);
-    console.log("VALUES ", values);
 
     useEffect(() => {
         axios.get(API_URL + "/section").then(res => {
