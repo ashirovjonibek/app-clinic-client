@@ -43,7 +43,6 @@ export const Routes=()=>{
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
             <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
-            <Route exact path="/auth/profileSettings" component={ProfileSettings}/>
 
             {
                 roleRoute(userRole?.role[0])?.map((route,i)=>

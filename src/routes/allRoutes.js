@@ -5,6 +5,7 @@ import NewPassword from "../component/Registration/NewPassword";
 import PersonalAccountApplicant from "../component/PersonalAccountApplicant/PersonalAccountApplicant";
 import ApplicantAppeal from "../component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonalAccountListener from "../component/PersonalAccountListener/PersonalAccountListener";
+import ProfileSettings from "../component/user/ProfileSettings";
 
 
 export const adminRoute=[
@@ -15,6 +16,10 @@ export const adminRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 
@@ -26,6 +31,10 @@ export const supervisorRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 
@@ -37,6 +46,10 @@ export const moderatorRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 
@@ -52,6 +65,10 @@ export const applicantRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 
@@ -63,6 +80,10 @@ export const listenerRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 

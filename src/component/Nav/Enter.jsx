@@ -17,8 +17,6 @@ const Enter = ({t}) => {
         localStorage.removeItem(STORAGE_NAME);
     };
 
-
-
     return (
         <div className="enter" >
             <div className="enter-btn" style={{cursor:"pointer"}}>
@@ -50,7 +48,7 @@ const Enter = ({t}) => {
                             <Link onClick={logOut} to="/">{t("Go out")}</Link>
                         </li>
                         <li>
-                            <Link to="/auth/profileSettings" >{t("Profile")}</Link>
+                            <Link to="/profileSettings" >{t("Profile")}</Link>
                         </li>
                     </ul>
                 </div>

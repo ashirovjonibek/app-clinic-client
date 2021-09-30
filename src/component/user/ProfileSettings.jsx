@@ -11,13 +11,14 @@ import {configHeader} from "../../requests/congifHeader";
 import {Email, LocationCity, LocationOn, Person, Phone} from "@material-ui/icons";
 
 const ProfileSettings = ({t, history}) => {
+    const [userInfo, setUserInfo] = useState([]);
+
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
             history.push("/auth/login")
         }
     }, [])
 
-    const [userInfo, setUserInfo] = useState([]);
 
     useEffect(() => {
         if (localStorage.getItem(STORAGE_NAME)) {

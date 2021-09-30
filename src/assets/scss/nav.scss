@@ -210,13 +210,14 @@
           }
 
           .enter-content {
+            margin-left: 10%;
             display: none;
             //height: 120px;
             //width: 100%;
             position: absolute;
             background-color: rgb(255, 255, 255);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 10px ;
             font-size: 12px;
 
             ul {
