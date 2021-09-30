@@ -25,15 +25,18 @@
 @import "simple-modal.scss";
 
 .App {
+  background-color: #f4f8ff;
   font-family: "Montserrat", sans-serif;
 }
 *{
+
   font-family: Montserrat, serif;
 }
 *::-webkit-scrollbar{
   display: none;
 }
 body{
+  background-color: #f4f8ff;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;

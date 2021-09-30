@@ -249,8 +249,11 @@
   "Repeat password": "Parolni qayta kiriting",
 
   "only ( *.pdf ) format": "faqat ( *.pdf) format",
-  "The file was not uploaded": "Fayl yuklanmagan"
-
+  "The file was not uploaded": "Fayl yuklanmagan",
+  "Edit profile": "Profilni tahrirlash",
+  "User image": "Foydalanuvchi rasmi",
+  "Old Password": "Eski parol",
+  "New Password": "Yangi parol"
 
 
 

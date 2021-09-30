@@ -235,9 +235,13 @@
   "Repeat password": "Повторите пароль",
 
   "only ( *.pdf ) format": "только формат (* .pdf)",
-  "The file was not uploaded": "Файл не загружен"
+  "The file was not uploaded": "Файл не загружен",
+  "Edit profile": "Редактировать профиль",
+  "Go back": "Вернитесь назад",
+  "User image": "Изображение пользователя",
 
-
+  "Old Password": "Прежний пароль",
+  "New Password": "Новый пароль"
 
 
 

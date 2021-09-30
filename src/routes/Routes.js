@@ -10,6 +10,7 @@ import RegistrationApplicant from "../component/Registration/RegistrationApplica
 import RegistrationListener from "../component/Registration/RegistrationListener";
 import NotFound from "../component/catalog/NotFound";
 import Authmiddleware from "./routesConfig";
+import ProfileSettings from "../component/user/ProfileSettings";
 
 export const Routes=()=>{
     const userRole=useSelector(state => state.meReducer)
@@ -42,6 +43,8 @@ export const Routes=()=>{
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
             <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
+            <Route exact path="/auth/profileSettings" component={ProfileSettings}/>
+
             {
                 roleRoute(userRole?.role[0])?.map((route,i)=>
                     <Authmiddleware path={route.path}
