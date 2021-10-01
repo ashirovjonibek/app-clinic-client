@@ -399,9 +399,16 @@
     }
   }
 }
+
 @media (min-width: 576px) {
-  .mobil-language-admin{
+  .mobil-language-admin {
     display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobil-language-item {
+    background: linear-gradient(180deg, #222d44 0%, #4e5e80 100%)
   }
 }
 
