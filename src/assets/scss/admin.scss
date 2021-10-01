@@ -12,7 +12,7 @@
 
 
   #admin-sitebar {
-    display: block;
+    display: none;
     position: fixed;
     color: #26324a;
     .sitebar-chevron {
@@ -425,6 +425,12 @@
       }
     }
 }
+}
+
+@media (max-width: 800px) {
+  .admin #admin-sitebar {
+    display: block;
+  }
 }
 
 @media (max-width: 1122px) {

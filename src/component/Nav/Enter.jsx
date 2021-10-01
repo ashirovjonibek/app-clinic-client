@@ -24,7 +24,7 @@ const Enter = ({t}) => {
                     <UserName width={"30px"} height={"30px"} fontSize={"20px"} lineHeight={"30px"} top={true} text={me.meFullName!==""?me.meFullName:me.meUsername?me.meUsername:t("Login")}/>
                 </div>
                 <span style={{paddingLeft:"3px",float:"left",textAlign:"left" }}> {me.meFullName!==""?me.meFullName:t("Login")}
-                <p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>
+                {/*<p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>*/}
                 </span>
             </div>
             {

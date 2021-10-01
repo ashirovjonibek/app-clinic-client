@@ -172,9 +172,9 @@ const Admin = ({t}) => {
                                     <button type="button" disabled><img src={iconSearch} alt="search-icon"/></button>
                                 </form>
                                 <NavLanguage/>
-                                <div className="glas">
-                                    <img src={iconGlass} alt=""/>
-                                </div>
+                                {/*<div className="glas">*/}
+                                {/*    <img src={iconGlass} alt=""/>*/}
+                                {/*</div>*/}
                             </div>
                             <div className="enter">
                                 {/*<div className="enter-btn" onClick={handleGoOut} style={{cursor: "pointer"}}>*/}

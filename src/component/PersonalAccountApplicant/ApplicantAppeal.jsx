@@ -135,7 +135,6 @@ const ApplicantAppeal = (props) => {
                                     fontSize={'large'}
                                     onClick={() => history.push("/personalAccountApplicant")}
                                 />
-
                             </div>
                             <div className="header-logo">
                                 <a href="#">

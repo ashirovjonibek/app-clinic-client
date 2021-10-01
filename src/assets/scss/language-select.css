@@ -61,12 +61,13 @@
 
 @media (max-width: 800px) {
     #selectedLang {
-        padding: 0;
+
         width: 45px;
     }
-    .navlangs{
-        display: none;
+    .navlanguage-item{
+        padding: 13px 8px;
     }
+
 }
 
 

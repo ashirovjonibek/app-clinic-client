@@ -40,11 +40,6 @@ export const Routes=()=>{
         }
     }
 
-    useEffect(()=>{
-        // console.log(userRole?.role[0])
-        // console.log(roleRoute(userRole?.role[0]))
-    })
-
     return(
         <Switch>
             <Route exact path="/" component={FirstHome}/>
