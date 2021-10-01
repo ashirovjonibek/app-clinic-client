@@ -16,23 +16,35 @@ import DoneIcon from '@material-ui/icons/Done';
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import {ArrowBack} from "@material-ui/icons";
+import {ArrowBack, Visibility} from "@material-ui/icons";
 import {configHeader} from "../../requests/congifHeader";
+import iconAudio from '../../assets/icon/microphone.svg'
+import iconVideo from '../../assets/icon/video-camera.svg'
+import Dialog from "@material-ui/core/Dialog";
+import VoiceRecorder from "./recorders/voiceRecorder";
+import CustomVideoRecorder from "./recorders/videoRecorder";
 
 const ApplicantAppeal = (props) => {
     const {history} = props;
+    const [record, setRecord] = useState({
+        status: false,
+        name: ""
+    });
     const [sections, setSections] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
     const [done, setDone] = useState(false)
-    const [errorUpload, setErrorUpload] = useState("")
+    const [errorUpload, setErrorUpload] = useState("");
+    const [openVideo, setOpenVideo] = useState(false);
     const [values, setValues] = useState({
         title: '',
         description: '',
         sectionId: 0,
         top: false,
-        attachmentId: []
+        attachmentId: [],
+        audioId: "",
+        videoId: ""
     });
 
 
@@ -176,20 +188,65 @@ const ApplicantAppeal = (props) => {
                         props.t("Appeal")}
                         </span>}/>
 
-                    {/*<div className="requests">*/}
-                    {/*    <div>*/}
-                    {/*        <button className="video-request">*/}
-                    {/*            <img src={iconVideo} alt="" />*/}
-                    {/*            Сделать видео обращение*/}
-                    {/*        </button>*/}
-                    {/*    </div>*/}
-                    {/*    <div>*/}
-                    {/*        <button className="audio-request">*/}
-                    {/*            <img src={iconAudio} alt="" />*/}
-                    {/*            Сделать аудио обращение*/}
-                    {/*        </button>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    <div className="requests">
+                        <div>
+                            {
+                                values.videoId === "" ?
+                                    <button onClick={() => {
+                                        setRecord({
+                                            status: true,
+                                            name: "video"
+                                        })
+                                    }} className="video-request">
+                                <span>
+                                    <img src={iconVideo} alt=""/>
+                                Сделать видео обращение
+                                </span>
+                                    </button> :
+                                    <button className="video-request" onClick={() => {
+                                        setRecord({
+                                            status:true,
+                                            name:"recv"
+                                        })
+                                    }
+                                    } style={{display: 'flex', alignItems: "center", cursor: "pointer"}}>
+                                            <span style={{marginRight: "3px"}}>
+                                                <Visibility/>
+                                            </span>
+                                        <span>
+                                                Videoni ko'rish
+                                            </span>
+                                    </button>
+                            }
+                        </div>
+                        <div>
+                            {
+                                values.audioId===""?<button onClick={() => {
+                                    setRecord({
+                                        status: true,
+                                        name: "voice"
+                                    })
+                                }} className="audio-request">
+                                    <img src={iconAudio} alt=""/>
+                                    Сделать аудио обращение
+                                </button>:
+                                    <button className="video-request" onClick={() => {
+                                        setRecord({
+                                            status:true,
+                                            name:"reca"
+                                        })
+                                    }
+                                    } style={{display: 'flex', alignItems: "center", cursor: "pointer"}}>
+                                            <span style={{marginRight: "3px"}}>
+                                                <Visibility/>
+                                            </span>
+                                        <span>
+                                                Audioni eshitish
+                                            </span>
+                                    </button>
+                            }
+                        </div>
+                    </div>
                     <form onSubmit={handleSend} className="appeal">
                         <ul>
                             <li className="first-form">
@@ -237,7 +294,7 @@ const ApplicantAppeal = (props) => {
                                                        onChange={handleUpload} type="file"/>
                                             </div>
                                             <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
-                                            <div className="file1">{fileName}</div>
+                                            <a href={API_URL+'/attach/'+values.attachmentId[0]} className="file1">{fileName}</a>
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
                                     </li>
@@ -269,6 +326,39 @@ const ApplicantAppeal = (props) => {
 
                         </ul>
                     </form>
+
+                    <Dialog fullWidth={true} open={record.status}
+                            onClose={() => setRecord({...record, status: !record.status})}>
+                        <div style={{
+                            width: "100%",
+                            position: "relative"
+                        }}>
+                    <span onClick={() => {
+                        setRecord({
+                            status: false,
+                            name: ""
+                        })
+                    }} style={{
+                        position: "absolute",
+                        zIndex: 1,
+                        fontSize: "16px",
+                        fondWeight: "bold",
+                        color:record.name === "voice"||record.name === "reca"||record.name === "file"?"black": "white",
+                        right: 0,
+                        padding: "10px",
+                        cursor: "pointer"
+                    }}><b>X</b></span>
+                        </div>
+                        {
+                            record.name === "voice" ? <VoiceRecorder values={values} setValues={setValues} setRecord={setRecord}/> : record.name === "video" ?
+                                <CustomVideoRecorder values={values} setValues={setValues} setRecord={setRecord}/> : record.name==="recv"?
+                                    <video
+                                        controls
+                                        src={API_URL+'/attach/video/'+values.videoId} />:
+                                    record.name==="reca"?<audio style={{width:"100%",marginTop:"25px"}} controls src={API_URL+'/attach/audio/'+values.audioId}/>:
+                                        record.name==="file"? <iframe src={API_URL+'/attach/'+values.attachmentId[0]} frameBorder="1"> </iframe>:""
+                        }
+                    </Dialog>
                 </div>
             </div>
             <Footer/>

@@ -42,8 +42,9 @@ function App() {
                             dispatch({type:ME_EMAIL,data:res?.data?.object?.email})
                             dispatch({type:ME_FULL_NAME,data:res?.data?.object?.fullName})
                             dispatch({type:ROLE,data:allRoles[res?.data?.object?.roles[0]?.authority]})
-                            dispatch({type:LOADING})
+                            dispatch({type:LOADING});
                             history.push(location.pathname);
+                            // localStorage.setItem("path",location.pathname);
                         } else {
                             history.push('/auth/login')
                         }

@@ -6,6 +6,6 @@ module.exports = {
         '/personalAccountApplicant',
         '/personalAccountModerator',
         '/personalAccountSupervisor',
-        '/admin'
+        '/admin',"/profileSettings"
     ],
 };

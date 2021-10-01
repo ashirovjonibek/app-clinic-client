@@ -7,15 +7,17 @@ import Footer from "../Footer/Footer";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import Swal from "sweetalert2";
-import {ArrowBack, Email, LocationOn, Person, Phone} from "@material-ui/icons";
-import iconLogo from "../../assets/icon/icon-logo.svg";
-import iconSearch from "../../assets/icon/icon-search.svg";
-import NavLanguage from "../Nav/NavLanguage";
-import iconGlass from "../../assets/icon/icon-glass.svg";
-import Enter from "../Nav/Enter";
+import {configHeader} from "../../requests/congifHeader";
+import {Email, LocationCity, LocationOn, Person, Phone} from "@material-ui/icons";
+import {AddAPhoto} from "@material-ui/icons";
+import {useSelector} from "react-redux";
+import Dialog from "@material-ui/core/Dialog";
 
 const ProfileSettings = ({t, history}) => {
+    const  user=useSelector(state => state.meReducer);
+    const [openImageDialog,setOpenImageDialog]=useState(false);
     const [userInfo, setUserInfo] = useState([]);
+    const [newUser,setNewUser]=useState({});
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -23,11 +25,12 @@ const ProfileSettings = ({t, history}) => {
         }
     }, [])
 
+
     useEffect(() => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL + "/auth/me",
+            url: API_URL + '/auth/me',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -36,72 +39,43 @@ const ProfileSettings = ({t, history}) => {
         axios(config)
             .then(function (response) {
                 setUserInfo(response.data.object)
-                let forData=response.data.object
-
-                    const config = {
-                        method: 'get',
-                        url: API_URL + "/district/" + response.data.object.districtId,
-                        headers: {
-                            'Authorization': localStorage.getItem(STORAGE_NAME)
-                        }
-                    };
-
-                    axios(config)
-                        .then(function (response) {
-                            setRegion(response.data._embedded.region.id)
-
-                            setValues({
-                                ...values,
-                                ...forData,
-                                "regionId": response.data._embedded.region.id
-                            });
-                            axios.get(API_URL + "/district/search/filterByRegion?id=" + response.data._embedded.region.id + "").then(res => {
-                                setDistricts(res.data._embedded.districts);
-                            })
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                    // setValues(response.data.object)
             })
             .catch(function (error) {
                 console.log(error);
             });
 
     }, [])
+    console.log(userInfo)
 
     const [regions, setRegions] = useState([]);
-    const [region, setRegion] = useState(0);
     const [districts, setDistricts] = useState([]);
     const [socialStatus, setSocialStatus] = useState([]);
-    const [values, setValues] = useState({
+    const [values, setValues] = useState(({
         fullName: '',
         sectionId: '',
         nationId: 1,
         phoneNumber: '',
-        email:  '',
-        districtId: userInfo.districtId,
-        regionId:  '',
+        email: '',
+        districtId: '',
         password: '',
-        birthDate:  '',
-        address:  '',
+        birthDate: '',
+        address: '',
         prePassword: '',
         socialStatusId: '',
         gender: ''
-    })
-    console.log("aaa")
-    console.log(values)
+    }))
 
-    useEffect(() => {
-        axios.get(API_URL + "/socialStatus").then(res => {
-            setSocialStatus(res.data._embedded.socialStatuses)
-        })
-    }, []);
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
             setRegions(res.data._embedded.regions)
         });
+    }, []);
+
+    useEffect(() => {
+        axios.get(API_URL + "/socialStatus").then(res => {
+            setSocialStatus(res.data._embedded.socialStatuses)
+        })
     }, []);
 
 
@@ -116,8 +90,6 @@ const ProfileSettings = ({t, history}) => {
             [e.target.name]: e.target.value
         });
     };
-
-
 
     const handleChange = (e) => {
         setValues({
@@ -230,6 +202,23 @@ const ProfileSettings = ({t, history}) => {
     }
 
     const handleSend = (e) => {
+
+        //yuboriladigan data
+        //{
+        //     "fullName": "string",
+        //     "email": "ashirov.uzbek.1997@gmail.com",
+        //     "districtId": 3,
+        //     "phoneNumber": "99891123456789",
+        //     "address": "string",
+        //     "birthDate": "2000-09-30T05:34:46.123Z",
+        //     "gender": "erkak",
+        //     "password": "123456",
+        //     "socialStatusId": 0,
+        //     "imageId":"502f04f2-9119-4017-b2b2-733322ffaa1a"
+        //   }
+
+        //data yuboriladigan manzil  /api/auth/setProfile
+
         e.preventDefault();
         if (values.password === values.prePassword) {
             console.log(values)
@@ -265,52 +254,13 @@ const ProfileSettings = ({t, history}) => {
             }).then(() => {
             });
         }
-    }
+    };
 
     return (
         <div>
             <div className="nav">
                 <NavTop/>
-                <div className="nav-center container-fluit">
-                    <div className="container">
-                        <div className="navbar">
-                            <div className="menu-icon">
-                                <ArrowBack
-                                    fontSize={'large'}
-                                    onClick={() =>  history.goBack()}
-                                />
-                            </div>
-                            <div className="header-logo">
-                                <a href="#">
-                                    <div className="logo-left">
-                                        <img src={iconLogo} alt="logo"/>
-                                    </div>
-                                    <div className="logo-right">
-                                        <div>
-                                            <span><strong>{t("Legal clinic")}</strong></span><br/>
-                                            {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
-                                        </div>
-
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="header-right">
-                                <div className="header-right-desctop">
-                                    <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder={t("Search") + "..."}/>
-                                        <button type=""><img src={iconSearch} alt="search-icon"/></button>
-                                    </form>
-                                    <NavLanguage/>
-                                    <div className="glas">
-                                        <img src={iconGlass} alt=""/>
-                                    </div>
-                                </div>
-                                <Enter/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<NavCenter/>*/}
+                <NavCenter/>
                 {/*<NavBottom/>*/}
             </div>
             <div className="dashboard container-fluit">
@@ -318,7 +268,8 @@ const ProfileSettings = ({t, history}) => {
                 <div className="container">
                     <div className="title">
                         <h4 className="title-text"><span onClick={() => {
-                            history.goBack()
+
+                            history.push(user.role[1])
                         }} style={{marginLeft: "10px", cursor: "pointer"}}><KeyboardBackspaceIcon
                             style={{marginRight: "20px"}}
                             titleAccess={t("Go back")}/>
@@ -328,7 +279,25 @@ const ProfileSettings = ({t, history}) => {
 
                     <div className="flexUchun">
                         <div className="dashboard-container">
-                            <div className="profileImage"/>
+                            <div className="profileImage">
+                                <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px" src={API_URL + userInfo.image} alt=""/>
+                                <Dialog fullWidth={true} open={openImageDialog} onClose={()=>setOpenImageDialog(false)}>
+                                    <div style={{padding:"6px"}}>
+                                        <img  width="100%" height="100%" src={API_URL + userInfo.image} alt=""/>
+                                    </div>
+                                </Dialog>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <span style={{width:"100%",height:"100%"}}>
+
+                                            <AddAPhoto  />
+                                            </span>
+                                            <input type="file"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <p style={{fontSize: "10px"}}>{t("User image")}</p>
                             <div className="profileInfo">
                                 <div className="profileInfoDiv"><Person className="userIcon"/>{userInfo.fullName}</div>
@@ -353,35 +322,35 @@ const ProfileSettings = ({t, history}) => {
                                                     <li>
                                                         <label className="label" htmlFor="">{t("Full name")}</label>
                                                         <input
-                                                            onBlur={e => nameHandler(e)}
+                                                            // onBlur={e => nameHandler(e)}
                                                             onChange={handleChange}
                                                             name="fullName"
                                                             className="input-text"
                                                             type="text"
                                                             placeholder={t("Enter your full name")}
-                                                            value={values.fullName}
+                                                            value={userInfo.fullName}
                                                             required
                                                         />
                                                     </li>
-                                                    {(nameDirty && errorName) && <p className="error">{errorName}</p>}
+                                                    {/*{(nameDirty && errorName) && <p className="error">{errorName}</p>}*/}
                                                     {/*<li>
-                                                        <label className="label"
-                                                               htmlFor="nationId">{t("Nationality")}</label>
-                                                        <select id="nationId" name="nationId" onChange={handleChange}
-                                                                className="category" required>
-                                                            <option value="">{t("Choose your nationality")}</option>
-                                                            {nations && nations.map((item, i) =>
-                                                                <option key={i} value={item.id}>{item.name.uz}</option>
-                                                            )}
-                                                        </select>
-                                                    </li>*/}
+                                                <label className="label"
+                                                       htmlFor="nationId">{t("Nationality")}</label>
+                                                <select id="nationId" name="nationId" onChange={handleChange}
+                                                        className="category" required>
+                                                    <option value="">{t("Choose your nationality")}</option>
+                                                    {nations && nations.map((item, i) =>
+                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    )}
+                                                </select>
+                                            </li>*/}
                                                     <li>
                                                         <label className="label" htmlFor="gender">{t("Gender")}</label>
                                                         <select id="gender"
-                                                                onChange={handleChange}
+                                                            // onChange={handleChange}
                                                                 name="gender"
                                                                 className="category" required
-                                                                value={values.gender}
+                                                                value={userInfo.gender}
                                                         >
                                                             <option value="">{t("Choose your gender")}</option>
                                                             <option value="erkak">{t("Male")}</option>
@@ -393,12 +362,12 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="birthDate">{t("Date of Birth")}</label>
                                                         <input
                                                             className="input-date"
-                                                            onBlur={e => yearHandler(e)}
-                                                            onChange={handleChange}
+                                                            // onBlur={e => yearHandler(e)}
+                                                            // onChange={handleChange}
                                                             name="birthDate"
                                                             id="birthDate"
                                                             type="date"
-                                                            value={values.birthDate}
+                                                            value={userInfo.birthDate}
                                                             required
                                                         />
                                                     </li>
@@ -412,7 +381,6 @@ const ProfileSettings = ({t, history}) => {
                                                             onChange={fetchDistricts}
                                                             name="regionId"
                                                             className="category"
-                                                            value={values.regionId}
                                                             required={true}
                                                         >
                                                             <option value="">{t("Select your region")}</option>
@@ -430,7 +398,7 @@ const ProfileSettings = ({t, history}) => {
                                                             onChange={handleChange}
                                                             name="districtId"
                                                             className="category"
-                                                            value={values.districtId}
+                                                            value={userInfo.districtId}
                                                             required={true}
                                                         >
                                                             <option value="">{t("Choose your district")}</option>
@@ -448,7 +416,7 @@ const ProfileSettings = ({t, history}) => {
                                                                id="address"
                                                                className="input-text"
                                                                type="text"
-                                                               value={values.address}
+                                                               value={userInfo.address}
                                                                placeholder={t("Enter your home address")}
                                                         />
                                                     </li>
@@ -468,37 +436,37 @@ const ProfileSettings = ({t, history}) => {
                                                             name="phoneNumber"
                                                             id="phoneNumber"
                                                             className="input-text" type="text"
-                                                            value={values.phoneNumber}
+                                                            value={userInfo.phoneNumber}
                                                             placeholder="+998 (__) ___-__-__"/>
                                                     </li>
-                                                    {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
+                                                    {/*{(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}*/}
                                                     <li>
                                                         <label className="label" htmlFor="email">{t("Email")}</label>
                                                         <input
                                                             required={true}
-                                                            onBlur={e => emailHandler(e)}
-                                                            onChange={handleChange}
+                                                            // onBlur={e => emailHandler(e)}
+                                                            // onChange={handleChange}
                                                             name="email"
                                                             id="email"
                                                             className="input-text"
                                                             type="text"
-                                                            value={values.email}
+                                                            value={userInfo.email}
                                                             placeholder={t("Enter your mail")}
                                                         />
                                                     </li>
-                                                    {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
+                                                    {/*{(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}*/}
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="socialStatusId">{t("Benefit category")}</label>
                                                         <select id="socialStatusId" name="socialStatusId"
-                                                                onChange={handleChange}
+                                                            // onChange={handleChange}
                                                                 className="category"
                                                                 required={true}
                                                         >
                                                             <option value="">{t("Select benefits")}</option>
-                                                            {socialStatus && socialStatus.map((item, i) =>
-                                                                <option key={i} value={item.id}>{item.name.uz}</option>
-                                                            )}
+                                                            {/*{socialStatus && socialStatus.map((item, i) =>*/}
+                                                            {/*    <option key={i} value={item.id}>{item.name.uz}</option>*/}
+                                                            {/*)}*/}
                                                         </select>
                                                     </li>
 
@@ -507,12 +475,12 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="password">{t("Password")}</label>
                                                         <input
                                                             required={true}
-                                                            onChange={handleChange}
+                                                            // onChange={handleChange}
                                                             name="password"
                                                             id="password"
                                                             className="input-text"
                                                             type="text"
-                                                            onBlur={e => passwordHandler(e)}
+                                                            // onBlur={e => passwordHandler(e)}
                                                             placeholder={t("Enter your password")}
                                                         />
                                                     </li>
@@ -522,9 +490,9 @@ const ProfileSettings = ({t, history}) => {
                                                         <label className="label"
                                                                htmlFor="prePassword">{t("Repeat password")}</label>
                                                         <input
-                                                            onChange={handleChange}
+                                                            // onChange={handleChange}
                                                             required={true}
-                                                            onBlur={e => passwordChacker(e)}
+                                                            // onBlur={e => passwordChacker(e)}
                                                             name="prePassword"
                                                             id="prePassword"
                                                             className="input-text" type="text"
