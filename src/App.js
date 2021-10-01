@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import "./assets/scss/style.scss";
-
 import 'react-toastify/dist/ReactToastify.css';
 import {useHistory, useLocation} from 'react-router-dom'
 import {openPages} from "./utils/config";

@@ -19,7 +19,6 @@ const PersonalAccountApplicant = (props) => {
     const [appeal, setAppeal] = useState([]);
     const history = useHistory();
 
-
     function pushBar(n) {
         switch (n) {
             case 1:
@@ -48,6 +47,7 @@ const PersonalAccountApplicant = (props) => {
     return (
         <div>
             <ApplicationNav getPage={getPage} setSitebar={setSitebar} sitebar={sitebar}/>
+
             <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
                 <div className="container">
                     <Title text={props.t("Personal account")} />
@@ -87,6 +87,7 @@ const PersonalAccountApplicant = (props) => {
 
                 </div>
             </div>
+
             <Footer/>
         </div>
     );

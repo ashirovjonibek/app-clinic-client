@@ -1,12 +1,10 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
-import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
-import axios from "axios";
 import UserName from "../UserName";
-
 
 const Enter = ({t}) => {
     const me=useSelector(state => state.meReducer)
@@ -18,11 +16,6 @@ const Enter = ({t}) => {
         dispatch({type:ME_EMAIL,data:""})
         localStorage.removeItem(STORAGE_NAME);
     };
-
-    useEffect(()=>{
-
-    },[])
-
 
     return (
         <div className="enter" >
@@ -46,12 +39,16 @@ const Enter = ({t}) => {
                         <li>
                             <Link to="/auth/registrationListener">{t("Listener")}</Link>
                         </li>
+
                     </ul>
                 </div>:
-                <div className="enter-content" style={{height:"35px"}} >
+                <div className="enter-content"  >
                     <ul>
                         <li>
                             <Link onClick={logOut} to="/">{t("Go out")}</Link>
+                        </li>
+                        <li>
+                            <Link to="/profileSettings" >{t("Profile")}</Link>
                         </li>
                     </ul>
                 </div>
