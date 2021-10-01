@@ -22,6 +22,7 @@ export default function request(options) {
 
       [domain] = urlMatch;
       url = url.slice(domain.length)
+
     }
 
     const match = pathToRegexp.parse(url)
