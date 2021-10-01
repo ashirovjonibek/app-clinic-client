@@ -46,7 +46,7 @@ const Login = (props) => {
                         url: API_URL + '/auth/me',
                         method: 'GET'
                     }).then(res => {
-                        // console.log(res)
+                        console.log(res);
                         if (!res.data.success) {
                             localStorage.removeItem(STORAGE_NAME);
                             delete axios.defaults.headers.Authorization;

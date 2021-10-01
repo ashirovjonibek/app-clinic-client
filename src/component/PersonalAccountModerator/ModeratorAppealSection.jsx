@@ -27,6 +27,8 @@ const ModeratorAppealSection = () => {
             setActiveItems(r.data.object);
             setTotal(r.data.totalPages)
             setLoading(false)
+        }).catch((e)=>{
+            setLoading(false)
         })
     },[active,size]);
 
@@ -51,25 +53,29 @@ const ModeratorAppealSection = () => {
                 </div>:
                     <div className="moderator-appeals-section">
                     <ContentTop count={items.length} />
-                    <>
                         {
-                            activeItems&&activeItems.map((item,i)=>
-                                <ModeratorAppealItem refresh={refresh} key={i} item={item} />
-                            )
+                            activeItems.length>0?
+                                <>
+                                    {
+                                        activeItems&&activeItems.map((item,i)=>
+                                            <ModeratorAppealItem refresh={refresh} key={i} item={item} />
+                                        )
+                                    }
+                                    <div style={{clear: "both"}}/>
+
+                                    <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+
+                                        <CustomPagination
+                                            pageLength={total}
+                                            setActive={setActive}
+                                            active={active}
+                                            size={size}
+                                            setSize={setSize}
+                                        />
+                                    </div>
+                                </>:
+                                <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
                         }
-                        <div style={{clear: "both"}}/>
-
-                        <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
-
-                            <CustomPagination
-                                pageLength={total}
-                                setActive={setActive}
-                                active={active}
-                                size={size}
-                                setSize={setSize}
-                            />
-                        </div>
-                    </>
                 </div>
             }
         </>

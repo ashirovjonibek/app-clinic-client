@@ -50,9 +50,10 @@ const ModeratorHeadsDepartmentSection = () => {
     return (
         <div className="moderator-heads-department-section">
             {
-                items && items.map((item, i) =>
+                items.length>0 ? items.map((item, i) =>
                     <ModeratorHeadsDepartmentItem key={i} refresh={getListeners} item={item}/>
-                )
+                ):
+                    <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
             }
         </div>
     );

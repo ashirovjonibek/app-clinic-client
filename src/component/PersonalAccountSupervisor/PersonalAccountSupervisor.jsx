@@ -23,12 +23,14 @@ import RequestFunctions from "../../requests/RequestFunctions";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {STORAGE_NAME} from "../../utils/constant";
+import {useSelector} from "react-redux";
 
 const PersonalAccountSupervisor = ({t}) => {
     const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
+    const userRole=useSelector(state => state.meReducer)
 
     // const me=useSelector(state=>state.meReducer)
 
@@ -127,6 +129,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                             </div>
                                         </div>
                                         <ul>
+                                            {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li>
+                                                <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
+                                            </li>:""}
                                             <li>
                                                 <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
@@ -183,6 +188,9 @@ const PersonalAccountSupervisor = ({t}) => {
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
+                                        {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
+                                            <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
+                                        </li>:""}
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>

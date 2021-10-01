@@ -10,7 +10,7 @@ import {
     LabelList,
     ResponsiveContainer,
 } from 'recharts';
-import {withTranslation} from "react-i18next";
+import {useTranslation, withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../../../utils/constant";
 import axios from "axios";
 
@@ -26,19 +26,19 @@ const renderCustomizedLabel = (props) => {
 };
 
 function StatisticsByCategory({t}) {
-    const i18 = localStorage.getItem('I18N_LANGUAGE');
+    const {i18n} = useTranslation();
 
     const [data, setData] = useState([]);
     const [section, setSection] = useState([]);
 
-    const stringToHslColor=(str, s, l)=> {
+    const stringToHslColor = (str, s, l) => {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
             hash = str.charCodeAt(i) + ((hash << 5) - hash);
         }
 
         let h = hash % 360;
-        return 'hsl('+h+', '+s+'%, '+l+'%)';
+        return 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
     }
 
     useEffect(() => {
@@ -67,11 +67,12 @@ function StatisticsByCategory({t}) {
                         }).then((response1) => {
                             let dat = response1.data?._embedded?.regions;
                             console.log(dat);
-                            filter.map((item1) => {
-                                dat.map((item) => {
-                                    let b = {name: item.name[i18], id: item.id};
+
+                            dat.map((item) => {
+                                let b = {name: item.name[i18n.language], id: item.id};
+                                filter.map((item1) => {
                                     d.map((sec, i) => {
-                                        let kafedra = sec.title[i18];
+                                        let kafedra = sec.title[i18n.language];
                                         let kafedra1 = kafedra.toString();
                                         let kafedra3 = kafedra1.replace('-', '_');
                                         let kafedra4 = kafedra3.trim();
@@ -84,12 +85,12 @@ function StatisticsByCategory({t}) {
                                                     b = {...b, [kafedra5]: count.count}
                                                 }
                                             })
-                                        }else {
+                                        } else {
                                             b = {...b, [kafedra5]: 0}
                                         }
                                     });
-                                    a.push(b);
                                 });
+                                a.push(b);
                                 console.log("all data------------>", a)
                             });
                             setData(a)
@@ -104,7 +105,7 @@ function StatisticsByCategory({t}) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, []);
+    }, [i18n.language]);
 
     return (
         <ResponsiveContainer width="100%" height={"100%"}>
@@ -119,7 +120,7 @@ function StatisticsByCategory({t}) {
                 <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
 
                 {section && section.map((sec, i) => {
-                    let kafedra = sec.title[i18]
+                    let kafedra = sec.title[i18n.language]
                     let kafedra1 = kafedra.toString()
                     let kafedra3 = kafedra1.replace('-', '_')
                     let kafedra4 = kafedra3.trim()
@@ -128,7 +129,7 @@ function StatisticsByCategory({t}) {
                     return (
 
                         <Bar key={i} barSize={7}
-                             dataKey={kafedra5} fill={stringToHslColor(kafedra5,50,50)}>
+                             dataKey={kafedra5} fill={stringToHslColor(kafedra5, 50, 50)}>
                             {/*<LabelList dataKey={sec.title[i18]}*/}
                             {/*           content={renderCustomizedLabel}/>*/}
                         </Bar>

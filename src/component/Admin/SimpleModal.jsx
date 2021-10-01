@@ -9,7 +9,7 @@ export default function SimpleModal({item, getListeners}) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const select = item.roles[0].name;
-    const [changeRolesItem, setChangeRolesItem] = useState(0);
+    const [changeRolesItem,     setChangeRolesItem] = useState(0);
 
     useEffect(() => {
         getRoles()
@@ -90,11 +90,13 @@ export default function SimpleModal({item, getListeners}) {
 
 
     const handleRol = (e) => {
-        let rolesItemObj;
-        if (e.target.value !== select) {
-            rolesItemObj = roles.filter(el => el.name.includes(e.target.value));
-            return setChangeRolesItem(rolesItemObj[0].id);
-        }
+        // let rolesItemObj;
+        // if (e.target.value !== select) {
+        //     rolesItemObj = roles.filter(el => el.name.includes(e.target.value));
+        //     return setChangeRolesItem(rolesItemObj[0].id);
+        // }
+        console.log(e.target.value);
+        setChangeRolesItem(e.target.value)
     }
 
     return (
@@ -137,11 +139,11 @@ export default function SimpleModal({item, getListeners}) {
                         </li>
                         <li>
                             <div className="label">Рол</div>
-                            <select onChange={handleRol} className="inform">
-                                <option value={item.roles[0].name}>{item.roles[0].name}</option>
+                            <select defaultValue={item.roles[0].id} onChange={handleRol} className="inform">
+                                {/*<option value={item.roles[0].name}>{item.roles[0].name}</option>*/}
                                 {roles && roles.map(rol =>
                                     <option key={rol.id}
-                                            value={rol.name}>{rol.name}
+                                            value={rol.id}>{rol.name}
                                     </option>
                                 )}
                             </select>

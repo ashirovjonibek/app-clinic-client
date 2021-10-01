@@ -22,9 +22,12 @@ import Enter from "../Nav/Enter";
 import {STORAGE_NAME} from "../../utils/constant";
 import RequestFunctions from "../../requests/RequestFunctions";
 import {withTranslation} from "react-i18next";
+import Footer from "../Footer/Footer";
+import {useSelector} from "react-redux";
 
 const PersonalAccountModerator = ({t}) => {
     const history = useHistory();
+    const userRole=useSelector(state => state.meReducer);
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
@@ -131,8 +134,12 @@ const PersonalAccountModerator = ({t}) => {
                                             </div>
                                         </div>
                                         <ul>
+                                            {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li>
+                                                <Link to="/personalAccountSupervisor" >{t("Go moderator page")}</Link>
+                                            </li>:""}
                                             <li>
-                                                <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
@@ -175,12 +182,15 @@ const PersonalAccountModerator = ({t}) => {
                         </div>
                     </div>
                 </div>
-                <div className="account-moderator container-fluit">
+                <div style={{paddingBottom:"15px"}} className="account-moderator container-fluit">
                     <div className="container">
                         <section className="section-body">
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
+                                        {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
+                                            <Link to="/personalAccountSupervisor" >{t("Go moderator page")}</Link>
+                                        </li>:""}
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                         </li>
@@ -214,7 +224,7 @@ const PersonalAccountModerator = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="content-wrapper">
+                            <div style={{minHeight:"60vh"}} className="content-wrapper">
                                 {
                                     pushBar(pageQount)
                                 }
@@ -222,6 +232,7 @@ const PersonalAccountModerator = ({t}) => {
                         </section>
                     </div>
                 </div>
+                <Footer/>
             </div>
         </div>
     );

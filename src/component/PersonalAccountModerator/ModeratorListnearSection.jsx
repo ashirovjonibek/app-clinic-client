@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import ModeratorListnearItem from "./ModeratorListnearItem";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
+import ModeratorHeadsDepartmentItem from "./ModeratorHeadsDepartmentItem";
 
 const ModeratorListnearSection = (props) => {
 
@@ -40,9 +41,10 @@ const ModeratorListnearSection = (props) => {
     return (
         <div className="moderator-listnear-section">
             {
-                listeners&&listeners.map((item,i)=>
+                listeners.length>0?listeners.map((item,i)=>
                     <ModeratorListnearItem key={i} item={item} info={info}/>
-                    )
+                    ):
+                <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
             }
         </div>
     );

@@ -39,8 +39,9 @@ const ModeratorApplicantSection = (props) => {
     return (
         <div className="moderator-applicant-section">
             {
-                applicants&&applicants.map((item,i)=>
-                    <ModeratorApplicantItem key={i} item={item} info={info}/>)
+                applicants.length>0?applicants.map((item,i)=>
+                    <ModeratorApplicantItem key={i} item={item} info={info}/>):
+                    <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
             }
         </div>
     );

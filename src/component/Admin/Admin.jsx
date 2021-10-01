@@ -18,12 +18,14 @@ import AdminListListener from "./AdminListListenear";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import Footer from "../Footer/Footer";
 import Enter from "../Nav/Enter";
+import AdminListModeratorAndSuperModerator from "./AdminListModeratorAndSuperModerator";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [listnearContentItem, setListnearContentItem] = useState(false);
     const [supervisorContentItem, setSupervisorContentItem] = useState(false);
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
+    const [moderatorAdnSuperModeratorContentItem, setModeratorAdnSuperModeratorContentItem] = useState(false);
     const [settingContentItem, setSettingContentItem] = useState(false);
     const [pageQount, setPageQount] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
@@ -40,6 +42,8 @@ const Admin = ({t}) => {
             case 4:
                 return <AdminListModerator searchTerm={searchTerm}/>
             case 5:
+                return <AdminListModeratorAndSuperModerator searchTerm={searchTerm}/>
+            case 6:
                 return <AdminListSetting searchTerm={searchTerm}/>
             default:
                 return <AdminListAppeal searchTerm={searchTerm}/>
@@ -66,13 +70,17 @@ const Admin = ({t}) => {
     }
 
     const handleSetting = () => {
-        getPage(5);
+        getPage(6);
         setSettingContentItem(!settingContentItem);
+    };
+    const handleModeratorAndSuperModerator=()=>{
+        getPage(5);
+        setModeratorAdnSuperModeratorContentItem(!moderatorAdnSuperModeratorContentItem);
     }
 
     const handleGoOut = () => {
         localStorage.removeItem(STORAGE_NAME);
-        console.log(localStorage.getItem(STORAGE_NAME))
+        console.log(localStorage.getItem(STORAGE_NAME));
         history.push("/")
     }
 
@@ -80,7 +88,7 @@ const Admin = ({t}) => {
         if (!localStorage.getItem(STORAGE_NAME)) {
             history.push("/auth/login")
         }
-    }, [])
+    }, []);
 
     return (
         <div className="admin">
@@ -105,12 +113,17 @@ const Admin = ({t}) => {
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSupervisor}>
-                            <h3 className="accordion__title">{t("List of bosses")}</h3>
+                            <h3 className="accordion__title">{t("List of moderators")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleModerator}>
-                            <h3 className="accordion__title">{t("List of moderators")}</h3>
+                            <h3 className="accordion__title">{t("List of super moderators")}</h3>
+                        </div>
+                    </li>
+                    <li className="accordion__section">
+                        <div className="accordion" onClick={handleModeratorAndSuperModerator}>
+                            <h3 className="accordion__title">{t("List of moderator and super moderator")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
@@ -203,7 +216,10 @@ const Admin = ({t}) => {
                                     <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                    <button onClick={() => getPage(5)}>{t("Settings")}</button>
+                                    <button onClick={() => getPage(5)}>{t("List of moderator and super moderator")}</button>
+                                </li>
+                                <li className="navbar-items" id={pageQount === 6 ? "active" : ""}>
+                                    <button onClick={() => getPage(6)}>{t("Settings")}</button>
                                 </li>
                             </ul>
                         </div>

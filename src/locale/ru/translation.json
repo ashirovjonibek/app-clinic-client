@@ -235,7 +235,9 @@
   "Repeat password": "Повторите пароль",
 
   "only ( *.pdf ) format": "только формат (* .pdf)",
-  "The file was not uploaded": "Файл не загружен"
+  "The file was not uploaded": "Файл не загружен",
+  "Go super moderator page": "Перейти на страницу супер модератора",
+  "Go moderator page": "Перейти на страницу модератора"
 
 
 

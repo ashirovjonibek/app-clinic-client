@@ -29,6 +29,21 @@ export const supervisorRoute=[
     }
 ]
 
+export const moderatorAndSuperModeratorRoute=[
+    {
+        path:"/personalAccountSupervisor",
+        component:PersonalAccountSupervisor
+    },
+    {
+        path:"/personalAccountModerator",
+        component:PersonalAccountModerator
+    },
+    {
+        path:"/newPassword",
+        component:NewPassword
+    }
+]
+
 export const moderatorRoute=[
     {
         path:"/personalAccountModerator",

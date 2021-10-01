@@ -1,7 +1,14 @@
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {allRoles} from "./authRoles";
-import {adminRoute, applicantRoute, listenerRoute, moderatorRoute, supervisorRoute} from "./allRoutes";
+import {
+    adminRoute,
+    applicantRoute,
+    listenerRoute,
+    moderatorAndSuperModeratorRoute,
+    moderatorRoute,
+    supervisorRoute
+} from "./allRoutes";
 import {Redirect, Route, Switch} from "react-router-dom";
 import FirstHome from "../component/Home/FirstHome";
 import Login from "../component/Registration/Login";
@@ -24,10 +31,11 @@ export const Routes=()=>{
         // console.log(userRole)
         switch (role){
             case allRoles.ADMIN[0]: return adminRoute;
-            case allRoles.BOSS[0]: return supervisorRoute;
-            case allRoles.MODERATOR[0]: return moderatorRoute;
+            case allRoles.MODERATOR[0]: return supervisorRoute;
+            case allRoles.SUPER_MODERATOR[0]: return moderatorRoute;
             case allRoles.LISTENER[0]: return listenerRoute;
             case allRoles.USER[0]: return applicantRoute;
+            case allRoles.SUPER_MODERATOR_AND_MODERATOR[0]: return moderatorAndSuperModeratorRoute;
             default:return null
         }
     }

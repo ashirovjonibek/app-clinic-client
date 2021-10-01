@@ -1,7 +1,8 @@
 export const allRoles={
     ADMIN:["ADMIN","/admin"],
     USER:["USER","/personalAccountApplicant"],
-    MODERATOR:["MODERATOR","/personalAccountModerator"],
-    BOSS:["BOSS","/personalAccountSupervisor"],
+    SUPER_MODERATOR:["SUPER_MODERATOR","/personalAccountModerator"],
+    MODERATOR:["MODERATOR","/personalAccountSupervisor"],
     LISTENER:["LISTENER","/personalAccountListener"],
+    SUPER_MODERATOR_AND_MODERATOR:["SUPER_MODERATOR_AND_MODERATOR","/personalAccountSupervisor"]
 }

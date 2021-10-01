@@ -23,7 +23,7 @@ const SupervisorFeedbakRequestItem = ({t}) => {
                 <div className="content-line" />
                 <div className='avatar'>
                     <UserName text="Aliyev Valijon" />
-                    <button className="green-btn">{t("Satisfactorily")}</button>
+                    <span style={{paddingTop:"13px"}} className="green-btn">{t("Satisfactorily")}</span>
                 </div>
             </div>
         </div>
