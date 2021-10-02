@@ -2,22 +2,26 @@ import React, {useEffect, useState} from "react";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {withTranslation} from "react-i18next";
 import NavTop from "../Nav/NavTop";
-import NavCenter from "../Nav/NavCenter";
 import Footer from "../Footer/Footer";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import Swal from "sweetalert2";
-import {configHeader} from "../../requests/congifHeader";
-import {Email, LocationCity, LocationOn, Person, Phone} from "@material-ui/icons";
+import {Email, LocationCity, ArrowBack, LocationOn, Person, Phone} from "@material-ui/icons";
 import {AddAPhoto} from "@material-ui/icons";
 import {useSelector} from "react-redux";
 import Dialog from "@material-ui/core/Dialog";
+import iconLogo from "../../assets/icon/icon-logo.svg";
+import iconSearch from "../../assets/icon/icon-search.svg";
+import NavLanguage from "../Nav/NavLanguage";
+import iconGlass from "../../assets/icon/icon-glass.svg";
+import Enter from "../Nav/Enter";
 
 const ProfileSettings = ({t, history}) => {
-    const  user=useSelector(state => state.meReducer);
-    const [openImageDialog,setOpenImageDialog]=useState(false);
+    const user = useSelector(state => state.meReducer);
+    const [openImageDialog, setOpenImageDialog] = useState(false);
     const [userInfo, setUserInfo] = useState([]);
-    const [newUser,setNewUser]=useState({});
+    const [region, setRegion] = useState([]);
+    const [newUser, setNewUser] = useState({});
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -25,12 +29,11 @@ const ProfileSettings = ({t, history}) => {
         }
     }, [])
 
-
     useEffect(() => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL + '/auth/me',
+            url: API_URL + "/auth/me",
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -38,14 +41,41 @@ const ProfileSettings = ({t, history}) => {
 
         axios(config)
             .then(function (response) {
+                console.log(response.data.object)
                 setUserInfo(response.data.object)
+                let forData = response.data.object
+
+                const config = {
+                    method: 'get',
+                    url: API_URL + "/district/" + response.data.object.districtId,
+                    headers: {
+                        'Authorization': localStorage.getItem(STORAGE_NAME)
+                    }
+                };
+
+                axios(config)
+                    .then(function (response) {
+                        setRegion(response.data._embedded.region.id)
+
+                        setValues({
+                            ...values,
+                            ...forData,
+                            "regionId": response.data._embedded.region.id
+                        });
+                        axios.get(API_URL + "/district/search/filterByRegion?id=" + response.data._embedded.region.id + "").then(res => {
+                            setDistricts(res.data._embedded.districts);
+                        })
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                // setValues(response.data.object)
             })
             .catch(function (error) {
                 console.log(error);
             });
 
     }, [])
-    console.log(userInfo)
 
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
@@ -65,6 +95,8 @@ const ProfileSettings = ({t, history}) => {
         gender: ''
     }))
 
+    // console.log("aaa")
+    // console.log(values)
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
@@ -77,7 +109,6 @@ const ProfileSettings = ({t, history}) => {
             setSocialStatus(res.data._embedded.socialStatuses)
         })
     }, []);
-
 
     const fetchDistricts = (e) => {
         let id = e.target.value
@@ -222,7 +253,7 @@ const ProfileSettings = ({t, history}) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
             console.log(values)
-            axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
+            axios.post(API_URL + "/auth/setProfile", {...values}).then(res => {
                 if (res.data.success) {
                     Swal.fire({
                         position: 'top-end',
@@ -260,7 +291,46 @@ const ProfileSettings = ({t, history}) => {
         <div>
             <div className="nav">
                 <NavTop/>
-                <NavCenter/>
+                <div className="nav-center container-fluit">
+                    <div className="container">
+                        <div className="navbar">
+                            <div className="menu-icon">
+                                <ArrowBack
+                                    fontSize={'large'}
+                                    onClick={() => history.goBack()}
+                                />
+                            </div>
+                            <div className="header-logo">
+                                <a href="#">
+                                    <div className="logo-left">
+                                        <img src={iconLogo} alt="logo"/>
+                                    </div>
+                                    <div className="logo-right">
+                                        <div>
+                                            <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                            {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="header-right">
+                                <div className="header-right-desctop">
+                                    <form role="search" method="get" action="#" className="search-form">
+                                        <input type="" placeholder={t("Search") + "..."}/>
+                                        <button type=""><img src={iconSearch} alt="search-icon"/></button>
+                                    </form>
+                                    <NavLanguage/>
+                                    <div className="glas">
+                                        <img src={iconGlass} alt=""/>
+                                    </div>
+                                </div>
+                                <Enter/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*<NavCenter/>*/}
                 {/*<NavBottom/>*/}
             </div>
             <div className="dashboard container-fluit">
@@ -280,18 +350,20 @@ const ProfileSettings = ({t, history}) => {
                     <div className="flexUchun">
                         <div className="dashboard-container">
                             <div className="profileImage">
-                                <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px" src={API_URL + userInfo.image} alt=""/>
-                                <Dialog fullWidth={true} open={openImageDialog} onClose={()=>setOpenImageDialog(false)}>
-                                    <div style={{padding:"6px"}}>
-                                        <img  width="100%" height="100%" src={API_URL + userInfo.image} alt=""/>
+                                <img onClick={() => setOpenImageDialog(true)} width="100px" height="100px"
+                                     src={API_URL + userInfo.image} alt=""/>
+                                <Dialog fullWidth={true} open={openImageDialog}
+                                        onClose={() => setOpenImageDialog(false)}>
+                                    <div style={{padding: "6px"}}>
+                                        <img width="100%" height="100%" src={API_URL + userInfo.image} alt=""/>
                                     </div>
                                 </Dialog>
                                 <div>
                                     <div>
                                         <div>
-                                            <span style={{width:"100%",height:"100%"}}>
+                                            <span style={{width: "100%", height: "100%"}}>
 
-                                            <AddAPhoto  />
+                                            <AddAPhoto/>
                                             </span>
                                             <input type="file"/>
                                         </div>
@@ -313,7 +385,7 @@ const ProfileSettings = ({t, history}) => {
                             <div className="registration-applicant-wrapper">
                                 <h5>{t("Personal data")}</h5>
                                 <form
-                                    // onSubmit={handleSend}
+                                    onSubmit={handleSend}
                                 >
                                     <div className="form-wrapper">
                                         <ul className="form">
@@ -322,17 +394,17 @@ const ProfileSettings = ({t, history}) => {
                                                     <li>
                                                         <label className="label" htmlFor="">{t("Full name")}</label>
                                                         <input
-                                                            // onBlur={e => nameHandler(e)}
+                                                            onBlur={e => nameHandler(e)}
                                                             onChange={handleChange}
                                                             name="fullName"
                                                             className="input-text"
                                                             type="text"
                                                             placeholder={t("Enter your full name")}
-                                                            value={userInfo.fullName}
+                                                            value={values.fullName}
                                                             required
                                                         />
                                                     </li>
-                                                    {/*{(nameDirty && errorName) && <p className="error">{errorName}</p>}*/}
+                                                    {(nameDirty && errorName) && <p className="error">{errorName}</p>}
                                                     {/*<li>
                                                 <label className="label"
                                                        htmlFor="nationId">{t("Nationality")}</label>
@@ -347,10 +419,10 @@ const ProfileSettings = ({t, history}) => {
                                                     <li>
                                                         <label className="label" htmlFor="gender">{t("Gender")}</label>
                                                         <select id="gender"
-                                                            // onChange={handleChange}
+                                                                onChange={handleChange}
                                                                 name="gender"
                                                                 className="category" required
-                                                                value={userInfo.gender}
+                                                                value={values.gender}
                                                         >
                                                             <option value="">{t("Choose your gender")}</option>
                                                             <option value="erkak">{t("Male")}</option>
@@ -362,16 +434,16 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="birthDate">{t("Date of Birth")}</label>
                                                         <input
                                                             className="input-date"
-                                                            // onBlur={e => yearHandler(e)}
-                                                            // onChange={handleChange}
+                                                            onBlur={e => yearHandler(e)}
+                                                            onChange={handleChange}
                                                             name="birthDate"
                                                             id="birthDate"
                                                             type="date"
-                                                            value={userInfo.birthDate}
+                                                            value={values.birthDate}
                                                             required
                                                         />
                                                     </li>
-                                                    {/*{(yearDirty && errorYear) && <p className="error">{errorYear}</p>}*/}
+                                                    {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
 
                                                     <li>
                                                         <label className="label"
@@ -381,6 +453,7 @@ const ProfileSettings = ({t, history}) => {
                                                             onChange={fetchDistricts}
                                                             name="regionId"
                                                             className="category"
+                                                            value={values.regionId}
                                                             required={true}
                                                         >
                                                             <option value="">{t("Select your region")}</option>
@@ -398,7 +471,7 @@ const ProfileSettings = ({t, history}) => {
                                                             onChange={handleChange}
                                                             name="districtId"
                                                             className="category"
-                                                            value={userInfo.districtId}
+                                                            value={values.districtId}
                                                             required={true}
                                                         >
                                                             <option value="">{t("Choose your district")}</option>
@@ -416,7 +489,7 @@ const ProfileSettings = ({t, history}) => {
                                                                id="address"
                                                                className="input-text"
                                                                type="text"
-                                                               value={userInfo.address}
+                                                               value={values.address}
                                                                placeholder={t("Enter your home address")}
                                                         />
                                                     </li>
@@ -425,7 +498,6 @@ const ProfileSettings = ({t, history}) => {
 
                                             <li className="form-last">
                                                 <ul>
-
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="phoneNumber">{t("Telephone")}</label>
@@ -436,37 +508,40 @@ const ProfileSettings = ({t, history}) => {
                                                             name="phoneNumber"
                                                             id="phoneNumber"
                                                             className="input-text" type="text"
-                                                            value={userInfo.phoneNumber}
+                                                            value={values.phoneNumber}
                                                             placeholder="+998 (__) ___-__-__"/>
                                                     </li>
-                                                    {/*{(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}*/}
+                                                    {(numberDirty && errorNumber) &&
+                                                    <p className="error">{errorNumber}</p>}
                                                     <li>
                                                         <label className="label" htmlFor="email">{t("Email")}</label>
                                                         <input
                                                             required={true}
-                                                            // onBlur={e => emailHandler(e)}
-                                                            // onChange={handleChange}
+                                                            onBlur={e => emailHandler(e)}
+                                                            onChange={handleChange}
                                                             name="email"
                                                             id="email"
                                                             className="input-text"
                                                             type="text"
-                                                            value={userInfo.email}
+                                                            value={values.email}
                                                             placeholder={t("Enter your mail")}
                                                         />
                                                     </li>
-                                                    {/*{(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}*/}
+                                                    {(emailDirty && errorEmail) &&
+                                                    <p className="error">{errorEmail}</p>}
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="socialStatusId">{t("Benefit category")}</label>
                                                         <select id="socialStatusId" name="socialStatusId"
-                                                            // onChange={handleChange}
+                                                                onChange={handleChange}
                                                                 className="category"
+                                                                value={values.socialStatusId}
                                                                 required={true}
                                                         >
                                                             <option value="">{t("Select benefits")}</option>
-                                                            {/*{socialStatus && socialStatus.map((item, i) =>*/}
-                                                            {/*    <option key={i} value={item.id}>{item.name.uz}</option>*/}
-                                                            {/*)}*/}
+                                                            {socialStatus && socialStatus.map((item, i) =>
+                                                                <option key={i} value={item.id}>{item.name.uz}</option>
+                                                            )}
                                                         </select>
                                                     </li>
 
@@ -475,31 +550,31 @@ const ProfileSettings = ({t, history}) => {
                                                                htmlFor="password">{t("Password")}</label>
                                                         <input
                                                             required={true}
-                                                            // onChange={handleChange}
+                                                            onChange={handleChange}
                                                             name="password"
                                                             id="password"
                                                             className="input-text"
                                                             type="text"
-                                                            // onBlur={e => passwordHandler(e)}
+                                                            onBlur={e => passwordHandler(e)}
                                                             placeholder={t("Enter your password")}
                                                         />
                                                     </li>
-                                                    {/*{(errorPasswordDirty && errorPassword) &&*/}
-                                                    {/*<p className="error">{errorPassword}</p>}*/}
+                                                    {(errorPasswordDirty && errorPassword) &&
+                                                    <p className="error">{errorPassword}</p>}
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="prePassword">{t("Repeat password")}</label>
                                                         <input
-                                                            // onChange={handleChange}
+                                                            onChange={handleChange}
                                                             required={true}
-                                                            // onBlur={e => passwordChacker(e)}
+                                                            onBlur={e => passwordChacker(e)}
                                                             name="prePassword"
                                                             id="prePassword"
                                                             className="input-text" type="text"
                                                             placeholder={t("Re-enter your password")}/>
                                                     </li>
-                                                    {/*{(errorPrePasswordDirty && errorPrePassword) &&*/}
-                                                    {/*<p className="error">{errorPrePassword}</p>}*/}
+                                                    {(errorPrePasswordDirty && errorPrePassword) &&
+                                                    <p className="error">{errorPrePassword}</p>}
                                                     <div className="form-bottom">
                                                         <button type="submit"
                                                                 className="btn-default">{t("Edit profile")}</button>
@@ -508,8 +583,6 @@ const ProfileSettings = ({t, history}) => {
                                             </li>
 
                                         </ul>
-
-
                                     </div>
                                 </form>
                             </div>
