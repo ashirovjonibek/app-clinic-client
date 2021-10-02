@@ -361,7 +361,7 @@ const ApplicantAppeal = (props) => {
                                     record.name === "reca" ? <audio style={{width: "100%", marginTop: "25px"}} controls
                                                                     src={API_URL + '/attach/audio/' + values.audioId}/> :
                                         record.name === "file" ?
-                                            <iframe src={API_URL + '/attach/' + values.attachmentId[0]}
+                                            <iframe title="This is a audio" src={API_URL + '/attach/' + values.attachmentId[0]}
                                                     frameBorder="1"></iframe> : ""
                         }
                     </Dialog>

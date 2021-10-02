@@ -210,7 +210,7 @@ const AdminListListener = ({t, searchTerm}) => {
                             } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
                                 return item
                             }
-                        }).filter(item => item.viewed === true).map((item, i) =>
+                        }).map((item, i) =>
                             <tr key={i} value={item.id}>
                                 <td className="table-border ">{item.fullName}</td>
                                 <td className="table-border">{item.position.title[i18]}</td>

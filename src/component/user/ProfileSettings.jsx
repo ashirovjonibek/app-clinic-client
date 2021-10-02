@@ -22,6 +22,7 @@ const ProfileSettings = ({t, history}) => {
     const [userInfo, setUserInfo] = useState([]);
     const [region, setRegion] = useState([]);
     const [newUser, setNewUser] = useState({});
+    const [isApplicant, setIsApplicant] = useState(false);
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -41,10 +42,13 @@ const ProfileSettings = ({t, history}) => {
 
         axios(config)
             .then(function (response) {
-                console.log(response.data.object)
                 setUserInfo(response.data.object)
                 let forData = response.data.object
-
+                response.data.object.roles.map(item => {
+                    if (item.name === "USER") {
+                        setIsApplicant(true)
+                    }
+                })
                 const config = {
                     method: 'get',
                     url: API_URL + "/district/" + response.data.object.districtId,
@@ -92,11 +96,12 @@ const ProfileSettings = ({t, history}) => {
         address: '',
         prePassword: '',
         socialStatusId: '',
-        gender: ''
+        gender: '',
+        imageId: ''
     }))
 
-    // console.log("aaa")
-    // console.log(values)
+    console.log("aaa")
+    console.log(values)
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
@@ -232,6 +237,43 @@ const ProfileSettings = ({t, history}) => {
         }
     }
 
+    const [imageFile, setImageFile] = useState({
+        imageId: ''
+    });
+
+    const imageSelector = (e) => {
+        let file = e.target.files[0]
+        setImageFile({imageId: file})
+    }
+    const handleUpload = (e) => {
+
+        const axios = require('axios');
+        const FormData = require('form-data');
+        const fs = require('fs');
+        const data = new FormData();
+        data.append('image', imageFile.imageId);
+
+        const config = {
+            method: 'post',
+            url: API_URL + '/attach/upload',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            },
+            data: data
+        };
+        axios(config)
+            .then(function (response) {
+                setValues({...values,
+                    imageId: response.data.object
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+
+    }
+
     const handleSend = (e) => {
 
         //yuboriladigan data
@@ -253,7 +295,11 @@ const ProfileSettings = ({t, history}) => {
         e.preventDefault();
         if (values.password === values.prePassword) {
             console.log(values)
-            axios.post(API_URL + "/auth/setProfile", {...values}).then(res => {
+            axios.post(API_URL + "/auth/setProfile", {...values}, {
+                headers: {
+                    'Authorization': localStorage.getItem(STORAGE_NAME)
+                }
+            }).then(res => {
                 if (res.data.success) {
                     Swal.fire({
                         position: 'top-end',
@@ -297,7 +343,7 @@ const ProfileSettings = ({t, history}) => {
                             <div className="menu-icon">
                                 <ArrowBack
                                     fontSize={'large'}
-                                    onClick={() => history.goBack()}
+                                    onClick={() => history.push(user.role[1])}
                                 />
                             </div>
                             <div className="header-logo">
@@ -351,11 +397,13 @@ const ProfileSettings = ({t, history}) => {
                         <div className="dashboard-container">
                             <div className="profileImage">
                                 <img onClick={() => setOpenImageDialog(true)} width="100px" height="100px"
-                                     src={API_URL + userInfo.image} alt=""/>
+                                     src={API_URL  + values.image} alt=""/>
                                 <Dialog fullWidth={true} open={openImageDialog}
                                         onClose={() => setOpenImageDialog(false)}>
                                     <div style={{padding: "6px"}}>
-                                        <img width="100%" height="100%" src={API_URL + userInfo.image} alt=""/>
+                                        <img width="100%" height="100%"
+                                             src={API_URL + values.image}
+                                             alt=""/>
                                     </div>
                                 </Dialog>
                                 <div>
@@ -365,11 +413,12 @@ const ProfileSettings = ({t, history}) => {
 
                                             <AddAPhoto/>
                                             </span>
-                                            <input type="file"/>
+                                            <input type="file" name="file" onChange={imageSelector}/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="button" onClick={handleUpload}>upload</button>
                             <p style={{fontSize: "10px"}}>{t("User image")}</p>
                             <div className="profileInfo">
                                 <div className="profileInfoDiv"><Person className="userIcon"/>{userInfo.fullName}</div>
@@ -416,19 +465,23 @@ const ProfileSettings = ({t, history}) => {
                                                     )}
                                                 </select>
                                             </li>*/}
-                                                    <li>
-                                                        <label className="label" htmlFor="gender">{t("Gender")}</label>
-                                                        <select id="gender"
-                                                                onChange={handleChange}
-                                                                name="gender"
-                                                                className="category" required
-                                                                value={values.gender}
-                                                        >
-                                                            <option value="">{t("Choose your gender")}</option>
-                                                            <option value="erkak">{t("Male")}</option>
-                                                            <option value="ayol">{t("Female")}</option>
-                                                        </select>
-                                                    </li>
+                                                    {
+                                                        isApplicant ? <li>
+                                                            <label className="label"
+                                                                   htmlFor="gender">{t("Gender")}</label>
+                                                            <select id="gender"
+                                                                    onChange={handleChange}
+                                                                    name="gender"
+                                                                    className="category" required
+                                                                    value={values.gender}
+                                                            >
+                                                                <option value="">{t("Choose your gender")}</option>
+                                                                <option value="erkak">{t("Male")}</option>
+                                                                <option value="ayol">{t("Female")}</option>
+                                                            </select>
+                                                        </li> : ""
+                                                    }
+
                                                     <li>
                                                         <label className="label"
                                                                htmlFor="birthDate">{t("Date of Birth")}</label>
@@ -529,21 +582,26 @@ const ProfileSettings = ({t, history}) => {
                                                     </li>
                                                     {(emailDirty && errorEmail) &&
                                                     <p className="error">{errorEmail}</p>}
-                                                    <li>
-                                                        <label className="label"
-                                                               htmlFor="socialStatusId">{t("Benefit category")}</label>
-                                                        <select id="socialStatusId" name="socialStatusId"
-                                                                onChange={handleChange}
-                                                                className="category"
-                                                                value={values.socialStatusId}
-                                                                required={true}
-                                                        >
-                                                            <option value="">{t("Select benefits")}</option>
-                                                            {socialStatus && socialStatus.map((item, i) =>
-                                                                <option key={i} value={item.id}>{item.name.uz}</option>
-                                                            )}
-                                                        </select>
-                                                    </li>
+
+                                                    {
+                                                        isApplicant ? <li>
+                                                            <label className="label"
+                                                                   htmlFor="socialStatusId">{t("Benefit category")}</label>
+                                                            <select id="socialStatusId" name="socialStatusId"
+                                                                    onChange={handleChange}
+                                                                    className="category"
+                                                                    value={values.socialStatusId}
+                                                                    required={true}
+                                                            >
+                                                                <option value="">{t("Select benefits")}</option>
+                                                                {socialStatus && socialStatus.map((item, i) =>
+                                                                    <option key={i}
+                                                                            value={item.id}>{item.name.uz}</option>
+                                                                )}
+                                                            </select>
+                                                        </li> : ""
+                                                    }
+
 
                                                     <li>
                                                         <label className="label"
