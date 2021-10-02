@@ -15,6 +15,8 @@ import axios from "axios";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
+import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
+import i18next from "i18next";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -39,15 +41,15 @@ const ModeratorPerformerItem = (props) => {
     if ((new Date(props?.item?.application?.deadLineDate).getTime()) - (new Date().getTime()) > 0) {
         s = "" + date + " " + props.t("days");
     } else {
-        s = "0 "+props.t("days");
+        s = "0 " + props.t("days");
         date = 0
     }
 
     useEffect(() => {
-
+        let url=props.sts==="SUPER_MODERATOR"?'/section':'/auth/listenerBySection?sectionId='+props?.item?.sectionId;
         const config = {
             method: 'get',
-            url: API_URL + '/auth/listeners',
+            url: API_URL + url,
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -56,10 +58,8 @@ const ModeratorPerformerItem = (props) => {
         axios(config)
             .then(function (response) {
                 let a = [];
-                response?.data?.map((item) =>
-                    props?.item?.application?.section?.id === item?.section?.id ? a.push(item) : ""
-                );
-                setItems(a);
+
+                setItems(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -68,6 +68,7 @@ const ModeratorPerformerItem = (props) => {
 
     const uploadAppeal = () => {
         if (id) {
+            let url=props.sts==="SUPER_MODERATOR"?'/document/set/section':'/document/set/listener';
             Swal.fire({
                 title: 'Tasdiqlash!!',
                 text: "Ushbu ma'lumot o'zgarishini tasdiqlaysizmi?",
@@ -79,8 +80,11 @@ const ModeratorPerformerItem = (props) => {
                 if (result.isConfirmed) {
                     axios({
                         method: 'put',
-                        url: API_URL + '/document/set/listener',
-                        params: {
+                        url: API_URL + url,
+                        params: props.sts==="SUPER_MODERATOR"?{
+                            documentId: props.item.id,
+                            sectionId: id
+                        }:{
                             documentId: props.item.id,
                             listenerId: id
                         },
@@ -127,10 +131,63 @@ const ModeratorPerformerItem = (props) => {
                         </div>
                     </div>
                 </div>
-                <RequestTheme label={props?.item?.application?.title}
-                              description={props?.item?.application?.description}
-                              check={props?.item?.application?.top}/>
-                {/*<div className="category-audio"/>*/}
+                <div className="content">
+                    <RequestTheme label={props?.item?.application?.title}
+                                  description={props?.item?.application?.description}
+                                  check={props?.item?.application?.top}/>
+                    {/*<div className="category-audio"/>*/}
+                    <div className="categories">
+                        <ul>
+                            <li>
+                                <label htmlFor="">{props.t("Category of treatment")}</label>
+                                <div
+                                    className="file">{props?.item?.application?.section?.title[i18next.language]}</div>
+                            </li>
+                            <li style={{
+                                display: props?.item?.application?.attachmentsId ? "" : "none",
+                                margin: '0 5px 0 5px'
+                            }}>
+                                <label htmlFor="">{props.t("File")}</label>
+                                <div
+                                    title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
+                                    style={{textAlign: "center", cursor: "pointer"}}
+                                    className="file">
+                                    <a href={API_URL + '/attach/' + props?.item?.application?.attachmentsId[0]}><FileCopy/></a>
+                                </div>
+                            </li>
+                            <li style={{display: props?.item?.application?.video ? "" : "none", margin: '0 5px 0 5px'}}>
+                                <label htmlFor="">{props.t("Video")}</label>
+                                <div
+                                    title={props?.item?.application?.video ? props.t("Download the application") : props.t("Doc not found")}
+                                    onClick={(e) => {
+                                        props?.setPlayer({
+                                            open: true,
+                                            name: "video",
+                                            resource: props?.item?.application?.video
+                                        })
+                                    }} style={{textAlign: "center", cursor: "pointer"}}
+                                    className="file">
+                                    <Videocam/>
+                                </div>
+                            </li>
+                            <li style={{display: props?.item?.application?.audio ? "" : "none", margin: '0 5px 0 5px'}}>
+                                <label htmlFor="">{props.t("Audio")}</label>
+                                <div
+                                    title={props?.item?.application?.audio ? props.t("Download the application") : props.t("Doc not found")}
+                                    onClick={(e) => {
+                                        props?.setPlayer({
+                                            open: true,
+                                            name: "audio",
+                                            resource: props?.item?.application?.audio
+                                        })
+                                    }} style={{textAlign: "center", cursor: "pointer"}}
+                                    className="file">
+                                    <Audiotrack/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div className="content-line"/>
 
                 {
@@ -138,13 +195,18 @@ const ModeratorPerformerItem = (props) => {
                             <div className="avatar"
                                  style={{display: props.item.checkedBy ? "" : "block", textAlign: "right"}}>
                                 {props.item.checkedBy ? <UserItem p={props.item.checkedBy}/> : ""}
-                                <ButtonDefault text={props.t("Replace the performer")} onClick={() => setEdit(true)}/>
+                                <ButtonDefault text={props.sts==="SUPER_MODERATOR"?"Bo'lim biriktirish":props.t("Replace the performer")} onClick={() => setEdit(true)}/>
                             </div>
+                            {
+                                props?.item?.forwardMessage?<div style={{display:"block",width:"100%",textAlign:"left",marginTop:"10px"}}>
+                                    <span>Yo'naltirish xabari: </span>{props?.item?.forwardMessage}
+                                </div>:""
+                            }
                         </div> :
                         <div className="container">
                             <div style={{display: "inline-block"}}>
                                 <FormControl error={e} className={classes.formControl}>
-                                    <InputLabel id="demo-simple-select-label1">Listner</InputLabel>
+                                    <InputLabel id="demo-simple-select-label1">{props.sts==="SUPER_MODERATOR"?"Bo'lim biriktirish":"Ijroji biriktirish"}</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label1"
                                         id="demo-simple-select1"
@@ -154,19 +216,20 @@ const ModeratorPerformerItem = (props) => {
                                     >
                                         {
                                             items && items.map((item, i) =>
-                                                <MenuItem key={i} value={item?.id}>{item?.fullName}</MenuItem>
+                                                <MenuItem key={i} value={item?.id}>{props.sts!=="SUPER_MODERATOR"?item?.fullName:item?.title[i18next.language]}</MenuItem>
                                             )
                                         }
 
                                     </Select>
                                     {
-                                        e ? <FormHelperText error>Iltiomos listner tanlang</FormHelperText> : ""
+                                        e ? <FormHelperText error>Iltiomos bo'lim tanlang</FormHelperText> : ""
                                     }
                                 </FormControl>
                             </div>
                             <div style={{display: "inline-block", float: "right"}}>
                                 <FormControl style={{paddingTop: "10px"}} className={classes.formControl}>
-                                    <Button variant="contained" onClick={() => setEdit(false)}>{props.t("Cancel")}</Button>
+                                    <Button variant="contained"
+                                            onClick={() => setEdit(false)}>{props.t("Cancel")}</Button>
                                 </FormControl>
                                 <FormControl style={{paddingTop: "10px"}} className={classes.formControl}>
                                     <Button onClick={uploadAppeal} variant="contained" color="primary">

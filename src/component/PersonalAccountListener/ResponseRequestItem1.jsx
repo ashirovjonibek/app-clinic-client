@@ -60,7 +60,11 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                     ).then((res)=>{
                         refresh();
                         setIsAn(false)
-                        setMessage("")
+                        setMessage("");
+                        setMessage("");
+                        setFileName("");
+                        setDone(false);
+                        setFileId("")
                     });
                 }).catch((err)=>{
                     Swal.fire(

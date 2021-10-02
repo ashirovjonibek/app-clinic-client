@@ -38,10 +38,10 @@ const PersonalAccountModerator = ({t}) => {
                 return <ModeratorHeadsDepartmentSection/>
 
             case 2:
-                return <ModeratorPerformerSection/>
+                return <ModeratorPerformerSection sts={"SUPER_MODERATOR"}/>;
 
             case 3:
-                return <ModeratorListnearSection/>
+                return <ModeratorListnearSection/>;
 
             case 4:
                 return <ModeratorApplicantSection n={n}/>
@@ -224,7 +224,7 @@ const PersonalAccountModerator = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div style={{minHeight:"60vh"}} className="content-wrapper">
+                            <div style={{minHeight:"75vh"}} className="content-wrapper">
                                 {
                                     pushBar(pageQount)
                                 }

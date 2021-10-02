@@ -61,7 +61,7 @@ const AppealItem = (props) => {
                         '',
                         'success'
                     ).then((res)=>{
-                        props.refresh()
+                        props.refresh(1)
                     });
                 })
             }

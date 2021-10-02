@@ -205,8 +205,8 @@ const ApplicantAppeal = (props) => {
                                     </button> :
                                     <button className="video-request" onClick={() => {
                                         setRecord({
-                                            status:true,
-                                            name:"recv"
+                                            status: true,
+                                            name: "recv"
                                         })
                                     }
                                     } style={{display: 'flex', alignItems: "center", cursor: "pointer"}}>
@@ -221,19 +221,19 @@ const ApplicantAppeal = (props) => {
                         </div>
                         <div>
                             {
-                                values.audioId===""?<button onClick={() => {
-                                    setRecord({
-                                        status: true,
-                                        name: "voice"
-                                    })
-                                }} className="audio-request">
-                                    <img src={iconAudio} alt=""/>
-                                    Сделать аудио обращение
-                                </button>:
+                                values.audioId === "" ? <button onClick={() => {
+                                        setRecord({
+                                            status: true,
+                                            name: "voice"
+                                        })
+                                    }} className="audio-request">
+                                        <img src={iconAudio} alt=""/>
+                                        Сделать аудио обращение
+                                    </button> :
                                     <button className="video-request" onClick={() => {
                                         setRecord({
-                                            status:true,
-                                            name:"reca"
+                                            status: true,
+                                            name: "reca"
                                         })
                                     }
                                     } style={{display: 'flex', alignItems: "center", cursor: "pointer"}}>
@@ -294,7 +294,8 @@ const ApplicantAppeal = (props) => {
                                                        onChange={handleUpload} type="file"/>
                                             </div>
                                             <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
-                                            <a href={API_URL+'/attach/'+values.attachmentId[0]} className="file1">{fileName}</a>
+                                            <a href={API_URL + '/attach/' + values.attachmentId[0]}
+                                               className="file1">{fileName}</a>
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
                                     </li>
@@ -343,20 +344,25 @@ const ApplicantAppeal = (props) => {
                         zIndex: 1,
                         fontSize: "16px",
                         fondWeight: "bold",
-                        color:record.name === "voice"||record.name === "reca"||record.name === "file"?"black": "white",
+                        color: record.name === "voice" || record.name === "reca" || record.name === "file" ? "black" : "white",
                         right: 0,
                         padding: "10px",
                         cursor: "pointer"
                     }}><b>X</b></span>
                         </div>
                         {
-                            record.name === "voice" ? <VoiceRecorder values={values} setValues={setValues} setRecord={setRecord}/> : record.name === "video" ?
-                                <CustomVideoRecorder values={values} setValues={setValues} setRecord={setRecord}/> : record.name==="recv"?
+                            record.name === "voice" ? <VoiceRecorder values={values} setValues={setValues}
+                                                                     setRecord={setRecord}/> : record.name === "video" ?
+                                <CustomVideoRecorder values={values} setValues={setValues}
+                                                     setRecord={setRecord}/> : record.name === "recv" ?
                                     <video
                                         controls
-                                        src={API_URL+'/attach/video/'+values.videoId} />:
-                                    record.name==="reca"?<audio style={{width:"100%",marginTop:"25px"}} controls src={API_URL+'/attach/audio/'+values.audioId}/>:
-                                        record.name==="file"? <iframe src={API_URL+'/attach/'+values.attachmentId[0]} frameBorder="1"> </iframe>:""
+                                        src={API_URL + '/attach/video/' + values.videoId}/> :
+                                    record.name === "reca" ? <audio style={{width: "100%", marginTop: "25px"}} controls
+                                                                    src={API_URL + '/attach/audio/' + values.audioId}/> :
+                                        record.name === "file" ?
+                                            <iframe src={API_URL + '/attach/' + values.attachmentId[0]}
+                                                    frameBorder="1"></iframe> : ""
                         }
                     </Dialog>
                 </div>

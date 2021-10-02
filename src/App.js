@@ -7,6 +7,8 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "./utils/constant";
 import {Routes} from "./routes/Routes";
 import {useDispatch, useSelector} from "react-redux";
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import './assets/css/table.css'
 import {LOADING, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "./redux/me/actionType";
 import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";

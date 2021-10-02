@@ -24,6 +24,8 @@ import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {STORAGE_NAME} from "../../utils/constant";
 import {useSelector} from "react-redux";
+import ModeratorPerformerItem from "../PersonalAccountModerator/ModeratorPerformerItem";
+import ModeratorPerformerSection from "../PersonalAccountModerator/ModeratorPerformerSection";
 
 const PersonalAccountSupervisor = ({t}) => {
     const history = useHistory();
@@ -39,7 +41,7 @@ const PersonalAccountSupervisor = ({t}) => {
             case 1:
                 return <PerAccSupListenersSection/>
             case 2:
-                return <SupervisorIncomingRequestSection/>
+                return <ModeratorPerformerSection sts={"MODERATOR"}/>
             case 3:
                 return <SupervisorResponsesSection/>
             case 4:
@@ -136,7 +138,7 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
+                                                <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#"
@@ -195,7 +197,7 @@ const PersonalAccountSupervisor = ({t}) => {
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(2)}>{t("Incoming requests")}</Link>
+                                            <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
@@ -228,7 +230,7 @@ const PersonalAccountSupervisor = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="content-wrapper">
+                            <div style={{minHeight:"75vh"}} className="content-wrapper">
                                 {
                                     pushBar(pageQount)
                                 }
@@ -236,8 +238,8 @@ const PersonalAccountSupervisor = ({t}) => {
                         </section>
                     </div>
                 </div>
-                <Footer/>
             </div>
+            <Footer/>
         </div>
     );
 }

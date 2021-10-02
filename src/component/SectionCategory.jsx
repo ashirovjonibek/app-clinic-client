@@ -4,6 +4,8 @@ import Label from "./Label";
 import InputFile from "./InputFile";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../utils/constant";
+import i18next from "i18next";
+import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
 
 const SectionCategory = (props) => {
     const {i18n}=useTranslation();
@@ -40,7 +42,8 @@ const SectionCategory = (props) => {
 
     return (
         <div className="categories">
-            <ul>
+            {
+                !props.item?<ul>
                 {!props?.showSection?<li>
                     <label htmlFor="">{props.t("Category of treatment")}</label>
                     <input disabled={true} type="text" value={props?.section?.title[''+i18n.language]}/>
@@ -55,7 +58,53 @@ const SectionCategory = (props) => {
                         {props.t("Download the application")}
                     </div>
                 </li>
-            </ul>
+            </ul>:
+                    <ul>
+                        <li>
+                            <label htmlFor="">{props.t("Category of treatment")}</label>
+                            <div className="file">{props?.item?.application?.section?.title[i18next.language]}</div>
+                        </li>
+                        <li style={{display:props?.item?.application?.attachmentsId?"":"none",margin:'0 5px 0 5px'}}>
+                            <label htmlFor="">{props.t("File")}</label>
+                            <div
+                                title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
+                                style={{textAlign: "center", cursor: "pointer"}}
+                                className="file">
+                                <a href={API_URL+'/attach/'+props?.item?.application?.attachmentsId[0]}><FileCopy/></a>
+                            </div>
+                        </li>
+                        <li style={{display:props?.item?.application?.video?"":"none",margin:'0 5px 0 5px'}}>
+                            <label htmlFor="">{props.t("Video")}</label>
+                            <div
+                                title={props?.item?.application?.video ? props.t("Download the application") : props.t("Doc not found")}
+                                onClick={(e) => {
+                                    props?.setPlayer({
+                                        open:true,
+                                        name:"video",
+                                        resource: props?.item?.application?.video
+                                    })
+                                }} style={{textAlign: "center", cursor: "pointer"}}
+                                className="file">
+                                <Videocam/>
+                            </div>
+                        </li>
+                        <li style={{display:props?.item?.application?.audio?"":"none",margin:'0 5px 0 5px'}}>
+                            <label htmlFor="">{props.t("Audio")}</label>
+                            <div
+                                title={props?.item?.audio ? props.t("Download the application") : props.t("Doc not found")}
+                                onClick={(e) => {
+                                    props?.setPlayer({
+                                        open:true,
+                                        name:"audio",
+                                        resource: props?.item?.application?.audio
+                                    })
+                                }} style={{textAlign: "center", cursor: "pointer"}}
+                                className="file">
+                                <Audiotrack/>
+                            </div>
+                        </li>
+                    </ul>
+            }
         </div>
     );
 }

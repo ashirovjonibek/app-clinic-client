@@ -76,7 +76,7 @@ const PersonalAccountApplicant = (props) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="content-wrapper">
+                        <div style={{minHeight:"75vh"}} className="content-wrapper">
                             {
                                 pushBar(pageQount)
                             }

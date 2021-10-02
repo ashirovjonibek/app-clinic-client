@@ -10,13 +10,13 @@ import {withTranslation} from "react-i18next";
 
 const Home = ({t}) => {
     return (
-        <div className="home">
+        <div style={{paddingTop:"190px"}} className="home">
+
             <div className="header-img">
                 {/* <div className="container">
                     <button onClick={() => history.push('/applicantAppeal')} className="btn-default">Обращение</button>
                 </div> */}
             </div>
-
             <div className="container">
                 <div id="what-clinic" className="what-clinic">
                     <div className="what-clinic-text">

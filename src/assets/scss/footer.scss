@@ -1,6 +1,7 @@
 .footer {
   background-color: #222d44;
   color: white;
+  bottom: 0;
 
   .footer-first {
     display: flex;
@@ -210,6 +211,7 @@
 @media (max-width: 768px) {
   .footer {
     text-align: center;
+    position: relative;
 
     .footer-first {
       display: flex;

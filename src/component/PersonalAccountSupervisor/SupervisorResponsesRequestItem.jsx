@@ -9,14 +9,16 @@ import {useTranslation, withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import Swal from "sweetalert2";
-import {DirectionsWalk} from "@material-ui/icons";
+import {Audiotrack, DirectionsWalk, FileCopy, Videocam} from "@material-ui/icons";
 import {FormHelperText} from "@material-ui/core";
+import i18next from "i18next";
 
 const SupervisorResponsesRequestItem = (props) => {
     let token = localStorage.getItem(STORAGE_NAME);
     const [isM, setIsM] = useState(false);
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false);
+
 
     const fileLoad = (id, name) => {
         if (id) {
@@ -89,7 +91,7 @@ const SupervisorResponsesRequestItem = (props) => {
                     headers: {
                         Authorization: token
                     },
-                    data: {string: message}
+                    data: {comment:message}
                 }).then((r) => {
                     Swal.fire("Bajarildi!!!", "", "success").then((ress) => {
                         console.log(r);
@@ -113,8 +115,11 @@ const SupervisorResponsesRequestItem = (props) => {
                 <UserName text={props.item.application.applicant.fullName}/>
                 <DocumentText appeal={props?.item?.application}/>
                 <div className="request-categoriyes">
+                    <div className="categories">
+
+                    </div>
                     <SectionCategory fileId={props?.item?.answer?.attachmentId}
-                                     section={props?.item?.application?.section}/>
+                                     section={props?.item?.application?.section} item={props.item}/>
                 </div>
                 <div className="content-line"/>
                 <div className="request-categoriyes">

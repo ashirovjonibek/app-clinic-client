@@ -190,7 +190,7 @@ const PersonalAccountListener = ({t}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="content-wrapper">
+                        <div style={{minHeight:"75vh"}} className="content-wrapper">
                             {
 
                                 Applications(idUser)

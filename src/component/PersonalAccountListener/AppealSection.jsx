@@ -20,24 +20,7 @@ const AppealSection = (props) => {
 
     useEffect(() => {
         setLoading(true)
-        axios({
-            method: 'get',
-            url: API_URL + "/document/sending?size=" + size + "&page=" + (active - 1),
-            headers: {
-                'Authorization': token
-            }
-        }).then((r) => {
-            console.log(r);
-            setTotal(r.data.totalPages);
-            setInpApps(r.data.object);
-            setLoading(false)
-        })
-
-    }, [active, size]);
-
-    const refresh = () => {
-        setLoading(true);
-        if (nS<3){
+        if (nS!==3){
             axios({
                 method: 'get',
                 url: API_URL + "/document/sending?size=" + size + "&page=" + (active - 1),
@@ -48,12 +31,30 @@ const AppealSection = (props) => {
                 console.log(r);
                 setTotal(r.data.totalPages);
                 setInpApps(r.data.object);
-                setItems(r.data.object);
-                setLoading(false);
+                setLoading(false)
             })
         }else {
             denied()
         }
+
+    }, [active, size]);
+
+    const refresh = (n) => {
+        setLoading(true);
+
+        axios({
+            method: 'get',
+            url: API_URL + "/document/sending?size=" + size + "&page=" + (active - 1),
+            headers: {
+                'Authorization': token
+            }
+        }).then((r) => {
+            console.log(r);
+            setTotal(r.data.totalPages);
+            setInpApps(r.data.object);
+            setItems(r.data.object);
+            setLoading(false);
+        })
     };
 
     const byStatus = (status) => {
@@ -74,15 +75,15 @@ const AppealSection = (props) => {
         setLoading(true);
         axios({
             method: 'get',
-            url: API_URL + "/document/listener/denied",
+            url: API_URL + "/document/listener/denied?page="+(active-1)+"&size="+size,
             headers:{
                 Authorization:token
             }
         }).then((r)=>{
             console.log(r);
-            setInpApps(r.data);
+            setInpApps(r.data.object);
             setLoading(false);
-            setTotal(1);
+            setTotal(r.data.totalPages);
         }).catch((e)=>{
             setLoading(false)
         });
@@ -96,17 +97,17 @@ const AppealSection = (props) => {
                         <p style={{padding: "0px 10px", border: nS === 1 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items">
                             <Link onClick={() => {
-                                refresh()
+                                refresh(1);
                                 setNs(1)
                             }}>{props.t("New answers")}</Link>
                         </p>
-                        <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
-                           className="request-items active">
-                            <Link onClick={() => {
-                                byStatus("INPROCESS")
-                                setNs(2)
-                            }}>{props.t("Responses received")}</Link>
-                        </p>
+                        {/*<p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}*/}
+                        {/*   className="request-items active">*/}
+                        {/*    <Link onClick={() => {*/}
+                        {/*        byStatus("INPROCESS")*/}
+                        {/*        setNs(2)*/}
+                        {/*    }}>{props.t("Responses received")}</Link>*/}
+                        {/*</p>*/}
                         <p style={{padding: "0px 10px", border: nS === 3 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items active">
                             <Link onClick={() => {
@@ -117,7 +118,7 @@ const AppealSection = (props) => {
                     </div>
                     {
                         inpApps && inpApps.map((item, i) =>
-                            nS===3?<AttachAnswer refresh={refresh} item={item}/>:
+                            nS===3?<AttachAnswer refresh={denied} item={item}/>:
                             <AppealItem refresh={refresh} key={i} item={item}/>
                         )
                     }
