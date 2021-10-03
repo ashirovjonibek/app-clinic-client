@@ -33,13 +33,12 @@ const Enter = ({t}) => {
                         <li>
                             <Link to="/auth/login">{t("Login")}</Link>
                         </li>
-                        <li>
-                            <Link to="/auth/registrationApplicant">{t("The applicant")}</Link>
-                        </li>
-                        <li>
-                            <Link to="/auth/registrationListener">{t("Listener")}</Link>
-                        </li>
-
+                        {/*<li>*/}
+                        {/*    <Link to="/auth/registrationApplicant">{t("The applicant")}</Link>*/}
+                        {/*</li>*/}
+                        {/*<li>*/}
+                        {/*    <Link to="/auth/registrationListener">{t("Listener")}</Link>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>:
                 <div className="enter-content"  >

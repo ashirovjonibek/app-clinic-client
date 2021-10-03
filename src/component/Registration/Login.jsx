@@ -153,8 +153,16 @@ const Login = (props) => {
                                         <button type="submit" className="btn-default">{props.t("Login")}</button>
                                     </li>
                                     <div className="form-link">
+                                        <div className="linkk">
+                                            <Link to="/auth/registrationApplicant">{props.t("Regiter as applicant")}</Link>
+                                        </div>
+                                        <div className="linkk">
+                                            <Link to="/auth/registrationListener">{props.t("Regiter as listener")}</Link>
+                                        </div>
+                                    </div>
+                                    <div className="form-link">
                                         <div className="link">
-                                            <Link to="/requestNewPassword">{props.t("Forgot your password")}?</Link>
+                                            <Link to="/requestNewPassword">{props.t("Forgot your password")}</Link>
                                         </div>
                                         <div className="link">
                                             <a href="">{props.t("No account yet")}</a>

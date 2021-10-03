@@ -1,124 +1,146 @@
 .login {
-    background-color: #f4f8ff;
-    //height: vh;
-    padding: 170px 0 10px 0;
-    .container {
-        .login-wrapper {
-            padding: 0 100px;
-            .form {
-                height: 290px;
-                max-width: 500px;
-                background-color: #ffffff;
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
+  background-color: #f4f8ff;
+  //height: vh;
+  padding: 170px 0 10px 0;
 
-                margin: 20px auto;
-                padding: 40px;
-                color: #222d44;
-                form {
-                    display: flex;
-                    flex-direction: column;
-                    ul {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        li {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            margin-bottom: 25px;
-                            .first-label {
-                                margin-right: 20px;
-                            }
-                            .last-label {
-                                margin: 0 20px 0 10px;
-                            }
-                            input {
-                                width: 280px;
-                            }
-                        }
-                        .form-link {
-                            display: flex;
-                            flex-direction: row;
-                            .link {
-                                font-size: 14px;
-                                text-decoration: underline;
-                                color: #222d44;
-                                padding: 0 10px;
-                            }
-                        }
-                    }
-                }
+  .container {
+    .login-wrapper {
+      padding: 0 100px;
+
+      .form {
+        height: 100%;
+        max-width: 500px;
+        background-color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+
+        margin: 20px auto;
+        padding: 20px;
+        color: #222d44;
+
+        form {
+          display: flex;
+          flex-direction: column;
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            li {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-bottom: 25px;
+
+              .first-label {
+                margin-right: 20px;
+              }
+
+              .last-label {
+                margin: 0 20px 0 10px;
+              }
+
+              input {
+                width: 280px;
+              }
             }
+
+            .form-link {
+              margin: 10px 0;
+              display: flex;
+              flex-direction: row;
+
+              .linkk {
+                margin: 0 10px
+              }
+
+              .link {
+                font-size: 14px;
+                text-decoration: underline;
+                color: #222d44;
+                padding: 0 10px;
+              }
+            }
+          }
         }
+      }
     }
+  }
 }
 
 @media (max-width: 768px) {
-    .login {
-        .container {
-            .login-wrapper {
-                padding: 0px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
+  .login {
+    .container {
+      .login-wrapper {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
     }
+  }
 }
 
 @media (max-width: 576px) {
-    .login {
-        .container {
-            .login-wrapper {
-                padding: 0px;
+  .login {
+    .container {
+      .login-wrapper {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .form {
+          height: 390px;
+          width: 400px;
+
+          form {
+            ul {
+              li {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                .form {
-                    height: 390px;
-                    width: 400px;
-                    form {
-                        ul {
-                            li {
-                                display: flex;
-                                flex-direction: column;
-                                .first-label,
-                                .last-label {
-                                    margin-bottom: 15px;
-                                }
-                            }
-                            .form-link {
-                                display: flex;
-                                flex-direction: column;
-                                .link {
-                                    margin-bottom: 15px;
-                                }
-                            }
-                        }
-                    }
+
+                .first-label,
+                .last-label {
+                  margin-bottom: 15px;
                 }
+              }
+
+              .form-link {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+
+                .link {
+                  margin-bottom: 15px;
+                }
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
 @media (max-width: 480px) {
-    .login {
-        .container {
-            .login-wrapper {
-                .form {
-                    height: 390px;
-                    width: 100%;
-                    form {
-                        li {
-                            .input-text {
-                                width: 120%;
-                            }
-                        }
-                    }
-                }
+  .login {
+    .container {
+      .login-wrapper {
+        .form {
+          height: 390px;
+          width: 100%;
+
+          form {
+            li {
+              .input-text {
+                width: 120%;
+              }
             }
+          }
         }
+      }
     }
+  }
 }

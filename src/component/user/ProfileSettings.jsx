@@ -46,7 +46,7 @@ const ProfileSettings = ({t, history}) => {
                 let forData = response.data.object
                 let isApllicant=0;
                 response.data.object.roles.map(item => {
-                    if (item.name === "ADMIN") {
+                    if (item.name === "ADMIN" || item.name === "ADMIN") {
                         isApplicant++
                     }
                     if (item.name === "USER"  ) {
