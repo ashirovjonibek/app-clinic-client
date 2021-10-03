@@ -22,7 +22,7 @@ const ProfileSettings = ({t, history}) => {
     const [userInfo, setUserInfo] = useState([]);
     const [region, setRegion] = useState([]);
     const [newUser, setNewUser] = useState({});
-    const [isApplicant, setIsApplicant] = useState(false);
+    let [isApplicant, setIsApplicant] = useState(false);
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -44,11 +44,19 @@ const ProfileSettings = ({t, history}) => {
             .then(function (response) {
                 setUserInfo(response.data.object)
                 let forData = response.data.object
+                let isApllicant=0;
                 response.data.object.roles.map(item => {
-                    if (item.name === "USER") {
+                    if (item.name === "ADMIN") {
+                        isApplicant++
+                    }
+                    if (item.name === "USER"  ) {
                         setIsApplicant(true)
                     }
                 })
+                if (isApplicant>0){
+                    setIsApplicant(false)
+                }
+
                 const config = {
                     method: 'get',
                     url: API_URL + "/district/" + response.data.object.districtId,
@@ -95,7 +103,7 @@ const ProfileSettings = ({t, history}) => {
         birthDate: '',
         address: '',
         prePassword: '',
-        socialStatusId: '',
+        socialStatusId: 0,
         gender: '',
         imageId: ''
     }))
@@ -263,7 +271,8 @@ const ProfileSettings = ({t, history}) => {
         };
         axios(config)
             .then(function (response) {
-                setValues({...values,
+                setValues({
+                    ...values,
                     imageId: response.data.object
                 })
             })
@@ -314,7 +323,7 @@ const ProfileSettings = ({t, history}) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: t("An error occurred. Please try again")+"!!!",
+                        title: t("An error occurred. Please try again") + "!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -325,7 +334,7 @@ const ProfileSettings = ({t, history}) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: t("An error occurred. Please try again")+"!!!",
+                title: t("An error occurred. Please try again") + "!!!",
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {
@@ -397,7 +406,7 @@ const ProfileSettings = ({t, history}) => {
                         <div className="dashboard-container">
                             <div className="profileImage">
                                 <img onClick={() => setOpenImageDialog(true)} width="100px" height="100px"
-                                     src={API_URL  + values.image} alt=""/>
+                                     src={API_URL + values.image} alt=""/>
                                 <Dialog fullWidth={true} open={openImageDialog}
                                         onClose={() => setOpenImageDialog(false)}>
                                     <div style={{padding: "6px"}}>
@@ -590,7 +599,7 @@ const ProfileSettings = ({t, history}) => {
                                                             <select id="socialStatusId" name="socialStatusId"
                                                                     onChange={handleChange}
                                                                     className="category"
-                                                                    value={values.socialStatusId}
+                                                                    value={values.socialStatusId ? values.socialStatusId : 3}
                                                                     required={true}
                                                             >
                                                                 <option value="">{t("Select benefits")}</option>
