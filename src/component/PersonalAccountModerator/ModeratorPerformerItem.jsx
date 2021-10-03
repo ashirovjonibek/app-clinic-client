@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModeratorPerformerItem = (props) => {
+    const { t } = props;
+
     const [edit, setEdit] = useState(false);
     const classes = useStyles();
     const [age, setAge] = React.useState('');
@@ -58,7 +60,6 @@ const ModeratorPerformerItem = (props) => {
         axios(config)
             .then(function (response) {
                 let a = [];
-
                 setItems(response.data);
             })
             .catch(function (error) {
@@ -70,12 +71,12 @@ const ModeratorPerformerItem = (props) => {
         if (id) {
             let url=props.sts==="SUPER_MODERATOR"?'/document/set/section':'/document/set/listener';
             Swal.fire({
-                title: 'Tasdiqlash!!',
-                text: "Ushbu ma'lumot o'zgarishini tasdiqlaysizmi?",
+                title: t("Confirmation") + "!!!",
+                text: t("Ushbu ma'lumot o'zgarishini tasdiqlaysizmi")+"?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Tasdiqlash!'
+                confirmButtonText: t("Confirmation")
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios({
@@ -94,7 +95,7 @@ const ModeratorPerformerItem = (props) => {
                         }
                     }).then((r) => {
                         Swal.fire(
-                            'Saqlandi!',
+                            t("Saved"),
                             '',
                             'success'
                         ).then((result) => {

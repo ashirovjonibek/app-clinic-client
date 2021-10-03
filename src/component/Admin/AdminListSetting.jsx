@@ -45,9 +45,9 @@ const AdminListSetting = ({t,searchTerm}) => {
 
     const deleteMethod = (id) => {
         Swal.fire({
-            title:"Kafedra o'chirilsinmi?",
-            cancelButtonText:"Bekor qilish",
-            confirmButtonText:"O'chirish",
+            title:t("Delete")+"?",
+            cancelButtonText:t("Cancel"),
+            confirmButtonText:t("Delete"),
             confirmButtonColor:"red",
             showCancelButton:true,
             icon:"warning"
@@ -56,17 +56,17 @@ const AdminListSetting = ({t,searchTerm}) => {
                 axios.delete(API_URL + apiPath.deleteSection + id, configHeader)
                     .then(res => {
                             if (res.status === 200) {
-                                Swal.fire("Kafedra o'chirildi", "", "success").then((r) => {
+                                Swal.fire(t("Deleted")+"", "", "success").then((r) => {
                                     getSections()
                                 })
                             } else {
-                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                                     getSections()
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                         getSections()
                     })
                 })

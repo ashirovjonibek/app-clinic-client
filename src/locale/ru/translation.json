@@ -239,8 +239,41 @@
   "Go super moderator page": "Перейти на страницу супер модератора",
   "Go moderator page": "Перейти на страницу модератора",
 
-  "Moderators and super moderators": "Модераторы и супер модераторы"
+  "Moderators and super moderators": "Модераторы и супер модераторы",
+  "Should the applicant be deleted": "Если заявитель будет удален",
+  "Applicant deleted": "Заявитель удален",
+  "An error occurred": "Произошла ошибка",
+  "Delete user": "Удалить пользователя",
+  "Deleted": "Удалено",
+  "User acceptance": "Принятие пользователем",
+  "Yes": "Да",
+  "No": "Нет",
+  "Department created": "Кафедра создана",
+  "Save the change": "Сохраните изменение",
+  "Send": "Послать",
+  "Should the application be sent for review": "Следует ли отправлять заявку на рассмотрение",
+  "Application has been sent": "Заявка отправлена",
+  "Send a comment": "Оставить комментарий",
+  "Comment sent": "Комментарий отправлен",
+  "Confirmation": "Подтверждение",
+  "Should this form be sent for review": "Следует ли отправлять эту форму на рассмотрение",
+  "Should this form be sent to the applicant": "Следует ли отправлять эту форму заявителю",
+  "Should this application be accepted": "Следует ли принимать это заявление",
+  "Are you sure this application will be sent to the Moderator": "Вы уверены, что эта заявка будет отправлена Модератору",
+  "The application was sent to the Moderator": "Заявка отправлена Модератору",
+  "The message length must be at least 10 characters": "Длина сообщения должна быть не менее 10 символов",
+  "Confirm changes to this form": "Подтвердить изменения в этой форме",
+  "Cancel the action": "Отменить действие",
+  "Add an answer": "Добавить ответ",
+  "Enter the answer text": "Введите текст ответа",
+  "Do you confirm this information change": "Вы подтверждаете изменение этой информации?",
+  "Will the application be accepted": "Будет ли принята заявка",
+  "Should the application be rejected": "Следует ли отклонить заявку",
+  "Logged in to the account": "Авторизовался в учётной записи",
 
+  "Login or password error. Please try again": "Ошибка входа или пароля. Повторите попытку.",
+  "Registered": "Зарегистрировано",
+  "An error occurred. Please try again": "ЗарегистрированоПроизошла ошибка. Пожалуйста, попробуйте еще раз"
 
 
 

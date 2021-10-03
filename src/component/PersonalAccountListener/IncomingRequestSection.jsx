@@ -15,7 +15,7 @@ import Dialog from "@material-ui/core/Dialog";
 import {green, red} from "@material-ui/core/colors";
 
 const IncomingRequestSection = (props) => {
-
+    const {t} = props;
     const [request, setRequest] = useState([]);
     const history = useHistory();
     const [idUser, setIdUser] = useState(1);
@@ -100,13 +100,13 @@ const IncomingRequestSection = (props) => {
 
     const acceptApp = (id) => {
         Swal.fire({
-            title: 'Tasdiqlash!!!',
-            text: "Ushubu ariza qabul qilinsinmi?",
+            title: t("Confirmation")+"!!!",
+            text:  t("Should this application be accepted")+"?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Ha!',
-            cancelButtonText: "Yo'q"
+            confirmButtonText: t("Yes"),
+            cancelButtonText: t("No")
         }).then((result) => {
             if (result.isConfirmed) {
                 axios({
@@ -117,8 +117,8 @@ const IncomingRequestSection = (props) => {
                     }
                 }).then((r) => {
                     Swal.fire(
-                        'Tasdiqlandi!',
-                        'Ariza qabul qilindi!!!',
+                        t("Approved")+"",
+                        t("The application was accepted")+"!!!",
                         'success'
                     ).then((res) => {
                         newApplication()
@@ -133,13 +133,13 @@ const IncomingRequestSection = (props) => {
     const ignoredApp = (id) => {
         if (comment.message.length > 10) {
             Swal.fire({
-                title: 'Tasdiqlash!!!',
-                text: "Ushubu ariza Moderatorga yuborilishiga aminmisiz?",
+                title:  t("Confirmation") + "!!!",
+                text: t("Are you sure this application will be sent to the Moderator") + "?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Ha!',
-                cancelButtonText: "Yo'q"
+                confirmButtonText:  t("Yes"),
+                cancelButtonText: t("No")
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios({
@@ -153,8 +153,8 @@ const IncomingRequestSection = (props) => {
                         }
                     }).then((r) => {
                         Swal.fire(
-                            'Yuborildi!',
-                            'Ariza Moderatorga yuborildi',
+                            t("Sent")+"!",
+                            t("The application was sent to the Moderator")+"!",
                             'success'
                         ).then((res) => {
                             setComment({
@@ -171,7 +171,7 @@ const IncomingRequestSection = (props) => {
         } else {
             setComment({
                 ...comment,
-                errorCom: "Habar uzunligi kamida 10 ta belgidan iborat bo'lishi kerak!!!"
+                errorCom: t("The message length must be at least 10 characters")+"!"
             })
         }
     };
@@ -359,7 +359,7 @@ const IncomingRequestSection = (props) => {
 
                                             :
                                             <>
-                                                < div style={{width: "100%", clear: "both"}}></div>
+                                                < div style={{width: "100%", clear: "both"}}/>
                                                 <button className="blue-btn"
                                                         onClick={() => setComment({
                                                             ...comment,

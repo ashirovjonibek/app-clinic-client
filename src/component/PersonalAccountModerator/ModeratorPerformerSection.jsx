@@ -5,9 +5,6 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import CustomPagination from "../catalog/Pagenation";
 import {withTranslation} from "react-i18next";
 import Dialog from "@material-ui/core/Dialog";
-import {Table, Thead, Tbody, Tr, Th, Td} from 'react-super-responsive-table'
-import {Audiotrack, FileCopy, Videocam, Person} from "@material-ui/icons";
-
 
 const ModeratorPerformerSection = ({t,sts}) => {
     const [activeItems, setActiveItems] = useState([]);

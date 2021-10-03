@@ -15,49 +15,49 @@ import GetAppIcon from "@material-ui/icons/GetApp";
 import {CircularProgress} from "@material-ui/core";
 import Swal from "sweetalert2";
 
-const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
-    const [isAn,setIsAn]=useState(false);
-    const token=localStorage.getItem(STORAGE_NAME);
-    const [message,setMessage]=useState("");
-    const [isLoading,setLoading]=useState(false);
+const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
+    const [isAn, setIsAn] = useState(false);
+    const token = localStorage.getItem(STORAGE_NAME);
+    const [message, setMessage] = useState("");
+    const [isLoading, setLoading] = useState(false);
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
-    const [done,setDone]=useState(false);
-    const [errorUpload,setErrorUpload]=useState("");
-    const [fileId,setFileId]=useState();
+    const [done, setDone] = useState(false);
+    const [errorUpload, setErrorUpload] = useState("");
+    const [fileId, setFileId] = useState();
 
 
-    const submit=()=>{
-        let path=type?"/answer/updateByDocument?documentId=":"/answer/create?applicationId=";
-        let method=type?"put":"post";
+    const submit = () => {
+        let path = type ? "/answer/updateByDocument?documentId=" : "/answer/create?applicationId=";
+        let method = type ? "put" : "post";
         console.log(id);
         Swal.fire({
-            title: 'Tasdiqlash!!!',
-            text: "Ushubu ariza uchun o'zgarishlarni tasdiqlash?",
+            title: t("Confirmation") + "!!!",
+            text: t("Confirm changes to this form") + "?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Ha!',
-            cancelButtonText:"Yo'q"
+            confirmButtonText: t("Yes"),
+            cancelButtonText: t("No")
         }).then((result) => {
             if (result.isConfirmed) {
                 axios({
-                    method:method,
-                    url:API_URL+path+id,
-                    headers:{
-                        Authorization:token
+                    method: method,
+                    url: API_URL + path + id,
+                    headers: {
+                        Authorization: token
                     },
-                    data:{
-                        attachmentId: fileId?fileId:[],
+                    data: {
+                        attachmentId: fileId ? fileId : [],
                         description: message,
                     }
-                }).then((r)=>{
+                }).then((r) => {
                     console.log(r);
                     Swal.fire(
-                        'Saqlandi!',
+                        t("Saved"),
                         '',
                         'success'
-                    ).then((res)=>{
+                    ).then((res) => {
                         refresh();
                         setIsAn(false)
                         setMessage("");
@@ -66,12 +66,12 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                         setDone(false);
                         setFileId("")
                     });
-                }).catch((err)=>{
+                }).catch((err) => {
                     Swal.fire(
-                        'Xatolik yuz berdi!',
+                        t("An error occurred")+"!",
                         '',
                         'error'
-                    ).then((res)=>{
+                    ).then((res) => {
                     });
                 })
             }
@@ -99,57 +99,57 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                     setDone(true)
                 }
             )
-        }else {
-            setErrorUpload("File yuklanmadi!!!");
+        } else {
+            setErrorUpload(t("The file was not uploaded!!!"));
             setLoading(false)
         }
 
     }
     return (
         <div className="response-request">
-            <div className="content-line" />
-            <div style={{textAlign:isAn?"end":"start", marginBottom:isAn?"":"7px"}}>
-                <span title={isAn?"Amalni bekor qilish":"Javob qo'shish "} style={
+            <div className="content-line"/>
+            <div style={{textAlign: isAn ? "end" : "start", marginBottom: isAn ? "" : "7px"}}>
+                <span title={isAn ? t("Cancel the action") : t("Add an answer")} style={
                     {
-                        backgroundColor:isAn?red[400]:green[400],
-                        width:"25px",height:"25px",
-                        paddingTop:"10px",
-                        paddingLeft:"3px",
-                        paddingRight:"3px",
-                        color:"white",
-                        borderRadius:"50%",
-                        cursor:"pointer"
+                        backgroundColor: isAn ? red[400] : green[400],
+                        width: "25px", height: "25px",
+                        paddingTop: "10px",
+                        paddingLeft: "3px",
+                        paddingRight: "3px",
+                        color: "white",
+                        borderRadius: "50%",
+                        cursor: "pointer"
                     }
                 }
-                onClick={()=>setIsAn(!isAn)}
-                >{!isAn?<AddIcon/>:<RemoveIcon/>}</span>
+                      onClick={() => setIsAn(!isAn)}
+                >{!isAn ? <AddIcon/> : <RemoveIcon/>}</span>
             </div>
             {
-                isAn?<div>
-                    <Label text={t("Answer")+":"} />
-                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} style={
+                isAn ? <div>
+                    <Label text={t("Answer") + ":"}/>
+                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} style={
                         {
-                            border:"1px solid rgba(0,0,0,0.3)",
-                            width:"100%",
-                            borderRadius:"5px",
-                            minHeight:"75px",
-                            maxHeight:"85px",
-                            marginBottom:"3px",
-                            padding:"6px"
+                            border: "1px solid rgba(0,0,0,0.3)",
+                            width: "100%",
+                            borderRadius: "5px",
+                            minHeight: "75px",
+                            maxHeight: "85px",
+                            marginBottom: "3px",
+                            padding: "6px"
                         }
                     }
-                              placeholder="Javob matnini kiriting"
+                              placeholder={t("Enter the answer text")}
                     >
 
                 </textarea>
-                </div>:""
+                </div> : ""
             }
-            <div style={{marginTop:"17px"}}>
-                <div style={{marginBottom: '20px',display:"inline-block"}}>
+            <div style={{marginTop: "17px"}}>
+                <div style={{marginBottom: '20px', display: "inline-block"}}>
                     <div className="lb">
                         <label className="label" htmlFor="">{t("Attach file")}</label>
                     </div>
-                    <div className="file" style={{cursor: "pointer",marginTop:"5px"}}>
+                    <div className="file" style={{cursor: "pointer", marginTop: "5px"}}>
                         {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
                             <GetAppIcon style={{cursor: "pointer"}}/> : ""}
                         {isLoading ? <CircularProgress style={{width: "15px", height: "15px", marginTop: "3px"}}
@@ -159,12 +159,12 @@ const ResponseRequestItem1 = ({t,id,item,refresh,type}) => {
                     <div className="file1">{fileName}</div>
                     <p className="text-danger">{errorUpload}</p>
                 </div>
-                <div className="button" style={{marginTop: '20px',display:"inline-block", float:"right"}}>
-                    <button  onClick={submit} className="btn-default">{t("Attach the answer")}</button>
+                <div className="button" style={{marginTop: '20px', display: "inline-block", float: "right"}}>
+                    <button onClick={submit} className="btn-default">{t("Attach the answer")}</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default  withTranslation()(ResponseRequestItem1);
+export default withTranslation()(ResponseRequestItem1);

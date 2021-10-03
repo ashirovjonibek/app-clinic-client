@@ -3,7 +3,7 @@ import UserItem from "../UserItem";
 import {withTranslation} from "react-i18next";
 
 const SupervisorIncomingRequestItem = (props) => {
-    console.log(props.info)
+    // console.log(props.info)
     return (
         <div className="supervisor-incoming-request-item">
             <div className="new">

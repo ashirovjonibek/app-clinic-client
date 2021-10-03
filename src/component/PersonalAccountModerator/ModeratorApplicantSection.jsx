@@ -19,7 +19,7 @@ const ModeratorApplicantSection = (props) => {
         axios(config)
             .then(function (response) {
                 setApplicants(response.data)
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -32,7 +32,7 @@ const ModeratorApplicantSection = (props) => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{
-            console.log(res)
+            // console.log(res)
             setInfo(res.data)
         })
     },[props]);

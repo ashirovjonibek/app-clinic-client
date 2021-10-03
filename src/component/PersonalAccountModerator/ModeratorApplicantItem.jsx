@@ -14,7 +14,7 @@ const ModeratorApplicantItem = (props) => {
 
     },[props]);
 
-    console.log(info)
+    // console.log(info)
     return (
         <div className="moderator-applicant-item">
             <div className="content">

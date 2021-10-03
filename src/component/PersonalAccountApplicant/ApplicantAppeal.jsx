@@ -25,7 +25,7 @@ import VoiceRecorder from "./recorders/voiceRecorder";
 import CustomVideoRecorder from "./recorders/videoRecorder";
 
 const ApplicantAppeal = (props) => {
-    const {history} = props;
+    const {history,t} = props;
     const [record, setRecord] = useState({
         status: false,
         name: ""
@@ -68,10 +68,10 @@ const ApplicantAppeal = (props) => {
         // console.log(values);
         Swal.fire({
             showCancelButton: true,
-            confirmButtonText: "Yuborish",
-            title: "Ariza ko'rib chiqish uchun yuborilsinmi",
+            confirmButtonText: t("Send"),
+            title: t("Should the application be sent for review")+"?",
             icon: "warning",
-            cancelButtonText: "Bekor qilish"
+            cancelButtonText: t("Cancel")
         }).then((confirm) => {
             if (confirm.isConfirmed) {
                 axios({
@@ -84,7 +84,7 @@ const ApplicantAppeal = (props) => {
                     }
                 }).then(res => {
                     if (res.data.success) {
-                        Swal.fire("Ariza yuborildi", "", "success").then(r => {
+                        Swal.fire(t("Application has been sent"), "", "success").then(r => {
                             history.push('/personalAccountApplicant')
                         })
 
@@ -93,7 +93,7 @@ const ApplicantAppeal = (props) => {
                         })
                     }
                 }).catch((err) => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(r => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(r => {
                         console.log(r)
                     })
                 });

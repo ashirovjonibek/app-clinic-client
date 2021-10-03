@@ -4,7 +4,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {toast} from "react-toastify";
 import {withTranslation} from "react-i18next";
 
-const ModeratorHeadsDepartmentSection = () => {
+const ModeratorHeadsDepartmentSection = ({t}) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const ModeratorHeadsDepartmentSection = () => {
                 // console.log(response.data)
             })
             .catch(() => {
-                toast.error("Xatolik yuz berdi!!!")
+                toast.error(t("An error occurred")+"!!!")
             });
 
     }, []);
@@ -43,7 +43,7 @@ const ModeratorHeadsDepartmentSection = () => {
             })
             .catch(function (error) {
                 // console.log(error);
-                toast.error("Xatolik yuz berdi")
+                toast.error(t("An error occurred")+"!!!")
             });
     };
 

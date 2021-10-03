@@ -41,28 +41,28 @@ const AdminListSupervisor = ({t,searchTerm}) => {
     }
     const deleteMethod = (id) => {
         Swal.fire({
-            title:"User o'chirilsinmi???",
+            title:t("Delete user") + "?",
             icon:"warning",
             confirmButtonColor:"red",
-            cancelButtonText:"Bekor qilish",
-            confirmButtonText:"O'chirish",
+            cancelButtonText: t("Cancel"),
+            confirmButtonText:t("Delete"),
             showCancelButton:true
         }).then((conform)=>{
             if (conform.isConfirmed){
                 axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
                             if (res.status===200){
-                                Swal.fire("O'chirildi!!!","","success").then((r)=>{
+                                Swal.fire(t("Deleted")+"!!!","","success").then((r)=>{
                                     getListeners();
                                 })
                             }else {
-                                Swal.fire("Xatolik yuz berdi","","error").then((r)=>{
+                                Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
                                     getListeners();
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire("Xatolik yuz berdi","","error").then((r)=>{
+                    Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
                         getListeners();
                     })
                 })

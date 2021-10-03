@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import iconSearch from "../../assets/icon/icon-search.svg";
-import iconGlass from "../../assets/icon/icon-glass.svg";
 import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -9,7 +8,6 @@ import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
 import AdminListSetting from './AdminListSetting';
 import {withTranslation} from "react-i18next";
-import LockIcon from '@material-ui/icons/Lock';
 import {useHistory} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import "../../assets/scss/adminList.scss"

@@ -4,8 +4,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import RequestFunctions from "../../requests/RequestFunctions";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
+import {withTranslation} from "react-i18next";
 
-export default function SimpleModal({item, getListeners}) {
+function SimpleModal({t,item, getListeners}) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const select = item.roles[0].name;
@@ -50,26 +51,26 @@ export default function SimpleModal({item, getListeners}) {
     const changeUpdate = () => {
         handleClose();
         Swal.fire({
-            title:"O'zgarish saqlansinmi?",
+            title:t("Save the change")+"?",
             showCancelButton:true,
-            cancelButtonText:"Bekor qilish!!!",
-            confirmButtonText:"Saqlash!!!",
+            cancelButtonText:t("Cancel"),
+            confirmButtonText:t("Save"),
             icon:"warning",
 
         }).then((conform)=>{
             if (conform.isConfirmed){
                 RequestFunctions.updateListenerByRole(changeRolesItem, item.id).then((r)=>{
                     if (r.status===202){
-                        Swal.fire("O'zgarishlar saqlandi!!!","","success").then((r)=>{
+                        Swal.fire(t("Saved")+"!!!","","success").then((r)=>{
                             getListeners();
                         })
                     }else {
-                        Swal.fire("Xatolik yuz berdi!!!","","error").then((r)=>{
+                        Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
                             handleOpen()
                         })
                     }
                 }).catch((err)=>{
-                    Swal.fire("Xatolik yuz berdi!!!","","error").then((r)=>{
+                    Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
                         handleOpen()
                     })
                 });
@@ -155,3 +156,4 @@ export default function SimpleModal({item, getListeners}) {
         </div>
     );
 }
+export default withTranslation() (SimpleModal);

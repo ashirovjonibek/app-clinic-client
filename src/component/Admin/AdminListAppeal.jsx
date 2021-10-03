@@ -4,7 +4,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
 import axios from "axios";
-import {configHeader} from "../../requests/congifHeader";
 import {apiPath} from "../../requests/apiPath";
 
 const AdminListAppeal = ({t, searchTerm}) => {
@@ -34,13 +33,14 @@ const AdminListAppeal = ({t, searchTerm}) => {
             });
 
     }
+
     const deleteMethod = (id) => {
         Swal.fire({
-            confirmButtonText:"O'chirish!!!",
-            cancelButtonText:"Bekor qilish",
+            confirmButtonText: t("O'chirish")+"!!!",
+            cancelButtonText:t("Cancel"),
             confirmButtonColor:"red",
             showCancelButton:true,
-            title:"Arizachi o'chirib yuborilsinmi?",
+            title:t("Should the applicant be deleted")+"?",
             icon:"warning"
         }).then((conform)=>{
             if (conform.isConfirmed){
@@ -53,18 +53,18 @@ const AdminListAppeal = ({t, searchTerm}) => {
                     .then(res => {
                         console.log(res);
                             if (res?.status===200){
-                                Swal.fire("Arizachi o'chirildi!!!","","success").then(r=>{
+                                Swal.fire(t("Applicant deleted")+"!!!","","success").then(r=>{
                                     getApplicants()
                                 })
                             }else {
-                                Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                                Swal.fire(t("An error occurred")+"!!!","","error").then(r=>{
                                     getApplicants()
                                 })
                             }
                         }
                     ).catch(error => {
                     console.log(error);
-                    Swal.fire("Xatolik yuz berdi!!!","","error").then(r=>{
+                    Swal.fire(t("An error occurred")+"!!!","","error").then(r=>{
                         getApplicants()
                     })
                 });

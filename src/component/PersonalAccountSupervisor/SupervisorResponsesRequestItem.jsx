@@ -14,6 +14,8 @@ import {FormHelperText} from "@material-ui/core";
 import i18next from "i18next";
 
 const SupervisorResponsesRequestItem = (props) => {
+    const { t } = props;
+
     let token = localStorage.getItem(STORAGE_NAME);
     const [isM, setIsM] = useState(false);
     const [message, setMessage] = useState("");
@@ -40,12 +42,12 @@ const SupervisorResponsesRequestItem = (props) => {
 
     const accept = (id) => {
         Swal.fire({
-            title: "Tasdiqlash!!",
-            html: "Murojaat qabul qilinsinmi?",
+            title:t("Confirmation") + "!!!",
+            html: t("Will the application be accepted")+"?",
             icon: "warning",
-            confirmButtonText: "Ha",
+            confirmButtonText: t("Yes"),
             showCancelButton: true,
-            cancelButtonText: "Yo'q",
+            cancelButtonText: t("No"),
             cancelButtonColor: "red",
 
         }).then((confirm) => {
@@ -57,12 +59,12 @@ const SupervisorResponsesRequestItem = (props) => {
                         Authorization: token
                     }
                 }).then((r) => {
-                    Swal.fire("Bajarildi!!!", "", "success").then((ress) => {
+                    Swal.fire(t("Done"), "", "success").then((ress) => {
                         console.log(r)
                         props.refresh()
                     })
                 }).catch((e) => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(() => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(() => {
 
                         props.refresh()
                     })
@@ -75,12 +77,12 @@ const SupervisorResponsesRequestItem = (props) => {
 
     const denied = (id) => {
         Swal.fire({
-            title: "Tasdiqlash!!",
-            html: "Murojaat rad etilsinmi?",
+            title: t("Confirmation") + "!!!",
+            html: t("Should the application be rejected")+"?",
             icon: "warning",
-            confirmButtonText: "Ha",
+            confirmButtonText:  t("Yes"),
             showCancelButton: true,
-            cancelButtonText: "Yo'q",
+            cancelButtonText:  t("No"),
             confirmButtonColor: "red",
 
         }).then((confirm) => {
@@ -93,14 +95,14 @@ const SupervisorResponsesRequestItem = (props) => {
                     },
                     data: {comment:message}
                 }).then((r) => {
-                    Swal.fire("Bajarildi!!!", "", "success").then((ress) => {
+                    Swal.fire(t("Done"), "", "success").then((ress) => {
                         console.log(r);
                         props.refresh();
                         setMessage(false);
                         setIsM(false)
                     })
                 }).catch((e) => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then(() => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(() => {
 
                         props.refresh()
                     })

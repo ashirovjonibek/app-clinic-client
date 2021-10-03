@@ -13,7 +13,7 @@ import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
 
 function RegistrationListener(props) {
-    const {history} = props;
+    const {history,t} = props;
     const [positions, setPositions] = useState([]);
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
@@ -80,7 +80,7 @@ function RegistrationListener(props) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: t("Registered")+"!!!",
                     showConfirmButton: false,
                     timer: 1000
                 }).then(() => {
@@ -90,7 +90,7 @@ function RegistrationListener(props) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                    title: t("An error occurred. Please try again")+"!!!",
                     showConfirmButton: false,
                     timer: 1000
                 }).then(() => {
@@ -100,7 +100,7 @@ function RegistrationListener(props) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                title: t("An error occurred. Please try again")+"!!!",
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {

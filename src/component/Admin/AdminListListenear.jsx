@@ -43,9 +43,9 @@ const AdminListListener = ({t, searchTerm}) => {
 
     const deleteMethod = (id) => {
         Swal.fire({
-            title: t("User o'chirilsinmi?"),
-            cancelButtonText: "Bekor qilish",
-            confirmButtonText: "O'chirish",
+            title: t("Delete user")+"?",
+            cancelButtonText: t("Cancel"),
+            confirmButtonText: t("Delete"),
             confirmButtonColor: "red",
             showCancelButton: true,
             icon: "warning"
@@ -59,18 +59,18 @@ const AdminListListener = ({t, searchTerm}) => {
                 })
                     .then(res => {
                             if (res.status === 200) {
-                                Swal.fire("O'chirildi", "", "success").then((r) => {
+                                Swal.fire(t("Deleted")+"", "", "success").then((r) => {
                                     getListeners()
                                     setReLoad(!reLoad)
                                 })
                             } else {
-                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                                     getListeners()
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                         getListeners()
                     })
                 })
@@ -88,22 +88,22 @@ const AdminListListener = ({t, searchTerm}) => {
             }
         };
         Swal.fire({
-            title: "Eshituvchi qabul qilinsinmi?",
-            confirmButtonText: "Ha",
-            cancelButtonText: "Yo'q",
+            title: t("User acceptance")+"?",
+            confirmButtonText: t("Yes"),
+            cancelButtonText: t("No"),
             showCancelButton: true,
             icon: "warning"
         }).then((confirm) => {
             if (confirm.isConfirmed) {
                 axios(config)
                     .then(function (response) {
-                        Swal.fire("Qabul qilindi!!!", "", "success").then((confirm1) => {
+                        Swal.fire(t("Accepted")+"!!!", "", "success").then((confirm1) => {
                             getListeners()
                         })
                     })
                     .catch(function (error) {
                         console.log(error);
-                        Swal.fire("Xatolik yuz berdi!!!", "", "error").then((confirm1) => {
+                        Swal.fire(t("Applicant deleted")+"!!!", "", "error").then((confirm1) => {
                             getListeners()
                         })
                     });

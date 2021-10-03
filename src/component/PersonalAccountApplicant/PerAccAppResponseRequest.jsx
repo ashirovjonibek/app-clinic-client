@@ -53,11 +53,11 @@ const PerAccAppResponseRequest = ({t}) => {
     const sendFeedback=(item)=>{
         console.log(item,comment)
         Swal.fire({
-            title:"Izoh yuborilsinmi?",
+            title:t("Send a comment")+"?",
             icon:"warning",
             showCancelButton:true,
-            cancelButtonText:"Yo'q",
-            confirmButtonText:"Ha",
+            cancelButtonText:t("No"),
+            confirmButtonText:t("Yes"),
             confirmButtonColor:green[400]
         }).then((confirm)=>{
             if (confirm.isConfirmed){
@@ -73,11 +73,11 @@ const PerAccAppResponseRequest = ({t}) => {
                         liked:false
                     }
                 }).then((r)=>{
-                    Swal.fire("Izoh yuborildi!!!","","success").then((conf)=>{
+                    Swal.fire(t("Comment sent")+"!!!","","success").then((conf)=>{
                         setRef(!ref);
                     })
                 }).catch((e)=>{
-                    Swal.fire("IXatolik yuz berdi!!!","","error").then((conf)=>{
+                    Swal.fire(t("An error occurred")+"!!!","","error").then((conf)=>{
                         setRef(!ref);
                     })
                 })

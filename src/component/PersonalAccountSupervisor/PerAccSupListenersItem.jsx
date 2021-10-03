@@ -7,17 +7,18 @@ import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 
 const PerAccSupListenersItem = (props) => {
+    const { t } = props;
 
     let token=localStorage.getItem(STORAGE_NAME);
 
     const blockUser=()=>{
       Swal.fire({
-          title:props?.item.blocked?"User blockdan chiqarilsinmi?":"User blocklansinmi?",
+          title:props?.item.blocked?t("Remove user from block")+"?":"User blocklansinmi?",
           icon:"warning",
           showConfirmButton:true,
           showCancelButton:true,
-          confirmButtonText:"Ha",
-          cancelButtonText:"yo'q",
+          confirmButtonText:t("Yes"),
+          cancelButtonText:t("No"),
           confirmButtonColor:"red"
       }).then((conform)=>{
           if (conform.isConfirmed){
@@ -28,7 +29,7 @@ const PerAccSupListenersItem = (props) => {
                       Authorization:token
                   }
               }).then((r)=>{
-                  Swal.fire("Bajarildi!!","","success").then((r)=>{
+                  Swal.fire(t("Done")+"!","","success").then((r)=>{
                       console.log(r);
                       props.refresh()
                   })

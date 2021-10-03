@@ -18,7 +18,7 @@ import Footer from "../Footer/Footer";
 import {Link} from 'react-router-dom'
 
 const Login = (props) => {
-    const { history } = props;
+    const { history, t } = props;
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
@@ -56,7 +56,7 @@ const Login = (props) => {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
-                                    title: 'Accountga kirildi',
+                                    title: t("Logged in to the account"),
                                     showConfirmButton: false,
                                     timer: 1000
                                 }).then(()=>{
@@ -72,7 +72,7 @@ const Login = (props) => {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'error',
-                                    title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                                    title: t("Login or password error. Please try again")+"!",
                                     showConfirmButton: false,
                                     timer: 1000
                                 }).then(()=>{
@@ -84,7 +84,7 @@ const Login = (props) => {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'error',
-                            title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                            title: t("Login or password error. Please try again")+"!",
                             showConfirmButton: false,
                             timer: 2000
                         }).then(()=>{
@@ -96,7 +96,7 @@ const Login = (props) => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: "Login yoki parol xato iltimos qayta urunib ko'ring!!!",
+                    title: t("Login or password error. Please try again")+"!",
                     showConfirmButton: false,
                     timer: 2000
                 }).then(()=>{

@@ -252,7 +252,50 @@
   "The file was not uploaded": "Fayl yuklanmagan",
   "Go super moderator page": "Super moderator sahifasiga o'tish",
   "Go moderator page": "Moderator sahifasiga o'tish",
-  "Moderators and super moderators": "Moderatorlar va super moderatorlar"
+
+  "Moderators and super moderators": "Moderatorlar va super moderatorlar",
+
+  "Should the applicant be deleted": "Arizachi o'chirib yuborilsinmi",
+  "Applicant deleted": "Arizachi o'chirildi",
+  "An error occurred": "Xatolik yuz berdi",
+  "Delete user": "User o'chirilsinmi",
+  "Deleted": "O'chirildi",
+  "User acceptance": "User qabul qilinsinmi",
+
+  "Yes": "Ha",
+  "No": "Yo'q",
+  "Department created": "Kafedra yaratildi",
+  "Saved": "O'zgarishlar saqlandi",
+  "Send": "Yuborish",
+  "Should the application be sent for review": "Ariza ko'rib chiqish uchun yuborilsinmi",
+  "Application has been sent": "Ariza yuborildi",
+  "Send a comment": "Izoh yuborilsinmi",
+  "Comment sent": "Izoh yuborildi",
+  "Confirmation": "Tasdiqlash",
+  "Should this form be sent for review": "Ushbu ariza ko'rib chiqish uchun yuborilsinmi",
+  "Should this form be sent to the applicant": "Ushbu ariza arizachiga yuborilsinmi",
+  "Should this application be accepted": "Ushubu ariza qabul qilinsinmi",
+  "Are you sure this application will be sent to the Moderator": "Ushubu ariza Moderatorga yuborilishiga aminmisiz",
+  "The message length must be at least 10 characters": "Habar uzunligi kamida 10 ta belgidan iborat bo'lishi kerak",
+  "Confirm changes to this form": "Ushubu ariza uchun o'zgarishlarni tasdiqlash",
+  "Cancel the action": "Amalni bekor qilish",
+  "Add an answer": "Javob qo'shish",
+  "Enter the answer text": "Javob matnini kiriting",
+  "Do you confirm this information change": "Ushbu ma'lumot o'zgarishini tasdiqlaysizmi",
+  "Done": "Bajarildi",
+  "Will the application be accepted": "Murojaat qabul qilinsinmi",
+  "Should the application be rejected": "Murojaat rad etilsinmi",
+  "Logged in to the account": "Accountga kirildi",
+  "Login or password error. Please try again": "Login yoki parol xato. Iltimos qayta urunib ko'ring",
+  "Save changes": "O'zgarishlar saqlansinmi",
+  "Registered": "Ro'yxatga olindi",
+  "An error occurred. Please try again": "Xatolik yuz berdi. Iltimos, yana bir bor urinib ko'ring"
+
+
+
+
+
+
 
 
 

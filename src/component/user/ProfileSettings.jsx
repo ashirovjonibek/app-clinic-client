@@ -304,7 +304,7 @@ const ProfileSettings = ({t, history}) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: "Ro'yhatga olindi!!!",
+                        title: t("Saved"),
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -314,7 +314,7 @@ const ProfileSettings = ({t, history}) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                        title: t("An error occurred. Please try again")+"!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -325,7 +325,7 @@ const ProfileSettings = ({t, history}) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: "Xatolik yuz berdi iltimos qayta urunib ko'ring!!!",
+                title: t("An error occurred. Please try again")+"!!!",
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {

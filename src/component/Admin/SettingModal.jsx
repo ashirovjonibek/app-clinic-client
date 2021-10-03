@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import {withTranslation} from "react-i18next";
-import RequestFunctions from "../../requests/RequestFunctions";
 import AddIcon from "@material-ui/icons/Add";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
@@ -41,11 +40,11 @@ function SettingModal({t, getSections}) {
         axios(config)
             .then(function (response) {
                 if (response.status === 200) {
-                    Swal.fire("Kafedra yaratildi", "", "success").then((r) => {
+                    Swal.fire(t("Department created")+"", "", "success").then((r) => {
                         getSections()
                     })
                 } else {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                         getSections()
                     })
                 }            })

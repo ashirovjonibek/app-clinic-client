@@ -8,8 +8,8 @@ import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 import Swal from "sweetalert2";
 
-const AdminListModeratorAndSuperModerator = ({t,searchTerm}) => {
-    const [items,setItems] = useState([]);
+const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
+    const [items, setItems] = useState([]);
     const [moderator, setModerator] = useState([]);
     const i18 = localStorage.getItem('I18N_LANGUAGE')
     const [reLoad, setReLoad] = useState(true);
@@ -22,7 +22,7 @@ const AdminListModeratorAndSuperModerator = ({t,searchTerm}) => {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/auth/moderatorAndSuperModerator',
+            url: API_URL + '/auth/moderatorAndSuperModerator',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -39,29 +39,29 @@ const AdminListModeratorAndSuperModerator = ({t,searchTerm}) => {
     }
     const deleteMethod = (id) => {
         Swal.fire({
-            title:"User o'chirilsinmi?",
-            cancelButtonText:"Bekor qilish",
-            confirmButtonText:"O'chirish",
-            confirmButtonColor:"red",
-            showCancelButton:true,
-            icon:"warning"
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
+            title: t("Delete user") + "?",
+            cancelButtonText: t("Cancel"),
+            confirmButtonText: t("Delete"),
+            confirmButtonColor: "red",
+            showCancelButton: true,
+            icon: "warning"
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
                 axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
                             if (res.status === 200) {
-                                Swal.fire("O'chirildi", "", "success").then((r) => {
+                                Swal.fire(t("Deleted")+"", "", "success").then((r) => {
                                     getListeners()
                                     setReLoad(!reLoad)
                                 })
                             } else {
-                                Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                                Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                                     getListeners()
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire("Xatolik yuz berdi!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
                         getListeners()
                     })
                 })
@@ -90,10 +90,10 @@ const AdminListModeratorAndSuperModerator = ({t,searchTerm}) => {
                             <th className="table-border ">Edit</th>
                             <th className="table-border ">Delete</th>
                         </tr>
-                        {moderator && moderator.filter(item=>{
-                            if (searchTerm===""){
+                        {moderator && moderator.filter(item => {
+                            if (searchTerm === "") {
                                 return item
-                            }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                            } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
                                 return item
                             }
                         }).map((item) =>

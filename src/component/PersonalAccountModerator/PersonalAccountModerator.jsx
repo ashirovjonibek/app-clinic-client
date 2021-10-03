@@ -20,7 +20,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import {STORAGE_NAME} from "../../utils/constant";
-import RequestFunctions from "../../requests/RequestFunctions";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";

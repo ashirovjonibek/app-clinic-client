@@ -5,13 +5,6 @@ import RequestTheme from "../RequestTheme";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import Button from "@material-ui/core/Button";
-import EditIcon from '@material-ui/icons/Edit';
 import {withTranslation} from "react-i18next";
 
 
