@@ -216,7 +216,7 @@ const Admin = ({t}) => {
                                     <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                    <button onClick={() => getPage(5)}>{t("List of moderator and super moderator")}</button>
+                                    <button onClick={() => getPage(5)}>{t("Moderators and super moderators")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 6 ? "active" : ""}>
                                     <button onClick={() => getPage(6)}>{t("Settings")}</button>
