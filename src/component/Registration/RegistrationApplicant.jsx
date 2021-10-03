@@ -13,7 +13,7 @@ import NavTop from "../Nav/NavTop";
 
 
 const RegistrationApplicant = (props) => {
-    const {history,t} = props;
+    const {history, t} = props;
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [nations, setNations] = useState([]);
@@ -187,7 +187,7 @@ const RegistrationApplicant = (props) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: t("Registered")+"!!!",
+                        title: props.t("Registered")+"!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -197,7 +197,7 @@ const RegistrationApplicant = (props) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: t("An error occurred. Please try again")+"!!!",
+                        title: props.t("An error occurred. Please try again")+"!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -208,7 +208,7 @@ const RegistrationApplicant = (props) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title:  t("An error occurred. Please try again")+"!!!",
+                title:  props.t("An error occurred. Please try again")+"!!!",
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {
