@@ -186,8 +186,9 @@ const RegistrationApplicant = (props) => {
         }
     }
 
-    const handleSend = (e) => {
-        e.preventDefault();
+    const handleSend = () => {
+        // e.preventDefault();
+        console.log(values)
         if (values.password === values.prePassword) {
             console.log(values)
             axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
@@ -211,6 +212,8 @@ const RegistrationApplicant = (props) => {
                     }).then(() => {
                     });
                 }
+            }).catch((e)=>{
+                console.log(e)
             });
         } else {
             Swal.fire({
@@ -241,7 +244,7 @@ const RegistrationApplicant = (props) => {
                             props.t("Register")}
                         </span>}/>
                         <h5>{props.t("Personal data")}</h5>
-                        <form onSubmit={handleSend}>
+                        <form onSubmit={(e)=>e.preventDefault()}>
                             <div className="form-wrapper">
                                 <ul className="form">
                                     <li className="form-first">
@@ -413,7 +416,7 @@ const RegistrationApplicant = (props) => {
 
                                                     <div className="checked">
 
-                                                        <input required={true} type="checkbox" id="vehicle1"
+                                                        <input type="checkbox" id="vehicle1"
                                                                name="vehicle1"
                                                                value="Bike"/>
                                                         <label
@@ -421,7 +424,7 @@ const RegistrationApplicant = (props) => {
                                                             <a href="/#"><strong>{props.t("privacy policy")}</strong></a></label>
                                                     </div>
                                                 </div>
-                                                <button type="submit"
+                                                <button onClick={handleSend}
                                                         className="btn-default">{props.t("Registration")}</button>
                                             </div>
                                         </ul>

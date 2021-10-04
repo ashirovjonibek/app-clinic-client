@@ -153,7 +153,7 @@ const ModeratorPerformerItem = (props) => {
                                     title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                     style={{textAlign: "center", cursor: "pointer"}}
                                     className="file">
-                                    <a href={API_URL + '/attach/' + props?.item?.application?.attachmentsId[0]}><FileCopy/></a>
+                                    {props?.item?.application?.attachmentsId?<a href={API_URL + '/attach/' + props?.item?.application?.attachmentsId[0]}><FileCopy/></a>:""}
                                 </div>
                             </li>
                             <li style={{display: props?.item?.application?.video ? "" : "none", margin: '0 5px 0 5px'}}>
