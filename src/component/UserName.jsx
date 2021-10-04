@@ -5,7 +5,7 @@ import Dialog from "@material-ui/core/Dialog";
 import {useSelector} from "react-redux";
 import {useHistory} from 'react-router-dom'
 const UserName = (props) => {
-    const [open,setOpen]=useState("");
+    const [open,setOpen]=useState(false);
     const me=useSelector(state => state.meReducer);
     const history = useHistory()
 
