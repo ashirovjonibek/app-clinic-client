@@ -193,10 +193,29 @@ const ApplicantAppeal = (props) => {
                             {
                                 values.videoId === "" ?
                                     <button onClick={() => {
-                                        setRecord({
-                                            status: true,
-                                            name: "video"
-                                        })
+                                        navigator.permissions.query(
+                                            { name: 'camera' }
+                                            // { name: 'microphone' }
+                                            // { name: 'geolocation' }
+                                            // { name: 'notifications' }
+                                            // { name: 'midi', sysex: false }
+                                            // { name: 'midi', sysex: true }
+                                            // { name: 'push', userVisibleOnly: true }
+                                            // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
+                                        ).then(function(permissionStatus){
+
+                                            console.log(permissionStatus.state); // granted, denied, prompt
+                                            if (permissionStatus.state==="granted"){
+                                                setRecord({
+                                                    status: true,
+                                                    name: "video"
+                                                })
+                                            }else {
+                                                alert("Permission "+permissionStatus.state+" for camera!!!")
+                                            }
+
+                                        });
+
                                     }} className="video-request">
                                 <span>
                                     <img src={iconVideo} alt=""/>
@@ -222,10 +241,29 @@ const ApplicantAppeal = (props) => {
                         <div>
                             {
                                 values.audioId === "" ? <button onClick={() => {
-                                        setRecord({
-                                            status: true,
-                                            name: "voice"
-                                        })
+                                        navigator.permissions.query(
+                                            // { name: 'camera' }
+                                            { name: 'microphone' }
+                                            // { name: 'geolocation' }
+                                            // { name: 'notifications' }
+                                            // { name: 'midi', sysex: false }
+                                            // { name: 'midi', sysex: true }
+                                            // { name: 'push', userVisibleOnly: true }
+                                            // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
+                                        ).then(function(permissionStatus){
+
+                                            console.log(permissionStatus.state); // granted, denied, prompt
+                                            if (permissionStatus.state==="granted"){
+                                                setRecord({
+                                                    status: true,
+                                                    name: "voice"
+                                                })
+                                            }else {
+                                                alert("Permission "+permissionStatus.state+" for microphone!!!")
+                                            }
+
+                                        });
+
                                     }} className="audio-request">
                                         <img src={iconAudio} alt=""/>
                                         Сделать аудио обращение
