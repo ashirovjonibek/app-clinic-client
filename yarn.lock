@@ -4464,6 +4464,11 @@
     "get-stdin" "*"
     "meow" "*"
 
+"dayjs@^1.10.7":
+  "integrity" "sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.7.tgz"
+  "version" "1.10.7"
+
 "debug@^2.2.0":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -8022,6 +8027,11 @@
   dependencies:
     "yallist" "^4.0.0"
 
+"luxon@^2.0.2":
+  "integrity" "sha512-ZRioYLCgRHrtTORaZX1mx+jtxKtKuI5ZDvHNAmqpUzGqSrR+tL4FVLn/CUGMA3h0+AKD1MAxGI5GnCqR5txNqg=="
+  "resolved" "https://registry.npmjs.org/luxon/-/luxon-2.0.2.tgz"
+  "version" "2.0.2"
+
 "lz-string@^1.4.4":
   "integrity" "sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY="
   "resolved" "https://registry.npmjs.org/lz-string/-/lz-string-1.4.4.tgz"
@@ -8386,6 +8396,11 @@
   "version" "0.5.5"
   dependencies:
     "minimist" "^1.2.5"
+
+"moment@^2.29.1":
+  "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
+  "version" "2.29.1"
 
 "move-concurrently@^1.0.1":
   "integrity" "sha1-viwAX9oy4LKa8fBdfEszIUxwH5I="
