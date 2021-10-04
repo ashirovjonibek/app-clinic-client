@@ -44,16 +44,16 @@ const ProfileSettings = ({t, history}) => {
             .then(function (response) {
                 setUserInfo(response.data.object)
                 let forData = response.data.object
-                let isApllicant=0;
+                let isApllicant = 0;
                 response.data.object.roles.map(item => {
                     if (item.name === "ADMIN" || item.name === "ADMIN") {
                         isApplicant++
                     }
-                    if (item.name === "USER"  ) {
+                    if (item.name === "USER") {
                         setIsApplicant(true)
                     }
                 })
-                if (isApplicant>0){
+                if (isApplicant > 0) {
                     setIsApplicant(false)
                 }
 
@@ -259,7 +259,7 @@ const ProfileSettings = ({t, history}) => {
     });
 
     const imageSelector = (e) => {
-        let file = e.target.files[0]
+        let file = e.target.files[0];
         setImageFile({imageId: file})
     }
     const handleUpload = (e) => {
@@ -268,7 +268,7 @@ const ProfileSettings = ({t, history}) => {
         const FormData = require('form-data');
         const fs = require('fs');
         const data = new FormData();
-        data.append('image', imageFile.imageId);
+        data.append('image', e.target.files[0]);
 
         const config = {
             method: 'post',
@@ -414,14 +414,21 @@ const ProfileSettings = ({t, history}) => {
                     <div className="flexUchun">
                         <div className="dashboard-container">
                             <div className="profileImage">
-                                <img onClick={() => setOpenImageDialog(true)} width="100px" height="100px"
-                                     src={API_URL + values.image} alt=""/>
+                                {values.imageId || values.image ? <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px"
+                                                                       src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}
+                                                                       alt=""/> : <div style={{width:"100%",height:"100%"}}/>}
                                 <Dialog fullWidth={true} open={openImageDialog}
                                         onClose={() => setOpenImageDialog(false)}>
+                                    <div style={{width:"100%",position:"relative"}}>
+                                        <span style={{backgroundColor:"rgba(0,0,0,0.4)",position:"absolute",margin:"10px",color:"white",fontSize:"20px",right:0,cursor:"pointer"}}
+                                              onClick={() => setOpenImageDialog(false)}
+                                        >
+                                            <b>X</b></span>
+                                    </div>
                                     <div style={{padding: "6px"}}>
-                                        <img width="100%" height="100%"
-                                             src={API_URL + values.image}
-                                             alt=""/>
+                                        {values.imageId || values.image ? <img width="100%" height="100%"
+                                                                               src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}
+                                                                               alt=""/> : ""}
                                     </div>
                                 </Dialog>
                                 <div>
@@ -431,12 +438,11 @@ const ProfileSettings = ({t, history}) => {
 
                                             <AddAPhoto/>
                                             </span>
-                                            <input type="file" name="file" onChange={imageSelector}/>
+                                            <input type="file" name="file" onChange={handleUpload}/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" onClick={handleUpload}>upload</button>
                             <p style={{fontSize: "10px"}}>{t("User image")}</p>
                             <div className="profileInfo">
                                 <div className="profileInfoDiv"><Person className="userIcon"/>{userInfo.fullName}</div>

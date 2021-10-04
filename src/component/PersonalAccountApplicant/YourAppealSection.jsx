@@ -8,6 +8,7 @@ import {CircularProgress} from "@material-ui/core";
 import {withTranslation} from "react-i18next";
 import CustomPagination from "../catalog/Pagenation";
 import Dialog from "@material-ui/core/Dialog";
+import i18next from "i18next";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -97,7 +98,7 @@ const YourAppealSection = (props) => {
                                         <ul>
                                             <li>
                                                 <label htmlFor="">{props.t("Category of treatment")}</label>
-                                                <div className="category-item">{item?.section?.title[i18]}</div>
+                                                <div className="category-item">{item?.section?.title[i18next.language]}</div>
                                             </li>
                                             <li style={{display:item?.attachmentsId?"":"none",margin:'0 5px 0 5px'}}>
                                                 <label htmlFor="">{props.t("File")}</label>
@@ -105,7 +106,9 @@ const YourAppealSection = (props) => {
                                                     title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                     style={{textAlign: "center", cursor: "pointer"}}
                                                     className="file-item">
-                                                    <a href={API_URL+'/attach/'+item?.attachmentsId[0]}><FileCopy/></a>
+                                                    {
+                                                        item?.attachmentsId?<a href={API_URL+'/attach/'+item?.attachmentsId[0]}><FileCopy/></a>:""
+                                                    }
                                                 </div>
                                             </li>
                                             <li style={{display:item?.video?"":"none",margin:'0 5px 0 5px'}}>
