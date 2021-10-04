@@ -189,8 +189,17 @@ const ProfileSettings = ({t, history}) => {
 
     const numberHandler = (e) => {
         const name = e.target.name;
-        const regNumber = /^\d+/;
-        if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
+        const phoneNumber = e.target.value;
+        // const regNumber = /^\d+/;
+        const regNumber = /^((\+)33|0)[1-9](\d{2}){4}$/;
+        // if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
+        //     setNumberDirty(true);
+        //     setErrorNumber('faqat raqam kiriting!');
+        //     setTimeout(() => {
+        //         e.target.value = ''
+        //     }, 1300)
+        // }
+        if (phoneNumber.match(regNumber) && name === 'phoneNumber') {
             setNumberDirty(true);
             setErrorNumber('faqat raqam kiriting!');
             setTimeout(() => {
