@@ -22,20 +22,20 @@ function StatisticsBySocialStatus({t}) {
     let others = t("others")
 
     const data = [
-        {name: t("Tashkent City"), id: 1, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Tashkent'), id: 2, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Andijan'), id: 3, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Bukhara'), id: 4, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Jizzakh'), id: 5, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Kashka darya'), id: 6, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Navoi'), id: 7, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Namangan'), id: 8, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Samarkand'), id: 9, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Surkhandarya'), id: 10, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Syrdarya'), id: 11, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Karakalpaks tan'), id: 1, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Andijan'), id: 2, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Bukhara'), id: 3, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Jizzakh'), id: 4, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Kashka darya'), id: 5, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Navoi'), id: 6, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Namangan'), id: 7, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Samarkand'), id: 8, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Surkhandarya'), id: 9, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Syrdarya'), id: 10, [invalid]: 0, [singlemother]: 0, [others]: 0},
+        {name: t('Tashkent'), id: 11, [invalid]: 0, [singlemother]: 0, [others]: 0},
         {name: t('Fergana'), id: 12, [invalid]: 0, [singlemother]: 0, [others]: 0},
         {name: t('Khorezm'), id: 13, [invalid]: 0, [singlemother]: 0, [others]: 0},
-        {name: t('Karakalpaks tan'), id: 14, [invalid]: 0, [singlemother]: 0, [others]: 0}
+        {name: t("Tashkent City"), id: 14, [invalid]: 0, [singlemother]: 0, [others]: 0}
     ];
 
     const [fetch, setFetch] = useState([]);

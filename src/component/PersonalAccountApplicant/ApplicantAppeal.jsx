@@ -134,7 +134,6 @@ const ApplicantAppeal = (props) => {
 
     }
 
-
     return (
         <div>
             <div className="nav">
@@ -307,7 +306,7 @@ const ApplicantAppeal = (props) => {
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
-                                                        className="category">
+                                                        className="category" required>
                                                     <option value="">{props.t("Select your appeal")}</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>

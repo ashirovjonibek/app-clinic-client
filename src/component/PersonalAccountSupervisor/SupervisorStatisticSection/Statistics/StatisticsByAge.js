@@ -34,7 +34,7 @@ function StatisticsByAge({t}) {
     const data = [
         {
             name: t("Tashkent City"),
-            id: 1,
+            id: 14,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -43,7 +43,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Tashkent'),
-            id: 2,
+            id: 11,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -52,7 +52,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Andijan'),
-            id: 3,
+            id: 2,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -61,7 +61,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Bukhara'),
-            id: 4,
+            id: 3,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -70,7 +70,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Jizzakh'),
-            id: 5,
+            id: 4,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -79,7 +79,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Kashka darya'),
-            id: 6,
+            id: 5,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -88,7 +88,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Navoi'),
-            id: 7,
+            id: 6,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -97,7 +97,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Namangan'),
-            id: 8,
+            id: 7,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -106,7 +106,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Samarkand'),
-            id: 9,
+            id: 8,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -115,7 +115,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Surkhandarya'),
-            id: 10,
+            id: 9,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -124,7 +124,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Syrdarya'),
-            id: 11,
+            id: 10,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -151,7 +151,7 @@ function StatisticsByAge({t}) {
         },
         {
             name: t('Karakalpaks tan'),
-            id: 14,
+            id: 1,
             [fromZeroToSeventeen]: 0,
             [fromEighteenToThirty]: 0,
             [fromThirtyOneToFortyFive]: 0,
@@ -228,11 +228,21 @@ function StatisticsByAge({t}) {
                     }
                 })
             } else {
-                dataItem[fromSixtyOne] = ""
-                dataItem[fromFortySixToSixty] = ""
-                dataItem[fromThirtyOneToFortyFive] = ""
-                dataItem[fromEighteenToThirty] = ""
-                dataItem[fromZeroToSeventeen] = ""
+                if (dataItem[fromSixtyOne] === 0) {
+                    dataItem[fromSixtyOne] = ""
+                }
+                if (dataItem[fromFortySixToSixty] === 0) {
+                    dataItem[fromFortySixToSixty] = ""
+                }
+                if (dataItem[fromThirtyOneToFortyFive] === 0) {
+                    dataItem[fromThirtyOneToFortyFive] = ""
+                }
+                if (dataItem[fromEighteenToThirty] === 0) {
+                    dataItem[fromEighteenToThirty] = ""
+                }
+                if (dataItem[fromZeroToSeventeen] === 0) {
+                    dataItem[fromZeroToSeventeen] = ""
+                }
             }
         })
     }))

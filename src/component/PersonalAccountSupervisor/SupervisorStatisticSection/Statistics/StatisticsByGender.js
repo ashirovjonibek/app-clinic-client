@@ -31,20 +31,20 @@ function StatisticsByGender({t}) {
     let female = t("female")
 
     const  data  =  [
-        {name: t("Tashkent City"), id: 1, [male]: 0, [female]: 0},
-        {name: t('Tashkent'), id: 2, [male]: 0,[female]: 0},
-        {name: t('Andijan'), id: 3, [male]: 0,[female]: 0},
-        {name: t('Bukhara'), id: 4, [male]: 0,[female]: 0},
-        {name: t('Jizzakh'), id: 5, [male]: 0,[female]: 0},
-        {name: t('Kashka darya'), id: 6, [male]: 0,[female]: 0},
-        {name: t('Navoi'), id: 7, [male]: 0,[female]: 0},
-        {name: t('Namangan'), id: 8, [male]: 0,[female]: 0},
-        {name: t('Samarkand'), id: 9, [male]: 0,[female]: 0},
-        {name: t('Surkhandarya'), id: 10, [male]: 0,[female]: 0},
-        {name: t('Syrdarya'), id: 11, [male]: 0,[female]: 0},
+        {name: t('Karakalpaks tan'), id: 1, [male]: 0,[female]: 0},
+        {name: t('Andijan'), id: 2, [male]: 0,[female]: 0},
+        {name: t('Bukhara'), id: 3, [male]: 0,[female]: 0},
+        {name: t('Jizzakh'), id: 4, [male]: 0,[female]: 0},
+        {name: t('Kashka darya'), id: 5, [male]: 0,[female]: 0},
+        {name: t('Navoi'), id: 6, [male]: 0,[female]: 0},
+        {name: t('Namangan'), id: 7, [male]: 0,[female]: 0},
+        {name: t('Samarkand'), id: 8, [male]: 0,[female]: 0},
+        {name: t('Surkhandarya'), id: 9, [male]: 0,[female]: 0},
+        {name: t('Syrdarya'), id: 10, [male]: 0,[female]: 0},
+        {name: t('Tashkent'), id: 11, [male]: 0,[female]: 0},
         {name: t('Fergana'), id: 12, [male]: 0,[female]: 0},
         {name: t('Khorezm'), id: 13, [male]: 0,[female]: 0},
-        {name: t('Karakalpaks tan'), id: 14, [male]: 0,[female]: 0}
+        {name: t("Tashkent City"), id: 14, [male]: 0, [female]: 0}
     ];
     const [fetch, setFetch] = useState([]);
 
