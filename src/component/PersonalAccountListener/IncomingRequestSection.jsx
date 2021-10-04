@@ -278,7 +278,7 @@ const IncomingRequestSection = (props) => {
                                                 title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                 style={{textAlign: "center", cursor: "pointer"}}
                                                 className="file-item">
-                                                <a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>
+                                                {item?.attachmentsId?<a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>:""}
                                             </div>
                                         </li>
                                         <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
@@ -441,7 +441,7 @@ const IncomingRequestSection = (props) => {
                                                 title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                 style={{textAlign: "center", cursor: "pointer"}}
                                                 className="file-item">
-                                                <a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>
+                                                {item?.attachmentsId?<a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>:""}
                                             </div>
                                         </li>
                                         <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>

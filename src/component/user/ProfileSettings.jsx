@@ -8,13 +8,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import {Email, LocationCity, ArrowBack, LocationOn, Person, Phone} from "@material-ui/icons";
 import {AddAPhoto} from "@material-ui/icons";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Dialog from "@material-ui/core/Dialog";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import NavLanguage from "../Nav/NavLanguage";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import Enter from "../Nav/Enter";
+import {IMAGE, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
 
 const ProfileSettings = ({t, history}) => {
     const user = useSelector(state => state.meReducer);
@@ -23,6 +24,7 @@ const ProfileSettings = ({t, history}) => {
     const [region, setRegion] = useState([]);
     const [newUser, setNewUser] = useState({});
     let [isApplicant, setIsApplicant] = useState(false);
+    const dispatch=useDispatch();
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -326,6 +328,12 @@ const ProfileSettings = ({t, history}) => {
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
+                        dispatch({type: ME_DATA, data: {}});
+                        dispatch({type: ME_USERNAME, data: ""});
+                        dispatch({type: ME_FULL_NAME, data: ""});
+                        dispatch({type: ME_EMAIL, data: ""});
+                        dispatch({type: IMAGE, data: ""});
+                        localStorage.removeItem(STORAGE_NAME);
                         history.push("/auth/login")
                     });
                 } else {

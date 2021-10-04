@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {withTranslation} from "react-i18next";
-
+import {API_URL} from "../utils/constant";
+import Dialog from "@material-ui/core/Dialog";
+import {useSelector} from "react-redux";
+import {useHistory} from 'react-router-dom'
 const UserName = (props) => {
+    const [open,setOpen]=useState("");
+    const me=useSelector(state => state.meReducer);
+    const history = useHistory()
 
     function stringToHslColor(str, s, l) {
         let hash = 0;
@@ -22,18 +28,35 @@ const UserName = (props) => {
                         backgroundColor:stringToHslColor(props.text?props.text:"?",50,50),
                         textAlign:"center",
                         color:"white",
+                        overflow:"hidden",
                         fontWeight:600,
                         fontSize:props?.fontSize?props.fontSize:"25px",
-                        lineHeight:props?.lineHeight?props.lineHeight:"38px"
+                        lineHeight:!props?.avatar?props?.lineHeight?props.lineHeight:"38px":""
                     }
-                }>{props.text[0].toUpperCase()}</div>
-                {!props.top?<div className="name">{props?.text}</div>:""}
+                }>{props.avatar? <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100%"} height={"100px"} alt=""/>:props.text[0].toUpperCase()}</div>
+                {!props.top?<div className="name" onClick={()=>{
+                    history.push(me.role[1])
+                }}>{props?.text}</div>:""}
             </div>
             {
                 props.des?<div className="user-inform">
                     <div className="user-porofeesion">{props.t("Civil Law Expert")}</div>
                 </div>:""
             }
+            <Dialog fullWidth={true} open={open}
+                    onClose={() => setOpen(false)}>
+                <div style={{width:"100%",position:"relative"}}>
+                                        <span style={{backgroundColor:"rgba(0,0,0,0.4)",position:"absolute",margin:"10px",color:"white",fontSize:"20px",right:0,cursor:"pointer"}}
+                                              onClick={() => setOpen(false)}
+                                        >
+                                            <b>X</b></span>
+                </div>
+                <div style={{padding: "6px"}}>
+                    {props.avatar? <img width="100%" height="100%"
+                                                           src={API_URL + props?.avatar}
+                                                           alt=""/> : ""}
+                </div>
+            </Dialog>
         </>
     );
 }

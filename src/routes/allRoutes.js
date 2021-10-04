@@ -50,6 +50,10 @@ export const moderatorAndSuperModeratorRoute=[
     {
         path:"/newPassword",
         component:NewPassword
+    },
+    {
+        path:"/profileSettings",
+        component:ProfileSettings
     }
 ]
 
