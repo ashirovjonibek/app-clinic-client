@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 function SettingModal({t, getSections}) {
     const [open, setOpen] = useState(false);
-    // const i18 = localStorage.getItem('I18N_LANGUAGE')
+    // const i18 = i18next.language
     const [nameDirty] = useState(false);
     const [errorName] = useState('kafedra yozilishi kerak!');
 

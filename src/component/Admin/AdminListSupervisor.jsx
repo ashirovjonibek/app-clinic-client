@@ -8,9 +8,10 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
+import i18next from "i18next";
 
 const AdminListSupervisor = ({t,searchTerm}) => {
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
     const [supervisor, setSupervisor] = useState([]);
     const [items, setItems] = useState([]);
     const sectionIds = []

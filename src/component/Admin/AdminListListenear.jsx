@@ -10,13 +10,14 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
+import i18next from "i18next";
 
 const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
     const [listeners, setListeners] = useState([]);
     const [reLoad, setReLoad] = useState(true);
     const sectionIds = []
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
 
     useEffect(() => {
         getListeners()

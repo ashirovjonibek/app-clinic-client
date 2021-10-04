@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import EditIcon from '@material-ui/icons/Edit';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
+import i18next from "i18next";
 
 function SimpleModal({item, t}) {
     const [nameDirty, setNameDirty] = useState(false);
@@ -21,7 +22,7 @@ function SimpleModal({item, t}) {
     const [changeRolesItem, setChangeRolesItem] = useState();
     const [sections, setSections] = useState([]);
     const [positions, setPositions] = useState([]);
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
 
 
     const [listener, setListener] = React.useState({

@@ -6,12 +6,13 @@ import EditIcon from '@material-ui/icons/Edit';
 import {withTranslation} from "react-i18next";
 import RequestFunctions from "../../requests/RequestFunctions";
 import DeleteIcon from "@material-ui/icons/Delete";
+import i18next from "i18next";
 
 function AppealModal({item, t, getApplicants}) {
     const [open, setOpen] = useState(false);
     const [socialStatus, setSocialStatus] = useState([]);
     const [nations, setNations] = useState([]);
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
     const [nameDirty, setNameDirty] = useState(false);
     const [errorName, setErrorName] = useState('Ism yozilishi kerak!');
     const [yearDirty, setYearDirty] = useState(false);

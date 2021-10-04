@@ -5,10 +5,11 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
 import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
+import i18next from "i18next";
 
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
 
     useEffect(() => {
         getApplicants()

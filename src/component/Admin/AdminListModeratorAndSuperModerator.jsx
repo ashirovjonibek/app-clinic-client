@@ -7,11 +7,12 @@ import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 import Swal from "sweetalert2";
+import i18next from "i18next";
 
 const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
     const [moderator, setModerator] = useState([]);
-    const i18 = localStorage.getItem('I18N_LANGUAGE')
+    const i18 = i18next.language
     const [reLoad, setReLoad] = useState(true);
 
     useEffect(() => {
