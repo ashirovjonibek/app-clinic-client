@@ -8,8 +8,8 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
-import NavBottom from "../Nav/NavBottom";
 import NavTop from "../Nav/NavTop";
+import MuiPickersUtilsProvider, {DatePicker} from "@material-ui/pickers";
 
 
 const RegistrationApplicant = (props) => {
@@ -90,7 +90,7 @@ const RegistrationApplicant = (props) => {
     const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
 
     const nameHandler = (e) => {
-        if (e.target.value!==null){
+        if (e.target.value !== null) {
             const name = e.target.name;
             const regName = /^[a-zA-Z\s]+$/;
             if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
@@ -148,6 +148,7 @@ const RegistrationApplicant = (props) => {
             setErrorNumber('');
         }
     }
+
     const passwordHandler = (e) => {
         if (e.target.value.length < 8) {
             setErrorPasswordDirty(true);
@@ -167,7 +168,7 @@ const RegistrationApplicant = (props) => {
             setTimeout(() => {
                 e.target.value = ''
             }, 800)
-        }else {
+        } else {
             setErrorPrePassword('');
         }
     }
@@ -196,7 +197,7 @@ const RegistrationApplicant = (props) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: props.t("Registered")+"!!!",
+                        title: props.t("Registered") + "!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -206,7 +207,7 @@ const RegistrationApplicant = (props) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: props.t("An error occurred. Please try again")+"!!!",
+                        title: props.t("An error occurred. Please try again") + "!!!",
                         showConfirmButton: false,
                         timer: 1000
                     }).then(() => {
@@ -219,14 +220,14 @@ const RegistrationApplicant = (props) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title:  props.t("An error occurred. Please try again")+"!!!",
+                title: props.t("An error occurred. Please try again") + "!!!",
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {
             });
         }
     }
-
+    const [date, changeDate] = useState(new Date());
     return (
         <div>
             <div className="nav">
@@ -282,6 +283,7 @@ const RegistrationApplicant = (props) => {
                                                     <option value="ayol">{props.t("Female")}</option>
                                                 </select>
                                             </li>
+
                                             <li>
                                                 <label className="label"
                                                        htmlFor="birthDate">{props.t("Date of Birth")}</label>
@@ -404,7 +406,8 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label"
                                                        htmlFor="prePassword">{props.t("Repeat password")}</label>
-                                                <input onChange={handleChange} required={true} onBlur={e => passwordChacker(e)}  name="prePassword"
+                                                <input onChange={handleChange} required={true}
+                                                       onBlur={e => passwordChacker(e)} name="prePassword"
                                                        id="prePassword"
                                                        className="input-text" type="text"
                                                        placeholder={props.t("Re-enter your password")}/>
@@ -437,7 +440,7 @@ const RegistrationApplicant = (props) => {
                         </form>
                     </div>
                 </div>
-            <Footer/>
+                <Footer/>
             </div>
         </div>
     )

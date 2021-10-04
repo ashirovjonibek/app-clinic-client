@@ -5,7 +5,7 @@ import SettingModal from "./SettingModal";
 import RequestFunctions from "../../requests/RequestFunctions";
 import Swal from "sweetalert2";
 import axios from "axios";
-import {API_URL} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 
@@ -53,7 +53,9 @@ const AdminListSetting = ({t,searchTerm}) => {
             icon:"warning"
         }).then((confirm)=>{
             if (confirm.isConfirmed){
-                axios.delete(API_URL + apiPath.deleteSection + id, configHeader)
+                axios.delete(API_URL + apiPath.deleteSection + id,{headers:{
+                        'Authorization':localStorage.getItem(STORAGE_NAME),
+                    }})
                     .then(res => {
                             if (res.status === 200) {
                                 Swal.fire(t("Deleted")+"", "", "success").then((r) => {
