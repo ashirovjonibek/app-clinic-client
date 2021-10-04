@@ -189,22 +189,42 @@ function StatisticsByAge({t}) {
                 age.counts.map(ageItem => {
                     if (ageItem.age === "fromZeroToSeventeen") {
                         dataItem[fromZeroToSeventeen] = ageItem.count
+                    } else {
+                        if (dataItem[fromZeroToSeventeen] === 0) {
+                            dataItem[fromZeroToSeventeen] = ""
+                        }
                     }
 
                     if (ageItem.age === "fromEighteenToThirty") {
                         dataItem[fromEighteenToThirty] = ageItem.count
+                    } else {
+                        if (dataItem[fromEighteenToThirty] === 0) {
+                            dataItem[fromEighteenToThirty] = ""
+                        }
                     }
 
                     if (ageItem.age === "fromThirtyOneToFortyFive") {
                         dataItem[fromThirtyOneToFortyFive] = ageItem.count
+                    } else {
+                        if (dataItem[fromThirtyOneToFortyFive] === 0) {
+                            dataItem[fromThirtyOneToFortyFive] = ""
+                        }
                     }
 
                     if (ageItem.age === "fromFortySixToSixty") {
                         dataItem[fromFortySixToSixty] = ageItem.count
+                    } else {
+                        if (dataItem[fromFortySixToSixty] === 0) {
+                            dataItem[fromFortySixToSixty] = ""
+                        }
                     }
 
                     if (ageItem.age === "fromSixtyOne") {
                         dataItem[fromSixtyOne] = ageItem.count
+                    } else {
+                        if (dataItem[fromSixtyOne] === 0) {
+                            dataItem[fromSixtyOne] = ""
+                        }
                     }
                 })
             } else {

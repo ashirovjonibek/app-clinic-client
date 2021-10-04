@@ -75,9 +75,15 @@ function StatisticsBySocialStatus({t}) {
                     item[others] = socialsts.count
                 }
             } else {
-                item[singlemother] = ""
-                item[invalid] = ""
-                item[others] = ""
+                if (item[singlemother] === 0) {
+                    item[singlemother] = ""                }
+                if (item[invalid] === 0) {
+                    item[invalid] = ""
+                }
+                if (item[others] === 0) {
+                    item[others] = ""
+                }
+
             }
         })
     } ))

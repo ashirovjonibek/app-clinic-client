@@ -86,9 +86,15 @@ function StatisticsByStatus({t}) {
                     item[inprocess] = status.count
                 }
             } else {
-                item[completed] = ""
-                item[newAppeal] = ""
-                item[inprocess] = ""
+                if (item[completed] === 0) {
+                    item[completed] = ""
+                }
+                if (item[newAppeal] === 0) {
+                    item[newAppeal] = ""
+                }
+                if (item[inprocess] === 0) {
+                    item[inprocess] = ""
+                }
             }
         })
     }))

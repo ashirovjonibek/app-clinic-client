@@ -27,20 +27,20 @@ const renderCustomizedLabel = (props) => {
 function StatisticsByOverdue({t}) {
 
     const data =[
-        {name: t("Tashkent City"), id: 1, count: 88},
-        {name: t('Tashkent'), id: 2, count: 32},
-        {name: t('Andijan'), id: 3, count: 44},
-        {name: t('Bukhara'), id: 4, count: 67},
-        {name: t('Jizzakh'), id: 5, count: 33},
-        {name: t('Kashka darya'), id: 6, count: 26},
-        {name: t('Navoi'), id: 7, count: 56},
-        {name: t('Namangan'), id: 8, count: 99},
-        {name: t('Samarkand'), id: 9, count: 24},
-        {name: t('Surkhandarya'), id: 10, count: 54},
-        {name: t('Syrdarya'), id: 11, count: 13},
-        {name: t('Fergana'), id: 12, count: 45},
-        {name: t('Khorezm'), id: 13, count: 66},
-        {name: t('Karakalpaks tan'), id: 14, count: 99}
+        {name: t("Tashkent City"), id: 1, count: 0},
+        {name: t('Tashkent'), id: 2, count: 0},
+        {name: t('Andijan'), id: 3, count: 0},
+        {name: t('Bukhara'), id: 4, count: 0},
+        {name: t('Jizzakh'), id: 5, count: 0},
+        {name: t('Kashka darya'), id: 6, count: 0},
+        {name: t('Navoi'), id: 7, count: 0},
+        {name: t('Namangan'), id: 8, count: 0},
+        {name: t('Samarkand'), id: 9, count: 0},
+        {name: t('Surkhandarya'), id: 10, count: 0},
+        {name: t('Syrdarya'), id: 11, count: 0},
+        {name: t('Fergana'), id: 12, count: 0},
+        {name: t('Khorezm'), id: 13, count: 0},
+        {name: t('Karakalpaks tan'), id: 14, count: 0}
     ];
     const [fetch, setFetch] = useState([]);
 

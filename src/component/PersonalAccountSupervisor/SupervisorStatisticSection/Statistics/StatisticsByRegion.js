@@ -28,7 +28,7 @@ const renderCustomizedLabel = (props) => {
 
 function StatisticsByRegion({t}) {
 
-    const data =[
+    const data = [
         {name: t("Tashkent City"), id: 1, count: 0},
         {name: t('Tashkent'), id: 2, count: 0},
         {name: t('Andijan'), id: 3, count: 0},
@@ -54,7 +54,7 @@ function StatisticsByRegion({t}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/application/filterByRegion',
+            url: API_URL + '/application/filterByRegion',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -72,8 +72,10 @@ function StatisticsByRegion({t}) {
         data.map(item => {
             if (item.id === region.regionId) {
                 item.count = region.count
-            }else {
-                item.count=""
+            } else {
+                if (item.count === 0) {
+                    item.count = ""
+                }
             }
         })
     }))
@@ -88,7 +90,7 @@ function StatisticsByRegion({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     {/*<Legend wrapperStyle={{position: 'relative'}}/>*/}
-                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
+                    <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
                     <Bar barSize={15}
                          dataKey="count" fill="#4E5E80">
                         <LabelList dataKey="count" content={renderCustomizedLabel}/>

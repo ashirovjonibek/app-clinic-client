@@ -80,8 +80,13 @@ function StatisticsByGender({t}) {
                 item[female] = gender.count
                 }
             }else {
-                item[female]=""
-                item[male]=""
+                if (item[female] === 0) {
+                    item[female]= ""
+                }
+                if ( item[male]===0) {
+                    item[male] = ""
+                }
+
             }
         })
     }))
