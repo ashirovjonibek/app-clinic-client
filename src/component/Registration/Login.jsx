@@ -126,7 +126,7 @@ const Login = (props) => {
                     <div className="login-wrapper">
 
                         <Title  text={<span style={{cursor:"pointer"}} onClick={()=>{
-                            history.goBack()
+                            history.push("/")
                         }}><KeyboardBackspaceIcon titleAccess="Bosh sahifaga"  style={{marginRight:"17px",cursor:"pointer"}}/>{
 
                             props.t("Login to your personal account")}
@@ -164,9 +164,9 @@ const Login = (props) => {
                                         <div className="link">
                                             <Link to="/requestNewPassword">{props.t("Forgot your password")}?</Link>
                                         </div>
-                                        <div className="link">
-                                            <a href="">{props.t("No account yet")}?</a>
-                                        </div>
+                                        {/*<div className="link">*/}
+                                        {/*    <a href="">{props.t("No account yet")}?</a>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </ul>
                             </form>
