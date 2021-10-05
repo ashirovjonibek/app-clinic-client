@@ -138,7 +138,7 @@ const Login = (props) => {
                                         <div className="first-label">
                                             <label className="label" htmlFor="phoneNumber">{props.t("Phone number")}</label>
                                         </div>
-                                        <input className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
+                                        <input required={true} className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
                                             placeholder="+998 (__) ___-__-__" />
 
                                     </li>
@@ -146,7 +146,7 @@ const Login = (props) => {
                                         <div className="last-label">
                                             <label className="label" htmlFor="password">{props.t("Password")}</label>
                                         </div>
-                                        <input className="input-text" id="password" onChange={changePassword} type="text"
+                                        <input required={true} className="input-text" id="password" onChange={changePassword} type="text"
                                             placeholder={props.t("Password")} />
                                     </li>
                                     <li>
