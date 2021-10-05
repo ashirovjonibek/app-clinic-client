@@ -204,13 +204,15 @@ const RegistrationApplicant = (props) => {
                         history.push("/auth/login")
                     });
                 } else {
+                    console.log(res)
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
                         title: props.t("An error occurred. Please try again") + "!!!",
                         showConfirmButton: false,
                         timer: 1000
-                    }).then(() => {
+                    }).then((e) => {
+                        console.log(e)
                     });
                 }
             }).catch((e)=>{
@@ -223,7 +225,8 @@ const RegistrationApplicant = (props) => {
                 title: props.t("An error occurred. Please try again") + "!!!",
                 showConfirmButton: false,
                 timer: 1000
-            }).then(() => {
+            }).then((e) => {
+                console.log(e)
             });
         }
     }
