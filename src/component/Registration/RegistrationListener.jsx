@@ -104,6 +104,7 @@ function RegistrationListener(props) {
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {
+                console.log(err.response)
             });
         });
     }
