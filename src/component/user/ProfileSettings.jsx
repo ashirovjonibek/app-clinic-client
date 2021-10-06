@@ -110,8 +110,8 @@ const ProfileSettings = ({t, history}) => {
         imageId: ''
     }))
 
-    console.log("aaa")
-    console.log(values)
+    // console.log("aaa")
+    // console.log(values)
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
@@ -260,14 +260,10 @@ const ProfileSettings = ({t, history}) => {
         imageId: ''
     });
 
-    const imageSelector = (e) => {
-        let file = e.target.files[0];
-        setImageFile({imageId: file})
-    }
     const handleUpload = (e) => {
 
         const axios = require('axios');
-        const FormData = require('form-data');
+        // const FormData = require('form-data');
         const fs = require('fs');
         const data = new FormData();
         data.append('image', e.target.files[0]);
