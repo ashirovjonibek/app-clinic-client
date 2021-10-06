@@ -13,7 +13,7 @@ import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
 
 function RegistrationListener(props) {
-    const {history,t} = props;
+    const {history, t} = props;
     const [positions, setPositions] = useState([]);
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
@@ -73,14 +73,15 @@ function RegistrationListener(props) {
         });
     }
     const handleSend = (e) => {
+        // console.log("values")
+        // console.log(values)
         e.preventDefault();
         axios.post(API_URL + "/auth/createListener", {...values}).then(res => {
-            console.log(res);
             if (res.data.success) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: t("Registered")+"!!!",
+                    title: t("Registered") + "!!!",
                     showConfirmButton: false,
                     timer: 1000
                 }).then(() => {
@@ -90,21 +91,27 @@ function RegistrationListener(props) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: t("An error occurred. Please try again")+"!!!",
+                    title: t("An error occurred. Please try again") + "!!!",
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 2000
                 }).then(() => {
                 });
             }
-        }).catch((err) => {
+        }).catch((e) => {
+            // console.log("e.response.data")
+            // console.log(e.response.data)
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: t("An error occurred. Please try again")+"!!!",
+                title: e.response.data.phoneNumber && e.response.data.phoneNumber ?
+                    props.t("The phone number and email are already available") :
+                    e.response.data.phoneNumber ?
+                        props.t("The phone number is already available") : e.response.data.email ?
+                            props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
                 showConfirmButton: false,
-                timer: 1000
+                timer: 2000
             }).then(() => {
-                console.log(err.response)
+                // console.log(e.response)
             });
         });
     }
@@ -144,6 +151,13 @@ function RegistrationListener(props) {
         if ((fullYear - userYear) < 16 && name === 'birthDate') {
             setYearDirty(true);
             setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
+        }
+        if ((fullYear - userYear) > 100 && name === 'birthDate') {
+            setYearDirty(true);
+            setErrorYear("foydalanuvchi yoshi to'g'ri kiritilmadi");
             setTimeout(() => {
                 e.target.value = ''
             }, 800)
@@ -194,15 +208,15 @@ function RegistrationListener(props) {
     }
 
     const passwordChacker = (e) => {
-        console.log(e.target.value)
-        console.log(values.password)
+        // console.log(e.target.value)
+        // console.log(values.password)
         if (e.target.value !== values.password) {
             setErrorPrePasswordDirty(true);
             setErrorPrePassword("Parol mos kelmadi");
             setTimeout(() => {
                 e.target.value = ''
             }, 100)
-        }else {
+        } else {
             setErrorPrePassword('');
         }
     }
@@ -236,7 +250,7 @@ function RegistrationListener(props) {
 
                         props.t("Register")}
                         </span>}/>
-                    <h5>Анкетные данные</h5>
+                    <h5>{props.t("Personal data")}</h5>
                     <form onSubmit={handleSend}>
                         <div className="form-wrapper">
                             <ul className="form">
@@ -269,7 +283,7 @@ function RegistrationListener(props) {
                                             />
                                         </li>
                                         {(yearDirty && errorYear) && <p className="error">{errorYear}</p>}
-                                       {/* <li>
+                                        {/* <li>
                                             <label className="label" htmlFor="positionId">{props.t("Position")}</label>
                                             <select id="positionId" name="positionId" onChange={handleChange}
                                                     className="category" required>
@@ -355,25 +369,25 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label" htmlFor="email">{props.t("Email")}</label>
                                             <input required={true}
-                                                onBlur={e => emailHandler(e)}
-                                                onChange={handleChange}
-                                                id="email"
-                                                name="email"
-                                                className="input-text"
-                                                type="text"
-                                                placeholder={props.t("Enter your mail")}
+                                                   onBlur={e => emailHandler(e)}
+                                                   onChange={handleChange}
+                                                   id="email"
+                                                   name="email"
+                                                   className="input-text"
+                                                   type="text"
+                                                   placeholder={props.t("Enter your mail")}
                                             />
                                         </li>
                                         {(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}
                                         <li>
                                             <label className="label" htmlFor="password">{props.t("Password")}</label>
                                             <input required={true}
-                                                onChange={handleChange}
-                                                id="password"
-                                                name="password"
-                                                className="input-text" type="text"
-                                                onBlur={e => passwordHandler(e)}
-                                                placeholder={props.t("Enter your password")}
+                                                   onChange={handleChange}
+                                                   id="password"
+                                                   name="password"
+                                                   className="input-text" type="text"
+                                                   onBlur={e => passwordHandler(e)}
+                                                   placeholder={props.t("Enter your password")}
                                             />
                                         </li>
                                         {(errorPasswordDirty && errorPassword) &&
@@ -382,13 +396,13 @@ function RegistrationListener(props) {
                                             <label className="label"
                                                    htmlFor="prePassword">{props.t("Repeat password")}</label>
                                             <input required={true}
-                                                onChange={handleChange}
-                                                onBlur={e => passwordChacker(e)}
-                                                id="password"
-                                                name="prePassword"
-                                                className="input-text"
-                                                type="text"
-                                                placeholder={props.t("Re-enter your password")}
+                                                   onChange={handleChange}
+                                                   onBlur={e => passwordChacker(e)}
+                                                   id="password"
+                                                   name="prePassword"
+                                                   className="input-text"
+                                                   type="text"
+                                                   placeholder={props.t("Re-enter your password")}
                                             />
                                         </li>
                                         {(errorPrePasswordDirty && errorPrePassword) &&

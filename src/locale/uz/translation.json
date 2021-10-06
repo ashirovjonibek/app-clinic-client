@@ -289,8 +289,11 @@
   "Login or password error. Please try again": "Login yoki parol xato. Iltimos qayta urunib ko'ring",
   "Save changes": "O'zgarishlar saqlansinmi",
   "Registered": "Ro'yxatga olindi",
-  "An error occurred. Please try again": "Xatolik yuz berdi. Iltimos, yana bir bor urinib ko'ring"
-
+  "An error occurred. Please try again": "Xatolik yuz berdi. Iltimos, yana bir bor urinib ko'ring",
+  "Email is already available": "Elektron pochta allaqachon mavjud",
+  "The phone number is already available": "Telefon raqami allaqachon mavjud",
+  "Moderators": "Moderatorlar",
+  "Super moderators": "Super moderatorlar"
 
 
 

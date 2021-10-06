@@ -273,7 +273,11 @@
 
   "Login or password error. Please try again": "Ошибка входа или пароля. Повторите попытку.",
   "Registered": "Зарегистрировано",
-  "An error occurred. Please try again": "ЗарегистрированоПроизошла ошибка. Пожалуйста, попробуйте еще раз"
+  "An error occurred. Please try again": "ЗарегистрированоПроизошла ошибка. Пожалуйста, попробуйте еще раз",
+  "Email is already available": "Электронная почта уже доступна",
+  "The phone number is already available": "Телефонный номер уже доступен",
+  "Moderators": "Модераторы",
+  "Super moderators": "Супер модераторы"
 
 
 

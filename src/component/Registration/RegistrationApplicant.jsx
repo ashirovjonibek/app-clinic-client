@@ -115,6 +115,13 @@ const RegistrationApplicant = (props) => {
             setTimeout(() => {
                 e.target.value = ''
             }, 800)
+        }
+        if ((fullYear - userYear) > 100 && name === 'birthDate') {
+            setYearDirty(true);
+            setErrorYear("foydalanuvchi yoshi to'g'ri kiritilmadi");
+            setTimeout(() => {
+                e.target.value = ''
+            }, 800)
         } else {
             setErrorYear('');
         }
@@ -187,11 +194,10 @@ const RegistrationApplicant = (props) => {
         }
     }
 
-    const handleSend = () => {
-        // e.preventDefault();
-        console.log(values)
+    const handleSend = (e) => {
+        e.preventDefault();
+        // console.log(values)
         if (values.password === values.prePassword) {
-            console.log(values)
             axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
                 if (res.data.success) {
                     Swal.fire({
@@ -204,19 +210,30 @@ const RegistrationApplicant = (props) => {
                         history.push("/auth/login")
                     });
                 } else {
-                    console.log(res)
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
                         title: props.t("An error occurred. Please try again") + "!!!",
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 2000
                     }).then((e) => {
-                        console.log(e)
                     });
                 }
-            }).catch((e)=>{
-                console.log(e)
+            }).catch((e) => {
+                // console.log("e.response.data")
+                // console.log(e.response.data)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: e.response.data.phoneNumber && e.response.data.phoneNumber ?
+                        props.t("The phone number and email are already available") :
+                        e.response.data.phoneNumber ?
+                            props.t("The phone number is already available") : e.response.data.email ?
+                                props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(r => {
+                })
             });
         } else {
             Swal.fire({
@@ -226,11 +243,12 @@ const RegistrationApplicant = (props) => {
                 showConfirmButton: false,
                 timer: 1000
             }).then((e) => {
-                console.log(e)
             });
         }
     }
+
     const [date, changeDate] = useState(new Date());
+
     return (
         <div>
             <div className="nav">
@@ -244,11 +262,10 @@ const RegistrationApplicant = (props) => {
                         <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={() => {
                             history.goBack()
                         }} style={{marginRight: "17px", cursor: "pointer"}}/>{
-
                             props.t("Register")}
                         </span>}/>
                         <h5>{props.t("Personal data")}</h5>
-                        <form onSubmit={(e)=>e.preventDefault()}>
+                        <form onSubmit={(e) => e.preventDefault()}>
                             <div className="form-wrapper">
                                 <ul className="form">
                                     <li className="form-first">

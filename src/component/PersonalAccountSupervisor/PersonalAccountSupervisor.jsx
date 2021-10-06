@@ -135,6 +135,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
                                             </li>:""}
                                             <li>
+                                                <Link to="/dashboardAppeals" >{t("Appeals informations")}</Link>
+                                            </li>
+                                            <li>
                                                 <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
                                             <li>
@@ -193,6 +196,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                         {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
                                             <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
                                         </li>:""}
+                                        <li className="navbar-items">
+                                            <Link to="/dashboardAppeals" >{t("Appeals informations")}</Link>
+                                        </li>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>

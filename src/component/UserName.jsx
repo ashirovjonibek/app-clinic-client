@@ -33,7 +33,11 @@ const UserName = (props) => {
                         fontSize:props?.fontSize?props.fontSize:"25px",
                         lineHeight:!props?.avatar?props?.lineHeight?props.lineHeight:"38px":""
                     }
-                }>{props.avatar? <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100%"} height={"100px"} alt=""/>:props.text[0].toUpperCase()}</div>
+                }>
+                    {props.avatar?
+                    <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100%"} height={"100%"} alt=""/>
+                    : props.text[0].toUpperCase()}
+                </div>
                 {!props.top?<div className="name" onClick={()=>{
                     history.push(me.role[1])
                 }}>{props?.text}</div>:""}
@@ -51,7 +55,7 @@ const UserName = (props) => {
                                         >
                                             <b>X</b></span>
                 </div>
-                <div style={{padding: "6px"}}>
+                <div style={{padding: "1px"}}>
                     {props.avatar? <img width="100%" height="100%"
                                                            src={API_URL + props?.avatar}
                                                            alt=""/> : ""}

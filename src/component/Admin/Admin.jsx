@@ -17,6 +17,7 @@ import iconLogo from "../../assets/icon/icon-logo.svg";
 import Footer from "../Footer/Footer";
 import Enter from "../Nav/Enter";
 import AdminListModeratorAndSuperModerator from "./AdminListModeratorAndSuperModerator";
+import AdminHomePage from "./AdminHomePage";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -25,7 +26,7 @@ const Admin = ({t}) => {
     const [moderatorContentItem, setModeratorContentItem] = useState(false);
     const [moderatorAdnSuperModeratorContentItem, setModeratorAdnSuperModeratorContentItem] = useState(false);
     const [settingContentItem, setSettingContentItem] = useState(false);
-    const [pageQount, setPageQount] = useState(1);
+    const [pageQount, setPageQount] = useState(7);
     const [searchTerm, setSearchTerm] = useState("");
     const history = useHistory();
 
@@ -43,8 +44,10 @@ const Admin = ({t}) => {
                 return <AdminListModeratorAndSuperModerator searchTerm={searchTerm}/>
             case 6:
                 return <AdminListSetting searchTerm={searchTerm}/>
+            case 7:
+                return <AdminHomePage searchTerm={searchTerm}/>
             default:
-                return <AdminListAppeal searchTerm={searchTerm}/>
+                return <AdminHomePage searchTerm={searchTerm}/>
         }
     }
 
@@ -100,6 +103,11 @@ const Admin = ({t}) => {
 
                 <ul>
                     <li className="accordion__section">
+                        <div className="accordion" onClick={() => getPage(7)}>
+                            <h3 className="accordion__title">{t("Home page")}</h3>
+                        </div>
+                    </li>
+                    <li className="accordion__section">
                         <div className="accordion" onClick={() => getPage(1)}>
                             <h3 className="accordion__title">{t("List of applicants")}</h3>
                         </div>
@@ -111,17 +119,17 @@ const Admin = ({t}) => {
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleSupervisor}>
-                            <h3 className="accordion__title">{t("List of moderators")}</h3>
+                            <h3 className="accordion__title">{t("Moderators")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleModerator}>
-                            <h3 className="accordion__title">{t("List of super moderators")}</h3>
+                            <h3 className="accordion__title">{t("Super moderators")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
                         <div className="accordion" onClick={handleModeratorAndSuperModerator}>
-                            <h3 className="accordion__title">{t("List of moderator and super moderator")}</h3>
+                            <h3 className="accordion__title">{t("Moderators and super moderators")}</h3>
                         </div>
                     </li>
                     <li className="accordion__section">
@@ -201,6 +209,9 @@ const Admin = ({t}) => {
                     <div className="admin-navbar">
                         <div className="admin-navbarr">
                             <ul>
+                                <li className="navbar-items" id={pageQount === 7 ? "active" : ""}>
+                                    <button onClick={() => getPage(7)}>{t("Home page")}</button>
+                                </li>
                                 <li className="navbar-items" id={pageQount === 1 ? "active" : ""}>
                                     <button onClick={() => getPage(1)}>{t("List of applicants")}</button>
                                 </li>
@@ -208,10 +219,10 @@ const Admin = ({t}) => {
                                     <button onClick={() => getPage(2)}>{t("List of listeners")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                    <button onClick={() => getPage(3)}>{t("List of bosses")}</button>
+                                    <button onClick={() => getPage(3)}>{t("Moderators")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                    <button onClick={() => getPage(4)}>{t("List of moderators")}</button>
+                                    <button onClick={() => getPage(4)}>{t("Super moderators")}</button>
                                 </li>
                                 <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
                                     <button onClick={() => getPage(5)}>{t("Moderators and super moderators")}</button>

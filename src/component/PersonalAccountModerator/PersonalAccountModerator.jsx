@@ -26,7 +26,7 @@ import {useSelector} from "react-redux";
 
 const PersonalAccountModerator = ({t}) => {
     const history = useHistory();
-    const userRole=useSelector(state => state.meReducer);
+    const userRole = useSelector(state => state.meReducer);
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(1);
@@ -100,8 +100,8 @@ const PersonalAccountModerator = ({t}) => {
                                         </div>
                                         <div className="logo-right">
                                             <div>
-                                                <span><strong>{t("Legal clinic")}</strong></span><br />
-                                                <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
+                                                <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                                <p style={{maxWidth: "350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                             </div>
 
                                         </div>
@@ -110,7 +110,7 @@ const PersonalAccountModerator = ({t}) => {
                                 <div className="header-right">
                                     <div className="header-right-desctop">
                                         <form role="search" method="get" action="#" className="search-form">
-                                            <input type="" placeholder={t("Search")+"..."}/>
+                                            <input type="" placeholder={t("Search") + "..."}/>
                                             <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                         </form>
                                         <NavLanguage/>
@@ -133,15 +133,19 @@ const PersonalAccountModerator = ({t}) => {
                                             </div>
                                         </div>
                                         <ul>
-                                            {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li>
-                                                <Link to="/personalAccountSupervisor" >{t("Go moderator page")}</Link>
-                                            </li>:""}
+                                            {userRole.role[0] === "SUPER_MODERATOR_AND_MODERATOR" ? <li>
+                                                <Link to="/personalAccountSupervisor">{t("Go moderator page")}</Link>
+                                            </li> : ""}
+                                            <li>
+                                                <Link to="/dashboardAppeals">{t("Appeals informations")}</Link>
+                                            </li>
                                             <li>
                                                 <Link to="#"
                                                       onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
@@ -156,13 +160,15 @@ const PersonalAccountModerator = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(8)}>{t("Listener rating")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>
@@ -181,20 +187,25 @@ const PersonalAccountModerator = ({t}) => {
                         </div>
                     </div>
                 </div>
-                <div style={{paddingBottom:"15px"}} className="account-moderator container-fluit">
+                <div style={{paddingBottom: "15px"}} className="account-moderator container-fluit">
                     <div className="container">
                         <section className="section-body">
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
-                                        {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
-                                            <Link to="/personalAccountSupervisor" >{t("Go moderator page")}</Link>
-                                        </li>:""}
+                                        {userRole.role[0] === "SUPER_MODERATOR_AND_MODERATOR" ?
+                                            <li className="navbar-items">
+                                                <Link to="/personalAccountSupervisor">{t("Go moderator page")}</Link>
+                                            </li> : ""}
+                                        <li className="navbar-items">
+                                            <Link to="/dashboardAppeals">{t("Appeals informations")}</Link>
+                                        </li>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                            <Link to="#"
+                                                  onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
@@ -209,7 +220,8 @@ const PersonalAccountModerator = ({t}) => {
                                             <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>
                                         </li>
                                         <li className="navbar-items " id={pageQount === 7 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
+                                            <Link to="#"
+                                                  onClick={() => getPage(7)}>{t("Regulatory and legal framework")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 8 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(8)}>{t("Listener rating")}</Link>
@@ -223,7 +235,7 @@ const PersonalAccountModerator = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div style={{minHeight:"75vh"}} className="content-wrapper">
+                            <div style={{minHeight: "75vh"}} className="content-wrapper">
                                 {
                                     pushBar(pageQount)
                                 }
@@ -237,4 +249,4 @@ const PersonalAccountModerator = ({t}) => {
     );
 }
 
-export default withTranslation() (PersonalAccountModerator);
+export default withTranslation()(PersonalAccountModerator);

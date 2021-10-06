@@ -6,6 +6,7 @@ import PersonalAccountApplicant from "../component/PersonalAccountApplicant/Pers
 import ApplicantAppeal from "../component/PersonalAccountApplicant/ApplicantAppeal";
 import PersonalAccountListener from "../component/PersonalAccountListener/PersonalAccountListener";
 import ProfileSettings from "../component/user/ProfileSettings";
+import DashboardAppealsPage from "../component/Dashboard/DashboardAppealsPage";
 
 
 export const adminRoute=[
@@ -35,6 +36,10 @@ export const supervisorRoute=[
     {
         path:"/profileSettings",
         component:ProfileSettings
+    },
+    {
+        path:"/dashboardAppeals",
+        component:DashboardAppealsPage
     }
 ]
 
@@ -54,6 +59,10 @@ export const moderatorAndSuperModeratorRoute=[
     {
         path:"/profileSettings",
         component:ProfileSettings
+    },
+    {
+        path:"/dashboardAppeals",
+        component:DashboardAppealsPage
     }
 ]
 
@@ -69,6 +78,10 @@ export const moderatorRoute=[
     {
         path:"/profileSettings",
         component:ProfileSettings
+    },
+    {
+        path:"/dashboardAppeals",
+        component:DashboardAppealsPage
     }
 ]
 

@@ -15,12 +15,15 @@ import i18next from "i18next";
 const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
     const [listeners, setListeners] = useState([]);
+    const [newListeners, setNewListeners] = useState([]);
     const [reLoad, setReLoad] = useState(true);
     const sectionIds = []
     const i18 = i18next.language
 
     useEffect(() => {
         getListeners()
+        getNewListeners()
+
     }, [reLoad]);
 
     const getListeners = () => {
@@ -36,6 +39,24 @@ const AdminListListener = ({t, searchTerm}) => {
             .then(function (response) {
                 setItems(response.data)
                 setListeners(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    const getNewListeners = () => {
+        const axios = require('axios');
+        const config = {
+            method: 'get',
+            url: API_URL + '/auth/listeners/view-false',
+            headers: {
+                'Authorization': localStorage.getItem(STORAGE_NAME)
+            }
+        };
+        axios(config)
+            .then(function (response) {
+                setNewListeners(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -100,6 +121,7 @@ const AdminListListener = ({t, searchTerm}) => {
                     .then(function (response) {
                         Swal.fire(t("Accepted")+"!!!", "", "success").then((confirm1) => {
                             getListeners()
+                            getNewListeners()
                         })
                     })
                     .catch(function (error) {
@@ -148,7 +170,7 @@ const AdminListListener = ({t, searchTerm}) => {
                     </div>
                 </div>
                 {
-                    listeners && listeners.find(item => item.viewed === false)
+                    newListeners && newListeners.find(item => item.viewed === false)
                         ? <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                             <h5 className="table-title">{t("New")}</h5>
                             <table>
@@ -163,7 +185,7 @@ const AdminListListener = ({t, searchTerm}) => {
                                     <th className="table-border ">{t("Accept")}</th>
                                     <th className="table-border ">Delete</th>
                                 </tr>
-                                {listeners && listeners.filter(item => item.viewed === false).map((item, i) =>
+                                {newListeners && newListeners.map((item, i) =>
                                     <tr key={i} value={item.id}>
                                         <td className="table-border applicant-name">{item.fullName}</td>
                                         <td className="table-border">{item.position.title[i18]}</td>
