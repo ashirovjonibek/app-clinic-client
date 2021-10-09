@@ -17,7 +17,7 @@ import iconLogo from "../../assets/icon/icon-logo.svg";
 import Footer from "../Footer/Footer";
 import Enter from "../Nav/Enter";
 import AdminListModeratorAndSuperModerator from "./AdminListModeratorAndSuperModerator";
-import AdminHomePage from "./AdminHomePage";
+import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -45,9 +45,9 @@ const Admin = ({t}) => {
             case 6:
                 return <AdminListSetting searchTerm={searchTerm}/>
             case 7:
-                return <AdminHomePage searchTerm={searchTerm}/>
+                return <DashboardAppealsPage searchTerm={searchTerm}/>
             default:
-                return <AdminHomePage searchTerm={searchTerm}/>
+                return <DashboardAppealsPage searchTerm={searchTerm}/>
         }
     }
 

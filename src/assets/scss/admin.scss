@@ -167,10 +167,11 @@
   }
 
   .admin-appeals-count {
-    padding: 150px 0 25px;
+    //padding: 150px 0 25px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 50px;
 
     .appeals-count-div {
       display: flex;

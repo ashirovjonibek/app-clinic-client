@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import PerAccSupListenersSection from "./PerAccSupListenersSection";
-import SupervisorIncomingRequestSection from "./SupervisorIncomingRequestSection";
 import SupervisorResponsesSection from "./SupervisorResponsesRequestSection";
 import SupervisorAppealSection from "./SupervisorAppealSection";
 import SupervisorCallFlowSection from "./SupervisorCallFlowSection";
@@ -26,12 +25,13 @@ import {STORAGE_NAME} from "../../utils/constant";
 import {useSelector} from "react-redux";
 import ModeratorPerformerItem from "../PersonalAccountModerator/ModeratorPerformerItem";
 import ModeratorPerformerSection from "../PersonalAccountModerator/ModeratorPerformerSection";
+import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
 
 const PersonalAccountSupervisor = ({t}) => {
     const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
-    const [pageQount, setPageQount] = useState(1);
+    const [pageQount, setPageQount] = useState(12);
     const userRole=useSelector(state => state.meReducer)
 
     // const me=useSelector(state=>state.meReducer)
@@ -60,6 +60,8 @@ const PersonalAccountSupervisor = ({t}) => {
                 return <SupervisorStatisticSection/>
             case 11:
                 return <SupervisorArchive/>
+            case 12:
+                return <DashboardAppealsPage/>
             default:
                 return <PerAccSupListenersSection/>
         }
@@ -134,8 +136,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                             {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li>
                                                 <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
                                             </li>:""}
+
                                             <li>
-                                                <Link to="/dashboardAppeals" >{t("Appeals informations")}</Link>
+                                                <Link to="#" onClick={() => getPage(12)}>{t("Appeals informations")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
@@ -196,8 +199,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                         {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
                                             <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
                                         </li>:""}
-                                        <li className="navbar-items">
-                                            <Link to="/dashboardAppeals" >{t("Appeals informations")}</Link>
+
+                                        <li className="navbar-items" id={pageQount === 12 ? 'active' : ''}>
+                                            <Link to="#" onClick={() => getPage(12)}>{t("Appeals informations")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>

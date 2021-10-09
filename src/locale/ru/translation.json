@@ -277,7 +277,10 @@
   "Email is already available": "Электронная почта уже доступна",
   "The phone number is already available": "Телефонный номер уже доступен",
   "Moderators": "Модераторы",
-  "Super moderators": "Супер модераторы"
+  "Super moderators": "Супер модераторы",
+  "total appeals": "общее количество апелляций",
+  "appeals in execution": "обращения в исполнение",
+  "completed applications": "заполненные заявки"
 
 
 

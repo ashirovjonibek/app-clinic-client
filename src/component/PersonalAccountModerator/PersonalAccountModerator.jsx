@@ -23,6 +23,7 @@ import {STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
+import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
 
 const PersonalAccountModerator = ({t}) => {
     const history = useHistory();
@@ -62,6 +63,8 @@ const PersonalAccountModerator = ({t}) => {
 
             case 10:
                 return <ModeratorArchive/>
+            case 11:
+                return <DashboardAppealsPage/>
             default:
                 return <ModeratorHeadsDepartmentSection/>
 
@@ -136,8 +139,10 @@ const PersonalAccountModerator = ({t}) => {
                                             {userRole.role[0] === "SUPER_MODERATOR_AND_MODERATOR" ? <li>
                                                 <Link to="/personalAccountSupervisor">{t("Go moderator page")}</Link>
                                             </li> : ""}
+
                                             <li>
-                                                <Link to="/dashboardAppeals">{t("Appeals informations")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(11)}>{t("Appeals informations")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#"
@@ -197,8 +202,9 @@ const PersonalAccountModerator = ({t}) => {
                                             <li className="navbar-items">
                                                 <Link to="/personalAccountSupervisor">{t("Go moderator page")}</Link>
                                             </li> : ""}
-                                        <li className="navbar-items">
-                                            <Link to="/dashboardAppeals">{t("Appeals informations")}</Link>
+
+                                        <li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>
+                                            <Link to="#" onClick={() => getPage(11)}>{t("Appeals informations")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
