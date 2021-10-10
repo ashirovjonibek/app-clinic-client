@@ -28,22 +28,27 @@
   background-color: #f4f8ff;
   font-family: "Montserrat", sans-serif;
 }
-*{
+
+* {
 
   font-family: Montserrat, serif;
 }
-*::-webkit-scrollbar{
+
+*::-webkit-scrollbar {
   display: none;
 }
-body{
+
+body {
   background-color: #f4f8ff;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
 }
+
 body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
+
 .container-fluit {
   width: 100%;
 }
@@ -58,6 +63,9 @@ body::-webkit-scrollbar {
 }
 
 .response-request {
+
+
+
   .reponse-request-content {
     margin-bottom: 20px;
 
@@ -177,6 +185,7 @@ body::-webkit-scrollbar {
   color: brown;
   background: white;
 }
+
 .checkIcon {
   color: green;
   background: white;

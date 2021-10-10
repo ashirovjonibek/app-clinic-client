@@ -30,7 +30,7 @@ const PersonalAccountModerator = ({t}) => {
     const userRole = useSelector(state => state.meReducer);
 
     const [sitebar, setSitebar] = useState(false);
-    const [pageQount, setPageQount] = useState(1);
+    const [pageQount, setPageQount] = useState(11);
 
     function pushBar(n) {
         switch (n) {

@@ -25,11 +25,10 @@ const PerAccAppResponseRequest = ({t}) => {
     const [loading, setLoading] = useState(true);
     const [ref, setRef] = useState(false);
     const [size, setSize] = useState(3);
-    const [isDislike,setIsDislike]=useState(-1);
-    const [comment,setComment]=useState("");
-    const [comLength,setComLength]=useState(false);
-    let a=0;
-
+    const [isDislike, setIsDislike] = useState(-1);
+    const [comment, setComment] = useState("");
+    const [comLength, setComLength] = useState(false);
+    let a = 0;
 
 
     useEffect(() => {
@@ -41,43 +40,43 @@ const PerAccAppResponseRequest = ({t}) => {
                 Authorization: token
             }
         }).then((r) => {
-            console.log(r);
+            console.log(r.data.object);
             setLoading(false);
             setPageSize(r.data.object.totalPages);
             setItems(r.data.object.object)
         }).catch((e) => {
             setLoading(false)
         })
-    }, [size, active,ref]);
+    }, [size, active, ref]);
 
-    const sendFeedback=(item)=>{
-        console.log(item,comment)
+    const sendFeedback = (item) => {
+        // console.log(item,comment)
         Swal.fire({
-            title:t("Send a comment")+"?",
-            icon:"warning",
-            showCancelButton:true,
-            cancelButtonText:t("No"),
-            confirmButtonText:t("Yes"),
-            confirmButtonColor:green[400]
-        }).then((confirm)=>{
-            if (confirm.isConfirmed){
+            title: t("Send a comment") + "?",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonText: t("No"),
+            confirmButtonText: t("Yes"),
+            confirmButtonColor: green[400]
+        }).then((confirm) => {
+            if (confirm.isConfirmed) {
                 axios({
                     method: "put",
-                    url:API_URL+"/answer/"+item.id,
+                    url: API_URL + "/answer/" + item.id,
                     headers: {
                         Authorization: token
                     },
-                    data:{
+                    data: {
                         ...item,
-                        commit:comment,
-                        liked:false
+                        commit: comment,
+                        liked: false
                     }
-                }).then((r)=>{
-                    Swal.fire(t("Comment sent")+"!!!","","success").then((conf)=>{
+                }).then((r) => {
+                    Swal.fire(t("Comment sent") + "!!!", "", "success").then((conf) => {
                         setRef(!ref);
                     })
-                }).catch((e)=>{
-                    Swal.fire(t("An error occurred")+"!!!","","error").then((conf)=>{
+                }).catch((e) => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then((conf) => {
                         setRef(!ref);
                     })
                 })
@@ -91,78 +90,99 @@ const PerAccAppResponseRequest = ({t}) => {
                 loading ? <Loading/> : <>
                     {
                         items && items.map((item, i) =>
-                                <div key={i} className="content per-acc-app-response-request">
-                                    <div className="request-theme" style={{marginBottom: '40px'}}>
-                                        <div>
-                                            <h3>{t("The answer to your appeal came from")} <strong>{item?.checkedBy?.fullName}</strong></h3>
-                                        </div>
-                                    </div>
-                                    <div style={{marginBottom: '20px'}}>
-                                        <DocumentText appeal={item?.application}/>
-                                    </div>
-                                    <SectionCategory section={item?.application?.section}
-                                                     fileId={item?.application?.attachmentsId?item?.application?.attachmentsId[0]:null}/>
-                                    <CheckboxConfidensial/>
-                                    <div className="response-request">
-                                        <div className="content-line"/>
-                                        <div style={{marginBottom: '20px'}}>
-                                            <UserItem p={item?.checkedBy}/>
-                                        </div>
-                                        <div className="file-upload">
-                                            <SectionCategory showSection={true} section={item?.application?.section}
-                                                             fileId={item?.answer?.attachmentId?item?.answer?.attachmentId[0]:null}/>
-                                        </div>
-                                    </div>
-                                    <div className="answer-score">
-                                        <h4>{t("Evaluating the response")}:</h4>
-                                        <div className="answer-score-button">
-                                            <span onClick={()=>{
-                                                setIsDislike(-1);
-                                            }}  style={{padding: "3px 5px", cursor: "pointer",color:"green"}}>
-                                                <ThumbUpIcon/>
-                                            </span>
-                                            <span onClick={()=>{
-                                                if (isDislike===i){
-                                                    setIsDislike(-1);
-                                                }else {
-                                                    setIsDislike(i);
-                                                }
-                                            }} style={{padding: "3px 5px", cursor: "pointer",color:isDislike===i||item?.answer?.comment?"red":""}}>
-                                                <ThumbDownIcon/>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div style={{
-                                        width:"100%",
-                                        boxShadow:"0 0 5px 0 rgba(0,0,0,0.3)",
-                                        padding:"7px",
-                                        display:isDislike===i?"block":"none",
-                                        translation:"display 2s erase"
-                                    }}>
-                                            <textarea onChange={(e)=>{
-                                                setComLength(false);
-                                                setComment(e.target.value)
-                                            }} placeholder="Izoh yozing!!!" style={{width:"100%"}} name="" rows="7">
-                                            </textarea>
-                                        {
-                                            comLength?<p style={{color:"red"}}>Belgilar soni 10 tadan kam bo'lmasligi kerak!!!</p>:""
-                                        }
-                                        <button onClick={()=>{
-                                            if (comment.length>10){
-                                                sendFeedback(item?.answer)
-                                            }else {
-                                                setComLength(true)
-                                            }
-                                        }} style={{float:"right",backgroundColor:green[400],padding:"6px 8px",color:"white",borderRadius:"3px"}}>Yuborish</button>
-                                        <div style={{clear: "both"}}/>
+                            <div key={i} className="content per-acc-app-response-request">
+                                <div className="request-theme" style={{marginBottom: '40px'}}>
+                                    <div>
+                                        <h3>{t("The answer to your appeal came from")}
+                                            <strong>{item?.checkedBy?.fullName}</strong></h3>
                                     </div>
                                 </div>
+                                <div style={{marginBottom: '20px'}}>
+                                    <DocumentText appeal={item?.application}/>
+                                </div>
+                                <SectionCategory section={item?.application?.section}
+                                                 fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null}/>
+                                <CheckboxConfidensial/>
+                                <div className="response-request">
+                                    <div className="content-line"/>
+                                    <div style={{marginBottom: '20px'}}>
+                                        <UserItem p={item?.checkedBy}/>
+                                    </div>
+
+                                    <div className="answer-for-appeal" style={{}}>
+                                        <p  style={{padding:'10px 0',fontSize:"18px"}}>{t("Answer text")}:</p>
+                                        <p   style={{padding:'10px 0',fontSize:"14px"}}>
+                                            {item?.answer.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="file-upload">
+                                        <SectionCategory showSection={true} section={item?.application?.section}
+                                                         fileId={item?.answer?.attachmentId ? item?.answer?.attachmentId[0] : null}/>
+                                    </div>
+                                </div>
+                                <div className="answer-score">
+                                    <h4>{t("Evaluating the response")}:</h4>
+                                    <div className="answer-score-button">
+                                            <span onClick={() => {
+                                                setIsDislike(-1);
+                                            }} style={{padding: "3px 5px", cursor: "pointer", color: "green"}}>
+                                                <ThumbUpIcon/>
+                                            </span>
+                                        <span onClick={() => {
+                                            if (isDislike === i) {
+                                                setIsDislike(-1);
+                                            } else {
+                                                setIsDislike(i);
+                                            }
+                                        }} style={{
+                                            padding: "3px 5px",
+                                            cursor: "pointer",
+                                            color: isDislike === i || item?.answer?.comment ? "red" : ""
+                                        }}>
+                                                <ThumbDownIcon/>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div style={{
+                                    width: "100%",
+                                    boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
+                                    padding: "7px",
+                                    display: isDislike === i ? "block" : "none",
+                                    translation: "display 2s erase"
+                                }}>
+                                            <textarea onChange={(e) => {
+                                                setComLength(false);
+                                                setComment(e.target.value)
+                                            }} placeholder="Izoh yozing!!!" style={{width: "100%"}} name="" rows="7">
+                                            </textarea>
+                                    {
+                                        comLength ? <p style={{color: "red"}}>Belgilar soni 10 tadan kam bo'lmasligi
+                                            kerak!!!</p> : ""
+                                    }
+                                    <button onClick={() => {
+                                        if (comment.length > 10) {
+                                            sendFeedback(item?.answer)
+                                        } else {
+                                            setComLength(true)
+                                        }
+                                    }} style={{
+                                        float: "right",
+                                        backgroundColor: green[400],
+                                        padding: "6px 8px",
+                                        color: "white",
+                                        borderRadius: "3px"
+                                    }}>Yuborish
+                                    </button>
+                                    <div style={{clear: "both"}}/>
+                                </div>
+                            </div>
                         )
                     }
 
                     <div style={{clear: "both"}}/>
                     {
-                        items.length>0?<div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+                        items.length > 0 ? <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
                             <CustomPagination
                                 pageLength={pageSize}
                                 setActive={setActive}
@@ -170,11 +190,11 @@ const PerAccAppResponseRequest = ({t}) => {
                                 size={size}
                                 setSize={setSize}
                             />
-                        </div>:<div style={{
-                            textAlign:"center",
-                            marginTop:"25px"
+                        </div> : <div style={{
+                            textAlign: "center",
+                            marginTop: "25px"
                         }}>
-                           {t("Applications are not available")}!!!
+                            {t("Applications are not available")}!!!
                         </div>
                     }
                 </>

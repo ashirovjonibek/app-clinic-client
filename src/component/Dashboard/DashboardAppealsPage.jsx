@@ -14,11 +14,15 @@ import iconGlass from "../../assets/icon/icon-glass.svg";
 import Enter from "../Nav/Enter";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
+import {object} from "prop-types";
+import DeleteIcon from "@material-ui/icons/Delete";
+import {Link} from "react-router-dom";
 
 const DashboardAppealsPage = ({t}) => {
     const user = useSelector(state => state.meReducer);
 
     const [applicationsCount, setApplicationsCount] = useState([]);
+    const [sections, setSections] = useState([]);
     const i18 = i18next.language
 
     useEffect(() => {
@@ -38,7 +42,17 @@ const DashboardAppealsPage = ({t}) => {
         axios(config)
             .then(function (response) {
                 setApplicationsCount(response.data.res)
-                console.log(response.data.res)
+                let sec = response.data.res.sections, a = []
+
+                for (const [key, value] of Object.entries(sec)) {
+                    console.log(key, value)
+                    a.push({
+                        id: key, data: value
+                    })
+                }
+
+                setSections(a)
+                console.log(a)
             })
             .catch(function (error) {
                 console.log(error);
@@ -50,7 +64,7 @@ const DashboardAppealsPage = ({t}) => {
         <div>
 
             <div className="admin">
-                <div className="admin-appeals-count" style={{paddingTop:"5px"}}>
+                <div className="admin-appeals-count" style={{paddingTop: "5px"}}>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img src="https://img.icons8.com/nolan/64/document.png" alt=""/>
@@ -58,7 +72,7 @@ const DashboardAppealsPage = ({t}) => {
                         <div className=" appeals-count-line"/>
 
                         <div className="appeals-count-content">
-                            <p className="appeals-count-p">{applicationsCount.allApplications ? applicationsCount.allApplications : " . . . "}</p>
+                            <p className="appeals-count-p">{applicationsCount?.allApplications}</p>
                             <p>{t("total appeals")}</p>
                         </div>
                     </div>
@@ -68,7 +82,7 @@ const DashboardAppealsPage = ({t}) => {
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">
-                            <p className="appeals-count-p">{applicationsCount.inProcessApplications ? applicationsCount.inProcessApplications : " . . . "}</p>
+                            <p className="appeals-count-p">{applicationsCount?.inProcessApplications}</p>
                             <p>{t("appeals in execution")}</p>
                         </div>
                     </div>
@@ -78,20 +92,22 @@ const DashboardAppealsPage = ({t}) => {
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">
-                            <p className="appeals-count-p">{applicationsCount.completeApplications ? applicationsCount.completeApplications : " . . . "}</p>
+                            <p className="appeals-count-p">{applicationsCount?.completeApplications}</p>
                             <p>{t("completed applications")}</p>
                         </div>
                     </div>
                     <div className="appeals-count-div">
-                        <div className="appeals-count-content">
-                            <p className="appeals-count-p"></p>
-                            <p>muddati tugab bajarilgan</p>
+                        <div className="appeals-count-img">
+                            <img src="https://img.icons8.com/nolan/64/services.png"/>
                         </div>
                         <div className=" appeals-count-line" style={{margin: "0 2px"}}/>
                         <div className="appeals-count-content">
-                            <p className="appeals-count-p"></p>
-                            <p>kech qabul qilingan</p>
+                            <p className="appeals-count-p">
+                                {applicationsCount?.delayDeadlineApplications}
+                            </p>
+                            <p>{t("extended appeals")}</p>
                         </div>
+
                     </div>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
@@ -99,37 +115,60 @@ const DashboardAppealsPage = ({t}) => {
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">
-                            <p className="appeals-count-p"></p>
-                            <p>muddati tugagan arizalar</p>
+                            <p className="appeals-count-p">{applicationsCount?.deadlineEndEndingApplications}</p>
+                            <p>{t("expired or expired appeals")}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div style={{marginBottom: "100px" }} className="admin-list-appeal">
+                <div style={{marginBottom: "100px"}} className="admin-list-appeal">
                     <div style={{margin: '20px 0'}}>
                         <div className="table-scroll" style={{marginTop: '10px'}}>
                             <h5 className="table-title">{t("List")}</h5>
                             <table>
-                                <tbody>
+                                <thead>
                                 <tr>
-                                    <th className="table-border applicant-name">{t("Jami arizalar")}</th>
-                                    <th className="table-border nation">{t("Ijrodagi arizalar")}</th>
-                                    <th className="table-border gender">{t("Bajarilgan arizalar")}</th>
-                                    <th className="table-border citi">{t("Muddati tugab bajarilgan arizalar")}</th>
-                                    <th className="table-border tel">{t("Kech qabul qilingan")}</th>
-                                    <th className="table-border pochta">{t("Bugun")}</th>
-                                    <th className="table-border lgot">{t("Ertaga")}</th>
-                                    <th className="table-border date">{t("Indinga")}</th>
-                                    <th className="table-border ">{t("3 kun")}</th>
+                                    <th className="table-border applicant-name">{t("Bo'limlar")}</th>
+                                    <th className="table-border applicant-name">{t("total appeals")}</th>
+                                    <th className="table-border nation">{t("appeals in execution")}</th>
+                                    <th className="table-border gender">{t("completed applications")}</th>
+                                    <th className="table-border citi">{t("extended appeals")}</th>
+                                    <th className="table-border tel">{t("expired or expired appeals")}</th>
+                                    <th className="table-border pochta">{t("Today")}</th>
                                 </tr>
 
+                                </thead>
+                                <tbody>
+                                {
+                                    sections && sections.map(item =>
+                                        <tr key={item.id} value={item.id} className="dashboardTableItems" style={{
+                                            textDecoration:"underline"
+                                        }}>
+                                            <td  className="table-border applicant-name">
+                                                {item.data.this.title[i18]}
+                                            </td>
+                                            <td className="table-border"><Link>{item.data.count}</Link>
+                                            </td>
+                                            <td className="table-border">
+                                                <Link>{item.data.inProcessApplications}</Link></td>
+                                            <td className="table-border"
+                                                style={{textAlign: 'start'}}>
+                                                <Link>{item.data.completeApplications}</Link></td>
+                                            <td className="table-border">
+                                                <Link>{item.data.delayDeadlineApplications}</Link></td>
+                                            <td className="table-border">
+                                                <Link>{item.data.deadlineEndEndingApplications}</Link></td>
+                                            <td className="table-border">
+                                                <Link>{item.data.thisDayNewApplications}</Link></td>
+                                        </tr>
+                                    )
+                                }
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );

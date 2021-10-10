@@ -19,7 +19,7 @@ const IncomingRequestSection = (props) => {
     const [request, setRequest] = useState([]);
     const history = useHistory();
     const [idUser, setIdUser] = useState(1);
-    console.log(idUser);
+    // console.log(idUser);
     const [nS, setNS] = useState(1);
     const [r, setR] = useState(false);
     const [newApps, setNewApps] = useState([]);
@@ -42,13 +42,19 @@ const IncomingRequestSection = (props) => {
         message: "",
         errorCom: ""
     })
+    const [appealFilter, setAppealFilter] = useState({
+        status: "ALL",
+        sectionId: 0,
+        search: ""
+    });
 
     useEffect(() => {
         axios({
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/listener?size=" + size + "&page=" + (active - 1),
+            url: API_URL + "/application/listener?size=" + size + "&page=" + (active - 1)+
+            "&search="+appealFilter.search,
             method: 'GET'
         }).then(res => {
             setRequest(res.data.object)
@@ -66,7 +72,8 @@ const IncomingRequestSection = (props) => {
 
         axios({
             method: 'get',
-            url: API_URL + "/application/unchecked?size=" + size1 + "&page=" + (active1 - 1),
+            url: API_URL + "/application/unchecked?size=" + size1 + "&page=" + (active1 - 1)+
+            "&search="+appealFilter.search,
             headers: {
                 'Authorization': token
             }
@@ -74,7 +81,7 @@ const IncomingRequestSection = (props) => {
             setTotal1(r.data.totalPages);
             setInpApps(r.data.object)
         })
-    }, [active, active1, size, size1]);
+    }, [active, active1, size, size1, appealFilter]);
 
     const newApplication = () => {
         axios({
@@ -597,7 +604,9 @@ const IncomingRequestSection = (props) => {
 
     return (
         <div className="incoming-request-section">
-            <ContentTop/>
+
+            <ContentTop role={"listener"} setAppealFilter={setAppealFilter} appealFilter={appealFilter} />
+
             <div className="navbar-wrapper">
                 <div className="content-top">
                     <p className="request-items">
@@ -607,6 +616,10 @@ const IncomingRequestSection = (props) => {
                         <Link to={"#"} onClick={() => {
                             setNS(1)
                             newApplication();
+                            setAppealFilter({
+                                ...appealFilter,
+                                search:""
+                            })
                         }}>{props.t("New")}</Link>
                     </p>
                     <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
@@ -614,6 +627,10 @@ const IncomingRequestSection = (props) => {
                         <Link to={"#"} onClick={() => {
                             setNS(2)
                             acceptedApp();
+                            setAppealFilter({
+                                ...appealFilter,
+                                search:""
+                            })
                         }}>{props.t("Accepted")}</Link>
                     </p>
                     {/*<p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">*/}

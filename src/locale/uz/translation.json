@@ -296,9 +296,17 @@
   "Super moderators": "Super moderatorlar",
   "total appeals": "jami arizalar",
   "appeals in execution": "ijrodagi arizalar",
-  "completed applications": "bajarilgan arizalar"
-
-
+  "completed applications": "bajarilgan arizalar",
+  "Category of department": "Kafedra turi",
+  "Select department": "Bo'limni tanlang",
+  "Completed": "Bajarilgan",
+  "Inprocess": "Jarayonda",
+  "Created": "Yangi",
+  "Filter by department": "Bo'lim bo'yicha filtrlash",
+  "Filter by status": "Holati bo'yicha filtrlash",
+  "extended appeals": "muddati uzaytirilgan arizalar",
+  "expired or expired appeals": "muddati tugagan yoki tugayotgan arizalar",
+  "Today": "Bugun"
 
 
 

@@ -3,12 +3,13 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import {useHistory} from 'react-router-dom'
 import CheckboxConfidensial from "../CheckboxConfidensial";
-import {FileCopy,Audiotrack,Videocam} from '@material-ui/icons';
+import {FileCopy, Audiotrack, Videocam} from '@material-ui/icons';
 import {CircularProgress} from "@material-ui/core";
 import {withTranslation} from "react-i18next";
 import CustomPagination from "../catalog/Pagenation";
 import Dialog from "@material-ui/core/Dialog";
 import i18next from "i18next";
+import ContentTop from "../ContentTop";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -20,10 +21,17 @@ const YourAppealSection = (props) => {
     const [loading, setLoading] = useState(true)
     const [errorMsg, setErrorMsg] = useState({message: "", status: false});
     const [size, setSize] = useState(3);
-    const [player,setPlayer]=useState({
-        open:false,
-        name:"",
-        resource:""
+
+    const [appealFilter, setAppealFilter] = useState({
+        status: "ALL",
+        sectionId: 0,
+        search: ""
+    });
+
+    const [player, setPlayer] = useState({
+        open: false,
+        name: "",
+        resource: ""
     });
 
     const token = localStorage.getItem(STORAGE_NAME);
@@ -34,12 +42,15 @@ const YourAppealSection = (props) => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant?size=" + size + "&page=" + (active - 1),
+            url: API_URL + "/application/applicant?size=" + size + "&page=" + (active - 1) +
+                "&search=" + appealFilter.search +
+                "&status=" + appealFilter.status +
+                "&sectionId=" + appealFilter.sectionId,
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
             props.setAppeal(res.data.object.object);
-            console.log(res);
+            console.log(res.data.object.object);
             setPageSize(res.data.object.totalPages)
             setLoading(false)
         }).catch((e) => {
@@ -50,7 +61,7 @@ const YourAppealSection = (props) => {
                 message: "" + e.message
             });
         })
-    }, [active, size]);
+    }, [active, size, appealFilter]);
 
     const fileLoad = (id, name) => {
         if (id) {
@@ -72,6 +83,7 @@ const YourAppealSection = (props) => {
 
     return (
         <div className="your-appeal-item-section">
+            <ContentTop appealFilter={appealFilter} setAppealFilter={setAppealFilter} />
             {
                 errorMsg.status ?
                     <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px", fontSize: "45px"}}>
@@ -98,27 +110,32 @@ const YourAppealSection = (props) => {
                                         <ul>
                                             <li>
                                                 <label htmlFor="">{props.t("Category of treatment")}</label>
-                                                <div className="category-item">{item?.section?.title[i18next.language]}</div>
+                                                <div
+                                                    className="category-item">{item?.section?.title[i18next.language]}</div>
                                             </li>
-                                            <li style={{display:item?.attachmentsId?"":"none",margin:'0 5px 0 5px'}}>
+                                            <li style={{
+                                                display: item?.attachmentsId ? "" : "none",
+                                                margin: '0 5px 0 5px'
+                                            }}>
                                                 <label htmlFor="">{props.t("File")}</label>
                                                 <div
                                                     title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                     style={{textAlign: "center", cursor: "pointer"}}
                                                     className="file-item">
                                                     {
-                                                        item?.attachmentsId?<a href={API_URL+'/attach/'+item?.attachmentsId[0]}><FileCopy/></a>:""
+                                                        item?.attachmentsId ?
+                                                            <a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a> : ""
                                                     }
                                                 </div>
                                             </li>
-                                            <li style={{display:item?.video?"":"none",margin:'0 5px 0 5px'}}>
+                                            <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
                                                 <label htmlFor="">{props.t("Video")}</label>
                                                 <div
                                                     title={item?.video ? props.t("Download the application") : props.t("Doc not found")}
                                                     onClick={(e) => {
                                                         setPlayer({
-                                                            open:true,
-                                                            name:"video",
+                                                            open: true,
+                                                            name: "video",
                                                             resource: item?.video
                                                         })
                                                     }} style={{textAlign: "center", cursor: "pointer"}}
@@ -126,14 +143,14 @@ const YourAppealSection = (props) => {
                                                     <Videocam/>
                                                 </div>
                                             </li>
-                                            <li style={{display:item?.audio?"":"none",margin:'0 5px 0 5px'}}>
+                                            <li style={{display: item?.audio ? "" : "none", margin: '0 5px 0 5px'}}>
                                                 <label htmlFor="">{props.t("Audio")}</label>
                                                 <div
                                                     title={item?.audio ? props.t("Download the application") : props.t("Doc not found")}
                                                     onClick={(e) => {
                                                         setPlayer({
-                                                            open:true,
-                                                            name:"audio",
+                                                            open: true,
+                                                            name: "audio",
                                                             resource: item?.audio
                                                         })
                                                     }} style={{textAlign: "center", cursor: "pointer"}}
@@ -168,7 +185,8 @@ const YourAppealSection = (props) => {
                             </div>
                         </>
             }
-            <Dialog fullWidth={true} open={player.open} onClose={()=>setPlayer({open:false,resource:"",name:""})}>
+            <Dialog fullWidth={true} open={player.open}
+                    onClose={() => setPlayer({open: false, resource: "", name: ""})}>
                 <div style={{
                     width: "100%",
                     position: "relative"
@@ -177,24 +195,26 @@ const YourAppealSection = (props) => {
                         setPlayer({
                             open: false,
                             name: "",
-                            resource:""
+                            resource: ""
                         })
                     }} style={{
                         position: "absolute",
                         zIndex: 1,
                         fontSize: "16px",
                         fondWeight: "bold",
-                        color: player.name==="audio" ? "black" : "white",
+                        color: player.name === "audio" ? "black" : "white",
                         right: 0,
                         padding: "10px",
                         cursor: "pointer"
                     }}><b>X</b></span>
                 </div>
-                <div style={{width:"100%"}}>
+                <div style={{width: "100%"}}>
                     {
-                        player.name==="video"? <video width={"100%"} src={API_URL+player?.resource} controls />
+                        player.name === "video" ? <video width={"100%"} src={API_URL + player?.resource} controls/>
                             :
-                            player.name==="audio"? <audio style={{width:"100%",marginTop:"25px"}} src={API_URL+player?.resource} controls />:""
+                            player.name === "audio" ?
+                                <audio style={{width: "100%", marginTop: "25px"}} src={API_URL + player?.resource}
+                                       controls/> : ""
                     }
                 </div>
             </Dialog>

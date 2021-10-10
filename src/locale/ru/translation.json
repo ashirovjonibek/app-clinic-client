@@ -280,7 +280,17 @@
   "Super moderators": "Супер модераторы",
   "total appeals": "общее количество апелляций",
   "appeals in execution": "обращения в исполнение",
-  "completed applications": "заполненные заявки"
+  "completed applications": "заполненные заявки",
+  "Category of department": "Категория кафедры",
+  "Select department": "Выберите кафедра",
+  "Completed": "Завершенный",
+  "Inprocess": "В процессе",
+  "Created": "Созданный",
+  "Filter by department": "Фильтр по отделу",
+  "Filter by status": "Фильтр по статусу",
+  "extended appeals": "расширенные обращений",
+  "expired or expired appeals": "апелляции с истекшим или истекшим сроком действия",
+  "Today": "Сегодня"
 
 
 

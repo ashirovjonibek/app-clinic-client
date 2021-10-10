@@ -150,6 +150,8 @@
 
         tr {
           .table-border {
+            text-transform: capitalize;
+
             text-align: center;
             background: #ffffff;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -185,7 +187,7 @@
 
       .appeals-count-line {
         width: 3px;
-        background: linear-gradient(#9198e5,#C225FF, #e66465);
+        background: linear-gradient(#9198e5, #C225FF, #e66465);
         height: 100%;
         margin: 0 3px;
       }
@@ -206,12 +208,20 @@
         font-size: 25px;
         font-weight: bolder;
         color: #4e5e80;
+
       }
 
       p {
         margin-top: 8px;
         text-align: center;
         text-transform: uppercase;
+      }
+    }
+
+    .dashboardTableItems{
+      .table-border{
+        text-decoration: underline !important;
+        color: #0046d5;
       }
     }
   }
@@ -510,5 +520,13 @@
 @media (min-width: 576px) {
   .searchdiv {
     display: none;
+  }
+
+}
+@media (max-width: 576px) {
+  .admin .admin-appeals-count .appeals-count-div .appeals-count-content {
+    p {
+      font-size: 14px;
+    }
   }
 }

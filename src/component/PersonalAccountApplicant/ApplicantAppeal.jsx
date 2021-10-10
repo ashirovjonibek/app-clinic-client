@@ -302,12 +302,12 @@ const ApplicantAppeal = (props) => {
                                         <div style={{marginBottom: '20px'}}>
                                             <div className="lb">
                                                 <label className="label"
-                                                       htmlFor="">{props.t("Category of treatment")}</label>
+                                                       htmlFor="">{props.t("Category of department")}</label>
                                             </div>
                                             <div>
                                                 <select onChange={handleChange} id="sectionId" name="sectionId"
                                                         className="category" required>
-                                                    <option value="">{props.t("Select your appeal")}</option>
+                                                    <option value="">{props.t("Select department")}</option>
                                                     {sections && sections.map((item, i) =>
                                                         <option key={i} value={item.id}>{item.title.uz}</option>
                                                     )}

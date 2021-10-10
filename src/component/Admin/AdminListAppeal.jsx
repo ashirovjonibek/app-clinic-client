@@ -98,7 +98,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                     return item
                                 }
                             }).map((item) =>
-                                <tr key={item.id} value={item.id}>
+                                <tr key={item.id} value={item.id} >
                                     <td className="table-border applicant-name">{item.fullName}</td>
                                     <td className="table-border">{item.nation.name[i18]}</td>
                                     <td className="table-border">{item.gender}</td>

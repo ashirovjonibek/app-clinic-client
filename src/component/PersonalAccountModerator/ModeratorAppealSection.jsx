@@ -7,39 +7,39 @@ import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 
 const ModeratorAppealSection = () => {
-    const [items,setItems]=useState([]);
-    const [activeItems,setActiveItems]=useState([])
-    const [active,setActive]=useState(1)
-    const [size,setSize]=useState(3)
-    const [total,setTotal]=useState(1);
-    const [loading,setLoading]=useState(false);
-    let token=localStorage.getItem(STORAGE_NAME)
-    useEffect(()=>{
+    const [items, setItems] = useState([]);
+    const [activeItems, setActiveItems] = useState([])
+    const [active, setActive] = useState(1)
+    const [size, setSize] = useState(3)
+    const [total, setTotal] = useState(1);
+    const [loading, setLoading] = useState(false);
+    let token = localStorage.getItem(STORAGE_NAME)
+    useEffect(() => {
         setLoading(true)
         axios({
-            method:'get',
-            url:API_URL+'/document/accepted/all?size='+size+'&page='+(active-1),
-            headers:{
-                Authorization:token
+            method: 'get',
+            url: API_URL + '/document/accepted/all?size=' + size + '&page=' + (active - 1),
+            headers: {
+                Authorization: token
             }
-        }).then((r)=>{
+        }).then((r) => {
             console.log(r);
             setActiveItems(r.data.object);
             setTotal(r.data.totalPages)
             setLoading(false)
-        }).catch((e)=>{
+        }).catch((e) => {
             setLoading(false)
         })
-    },[active,size]);
+    }, [active, size]);
 
-    const refresh=()=>{
+    const refresh = () => {
         axios({
-            method:'get',
-            url:API_URL+'/application/applications',
-            headers:{
-                Authorization:token
+            method: 'get',
+            url: API_URL + '/application/applications',
+            headers: {
+                Authorization: token
             }
-        }).then((r)=>{
+        }).then((r) => {
             console.log(r);
             setActiveItems(r.data.object);
             setTotal(r.data.totalPages)
@@ -48,17 +48,17 @@ const ModeratorAppealSection = () => {
     return (
         <>
             {
-                loading?<div>
-                    <Loading/>
-                </div>:
+                loading ? <div>
+                        <Loading/>
+                    </div> :
                     <div className="moderator-appeals-section">
-                    <ContentTop count={items.length} />
+                        {/*<ContentTop count={items.length} />*/}
                         {
-                            activeItems.length>0?
+                            activeItems.length > 0 ?
                                 <>
                                     {
-                                        activeItems&&activeItems.map((item,i)=>
-                                            <ModeratorAppealItem refresh={refresh} key={i} item={item} />
+                                        activeItems && activeItems.map((item, i) =>
+                                            <ModeratorAppealItem refresh={refresh} key={i} item={item}/>
                                         )
                                     }
                                     <div style={{clear: "both"}}/>
@@ -73,10 +73,10 @@ const ModeratorAppealSection = () => {
                                             setSize={setSize}
                                         />
                                     </div>
-                                </>:
-                                <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
+                                </> :
+                                <div style={{marginTop: "35px", textAlign: "center"}}>Ma'lumot topilmadi</div>
                         }
-                </div>
+                    </div>
             }
         </>
     );
