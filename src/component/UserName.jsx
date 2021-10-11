@@ -29,13 +29,14 @@ const UserName = (props) => {
                         textAlign:"center",
                         color:"white",
                         overflow:"hidden",
+                        paddingTop:props?.avatar?"5px":"",
                         fontWeight:600,
                         fontSize:props?.fontSize?props.fontSize:"25px",
                         lineHeight:!props?.avatar?props?.lineHeight?props.lineHeight:"38px":""
                     }
                 }>
                     {props.avatar?
-                    <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100%"} height={"100%"} alt=""/>
+                    <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100px"} height={"100px"} alt=""/>
                     : props.text[0].toUpperCase()}
                 </div>
                 {!props.top?<div className="name" onClick={()=>{

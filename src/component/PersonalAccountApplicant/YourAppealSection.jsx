@@ -10,6 +10,7 @@ import CustomPagination from "../catalog/Pagenation";
 import Dialog from "@material-ui/core/Dialog";
 import i18next from "i18next";
 import ContentTop from "../ContentTop";
+import {blue} from "@material-ui/core/colors";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -21,6 +22,7 @@ const YourAppealSection = (props) => {
     const [loading, setLoading] = useState(true)
     const [errorMsg, setErrorMsg] = useState({message: "", status: false});
     const [size, setSize] = useState(3);
+    const [show,setShow]=useState(false);
 
     const [appealFilter, setAppealFilter] = useState({
         status: "ALL",
@@ -102,9 +104,10 @@ const YourAppealSection = (props) => {
                                             <h4>{props.t("Subject of the appeal")}:</h4>
                                             <p>{item?.title}</p>
                                         </div>
-                                        <div className="document-text-item">
+                                        <div className="document-text-item" style={{maxHeight:show?"":"435px",overflow:!show?"hidden":""}}>
                                             <p>{item?.description}</p>
                                         </div>
+                                        <span style={{color:blue[400],cursor:"pointer"}} onClick={()=>setShow(!show)}><u>{show?"Berkitish":"Ko'rish"}</u></span>
                                     </div>
                                     <div className="categories">
                                         <ul>
