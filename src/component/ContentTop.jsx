@@ -25,7 +25,7 @@ const ContentTop = (props) => {
     return (
         <div className="content-top">
             {
-                role && role !== "listener" ?
+                role === "listener" ? "" :
                     <>
                         <div className="request-items">
                             <select onChange={handleChange} id="sectionId" name="sectionId"
@@ -46,8 +46,6 @@ const ContentTop = (props) => {
                             </select>
                         </div>
                     </>
-
-                    : ""
             }
 
             <div className="request-search">
