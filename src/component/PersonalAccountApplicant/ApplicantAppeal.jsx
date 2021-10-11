@@ -25,7 +25,7 @@ import VoiceRecorder from "./recorders/voiceRecorder";
 import CustomVideoRecorder from "./recorders/videoRecorder";
 
 const ApplicantAppeal = (props) => {
-    const {history,t} = props;
+    const {history, t} = props;
     const [record, setRecord] = useState({
         status: false,
         name: ""
@@ -69,7 +69,7 @@ const ApplicantAppeal = (props) => {
         Swal.fire({
             showCancelButton: true,
             confirmButtonText: t("Send"),
-            title: t("Should the application be sent for review")+"?",
+            title: t("Should the application be sent for review") + "?",
             icon: "warning",
             cancelButtonText: t("Cancel")
         }).then((confirm) => {
@@ -93,7 +93,7 @@ const ApplicantAppeal = (props) => {
                         })
                     }
                 }).catch((err) => {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(r => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
                         console.log(r)
                     })
                 });
@@ -193,7 +193,7 @@ const ApplicantAppeal = (props) => {
                                 values.videoId === "" ?
                                     <button onClick={() => {
                                         navigator.permissions.query(
-                                            { name: 'camera' }
+                                            {name: 'camera'}
                                             // { name: 'microphone' }
                                             // { name: 'geolocation' }
                                             // { name: 'notifications' }
@@ -201,16 +201,16 @@ const ApplicantAppeal = (props) => {
                                             // { name: 'midi', sysex: true }
                                             // { name: 'push', userVisibleOnly: true }
                                             // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
-                                        ).then(function(permissionStatus){
+                                        ).then(function (permissionStatus) {
 
                                             console.log(permissionStatus.state); // granted, denied, prompt
-                                            if (permissionStatus.state==="granted"){
+                                            if (permissionStatus.state === "granted") {
                                                 setRecord({
                                                     status: true,
                                                     name: "video"
                                                 })
-                                            }else {
-                                                alert("Permission "+permissionStatus.state+" for camera!!!")
+                                            } else {
+                                                alert("Permission " + permissionStatus.state + " for camera!!!")
                                             }
 
                                         });
@@ -242,23 +242,23 @@ const ApplicantAppeal = (props) => {
                                 values.audioId === "" ? <button onClick={() => {
                                         navigator.permissions.query(
                                             // { name: 'camera' }
-                                            { name: 'microphone' }
+                                            {name: 'microphone'}
                                             // { name: 'geolocation' }
                                             // { name: 'notifications' }
                                             // { name: 'midi', sysex: false }
                                             // { name: 'midi', sysex: true }
                                             // { name: 'push', userVisibleOnly: true }
                                             // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
-                                        ).then(function(permissionStatus){
+                                        ).then(function (permissionStatus) {
 
                                             console.log(permissionStatus.state); // granted, denied, prompt
-                                            if (permissionStatus.state==="granted"){
+                                            if (permissionStatus.state === "granted") {
                                                 setRecord({
                                                     status: true,
                                                     name: "voice"
                                                 })
-                                            }else {
-                                                alert("Permission "+permissionStatus.state+" for microphone!!!")
+                                            } else {
+                                                alert("Permission " + permissionStatus.state + " for microphone!!!")
                                             }
 
                                         });
@@ -292,6 +292,13 @@ const ApplicantAppeal = (props) => {
                                     <input className="theme-request" onChange={handleChange} name="title" id="title"
                                            type="text" placeholder={props.t("Enter the subject of the appeal")}/>
                                 </div>
+                                <hr style={{
+                                    color: "#CACFD2",
+                                    backgroundColor: "#CACFD2",
+                                    height: 1,
+                                    marginTop:"5px"
+                                }}/>
+
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
                                           rows="10"
                                           placeholder={props.t("Enter the subject of the appeal")}/>
@@ -316,7 +323,7 @@ const ApplicantAppeal = (props) => {
                                         </div>
                                     </li>
                                     <li>
-                                        <div style={{marginBottom: '20px'}}>
+                                        <div style={{marginBottom: '20px', textAlign:"center"}}>
                                             <div className="lb">
                                                 <label className="label" htmlFor="">{props.t("Attach file")}</label>
 
@@ -398,7 +405,8 @@ const ApplicantAppeal = (props) => {
                                     record.name === "reca" ? <audio style={{width: "100%", marginTop: "25px"}} controls
                                                                     src={API_URL + '/attach/audio/' + values.audioId}/> :
                                         record.name === "file" ?
-                                            <iframe title="This is a audio" src={API_URL + '/attach/' + values.attachmentId[0]}
+                                            <iframe title="This is a audio"
+                                                    src={API_URL + '/attach/' + values.attachmentId[0]}
                                                     frameBorder="1"></iframe> : ""
                         }
                     </Dialog>

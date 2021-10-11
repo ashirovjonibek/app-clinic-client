@@ -1,7 +1,7 @@
 .applicant-appeal {
     background-color: #f4f8ff;
     .container {
-        padding: 50px 100px;
+        padding: 50px 10px;
         display: flex;
         flex-direction: column;
         .requests {
@@ -48,10 +48,10 @@
                         padding-left: 10px;
                     }
                     input {
-                        width: 80%;
+                        font-size: 18px;
+                        width: 75%;
                     }
                     textarea {
-                        height: 90%;
                         height: 250px;
                         width: 100%;
                         border: none;
@@ -140,7 +140,7 @@
 .pdfFormat{
     margin-top: 5px;
     color: #07bc0c;
-    font-size: 10px;
+    font-size: 18px;
 }
 
 @media (max-width: 1200px) {

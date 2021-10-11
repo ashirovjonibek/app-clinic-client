@@ -90,7 +90,7 @@
     .statistic-row {
       display: flex;
       flex-direction: row;
-      // justify-content: space-between;
+      justify-content: center;
       margin-top: 20px;
 
       .statistic-items {
@@ -173,18 +173,22 @@
   }
 
   #home-useful-links {
-    background-color: white;
+    background-color: #F4F8FF;
     min-height: 380px;
     padding: 20px;
     margin-bottom: 20px;
 
     .useful-links-body {
+
       display: flex;
       flex-direction: row;
       min-height: 280px;
       margin-top: 20px;
+      justify-content: center;
 
       .useful-links-item {
+        background-color: white;
+
         min-height: 280px;
         width: 250px;
         display: flex;
@@ -225,6 +229,7 @@
       .what-clinic-slider {
         flex-direction: column;
         margin-right: 20px;
+
         .what-clinic-text {
           width: 100%;
         }
@@ -268,7 +273,7 @@
     }
 
     #home-useful-links {
-      background-color: #c8faf7;
+      background-color: #F4F8FF;
 
       .useful-links-body {
         flex-direction: column;
@@ -330,6 +335,18 @@
           }
         }
       }
+
+      #statistic-clinic {
+        .statistic-row {
+          .statistic-items {
+            .statistic {
+              h3 {
+                font-size: 40px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -337,6 +354,21 @@
 @media (max-width: 480px) {
   .home {
     text-align: center;
+
+    .container {
+      #statistic-clinic {
+        .statistic-row {
+          .statistic-items {
+            .statistic {
+              h3 {
+                font-size: 28px;
+              }
+            }
+          }
+        }
+      }
+    }
+
 
     #cel-clinic {
       .cel-clinic-text {

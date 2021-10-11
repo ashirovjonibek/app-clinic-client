@@ -3,7 +3,7 @@
 }
 
 .container {
-  padding: 0 25px  0 25px;
+  width: 80%;
   margin: auto;
 }
 
@@ -44,6 +44,9 @@
 }
 
 @media (max-width: 768px) {
+  .container{
+    width: 90%;
+  }
   .footer {
     text-align: center;
     .footer-first {
@@ -62,6 +65,9 @@
 }
 
 @media (max-width: 576px) {
+  .container{
+    width: 100%;
+  }
   .footer {
     .footer-first {
       .sub-title-line {

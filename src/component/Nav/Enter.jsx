@@ -20,7 +20,7 @@ const Enter = ({t}) => {
 
     return (
         <div className="enter">
-            <div className="enter-btn" style={{cursor: "pointer"}}>
+            <div className="enter-btn"  >
                 <div className="enter-img" style={{padding: "3px"}}>
                     <UserName
                         width={"30px"}
@@ -38,7 +38,7 @@ const Enter = ({t}) => {
                     paddingLeft: "3px",
                     float: "left",
                     textAlign: "left"
-                }}> {me.meFullName !== "" ? me.meFullName : <Link style={{textDecoration: "none", color:"white"}}  to="/auth/login">{t("Login")}</Link>}
+                }}> {me.meFullName !== "" ? me.meFullName : <Link  style={{textDecoration: "none", color:"white"}}  to="/auth/login">{t("Login")}</Link>}
                     {/*<p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>*/}
                 </span>
             </div>

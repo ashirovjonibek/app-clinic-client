@@ -92,11 +92,12 @@ const Login = (props) => {
                         });
                     })
                 }
-            }).catch(error => {
+            }).catch(e => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: t("Login or password error. Please try again")+"!",
+                    title: e.response.data.message && e.response.data.message ?
+                        props.t("User not accepted. Please contact the admin")+"!":"?",
                     showConfirmButton: false,
                     timer: 2000
                 }).then(()=>{
