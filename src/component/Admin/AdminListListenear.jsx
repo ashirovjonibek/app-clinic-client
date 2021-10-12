@@ -11,6 +11,8 @@ import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 import i18next from "i18next";
+import CustomPagination from "../catalog/Pagenation";
+import {Loading} from "../catalog/Loading";
 
 const AdminListListener = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
@@ -19,6 +21,10 @@ const AdminListListener = ({t, searchTerm}) => {
     const [reLoad, setReLoad] = useState(true);
     const sectionIds = []
     const i18 = i18next.language
+    const [active,setActive]=useState(1);
+    const [totalPages,setTotalPages]=useState();
+    const [size,setSize]=useState(10);
+    const [loader,setLoader]=useState(false);
 
     useEffect(() => {
         getListeners()
@@ -27,6 +33,7 @@ const AdminListListener = ({t, searchTerm}) => {
     }, [reLoad]);
 
     const getListeners = () => {
+        setLoader(true);
         const axios = require('axios');
         const config = {
             method: 'get',
@@ -37,11 +44,14 @@ const AdminListListener = ({t, searchTerm}) => {
         };
         axios(config)
             .then(function (response) {
-                setItems(response.data)
-                setListeners(response.data)
+                setListeners(response?.data?.object);
+                // setItems(response?.data?.object);
+                setTotalPages(response?.data?.totalPages);
+                setLoader(false);
             })
             .catch(function (error) {
                 console.log(error);
+                setLoader(false);
             });
     };
 
@@ -56,7 +66,9 @@ const AdminListListener = ({t, searchTerm}) => {
         };
         axios(config)
             .then(function (response) {
-                setNewListeners(response.data)
+                // setItems(response?.data?.object);
+                setNewListeners(response.data);
+                setTotalPages(response?.data?.totalPages)
             })
             .catch(function (error) {
                 console.log(error);
@@ -141,6 +153,7 @@ const AdminListListener = ({t, searchTerm}) => {
         setListeners(items.filter(item => item.section.id === id))
     }
 
+    console.log(newListeners)
 
     return (
         <div className="admin">
@@ -170,8 +183,7 @@ const AdminListListener = ({t, searchTerm}) => {
                     </div>
                 </div>
                 {
-                    newListeners && newListeners.find(item => item.viewed === false)
-                        ? <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                        <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                             <h5 className="table-title">{t("New")}</h5>
                             <table>
                                 <tbody>
@@ -210,50 +222,65 @@ const AdminListListener = ({t, searchTerm}) => {
                                 )}
                                 </tbody>
                             </table>
-                        </div> : null
+                        </div>
                 }
 
-                <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
-                    <h5 className="table-title">{t("List")}</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th className="table-border ">{t("Full name")}</th>
-                            <th className="table-border nation">{t("Position")}</th>
-                            <th className="table-border gender">{t("Course")}</th>
-                            <th className="table-border citi">{t("Department")}</th>
-                            <th className="table-border tel">{t("Phone number")}</th>
-                            <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border ">Edit</th>
-                            <th className="table-border ">Delete</th>
-                        </tr>
-                        {listeners && listeners.filter(item => {
-                            if (searchTerm === "") {
-                                return item
-                            } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                                return item
+                {
+                    loader?<Loading/>
+                    :
+                        <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                            <h5 className="table-title">{t("List")}</h5>
+                            {
+                                listeners.length>0?<>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <th className="table-border ">{t("Full name")}</th>
+                                            <th className="table-border nation">{t("Position")}</th>
+                                            <th className="table-border gender">{t("Course")}</th>
+                                            <th className="table-border citi">{t("Department")}</th>
+                                            <th className="table-border tel">{t("Phone number")}</th>
+                                            <th className="table-border pochta">{t("Email")}</th>
+                                            <th className="table-border ">Edit</th>
+                                            <th className="table-border ">Delete</th>
+                                        </tr>
+                                        {listeners && listeners.filter(item => {
+                                            if (searchTerm === "") {
+                                                return item
+                                            } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return item
+                                            }
+                                        }).map((item, i) =>
+                                            <tr key={i} value={item.id}>
+                                                <td className="table-border ">{item.fullName}</td>
+                                                <td className="table-border">{item.position.title[i18]}</td>
+                                                <td className="table-border">{item.course}</td>
+                                                <td className="table-border">{item.section.title[i18]}</td>
+                                                <td className="table-border">{item.phoneNumber}</td>
+                                                <td className="table-border">{item.email}</td>
+                                                <td className="table-border edit"><SimpleModal
+                                                    item={item}
+                                                    getListeners={() => getListeners()}/></td>
+                                                <td className="table-border edit">
+                                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                                        <DeleteIcon/>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        )}
+                                        </tbody>
+                                    </table>
+                                    <CustomPagination
+                                        pageLength={totalPages}
+                                        setActive={setActive}
+                                        active={active}
+                                        size={size}
+                                        setSize={setSize}
+                                    />
+                                </>:""
                             }
-                        }).map((item, i) =>
-                            <tr key={i} value={item.id}>
-                                <td className="table-border ">{item.fullName}</td>
-                                <td className="table-border">{item.position.title[i18]}</td>
-                                <td className="table-border">{item.course}</td>
-                                <td className="table-border">{item.section.title[i18]}</td>
-                                <td className="table-border">{item.phoneNumber}</td>
-                                <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal
-                                    item={item}
-                                    getListeners={() => getListeners()}/></td>
-                                <td className="table-border edit">
-                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
-                                        <DeleteIcon/>
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-                </div>
+                        </div>
+                }
             </div>
         </div>
     );

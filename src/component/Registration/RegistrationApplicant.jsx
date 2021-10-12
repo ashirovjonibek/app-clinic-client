@@ -195,7 +195,6 @@ const RegistrationApplicant = (props) => {
     }
 
     const handleSend = (e) => {
-        e.preventDefault();
         // console.log(values)
         if (values.password === values.prePassword) {
             axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {

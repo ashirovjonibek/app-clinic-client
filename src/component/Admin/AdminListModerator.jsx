@@ -8,12 +8,17 @@ import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 import Swal from "sweetalert2";
 import i18next from "i18next";
+import CustomPagination from "../catalog/Pagenation";
 
 const AdminListModerator = ({t, searchTerm}) => {
     const [items, setItems] = useState([]);
     const [moderator, setModerator] = useState([]);
     const i18 = i18next.language
     const [reLoad, setReLoad] = useState(true);
+    const [active,setActive]=useState(1);
+    const [totalPages,setTotalPages]=useState();
+    const [size,setSize]=useState(10);
+    const [loader,setLoader]=useState(false);
 
     useEffect(() => {
         getListeners()
@@ -31,8 +36,8 @@ const AdminListModerator = ({t, searchTerm}) => {
         };
         axios(config)
             .then(function (response) {
-                setItems(response.data)
-                setModerator(response.data)
+                setItems(response?.data?.object);
+                setTotalPages(response?.data?.totalPages);
             })
             .catch(function (error) {
                 console.log(error);
@@ -116,6 +121,13 @@ const AdminListModerator = ({t, searchTerm}) => {
                         )}
                         </tbody>
                     </table>
+                    <CustomPagination
+                        pageLength={totalPages}
+                        setActive={setActive}
+                        active={active}
+                        size={size}
+                        setSize={setSize}
+                    />
                 </div>
             </div>
         </div>

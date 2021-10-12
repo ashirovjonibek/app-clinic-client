@@ -9,6 +9,7 @@ import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import {configHeader} from "../../requests/congifHeader";
 import i18next from "i18next";
+import CustomPagination from "../catalog/Pagenation";
 
 const AdminListSupervisor = ({t,searchTerm}) => {
     const i18 = i18next.language
@@ -16,6 +17,10 @@ const AdminListSupervisor = ({t,searchTerm}) => {
     const [items, setItems] = useState([]);
     const sectionIds = []
     const [reLoad, setReLoad] = useState(true);
+    const [active,setActive]=useState(1);
+    const [totalPages,setTotalPages]=useState();
+    const [size,setSize]=useState(10);
+    const [loader,setLoader]=useState(false);
 
     useEffect(() => {
         getListeners()
@@ -33,8 +38,9 @@ const AdminListSupervisor = ({t,searchTerm}) => {
         };
         axios(config)
             .then(function (response) {
-                setItems(response.data)
-                setSupervisor(response.data)
+                setItems(response.data.object)
+                setSupervisor(response.data.object)
+                setTotalPages(response.data.totalElements)
             })
             .catch(function (error) {
                 console.log(error);
@@ -142,6 +148,13 @@ const AdminListSupervisor = ({t,searchTerm}) => {
                         )}
                         </tbody>
                     </table>
+                    <CustomPagination
+                        pageLength={totalPages}
+                        setActive={setActive}
+                        active={active}
+                        size={size}
+                        setSize={setSize}
+                    />
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ import Dialog from "@material-ui/core/Dialog";
 import i18next from "i18next";
 import ContentTop from "../ContentTop";
 import {blue} from "@material-ui/core/colors";
+import FileReader from "../catalog/FileReader";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')

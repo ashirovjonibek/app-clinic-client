@@ -6,20 +6,27 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import {apiPath} from "../../requests/apiPath";
 import i18next from "i18next";
+import CustomPagination from "../catalog/Pagenation";
+import {Loading} from "../catalog/Loading";
 
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
-    const i18 = i18next.language
+    const i18 = i18next.language;
+    const [active,setActive]=useState(1);
+    const [totalPages,setTotalPages]=useState();
+    const [size,setSize]=useState(10);
+    const [loader,setLoader]=useState(false);
 
     useEffect(() => {
         getApplicants()
-    }, []);
+    }, [active,size]);
 
     const getApplicants = () => {
+        setLoader(true);
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/auth/applicants',
+            url: API_URL+'/auth/applicants?page'+(active-1)+'$size='+size,
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -27,10 +34,14 @@ const AdminListAppeal = ({t, searchTerm}) => {
         };
         axios(config)
             .then(function (response) {
-                setApplicants(response.data)
+                setApplicants(response?.data?.object);
+                setTotalPages(response?.data?.totalPages)
+                setLoader(false)
+
             })
             .catch(function (error) {
                 console.log(error);
+                setLoader(false)
             });
 
     }
@@ -74,55 +85,73 @@ const AdminListAppeal = ({t, searchTerm}) => {
     }
     return (
         <div className="admin">
-            <div className="admin-list-appeal">
-                <div style={{margin: '20px 0'}}>
-                    <div className="table-scroll" style={{marginTop: '10px'}}>
-                        <h5 className="table-title">{t("List")}</h5>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <th className="table-border applicant-name">{t("Full name")}</th>
-                                <th className="table-border nation">{t("Nationality")}</th>
-                                <th className="table-border gender">{t("Gender")}</th>
-                                <th className="table-border citi">{t("Address")}</th>
-                                <th className="table-border tel">{t("Phone number")}</th>
-                                <th className="table-border pochta">{t("Email")}</th>
-                                <th className="table-border lgot">{t("Benefit category")}</th>
-                                <th className="table-border date">{t("Date of birth")}</th>
-                                <th className="table-border ">{t("Action")}</th>
-                            </tr>
-                            {applicants && applicants.filter(item => {
-                                if (searchTerm === "") {
-                                    return item
-                                } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                                    return item
-                                }
-                            }).map((item) =>
-                                <tr key={item.id} value={item.id} >
-                                    <td className="table-border applicant-name">{item.fullName}</td>
-                                    <td className="table-border">{item.nation.name[i18]}</td>
-                                    <td className="table-border">{item.gender}</td>
-                                    <td className="table-border"
-                                        style={{textAlign: 'start'}}> {item.address}</td>
-                                    <td className="table-border">{item.phoneNumber}</td>
-                                    <td className="table-border">{item.email}</td>
-                                    <td className="table-border">{item.socialStatus.name[i18]}</td>
-                                    <td className="table-border">{item.birthDate.slice(0, 10)}</td>
-                                    {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
-                                    <td className="table-border edit">
-                                        <button type="button" className="deleteIcon"
-                                                onClick={() => deleteMethod(item.id)}>
-                                            <DeleteIcon/>
-                                        </button>
-                                    </td>
-                                </tr>
-                            )}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            {
+                loader ? <Loading/>
+                    :
+                    <div className="admin-list-appeal">
+                        <div style={{margin: '20px 0'}}>
 
+                            <div className="table-scroll" style={{marginTop: '10px'}}>
+                                <h5 className="table-title">{t("List")}</h5>
+                                {
+                                    applicants.length > 0 ?
+                                        <>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <th className="table-border applicant-name">{t("Full name")}</th>
+                                                    <th className="table-border nation">{t("Nationality")}</th>
+                                                    <th className="table-border gender">{t("Gender")}</th>
+                                                    <th className="table-border citi">{t("Address")}</th>
+                                                    <th className="table-border tel">{t("Phone number")}</th>
+                                                    <th className="table-border pochta">{t("Email")}</th>
+                                                    <th className="table-border lgot">{t("Benefit category")}</th>
+                                                    <th className="table-border date">{t("Date of birth")}</th>
+                                                    <th className="table-border ">{t("Action")}</th>
+                                                </tr>
+                                                {applicants && applicants.filter(item => {
+                                                    if (searchTerm === "") {
+                                                        return item
+                                                    } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                        return item
+                                                    }
+                                                }).map((item) =>
+                                                    <tr key={item.id} value={item.id}>
+                                                        <td className="table-border applicant-name">{item.fullName}</td>
+                                                        <td className="table-border">{item.nation.name[i18]}</td>
+                                                        <td className="table-border">{item.gender}</td>
+                                                        <td className="table-border"
+                                                            style={{textAlign: 'start'}}> {item.address}</td>
+                                                        <td className="table-border">{item.phoneNumber}</td>
+                                                        <td className="table-border">{item.email}</td>
+                                                        <td className="table-border">{item.socialStatus.name[i18]}</td>
+                                                        <td className="table-border">{item.birthDate.slice(0, 10)}</td>
+                                                        {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
+                                                        <td className="table-border edit">
+                                                            <button type="button" className="deleteIcon"
+                                                                    onClick={() => deleteMethod(item.id)}>
+                                                                <DeleteIcon/>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                )}
+                                                </tbody>
+                                            </table>
+                                            <CustomPagination
+                                                pageLength={totalPages}
+                                                setActive={setActive}
+                                                active={active}
+                                                size={size}
+                                                setSize={setSize}
+                                            />
+                                        </>
+                                        :
+                                        ""
+                                }
+                            </div>
+                        </div>
+                    </div>
+            }
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
@@ -7,10 +7,22 @@ import prokuraturaImg from '../../assets/img/useful/prokuratura.jpg';
 import gerbImg from '../../assets/img/useful/gerb.jpg';
 import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
 import {withTranslation} from "react-i18next";
+import axios from "axios";
+import {API_URL} from "../../utils/constant";
+import i18next from "i18next";
 
 const Home = ({t}) => {
+    const [links,setLinks]=useState([]);
+    useEffect(()=>{
+        axios({
+            method:'get',
+            url:API_URL+'/words'
+        }).then((res)=>{
+            setLinks(res.data.object);
+        })
+    },[]);
     return (
-        <div style={{paddingTop: "190px"}} className="home">
+        <div style={{paddingTop:"190px"}} className="home">
 
             <div className="header-img">
                 {/* <div className="container">
@@ -26,7 +38,7 @@ const Home = ({t}) => {
                     <div className="what-clinic-mini"/>
                 </div>
 
-                <div className="what-clinic what-clinic-slider">
+                <div  className="what-clinic what-clinic-slider">
                     <div className="what-clinic-mini">
                         <WhatSlider/>
                     </div>
@@ -135,59 +147,20 @@ const Home = ({t}) => {
                     <Title text={t("Popular questions")}/>
                     <PopularSlider/>
                 </div>
-                {/* <div id="legal-clinic">
-                    <Title text={t("Regulatory base")}/>
-                    <div className="legal-body">
-                        <div className="legal-body-items">
-                            <DirectoryPdf/>
-                            <DirectoryPdf/>
-                            <DirectoryPdf/>
-                        </div>
-                        <div className="legal-body-items">
-                            <DirectoryPdf/>
-                            <DirectoryPdf/>
-                            <DirectoryPdf/>
-                        </div>
-                    </div>
-                </div>*/}
-            </div>
 
+            </div>
             <div id="home-useful-links">
                 <div className="container">
                     <Title text={t("Regulatory base")}/>
-                    <div className="useful-links-body">
-                        <a href="https://lex.uz/docs/-20596" target='_blank' className="useful-links-item  useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Constitution of the Republic of Uzbekistan")}</p>
-                        </a>
-                        <a href="https://lex.uz/docs/-106197" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Law of the Republic of Uzbekistan \"On the Prosecutor's Office\"")}</p>
-                        </a>
-                        <a href="https://lex.uz/docs/-3080268" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Law of the Republic of Uzbekistan \"On the establishment of the Day of Prosecutors of the Republic of Uzbekistan\"")}</p>
-                        </a>
-                        <a href="https://lex.uz/docs/-147159" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Decree of the President of the Republic of Uzbekistan \"On the bodies of the Prosecutor's Office of the Republic of Uzbekistan\"")}</p>
-                        </a>
-                        <a href="https://www.lex.uz/docs/3727063" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Decree of the President of the Republic of Uzbekistan \"On measures to radically improve the system of training, retraining and advanced training of prosecutors\"")}</p>
-                        </a>
-                        <a href="https://lex.uz/docs/3141186" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Resolution of the President of the Republic of Uzbekistan \"On measures to further improve the system of crime prevention and fight against crime\"")}</p>
-                        </a>
-                        <a href="https://www.lex.uz/docs/3177796" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Decree of the President of the Republic of Uzbekistan \"On strengthening the role of the prosecutor's office in the implementation of socio-economic reforms, modernization of the country, ensuring reliable protection of human rights and freedoms\"")}</p>
-                        </a>
-                        <a href="https://lex.uz/ru/docs/-4034449" target='_blank' className="useful-links-item useful-links-item-regulatory">
-                            <img src={gerbImg} alt=""/>
-                            <p>{t("Decree of the President of the Republic of Uzbekistan \"On measures to radically improve the system of criminal law statistics and increase the efficiency of systematic analysis of crimes\"")}</p>
-                        </a>
+                    <div className="useful-links-body1">
+                        {
+                            links&&links.map((item,i)=>
+                                <a href={item.url[i18next.language]} className="useful-links-item1">
+                                    <img src={gerbImg} alt=""/>
+                                    <p>{item.name[i18next.language]}</p>
+                                </a>
+                            )
+                        }
                     </div>
                 </div>
             </div>
