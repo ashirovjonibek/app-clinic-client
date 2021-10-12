@@ -10,19 +10,21 @@ import {withTranslation} from "react-i18next";
 import axios from "axios";
 import {API_URL} from "../../utils/constant";
 import i18next from "i18next";
+import WordCloud from "./WordCloud/WordCloud";
 
 const Home = ({t}) => {
-    const [links,setLinks]=useState([]);
-    useEffect(()=>{
+    const [links, setLinks] = useState([]);
+
+    useEffect(() => {
         axios({
-            method:'get',
-            url:API_URL+'/words'
-        }).then((res)=>{
+            method: 'get',
+            url: API_URL + '/words'
+        }).then((res) => {
             setLinks(res.data.object);
         })
-    },[]);
+    }, []);
     return (
-        <div style={{paddingTop:"190px"}} className="home">
+        <div style={{paddingTop: "190px"}} className="home">
 
             <div className="header-img">
                 {/* <div className="container">
@@ -35,10 +37,12 @@ const Home = ({t}) => {
                         <Title text={t("What is clinic")}/>
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
-                    <div className="what-clinic-mini"/>
+                    <div className="what-clinic-mini what-clinic-tagcloud">
+                        <WordCloud/>
+                    </div>
                 </div>
 
-                <div  className="what-clinic what-clinic-slider">
+                <div className="what-clinic what-clinic-slider">
                     <div className="what-clinic-mini">
                         <WhatSlider/>
                     </div>
@@ -154,7 +158,7 @@ const Home = ({t}) => {
                     <Title text={t("Regulatory base")}/>
                     <div className="useful-links-body1">
                         {
-                            links&&links.map((item,i)=>
+                            links && links.map((item, i) =>
                                 <a href={item.url[i18next.language]} className="useful-links-item1">
                                     <img src={gerbImg} alt=""/>
                                     <p>{item.name[i18next.language]}</p>

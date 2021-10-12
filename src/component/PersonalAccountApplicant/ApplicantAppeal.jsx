@@ -322,6 +322,7 @@ const ApplicantAppeal = (props) => {
                                             </div>
                                         </div>
                                     </li>
+
                                     <li>
                                         <div style={{marginBottom: '20px', textAlign:"center"}}>
                                             <div className="lb">
@@ -343,6 +344,7 @@ const ApplicantAppeal = (props) => {
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
                                     </li>
+
                                     <li className="confidential">
                                         <label className="label lb" htmlFor="" style={{
                                             fontSize: '18px',
