@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Delete, Edit} from '@material-ui/icons';
+import {Delete, Edit,Visibility,VisibilityOff} from '@material-ui/icons';
 import {withTranslation} from "react-i18next";
 import SettingModal from "./SettingModal";
 import RequestFunctions from "../../requests/RequestFunctions";
@@ -12,6 +12,8 @@ import CustomPagination from "../catalog/Pagenation";
 import i18next from "i18next";
 import {green, red} from "@material-ui/core/colors";
 import Dialog from "@material-ui/core/Dialog";
+import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
+import DirectorySection from "../PersonalAccountListener/DirectorySection";
 
 const AdminListSetting = ({t, searchTerm}) => {
     const [departments, setDepartments] = useState([
@@ -38,6 +40,11 @@ const AdminListSetting = ({t, searchTerm}) => {
     const [forLink, setForLink] = useState({
         open: false,
         item: null,
+    });
+    const [maxMin,setMaxMin]=useState({
+       section:false,
+       link:false,
+       files:false
     });
 
     const [error, setError] = useState({
@@ -128,6 +135,102 @@ const AdminListSetting = ({t, searchTerm}) => {
 
     };
 
+    const saveLink = (method) => {
+        if (
+            item.nameuz &&
+            item.nameru &&
+            item.nameen &&
+            item.urluz &&
+            item.urlru &&
+            item.urlen
+        ) {
+            console.log(item,method)
+            setForLink({
+                ...forLink,
+                open:false
+            })
+            Swal.fire({
+                confirmButtonColor:green[400],
+                confirmButtonText:"Ha",
+                cancelButtonText:"Yo'q",
+                cancelButtonColor:red[400],
+                title:(item.id?"Tahrirlash ":"Ma'lumot ")+"saqlansinmi!!!",
+                icon:"warning"
+            }).then((confirm)=>{
+                if (confirm.isConfirmed){
+                    axios({
+                        method:method,
+                        url:API_URL+'/words',
+                        data:item
+                    }).then((response)=>{
+                        Swal.fire("Ma'lumot saqlandi!!!","","success").then((conf)=>{
+                            setReset(!reset);
+                            setItem(
+                                {
+                                    nameuz: "",
+                                    nameru: "",
+                                    nameen: "",
+                                    urluz: "",
+                                    urlru: "",
+                                    urlen: ""
+                                }
+                            )
+                        });
+                        console.log(response)
+                    }).catch((e)=>{
+                        Swal.fire("Xatolik yuz berdi!!!","","error").then((conf)=>{
+                            setForLink({
+                                ...forLink,
+                                open:true
+                            })
+                        });
+                    })
+                }
+            })
+        } else {
+            let a = {};
+            if (!item.nameuz) {
+                a = {
+                    ...a,
+                    nameuz: true
+                }
+            }
+            if (!item.nameru) {
+                a = {
+                    ...a,
+                    nameru: true
+                }
+            }
+            if (!item.nameen) {
+                a = {
+                    ...a,
+                    nameen: true
+                }
+            }
+            if (!item.urluz) {
+                a = {
+                    ...a,
+                    urluz: true
+                }
+            }
+            if (!item.urlru) {
+                a = {
+                    ...a,
+                    urlru: true
+                }
+            }
+            if (!item.urlen) {
+                a = {
+                    ...a,
+                    urlen: true
+                }
+            }
+            console.log(a);
+            setError(a)
+
+        }
+    };
+
     const deleteLink = (id) => {
         Swal.fire({
             showCancelButton: true,
@@ -156,8 +259,16 @@ const AdminListSetting = ({t, searchTerm}) => {
     return (
         <div className="admin">
             <div className="admin-list-setting">
+                <span style={{color:maxMin.section?red[400]:green[400]}} onClick={()=>setMaxMin({
+                    ...maxMin,
+                    section: !maxMin.section
+                })}>
+                    {
+                        maxMin.section?<VisibilityOff/>:<Visibility/>
+                    }
+                </span>
                 <SettingModal getSections={getSections}/>
-                <div style={{margin: '20px 0'}}>
+                <div style={{margin: '20px 0',display:maxMin.section?"":"none"}}>
                     <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 className="table-title">{t("Department")}</h5>
                         <table>
@@ -200,11 +311,39 @@ const AdminListSetting = ({t, searchTerm}) => {
             <div className="admin-list-setting" style={{
                 marginTop: "5px"
             }}>
-                <Dialog fullWidth={true} open={forLink.open} onClose={() => setForLink({item: null, open: false})}>
+                <span style={{color:maxMin.link?red[400]:green[400]}} onClick={()=>setMaxMin({
+                    ...maxMin,
+                    link: !maxMin.link
+                })}>
+                    {
+                        maxMin.link?<VisibilityOff/>:<Visibility/>
+                    }
+                </span>
+                <Dialog fullWidth={true} open={forLink.open} onClose={() => {
+                    setForLink({item: null, open: false})
+                    setError(
+                        {
+                            nameuz: false,
+                            nameru: false,
+                            nameen: false,
+                            urluz: false,
+                            urlru: false,
+                            urlen: false
+                        }
+                    )
+                    setItem({
+                        nameuz: "",
+                        nameru: "",
+                        nameen: "",
+                        urluz: "",
+                        urlru: "",
+                        urlen: ""
+                    })
+                }}>
                     <h5 style={{padding: "7px", width: "100%"}} className="table-title">
                         <b>
                             {
-                                forLink.item ? "Tahrirlash" : "Qo'shish"
+                                item.id ? "Tahrirlash" : "Qo'shish"
                             }
                         </b>
                     </h5>
@@ -244,14 +383,18 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input onChange={(e) => {
+                                    <input value={item.nameuz} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             nameuz: e.target.value
                                         })
-                                        setError({
+                                        if (e.target.value.length > 0) setError({
                                             ...error,
                                             nameuz: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            nameuz: true
                                         })
                                     }} required={true} placeholder="Name(uz)" type="text"/>
                                     {
@@ -265,7 +408,20 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input required={true} placeholder="Url(uz)" type="text"/>
+                                    <input value={item.urluz} required={true} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            urluz: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            urluz: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            urluz: true
+                                        })
+                                    }} placeholder="Url(uz)" type="text"/>
                                     {
                                         error.urluz ?
                                             <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
@@ -285,7 +441,21 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input required={true} placeholder="Name(ru)" type="text"/>
+                                    <input value={item.nameru} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            nameru: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            nameru: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            nameru: true
+                                        })
+
+                                    }} required={true} placeholder="Name(ru)" type="text"/>
                                     {
                                         error.nameru ?
                                             <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
@@ -297,7 +467,20 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input required={true} placeholder="Url(ru)" type="text"/>
+                                    <input value={item.urlru} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            urlru: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            urlru: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            urlru: true
+                                        })
+                                    }} required={true} placeholder="Url(ru)" type="text"/>
                                     {
                                         error.urlru ?
                                             <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
@@ -317,7 +500,20 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input required={true} placeholder="Name(en)" type="text"/>
+                                    <input value={item.nameen} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            nameen: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            nameen: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            nameen: true
+                                        })
+                                    }} required={true} placeholder="Name(en)" type="text"/>
                                     {
                                         error.nameen ?
                                             <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
@@ -329,7 +525,20 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input required={true} placeholder="Url(en)" type="text"/>
+                                    <input value={item.urlen} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            urlen: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            urlen: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            urlen: true
+                                        })
+                                    }} required={true} placeholder="Url(en)" type="text"/>
                                     {error.urlen ? <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""}
                                 </td>
                             </tr>
@@ -339,7 +548,9 @@ const AdminListSetting = ({t, searchTerm}) => {
                     <div style={{
                         padding: "7px"
                     }}>
-                        <button style={{
+                        <button onClick={()=>{
+                            saveLink(item.id?'put':'post')
+                        }} style={{
                             float: "right",
                             padding: "8px 6px",
                             backgroundColor: green[400],
@@ -355,7 +566,29 @@ const AdminListSetting = ({t, searchTerm}) => {
                             borderRadius: "3px",
                             boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
                             marginRight: "5px"
-                        }} onClick={() => setForLink({item: null, open: false})}>
+                        }} onClick={() => {
+                            setForLink({item: null, open: false})
+
+                            setError(
+                                {
+                                    nameuz: false,
+                                    nameru: false,
+                                    nameen: false,
+                                    urluz: false,
+                                    urlru: false,
+                                    urlen: false
+                                }
+                            )
+                            setItem({
+                                nameuz: "",
+                                nameru: "",
+                                nameen: "",
+                                urluz: "",
+                                urlru: "",
+                                urlen: ""
+                            })
+
+                        }}>
                             Bekor qilish
                         </button>
                     </div>
@@ -364,18 +597,17 @@ const AdminListSetting = ({t, searchTerm}) => {
                     <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 style={{
                             textDecoration: "underline",
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            display:"inline-block"
                         }} onClick={() => {
                             setForLink({
                                 open: true,
                                 item: {}
                             })
                         }} className="table-title">
-                            <span>
-                                {t("Add link")}
-                            </span>
+                            {t("Add link")}
                         </h5>
-                        <table>
+                        <table style={{display:maxMin.link?"":"none"}}>
                             <tbody>
                             <tr>
                                 <th className="table-border number">#</th>
@@ -390,7 +622,20 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     <td className="table-border">{item.name[i18next.language]}</td>
                                     <td className="table-border">{item.url[i18next.language]}</td>
                                     <td className="table-border">
-                                        <button className="editIcon">
+                                        <button onClick={()=>{
+
+                                            let a={
+                                                id:item.id,
+                                                nameuz: item.name["uz"],
+                                                nameru: item.name["ru"],
+                                                nameen: item.name["en"],
+                                                urluz: item.url["uz"],
+                                                urlru: item.url["ru"],
+                                                urlen: item.url["en"]
+                                            };
+                                            setForLink({item:item,open:true});
+                                            setItem(a)
+                                        }} className="editIcon">
                                             <Edit/>
                                         </button>
                                     </td>
@@ -403,15 +648,30 @@ const AdminListSetting = ({t, searchTerm}) => {
                             )}
                             </tbody>
                         </table>
-                        <CustomPagination
-                            pageLength={totalPages}
-                            setActive={setActive}
-                            active={active}
-                            size={size}
-                            setSize={setSize}
+                        <CustomPagination style={{display:maxMin.link?"":"none"}}
+                                          pageLength={totalPages}
+                                          setActive={setActive}
+                                          active={active}
+                                          size={size}
+                                          setSize={setSize}
                         />
                     </div>
                 </div>
+            </div>
+            <div className="admin-list-setting" style={{
+                marginTop: "5px",
+                height:maxMin.files?"":"55px",
+                overflow:"hidden"
+            }}>
+                <span style={{color:maxMin.files?red[400]:green[400]}} onClick={()=>setMaxMin({
+                    ...maxMin,
+                    files: !maxMin.files
+                })}>
+                    {
+                        maxMin.files?<VisibilityOff/>:<Visibility/>
+                    }
+                </span>
+                <DirectorySection/>
             </div>
 
         </div>

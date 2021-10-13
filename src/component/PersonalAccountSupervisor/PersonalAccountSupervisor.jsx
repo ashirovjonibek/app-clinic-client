@@ -173,9 +173,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                                 <Link to="#"
                                                       onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                             </li>
-                                            <li>
-                                                <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
-                                            </li>
+                                            {/*<li>*/}
+                                            {/*    <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>*/}
+                                            {/*</li>*/}
                                         </ul>
                                     </div>
                                     <div className="icon-disable">
@@ -234,9 +234,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                             <Link to="#"
                                                   onClick={() => getPage(10)}>{t("Statistics and reports")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>
-                                        </li>
+                                        {/*<li className="navbar-items" id={pageQount === 11 ? 'active' : ''}>*/}
+                                        {/*    <Link to="#" onClick={() => getPage(11)}>{t("Archive")}</Link>*/}
+                                        {/*</li>*/}
                                     </ul>
                                 </div>
                             </div>

@@ -1,10 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ModeratorListnearReytingItem from "./ModeratorListnearReytingItem";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
 const ModeratorListnearReytingSection = () => {
     let token=localStorage.getItem(STORAGE_NAME);
+    const [stars,setStars]=useState([]);
     useEffect(()=>{
         axios({
             method:'get',
@@ -14,12 +15,17 @@ const ModeratorListnearReytingSection = () => {
             }
         }).then((r)=>{
             console.log(r)
+            setStars(r.data)
         });
 
     },[]);
     return (
         <div className="moderator-listnear-reyting-section">
-            <ModeratorListnearReytingItem />
+            {
+                stars&&stars.map((item,i)=>
+                    <ModeratorListnearReytingItem key={i} item={item} />
+                )
+            }
         </div>
     );
 }

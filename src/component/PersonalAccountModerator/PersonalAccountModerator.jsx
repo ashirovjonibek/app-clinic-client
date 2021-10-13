@@ -175,9 +175,9 @@ const PersonalAccountModerator = ({t}) => {
                                                 <Link to="#"
                                                       onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                             </li>
-                                            <li>
-                                                <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>
-                                            </li>
+                                            {/*<li>*/}
+                                            {/*    <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>*/}
+                                            {/*</li>*/}
                                         </ul>
                                     </div>
                                     <div className="icon-disable">
@@ -235,9 +235,9 @@ const PersonalAccountModerator = ({t}) => {
                                         <li className="navbar-items" id={pageQount === 9 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>
-                                        </li>
+                                        {/*<li className="navbar-items" id={pageQount === 10 ? 'active' : ''}>*/}
+                                        {/*    <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>*/}
+                                        {/*</li>*/}
                                     </ul>
                                 </div>
                             </div>

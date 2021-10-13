@@ -65,7 +65,6 @@ body::-webkit-scrollbar {
 .response-request {
 
 
-
   .reponse-request-content {
     margin-bottom: 20px;
 
@@ -132,30 +131,110 @@ body::-webkit-scrollbar {
   }
 }
 
-.directory-pdf {
-  margin: 20px 0;
+.directory-section {
+  padding-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
 
-  .directory-file {
-    height: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 15px;
-    position: relative;
-    padding: 0 20px;
-    background: url("../icon/upload.svg") center/20px 20px no-repeat;
+  .directory-pdf:hover{
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    .directory-file {
+      div {
+        opacity: 1;
+      }
+      div:hover{
+        background-color: rgba(0,0,0,0.2);
+        padding-top: 0;
+      }
+    }
+  }
 
-    input[type="file"] {
-      height: 100%;
+  .directory-pdf {
+    width: 15%;
+    margin: 3px;
+    display: inline-block;
+    padding-bottom: 10px;
+
+    .directory-file {
+      //box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      text-align: center;
+
+      div{
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+        position: absolute;
+        color: red;
+        cursor: pointer;
+        display: inline;
+        float: right;
+        right: 3px;
+        text-align: right;
+        opacity: 0;
+      }
+
+      span {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        position: relative;
+        input{
+          height: 100%;
+          width: 100%;
+          top: 25px;
+          position: absolute;
+          left: 0;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+    }
+    .directory-file:last-child{
+      margin-top: 5px;
       width: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      cursor: pointer;
-      z-index: -1;
+      overflow: hidden;
+      text-overflow: '...';
+      font-size: 12px;
     }
   }
 }
 
+@media screen and(max-width: 666px){
+  .directory-section {
+    display: flex;
+    flex-wrap: wrap;
+
+    .directory-pdf {
+      width: 23%;
+      margin: 3px;
+      display: inline-block;
+    }
+    .directory-file:last-child{
+      font-size:13px;
+    }
+  }
+}
+
+@media screen and(max-width: 320px){
+  .directory-section {
+    display: flex;
+    flex-wrap: wrap;
+
+    .directory-pdf {
+      width: 30%;
+      margin: 3px;
+      display: inline-block;
+    }
+    .directory-file:last-child{
+      font-size:10px;
+    }
+  }
+}
 
 .request-sort {
   display: flex;

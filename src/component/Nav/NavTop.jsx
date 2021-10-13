@@ -8,20 +8,20 @@ const NavTop = ({t}) => {
     return (
         <div className="nav-top container-fluit">
             <div className="container">
-                <ul>
-                    <li>
+                <ul style={{width:"100% !important",padding:"0 !important"}}>
+                    <li style={{display:"inline-block"}}>
                         <a href="/#" className="adress">
                             <img width="18px" src={iconAdress} alt="" />
                             <p>{t("100047, Tashkent, Mirabad district, st. Shakhrisabz, 42")}.</p>
                         </a>
                     </li>
-                    <li>
+                    <li style={{display:"inline-block"}}>
                         <a href="mailto:info@proacademy.uz" className="email">
                             <img width="22px" src={iconEmail} alt="" />
                             <p>info@proacademy.uz</p>
                         </a>
                     </li>
-                    <li>
+                    <li style={{display:"inline-block"}}>
                         <a href="tel:+998 (71) 202-04-96" className="contact-number">
                             <img width="20px" src={iconContact} alt="" />
                             <p>+998 (71) 202-04-96</p>

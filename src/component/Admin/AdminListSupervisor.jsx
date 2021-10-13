@@ -84,77 +84,87 @@ const AdminListSupervisor = ({t,searchTerm}) => {
     return (
         <div className="admin">
             <div className="admin-list-listnear">
-                <div className="admin-listener">
-                    <h5 className="table-title">{t("Department")}</h5>
-                    <div className="listener">
-                        <div className="listener-divs">
-                            <div className="listener-items">
-                                <button
-                                    onClick={() => getListeners()}>{t("All")}</button>
-                            </div>
-                            {items && items.map((item) => {
-                                    if (!sectionIds.includes(item.section.id)) {
-                                        sectionIds.push(item.section.id)
-                                        return (
-                                            <div key={item.id} className="listener-items">
-                                                <button
-                                                    onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
-                                            </div>)
+                {
+                    supervisor.length>0? <div className="admin-listener">
+                        <h5 className="table-title">{t("Department")}</h5>
+                        <div className="listener">
+                            <div className="listener-divs">
+                                <div className="listener-items">
+                                    <button
+                                        onClick={() => getListeners()}>{t("All")}</button>
+                                </div>
+                                {items && items.map((item) => {
+                                        if (!sectionIds.includes(item.section.id)) {
+                                            sectionIds.push(item.section.id)
+                                            return (
+                                                <div key={item.id} className="listener-items">
+                                                    <button
+                                                        onClick={() => activeSection(item.section.id)}>{item.section.title[i18]}</button>
+                                                </div>)
+                                        }
+                                        return null
                                     }
-                                    return null
-                                }
-                            )}
+                                )}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>:""
+                }
 
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th className="table-border applicant-name">{t("Full name")}</th>
-                            <th className="table-border nation">{t("Position")}</th>
-                            <th className="table-border gender">{t("Course")}</th>
-                            <th className="table-border citi">{t("Department")}</th>
-                            <th className="table-border tel">{t("Phone number")}</th>
-                            <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border ">Edit</th>
-                            <th className="table-border ">Delete</th>
-                        </tr>
-                        {supervisor && supervisor.filter(item=>{
-                            if (searchTerm===""){
-                            return item
-                        }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
-                            return item
-                        }
-                        }).map((item, i) =>
-                            <tr key={i} value={item.id}>
-                                <td className="table-border applicant-name">{item.fullName}</td>
-                                <td className="table-border">{item.position.title[i18]}</td>
-                                <td className="table-border">{item.course}</td>
-                                <td className="table-border">{item.section.title[i18]}</td>
-                                <td className="table-border">{item.phoneNumber}</td>
-                                <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal item={item}
-                                                                               getListeners={getListeners}/>
-                                </td>
-                                <td className="table-border edit">
-                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
-                                        <DeleteIcon/>
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-                    <CustomPagination
-                        pageLength={totalPages}
-                        setActive={setActive}
-                        active={active}
-                        size={size}
-                        setSize={setSize}
-                    />
+                    {
+                        supervisor.length>0?<>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th className="table-border applicant-name">{t("Full name")}</th>
+                                    <th className="table-border nation">{t("Position")}</th>
+                                    <th className="table-border gender">{t("Course")}</th>
+                                    <th className="table-border citi">{t("Department")}</th>
+                                    <th className="table-border tel">{t("Phone number")}</th>
+                                    <th className="table-border pochta">{t("Email")}</th>
+                                    <th className="table-border ">Edit</th>
+                                    <th className="table-border ">Delete</th>
+                                </tr>
+                                {supervisor && supervisor.filter(item=>{
+                                    if (searchTerm===""){
+                                        return item
+                                    }else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
+                                        return item
+                                    }
+                                }).map((item, i) =>
+                                    <tr key={i} value={item.id}>
+                                        <td className="table-border applicant-name">{item.fullName}</td>
+                                        <td className="table-border">{item.position.title[i18]}</td>
+                                        <td className="table-border">{item.course}</td>
+                                        <td className="table-border">{item.section.title[i18]}</td>
+                                        <td className="table-border">{item.phoneNumber}</td>
+                                        <td className="table-border">{item.email}</td>
+                                        <td className="table-border edit"><SimpleModal item={item}
+                                                                                       getListeners={getListeners}/>
+                                        </td>
+                                        <td className="table-border edit">
+                                            <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                                <DeleteIcon/>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )}
+                                </tbody>
+                            </table>
+                            <CustomPagination
+                                pageLength={totalPages}
+                                setActive={setActive}
+                                active={active}
+                                size={size}
+                                setSize={setSize}
+                            />
+                        </>:<div style={{
+                            textAlign:"center"
+                        }}>
+                            Moderatorlar mavjud emas!!!
+                        </div>
+                    }
                 </div>
             </div>
         </div>

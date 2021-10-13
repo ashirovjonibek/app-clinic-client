@@ -85,50 +85,59 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
             <div className="admin-list-listnear">
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th className="table-border applicant-name">{t("Full name")}</th>
-                            <th className="table-border nation">{t("Position")}</th>
-                            <th className="table-border gender">{t("Course")}</th>
-                            <th className="table-border citi">{t("Department")}</th>
-                            <th className="table-border tel">{t("Phone number")}</th>
-                            <th className="table-border pochta">{t("Email")}</th>
-                            <th className="table-border ">Edit</th>
-                            <th className="table-border ">Delete</th>
-                        </tr>
-                        {moderator && moderator.filter(item => {
-                            if (searchTerm === "") {
-                                return item
-                            } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                                return item
-                            }
-                        }).map((item) =>
-                            <tr key={item.id} value={item.id}>
-                                <td className="table-border applicant-name">{item.fullName}</td>
-                                <td className="table-border">{item.position.title[i18]}</td>
-                                <td className="table-border">{item.course}</td>
-                                <td className="table-border">{item.section.title[i18]}</td>
-                                <td className="table-border">{item.phoneNumber}</td>
-                                <td className="table-border">{item.email}</td>
-                                <td className="table-border edit"><SimpleModal item={item} getListeners={getListeners}/>
-                                </td>
-                                <td className="table-border edit">
-                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
-                                        <DeleteIcon/>
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-                    <CustomPagination
-                        pageLength={totalPages}
-                        setActive={setActive}
-                        active={active}
-                        size={size}
-                        setSize={setSize}
-                    />
+                    {moderator.length>0?
+                        <>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th className="table-border applicant-name">{t("Full name")}</th>
+                                    <th className="table-border nation">{t("Position")}</th>
+                                    <th className="table-border gender">{t("Course")}</th>
+                                    <th className="table-border citi">{t("Department")}</th>
+                                    <th className="table-border tel">{t("Phone number")}</th>
+                                    <th className="table-border pochta">{t("Email")}</th>
+                                    <th className="table-border ">Edit</th>
+                                    <th className="table-border ">Delete</th>
+                                </tr>
+                                {moderator && moderator.filter(item => {
+                                    if (searchTerm === "") {
+                                        return item
+                                    } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                        return item
+                                    }
+                                }).map((item) =>
+                                    <tr key={item.id} value={item.id}>
+                                        <td className="table-border applicant-name">{item.fullName}</td>
+                                        <td className="table-border">{item.position.title[i18]}</td>
+                                        <td className="table-border">{item.course}</td>
+                                        <td className="table-border">{item.section.title[i18]}</td>
+                                        <td className="table-border">{item.phoneNumber}</td>
+                                        <td className="table-border">{item.email}</td>
+                                        <td className="table-border edit"><SimpleModal item={item} getListeners={getListeners}/>
+                                        </td>
+                                        <td className="table-border edit">
+                                            <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                                <DeleteIcon/>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )}
+                                </tbody>
+                            </table>
+                            <CustomPagination
+                                pageLength={totalPages}
+                                setActive={setActive}
+                                active={active}
+                                size={size}
+                                setSize={setSize}
+                            />
+                        </>
+                    :<div style={{
+                        textAlign:"center"
+                    }}>
+                        Moderator hamda super moderator rolli hodimlar mavjud emas!!!
+                        </div>
+                    }
                 </div>
             </div>
         </div>

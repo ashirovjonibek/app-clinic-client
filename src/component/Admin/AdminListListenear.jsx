@@ -158,7 +158,7 @@ const AdminListListener = ({t, searchTerm}) => {
     return (
         <div className="admin">
             <div className="admin-list-listnear">
-                <div className="admin-listener">
+                {listeners.length>0?<div className="admin-listener">
                     <h5 className="table-title">{t("Department")}</h5>
                     <div className="listener">
                         <div className="listener-divs">
@@ -181,9 +181,9 @@ const AdminListListener = ({t, searchTerm}) => {
                             )}
                         </div>
                     </div>
-                </div>
+                </div>:""}
                 {
-                        <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                        newListeners.length>0?<div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                             <h5 className="table-title">{t("New")}</h5>
                             <table>
                                 <tbody>
@@ -222,7 +222,7 @@ const AdminListListener = ({t, searchTerm}) => {
                                 )}
                                 </tbody>
                             </table>
-                        </div>
+                        </div>:""
                 }
 
                 {
@@ -277,7 +277,11 @@ const AdminListListener = ({t, searchTerm}) => {
                                         size={size}
                                         setSize={setSize}
                                     />
-                                </>:""
+                                </>:<div style={{
+                                    textAlign:"center"
+                                }}>
+                                    Tinglovchilar mavjud emas!!!
+                                </div>
                             }
                         </div>
                 }

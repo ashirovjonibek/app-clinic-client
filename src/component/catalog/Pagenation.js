@@ -83,7 +83,7 @@ const CustomPagination=(props)=> {
         }
     },[props])
     return (
-        <div>
+        <div style={props.style}>
             {
                 props?.size?<div className="size-page">
                     <span className="span-item" style={{fontSize:"20px"}}> {props.t("Page size")}: </span>

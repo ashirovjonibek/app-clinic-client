@@ -146,7 +146,12 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                             />
                                         </>
                                         :
-                                        ""
+                                        <div style={{
+                                            textAlign:"center"
+                                        }}>
+                                            Ariza beruvchilar mavjud emas!!!
+                                        </div>
+                                }
                                 }
                             </div>
                         </div>
