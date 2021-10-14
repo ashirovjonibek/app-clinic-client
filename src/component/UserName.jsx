@@ -39,9 +39,13 @@ const UserName = (props) => {
                     <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100px"} height={"100px"} alt=""/>
                     : props.text[0].toUpperCase()}
                 </div>
-                {!props.top?<div className="name" onClick={()=>{
-                    history.push(me.role[1])
-                }}>{props?.text}</div>:""}
+                {!props.top?<div>
+                    <div className="name" onClick={()=>{
+                        history.push(me.role[1])
+                    }}>{props?.text}</div>
+                    { props.fedbeck && <p className="fedbeck-user-span">{props.t("Expert on civil law")}</p>}
+                </div>:""}
+
             </div>
             {
                 props.des?<div className="user-inform">

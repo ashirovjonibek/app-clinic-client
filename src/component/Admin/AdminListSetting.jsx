@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Delete, Edit,Visibility,VisibilityOff} from '@material-ui/icons';
+import {Delete, Edit, Visibility, VisibilityOff} from '@material-ui/icons';
 import {withTranslation} from "react-i18next";
 import SettingModal from "./SettingModal";
 import RequestFunctions from "../../requests/RequestFunctions";
@@ -41,10 +41,10 @@ const AdminListSetting = ({t, searchTerm}) => {
         open: false,
         item: null,
     });
-    const [maxMin,setMaxMin]=useState({
-       section:false,
-       link:false,
-       files:false
+    const [maxMin, setMaxMin] = useState({
+        section: false,
+        link: false,
+        files: false
     });
 
     const [error, setError] = useState({
@@ -144,26 +144,26 @@ const AdminListSetting = ({t, searchTerm}) => {
             item.urlru &&
             item.urlen
         ) {
-            console.log(item,method)
+            console.log(item, method)
             setForLink({
                 ...forLink,
-                open:false
+                open: false
             })
             Swal.fire({
-                confirmButtonColor:green[400],
-                confirmButtonText:"Ha",
-                cancelButtonText:"Yo'q",
-                cancelButtonColor:red[400],
-                title:(item.id?"Tahrirlash ":"Ma'lumot ")+"saqlansinmi!!!",
-                icon:"warning"
-            }).then((confirm)=>{
-                if (confirm.isConfirmed){
+                confirmButtonColor: green[400],
+                confirmButtonText: "Ha",
+                cancelButtonText: "Yo'q",
+                cancelButtonColor: red[400],
+                title: (item.id ? "Tahrirlash " : "Ma'lumot ") + "saqlansinmi!!!",
+                icon: "warning"
+            }).then((confirm) => {
+                if (confirm.isConfirmed) {
                     axios({
-                        method:method,
-                        url:API_URL+'/words',
-                        data:item
-                    }).then((response)=>{
-                        Swal.fire("Ma'lumot saqlandi!!!","","success").then((conf)=>{
+                        method: method,
+                        url: API_URL + '/words',
+                        data: item
+                    }).then((response) => {
+                        Swal.fire("Ma'lumot saqlandi!!!", "", "success").then((conf) => {
                             setReset(!reset);
                             setItem(
                                 {
@@ -177,11 +177,11 @@ const AdminListSetting = ({t, searchTerm}) => {
                             )
                         });
                         console.log(response)
-                    }).catch((e)=>{
-                        Swal.fire("Xatolik yuz berdi!!!","","error").then((conf)=>{
+                    }).catch((e) => {
+                        Swal.fire("Xatolik yuz berdi!!!", "", "error").then((conf) => {
                             setForLink({
                                 ...forLink,
-                                open:true
+                                open: true
                             })
                         });
                     })
@@ -258,17 +258,17 @@ const AdminListSetting = ({t, searchTerm}) => {
 
     return (
         <div className="admin">
-            <div className="admin-list-setting">
-                <span style={{color:maxMin.section?red[400]:green[400]}} onClick={()=>setMaxMin({
+            <div className="admin-list-setting ">
+                <span style={{color: maxMin.section ? red[400] : green[400]}} onClick={() => setMaxMin({
                     ...maxMin,
                     section: !maxMin.section
                 })}>
                     {
-                        maxMin.section?<VisibilityOff/>:<Visibility/>
+                        maxMin.section ? <VisibilityOff/> : <Visibility/>
                     }
                 </span>
                 <SettingModal getSections={getSections}/>
-                <div style={{margin: '20px 0',display:maxMin.section?"":"none"}}>
+                <div style={{margin: '20px 0', display: maxMin.section ? "" : "none"}}>
                     <div className="table-scroll" style={{marginTop: '10px'}}>
                         <h5 className="table-title">{t("Department")}</h5>
                         <table>
@@ -308,15 +308,15 @@ const AdminListSetting = ({t, searchTerm}) => {
                     </div>
                 </div>
             </div>
-            <div className="admin-list-setting" style={{
+            <div className="admin-list-setting " style={{
                 marginTop: "5px"
             }}>
-                <span style={{color:maxMin.link?red[400]:green[400]}} onClick={()=>setMaxMin({
+                <span style={{color: maxMin.link ? red[400] : green[400]}} onClick={() => setMaxMin({
                     ...maxMin,
                     link: !maxMin.link
                 })}>
                     {
-                        maxMin.link?<VisibilityOff/>:<Visibility/>
+                        maxMin.link ? <VisibilityOff/> : <Visibility/>
                     }
                 </span>
                 <Dialog fullWidth={true} open={forLink.open} onClose={() => {
@@ -548,8 +548,8 @@ const AdminListSetting = ({t, searchTerm}) => {
                     <div style={{
                         padding: "7px"
                     }}>
-                        <button onClick={()=>{
-                            saveLink(item.id?'put':'post')
+                        <button onClick={() => {
+                            saveLink(item.id ? 'put' : 'post')
                         }} style={{
                             float: "right",
                             padding: "8px 6px",
@@ -593,12 +593,12 @@ const AdminListSetting = ({t, searchTerm}) => {
                         </button>
                     </div>
                 </Dialog>
-                <div style={{margin: '20px 0'}}>
-                    <div className="table-scroll" style={{marginTop: '10px'}}>
+                <div>
+                    <div className="table-scroll">
                         <h5 style={{
                             textDecoration: "underline",
                             cursor: "pointer",
-                            display:"inline-block"
+                            display: "inline-block"
                         }} onClick={() => {
                             setForLink({
                                 open: true,
@@ -607,7 +607,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                         }} className="table-title">
                             {t("Add link")}
                         </h5>
-                        <table style={{display:maxMin.link?"":"none"}}>
+                        <table style={{display: maxMin.link ? "" : "none"}}>
                             <tbody>
                             <tr>
                                 <th className="table-border number">#</th>
@@ -622,10 +622,10 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     <td className="table-border">{item.name[i18next.language]}</td>
                                     <td className="table-border">{item.url[i18next.language]}</td>
                                     <td className="table-border">
-                                        <button onClick={()=>{
+                                        <button onClick={() => {
 
-                                            let a={
-                                                id:item.id,
+                                            let a = {
+                                                id: item.id,
                                                 nameuz: item.name["uz"],
                                                 nameru: item.name["ru"],
                                                 nameen: item.name["en"],
@@ -633,7 +633,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                                 urlru: item.url["ru"],
                                                 urlen: item.url["en"]
                                             };
-                                            setForLink({item:item,open:true});
+                                            setForLink({item: item, open: true});
                                             setItem(a)
                                         }} className="editIcon">
                                             <Edit/>
@@ -648,7 +648,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                             )}
                             </tbody>
                         </table>
-                        <CustomPagination style={{display:maxMin.link?"":"none"}}
+                        <CustomPagination style={{display: maxMin.link ? "" : "none"}}
                                           pageLength={totalPages}
                                           setActive={setActive}
                                           active={active}
@@ -658,22 +658,22 @@ const AdminListSetting = ({t, searchTerm}) => {
                     </div>
                 </div>
             </div>
-            <div className="admin-list-setting" style={{
+            <div className="admin-list-setting " style={{
                 marginTop: "5px",
-                height:maxMin.files?"":"55px",
-                overflow:"hidden"
+
+                height: maxMin.files ? "" : "70px",
+                overflow: "hidden"
             }}>
-                <span style={{color:maxMin.files?red[400]:green[400]}} onClick={()=>setMaxMin({
+                <span style={{color: maxMin.files ? red[400] : green[400]}} onClick={() => setMaxMin({
                     ...maxMin,
                     files: !maxMin.files
                 })}>
                     {
-                        maxMin.files?<VisibilityOff/>:<Visibility/>
+                        maxMin.files ? <VisibilityOff/> : <Visibility/>
                     }
                 </span>
                 <DirectorySection/>
             </div>
-
         </div>
     );
 }

@@ -123,7 +123,7 @@ function SettingModal({t, getSections}) {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginBottom: '20px',
+                margin: '10px 0',
                 fontWeight: '500'
             }}>
                 <AddIcon onClick={handleOpen} fontSize='large' style={{

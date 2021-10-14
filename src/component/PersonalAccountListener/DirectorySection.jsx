@@ -66,7 +66,7 @@ const DirectorySection = ({t}) => {
 
     return (
         <>
-            <h3><b>
+            <h3 style={{paddingTop:"15px"}}><b>
                 {
                     t("Legal and regulatory framework")
                 }
@@ -77,7 +77,7 @@ const DirectorySection = ({t}) => {
                         <div className="directory-pdf">
                             <div className="directory-file">
                                 <span><Add
-                                    style={{width: "100%", fontSize: "38px", cursor: "pointer", marginTop: "18px"}}/>
+                                    style={{width: "100%", fontSize: "38px", cursor: "pointer", marginTop: "10px"}}/>
                                 <input
                                     onChange={fileUpload}
                                     type="file" accept="application/pdf"/>

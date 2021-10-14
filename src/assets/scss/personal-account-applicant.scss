@@ -1,24 +1,29 @@
 .acount-applicant {
   padding: 100px 0;
   background-color: #f4f8ff;
+
   .container {
     .section-body {
       .content-wrapper {
         width: 100%;
+
         .your-appeal-item-section {
-          .content{
-            .document-text{
-              .document-text-title{
+          .content {
+            .document-text {
+              .document-text-title {
                 flex-wrap: wrap;
+
                 h4,
-                p{
+                p {
                   margin-bottom: 5px;
                 }
               }
             }
           }
+
           .categories {
             margin: 20px 0;
+
             ul {
               li {
                 .category-item,
@@ -34,12 +39,14 @@
               }
             }
           }
-          .page-numbers{
+
+          .page-numbers {
             display: flex;
             flex-direction: row;
             justify-content: center;
             margin: 10px auto;
-            li{
+
+            li {
               height: 25px;
               width: 25px;
               display: flex;
@@ -49,15 +56,18 @@
               background-color: rgba(128, 128, 128, 0.5);
               margin: 0 5px;
               cursor: pointer;
-              &.active{
+
+              &.active {
                 background: rgba(128, 128, 128, 0.8);
               }
-              button{
+
+              button {
                 height: 25px;
                 width: 25px;
                 border-radius: 50%;
                 background-color: transparent;
-                &:hover{
+
+                &:hover {
                   background-color: rgba(71, 127, 153, 0.609);
                 }
               }
@@ -86,20 +96,25 @@
         display: flex;
         padding: 50px 0;
         flex-direction: column;
+
         .navbar-wrapper {
           width: 100%;
           margin-bottom: 15px;
+
           .navbarr {
             width: 100%;
             padding: 20px 10px;
+
             ul {
               display: flex;
               flex-direction: row;
               flex-wrap: wrap;
               width: 100%;
+
               li {
                 max-width: 46%;
                 margin: 7px 12px;
+
                 a {
                   font-size: 14px;
                 }
@@ -107,6 +122,7 @@
             }
           }
         }
+
         .content-wrapper {
           margin-left: 0px;
         }
@@ -121,6 +137,7 @@
       .section-body {
         .navbar-wrapper {
           width: 100%;
+
           .navbarr {
             display: none;
           }
@@ -134,63 +151,79 @@
   .acount-applicant {
     .container {
       padding: 0 20px;
+
       .section-body {
         .content-wrapper {
           .per-acc-app-call-flow-item {
             .document-prosses {
               text-align: center;
+
               .new,
               .progressing,
               .close {
                 width: 100px;
+
                 .prosses-item {
                   height: 20px;
                   width: 20px;
+
                   .prosses-item-active {
                     height: 15px;
                     width: 15px;
                   }
                 }
               }
+
               .line {
                 margin-top: 15px;
               }
+
               h3 {
                 font-size: 14px;
               }
             }
+
             .document-text {
               align-items: center;
+
               .document-text-title {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
+
                 h4 {
                   margin-bottom: 15px;
                 }
               }
             }
           }
+
           .per-acc-app-period-section {
             .period-section-title {
               text-align: center;
             }
+
             .bottom-inform {
               text-align: center;
               width: 100%;
             }
           }
+
           .per-acc-app-response-request {
             height: 1050px;
+
             .document-text-title {
               flex-direction: column;
+
               h4 {
                 margin-bottom: 10px;
               }
             }
+
             .categories {
               ul {
                 flex-direction: column;
+
                 li {
                   margin-bottom: 10px;
                   text-align: center;
@@ -198,24 +231,34 @@
                 }
               }
             }
+
             .answer-score {
               flex-direction: column;
+
               h4 {
                 margin-bottom: 15px;
               }
+
               .answer-score-button {
                 flex-direction: column;
+
                 button {
                   margin-bottom: 20px;
                 }
               }
             }
           }
+
           .send-section {
-            .fedbeck {
-              flex-direction: column;
+            .content {
+
+              .fedbeck {
+
+                flex-direction: column;
+              }
             }
           }
+
           .your-appeal-item-section {
             .content {
               .categories {
@@ -223,6 +266,7 @@
                   flex-direction: column;
                   width: 100%;
                   text-align: center;
+
                   li {
                     margin-bottom: 20px;
                     width: 100%;
@@ -241,12 +285,14 @@
   .acount-applicant {
     .container {
       padding: 0 20px;
+
       .section-body {
         .content-wrapper {
           .per-acc-app-response-request {
             height: 1150px;
             text-align: center;
           }
+
           .per-acc-app-call-flow-item {
             .content {
               .document-text-item {
@@ -254,11 +300,13 @@
               }
             }
           }
+
           .per-acc-app-period-section {
             .content {
               text-align: center;
             }
           }
+
           .send-section {
             .fedbeck {
               .request-content-title-name {
@@ -266,9 +314,11 @@
                 flex-wrap: wrap;
                 justify-content: space-around;
                 margin-bottom: 10px;
+
                 .applicant-image {
                   margin-bottom: 10px;
                 }
+
                 // .name {
                 //   align-items: center;
                 // }
@@ -285,14 +335,17 @@
   .acount-applicant {
     .container {
       padding: 0 20px;
+
       .section-body {
         .content-wrapper {
           .per-acc-app-response-request {
             height: 1350px;
+
             .user-item {
               height: 100px;
               margin: 20px;
               text-align: center;
+
               .user-person-inform {
                 flex-direction: column;
                 margin: 20px 0;
@@ -301,6 +354,7 @@
 
             .file-upload {
               flex-direction: column;
+
               .file {
                 margin-top: 15px;
                 width: 90%;
