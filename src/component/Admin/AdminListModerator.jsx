@@ -37,6 +37,7 @@ const AdminListModerator = ({t, searchTerm}) => {
         axios(config)
             .then(function (response) {
                 setItems(response?.data?.object);
+                setModerator(response?.data?.object);
                 setTotalPages(response?.data?.totalPages);
             })
             .catch(function (error) {
@@ -85,7 +86,7 @@ const AdminListModerator = ({t, searchTerm}) => {
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
                     {
-                        items.length>0?<>
+                        moderator.length>0?<>
                             <table>
                                 <tbody>
                                 <tr>
