@@ -661,7 +661,7 @@ const ProfileSettings = ({t, history}) => {
                                                     </li>
                                                     {(errorPrePasswordDirty && errorPrePassword) &&
                                                     <p className="error">{errorPrePassword}</p>}
-                                                    <div className="form-bottom">
+                                                    <div className="form-bottom dashboard-form-button">
                                                         <button type="submit"
                                                                 className="btn-default">{t("Edit profile")}</button>
                                                     </div>
