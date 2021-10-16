@@ -19,19 +19,23 @@ import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {red} from "@material-ui/core/colors";
+import axios from "axios";
 
 
 const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [idUser, setIdUser] = useState(1);
     const history = useHistory();
+    const [count,setCount]=useState(0);
+    const [n,setN]=useState(0);
 
 
     function Applications(n) {
         switch (n) {
             case 1:
-                return <IncomingRequestSection />
+                return <IncomingRequestSection getPage={getPage}/>
             case 2:
                 return <AppealSection />
             case 3:
@@ -59,10 +63,30 @@ const PersonalAccountListener = ({t}) => {
             history.push("/auth/login")
         }
 
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+        axios({
+            method:'get',
+            url:API_URL+'/message',
+            headers:{
+                Authorization:localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res)=>{
+            console.log(res);
+            let c=0;
+            let d=res?.data?.object;
+            for (let i = 0; i < d?.length; i++) {
+                c+=d[i].count;
+            }
+            console.log(c)
+            setCount(c);
+        })
+    },[n]);
 
     const getPage = (n) => {
         setIdUser(n);
+        setN(n)
     }
 
     return (
@@ -184,6 +208,23 @@ const PersonalAccountListener = ({t}) => {
                                             <Link to={"#"} onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
+                                            {
+                                                count>0?<div className="new" style={{position:"relative"}}>
+                                                    <div style={
+                                                        {
+                                                            position:"absolute",
+                                                            backgroundColor:red[400],
+                                                            padding:"5px",
+                                                            borderRadius:"50%",
+                                                            width:"24px",
+                                                            textAlign:"center",
+                                                            color:"white",
+                                                            right:0,
+                                                            top:"-12px"
+                                                        }
+                                                    } className="new-item">{count}</div>
+                                                </div>:""
+                                            }
                                             <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
                                         </li>
                                     </ul>

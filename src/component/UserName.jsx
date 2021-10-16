@@ -43,7 +43,7 @@ const UserName = (props) => {
                     <div className="name" onClick={()=>{
                         history.push(me.role[1])
                     }}>{props?.text}</div>
-                    { props.fedbeck && <p className="fedbeck-user-span">{props.t("Expert on civil law")}</p>}
+                    {/*{ props.fedbeck && <p className="fedbeck-user-span">{props.t("Expert on civil law")}</p>}*/}
                 </div>:""}
 
             </div>

@@ -100,7 +100,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                                 <tbody>
                                                 <tr>
                                                     <th className="table-border applicant-name">{t("Full name")}</th>
-                                                    <th className="table-border nation">{t("Nationality")}</th>
+                                                    {/*<th className="table-border nation">{t("Nationality")}</th>*/}
                                                     <th className="table-border gender">{t("Gender")}</th>
                                                     <th className="table-border citi">{t("Address")}</th>
                                                     <th className="table-border tel">{t("Phone number")}</th>
@@ -118,13 +118,13 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                                 }).map((item) =>
                                                     <tr key={item.id} value={item.id}>
                                                         <td className="table-border applicant-name">{item.fullName}</td>
-                                                        <td className="table-border">{item.nation.name[i18]}</td>
+                                                        {/*<td className="table-border">{item.nation.name[i18next.language]}</td>*/}
                                                         <td className="table-border">{item.gender}</td>
                                                         <td className="table-border"
                                                             style={{textAlign: 'start'}}> {item.address}</td>
                                                         <td className="table-border">{item.phoneNumber}</td>
                                                         <td className="table-border">{item.email}</td>
-                                                        <td className="table-border">{item.socialStatus.name[i18]}</td>
+                                                        <td className="table-border">{item.socialStatus.name[i18next.language]}</td>
                                                         <td className="table-border">{item.birthDate.slice(0, 10)}</td>
                                                         {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
                                                         <td className="table-border edit">

@@ -12,7 +12,7 @@ import ResponseRequestItem1 from "./ResponseRequestItem1";
 import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
 import i18next from "i18next";
 import Dialog from "@material-ui/core/Dialog";
-import {green, red} from "@material-ui/core/colors";
+import {blue, green, red} from "@material-ui/core/colors";
 
 const IncomingRequestSection = (props) => {
     const {t} = props;
@@ -407,6 +407,24 @@ const IncomingRequestSection = (props) => {
                                         <UserName text={`${item.applicant.fullName}`}/>
                                     </div>
                                     <div className="request-content-title-date">
+                                        <div style={{
+                                            marginRight:"6px",
+                                            textDecoration:"underline",
+                                            cursor:"pointer",
+                                            color:blue[400]
+                                        }} onClick={()=>{
+                                            axios({
+                                                method:"post",
+                                                url:API_URL+'/message/generate-chat?toId='+item?.applicant.id,
+                                                headers:{
+                                                    Authorization:localStorage.getItem(STORAGE_NAME)
+                                                }
+                                            }).then((response)=>{
+                                                props.getPage(8)
+                                            })
+                                        }} className="date-label">
+                                            {props.t("Send message")}
+                                        </div>
                                         <div className="date-label">
                                             {props.t("Review period")}:
                                         </div>

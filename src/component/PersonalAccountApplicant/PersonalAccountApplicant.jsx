@@ -9,8 +9,10 @@ import SendSection from "../PersonalAccountListener/SendSection";
 import ApplicationNav from "./ApplicationNav";
 import Footer from "../Footer/Footer";
 import {CustomPagination} from "../catalog/Pagenation";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
+import {red} from "@material-ui/core/colors";
+import axios from "axios";
 
 const PersonalAccountApplicant = (props) => {
 
@@ -18,6 +20,9 @@ const PersonalAccountApplicant = (props) => {
     const [sitebar, setSitebar] = useState(false);
     const [appeal, setAppeal] = useState([]);
     const history = useHistory();
+    const [count,setCount]=useState(0);
+    const [n,setN]=useState(0);
+
 
     function pushBar(n) {
         switch (n) {
@@ -39,9 +44,30 @@ const PersonalAccountApplicant = (props) => {
             history.push("/auth/login")
         }
 
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+        axios({
+            method:'get',
+            url:API_URL+'/message',
+            headers:{
+                Authorization:localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res)=>{
+            console.log(res);
+            let c=0;
+            let d=res?.data?.object;
+            for (let i = 0; i < d?.length; i++) {
+                c+=d[i].count;
+            }
+            console.log(c)
+            setCount(c);
+        })
+    },[n]);
+
     const getPage = (n) => {
         setPageQount(n);
+        setN(n)
     }
 
     return (
@@ -71,6 +97,23 @@ const PersonalAccountApplicant = (props) => {
                                         <Link to="#" onClick={() => getPage(4)}>{props.t("Responses to requests")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
+                                        {
+                                            count>0?<div className="new" style={{position:"relative"}}>
+                                                <div style={
+                                                    {
+                                                        position:"absolute",
+                                                        backgroundColor:red[400],
+                                                        padding:"5px",
+                                                        borderRadius:"50%",
+                                                        width:"24px",
+                                                        textAlign:"center",
+                                                        color:"white",
+                                                        right:0,
+                                                        top:"-12px"
+                                                    }
+                                                } className="new-item">{count}</div>
+                                            </div>:""
+                                        }
                                         <Link to="#" onClick={() => getPage(5)}>{props.t("Message")}</Link>
                                     </li>
                                 </ul>

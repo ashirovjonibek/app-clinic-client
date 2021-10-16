@@ -41,7 +41,7 @@ function PopularSlider({t}) {
                 centeredSlides={true}
                 spaceBetween={35}
                 autoplay={{
-                    delay: 3000,
+                    delay: 6000,
                     disableOnInteraction: false
                 }}
                 pagination={{clickable: true}}
@@ -57,7 +57,7 @@ function PopularSlider({t}) {
                                             <h4>{t("Subject of the appeal")}:</h4>
                                             <p>{item.title}</p>
                                         </div>
-                                        <div className="document-text-item">
+                                        <div style={{maxHeight:"200px",overflow:"auto"}} className="document-text-item">
                                             {
                                                 item.description
                                             }
