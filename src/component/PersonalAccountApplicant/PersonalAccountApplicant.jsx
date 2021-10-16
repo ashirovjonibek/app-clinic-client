@@ -87,8 +87,6 @@ const PersonalAccountApplicant = (props) => {
 
                 </div>
             </div>
-
-            <Footer/>
         </div>
     );
 }

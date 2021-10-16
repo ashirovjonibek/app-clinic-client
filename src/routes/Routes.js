@@ -19,13 +19,15 @@ import NotFound from "../component/catalog/NotFound";
 import Authmiddleware from "./routesConfig";
 import NewPassword from "../component/Registration/NewPassword";
 import RequestNewPassword from "../component/Registration/RequestNewPassword";
+import Footer from "../component/Footer/Footer";
+import FooterUsaid from "../component/Footer/FooterUsaid";
 
 export const Routes=()=>{
-    const userRole=useSelector(state => state.meReducer)
+    const userRole=useSelector(state => state.meReducer);
 
     useEffect(()=>{
         // console.log(userRole)
-    },[])
+    },[]);
 
     const roleRoute=(role)=>{
         // console.log(userRole)

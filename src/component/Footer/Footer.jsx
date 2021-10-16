@@ -12,7 +12,7 @@ const Footer = ({t}) => {
     let date=new Date();
 
     return (
-            <div className="footer container-fluit">
+            <div className="footer">
                     <div className="container">
                         <div className="footer-first">
                             <div className="footer-contacts">

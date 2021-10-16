@@ -9,8 +9,6 @@ const FirstHome = () => {
         <div >
             <Nav />
             <Home />
-            <Footer />
-            <FooterUsaid />
         </div>
     );
 }

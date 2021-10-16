@@ -249,7 +249,6 @@ const PersonalAccountSupervisor = ({t}) => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }

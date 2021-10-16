@@ -199,7 +199,6 @@ const PersonalAccountListener = ({t}) => {
                     </section>
                 </div>
             </div>
-             <Footer/>
         </div>
     );
 }

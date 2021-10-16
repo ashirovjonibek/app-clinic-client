@@ -420,7 +420,6 @@ function RegistrationListener(props) {
                     </form>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }

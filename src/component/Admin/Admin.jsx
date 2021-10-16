@@ -236,7 +236,6 @@ const Admin = ({t}) => {
                     {AdminSitebarItem(pageQount)}
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }

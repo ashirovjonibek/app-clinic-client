@@ -414,7 +414,6 @@ const ApplicantAppeal = (props) => {
                     </Dialog>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }

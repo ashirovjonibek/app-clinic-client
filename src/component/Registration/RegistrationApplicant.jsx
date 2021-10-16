@@ -459,7 +459,6 @@ const RegistrationApplicant = (props) => {
                         </form>
                     </div>
                 </div>
-                <Footer/>
             </div>
         </div>
     )

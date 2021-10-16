@@ -249,7 +249,6 @@ const PersonalAccountModerator = ({t}) => {
                         </section>
                     </div>
                 </div>
-                <Footer/>
             </div>
         </div>
     );

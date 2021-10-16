@@ -676,7 +676,6 @@ const ProfileSettings = ({t, history}) => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }
