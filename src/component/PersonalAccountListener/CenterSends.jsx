@@ -52,17 +52,19 @@ const CenterSends = (props) => {
         });
     }, [props, refresh]);
 
-    useEffect(()=>{
+    useEffect(() => {
         scrollToMyRef()
-    },[messages,openMessaage]);
+    }, [messages, openMessaage]);
 
     const scrollToMyRef = () => {
         // chatContainer.current.scrollIntoView();
         console.log(chatContainer);
-        if (chatContainer.current){const scroll =
-            chatContainer.current.scrollHeight -
-            chatContainer.current.clientHeight;
-        chatContainer.current.scrollTo(0, scroll);}
+        if (chatContainer.current) {
+            const scroll =
+                chatContainer.current.scrollHeight -
+                chatContainer.current.clientHeight;
+            chatContainer.current.scrollTo(0, scroll);
+        }
     };
 
     const getTime = (date) => {
@@ -137,16 +139,16 @@ const CenterSends = (props) => {
                 headers: {
                     Authorization: localStorage.getItem(STORAGE_NAME)
                 },
-                data:data
+                data: data
             }).then((res) => {
                 setRefresh(!refresh);
                 setMessage({
-                    id:"",
-                    text:""
+                    id: "",
+                    text: ""
                 });
                 setEdit(false)
-            }).catch((e)=>{
-                Swal.fire("Xatolik yuz berdi!!!","","error")
+            }).catch((e) => {
+                Swal.fire("Xatolik yuz berdi!!!", "", "error")
             })
         }
 
@@ -156,7 +158,7 @@ const CenterSends = (props) => {
         <div>
             <div className="new">
                 {
-                    props?.chat?.count>0?<div className="new-item">{props?.chat?.count}</div>:""
+                    props?.chat?.count > 0 ? <div className="new-item">{props?.chat?.count}</div> : ""
                 }
             </div>
             <div className="content">
@@ -172,32 +174,32 @@ const CenterSends = (props) => {
 
                 {openMessaage && <div ref={chatContainer} className="message-content">
                     {
-                        messages.length > 0? messages.map((item, i) =>
-                            <>
-                                {
-                                    defaultDay(i) ?
-                                        <p className="messaging-day">
+                        messages.length > 0 ? messages.map((item, i) =>
+                                <>
+                                    {
+                                        defaultDay(i) ?
+                                            <p className="messaging-day">
                                             <span>
                                                 {getDay(item.createdAt)}
                                             </span>
-                                        </p>
-                                        : ""
-                                }
-                                <div key={i} className="message-paragrapgh">
+                                            </p>
+                                            : ""
+                                    }
+                                    <div key={i} className="message-paragrapgh" >
 
-                                    <p className={item.fromId === me.id ? "me" : ""}>
+                                        <p className={item.fromId === me.id ? "me" : ""}>
                                         <span className="message">
                                            {item.message}
                                         </span>
-                                        <span className="icon">
+                                            <span className="icon">
                                             {item.edit ? <i>edited </i> : ""}
-                                            {getTime(item.createdAt)}
-                                            {item.fromId === me.id ?
-                                                <img src={item?.read ? read : unRead} alt=""/> : ""}
+                                                {getTime(item.createdAt)}
+                                                {item.fromId === me.id ?
+                                                    <img src={item?.read ? read : unRead} alt=""/> : ""}
                                         </span>
-                                    </p>
-                                    {item.fromId === me.id && !edit ? <span className="action-message"
-                                                                            style={item.fromId !== me.id ? {float: "top"} : {float: "right"}}>
+                                        </p>
+                                        {item.fromId === me.id && !edit ? <span className="action-message"
+                                                                                style={item.fromId !== me.id ? {float: "top"} : {float: "right"}}>
                                             <span onClick={() => {
                                                 setMessage({
                                                     id: item?.messageId,
@@ -209,12 +211,12 @@ const CenterSends = (props) => {
                                                 deleteMessage(item?.messageId)
                                             }} className="message-delete"><Delete/></span>
                                         </span> : ""}
-                                </div>
-                            </>
-                        ):
+                                    </div>
+                                </>
+                            ) :
                             <div style={{
-                                textAlign:"center",
-                                marginTop:"25px"
+                                textAlign: "center",
+                                marginTop: "25px"
                             }}>Habarlar mavjud emas!!!</div>
 
                     }
