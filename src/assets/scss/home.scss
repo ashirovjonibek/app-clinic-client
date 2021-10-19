@@ -4,12 +4,24 @@
   font-family: Montserrat, serif;
 
   .header-img {
-    height: 600px;
+    height: 80vh !important;
     background: url(../img/header-img.jpg) center/cover no-repeat;
     margin-bottom: 10px;
 
     button {
-      margin: 35% 45%;
+      margin: 35% 50%;
+      transform: translateX(-50%);
+      width: 360px;
+      height: 70px;
+      background: linear-gradient(180deg, #222D44 0%, #4E5E80 100%);
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      color: #FAFAFA;
     }
   }
 
@@ -33,13 +45,12 @@
         margin: 10px;
       }
     }
-
     .what-clinic-text {
-      width: 55%;
+      width: 60%;
     }
 
     .what-clinic-mini {
-      width: 45%;
+      width: 30% !important;
     }
   }
 
@@ -128,7 +139,7 @@
 
   #purpose-clinic {
     min-height: 99%;
-    margin: 15px 10px 20px 10px;
+    margin: 15px 0px 20px 0px;
 
     .porpose-text {
       height: 100%;
@@ -262,6 +273,40 @@
     }
   }
 }
+
+.right_margin{
+  margin-right: 195px !important;
+}
+
+.left_margin{
+  margin-left: 195px !important;
+}
+
+.left_head{
+  padding-left: 195px !important;
+}
+.right_padding{
+  padding-right: 195px !important;
+}
+.right_head{
+  display: flex;
+  justify-content: end;
+  p{
+    padding-right: 195px;
+  }
+}
+.brl-0{
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  margin-left: 0 !important;
+}
+
+.brr-0{
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-right: 0 !important;
+}
+
 
 @media (max-width: 768px) {
   .home {
