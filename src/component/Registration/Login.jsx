@@ -116,7 +116,7 @@ const Login = (props) => {
     }
 
     return (
-        <div>
+        <div >
             <div className="nav" >
                 <NavTop />
                 <NavCenter />
@@ -154,10 +154,10 @@ const Login = (props) => {
                                         <button type="submit" className="btn-default">{props.t("Login")}</button>
                                     </li>
                                     <div className="form-link">
-                                        <div className="linkk">
+                                        <div className="link">
                                             <Link to="/auth/registrationApplicant">{props.t("Regiter as applicant")}</Link>
                                         </div>
-                                        <div className="linkk">
+                                        <div className="link">
                                             <Link to="/auth/registrationListener">{props.t("Regiter as listener")}</Link>
                                         </div>
                                     </div>
@@ -165,9 +165,7 @@ const Login = (props) => {
                                         <div className="link">
                                             <Link to="/requestNewPassword">{props.t("Forgot your password")}?</Link>
                                         </div>
-                                        {/*<div className="link">*/}
-                                        {/*    <a href="">{props.t("No account yet")}?</a>*/}
-                                        {/*</div>*/}
+
                                     </div>
                                 </ul>
                             </form>

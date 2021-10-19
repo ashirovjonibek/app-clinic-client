@@ -1,0 +1,63 @@
+.chart_map_container {
+  max-height: 40vh;
+}
+
+.map_chart {
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  width: 120%;
+
+
+  .regions {
+    cursor: pointer;
+
+    &:hover {
+      fill: #1890ff !important;
+    }
+  }
+
+  .regions_active {
+    fill: #1890ff !important;
+    cursor: pointer;
+  }
+}
+
+.region_data_detail {
+  position: relative;
+
+  .close_icon {
+    position: relative;
+    top: 0;
+    float: right;
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.list_region {
+  &:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+}
+
+.map-container {
+  position: relative;
+
+  div {
+    .description {
+      position: absolute;
+      right: 0;
+      width: 450px;
+    }
+    padding-top: 35px;
+
+    div {
+      svg {
+        padding: 0
+      }
+
+    }
+  }
+}
