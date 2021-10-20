@@ -41,7 +41,7 @@ class WordCloud extends Component {
                             {
                                 data.map((item, i) =>
                                     <div key={i}>
-                                        <a style={{
+                                        <a key={i} style={{
                                             fontFamily: 'serif',
                                             fontSize: 14,
                                             fontStyle: 'italic',
