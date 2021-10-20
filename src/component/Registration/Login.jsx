@@ -23,7 +23,8 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
     const meTools=useSelector(state => state.meReducer);
-    const dispatch=useDispatch()
+    const dispatch=useDispatch();
+    const theme=useSelector(state => state.theme);
     // if (app.currentUser.roles.filter(i =>
     //     i.name === 'ROLE_ADMIN'
     // ).length === 0) {
@@ -123,7 +124,7 @@ const Login = (props) => {
                 {/*<NavBottom/>*/}
             </div>
             <div className="login container-fluit">
-                <div className="container">
+                <div style={theme} className="container">
                     <div className="login-wrapper">
 
                         <Title  text={<span style={{cursor:"pointer"}} onClick={()=>{

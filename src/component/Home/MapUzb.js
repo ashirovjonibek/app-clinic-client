@@ -51,16 +51,16 @@ const MapChart = ({data}) => {
                 name: "Xorazm viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        ХОРАЗМ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        220100, Урганч шаҳар, Хонқа кўчаси, 24
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0362 227-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/41%C2%B032'39.3%22N+60%C2%B037'13.6%22E/@41.54425,60.6182557,17z/data=!3m1!4b1!4m6!3m5!1s0!7e2!8m2!3d41.5442453!4d60.6204356">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -72,16 +72,16 @@ const MapChart = ({data}) => {
                 name: "Buxoro viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        БУХОРО ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        200100, Бухоро шаҳар, Х.Бухорий кўчаси, 4
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0365 221-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/39%C2%B046'10.2%22N+64%C2%B025'24.0%22E/@39.7695,64.4211446,842m/data=!3m2!1e3!4b1!4m14!1m7!3m6!1s0x0:0x0!2zMznCsDQ1JzU1LjQiTiA2NMKwMjUnNDAuOCJF!3b1!8m2!3d39.765376!4d64.427993!3m5!1s0x0:0x0!7e2!8m2!3d39.769491!4d64.4233384">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -93,16 +93,16 @@ const MapChart = ({data}) => {
                 name: "Samarqand viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        САМАРҚАНД ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        140157, Самарқанд шаҳар, Кўксарой майдони, 4
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0366 232-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -114,16 +114,16 @@ const MapChart = ({data}) => {
                 name: "Surxondaryo viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        СУРХОНДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        190100, Термиз шаҳар, Тараққиёт кўчаси, 34
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0376 223-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/Surkhandar'inskaya+Oblast/@37.2266337,67.2708857,17z/data=!3m1!4b1!4m5!3m4!1s0x3f352e04cd839e43:0x96bd3d23467cd802!8m2!3d37.2266294!4d67.2730744">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -135,16 +135,16 @@ const MapChart = ({data}) => {
                 name: "Qashqadaryo viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        ҚАШҚАДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        181100, Қарши шаҳар, Мустақиллик кўчаси, 5
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0375 228-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps?q=38.838418,65.803369&ll=38.838418,65.803369&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -156,16 +156,16 @@ const MapChart = ({data}) => {
                 name: "Navoiy viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        НАВОИЙ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        210100, Навоий шаҳар, С.Aйний кўчаси, 85
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0436 210-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps?q=40.080271,65.377216&ll=40.080271,65.377216&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -177,16 +177,16 @@ const MapChart = ({data}) => {
                 name: "Jizzax viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        ЖИЗЗАХ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        130100, Жиззах шаҳар, Сайилжойи кўчаси, 65
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0372 226-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps?q=40.134100,67.819669&ll=40.134100,67.819669&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -198,16 +198,16 @@ const MapChart = ({data}) => {
                 name: "Sirdaryo viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        СИРДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        120100, Гулистон шаҳар, Сайхун кўчаси, 41
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0367 235-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps?q=40.499209,68.777940&ll=40.499209,68.777940&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -219,16 +219,16 @@ const MapChart = ({data}) => {
                 name: "Toshkent viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        ТОШКЕНТ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        111500, Тошкент вилоят, Нурафшон шаҳри, Тошкент йўли кўчаси, 1
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL:0371 230-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/%D0%9F%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0+%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%BE%D0%B9+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8+*+%D0%A2%D0%BE%D1%88%D0%BA%D0%B5%D0%BD%D1%82+%D0%B2%D0%B8%D0%BB%D0%BE%D1%8F%D1%82%D0%B8+%D0%BF%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0%D1%81%D0%B8/@41.0660048,69.3377828,17z/data=!4m5!3m4!1s0x38ae8a3a18d592b1:0x3b62e110fa7841a5!8m2!3d41.0660008!4d69.3399715">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -261,16 +261,16 @@ const MapChart = ({data}) => {
                 name: "Namangan viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        НАМАНГАН ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        160136, Наманган шаҳар, Сирғали кўчаси, 18
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0369 227-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -282,16 +282,16 @@ const MapChart = ({data}) => {
                 name: "Farg'ona viloyati",
                 description: <CardContent>
                     <Typography variant="h6" >
-                        ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
+                        ФАРҒОНА ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
-                        230100, Нукус шаҳар, Ғарезсизлик кўчаси, 44
+                        150100, Фарғона шаҳар, Орият кўчаси, 16
                     </Typography>
                     <Typography variant="body2">
-                        TEL:0361 222-10-07
+                        TEL: 0373 244-10-07
                     </Typography>
                     <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                        <a target="_blank" href="https://www.google.com/maps/place/Oriyat+Street,+Fergana/@40.3792363,71.7731619,14.58z/data=!4m5!3m4!1s0x38bb836190d062d9:0x56eeb5c906bc75b6!8m2!3d40.3838488!4d71.790837">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>

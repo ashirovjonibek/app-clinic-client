@@ -52,7 +52,7 @@ const Home = ({t}) => {
                         <Title text={t("What is clinic")}/>
                         <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
                     </div>
-                    <div className="what-clinic-mini what-clinic-tagcloud right_margin">
+                    <div style={{position:"relative",padding:"7px !important"}} className="what-clinic-mini what-clinic-tagcloud right_margin">
                         <WordCloud/>
                     </div>
                 </div>
@@ -217,7 +217,7 @@ const Home = ({t}) => {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            <div id="adres-procuratura1" className="container">
                 <div id="adres-procuratura">
                     <Title text={t("Address")}/>
                     <MapChart/>

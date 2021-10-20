@@ -25,7 +25,7 @@ const NavBottom = ({t}) => {
                         <a href={"#home-useful-links"}>{t("Useful links")}</a>
                     </li>
                     <li>
-                        <a href={"#adres-procuratura"}>{t("Addresses prosecutors")}</a>
+                        <a href={"#adres-procuratura1"}>{t("Addresses prosecutors")}</a>
                     </li>
                 </ul>
             </div>

@@ -1,12 +1,12 @@
 .chart_map_container {
   max-height: 40vh;
+  padding-left: 35px;
 }
 
 .map_chart {
   position: relative;
   padding-bottom: 0;
   margin-bottom: 0;
-  width: 120%;
 
 
   .regions {
@@ -46,14 +46,19 @@
   position: relative;
 
   div {
+    max-height: 76vh;
+    overflow: hidden;
     .description {
       position: absolute;
       right: 0;
       width: 450px;
+      z-index: 1;
     }
     padding-top: 35px;
+    padding-left: 35px;
 
     div {
+      z-index: 0;
       svg {
         padding: 0
       }
