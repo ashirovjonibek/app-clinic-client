@@ -2,7 +2,7 @@
 module.exports = {
     openPages: [
         '/personalAccountListener',
-        '/newPassword', '/applicantAppeal',
+        '/newPassword',
         '/personalAccountApplicant',
         '/personalAccountModerator',
         '/personalAccountSupervisor',

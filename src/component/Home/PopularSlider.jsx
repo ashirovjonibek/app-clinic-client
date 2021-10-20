@@ -40,6 +40,7 @@ function PopularSlider({t}) {
                 slidesPerView={2}
                 centeredSlides={true}
                 spaceBetween={0}
+                loop={true}
                 autoplay={{
                     delay: 6000,
                     disableOnInteraction: false

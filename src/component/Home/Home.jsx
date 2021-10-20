@@ -10,12 +10,16 @@ import axios from "axios";
 import {API_URL} from "../../utils/constant";
 import i18next from "i18next";
 import WordCloud from "./WordCloud/WordCloud";
-import { useHistory } from "react-router";
+import { useHistory} from "react-router";
+import {Link} from "react-router-dom";
 import LinkSlider from "./LinkSlider";
+import {useSelector} from "react-redux";
+import MapChart from "./MapUzb";
 
 const Home = ({t}) => {
     const [links, setLinks] = useState([]);
-    const history = useHistory()
+    const history = useHistory();
+    const theme=useSelector(state => state.theme);
 
     useEffect(() => {
         axios({
@@ -26,11 +30,20 @@ const Home = ({t}) => {
         })
     }, []);
     return (
-        <div style={{paddingTop: "190px"}} className="home">
+        <div style={{paddingTop: "190px",filter:theme.filter}} className="home">
 
             <div className="header-img">
                 <div className="container">
-                    <button onClick={() => history.push('/applicantAppeal')} className="btn-default-home">Обращение</button>
+                    <button className="btn-default-home">
+                        <Link style={{textDecoration:"none",color:"white"}} to={
+                            {
+                                pathname:'/applicantAppeal',
+                                state:{
+                                    to:"home"
+                                }
+                            }
+                        }>Обращение</Link>
+                    </button>
                 </div>
             </div>
             <div className="container2">
@@ -207,6 +220,7 @@ const Home = ({t}) => {
             <div className="container">
                 <div id="adres-procuratura">
                     <Title text={t("Address")}/>
+                    <MapChart/>
 
                 </div>
                 <div className="cel-clinic" style={{height: '600px'}}>

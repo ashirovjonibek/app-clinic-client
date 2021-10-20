@@ -21,6 +21,7 @@ import NewPassword from "../component/Registration/NewPassword";
 import RequestNewPassword from "../component/Registration/RequestNewPassword";
 import Footer from "../component/Footer/Footer";
 import FooterUsaid from "../component/Footer/FooterUsaid";
+import ApplicantAppeal from "../component/PersonalAccountApplicant/ApplicantAppeal";
 
 export const Routes=()=>{
     const userRole=useSelector(state => state.meReducer);
@@ -59,6 +60,7 @@ export const Routes=()=>{
                 )
             }
 
+            <Route path="/applicantAppeal" component={ApplicantAppeal}/>
             <Route path="/requestNewPassword" component={RequestNewPassword}/>
             <Route path="/newPassword" component={NewPassword}/>
             <Route path="/404" component={NotFound}/>

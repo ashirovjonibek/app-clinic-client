@@ -7,12 +7,14 @@ import iconInstagram from "../../assets/icon/footer/icon-instagram.svg";
 import iconTwitter from "../../assets/icon/footer/icon-twitter.svg";
 import iconTelegram from "../../assets/icon/footer/icon-telegram.svg";
 import {withTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
 
 const Footer = ({t}) => {
     let date=new Date();
+    const theme=useSelector(state => state.theme);
 
     return (
-            <div className="footer">
+            <div style={theme} className="footer">
                     <div className="container">
                         <div className="footer-first">
                             <div className="footer-contacts">

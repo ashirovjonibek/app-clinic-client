@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Title from "../Title";
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {useLocation} from 'react-router';
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
@@ -23,6 +24,8 @@ import iconVideo from '../../assets/icon/video-camera.svg'
 import Dialog from "@material-ui/core/Dialog";
 import VoiceRecorder from "./recorders/voiceRecorder";
 import CustomVideoRecorder from "./recorders/videoRecorder";
+import {useDispatch, useSelector} from "react-redux";
+import {CHANGE_THEME} from "../../redux/me/actionType";
 
 const ApplicantAppeal = (props) => {
     const {history, t} = props;
@@ -37,6 +40,8 @@ const ApplicantAppeal = (props) => {
     const [done, setDone] = useState(false)
     const [errorUpload, setErrorUpload] = useState("");
     const [openVideo, setOpenVideo] = useState(false);
+    const me = useSelector(state => state.meReducer);
+    const location=useLocation().state;
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -46,6 +51,8 @@ const ApplicantAppeal = (props) => {
         audioId: "",
         videoId: ""
     });
+    const theme=useSelector(state => state.theme);
+    const dispatch=useDispatch();
 
 
     useEffect(() => {
@@ -140,7 +147,7 @@ const ApplicantAppeal = (props) => {
                 <NavTop/>
                 <div className="nav-center container-fluit">
                     <div className="container">
-                        <div className="navbar">
+                        <div style={theme} className="navbar">
                             <div className="menu-icon">
                                 <ArrowBack
                                     fontSize={'large'}
@@ -168,7 +175,9 @@ const ApplicantAppeal = (props) => {
                                         <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                     </form>
                                     <NavLanguage/>
-                                    <div className="glas">
+                                    <div style={{cursor:"pointer"}} onClick={()=>{
+                                        dispatch({type:CHANGE_THEME,data:theme.filter?"":"grayscale(100%)"})
+                                    }} className="glas">
                                         <img src={iconGlass} alt=""/>
                                     </div>
                                 </div>
@@ -178,10 +187,10 @@ const ApplicantAppeal = (props) => {
                     </div>
                 </div>
             </div>
-            <div style={{paddingTop: "88px"}} className="applicant-appeal">
+            <div style={{paddingTop: "88px",filter:theme.filter}} className="applicant-appeal">
                 <div className="container">
                     <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={() => {
-                        history.push("/personalAccountApplicant")
+                        history.push(location?"/":"/personalAccountApplicant")
                     }} style={{marginRight: "17px", cursor: "pointer"}}/>{
 
                         props.t("Appeal")}
@@ -367,8 +376,11 @@ const ApplicantAppeal = (props) => {
                                 </ul>
                             </li>
                             <li className="send-button">
-                                <button type="submit" disabled={isLoading}
-                                        className="btn-default">{props.t("Submit")}</button>
+                                {
+                                    me.role.length>0?<button type="submit" disabled={isLoading}
+                                                             className="btn-default">{props.t("Submit")}</button>:
+                                        <Link className="btn-default" to="/auth/login">{props.t("Registration is required to submit an application")}</Link>
+                                }
                             </li>
 
                         </ul>

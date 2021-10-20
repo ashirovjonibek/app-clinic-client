@@ -15,7 +15,7 @@ import Enter from "../Nav/Enter";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
 import {object} from "prop-types";
-import DeleteIcon from "@material-ui/icons/Delete";
+import {Alarm,} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 
 const DashboardAppealsPage = ({t}) => {
@@ -67,7 +67,7 @@ const DashboardAppealsPage = ({t}) => {
                 <div className="admin-appeals-count" style={{paddingTop: "5px"}}>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
-                            <img src="https://img.icons8.com/nolan/64/document.png" alt=""/>
+                            <img style={{filter: "invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/document.png" alt=""/>
                         </div>
                         <div className=" appeals-count-line"/>
 
@@ -78,7 +78,7 @@ const DashboardAppealsPage = ({t}) => {
                     </div>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
-                            <img src="https://img.icons8.com/nolan/64/clock.png" alt=""/>
+                            <img style={{filter: "invert(5%) sepia(1%) saturate(32%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/clock.png" alt=""/>
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">
@@ -88,7 +88,7 @@ const DashboardAppealsPage = ({t}) => {
                     </div>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
-                            <img src="https://img.icons8.com/nolan/64/checked-2.png" alt=""/>
+                            <img style={{filter: "invert(25%) sepia(100%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/checked-2.png" alt=""/>
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">
@@ -98,7 +98,7 @@ const DashboardAppealsPage = ({t}) => {
                     </div>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
-                            <img src="https://img.icons8.com/nolan/64/services.png"/>
+                            <img  src="https://img.icons8.com/nolan/64/services.png"/>
                         </div>
                         <div className=" appeals-count-line" style={{margin: "0 2px"}}/>
                         <div className="appeals-count-content">
@@ -111,7 +111,7 @@ const DashboardAppealsPage = ({t}) => {
                     </div>
                     <div className="appeals-count-div">
                         <div className="appeals-count-img">
-                            <img src="https://img.icons8.com/nolan/64/cancel.png" alt=""/>
+                            <img style={{filter: "invert(5%) sepia(1%) saturate(32%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/cancel.png" alt=""/>
                         </div>
                         <div className=" appeals-count-line"/>
                         <div className="appeals-count-content">

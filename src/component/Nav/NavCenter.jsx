@@ -7,13 +7,17 @@ import CloseIcon from '@material-ui/icons/Close';
 import Enter from "./Enter";
 import {withTranslation} from "react-i18next";
 import MenuIcon from "@material-ui/icons/Menu";
+import {useDispatch, useSelector} from "react-redux";
+import {CHANGE_THEME} from "../../redux/me/actionType";
 
 const NavCenter = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
-
+    const theme=useSelector(state => state.theme);
+    const dispatch=useDispatch();
+    console.log(theme);
     return (
 
-        <div className="nav-center container-fluit">
+        <div style={theme} className="nav-center container-fluit">
             <div className="container">
                 <div className="navbar">
                     <div className="menu-icon" >
@@ -38,14 +42,16 @@ const NavCenter = ({t}) => {
                     </div>
                     <div className="header-right">
                         <div className="header-right-desctop">
-                            {/*<form role="search" method="get" action="#" className="search-form">*/}
-                            {/*    <input type="" placeholder={t("Search")+"..."} />*/}
-                            {/*    <button type=""><img src={iconSearch} alt="search-icon" /></button>*/}
-                            {/*</form>*/}
+                            <form role="search" method="get" action="#" className="search-form">
+                                <input type="" placeholder={t("Search")+"..."} />
+                                <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                            </form>
                             <NavLanguage />
-                            {/*<div className="glas">*/}
-                            {/*    <img src={iconGlass} alt="" />*/}
-                            {/*</div>*/}
+                            <div onClick={()=>{
+                                dispatch({type:CHANGE_THEME,data:theme.filter?"":"grayscale(100%)"})
+                            }} style={{cursor:"pointer"}} className="glas">
+                                <img src={iconGlass} alt="" />
+                            </div>
                         </div>
                         <Enter />
                     </div>

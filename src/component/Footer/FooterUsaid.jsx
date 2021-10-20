@@ -1,10 +1,12 @@
 import React from "react";
 import imageUsaid from "../../assets/icon/footer/usaid.jpg";
 import {withTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
 
 const FooterUsaid = ({t}) => {
+    const theme=useSelector(state => state.theme)
     return (
-        <div className="usaid-wrapper container-fluid">
+        <div style={theme} className="usaid-wrapper container-fluid">
             <div className="container">
                 <div className="usaid">
                     <img src={imageUsaid} alt=""/>

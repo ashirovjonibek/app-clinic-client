@@ -8,7 +8,7 @@ import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
 import AdminListSetting from './AdminListSetting';
 import {withTranslation} from "react-i18next";
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import "../../assets/scss/adminList.scss"
 import "../../assets/scss/adminNav.scss"
@@ -18,6 +18,7 @@ import Footer from "../Footer/Footer";
 import Enter from "../Nav/Enter";
 import AdminListModeratorAndSuperModerator from "./AdminListModeratorAndSuperModerator";
 import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
+import {Line} from "recharts";
 
 const Admin = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -156,7 +157,7 @@ const Admin = ({t}) => {
                             />
                         </div>
                         <div className="header-logo">
-                            <a href="/#">
+                            <Link to="/">
                                 <div className="logo-left">
                                     <img src={iconLogo} alt="logo"/>
                                 </div>
@@ -167,7 +168,7 @@ const Admin = ({t}) => {
                                     </div>
 
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="header-right">
                             <div className="header-right-desctop">

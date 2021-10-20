@@ -52,7 +52,7 @@ window.addEventListener('resize', (e)=>{
       >
         {links &&
           links?.map((item, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <a href={item?.url["uz"]} className="useful-links-item1">
               <img src={gerbImg} alt="" />
               <p>{item?.name["uz"]}</p>

@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 import {STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {IMAGE, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
+import {IMAGE, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "../../redux/me/actionType";
 import UserName from "../UserName";
 
 const Enter = ({t}) => {
-    const me = useSelector(state => state.meReducer)
+    const me = useSelector(state => state.meReducer);
     const dispatch = useDispatch()
     const logOut = () => {
         dispatch({type: ME_DATA, data: {}});
@@ -15,8 +15,12 @@ const Enter = ({t}) => {
         dispatch({type: ME_FULL_NAME, data: ""});
         dispatch({type: ME_EMAIL, data: ""});
         dispatch({type: IMAGE, data: ""});
+        dispatch({type: ROLE, data: []});
         localStorage.removeItem(STORAGE_NAME);
     };
+    let path=window.location.pathname;
+
+    console.log(me);
 
     return (
         <div className="enter">
@@ -38,7 +42,7 @@ const Enter = ({t}) => {
                     paddingLeft: "3px",
                     float: "left",
                     textAlign: "left"
-                }}> {me.meFullName !== "" ? me.meFullName : <Link  style={{textDecoration: "none", color:"white"}}  to="/auth/login">{t("Login")}</Link>}
+                }}> {me.meFullName !== "" ? <Link style={{textDecoration: "none", color:"white"}}  to={path==="/"?me.role[1]:"/"}>{me.meFullName}</Link> : <Link  style={{textDecoration: "none", color:"white"}}  to="/auth/login">{t("Login")}</Link>}
                     {/*<p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>*/}
                 </span>
             </div>

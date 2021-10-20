@@ -5,7 +5,7 @@ import NavBottom from "./NavBottom";
 
 const Nav = () => {
     return (
-        <nav className="nav">
+        <nav className="nav" >
             <NavTop />
             <NavCenter />
             <NavBottom />
