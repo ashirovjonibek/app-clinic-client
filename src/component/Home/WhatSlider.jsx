@@ -25,6 +25,7 @@ function WhatSlider() {
     return (
         <div className="what-slider">
             <Swiper
+                slidesPerView={1}
                 spaceBetween={100}
                 centeredSlides={true}
                 autoplay={{
@@ -35,6 +36,7 @@ function WhatSlider() {
                     "clickable": true
                 }}
                 navigation={true} className="mySwiper"
+            
             >
                 <SwiperSlide>
                     <img src={swiperImg1} alt="img" />

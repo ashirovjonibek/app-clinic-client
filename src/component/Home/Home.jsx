@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Title from "../Title";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
-import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
 import prokuraturaImg from '../../assets/img/useful/prokuratura.jpg';
 import gerbImg from '../../assets/img/useful/gerb.jpg';
 import tashabbusImg from '../../assets/img/useful/5tashabbus.jpg';
@@ -12,6 +11,7 @@ import {API_URL} from "../../utils/constant";
 import i18next from "i18next";
 import WordCloud from "./WordCloud/WordCloud";
 import { useHistory } from "react-router";
+import LinkSlider from "./LinkSlider";
 
 const Home = ({t}) => {
     const [links, setLinks] = useState([]);
@@ -165,14 +165,15 @@ const Home = ({t}) => {
                 <div className="container">
                     <Title text={t("Regulatory base")}/>
                     <div className="useful-links-body1">
-                        {
+                        {/* {
                             links && links.map((item, i) =>
                                 <a href={item.url[i18next.language]} className="useful-links-item1">
                                     <img src={gerbImg} alt=""/>
                                     <p>{item.name[i18next.language]}</p>
                                 </a>
                             )
-                        }
+                        } */}
+                    <LinkSlider links={links && links} gerbImg={gerbImg && gerbImg}/>
                     </div>
                 </div>
             </div>

@@ -37,9 +37,9 @@ function PopularSlider({t}) {
     return (
         <div className="popular-slider">
             <Swiper
-                slidesPerView={'auto'}
+                slidesPerView={2}
                 centeredSlides={true}
-                spaceBetween={35}
+                spaceBetween={0}
                 autoplay={{
                     delay: 6000,
                     disableOnInteraction: false
@@ -49,8 +49,8 @@ function PopularSlider({t}) {
             >
                 {
                     top && top?.map((item, i) => {
-                            return <SwiperSlide key={i} >
-                                <div className="popular-text">
+                            return <SwiperSlide slot={`${i == 1 && "container-start"}`} key={i} >
+                                <div className="popular-text" style={{margin:'0'}}>
                                     <UserName text={item?.applicant.fullName}/>
                                     <div className="document-text">
                                         <div className="document-text-title">
