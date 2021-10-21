@@ -21,7 +21,7 @@ const bull = (
 const MapChart = ({data}) => {
 
     const [region, setRegion] = useState(null);
-    const [desc,setDesc]=useState();
+    const [desc, setDesc] = useState();
     const [currentId, setCurrentId] = useState(null);
     const [regions, setRegions] = useState(
         [
@@ -29,7 +29,7 @@ const MapChart = ({data}) => {
                 id: 1,
                 name: "Qoraqalpog'iston Respublikasi",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ҚОРАҚАЛПОҒИСТОН РЕСПУБЛИКАСИ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -38,8 +38,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL:0361 222-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps?q=42.462555,59.620072&ll=42.462555,59.620072&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -50,7 +51,7 @@ const MapChart = ({data}) => {
                 id: 6,
                 name: "Xorazm viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ХОРАЗМ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -59,8 +60,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0362 227-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/41%C2%B032'39.3%22N+60%C2%B037'13.6%22E/@41.54425,60.6182557,17z/data=!3m1!4b1!4m6!3m5!1s0!7e2!8m2!3d41.5442453!4d60.6204356">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/41%C2%B032'39.3%22N+60%C2%B037'13.6%22E/@41.54425,60.6182557,17z/data=!3m1!4b1!4m6!3m5!1s0!7e2!8m2!3d41.5442453!4d60.6204356">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -71,7 +73,7 @@ const MapChart = ({data}) => {
                 id: 5,
                 name: "Buxoro viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         БУХОРО ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -80,8 +82,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0365 221-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/39%C2%B046'10.2%22N+64%C2%B025'24.0%22E/@39.7695,64.4211446,842m/data=!3m2!1e3!4b1!4m14!1m7!3m6!1s0x0:0x0!2zMznCsDQ1JzU1LjQiTiA2NMKwMjUnNDAuOCJF!3b1!8m2!3d39.765376!4d64.427993!3m5!1s0x0:0x0!7e2!8m2!3d39.769491!4d64.4233384">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/39%C2%B046'10.2%22N+64%C2%B025'24.0%22E/@39.7695,64.4211446,842m/data=!3m2!1e3!4b1!4m14!1m7!3m6!1s0x0:0x0!2zMznCsDQ1JzU1LjQiTiA2NMKwMjUnNDAuOCJF!3b1!8m2!3d39.765376!4d64.427993!3m5!1s0x0:0x0!7e2!8m2!3d39.769491!4d64.4233384">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -92,7 +95,7 @@ const MapChart = ({data}) => {
                 id: 11,
                 name: "Samarqand viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         САМАРҚАНД ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -101,8 +104,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0366 232-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -113,7 +117,7 @@ const MapChart = ({data}) => {
                 id: 7,
                 name: "Surxondaryo viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         СУРХОНДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -122,8 +126,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0376 223-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/Surkhandar'inskaya+Oblast/@37.2266337,67.2708857,17z/data=!3m1!4b1!4m5!3m4!1s0x3f352e04cd839e43:0x96bd3d23467cd802!8m2!3d37.2266294!4d67.2730744">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/Surkhandar'inskaya+Oblast/@37.2266337,67.2708857,17z/data=!3m1!4b1!4m5!3m4!1s0x3f352e04cd839e43:0x96bd3d23467cd802!8m2!3d37.2266294!4d67.2730744">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -134,7 +139,7 @@ const MapChart = ({data}) => {
                 id: 8,
                 name: "Qashqadaryo viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ҚАШҚАДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -143,8 +148,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0375 228-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=38.838418,65.803369&ll=38.838418,65.803369&z=16">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps?q=38.838418,65.803369&ll=38.838418,65.803369&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -155,7 +161,7 @@ const MapChart = ({data}) => {
                 id: 10,
                 name: "Navoiy viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         НАВОИЙ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -164,8 +170,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0436 210-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=40.080271,65.377216&ll=40.080271,65.377216&z=16">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps?q=40.080271,65.377216&ll=40.080271,65.377216&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -176,7 +183,7 @@ const MapChart = ({data}) => {
                 id: 9,
                 name: "Jizzax viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ЖИЗЗАХ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -185,8 +192,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0372 226-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=40.134100,67.819669&ll=40.134100,67.819669&z=16">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps?q=40.134100,67.819669&ll=40.134100,67.819669&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -197,7 +205,7 @@ const MapChart = ({data}) => {
                 id: 12,
                 name: "Sirdaryo viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         СИРДАРЁ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -206,8 +214,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0367 235-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps?q=40.499209,68.777940&ll=40.499209,68.777940&z=16">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps?q=40.499209,68.777940&ll=40.499209,68.777940&z=16">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -218,7 +227,7 @@ const MapChart = ({data}) => {
                 id: 13,
                 name: "Toshkent viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ТОШКЕНТ ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -227,8 +236,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL:0371 230-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/%D0%9F%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0+%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%BE%D0%B9+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8+*+%D0%A2%D0%BE%D1%88%D0%BA%D0%B5%D0%BD%D1%82+%D0%B2%D0%B8%D0%BB%D0%BE%D1%8F%D1%82%D0%B8+%D0%BF%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0%D1%81%D0%B8/@41.0660048,69.3377828,17z/data=!4m5!3m4!1s0x38ae8a3a18d592b1:0x3b62e110fa7841a5!8m2!3d41.0660008!4d69.3399715">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/%D0%9F%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0+%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%BE%D0%B9+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8+*+%D0%A2%D0%BE%D1%88%D0%BA%D0%B5%D0%BD%D1%82+%D0%B2%D0%B8%D0%BB%D0%BE%D1%8F%D1%82%D0%B8+%D0%BF%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0%D1%81%D0%B8/@41.0660048,69.3377828,17z/data=!4m5!3m4!1s0x38ae8a3a18d592b1:0x3b62e110fa7841a5!8m2!3d41.0660008!4d69.3399715">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -248,8 +258,9 @@ const MapChart = ({data}) => {
                     <Typography sx={{mb: 1.5}} color="text.secondary">
                         TEL:0371 271-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/Tashkent+City+Public+Prosecutor's+Office/@41.2868808,69.2260561,17z/data=!4m8!1m2!2m1!1zMTAwMTE1LCDQotC-0YjQutC10L3RgiDRiC4sINCn0LjQu9C-0L3Qt9C-0YAg0LrRntGH0LDRgdC4LDY!3m4!1s0x38ae8a456a8f1c07:0x801314a21a38384!8m2!3d41.2867814!4d69.2271036">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/Tashkent+City+Public+Prosecutor's+Office/@41.2868808,69.2260561,17z/data=!4m8!1m2!2m1!1zMTAwMTE1LCDQotC-0YjQutC10L3RgiDRiC4sINCn0LjQu9C-0L3Qt9C-0YAg0LrRntGH0LDRgdC4LDY!3m4!1s0x38ae8a456a8f1c07:0x801314a21a38384!8m2!3d41.2867814!4d69.2271036">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -260,7 +271,7 @@ const MapChart = ({data}) => {
                 id: 3,
                 name: "Namangan viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         НАМАНГАН ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -269,8 +280,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0369 227-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/6+Chilanzar+Street,+Tashkent+100115,+Uzbekistan/@41.2866534,69.2257316,17z/data=!4m8!1m2!2m1!1z0KLQvtGI0LrQtdC90YIg0YguLCDQp9C40LvQvtC90LfQvtGAINC60Z7Rh9Cw0YHQuCw2!3m4!1s0x38ae8a454b0cf619:0xe6ccc5a964d82fa7!8m2!3d41.2866534!4d69.2279206">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -281,7 +293,7 @@ const MapChart = ({data}) => {
                 id: 4,
                 name: "Farg'ona viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         ФАРҒОНА ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -290,8 +302,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL: 0373 244-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/Oriyat+Street,+Fergana/@40.3792363,71.7731619,14.58z/data=!4m5!3m4!1s0x38bb836190d062d9:0x56eeb5c906bc75b6!8m2!3d40.3838488!4d71.790837">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/Oriyat+Street,+Fergana/@40.3792363,71.7731619,14.58z/data=!4m5!3m4!1s0x38bb836190d062d9:0x56eeb5c906bc75b6!8m2!3d40.3838488!4d71.790837">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -302,7 +315,7 @@ const MapChart = ({data}) => {
                 id: 2,
                 name: "Andijon viloyati",
                 description: <CardContent>
-                    <Typography variant="h6" >
+                    <Typography variant="h6">
                         AНДИЖОН ВИЛОЯТ ПРОКУРАТУРАСИ
                     </Typography>
                     <Typography sx={{mb: 1.5}} color="text.secondary">
@@ -311,8 +324,9 @@ const MapChart = ({data}) => {
                     <Typography variant="body2">
                         TEL:0374 227-10-07
                     </Typography>
-                    <Typography sx={{mb:1.5}}>
-                        <a target="_blank" href="https://www.google.com/maps/place/40%C2%B008'02.8%22N+67%C2%B049'10.8%22E/@40.1341,67.819669,16z/data=!4m5!3m4!1s0x0:0x0!8m2!3d40.1341!4d67.819669">
+                    <Typography sx={{mb: 1.5}}>
+                        <a target="_blank"
+                           href="https://www.google.com/maps/place/40%C2%B008'02.8%22N+67%C2%B049'10.8%22E/@40.1341,67.819669,16z/data=!4m5!3m4!1s0x0:0x0!8m2!3d40.1341!4d67.819669">
                             <LocationOn/>
                             Харитадан жойни кўриш
                         </a>
@@ -366,25 +380,25 @@ const MapChart = ({data}) => {
     };
 
     return (
-            <div className="map-container">
+        <div className="map-container">
+            <div>
+                {
+                    desc ? <div className="description" style={{float: "right"}}>
+                        {
+                            desc.description
+                        }
+                    </div> : ""
+                }
                 <div>
-                    {
-                        desc?<div className="description" style={{float:"right"}}>
-                                {
-                                    desc.description
-                                }
-                        </div>:""
-                    }
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" aria-label="Map of Uzbekistan"
-                             className="map_chart">
-                            <Tooltip followCursor title={<CardContent>{getRegion(5)}</CardContent>} arrow
-                                     placement="top">
-                                <path id="5" onClick={() => {
-                                    getRegionB(5)
-                                }} className={clsx(currentId === 5 ? "regions_active" : "regions")}
-                                      fill="#e57373"
-                                      name="Bukhara" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 421.26007,383.36972 -3.77,3.59 -3.35,2.22 -0.57,0.11 -4.4,4.71 -0.35,1.03
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" aria-label="Map of Uzbekistan"
+                         className="map_chart">
+                        <Tooltip followCursor title={<CardContent>{getRegion(5)}</CardContent>} arrow
+                                 placement="top">
+                            <path id="5" onClick={() => {
+                                getRegionB(5)
+                            }} className={clsx(currentId === 5 ? "regions_active" : "regions")}
+                                  fill="#e57373"
+                                  name="Bukhara" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 421.26007,383.36972 -3.77,3.59 -3.35,2.22 -0.57,0.11 -4.4,4.71 -0.35,1.03
                 0.15,0.86 0.71,1.2 0.83,0.88 0.82,1.17 0.23,0.51 -0.28,0.61 -18.12,6.64 -5.61,6.23 0,0 -2.13,-2.3 -0.41,
                 -0.03 -1.18,0.3 -2.1,1.21 -1,0.26 -1.05,0.02 -1.38,-0.18 -0.85,-0.42 -2.95,-2.43 -2.87,-2 -6.79,-5.22 -1.82,
                 -1.17 -4.68,-3.44 -1.31,-1.29 -1.15,-1.39 -0.29,-0.63 -0.41,-0.37 -0.78,-1.23 -3.57,
@@ -399,16 +413,16 @@ const MapChart = ({data}) => {
                 0.42 1.03,0.34 8.63,1.19 5.93,0.63 7.97,1.14 -1.4,9.26 -3.99,2.81 -0.17,1.03 -1.45,4.13 -3.35,4.14 -0.64,0.61 -0.94,0.38 -3.85,-0.23 -2.9,-0.54 -2.01,
                 -0.99 -0.82,-0.79 -2,-1.3 -2.06,-0.12 -1.11,0.48 -0.36,0.62 0.36,3.32 -0.45,4.36 -1.29,5.71 -2.53,4.78 -2.13,2.47 -4.4,2.67 -0.89,0.33 -1.42,2.72 4.27,
                 5.79 1.19,1.15 7.06,2.67 1.08,0.06 3.2,-0.78 4.91,3.69 4.39,9.39 0.36,1.15 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(4)} arrow
-                                     placement="top">
-                                <path id="4" onClick={() => {
-                                    getRegionB(4)
-                                }}  className={clsx(currentId === 4 ? "regions_active" : "regions")}
-                                      fill="#f06292"
-                                      name="Fergana" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 673.77007,331.35972 0.1,-0.66 -0.23,-0.55 -0.74,-0.66 -2.91,-1.31 -1.63,-0.33 -1,-0.4 -0.32,0 -0.9,0.43 -0.43,-0.03 -0.46,-0.21 -0.33,-0.37 -0.46,
+                        <Tooltip followCursor title={getRegion(4)} arrow
+                                 placement="top">
+                            <path id="4" onClick={() => {
+                                getRegionB(4)
+                            }} className={clsx(currentId === 4 ? "regions_active" : "regions")}
+                                  fill="#f06292"
+                                  name="Fergana" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 673.77007,331.35972 0.1,-0.66 -0.23,-0.55 -0.74,-0.66 -2.91,-1.31 -1.63,-0.33 -1,-0.4 -0.32,0 -0.9,0.43 -0.43,-0.03 -0.46,-0.21 -0.33,-0.37 -0.46,
             -1.11 -0.29,-0.31 -0.28,-0.1 -0.15,-0.74 -0.91,-1.77 -0.06,-0.61 0.13,-0.2 0.81,-0.22 1,-0.81 1.19,-0.22 1.1,-0.57 2.05,-0.72 0.8,0 0.47,-0.41 0.12,-0.81 0.44,
             -0.44 0.14,-0.89 0.19,-0.4 0.4,-0.22 0.59,-0.08 0.77,0.07 0.48,-0.36 0.72,-0.02 0.43,-0.16 0.87,-1.11 1.11,-2.22 0.36,-0.38 0.65,-0.18 0.68,-0.73 0.51,
             -0.17 0.15,-0.28 0.41,-0.08 0.41,-0.5 0.97,-0.22 0.4,0.28 0.32,0.03 0.05,-0.66 -0.18,-0.99 0.31,-0.23 0.28,0.25 0.66,-0.04 0.44,-0.58 0.3,-1 0.58,-0.53 0.06,
@@ -422,16 +436,16 @@ const MapChart = ({data}) => {
             -0.27 -0.49,-0.15 -0.5,0.22 -0.62,0.06 -0.16,-0.31 0.09,-0.39 -0.32,-0.25 -1.53,0.64 -0.75,0.1 -0.27,-0.1 -0.15,-0.27 -0.02,-1 -1.54,0.11 -1.01,-0.34 -1,-0.09 -0.83,0.11 -1.38,
             0.46 -0.98,-0.02 -0.61,0.21 -2.56,1.78 -1.95,0.35 -2.07,0.9 -0.45,0.29 -0.14,0.27 0.31,0.92 -0.11,0.97 -2.38,0.07 -1.95,0.35 -0.27,-0.09 -1.7,1.26 -2.47,1.1 -1.58,0.33 -1.4,
             0.12 -3.13,0.69 -0.83,-0.34 -1.18,-2.14 -0.32,-0.88 -0.72,-0.39 -0.53,-0.94 0.13,-0.11 0.07,-1.28 0.37,-0.99 -0.55,-1.75 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(9)} arrow
-                                     placement="top">
-                                <path id="9" onClick={() => {
-                                    getRegionB(9)
-                                }}  className={clsx(currentId === 9 ? "regions_active" : "regions")}
-                                      fill="#ba68c8"
-                                      name="Jizzakh" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 580.63007,374.69972 -0.48,0.25 -0.21,1.54 -0.32,1.02 -0.82,0.73 -1.08,-0.38 -1.15,0.26 -2.96,-0.47 -1.86,0.81 -0.39,-0.12 -0.79,-0.76 -0.51,-0.24 -1.42,-0.32 -1.77,-0.21 -1.26,
+                        <Tooltip followCursor title={getRegion(9)} arrow
+                                 placement="top">
+                            <path id="9" onClick={() => {
+                                getRegionB(9)
+                            }} className={clsx(currentId === 9 ? "regions_active" : "regions")}
+                                  fill="#ba68c8"
+                                  name="Jizzakh" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 580.63007,374.69972 -0.48,0.25 -0.21,1.54 -0.32,1.02 -0.82,0.73 -1.08,-0.38 -1.15,0.26 -2.96,-0.47 -1.86,0.81 -0.39,-0.12 -0.79,-0.76 -0.51,-0.24 -1.42,-0.32 -1.77,-0.21 -1.26,
             0.14 -0.93,0.26 -0.74,-0.13 -1.02,-0.59 -0.74,0.1 -2.23,-0.16 -0.97,-0.48 -0.74,-0.19 -1.09,0.09 -0.6,-0.15 -1.1,-0.85 -0.91,-0.37 -1.37,-0.08 -0.92,0.1 -1.87,-0.84 -0.96,-0.88 -1.38,
             -0.08 -2.43,-1.65 -0.7,0.39 -1.21,0.32 -1.93,-0.83 -0.4,-0.01 -0.88,1.02 -1.09,0.38 -0.64,0.45 -0.94,1.53 -0.58,0.16 -1.43,0.03 -3.98,1.49 -0.12,0.68 0.2,1.61 -0.41,0.51 -2.22,
             -0.55 -0.46,0.11 -0.35,0.8 -0.02,1.31 0.32,0.51 0,0 -4.53,-3.82 -1.03,-1.05 -0.65,-0.96 -0.21,-0.95 -0.02,-4.16 0.1,-0.37 3.22,-5.24 0.76,-0.91 0.69,-0.54 2.16,-1.03 1.54,-0.38 1.3,
@@ -446,15 +460,15 @@ const MapChart = ({data}) => {
             0.3 1.5,1.4 2.61,3.24 0.54,1.1 0.04,0.75 -0.2,0.69 -0.71,0.72 -0.81,0.1 -0.62,-0.31 -0.6,-0.94 -0.07,-1.78 -1.35,-3.21 -0.72,-0.88 -0.4,-0.07 -0.47,0.22 -0.12,0.4 0.08,1.1 1.04,
             1.98 0.81,1.92 0.03,0.69 -0.36,0.8 -0.36,0.27 -0.92,0.21 -0.3,0.39 -0.27,1.43 -0.24,0.22 -0.46,0.11 -0.56,-0.42 -0.31,-1.27 -0.78,-0.89 -0.46,-0.13 -1.47,1.23 -0.51,-0.3 -1.2,
             -0.15 -0.09,1.15 0.3,1.67 -0.32,1.31 -0.49,0.85 -0.25,0.92 -0.3,0.56 -0.64,0.27 -0.63,0.04 -0.42,0.51 0.27,0.64 1.88,2.68 -0.27,1.72 -2.37,2.68 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(3)} arrow
-                                     placement="top">
-                                <path id="3" onClick={() => {
-                                    getRegionB(3)
-                                }}  className={clsx(currentId === 3 ? "regions_active" : "regions")}
-                                      fill="#b39ddb"
-                                      name="Namangan" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 749.31007,281.14972 -0.5,-0.84 -0.46,-0.29 -0.45,-0.07 -0.45,0.24 -1.05,-0.35 -0.76,-0.03 -1.88,1.36 -0.35,0.08 -0.68,-0.3 -1.74,-1.12 -1.14,-0.31 -1.22,-0.14 -1.16,0.79 -0.46,
+                        <Tooltip followCursor title={getRegion(3)} arrow
+                                 placement="top">
+                            <path id="3" onClick={() => {
+                                getRegionB(3)
+                            }} className={clsx(currentId === 3 ? "regions_active" : "regions")}
+                                  fill="#b39ddb"
+                                  name="Namangan" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 749.31007,281.14972 -0.5,-0.84 -0.46,-0.29 -0.45,-0.07 -0.45,0.24 -1.05,-0.35 -0.76,-0.03 -1.88,1.36 -0.35,0.08 -0.68,-0.3 -1.74,-1.12 -1.14,-0.31 -1.22,-0.14 -1.16,0.79 -0.46,
             -0.22 -0.56,-0.05 -1.62,-0.65 -0.32,-0.41 0.02,-0.88 -0.56,-0.06 -0.37,-0.2 -0.07,-0.21 0.64,-2 0.92,-1.61 0.78,-0.8 0.47,-0.82 0.56,-1.35 -0.05,-0.25 -1.08,-0.58 -0.85,-1.03 -0.28,
             -0.65 0.13,-1.3 -0.14,-0.37 -0.38,-0.28 -0.41,0.24 -0.34,0.56 -0.81,0.17 -0.25,-0.17 -0.06,-0.19 0.26,-1.3 -0.62,-1.06 -1.4,-1.35 -1.05,-2.21 -0.37,-0.1 -0.14,0.12 -0.11,1.69 -0.17,
             0.26 -0.31,0.07 -0.21,-0.41 -0.1,-0.68 -0.31,-0.27 -0.38,-0.03 -0.63,0.45 -0.12,0.4 0.41,0.66 -0.06,0.56 -0.27,0.21 -0.42,-0.26 -0.41,-0.71 -0.1,-0.46 0.09,-0.43 0.84,-1.1 0.46,
@@ -473,14 +487,14 @@ const MapChart = ({data}) => {
             -2.85 0.76,-1 0.75,-1.45 1.23,-0.79 4.11,-2.23 3.44,-1.03 0,0 1.9,-1.21 -2.2,-2.67 2.03,-1.89 1.2,-0.8 8.59,-2.19 3.67,0.03 0.58,0.25 0.73,0.56 3.33,0.75 1.46,0.15 4.88,-0.44 0.53,
             -0.27 0.4,-0.46 1.26,-5.86 0,0 -0.42,-0.26 -0.45,-0.58 0.16,-0.33 1.26,-0.3 0.53,-0.41 0.47,-1.02 -0.45,-0.82 -0.77,-4.63 z m -70.46,14.69 -3.18,-4.31 -1.22,-0.9 -1.01,-0.03 -0.19,
             -0.68 0.27,-0.47 0.73,-0.56 -0.27,0.38 1.2,0.51 1.51,1.77 1.73,2.35 0.64,1.58 -0.21,0.36 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip title={getRegion(10)} arrow placement="top">
-                                <path id="10" onClick={() => {
-                                    getRegionB(10)
-                                }}  className={clsx(currentId === 10 ? "regions_active" : "regions")}
-                                      fill="#673ab7"
-                                      name="Navoiy" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 498.40007,274.98972 -0.52,4.76 -0.22,-0.04 -0.29,2.93 -6.71,0.22 1.13,10.64 0.72,1.27 0.95,0.58 4.27,1.05 0.25,0.23 0.23,0.53 1.57,6.86 -0.28,0.74 -3.12,5.32 -4.43,8.59 -0.73,
+                        <Tooltip title={getRegion(10)} arrow placement="top">
+                            <path id="10" onClick={() => {
+                                getRegionB(10)
+                            }} className={clsx(currentId === 10 ? "regions_active" : "regions")}
+                                  fill="#673ab7"
+                                  name="Navoiy" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 498.40007,274.98972 -0.52,4.76 -0.22,-0.04 -0.29,2.93 -6.71,0.22 1.13,10.64 0.72,1.27 0.95,0.58 4.27,1.05 0.25,0.23 0.23,0.53 1.57,6.86 -0.28,0.74 -3.12,5.32 -4.43,8.59 -0.73,
             1.79 0,0 -1.26,-3.47 -1.86,-2.66 -0.97,-1.12 -0.58,-0.27 -2.11,1.92 -2.35,1.29 -1.38,0.11 -1.83,-0.25 -1.04,-0.79 -1.03,-1.55 -1.19,-0.09 -1.11,0.19 -0.91,1.08 -2.15,4.68 -0.59,
             4.91 0.25,0.35 0.54,0.2 0.37,0.72 -0.17,2.27 -0.88,6.12 -0.86,1.34 -2.3,6.07 0.2,0.98 0.8,0.1 1.43,-0.92 0.82,0.07 0.18,0.45 -0.14,1.12 -0.43,0.62 -3.49,3.29 -1.63,0.76 -8.91,
             1.93 -1.22,-0.2 -5.38,-2.3 -2.09,-1.14 -0.46,-1.04 -1,-1.55 -5.48,-2.07 -1.01,-0.17 -0.52,0.28 -0.35,0.57 -0.16,0.7 0.05,0.97 -0.42,5.8 -1.83,5.54 -0.71,1.29 -0.52,0.3 -0.59,
@@ -494,16 +508,16 @@ const MapChart = ({data}) => {
             -52.21 -15.44,-4.18 -5.85,-10.49 0,0 42.36,-8.25 20.45,-3.61 3.48,0.68 3.01,0.36 9.7,1.05 5.93,0.38 2.4,0.42 14.18,1.09 13.64,0.67 0.2,-0.15 0.85,-0.04 10.52,-5.17 7,-3.06 4.38,
             -2.19 2.06,-0.51 1.08,-0.11 1.67,0.07 0.83,0.32 0.76,0.58 0.99,1.14 5.73,12.62 2.02,1.91 3.6,3.74 10.88,9.68 1.5,6.07 6.64,21.39 12.57,-5.92 0.35,31.3 -0.05,7.21 -0.58,-0.18 -2.42,
             -1.23 -0.25,0 -0.1,6.6 -0.91,1.1 -0.3,16.64 0.07,2.15 24.14,2.92 3.48,39.7 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(8)} arrow
-                                     placement="top">
-                                <path id="8" onClick={() => {
-                                    getRegionB(8)
-                                }}  className={clsx(currentId === 8 ? "regions_active" : "regions")}
-                                      fill="#3f51b5"
-                                      name="Qashqadaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 421.26007,383.36972 1.17,-0.81 0.8,-0.38 1.39,-0.37 2.6,-0.4 0.53,-0.21 0.4,-0.43 0,0 0.69,0.16 17.55,0.53 1.49,-0.18 1.31,-0.55 1.43,-1.07 0.19,-0.27 0.04,-0.33 4.31,0.88 3.3,
+                        <Tooltip followCursor title={getRegion(8)} arrow
+                                 placement="top">
+                            <path id="8" onClick={() => {
+                                getRegionB(8)
+                            }} className={clsx(currentId === 8 ? "regions_active" : "regions")}
+                                  fill="#3f51b5"
+                                  name="Qashqadaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 421.26007,383.36972 1.17,-0.81 0.8,-0.38 1.39,-0.37 2.6,-0.4 0.53,-0.21 0.4,-0.43 0,0 0.69,0.16 17.55,0.53 1.49,-0.18 1.31,-0.55 1.43,-1.07 0.19,-0.27 0.04,-0.33 4.31,0.88 3.3,
             3.81 2.77,4.65 0.09,1.49 0.22,0.21 0.72,0.25 3.08,0.78 1.53,-0.04 2.21,-1.38 3.27,-1.67 7.55,-1.87 0.63,0.16 1.17,0.75 1.65,1.44 1.64,1.15 0.69,0.33 0.3,-0.01 3.64,-1.56 0.82,
             -0.96 1.1,-1.78 0.83,-0.95 0.81,-0.28 1.19,-0.06 8.57,1.53 0.63,0.67 0.49,1.32 -0.11,1.26 -0.46,1.7 0.06,0.58 0.33,0.48 0.93,0.53 1.89,0.15 3.88,-0.24 0.82,-0.21 0.42,-0.48 0.11,
             -0.35 -0.07,-1.78 0.43,-0.48 0.88,-0.05 4.46,1.27 2.56,1.09 3.84,1.19 1.65,0.32 1,-0.23 0,0 0.38,1.58 1.39,2.41 0.73,0.75 0.96,0.53 1.76,0.37 0.62,0.41 0.85,0.29 0.8,0.02 1.03,
@@ -514,17 +528,17 @@ const MapChart = ({data}) => {
             -0.13 -0.76,-0.8 -0.47,-0.17 -1.37,0.07 -0.83,-0.27 -0.9,-0.6 -1.91,-1.96 -0.9,-0.24 -1.07,0.01 -0.97,0.27 -0.73,1.4 -0.56,-0.07 -0.14,0.1 -0.16,0.64 -0.37,0.17 -0.53,0 -4.68,
             -0.96 -9.93,-3.92 -1.95,-1.12 -6.41,-4.13 -1.85,-1.49 -2.7,-2.52 -7.61,-7.6 -0.58,-0.39 -2.73,-1.25 -3.5,-1.33 -2.94,-1.37 -1.73,-1.26 -0.61,-0.66 -8.98,-5.55 -2.72,-1.9 -5.54,
             -5.13 -1.19,-1.31 0,0 5.61,-6.23 18.12,-6.64 0.28,-0.61 -0.23,-0.51 -0.82,-1.17 -0.83,-0.88 -0.71,-1.2 -0.15,-0.86 0.35,-1.03 4.4,-4.71 0.57,-0.11 3.35,-2.22 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(1)} arrow
-                                     placement="top">
-                                <path id="1" onClick={() => {
-                                    getRegionB(1)
-                                }}  className={clsx(currentId === 1 ? "regions_active" : "regions")}
-                                      fill="#1a237e"
-                                      name="1" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      name="Qoraqalpog'iston"
-                                      d="m 157.43007,23.739722 0.35,7.72 -2.01,5.84 -3.22,5.44 -2.82,6.04 -1.01,4.23 -2.21,0 -1.81,0.2 -1.41,1.41 -0.6,2.62 0.81,4.63 1.21,2.62 0.81,2.82 -2.42,0.81 -3.02,-1.61 -2.42,
+                        <Tooltip followCursor title={getRegion(1)} arrow
+                                 placement="top">
+                            <path id="1" onClick={() => {
+                                getRegionB(1)
+                            }} className={clsx(currentId === 1 ? "regions_active" : "regions")}
+                                  fill="#1a237e"
+                                  name="1" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  name="Qoraqalpog'iston"
+                                  d="m 157.43007,23.739722 0.35,7.72 -2.01,5.84 -3.22,5.44 -2.82,6.04 -1.01,4.23 -2.21,0 -1.81,0.2 -1.41,1.41 -0.6,2.62 0.81,4.63 1.21,2.62 0.81,2.82 -2.42,0.81 -3.02,-1.61 -2.42,
             1.41 -1.81,4.03 -2.42,4.23 -2.21,2.42 -3.02,-1.81 -0.4,-4.03 -0.2,-6.24 -1.21,-1.61 0,-3.45 1.61,0 1.21,2.82 1.81,1.01 2.82,-1.01 1.41,-3.02 0,-4.03 1.01,-3.22 -3.03,-1.81 -3.22,
             -2.62 -0.6,-2.42 1.81,-2.01 1.81,-0.4 2.01,1.01 0.2,-8.25 2.82,-0.4 -0.2,-3.22 -2.42,-0.6 -3.82,-0.6 -1.41,1.01 -1.61,2.01 -2.21,1.01 1.41,-2.21 2.82,-5.23 1.81,-2.62 -1.01,
             -3.02 -2.01,-2.82 0.6,-3.82 1.01,-3.42 3.4,-6.4299998 0,0 23.01,16.5899998 z m -38.32,-23.3999998 -0.18,3.55 -1.61,3.22 -0.2,4.8299998 -3.82,3.42 -2.01,3.22 -0.2,5.84 -2.62,
@@ -553,16 +567,17 @@ const MapChart = ({data}) => {
             0.4 -0.53,0.33 -1.98,0.69 -0.84,0.79 -0.46,0.88 -0.04,1.5 -0.32,0.67 -0.49,0.54 -0.55,0.29 -1.32,0 -1.8,-0.44 -3.96,-0.34 -4.15,-0.59 -6.75,-0.42 -3.77,-0.08 -5.88,-0.68 -3.49,
             -0.26 -1.88,0.01 -5.1800003,-0.47 -9.41999997,-0.39 -0.08,-232.559998 1.51999997,-0.39 1.43,-0.63 30.1400003,-9.85 0.02,-0.13 1.67,-0.29 0.34,-0.35 1.01,-0.34 13.14,-4.2 43.66,
             -13.4999998 6.65,-2.22 2.220003,-0.46 17.06,-5.04 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(11)} arrow
-                                     placement="top">
-                                <path onClick={() => {
-                                    getRegionB(11)
-                                }}  id="11" className={clsx(currentId === 11 ? "regions_active" : "regions")}
-                                      fill="#90caf9"
-                                      name="Samarqand" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 532.92007,390.83972 -0.11,0.3 -1.6,-0.31 -0.97,0.21 -3.33,1.15 -0.23,0.29 0,0.19 0,0 -1,0.23 -1.65,-0.32 -3.84,-1.19 -2.56,-1.09 -4.46,-1.27 -0.88,0.05 -0.43,0.48 0.07,1.78 -0.11,
+        text-align: left;
+                        <Tooltip followCursor title={getRegion(11)} arrow
+                                 placement="top">
+                            <path onClick={() => {
+                                getRegionB(11)
+                            }} id="11" className={clsx(currentId === 11 ? "regions_active" : "regions")}
+                                  fill="#90caf9"
+                                  name="Samarqand" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 532.92007,390.83972 -0.11,0.3 -1.6,-0.31 -0.97,0.21 -3.33,1.15 -0.23,0.29 0,0.19 0,0 -1,0.23 -1.65,-0.32 -3.84,-1.19 -2.56,-1.09 -4.46,-1.27 -0.88,0.05 -0.43,0.48 0.07,1.78 -0.11,
             0.35 -0.42,0.48 -0.82,0.21 -3.88,0.24 -1.89,-0.15 -0.93,-0.53 -0.33,-0.48 -0.06,-0.58 0.46,-1.7 0.11,-1.26 -0.49,-1.32 -0.63,-0.67 -8.57,-1.53 -1.19,0.06 -0.81,0.28 -0.83,0.95 -1.1,
             1.78 -0.82,0.96 -3.64,1.56 -0.3,0.01 -0.69,-0.33 -1.64,-1.15 -1.65,-1.44 -1.17,-0.75 -0.63,-0.16 -7.55,1.87 -3.27,1.67 -2.21,1.38 -1.53,0.04 -3.08,-0.78 -0.72,-0.25 -0.22,-0.21 -0.09,
             -1.49 -2.77,-4.65 -3.3,-3.81 -4.31,-0.88 -0.04,0.33 -0.19,0.27 -1.43,1.07 -1.31,0.55 -1.49,0.18 -17.55,-0.53 -0.69,-0.16 0,0 -2.12,-3.8 -0.81,-1.81 -0.17,-0.81 0.04,-0.63 1.17,
@@ -572,29 +587,29 @@ const MapChart = ({data}) => {
             -0.19 1.19,0.09 1.03,1.55 1.04,0.79 1.83,0.25 1.38,-0.11 2.35,-1.29 2.11,-1.92 0.58,0.27 0.97,1.12 1.86,2.66 1.26,3.47 0,0 7.79,0.92 4.61,0.1 0.96,2.18 0.01,1.1 -0.83,1.83 -0.14,
             0.77 0.1,3.93 0.84,4.1 1.86,1.66 1.44,2.81 -0.07,0.81 -0.45,1.34 -0.24,0.16 -1.24,0.29 -0.1,0.35 0.35,3.71 5.83,3.93 2.12,0.8 4.81,0.4 11.87,2.53 0.21,0.24 1.07,5.96 0.08,1.02 -1.3,
             0.15 -1.54,0.38 -2.16,1.03 -0.69,0.54 -0.76,0.91 -3.22,5.24 -0.1,0.37 0.02,4.16 0.21,0.95 0.65,0.96 1.03,1.05 4.53,3.82 0,0 2.23,4.67 0.83,2.3 0.94,1.95 0.21,0.81 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(12)} arrow
-                                     placement="top">
-                                <path id="12" onClick={() => {
-                                    getRegionB(12)
-                                }}  className={clsx(currentId === 12 ? "regions_active" : "regions")}
-                                      fill="#29b6f6"
-                                      name="Sirdaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 596.13007,337.79972 -1.61,0.97 -1.29,0.33 -2.39,-0.67 -0.98,0.44 -5.44,1.74 0,0 1.01,-6.41 -0.31,-0.68 -7.13,1.64 -2.28,0.79 -4.02,0.82 -4.57,0.17 -6.55,-0.31 -0.32,-0.05 -0.66,
+                        <Tooltip followCursor title={getRegion(12)} arrow
+                                 placement="top">
+                            <path id="12" onClick={() => {
+                                getRegionB(12)
+                            }} className={clsx(currentId === 12 ? "regions_active" : "regions")}
+                                  fill="#29b6f6"
+                                  name="Sirdaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 596.13007,337.79972 -1.61,0.97 -1.29,0.33 -2.39,-0.67 -0.98,0.44 -5.44,1.74 0,0 1.01,-6.41 -0.31,-0.68 -7.13,1.64 -2.28,0.79 -4.02,0.82 -4.57,0.17 -6.55,-0.31 -0.32,-0.05 -0.66,
             -0.97 -0.34,-0.9 -0.15,-0.96 0.2,-1.52 4.95,-11.04 0.77,-2 0.15,-0.77 -0.16,-0.2 -0.33,0.1 -2.11,1.02 -0.16,-0.27 0.48,-4.89 2.1,-0.54 1.86,0.1 0.34,-0.61 0.17,-2.84 0,0 3.65,3.11 1.89,
             -0.5 1.91,1.57 -0.54,1.14 4.87,1.43 0.81,-1.12 2.4,0.18 4.31,-1.73 -0.84,-2.09 -2.41,-1.29 -1.13,-3.29 -3.28,-4.53 0.87,-7.45 -1,-2.53 0.86,-0.9 -0.88,-1.39 -3.62,-0.23 -0.01,-1.3 4.92,
             0.31 0.32,0.6 2.36,-1.47 -0.02,0.24 0.31,0.09 0.2,1.2 0.67,0.25 0.8,-0.37 0.94,0.21 0.37,0.38 -0.14,0.33 -1.44,0.55 -0.19,0.35 -0.03,0.56 0.54,1.06 0.4,-0.33 0,0 4.86,5.52 3.47,
             3.47 4.92,4.44 4.71,3.91 0.62,0.08 3.03,4.23 -0.5,4.7 -0.86,5.32 -1.01,4.96 0.02,1.06 0.14,0.62 0.5,1.05 -0.25,4.73 0,0 -1.11,-0.35 -2.57,-0.02 -3.36,0.35 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(7)} arrow
-                                     placement="top">
-                                <path id="7" onClick={() => {
-                                    getRegionB(7)
-                                }}  className={clsx(currentId === 7 ? "regions_active" : "regions")}
-                                      fill="#80deea"
-                                      name="Surxondaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 573.27007,459.46972 -1.03,3.53 -0.14,1.23 -2.3,2.42 -1.64,3.1 0.07,1.57 -0.47,1.11 0.09,0.79 -0.35,0.89 -2.5,1.17 -4.05,0.7 -0.81,1.44 -3.16,6.75 -1.15,1.66 -1.37,0.98 -2.29,
+                        <Tooltip followCursor title={getRegion(7)} arrow
+                                 placement="top">
+                            <path id="7" onClick={() => {
+                                getRegionB(7)
+                            }} className={clsx(currentId === 7 ? "regions_active" : "regions")}
+                                  fill="#80deea"
+                                  name="Surxondaryo" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 573.27007,459.46972 -1.03,3.53 -0.14,1.23 -2.3,2.42 -1.64,3.1 0.07,1.57 -0.47,1.11 0.09,0.79 -0.35,0.89 -2.5,1.17 -4.05,0.7 -0.81,1.44 -3.16,6.75 -1.15,1.66 -1.37,0.98 -2.29,
             2.97 -1.05,2.43 -1.27,2.43 -1.59,1.53 -1.19,3.88 -0.05,2.56 0.26,4.01 -0.56,6.66 -0.71,2.43 -0.68,0.44 -0.59,-1.11 -1.5,-1.2 -0.74,-0.22 -1.38,0.15 -0.42,-0.06 -0.86,-0.76 -1,
             -0.59 -0.61,0.09 -1.37,0.55 -0.67,0.54 -0.39,0.5 -0.7,0.09 -0.42,-0.65 -0.42,-1.37 -0.74,-0.72 -0.82,-0.4 -0.67,0.14 -0.57,0.38 -1.87,1.72 -1.35,0.46 -1.15,0.68 -1.26,0.11 -1.84,
             0.47 -0.96,1.03 -1.5,0.63 -0.54,-0.2 -0.86,-0.77 -0.17,-1.53 -0.28,-0.49 -0.77,-0.37 -0.37,-0.87 -0.27,-0.27 -0.97,-0.38 -0.45,-0.34 -0.7,0.15 -0.46,-0.12 -1.52,-0.85 -0.46,-0.71 0.36,
@@ -607,28 +622,28 @@ const MapChart = ({data}) => {
             0.8 -0.14,1.24 -0.35,0.22 0.3,2.16 -1.26,0.65 -0.59,0.9 -1.03,0.32 -2.5,0.4 -0.35,0.56 2.53,3.68 -0.36,0.67 -1.59,0.19 -1.27,1.22 0.42,1.48 0.87,1.94 -0.01,0.45 -0.47,0.56 -0.33,
             5.31 2.42,3.21 1,0.81 -0.37,1.12 -0.93,1.45 -0.25,1.01 0.45,0.01 1.48,-0.65 0.46,0.01 1.67,0.94 1.41,2.4 0.21,0.79 0.08,1.36 0.22,0.23 1.34,0.48 1.45,0.71 1,0.69 1.97,2.53 0.02,
             0.38 0.72,1.32 1.09,1.49 -0.01,0.79 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(14)} arrow
-                                     placement="top">
-                                <path id="14" onClick={() => {
-                                    getRegionB(14)
-                                }}  className={clsx(currentId === 14 ? "regions_active" : "regions")}
-                                      fill="#0097a7"
-                                      name="Tashkent" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 618.94007,266.48972 0.05,-0.57 -0.09,-0.14 -0.24,0 -0.3,0.25 -0.13,0.37 -0.75,0.23 -0.71,0.75 -0.7,-0.07 -0.36,0.66 -0.55,-0.27 -0.57,0.11 -1.6,-0.84 -0.2,0.02 -0.26,0.34 -0.82,
+                        <Tooltip followCursor title={getRegion(14)} arrow
+                                 placement="top">
+                            <path id="14" onClick={() => {
+                                getRegionB(14)
+                            }} className={clsx(currentId === 14 ? "regions_active" : "regions")}
+                                  fill="#0097a7"
+                                  name="Tashkent" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 618.94007,266.48972 0.05,-0.57 -0.09,-0.14 -0.24,0 -0.3,0.25 -0.13,0.37 -0.75,0.23 -0.71,0.75 -0.7,-0.07 -0.36,0.66 -0.55,-0.27 -0.57,0.11 -1.6,-0.84 -0.2,0.02 -0.26,0.34 -0.82,
             0.37 -1.03,-0.21 -0.11,-0.18 -0.14,0 -1.2,1.32 -0.1,0.85 -0.45,1.25 -0.14,0.87 -0.12,1.46 0.09,0.34 0.93,0.22 0.29,0.21 0.33,-0.18 0.48,0.25 0.32,0.84 0.16,0.05 0.36,-0.23 0.17,
             0.25 0.69,0.13 0.57,-0.06 0.01,-0.48 1.08,-0.87 1.09,0.09 0.72,0.23 -0.16,0.41 0.43,0.94 0.37,0.25 0.63,-0.09 1.05,-1.05 0.38,-0.87 -0.07,-1.18 -0.38,-0.73 -0.29,-0.27 0.48,
             -0.76 0.34,-0.25 -0.13,-0.34 0.05,-0.48 0.29,-0.68 0.15,-0.12 0.4,0.05 -0.09,-0.66 0.28,-0.27 0.12,-0.48 -0.11,-0.32 -0.24,-0.14 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(13)} arrow
-                                     placement="top">
-                                <path id="13" onClick={() => {
-                                    getRegionB(13)
-                                }}  className={clsx(currentId === 13 ? "regions_active" : "regions")}
-                                      fill="#80cbc4"
-                                      name="Tashkent district" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 705.74007,216.12972 -0.15,-0.38 -0.65,-0.51 -0.79,-0.38 -3.33,-3 -0.94,-0.54 -1.75,-0.21 -1.22,-0.7 -0.46,-0.02 -0.86,0.21 -1.14,0.5 -1.25,1.16 -0.68,0.03 -0.94,-0.34 -0.42,
+                        <Tooltip followCursor title={getRegion(13)} arrow
+                                 placement="top">
+                            <path id="13" onClick={() => {
+                                getRegionB(13)
+                            }} className={clsx(currentId === 13 ? "regions_active" : "regions")}
+                                  fill="#80cbc4"
+                                  name="Tashkent district" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} d="m 705.74007,216.12972 -0.15,-0.38 -0.65,-0.51 -0.79,-0.38 -3.33,-3 -0.94,-0.54 -1.75,-0.21 -1.22,-0.7 -0.46,-0.02 -0.86,0.21 -1.14,0.5 -1.25,1.16 -0.68,0.03 -0.94,-0.34 -0.42,
             0.04 -1.77,2.24 -1.02,0.69 -0.96,0.43 -1.18,0.89 -0.7,0.02 -1.06,-1.01 -0.52,0.16 -0.58,0.56 -0.67,0.73 -0.84,1.38 -0.82,0.66 -0.55,0.9 -0.98,0.78 -0.75,1.09 -0.15,1.26 -0.91,
             1.8 -1.1,2.99 0.05,0.2 -0.22,0.48 -0.74,0.26 -0.42,-0.02 -1.23,-1.13 -0.75,-0.21 -0.15,-0.63 0.11,-1.61 -0.55,-0.91 -2.54,-1.39 -2.69,-2.37 -0.37,-0.16 -0.69,0.14 -0.37,0.46 -0.3,
             2.12 -0.22,0.37 -0.97,0.87 -0.3,0.69 -1.58,0.96 -0.31,0.5 0.13,1.17 0.34,1.39 -0.08,1.08 -1.04,0.74 -0.96,0.31 -0.49,0.55 -0.54,-0.02 -1.16,0.55 -0.89,1.3 -1.07,0.9 -0.44,0.76 -0.74,
@@ -655,16 +670,16 @@ const MapChart = ({data}) => {
             0.87 -0.02,0.48 -0.57,0.07 -0.69,-0.14 -0.17,-0.25 -0.36,0.23 -0.16,-0.05 -0.33,-0.84 -0.48,-0.25 -0.33,0.18 -0.29,-0.21 -0.93,-0.23 -0.09,-0.34 0.12,-1.46 0.14,-0.87 0.45,-1.25 0.1,
             -0.84 1.2,-1.32 0.14,0 0.1,0.18 1.03,0.21 0.83,-0.37 0.26,-0.34 0.21,-0.02 1.6,0.84 0.57,-0.11 0.55,0.27 0.36,-0.66 0.71,0.07 0.7,-0.75 0.6,-0.11 0.38,-0.62 0.45,-0.11 0.04,0.71 0.51,
             0.46 0.05,0.6 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <Tooltip followCursor title={getRegion(6)} arrow
-                                     placement="top">
-                                <path id="6" onClick={() => {
-                                    getRegionB(6)
-                                }}  className={clsx(currentId === 6 ? "regions_active" : "regions")}
-                                      fill="#00796b"
-                                      name="Xorazm" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
-                                      d="m 282.54007,312.32972 -1.26,-2.86 -0.52,-0.75 -0.69,-0.61 -0.3,-0.81 -0.16,-2.77 -0.46,-0.74 -0.26,-1.03 -1.22,-2.04 -0.09,-1.22 0.16,-1.18 -0.07,-1.98 -0.15,-0.48 -0.25,-2.85 0.23,
+                        <Tooltip followCursor title={getRegion(6)} arrow
+                                 placement="top">
+                            <path id="6" onClick={() => {
+                                getRegionB(6)
+                            }} className={clsx(currentId === 6 ? "regions_active" : "regions")}
+                                  fill="#00796b"
+                                  name="Xorazm" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}
+                                  d="m 282.54007,312.32972 -1.26,-2.86 -0.52,-0.75 -0.69,-0.61 -0.3,-0.81 -0.16,-2.77 -0.46,-0.74 -0.26,-1.03 -1.22,-2.04 -0.09,-1.22 0.16,-1.18 -0.07,-1.98 -0.15,-0.48 -0.25,-2.85 0.23,
             -1.62 -0.22,-0.4 -0.51,-0.21 -0.18,-0.72 0.02,-0.64 -0.29,-0.81 -0.74,-0.94 -1.47,-0.78 -0.57,-0.11 -0.45,-0.26 -0.3,-0.56 0.19,-0.94 -0.37,-1.05 -0.47,-0.87 -1.22,-0.73 -1.88,
             -1.98 -1.13,-0.34 -1.49,-1.01 -2.03,-2.41 -0.48,-0.3 -1.27,-0.13 -0.66,-0.23 -0.49,-0.34 -0.41,-0.38 -0.28,-0.95 -0.38,-0.72 -0.85,-0.64 -0.47,-0.01 -1.3,0.57 -1.77,-0.14 -0.74,
             -0.22 -1.61,-0.9 -1.76,-0.29 -0.52,0.04 -0.47,0.31 -0.82,1.47 0.06,2.65 -0.45,0.8 -0.28,1.57 -0.43,0.91 -0.35,0.39 -0.49,0.33 -1.05,0.16 -0.15,0.14 -1.67,0.19 -0.33,-0.1 -1.32,
@@ -675,11 +690,11 @@ const MapChart = ({data}) => {
             -0.85 4.26,-1.39 5.28,1.12 0.39,0.48 0.16,0.58 0.04,2.64 0.41,2.45 3.08,5.39 0.38,0.47 0.66,0.65 0.7,0.31 5.17,4.83 3.35,3.9 1.57,1.51 8.23,7.31 5.96,4.54 1.41,0.58 2.16,0.36 0.74,
             0.29 0.71,0.61 2.01,2.27 0.37,0.87 0.26,1.16 2.25,1.44 1.49,0 0.72,-0.76 0.51,-1.88 1.17,-2.3 0.78,-0.88 1.39,-0.77 0.62,-0.2 3.04,0.01 8.95,2.06 3.52,1.86 3.08,1.91 8,8.81 1.5,
             2.77 4.56,7.41 0.27,0.22 0.65,0.19 2.55,-1.22 0,0 3.24,3.33 5.91,6.68 0.68,1.15 -0.03,1.54 -0.79,3.8 -4.59,5.13 -6.28,7.61 0,0 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                            <path id="aral-sea"
-                                  fill="#81c784"
-                                  name="Aral Sea" d="m 134.41007,7.1297222 -3.4,6.4199998 -1,3.43 -0.61,3.82 2.02,2.82 1,3.02 -1.81,2.62 -2.82,5.23 -1.41,2.21 2.22,-1 1.61,-2.02 1.41,-1 3.82,0.6 2.42,0.6 0.2,3.23 -2.82,0.4 -0.2,
+                        <path id="aral-sea"
+                              fill="#81c784"
+                              name="Aral Sea" d="m 134.41007,7.1297222 -3.4,6.4199998 -1,3.43 -0.61,3.82 2.02,2.82 1,3.02 -1.81,2.62 -2.82,5.23 -1.41,2.21 2.22,-1 1.61,-2.02 1.41,-1 3.82,0.6 2.42,0.6 0.2,3.23 -2.82,0.4 -0.2,
             8.25 -2.01,-1.01 -1.81,0.41 -1.82,2.01 0.61,2.42 3.22,2.61 3.02,1.81 -1.01,3.23 0,4.02 -1.41,3.02 -2.82,1.01 -1.81,-1.01 -1.2,-2.82 -1.62,0 0,3.42 1.21,1.61 0.2,6.24 0.41,4.03 3.02,
             1.81 2.21,-2.41 2.42,-4.23 1.81,-4.03 2.41,-1.41 3.02,1.61 2.42,-0.8 -0.81,-2.82 -1.21,-2.62 -0.8,-4.62 0.6,-2.62 1.41,-1.41 1.81,-0.2 2.22,0 1,-4.23 2.82,-6.04 3.22,-5.43 2.02,
             -5.84 -0.36,-7.73 0,0 56.78,40.99 0,0 -3.89,0.36 1.01,2.01 1.61,1.41 1.01,1.41 -0.81,3.82 -2.82,5.03 -4.63,4.63 -6.24,5.04 -1.61,3.42 1.01,1.81 -1.21,1.81 -3.42,0 -0.6,2.62 -7.05,
@@ -688,12 +703,13 @@ const MapChart = ({data}) => {
             -2.62 -2.21,-5.23 -0.4,-5.24 3.02,-8.45 0.4,-2.62 -2.01,-3.62 -1.21,-2.82 -0.2,-6.04 0.4,-4.63 2.01,-5.43 3.02,-4.83 1.21,-5.64 2.62,-2.62 0.2,-5.83 2.01,-3.22 3.83,-3.43 0.2,
             -4.8299998 1.61,-3.22 0.17,-3.55 0,0" fill="#0050b3"/>
 
-                            <Tooltip followCursor title={getRegion(2)} arrow
-                                     placement="top">
-                                <path id="2" onClick={()=>getRegionB(2)} className={clsx(currentId === 2 ? "regions_active" : "regions")}
-                                      fill="#ff8a65"
-                                      onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} name="Andijon"
-                                      d="m 750.33007,320.40972 -0.11,-3.61 -0.31,-0.84 -4.01,-1.28 -2.25,-0.45 -0.24,0.17 -0.33,0 -9.25,-1.57 -2.24,-3.46 -0.62,
+                        <Tooltip followCursor title={getRegion(2)} arrow
+                                 placement="top">
+                            <path id="2" onClick={() => getRegionB(2)}
+                                  className={clsx(currentId === 2 ? "regions_active" : "regions")}
+                                  fill="#ff8a65"
+                                  onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} name="Andijon"
+                                  d="m 750.33007,320.40972 -0.11,-3.61 -0.31,-0.84 -4.01,-1.28 -2.25,-0.45 -0.24,0.17 -0.33,0 -9.25,-1.57 -2.24,-3.46 -0.62,
                     -0.65 -3.02,-1.56 -4.16,-0.6 -0.2,1.45 -3.03,-4.48 0,0 1.9,-1.21 -2.2,-2.67 2.03,-1.9 1.19,-0.8 8.59,-2.19 3.68,0.03 0.57,0.26 0.73,0.56 3.33,0.74 1.46,0.15 4.88,
                     -0.44 0.53,-0.27 0.4,-0.45 1.26,-5.87 0,0 0.24,0.15 0.67,-0.01 2.85,-1.35 0.76,-0.18 1.22,-0.92 1.13,-1.24 0.69,-0.07 0.15,0.18 1.32,0.35 0.97,0.68 0.89,0.05 0.79,
                     0.4 0.86,-0.09 0.78,0.17 0.66,0.32 0.26,1.17 -0.1,0.65 -0.82,1.52 0.01,0.22 0.18,0.22 0.15,-0.02 0.46,-0.72 0.23,-0.05 0.24,-0.03 0.47,0.24 0.42,0.39 1.32,2.26 0.58,
@@ -706,14 +722,21 @@ const MapChart = ({data}) => {
                     0.38 0.32,0.31 0.46,1.03 1.05,0.32 0.41,0.56 -0.04,0.55 -0.35,0.4 -1.03,0.1 -0.27,0.19 -0.17,0.51 0.14,0.45 1.08,-0.11 0.26,0.37 0.23,1.47 0.49,0.53 0.24,
                     0.75 -1.14,2.67 0.28,0.83 -0.07,0.64 -0.17,0.16 -0.3,0.06 -1.48,-0.38 -0.45,-0.27 -1.55,-1.6 -0.65,-0.46 -0.29,-0.1 -0.8,0.3 -0.32,-0.21 -0.5,-0.71 -0.29,
                     -0.21 -0.9,0.01 -0.27,-0.11 -0.18,-0.4 0.33,-1.13 -0.06,-0.25 -0.45,-0.27 z"/>
-                            </Tooltip>
+                        </Tooltip>
 
-                        </svg>
+                    </svg>
 
-                    </div>
 
                 </div>
+                {
+                    desc ? <div className="description1" style={{float: "right"}}>
+                        {
+                            desc.description
+                        }
+                    </div> : ""
+                }
             </div>
+        </div>
     )
 }
 

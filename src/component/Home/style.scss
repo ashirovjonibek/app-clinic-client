@@ -1,6 +1,5 @@
 .chart_map_container {
   max-height: 40vh;
-  padding-left: 35px;
 }
 
 .map_chart {
@@ -46,7 +45,6 @@
   position: relative;
 
   div {
-    max-height: 76vh;
     overflow: hidden;
     .description {
       position: absolute;
@@ -54,15 +52,58 @@
       width: 450px;
       z-index: 1;
     }
-    padding-top: 35px;
-    padding-left: 35px;
+
+    .description1{
+      display: none;
+    }
 
     div {
       z-index: 0;
       svg {
-        padding: 0
+        padding-top: 35px;
       }
 
+    }
+  }
+}
+
+@media screen and(max-width: 1045px){
+  .map-container{
+    div{
+      .description{
+        top: -20px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 950px){
+  .map-container{
+    div{
+      .description{
+        display: none;
+      }
+
+      .description1{
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 720px){
+  .map-container{
+    div{
+
+      .description1{
+        display: block;
+        bottom: 0;
+        div{
+          h1{
+            font-size: 15px!important;
+          }
+        }
+      }
     }
   }
 }

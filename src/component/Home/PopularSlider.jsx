@@ -17,12 +17,34 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function PopularSlider({t}) {
 
-    const [top, setTop] = useState([])
+    const [top, setTop] = useState([]);
+    const [countView, setcountView] = useState(2)
+
+    window.addEventListener('resize', (e)=>{
+        // console.log("eee", e.target.innerWidth);
+        if(e.target.innerWidth<1150 && e.target.innerWidth>900){
+            setcountView(1)
+        }else if(e.target.innerWidth<900){
+            setcountView(1)
+        }else{
+            setcountView(2)
+        }
+    });
+
     useEffect(() => {
+        if(window.innerWidth<1150 && window.innerWidth>900){
+            setcountView(1)
+        }else if(window.innerWidth<900){
+            setcountView(1)
+        }else{
+            setcountView(2)
+        }
+
         fetchTop();
         return () => {
             setTop([]); // This worked for me
         };
+
     }, []);
 
     const fetchTop = () => {
@@ -37,7 +59,7 @@ function PopularSlider({t}) {
     return (
         <div className="popular-slider">
             <Swiper
-                slidesPerView={2}
+                slidesPerView={countView}
                 centeredSlides={true}
                 spaceBetween={0}
                 loop={true}
@@ -50,7 +72,7 @@ function PopularSlider({t}) {
             >
                 {
                     top && top?.map((item, i) => {
-                            return <SwiperSlide slot={`${i == 1 && "container-start"}`} key={i} >
+                            return <SwiperSlide slot={"container-start"} key={i} >
                                 <div className="popular-text" style={{margin:'0'}}>
                                     <UserName text={item?.applicant.fullName}/>
                                     <div className="document-text">
@@ -58,7 +80,8 @@ function PopularSlider({t}) {
                                             <h4>{t("Subject of the appeal")}:</h4>
                                             <p>{item.title}</p>
                                         </div>
-                                        <div style={{maxHeight:"200px",overflow:"auto"}} className="document-text-item">
+                                        <hr style={{backgroundColor:"rgba(0,0,0,0.3)",height:"1px"}}/>
+                                        <div style={{maxHeight:"200px",wordBreak:"break-all",overflow:"auto"}} className="document-text-item">
                                             {
                                                 item.description
                                             }

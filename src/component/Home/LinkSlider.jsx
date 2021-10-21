@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -29,6 +29,16 @@ window.addEventListener('resize', (e)=>{
     setcountView(3)
   }
 });
+
+useEffect(()=>{
+    if(window.innerWidth<1150 && window.innerWidth>900){
+        setcountView(3)
+    }else if(window.innerWidth<900){
+        setcountView(1)
+    }else{
+        setcountView(3)
+    }
+},[]);
 
 
   return (

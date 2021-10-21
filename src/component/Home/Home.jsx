@@ -106,6 +106,8 @@ const Home = ({t}) => {
                                 <h3>124</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
+                        </div>
+                        <div className="statistic-items">
                             <div className="statistic">
                                 <h3>124</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -116,28 +118,8 @@ const Home = ({t}) => {
                                 <h3>124</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
-                            <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="statistic-row">
-                        <div className="statistic-items">
-                            <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
                         </div>
                         <div className="statistic-items">
-                            <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
                             <div className="statistic">
                                 <h3>124</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

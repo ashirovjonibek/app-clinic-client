@@ -94,24 +94,18 @@
   }
 
   #statistic-clinic {
-    min-height: 430px;
-    margin: 15px 10px 30px 10px;
 
     .statistic-row {
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
       margin-top: 20px;
 
       .statistic-items {
-        display: flex;
-        flex-direction: row;
-        // justify-content: space-between;
+        margin-top: 11px;
         .statistic {
           min-height: 180px;
           max-width: 290px;
-          display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
