@@ -51,11 +51,6 @@ const PerAccSupListenersItem = (props) => {
                             <button disabled={props?.item.blocked} onClick={blockUser} style={props?.item.blocked?active:active1} className="button-white">{props.t("Block")}</button>
                             <button disabled={!props?.item.blocked} onClick={blockUser} className="button-white" style={!props?.item.blocked?active:active1} >{props.t("Unblock")}</button>
                         </div>
-                        <div className="redaction-date">
-                            <SimpleModal
-                                item={props.item}
-                                getListeners={props.refresh}/>
-                        </div>
                     </div>
                 </div>
             </div>

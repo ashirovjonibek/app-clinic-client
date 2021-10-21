@@ -167,8 +167,10 @@ const CenterSends = (props) => {
                     <UserName text={props?.chat?.fullName} fedbeck={"fedbeck"}/>
 
                     <div className="fedbeck-right">
-                        <ButtonDefault scrollTo={scrollToMyRef} text={openMessaage ? props.t("Close") : props.t("Open")}
-                                       setOpenMessaage={setOpenMessaage} openMessaage={openMessaage}/>
+                        <button className="btn-default" onClick={() => {
+                            scrollToMyRef();
+                            setOpenMessaage(!openMessaage)
+                        }}>{openMessaage ? props.t("Close") : props.t("Open")}</button>
                     </div>
                 </div>
 
@@ -185,7 +187,7 @@ const CenterSends = (props) => {
                                             </p>
                                             : ""
                                     }
-                                    <div key={i} className="message-paragrapgh" >
+                                    <div key={i} className="message-paragrapgh">
 
                                         <p className={item.fromId === me.id ? "me" : ""}>
                                         <span className="message">

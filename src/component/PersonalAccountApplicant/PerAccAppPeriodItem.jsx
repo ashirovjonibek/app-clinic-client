@@ -3,9 +3,15 @@ import { withTranslation } from "react-i18next";
 import { green, yellow } from "@material-ui/core/colors";
 
 const PerAccAppPeriodItem = ({ item, t }) => {
-  let a = new Date(item.deadLineDate);
-  let b = new Date();
-  let d = a.getTime() - b.getTime();
+
+    const getDayDeadline=()=>{
+        let a = new Date(item.deadLineDate);
+        let b = new Date();
+        let d = a.getTime() - b.getTime();
+        let s=d / (1000 * 60 * 60 * 24)
+        return s>0?parseInt(s)<s?parseInt(s+1):s:0;
+    };
+
   return (
     <div>
       <div className="period-section-title">
@@ -48,7 +54,7 @@ const PerAccAppPeriodItem = ({ item, t }) => {
               }}
             >
               {item.deadLineDate
-                ? parseInt(d / (1000 * 60 * 60 * 24))
+                ? getDayDeadline()
                 : "Belgilanmagan!!!"}{" "}
             </span>
             {t("days")}
