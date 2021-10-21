@@ -48,3 +48,22 @@
         float: left;
     }
 }
+@media only screen and (max-width: 555px) {
+    .page_size_text{
+        display: none !important;
+
+    }
+    .size-page{
+        margin-left: auto !important;
+    }
+    .pagination_text{
+        font-size: 14px !important;
+    }
+    .pagination1 svg{
+        font-size: 14px !important;
+    }
+    .pagination1 span{
+        font-size: 14px !important;
+        padding: 8px 10px !important;
+    }
+}

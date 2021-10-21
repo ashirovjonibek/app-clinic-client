@@ -38,7 +38,7 @@ const Enter = ({t}) => {
                                 : t("Login")}
                     />
                 </div>
-                <span style={{
+                <span className="header_username" style={{
                     paddingLeft: "3px",
                     float: "left",
                     textAlign: "left"

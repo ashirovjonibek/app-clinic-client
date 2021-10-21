@@ -106,9 +106,15 @@ const YourAppealSection = (props) => {
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>{props.t("Subject of the appeal")}:</h4>
-                                            <p>{item?.title}</p>
+                                            <p style={{wordBreak:"break-all"}}>{item?.title}</p>
                                         </div>
-                                        <div className="document-text-item" style={{maxHeight:show===i?"":"435px",overflow:!show===i?"hidden":""}}>
+                                        <hr style={{
+                                            color: "#CACFD2",
+                                            backgroundColor: "#CACFD2",
+                                            height: 1,
+                                            margin:"5px 0"
+                                        }}/>
+                                        <div className="document-text-item" style={{maxHeight:show===i?"":"235px",overflow:show!==i?"hidden":""}}>
                                             <p>{item?.description}</p>
                                         </div>
                                         <span style={{color:blue[400],cursor:"pointer"}} onClick={()=>show===i?setShow(-1):setShow(i)}><u>{show===i?"Berkitish":"Ko'rish"}</u></span>

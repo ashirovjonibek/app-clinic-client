@@ -86,7 +86,7 @@ const CustomPagination=(props)=> {
         <div style={props.style}>
             {
                 props?.size?<div className="size-page">
-                    <span className="span-item" style={{fontSize:"20px"}}> {props.t("Page size")}: </span>
+                    <span className="span-item page_size_text" style={{fontSize:"20px"}}> {props.t("Page size")}: </span>
                     <select type="number" defaultValue={props?.size} min={0} max={10} onChange={(e)=>{
                         props?.setSize(e.target.value)
                         props?.setActive(1)
