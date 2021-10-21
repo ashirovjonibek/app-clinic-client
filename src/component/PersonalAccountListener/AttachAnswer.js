@@ -8,7 +8,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Label from "../Label";
 import {withTranslation} from "react-i18next";
 
-const AttachAnswer=({item,refresh,t})=>{
+const AttachAnswer=({item,refresh,t,setUrl,setOpen})=>{
     let token=localStorage.getItem(STORAGE_NAME);
     const [size, setSize] = useState(3);
     const [active, setActive] = useState(1);
@@ -16,19 +16,8 @@ const AttachAnswer=({item,refresh,t})=>{
 
 
     const download = (id,name) => {
-        axios.get(API_URL+"/attach/"+id,{
-            headers:{
-                'Authorization':token,
-                'Content-Type':'application/pdf'
-            }
-        }).then((r)=>{
-            const type = r.headers['content-type'];
-            const blob = new Blob([r.data], { type: type, encoding: 'UTF-8' });
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob)
-            link.download = ''+name+' arizasi.pdf'
-            link.click()
-        })
+        setUrl(API_URL+"/attach/"+id);
+        setOpen(true)
 
     };
     return(

@@ -8,11 +8,15 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
 import {green, red} from "@material-ui/core/colors";
+import Dialog from "@material-ui/core/Dialog";
+import PdfViewer from "../catalog/pdfViewer";
 
 const DirectorySection = ({t}) => {
     const user = useSelector(state => state.meReducer);
     const [files, setFiles] = useState([]);
     const [refresh, setRefresh] = useState(true);
+    const [url,setUrl]=useState("");
+    const [open,setOpen]=useState(false);
 
     useEffect(() => {
         axios({
@@ -91,10 +95,11 @@ const DirectorySection = ({t}) => {
                 }
                 {
                     files && files.map((item, i) =>
-                        <DirectoryPdf role={user?.role[0]} refresh={refreshF} key={i} item={item}/>
+                        <DirectoryPdf setOpen={setOpen} setUrl={setUrl} role={user?.role[0]} refresh={refreshF} key={i} item={item}/>
                     )
                 }
             </div>
+            <PdfViewer url={url} open={open} setOpen={setOpen} setUrl={setUrl}/>
         </>
     );
 }

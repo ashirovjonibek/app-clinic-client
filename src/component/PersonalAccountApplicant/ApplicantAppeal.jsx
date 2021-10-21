@@ -26,6 +26,7 @@ import VoiceRecorder from "./recorders/voiceRecorder";
 import CustomVideoRecorder from "./recorders/videoRecorder";
 import {useDispatch, useSelector} from "react-redux";
 import {CHANGE_THEME} from "../../redux/me/actionType";
+import PdfViewer from "../catalog/pdfViewer";
 
 const ApplicantAppeal = (props) => {
     const {history, t} = props;
@@ -42,6 +43,8 @@ const ApplicantAppeal = (props) => {
     const [openVideo, setOpenVideo] = useState(false);
     const me = useSelector(state => state.meReducer);
     const location=useLocation().state;
+    const [url,setUrl]=useState("");
+    const [open,setOpen]=useState(false);
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -348,7 +351,10 @@ const ApplicantAppeal = (props) => {
                                                        onChange={handleUpload} type="file"/>
                                             </div>
                                             <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
-                                            <a href={API_URL + '/attach/' + values.attachmentId[0]}
+                                            <a onClick={()=>{
+                                                setUrl(API_URL + '/attach/' + values.attachmentId[0]);
+                                                setOpen(true)
+                                            }}
                                                className="file1">{fileName}</a>
                                             <p className="text-danger">{errorUpload}</p>
                                         </div>
@@ -424,6 +430,7 @@ const ApplicantAppeal = (props) => {
                                                     frameBorder="1"></iframe> : ""
                         }
                     </Dialog>
+                    <PdfViewer setUrl={setUrl} setOpen={setOpen} open={open} url={url}/>
                 </div>
             </div>
         </div>

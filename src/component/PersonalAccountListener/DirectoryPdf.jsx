@@ -55,7 +55,7 @@ const DirectoryPdf = (props) => {
                 {
                     props.role===allRoles.ADMIN[0]?
                         <div onClick={()=>{
-                            deleteFile(props?.item?.id)
+                            deleteFile(props?.item?.id);
                             console.log("delete clicked")
                         }
                         }>
@@ -63,8 +63,8 @@ const DirectoryPdf = (props) => {
                         </div>:""
                 }
                 <span ><Description onClick={()=>{
-                    console.log("file clicked");
-                    fileLoader(props?.item?.id)
+                   props?.setUrl(API_URL+'/attach/'+props?.item?.id);
+                   props?.setOpen(true)
 
                 }} style={{width:"100%",fontSize:"38px",marginTop:"18px"}}/></span>
                 <p>

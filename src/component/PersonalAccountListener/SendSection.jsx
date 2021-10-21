@@ -22,9 +22,12 @@ const SendSection = () => {
     return (
         <div className="send-section">
             {
-                chats&&chats.map((item,i)=>
+                chats.length>0?chats&&chats.map((item,i)=>
                     <CenterSends key={i} chat={item}/>
-                )
+                ):
+                    <div style={{textAlign:"center",marginTop:"25px"}}>
+                        Chatlar mavjud emas!!!
+                    </div>
             }
         </div>
     );

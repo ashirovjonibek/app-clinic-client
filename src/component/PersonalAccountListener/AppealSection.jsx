@@ -7,6 +7,7 @@ import {Loading} from "../catalog/Loading";
 import {Link} from "react-router-dom";
 import {withTranslation} from "react-i18next";
 import AttachAnswer from "./AttachAnswer";
+import PdfViewer from "../catalog/pdfViewer";
 
 const AppealSection = (props) => {
     let token = localStorage.getItem(STORAGE_NAME);
@@ -17,6 +18,8 @@ const AppealSection = (props) => {
     const [inpApps, setInpApps] = useState([]);
     const [items, setItems] = useState([]);
     const [nS, setNs] = useState(1);
+    const [url,setUrl]=useState("");
+    const [open,setOpen]=useState(false);
 
     useEffect(() => {
         setLoading(true)
@@ -118,8 +121,8 @@ const AppealSection = (props) => {
                     </div>
                     {
                         inpApps && inpApps.map((item, i) =>
-                            nS===3?<AttachAnswer refresh={denied} item={item}/>:
-                            <AppealItem refresh={refresh} key={i} item={item}/>
+                            nS===3?<AttachAnswer setUrl={setUrl} setOpen={setOpen} refresh={denied} item={item}/>:
+                            <AppealItem setUrl={setUrl} setOpen={setOpen} refresh={refresh} key={i} item={item}/>
                         )
                     }
 
@@ -139,6 +142,7 @@ const AppealSection = (props) => {
                     </div>
                 </div>
             }
+            <PdfViewer open={open} setOpen={setOpen} setUrl={setUrl} url={url}/>
         </>
     );
 }

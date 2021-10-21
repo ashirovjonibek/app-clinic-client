@@ -71,7 +71,10 @@ const SectionCategory = (props) => {
                                 style={{textAlign: "center", cursor: "pointer"}}
                                 className="file">
                                 {/*<a href={API_URL+'/attach/'+props?.item?.application?.attachmentsId[0]}><FileCopy/></a>*/}
-                                {props?.item?.attachmentsId?<a href={API_URL + '/attach/' + props?.item?.attachmentsId[0]}><FileCopy/></a>:""}
+                                {props?.item?.attachmentsId?<a onClick={()=>{
+                                    props?.setUrl(API_URL + '/attach/' + props?.item?.attachmentsId[0]);
+                                    props?.setOpen(true)
+                                }}><FileCopy/></a>:""}
                             </div>
                         </li>
                         <li style={{display:props?.item?.application?.video?"":"none",margin:'0 5px 0 5px'}}>

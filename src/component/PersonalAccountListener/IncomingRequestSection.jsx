@@ -13,6 +13,7 @@ import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
 import i18next from "i18next";
 import Dialog from "@material-ui/core/Dialog";
 import {blue, green, red} from "@material-ui/core/colors";
+import PdfViewer from "../catalog/pdfViewer";
 
 const IncomingRequestSection = (props) => {
     const {t} = props;
@@ -32,6 +33,8 @@ const IncomingRequestSection = (props) => {
     const [active1, setActive1] = useState(1);
     const [size1, setSize1] = useState(3);
     const [total1, setTotal1] = useState(1);
+    const [open,setOpen]=useState(false);
+    const [url,setUrl]=useState("");
     const [player, setPlayer] = useState({
         open: false,
         name: "",
@@ -285,7 +288,11 @@ const IncomingRequestSection = (props) => {
                                                 title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                 style={{textAlign: "center", cursor: "pointer"}}
                                                 className="file-item">
-                                                {item?.attachmentsId?<a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>:""}
+                                                {item?.attachmentsId?<a onClick={()=>{
+                                                    setUrl(API_URL + '/attach/' + item?.attachmentsId[0])
+                                                    setOpen(true)
+                                                }
+                                                }><FileCopy/></a>:""}
                                             </div>
                                         </li>
                                         <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
@@ -466,7 +473,11 @@ const IncomingRequestSection = (props) => {
                                                 title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                                 style={{textAlign: "center", cursor: "pointer"}}
                                                 className="file-item">
-                                                {item?.attachmentsId?<a href={API_URL + '/attach/' + item?.attachmentsId[0]}><FileCopy/></a>:""}
+                                                {item?.attachmentsId?<a onClick={()=>{
+                                                    setUrl(API_URL + '/attach/' + item?.attachmentsId[0]);
+                                                    setOpen(true)
+                                                }
+                                                }><FileCopy/></a>:""}
                                             </div>
                                         </li>
                                         <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
@@ -521,7 +532,7 @@ const IncomingRequestSection = (props) => {
                             {props.t("Accepted applications are not available")}!!!
                         </div>}
                     </>
-                )
+                );
             default:
                 return (
                     <>
@@ -697,6 +708,7 @@ const IncomingRequestSection = (props) => {
                     }
                 </div>
             </Dialog>
+            <PdfViewer url={url} setUrl={setUrl} setOpen={setOpen} open={open}/>
         </div>
     );
 }

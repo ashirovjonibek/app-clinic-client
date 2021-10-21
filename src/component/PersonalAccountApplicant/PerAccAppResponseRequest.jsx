@@ -15,6 +15,7 @@ import {Loading} from "../catalog/Loading";
 import {withTranslation} from "react-i18next";
 import {green} from "@material-ui/core/colors";
 import Swal from "sweetalert2";
+import PdfViewer from "../catalog/pdfViewer";
 
 const PerAccAppResponseRequest = ({t}) => {
     let token = localStorage.getItem(STORAGE_NAME);
@@ -28,6 +29,8 @@ const PerAccAppResponseRequest = ({t}) => {
     const [isDislike, setIsDislike] = useState(-1);
     const [comment, setComment] = useState("");
     const [comLength, setComLength] = useState(false);
+    const [url,setUrl]=useState("");
+    const [open,setOpen]=useState(false);
     let a = 0;
 
 
@@ -100,7 +103,7 @@ const PerAccAppResponseRequest = ({t}) => {
                                 <div style={{marginBottom: '20px'}}>
                                     <DocumentText appeal={item?.application}/>
                                 </div>
-                                <SectionCategory section={item?.application?.section}
+                                <SectionCategory setOpen={setOpen} setUrl={setUrl} section={item?.application?.section}
                                                  fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null}/>
                                 <CheckboxConfidensial/>
                                 <div className="response-request">
@@ -117,7 +120,7 @@ const PerAccAppResponseRequest = ({t}) => {
                                     </div>
 
                                     <div className="file-upload">
-                                        <SectionCategory showSection={true} section={item?.application?.section}
+                                        <SectionCategory setOpen={setOpen} setUrl={setUrl} showSection={true} section={item?.application?.section}
                                                          fileId={item?.answer?.attachmentId ? item?.answer?.attachmentId[0] : null}/>
                                     </div>
                                 </div>
@@ -199,6 +202,7 @@ const PerAccAppResponseRequest = ({t}) => {
                     }
                 </>
             }
+            <PdfViewer open={open} setUrl={setUrl} setOpen={setOpen} url={url}/>
         </>
     );
 }
