@@ -16,7 +16,7 @@ const SupervisorApplicantSection = () => {
         };
         axios(config)
             .then(function (response) {
-                setApplicants(response.data)
+                setApplicants(response.data.object)
             })
             .catch(function (error) {
                 console.log(error);

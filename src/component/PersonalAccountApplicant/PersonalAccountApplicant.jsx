@@ -13,6 +13,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import {red} from "@material-ui/core/colors";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const PersonalAccountApplicant = (props) => {
 
@@ -20,6 +21,7 @@ const PersonalAccountApplicant = (props) => {
     const [sitebar, setSitebar] = useState(false);
     const [appeal, setAppeal] = useState([]);
     const history = useHistory();
+    const theme=useSelector(state => state.theme);
     const [count,setCount]=useState(0);
     const [n,setN]=useState(0);
 
@@ -75,7 +77,7 @@ const PersonalAccountApplicant = (props) => {
             <ApplicationNav getPage={getPage} setSitebar={setSitebar} sitebar={sitebar}/>
 
             <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
-                <div className="container">
+                <div style={theme} className="container">
                     <Title text={props.t("Personal account")} />
                     <section className="section-body">
                         <div className="navbar-wrapper">

@@ -81,7 +81,7 @@ function PopularSlider({t}) {
                                             <p>{item.title}</p>
                                         </div>
                                         <hr style={{backgroundColor:"rgba(0,0,0,0.3)",height:"1px"}}/>
-                                        <div style={{maxHeight:"200px",wordBreak:"break-all",overflow:"auto"}} className="document-text-item">
+                                        <div style={{maxHeight:"150px",wordBreak:"break-all",overflow:"auto"}} className="document-text-item">
                                             {
                                                 item.description
                                             }

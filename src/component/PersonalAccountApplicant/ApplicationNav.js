@@ -9,9 +9,13 @@ import Enter from "../Nav/Enter";
 import {Link} from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 import {withTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
+import {CHANGE_THEME} from "../../redux/me/actionType";
 
 const ApplicationNav=(props)=>{
     const [showMenuIcon,setShowMenuIcon]=useState(false);
+    const theme=useSelector(state => state.theme);
+    const dispatch=useDispatch();
 
     window.addEventListener('resize',()=>{
        if (window.innerWidth<750){
@@ -22,7 +26,7 @@ const ApplicationNav=(props)=>{
     });
 
     return(
-        <div className="nav">
+        <div className="nav" style={theme}>
             <NavTop />
             <div className="nav-center container-fluit">
                 <div className="container">
@@ -53,7 +57,9 @@ const ApplicationNav=(props)=>{
                                     <button type=""><img src={iconSearch} alt="search-icon" /></button>
                                 </form>
                                 <NavLanguage />
-                                <div className="glas">
+                                <div onClick={()=>{
+                                    dispatch({type:CHANGE_THEME,data:theme.filter?"":"grayscale(100%)"})
+                                }} style={{cursor:"pointer"}} className="glas">
                                     <img src={iconGlass} alt="" />
                                 </div>
                             </div>

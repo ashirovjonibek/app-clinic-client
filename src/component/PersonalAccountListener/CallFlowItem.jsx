@@ -4,6 +4,13 @@ import RequestTheme from "../RequestTheme";
 import DocumentProsses from "../DocumentProsses";
 
 const CallFlowItem = (props) => {
+    const getDayDeadline=()=>{
+        let a = new Date(props.item.deadLineDate);
+        let b = new Date();
+        let d = a.getTime() - b.getTime();
+        let s=d / (1000 * 60 * 60 * 24)
+        return s>0?parseInt(s)<s?parseInt(s+1):s:0;
+    };
     return (
         <div className="call-flow-item">
             <div className="content">
@@ -23,7 +30,7 @@ const CallFlowItem = (props) => {
                         //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
                         //                                        className="date-item"
                     >
-                        {" "+props?.item?.deadLineDate} gacha
+                        {" "+getDayDeadline()}
                     </div>
                 </div>
                 <RequestTheme label={props?.item?.title} check={props?.item?.top}/>
