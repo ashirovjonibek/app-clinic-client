@@ -152,7 +152,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                             Ariza beruvchilar mavjud emas!!!
                                         </div>
                                 }
-                                }
+                                
                             </div>
                         </div>
                     </div>

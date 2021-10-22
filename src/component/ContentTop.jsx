@@ -36,7 +36,7 @@ const ContentTop = (props) => {
                                 )}
                             </select>
                         </div>
-                        <div className="request-items">
+                        <div className="request-items" style={{marginBottom:"10px"}}>
                             <select onChange={handleChange} id="sectionId" name="status"
                                     className="category" required>
                                 <option value="ALL">{t("Filter by status")}</option>
