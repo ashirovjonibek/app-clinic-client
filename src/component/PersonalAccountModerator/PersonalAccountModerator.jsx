@@ -241,7 +241,7 @@ const PersonalAccountModerator = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div style={{minHeight: "75vh"}} className="content-wrapper">
+                            <div style={{minHeight: "75vh"}} className={pageQount === 11 ?"" : "content-wrapper"}>
                                 {
                                     pushBar(pageQount)
                                 }

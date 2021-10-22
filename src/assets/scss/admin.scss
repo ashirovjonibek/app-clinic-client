@@ -182,7 +182,8 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       padding: 10px;
       margin: 10px;
-      width: 260px;
+      width: 180px;
+      // height: 100px !important;
 
       .appeals-count-line {
         width: 3px;
@@ -192,8 +193,11 @@
       }
 
       .appeals-count-img {
+        display: flex;
+        align-items: center;
         img {
           margin-top: 5px;
+          width: 30px !important;
         }
       }
 
@@ -204,7 +208,7 @@
       }
 
       .appeals-count-p {
-        font-size: 25px;
+        font-size: 16px;
         font-weight: bolder;
         color: #4e5e80;
 
@@ -214,6 +218,7 @@
         margin-top: 8px;
         text-align: center;
         text-transform: uppercase;
+        font-size: 10px;
       }
     }
 

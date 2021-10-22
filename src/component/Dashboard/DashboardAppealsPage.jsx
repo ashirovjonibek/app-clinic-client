@@ -126,10 +126,12 @@ const DashboardAppealsPage = ({t}) => {
 
                 </div>
 
-                <div style={{marginBottom: "100px"}} className="admin-list-appeal">
-                    <div style={{margin: '20px 0'}}>
+                <div style={{marginBottom: "100px", paddingTop:'10px'}} className="admin-list-appeal">
+                    <div style={{margin: '0px 0'}}>
                         <div className="table-scroll" style={{marginTop: '10px'}}>
-                            <h5 className="table-title">{showApp?t("List"):<span onClick={()=>setShowApp(!showApp)} style={{lineHeight:"16px",cursor:"pointer"}}><ArrowBack/><span>Orqaga</span></span>}</h5>
+                            <div >
+                                <h5 style={{display:'flex', alignItems:"center"}} className="table-title">{showApp?t("List"):<><ArrowBack onClick={()=>setShowApp(!showApp)} style={{cursor:"pointer", marginBottom:"3px"}}/><span>Orqaga</span></>}</h5>
+                            </div>
                             {
                                 showApp?<table>
                                     <thead>

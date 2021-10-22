@@ -6,21 +6,20 @@
         border-radius: 20px;
         .swiper-button-prev{
             margin-top: 130px;
-            margin-left: 350px;
+            margin-left: 550px;
             cursor: pointer;
-            //background-color: red;
             background: url("../icon/photo_2021-10-21_10-36-32.jpg");
-            width: 117px;
+            width: 98px;
         }
 
         .swiper-button-next{
             padding: 0;
             margin-top: 130px;
-            margin-right: 350px;
-            width: 117px;
+            margin-right: 550px;
             cursor: pointer;
             background: url("../icon/photo_2021-10-21_10-36-32.jpg");
             transform: rotate(180deg);
+            width: 98px;
         }
 
         .swiper-button-prev::after,
