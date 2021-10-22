@@ -41,7 +41,12 @@ const ContainerAppeals=({path})=>{
                 loading?<Loading/>:items.length>0?<div style={{marginBottom:"15px"}}>
                     {
                         items.map((item,i)=>
-                        <AppealSections setUrl={setUrl} setOpen={setOpen} item={item} key={i}/>
+                        <AppealSections
+                            setUrl={setUrl}
+                            setOpen={setOpen}
+                            item={item}
+                            key={i}
+                        />
                         )
                     }
                 </div>:<div style={{textAlign:"center",marginTop:"25px"}}>Arizalar mavjud emas!!!</div>

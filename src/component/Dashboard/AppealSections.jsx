@@ -5,13 +5,20 @@ import {FileCopy, Done, Cancel, Edit,Videocam,Audiotrack} from "@material-ui/ico
 import userImg from '../../assets/img/user1.jpg'
 import {blue, green, red, yellow} from "@material-ui/core/colors";
 import i18next from "i18next";
-import {API_URL} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const AppealSections = ({item,setOpen,setUrl,t}) => {
     const [edit, setEdit] = useState(false);
     const [sd, setSD] = useState(false);
     const [sa, setSA] = useState(false);
+    const [data,setData]=useState({
+        documentId: "",
+        delayDay: 0,
+        comment: ""
+    });
 
     const getDayDeadline=()=>{
         let a = new Date(item?.application?.deadLineDate);
@@ -30,6 +37,33 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
         let h = hash % 360;
         return 'hsl('+h+', '+s+'%, '+l+'%)';
     }
+
+    const setDeadline=()=>{
+      if (data.documentId&&data.comment&&data.delayDay){
+          Swal.fire({
+              showCancelButton:true,
+              title:t("Save the change?"),
+              icon:"warning",
+              confirmButtonColor:green[450],
+              confirmButtonText:t("Yes"),
+              cancelButtonText:t("No"),
+              cancelButtonColor:red[450]
+          }).then((conform)=>{
+              if (conform.isConfirmed){
+                  axios({
+                      method:'put',
+                      url:API_URL+'/application/set-deadline',
+                      headers:{
+                          Authorization:localStorage.getItem(STORAGE_NAME)
+                      },
+                      data:data
+                  })
+              }
+          })
+      }else {
+          Swal.fire("Iltimos maydonlarni to'ldiring","","warning");
+      }
+    };
 
     return (
         <div style={{boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)", marginBottom: "10px", padding: "15px", lineHeight: "24px"}}
@@ -58,7 +92,7 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                                <button onClick={()=>setEdit(false)} style={{color: red[600], marginLeft: "4px"}}>
                                    <Cancel/>
                                </button>
-                               <button style={{color: green[600], marginLeft: "4px"}}>
+                               <button onClick={setDeadline} style={{color: green[600], marginLeft: "4px"}}>
                                    <Done/>
                                </button>
                            </>
@@ -69,16 +103,20 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                     </span>}
                     <span style={{backgroundColor: item?.application?.status!=="COMPLETED"?getDayDeadline()>10?green[400]:getDayDeadline()<5?red[400]:yellow[400]:green[400], color: "white", padding: "6px", borderRadius: "15px"}}
                           >
-                        <span style={{backgroundColor:edit?"white":"",color:edit?"black":""}} contentEditable={"true"} onKeyPress={(e)=>{
-                            console.log(e.target.innerText)
-                        }} >
+                        {
+                            edit?<><span style={{backgroundColor:edit?"white":"",width:"45px",color:edit?"black":""}} contentEditable={"true"} onKeyPress={(e)=>{
+                                console.log(e.target.innerText)
+                            }}>0</span>+</>:""
+                        }
+                        <span  >
                             {item?.application?.status!=="COMPLETED"?item?.application?.status!=="CREATED"?getDayDeadline():"Belgilanmagan":"Bajarilgan"}
                         </span> {item?.application?.status==="COMPLETED"||item?.application?.status==="CREATED"?"":"kun"}
                     </span>
                     <div style={{
                         position:"absolute",
                         boxShadow:"0 0 5px 0 rgba(0,0,0,0.2)",
-                        marginTop:"7px"
+                        marginTop:"7px",
+                        zIndex:1
                     }}>
                         {
                             edit?<textarea
