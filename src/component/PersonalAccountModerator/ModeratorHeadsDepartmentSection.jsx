@@ -19,7 +19,7 @@ const ModeratorHeadsDepartmentSection = ({t}) => {
         };
         axios(config)
             .then(function (response) {
-                setItems(response.data);
+                setItems(response.data.object);
                 // console.log(response.data)
             })
             .catch(() => {
@@ -39,7 +39,7 @@ const ModeratorHeadsDepartmentSection = ({t}) => {
         };
         axios(config)
             .then(function (response) {
-                setItems(response.data);
+                setItems(response.data.object);
             })
             .catch(function (error) {
                 // console.log(error);

@@ -104,11 +104,9 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                     <span style={{backgroundColor: item?.application?.status!=="COMPLETED"?getDayDeadline()>10?green[400]:getDayDeadline()<5?red[400]:yellow[400]:green[400], color: "white", padding: "6px", borderRadius: "15px"}}
                           >
                         {
-                            edit?<><span style={{backgroundColor:edit?"white":"",width:"45px",color:edit?"black":""}} contentEditable={"true"} onKeyPress={(e)=>{
-                                console.log(e.target.innerText)
-                            }}>0</span>+</>:""
+                            edit?<><input style={{backgroundColor:edit?"white":"",width:"45px",color:edit?"black":""}} defaultValue={0} />+</>:""
                         }
-                        <span  >
+                        <span>
                             {item?.application?.status!=="COMPLETED"?item?.application?.status!=="CREATED"?getDayDeadline():"Belgilanmagan":"Bajarilgan"}
                         </span> {item?.application?.status==="COMPLETED"||item?.application?.status==="CREATED"?"":"kun"}
                     </span>

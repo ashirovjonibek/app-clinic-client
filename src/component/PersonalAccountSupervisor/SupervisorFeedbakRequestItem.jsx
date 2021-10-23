@@ -4,25 +4,43 @@ import UserName from "../UserName";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
+import i18next from "i18next";
 
-const SupervisorFeedbakRequestItem = ({t}) => {
-    let token=localStorage.getItem(STORAGE_NAME);
-    axios({
-        method:'get',
-        url:API_URL+'/document/answer/feedback',
-        headers:{
-            Authorization:token
+const SupervisorFeedbakRequestItem = ({t,item}) => {
+    function stringToHslColor(str, s, l) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
         }
-    }).then((res)=>{
-        console.log(res)
-    });
+
+        let h = hash % 360;
+        return 'hsl('+h+', '+s+'%, '+l+'%)';
+    }
     return (
         <div className="supervisor-feedbak-request-item" style={{marginBottom: '15px'}}>
             <div className="content">
-                <UserItem />
+                <div className="user-item">
+                    <div className="user-person-inform">
+                        <div className="user-img" style={
+                            {
+                                backgroundColor:stringToHslColor(item.listenerName,50,50),
+                                textAlign:"center",
+                                color:"white",
+                                fontWeight:600,
+                                fontSize:"25px",
+                                lineHeight:"54px"
+                            }
+                        }>{item.listenerName[0]?.toUpperCase()}</div>
+                        <div className="user-inform">
+                            <div className="user-name">{item.listenerName}</div>
+                            <div className="user-porofeesion">{item?.section?.title[i18next.language]} bo'limi xodimi</div>
+                        </div>
+                    </div>
+
+                </div>
                 <div className="content-line" />
                 <div className='avatar'>
-                    <UserName text="Aliyev Valijon" />
+                    <UserName text={item.applicantName}/>
                     <span style={{paddingTop:"13px"}} className="green-btn">{t("Satisfactorily")}</span>
                 </div>
             </div>

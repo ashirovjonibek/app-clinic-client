@@ -18,7 +18,7 @@ const ModeratorApplicantSection = (props) => {
         };
         axios(config)
             .then(function (response) {
-                setApplicants(response.data)
+                setApplicants(response.data.object)
                 // console.log(response.data)
             })
             .catch(function (error) {
@@ -33,7 +33,7 @@ const ModeratorApplicantSection = (props) => {
             }
         }).then((res)=>{
             // console.log(res)
-            setInfo(res.data)
+            setInfo(res.data.object)
         })
     },[props]);
     return (

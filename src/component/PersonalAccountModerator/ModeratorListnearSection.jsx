@@ -19,7 +19,7 @@ const ModeratorListnearSection = (props) => {
         };
         axios(config)
             .then(function (response) {
-                setListeners(response.data)
+                setListeners(response.data.object)
                 // console.log(response.data)
             })
             .catch(function (error) {
@@ -35,7 +35,7 @@ const ModeratorListnearSection = (props) => {
             }
         }).then((res)=>{
             // console.log(res);
-            setInfo(res.data)
+            setInfo(res.data.object)
         })
     },[props])
     return (

@@ -14,6 +14,7 @@ import i18next from "i18next";
 import Dialog from "@material-ui/core/Dialog";
 import {blue, green, red} from "@material-ui/core/colors";
 import PdfViewer from "../catalog/pdfViewer";
+import yellow from "@material-ui/core/colors/yellow";
 
 const IncomingRequestSection = (props) => {
     const {t} = props;
@@ -232,6 +233,14 @@ const IncomingRequestSection = (props) => {
 
     };
 
+    const getDayDeadline=(date)=>{
+        let a = new Date(date);
+        let b = new Date();
+        let d = a.getTime() - b.getTime();
+        let s=d / (1000 * 60 * 60 * 24)
+        return s>0?parseInt(s)<s?parseInt(s+1):s:0;
+    };
+
 
     const section = (n) => {
         switch (n) {
@@ -246,20 +255,9 @@ const IncomingRequestSection = (props) => {
                                         <UserName text={`${item.applicant.fullName}`}/>
                                     </div>
                                     <div className="request-content-title-date">
-                                        {/*<div className="date-label">*/}
-                                        {/*    {props.t("Осталось")}:*/}
-                                        {/*</div>*/}
-                                        {/*<div*/}
-                                        {/*    style={{backgroundColor: new Date(*/}
-                                        {/*    new Date(item.deadLineDate).getTime()-new Date().getTime())*/}
-                                        {/*        .getDate()>10?"#63AA55":new Date(*/}
-                                        {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()<=10&&new Date(*/}
-                                        {/*        new Date(item.deadLineDate).getTime()-new Date().getTime()).getDate()>5?"#FBCE0E":"#d80027"}} className="date-item"*/}
-                                        {/*>*/}
-                                        {/*    {*/}
-                                        {/*        new Date(*/}
-                                        {/*        new Date(item.deadLineDate).getTime()-new Date().getTime())} kun*/}
-                                        {/*</div>*/}
+                                        {/*{*/}
+                                        {/*    getDayDeadline(item.deadLineDate)*/}
+                                        {/*}*/}
                                     </div>
                                 </div>
                                 <div className="request-theme">
@@ -418,7 +416,9 @@ const IncomingRequestSection = (props) => {
                                             marginRight:"6px",
                                             textDecoration:"underline",
                                             cursor:"pointer",
-                                            color:blue[400]
+                                            color:blue[400],
+                                            display:"block",
+                                            clear:"both"
                                         }} onClick={()=>{
                                             axios({
                                                 method:"post",
@@ -429,21 +429,26 @@ const IncomingRequestSection = (props) => {
                                             }).then((response)=>{
                                                 props.getPage(8)
                                             })
-                                        }} className="date-label">
+                                        }}>
                                             {props.t("Send message")}
                                         </div>
                                         <div className="date-label">
                                             {props.t("Review period")}:
-                                        </div>
-                                        <div
-                                            // style={{backgroundColor: new Date(
-                                            //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime()))
-                                            //                                          .getDate()>10?"#63AA55":new Date(
-                                            //                                          (new Date().getTime())-(new Date().getTime())).getDate()<=10&&new Date(
-                                            //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
-                                            //                                        className="date-item"
-                                        >
-                                            {" " + item.deadLineDate} {props.t("gacha")}
+                                            <span style={{
+                                                position:"relative",
+                                                backgroundColor:getDayDeadline(item.deadLineDate)>10?green[400]:getDayDeadline(item.deadLineDate)<5?red[400]:yellow[400],
+                                                padding:"3px 4px",
+                                                borderRadius:"10px",
+                                                color:"white",
+                                                height:"100%"
+                                            }}>
+                                                <span>
+                                                    {
+                                                        getDayDeadline(item.deadLineDate)
+                                                    }
+                                                </span>
+                                                <span> kun</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
