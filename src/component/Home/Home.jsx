@@ -224,3 +224,47 @@ const Home = ({t}) => {
 }
 
 export default withTranslation()(Home);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//applicant -> +998912345678
+//listener -> +998901234567
+//moderator -> +998931234567
+//super moderator -> +998941234567
+//moderator and super moderator -> +998991234567
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
