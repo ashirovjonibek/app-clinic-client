@@ -159,9 +159,6 @@ const PersonalAccountModerator = ({t}) => {
                                                 <Link to="#" onClick={() => getPage(4)}>{t("Applicants")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>
-                                            </li>
-                                            <li>
                                                 <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>
                                             </li>
                                             <li>
@@ -175,9 +172,6 @@ const PersonalAccountModerator = ({t}) => {
                                                 <Link to="#"
                                                       onClick={() => getPage(9)}>{t("Statistics and reports")}</Link>
                                             </li>
-                                            {/*<li>*/}
-                                            {/*    <Link to="#" onClick={() => getPage(10)}>{t("Archive")}</Link>*/}
-                                            {/*</li>*/}
                                         </ul>
                                     </div>
                                     <div className="icon-disable">
@@ -218,9 +212,6 @@ const PersonalAccountModerator = ({t}) => {
                                         </li>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(4)}>{t("Applicants")}</Link>
-                                        </li>
-                                        <li className="navbar-items" id={pageQount === 5 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(5)}>{t("Appeals")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(6)}>{t("Feedback reviews")}</Link>

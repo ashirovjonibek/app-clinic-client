@@ -10,23 +10,24 @@ import {withTranslation} from "react-i18next";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-const AppealSections = ({item,setOpen,setUrl,t}) => {
+const AppealSections = ({item,setOpen,setUrl,t,dd,ds,dc,refr,setRefr}) => {
     const [edit, setEdit] = useState(false);
     const [sd, setSD] = useState(false);
     const [sa, setSA] = useState(false);
     const [data,setData]=useState({
-        documentId: "",
         delayDay: 0,
         comment: ""
     });
 
-    const getDayDeadline=()=>{
-        let a = new Date(item?.application?.deadLineDate);
+    const getDayDeadline=(deadline)=>{
+        let a = new Date(deadline);
         let b = new Date();
         let d = a.getTime() - b.getTime();
-        let s=d / (1000 * 60 * 60 * 24)
+        let s=d / (1000 * 60 * 60 * 24);
         return s>0?parseInt(s)<s?parseInt(s+1):s:0;
     };
+
+    console.log(item);
 
     function stringToHslColor(str, s, l) {
         let hash = 0;
@@ -38,8 +39,10 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
         return 'hsl('+h+', '+s+'%, '+l+'%)';
     }
 
-    const setDeadline=()=>{
-      if (data.documentId&&data.comment&&data.delayDay){
+    const setDeadline=(id)=>{
+        console.log(data);
+      if (id&&data.comment&&data.delayDay){
+          let data1={...data,documentId:id};
           Swal.fire({
               showCancelButton:true,
               title:t("Save the change?"),
@@ -56,7 +59,9 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                       headers:{
                           Authorization:localStorage.getItem(STORAGE_NAME)
                       },
-                      data:data
+                      data:data1
+                  }).then((res)=>{
+                      setRefr(!refr)
                   })
               }
           })
@@ -85,14 +90,17 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                 </div>
                 <div style={{float: "right", display: "inline-block",position:"relative"}}>
                    {item?.application?.status==="COMPLETED"||item?.application?.status==="CREATED"?"":<span>
-                       {!edit ? getDayDeadline()<5?<button onClick={()=>setEdit(true)} style={{color: blue[600]}}>
+                       {!edit ? getDayDeadline(item?.application?.deadLineDate)<5?<button onClick={()=>setEdit(true)} style={{color: blue[600]}}>
                                <Edit/>
                            </button> :"":
                            <>
                                <button onClick={()=>setEdit(false)} style={{color: red[600], marginLeft: "4px"}}>
                                    <Cancel/>
                                </button>
-                               <button onClick={setDeadline} style={{color: green[600], marginLeft: "4px"}}>
+                               <button onClick={()=>{
+                                   setDeadline(item.id)
+                               }
+                               } style={{color: green[600], marginLeft: "4px"}}>
                                    <Done/>
                                </button>
                            </>
@@ -101,23 +109,31 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                     {item?.application?.status==="COMPLETED"||item?.application?.status==="CREATED"?"":<span>
                         Bajarish muddati:
                     </span>}
-                    <span style={{backgroundColor: item?.application?.status!=="COMPLETED"?getDayDeadline()>10?green[400]:getDayDeadline()<5?red[400]:yellow[400]:green[400], color: "white", padding: "6px", borderRadius: "15px"}}
+                    <span style={{backgroundColor: item?.application?.status!=="COMPLETED"?getDayDeadline(item?.application?.deadLineDate)>10?green[400]:getDayDeadline(item?.application?.deadLineDate)<5?red[400]:yellow[400]:green[400], color: "white", padding: "6px", borderRadius: "15px"}}
                           >
                         {
-                            edit?<><input style={{backgroundColor:edit?"white":"",width:"45px",color:edit?"black":""}} defaultValue={0} />+</>:""
+                            edit?<><input max={30} min={0} type={"number"} onChange={(e)=>{
+                            setData({
+                                ...data,
+                                delayDay:e.target.value
+                            })
+                            }} style={{backgroundColor:edit?"white":"",width:"45px",color:edit?"black":""}} defaultValue={0} />+</>:""
                         }
                         <span>
-                            {item?.application?.status!=="COMPLETED"?item?.application?.status!=="CREATED"?getDayDeadline():"Belgilanmagan":"Bajarilgan"}
+                            {item?.application?.status!=="COMPLETED"?item?.application?.status!=="CREATED"?getDayDeadline(item?.application?.deadLineDate):"Belgilanmagan":"Bajarilgan"}
                         </span> {item?.application?.status==="COMPLETED"||item?.application?.status==="CREATED"?"":"kun"}
                     </span>
                     <div style={{
                         position:"absolute",
                         boxShadow:"0 0 5px 0 rgba(0,0,0,0.2)",
                         marginTop:"7px",
-                        zIndex:1
+                        zIndex:10
                     }}>
                         {
-                            edit?<textarea
+                            edit?<textarea onChange={(e)=>setData({
+                                ...data,
+                                comment: e.target.value
+                            })}
                                 style={{
                                     padding:"10px"
                                 }}
@@ -226,7 +242,7 @@ const AppealSections = ({item,setOpen,setUrl,t}) => {
                 </div>
                 <hr style={{display: "block", border: "1px solid rgba(0,0,0,0.1)", marginTop: "3px"}}/>
                 <div className="request-bottom">
-                    {item.answer?item.answer?.attachmentId?<div className="file-upload">
+                    {item?.answer?item.answer?.attachmentId?<div className="file-upload">
                         <div>
                             <label className="label">File</label>
                         </div>

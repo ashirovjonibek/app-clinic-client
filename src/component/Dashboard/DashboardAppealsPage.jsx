@@ -27,7 +27,8 @@ const DashboardAppealsPage = ({t}) => {
     const [sections, setSections] = useState([]);
     const [showApp,setShowApp]=useState(false);
     const [path,setPath]=useState("");
-    const i18 = i18next.language
+    const i18 = i18next.language;
+    const [status,setStatus]=useState("ALL");
 
     useEffect(() => {
         getApplicationCount()
@@ -69,7 +70,7 @@ const DashboardAppealsPage = ({t}) => {
 
             <div className="admin">
                 <div className="admin-appeals-count" style={{paddingTop: "5px"}}>
-                    <div onClick={()=>{setShowApp(!showApp);setPath("/document/get-all")}} style={{cursor:"pointer"}} className="appeals-count-div">
+                    <div onClick={()=>{setShowApp(true);setPath("/document/get-all");setStatus("ALL")}} style={{cursor:"pointer"}} className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img style={{filter: "invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/document.png" alt=""/>
                         </div>
@@ -80,7 +81,7 @@ const DashboardAppealsPage = ({t}) => {
                             <p>{t("total appeals")}</p>
                         </div>
                     </div>
-                    <div onClick={()=>{setShowApp(!showApp);setPath("/document/get-all")}} style={{cursor:"pointer"}}  className="appeals-count-div">
+                    <div onClick={()=>{setShowApp(true);setPath("/document/get-all");setStatus("INPROCESS")}} style={{cursor:"pointer"}}  className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img style={{filter: "invert(5%) sepia(1%) saturate(32%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/clock.png" alt=""/>
                         </div>
@@ -90,7 +91,7 @@ const DashboardAppealsPage = ({t}) => {
                             <p>{t("appeals in execution")}</p>
                         </div>
                     </div>
-                    <div onClick={()=>{setShowApp(!showApp);setPath("/document/get-all")}} style={{cursor:"pointer"}}  className="appeals-count-div">
+                    <div onClick={()=>{setShowApp(true);setPath("/document/get-all");setStatus("COMPLETED")}} style={{cursor:"pointer"}}  className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img style={{filter: "invert(25%) sepia(100%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/checked-2.png" alt=""/>
                         </div>
@@ -100,7 +101,7 @@ const DashboardAppealsPage = ({t}) => {
                             <p>{t("completed applications")}</p>
                         </div>
                     </div>
-                    <div onClick={()=>{setShowApp(!showApp);setPath("/document/get-all")}} style={{cursor:"pointer"}}  className="appeals-count-div">
+                    <div onClick={()=>{setShowApp(true);setPath("/application/get-delayed-app");}} style={{cursor:"pointer"}}  className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img  src="https://img.icons8.com/nolan/64/services.png"/>
                         </div>
@@ -113,7 +114,7 @@ const DashboardAppealsPage = ({t}) => {
                         </div>
 
                     </div>
-                    <div onClick={()=>{setShowApp(!showApp);setPath("/application/deadline_applications")}} style={{cursor:"pointer"}}  className="appeals-count-div">
+                    <div onClick={()=>{setShowApp(true);setPath("/application/deadline_applications")}} style={{cursor:"pointer"}}  className="appeals-count-div">
                         <div className="appeals-count-img">
                             <img style={{filter: "invert(5%) sepia(1%) saturate(32%) hue-rotate(130deg) brightness(95%) contrast(80%)"}} src="https://img.icons8.com/nolan/64/cancel.png" alt=""/>
                         </div>
@@ -130,10 +131,10 @@ const DashboardAppealsPage = ({t}) => {
                     <div style={{margin: '0px 0'}}>
                         <div className="table-scroll" style={{marginTop: '10px'}}>
                             <div >
-                                <h5 style={{display:'flex', alignItems:"center"}} className="table-title">{showApp?t("List"):<><ArrowBack onClick={()=>setShowApp(!showApp)} style={{cursor:"pointer", marginBottom:"3px"}}/><span>Orqaga</span></>}</h5>
+                                <h5 style={{display:'flex', alignItems:"center"}} className="table-title">{!showApp?t("List"):<><ArrowBack onClick={()=>setShowApp(false)} style={{cursor:"pointer", marginBottom:"3px"}}/><span>Orqaga</span></>}</h5>
                             </div>
                             {
-                                showApp?<table>
+                                !showApp?<table>
                                     <thead>
                                     <tr>
                                         <th className="table-border applicant-name">{t("Bo'limlar")}</th>
@@ -175,7 +176,7 @@ const DashboardAppealsPage = ({t}) => {
                                 </table>:
                                     <>
                                         {
-                                            path&&<ContainerAppeals path={path}/>
+                                            path.length>0?<ContainerAppeals status={status} path={path}/>:""
                                         }
                                     </>
                             }

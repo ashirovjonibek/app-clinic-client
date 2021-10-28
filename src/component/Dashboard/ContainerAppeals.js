@@ -7,7 +7,7 @@ import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import PdfViewer from "../catalog/pdfViewer";
 
-const ContainerAppeals=({path})=>{
+const ContainerAppeals=({path,status})=>{
     const [items,setItems]=useState([]);
     const [pageLength,setPageLength]=useState(0);
     const [totalEl,setTotalEl]=useState(0);
@@ -16,24 +16,27 @@ const ContainerAppeals=({path})=>{
     const [loading,setLoading]=useState(false);
     const [url,setUrl]=useState("");
     const [open,setOpen]=useState(false);
+    const [ref,setRef]=useState(false);
 
     useEffect(()=>{
         setLoading(true)
-        axios({
-            method:'get',
-            url:API_URL+path+"?size="+size+"&page="+(active-1),
-            headers:{
-                Authorization:localStorage.getItem(STORAGE_NAME)
-            }
-        }).then((res)=>{
-            setItems(res?.data?.object);
-            setTotalEl(res?.data?.totalElements);
-            setPageLength(res?.data?.totalPages);
-            setLoading(false)
-        }).catch((e)=>{
-            setLoading(false)
-        })
-    },[path,active,size]);
+        console.log(status,path)
+
+            axios({
+                method:'get',
+                url:API_URL+path+"?status="+status+"&size="+size+"&page="+(active-1),
+                headers:{
+                    Authorization:localStorage.getItem(STORAGE_NAME)
+                }
+            }).then((res)=>{
+                setItems(res?.data?.object);
+                setTotalEl(res?.data?.totalElements);
+                setPageLength(res?.data?.totalPages);
+                setLoading(false)
+            }).catch((e)=>{
+                setLoading(false)
+            })
+    },[path,active,size,status,ref]);
 
     return(
         <>
@@ -44,8 +47,13 @@ const ContainerAppeals=({path})=>{
                         <AppealSections
                             setUrl={setUrl}
                             setOpen={setOpen}
-                            item={item}
+                            item={path==="/application/get-delayed-app"?item?.documentResponse:item}
+                            dd={path==="/application/get-delayed-app"?item?.delayDay:null}
+                            dc={path==="/application/get-delayed-app"?item?.comment:null}
+                            ds={path==="/application/get-delayed-app"?item?.section:null}
                             key={i}
+                            setRefr={setRef}
+                            refr={ref}
                         />
                         )
                     }

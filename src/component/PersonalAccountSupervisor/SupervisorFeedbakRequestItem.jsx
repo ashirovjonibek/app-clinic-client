@@ -23,16 +23,16 @@ const SupervisorFeedbakRequestItem = ({t,item}) => {
                     <div className="user-person-inform">
                         <div className="user-img" style={
                             {
-                                backgroundColor:stringToHslColor(item.listenerName,50,50),
+                                backgroundColor:item?.listenerName&&stringToHslColor(item?.listenerName,50,50),
                                 textAlign:"center",
                                 color:"white",
                                 fontWeight:600,
                                 fontSize:"25px",
                                 lineHeight:"54px"
                             }
-                        }>{item.listenerName[0]?.toUpperCase()}</div>
+                        }>{item?.listenerName[0]?.toUpperCase()}</div>
                         <div className="user-inform">
-                            <div className="user-name">{item.listenerName}</div>
+                            <div className="user-name">{item?.listenerName}</div>
                             <div className="user-porofeesion">{item?.section?.title[i18next.language]} bo'limi xodimi</div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ const SupervisorFeedbakRequestItem = ({t,item}) => {
                 </div>
                 <div className="content-line" />
                 <div className='avatar'>
-                    <UserName text={item.applicantName}/>
+                    <UserName text={item?.applicantName}/>
                     <span style={{paddingTop:"13px"}} className="green-btn">{t("Satisfactorily")}</span>
                 </div>
             </div>

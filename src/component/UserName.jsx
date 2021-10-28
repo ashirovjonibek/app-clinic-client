@@ -25,7 +25,7 @@ const UserName = (props) => {
                     {
                         width:props?.width?props?.width:"45px",
                         height:props?.height?props?.height:"45px",
-                        backgroundColor:stringToHslColor(props.text?props.text:"?",50,50),
+                        backgroundColor:props?.text&&stringToHslColor(props.text,50,50),
                         textAlign:"center",
                         color:"white",
                         overflow:"hidden",
@@ -37,9 +37,9 @@ const UserName = (props) => {
                 }>
                     {props.avatar?
                     <img onClick={()=>setOpen(true)} src={API_URL+props.avatar} width={"100px"} height={"100px"} alt=""/>
-                    : props.text[0].toUpperCase()}
+                    : props?.text&&props?.text[0].toUpperCase()}
                 </div>
-                {!props.top?<div>
+                {!props?.top?<div>
                     <div className="name" onClick={()=>{
                         history.push(me.role[1])
                     }}>{props?.text}</div>
@@ -48,7 +48,7 @@ const UserName = (props) => {
 
             </div>
             {
-                props.des?<div className="user-inform">
+                props?.des?<div className="user-inform">
                     <div className="user-porofeesion">{props.t("Civil Law Expert")}</div>
                 </div>:""
             }
@@ -61,7 +61,7 @@ const UserName = (props) => {
                                             <b>X</b></span>
                 </div>
                 <div style={{padding: "1px"}}>
-                    {props.avatar? <img width="100%" height="100%"
+                    {props?.avatar? <img width="100%" height="100%"
                                                            src={API_URL + props?.avatar}
                                                            alt=""/> : ""}
                 </div>
