@@ -49,9 +49,11 @@
     }
 
     .what-clinic-mini {
-      width: 30%;
+      width: 35%;
     }
+
   }
+
 
   #cel-clinic,
   #adres-procuratura {
@@ -262,6 +264,33 @@
           line-height: 20px;
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+.news_big_div{
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 50%;
+    border-radius: 8px;
+    background-size: cover;
+  }
+  .jus-center{
+    padding-left: 15px !important;
+    .ver_slider_header{
+      font-weight: 600;
+    }
+    .ver_slider_text{
+      min-height: 200px;
+    }
+    .ver_slider_bottom{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      svg{
+        color: #8c8c8c;
+        margin-right: 10px !important;
       }
     }
   }
@@ -762,6 +791,33 @@ html, body {
           img{
             margin: 10px 0 5px;
           }
+        }
+      }
+    }
+  }
+  .news_big_div{
+    display: none;
+    justify-content: space-between;
+    img{
+      width: 100%;
+      border-radius: 8px;
+      background-size: cover;
+    }
+    .jus-center{
+      padding-left: 15px !important;
+      .ver_slider_header{
+        font-weight: 600;
+      }
+      .ver_slider_text{
+        min-height: 100px;
+      }
+      .ver_slider_bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        svg{
+          color: #8c8c8c;
+          margin-right: 10px !important;
         }
       }
     }

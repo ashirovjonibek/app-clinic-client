@@ -7,12 +7,13 @@
         .swiper-button-prev::after,
         .swiper-button-next::after {
             color: rgb(255, 255, 255);
-            
-        }
+            display: none;
+        }   
         .swiper-button-disabled {
             color: grey;
         }
         .swiper-pagination {
+            display: none;
             &-bullet {
                 height: 16px;
                 width: 16px;
@@ -32,9 +33,38 @@
             width: 300px;
             img {
                 display: block;
-                width: 100%;
-                height: 100%;
+                width: 100px;
+                height: 80px;
                 object-fit: cover;
+                border-radius: 4px;
+            }
+            .jus-center{
+                text-align: left !important;
+                .ver_slider_header{
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin: 0 0 0px 10px;
+                }
+                .ver_slider_text{
+                    font-size: 14px;
+                    margin: 0 0 0px 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; /* number of lines to show */
+                    -webkit-box-orient: vertical;
+                 
+                }
+                .ver_slider_bottom{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    svg{
+                        color: rgb(170, 170, 170);
+                        margin-right: 5px;
+                    }
+                }
             }
         }
     }
