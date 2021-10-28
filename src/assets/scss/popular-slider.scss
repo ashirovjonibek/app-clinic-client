@@ -6,26 +6,30 @@
         border-radius: 20px;
         .swiper-button-prev{
             margin-top: 130px;
-            margin-left: 550px;
+            margin-left: 650px;
             cursor: pointer;
-            background: url("../icon/photo_2021-10-21_10-36-32.jpg");
-            width: 98px;
+            background: url("../icon/Arrow4.svg");
+            width: 100px;
+            background-repeat: no-repeat;
         }
 
         .swiper-button-next{
             padding: 0;
             margin-top: 130px;
-            margin-right: 550px;
+            margin-right: 650px;
             cursor: pointer;
-            background: url("../icon/photo_2021-10-21_10-36-32.jpg");
-            transform: rotate(180deg);
-            width: 98px;
+            background: url("../icon/Arrow3.svg");
+            // transform: rotate(180deg);
+            width: 100px;
+            background-repeat: no-repeat;
+            // margin-top: 20px;
         }
 
         .swiper-button-prev::after,
         .swiper-button-next::after {
-            content: "";
+            content: "w";
             cursor: pointer;
+            // background: url("../icon/Arrow3.svg");
         }
         .swiper-button-disabled {
             color: grey;
@@ -81,6 +85,90 @@
     }
 }
 
+@media screen and(max-width: 1600px) and (min-width:1500px){
+    .popular-slider {
+        padding-left: 40px;
+        .swiper-container {
+            .swiper-button-prev {
+                margin-left: 550px;
+                width: 100px;
+            }
+
+            .swiper-button-next {
+                margin-right: 550px;
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1500px) and (min-width:1400px){
+    .popular-slider {
+        padding-left: 40px;
+        .swiper-container {
+            .swiper-button-prev {
+                margin-left: 500px;
+                width: 100px;
+            }
+
+            .swiper-button-next {
+                margin-right: 500px;
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1400px) and (min-width:1300px){
+    .popular-slider {
+        padding-left: 40px;
+        .swiper-container {
+            .swiper-button-prev {
+                margin-left: 450px;
+                width: 100px;
+            }
+
+            .swiper-button-next {
+                margin-right: 450px;
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1300px) and (min-width:1100px){
+    .popular-slider {
+        padding-left: 40px;
+        .swiper-container {
+            .swiper-button-prev {
+                margin-left: 400px;
+                width: 100px;
+            }
+
+            .swiper-button-next {
+                margin-right: 400px;
+                width: 100px;
+            }
+        }
+    }
+}
+@media screen and(max-width: 1100px) and (min-width:1000px){
+    .popular-slider {
+        padding-left: 40px;
+        .swiper-container {
+            .swiper-button-prev {
+                margin-left: 350px;
+                width: 100px;
+            }
+
+            .swiper-button-next {
+                margin-right: 350px;
+                width: 100px;
+            }
+        }
+    }
+}
+
 @media screen and(max-width: 1065px){
     .popular-slider {
         padding-left: 40px;
@@ -88,12 +176,12 @@
 
             .swiper-button-prev {
                 margin-left: 250px;
-                width: 50px;
+                width: 100px;
             }
 
             .swiper-button-next {
                 margin-right: 250px;
-                width: 50px;
+                width: 100px;
             }
 
         }
@@ -108,12 +196,12 @@
 
             .swiper-button-prev {
                 margin-left: 150px;
-                width: 40px;
+                width: 100px;
             }
 
             .swiper-button-next {
                 margin-right: 150px;
-                width: 40px;
+                width: 100px;
             }
 
         }
@@ -128,12 +216,12 @@
 
             .swiper-button-prev {
                 margin-left: 100px;
-                width: 50px;
+                width: 100px;
             }
 
             .swiper-button-next {
                 margin-right: 100px;
-                width: 50px;
+                width: 100px;
             }
 
         }
@@ -148,12 +236,12 @@
 
             .swiper-button-prev {
                 margin-left: 50px;
-                width: 50px;
+                width: 100px;
             }
 
             .swiper-button-next {
                 margin-right: 50px;
-                width: 50px;
+                width: 100px;
             }
 
         }

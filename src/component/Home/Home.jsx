@@ -34,7 +34,7 @@ const Home = ({t}) => {
 
             <div className="header-img">
                 <div className="container">
-                    <button className="btn-default-home">
+                    <button id="what-clinic-to-scroll" className="btn-default-home">
                         <Link style={{textDecoration:"none",color:"white"}} to={
                             {
                                 pathname:'/applicantAppeal',
@@ -141,6 +141,7 @@ const Home = ({t}) => {
                         <p>{t("to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice")};</p>
                         <p>{t("based on the nature and complexity of the appeals of individuals and legal entities, to make recommendations on the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them")};</p>
                     </div>
+                <div id="popular-clinic-to-scroll"></div>
                     <div className="porpose-text left_margin right_padding brr-0">
                         <p>{t("To increase the level of professional training of students and develop their skills in working with legal entities and individuals")}:</p>
                         <p>{t("preparation of analytical data on legal issues, development of new programs to help develop practical skills")};</p>
@@ -152,6 +153,7 @@ const Home = ({t}) => {
                     <div className="left_margin">
                         <Title text={t("Popular questions")}/>
                     </div>
+                    <div id="legal-clinic-to-scroll"></div>
                     <PopularSlider/>
                 </div>
 
@@ -168,10 +170,12 @@ const Home = ({t}) => {
                                 </a>
                             )
                         } */}
+                    <div id="home-useful-links-to-scroll"></div>
                     <LinkSlider links={links && links} gerbImg={gerbImg && gerbImg}/>
                     </div>
                 </div>
             </div>
+            
             <div id="home-useful-links">
                 <div className="container">
                     <Title text={t("Useful links")}/>
