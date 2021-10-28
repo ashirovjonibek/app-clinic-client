@@ -11,6 +11,7 @@
             background: url("../icon/Arrow4.svg");
             width: 100px;
             background-repeat: no-repeat;
+            background-size: 100%;
         }
 
         .swiper-button-next{
@@ -22,6 +23,7 @@
             // transform: rotate(180deg);
             width: 100px;
             background-repeat: no-repeat;
+            background-size: 100%;
             // margin-top: 20px;
         }
 
@@ -125,12 +127,12 @@
         .swiper-container {
             .swiper-button-prev {
                 margin-left: 450px;
-                width: 100px;
+                width: 80px;
             }
 
             .swiper-button-next {
                 margin-right: 450px;
-                width: 100px;
+                width: 80px;
             }
         }
     }
@@ -141,13 +143,13 @@
         padding-left: 40px;
         .swiper-container {
             .swiper-button-prev {
-                margin-left: 400px;
-                width: 100px;
+                margin-left: 350px;
+                width: 80px;
             }
 
             .swiper-button-next {
-                margin-right: 400px;
-                width: 100px;
+                margin-right: 350px;
+                width: 80px;
             }
         }
     }
@@ -157,13 +159,13 @@
         padding-left: 40px;
         .swiper-container {
             .swiper-button-prev {
-                margin-left: 350px;
-                width: 100px;
+                margin-left: 300px;
+                width: 80px;
             }
 
             .swiper-button-next {
-                margin-right: 350px;
-                width: 100px;
+                margin-right: 300px;
+                width: 80px;
             }
         }
     }
@@ -176,12 +178,12 @@
 
             .swiper-button-prev {
                 margin-left: 250px;
-                width: 100px;
+                width: 80px;
             }
 
             .swiper-button-next {
                 margin-right: 250px;
-                width: 100px;
+                width: 80px;
             }
 
         }
@@ -196,12 +198,12 @@
 
             .swiper-button-prev {
                 margin-left: 150px;
-                width: 100px;
+                width: 80px;
             }
 
             .swiper-button-next {
                 margin-right: 150px;
-                width: 100px;
+                width: 80px;
             }
 
         }
@@ -216,12 +218,12 @@
 
             .swiper-button-prev {
                 margin-left: 100px;
-                width: 100px;
+                width: 80px;
             }
 
             .swiper-button-next {
                 margin-right: 100px;
-                width: 100px;
+                width: 80px;
             }
 
         }
@@ -236,12 +238,12 @@
 
             .swiper-button-prev {
                 margin-left: 50px;
-                width: 100px;
+                width: 70px;
             }
 
             .swiper-button-next {
                 margin-right: 50px;
-                width: 100px;
+                width: 70px;
             }
 
         }
@@ -256,12 +258,12 @@
 
             .swiper-button-prev {
                 margin-left: 5px;
-                width: 30px;
+                width: 60px;
             }
 
             .swiper-button-next {
                 margin-right: 5px;
-                width: 30px;
+                width: 60px;
             }
 
         }
