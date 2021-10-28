@@ -16,7 +16,6 @@ const RegistrationApplicant = (props) => {
     const {history, t} = props;
     const [regions, setRegions] = useState([]);
     const [districts, setDistricts] = useState([]);
-    const [nations, setNations] = useState([]);
     const [socialStatus, setSocialStatus] = useState([]);
     const [values, setValues] = useState(({
         fullName: '',
@@ -46,32 +45,32 @@ const RegistrationApplicant = (props) => {
     // }, []);
     useEffect(() => {
         axios.get(API_URL + "/socialStatus").then(res => {
-            setSocialStatus(res.data._embedded.socialStatuses)
+            setSocialStatus(res?.data?._embedded?.socialStatuses)
         })
     }, []);
-    useEffect(() => {
-        axios.get(API_URL + "/nation").then(res => {
-            setNations(res.data._embedded.nations)
-        })
-    }, []);
+    // useEffect(() => {
+    //     // axios.get(API_URL + "/nation").then(res => {
+    //     //     setNations(res.data._embedded.nations)
+    //     // })
+    // }, []);
 
     const fetchDistricts = (e) => {
-        let id = e.target.value
+        let id = e?.target?.value
 
         axios.get(API_URL + "/district/search/filterByRegion?id=" + id + "").then(res => {
-            setDistricts(res.data._embedded.districts);
+            setDistricts(res?.data?._embedded?.districts);
         })
 
         setValues({
             ...values,
-            [e.target.name]: e.target.value
+            [e?.target?.name]: e?.target?.value
         });
     };
 
     const handleChange = (e) => {
         setValues({
             ...values,
-            [e.target.name]: e.target.value
+            [e?.target?.name]: e?.target?.value
         });
     };
 
@@ -90,10 +89,10 @@ const RegistrationApplicant = (props) => {
     const [errorEmail, setErrorEmail] = useState('elektron pochtangizda @ bo\'lishi kerak');
 
     const nameHandler = (e) => {
-        if (e.target.value !== null) {
-            const name = e.target.name;
+        if (e?.target?.value !== null) {
+            const name = e?.target?.name;
             const regName = /^[a-zA-Z\s]+$/;
-            if (!regName.test(String(e.target.value).toLowerCase()) && name === 'fullName') {
+            if (!regName.test(String(e?.target?.value).toLowerCase()) && name === 'fullName') {
                 setNameDirty(true);
                 setErrorName('Ism faqat harflardan iborat bo\'lsin');
                 setTimeout(() => {
@@ -106,9 +105,9 @@ const RegistrationApplicant = (props) => {
     }
 
     const yearHandler = (e) => {
-        const name = e.target.name;
+        const name = e?.target?.name;
         const fullYear = new Date().getFullYear();
-        const userYear = e.target.value.slice(0, 4);
+        const userYear = e?.target?.value.slice(0, 4);
         if ((fullYear - userYear) < 16 && name === 'birthDate') {
             setYearDirty(true);
             setErrorYear('foydalanuvchi 16 yoshdan katta bo\'lishi kerak');
@@ -128,8 +127,8 @@ const RegistrationApplicant = (props) => {
     }
 
     const numberHandler = (e) => {
-        const name = e.target.name;
-        const phoneNumber = e.target.value;
+        const name = e?.target?.name;
+        const phoneNumber = e?.target?.value;
         // const regNumber = /^\d+/;
         const regNumber = /^((\+)33|0)[1-9](\d{2}){4}$/;
         // if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
@@ -145,7 +144,7 @@ const RegistrationApplicant = (props) => {
             setTimeout(() => {
                 e.target.value = ''
             }, 1300)
-        } else if (e.target.value.length < 12 && name === 'phoneNumber') {
+        } else if (e?.target?.value?.length < 12 && name === 'phoneNumber') {
             setNumberDirty(true);
             setErrorNumber("Tel:  +998 (__) ___-__-__' ko'rinishda bo'lsin");
             setTimeout(() => {
@@ -157,7 +156,7 @@ const RegistrationApplicant = (props) => {
     }
 
     const passwordHandler = (e) => {
-        if (e.target.value.length < 8) {
+        if (e?.target?.value?.length < 8) {
             setErrorPasswordDirty(true);
             setErrorPassword("Parol 8 ta belgidan kam bo'lmasin");
             setTimeout(() => {
@@ -169,7 +168,7 @@ const RegistrationApplicant = (props) => {
     }
 
     const passwordChacker = (e) => {
-        if (e.target.value !== values.password) {
+        if (e?.target?.value !== values?.password) {
             setErrorPrePasswordDirty(true);
             setErrorPrePassword("Parol mos kelmadi");
             setTimeout(() => {
@@ -181,9 +180,9 @@ const RegistrationApplicant = (props) => {
     }
 
     const emailHandler = (e) => {
-        const name = e.target.name;
+        const name = e?.target?.name;
         const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!regEmail.test(String(e.target.value).toLowerCase()) && name === 'email') {
+        if (!regEmail.test(String(e?.target?.value).toLowerCase()) && name === 'email') {
             setEmailDirty(true);
             setErrorEmail('elektron po\'chtangizda abs@abs.com bo\'lishi kerak!');
             setTimeout(() => {
@@ -196,9 +195,9 @@ const RegistrationApplicant = (props) => {
 
     const handleSend = (e) => {
         // console.log(values)
-        if (values.password === values.prePassword) {
+        if (values?.password === values?.prePassword) {
             axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
-                if (res.data.success) {
+                if (res?.data?.success) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -224,10 +223,10 @@ const RegistrationApplicant = (props) => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: e.response.data.phoneNumber && e.response.data.phoneNumber ?
+                    title: e?.response?.data?.phoneNumber && e?.response?.data?.phoneNumber ?
                         props.t("The phone number and email are already available") :
-                        e.response.data.phoneNumber ?
-                            props.t("The phone number is already available") : e.response.data.email ?
+                        e?.response?.data?.phoneNumber ?
+                            props.t("The phone number is already available") : e?.response?.data?.email ?
                                 props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
                     showConfirmButton: false,
                     timer: 2000

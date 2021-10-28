@@ -18,56 +18,54 @@ import MapChart from "./MapUzb";
 import { DateRange, RemoveRedEye } from "@material-ui/icons";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
 
-const Home = ({ t }) => {
-  const [links, setLinks] = useState([]);
-  const history = useHistory();
-  const theme = useSelector((state) => state.theme);
+const Home = ({t}) => {
+    const [links, setLinks] = useState([]);
+    const history = useHistory();
+    const theme=useSelector(state => state.theme);
+    const [sts,setSts]=useState({});
 
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: API_URL + "/words",
-    }).then((res) => {
-      setLinks(res.data.object);
-    });
-  }, []);
-  return (
-    <div style={{ paddingTop: "190px", filter: theme.filter }} className="home">
-      <div className="header-img">
-        <div className="container">
-          <button id="what-clinic-to-scroll" className="btn-default-home">
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={{
-                pathname: "/applicantAppeal",
-                state: {
-                  to: "home",
-                },
-              }}
-            >
-              Обращение
-            </Link>
-          </button>
-        </div>
-      </div>
-      <div className="container2">
-        <div id="what-clinic" className="what-clinic">
-          <div className="what-clinic-text left_head brl-0">
-            <Title text={t("What is clinic")} />
-            <p>
-              {t(
-                "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities"
-              )}
-              .
-            </p>
-          </div>
-          <div
-            style={{ position: "relative", padding: "7px !important" }}
-            className="what-clinic-mini what-clinic-tagcloud right_margin"
-          >
-            <WordCloud />
-          </div>
-        </div>
+    useEffect(() => {
+        axios({
+            method: 'get',
+            url: API_URL + '/words'
+        }).then((res) => {
+            setLinks(res.data.object);
+        })
+
+        axios({
+            url: API_URL+'/application/home-statistic',
+            method: 'get'
+        }).then((res)=>{
+            setSts(res?.data?.object);
+        })
+    }, []);
+    return (
+        <div style={{paddingTop: "190px",filter:theme.filter}} className="home">
+
+            <div className="header-img">
+                <div className="container">
+                    <button id="what-clinic-to-scroll" className="btn-default-home">
+                        <Link style={{textDecoration:"none",color:"white"}} to={
+                            {
+                                pathname:'/applicantAppeal',
+                                state:{
+                                    to:"home"
+                                }
+                            }
+                        }>Обращение</Link>
+                    </button>
+                </div>
+            </div>
+            <div className="container2">
+                <div id="what-clinic" className="what-clinic">
+                    <div className="what-clinic-text left_head brl-0">
+                        <Title text={t("What is clinic")}/>
+                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
+                    </div>
+                    <div style={{position:"relative",padding:"7px !important"}} className="what-clinic-mini what-clinic-tagcloud right_margin">
+                        <WordCloud/>
+                    </div>
+                </div>
 
         <div className="what-clinic what-clinic-slider ">
           <div className="what-clinic-mini left_margin">

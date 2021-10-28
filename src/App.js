@@ -14,6 +14,7 @@ import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
 import Footer from "./component/Footer/Footer";
 import FooterUsaid from "./component/Footer/FooterUsaid";
+import CustomDocViewer from "./component/catalog/docViewer";
 
 function App() {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
@@ -24,7 +25,17 @@ function App() {
     const path=window.location.pathname;
     console.log(path);
 
+    useEffect(()=>{
+        axios({
+            method: 'get',
+            url:'https://proacademy.uz/uz-cyr/post'
+        }).then((re)=>{
+            console.log(re)
+        })
+    },[]);
+
     useEffect(() => {
+        axios.defaults.headers['Access-Control-Allow-Origin']='*';
         if (openPages.includes(location.pathname)) {
             dispatch({type: LOADING});
             const token = localStorage.getItem(STORAGE_NAME);
