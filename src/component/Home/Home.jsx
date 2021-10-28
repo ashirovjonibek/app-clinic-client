@@ -20,6 +20,7 @@ const Home = ({t}) => {
     const [links, setLinks] = useState([]);
     const history = useHistory();
     const theme=useSelector(state => state.theme);
+    const [sts,setSts]=useState({});
 
     useEffect(() => {
         axios({
@@ -27,6 +28,13 @@ const Home = ({t}) => {
             url: API_URL + '/words'
         }).then((res) => {
             setLinks(res.data.object);
+        })
+
+        axios({
+            url: API_URL+'/application/home-statistic',
+            method: 'get'
+        }).then((res)=>{
+            setSts(res?.data?.object);
         })
     }, []);
     return (
@@ -103,26 +111,26 @@ const Home = ({t}) => {
                     <div className="statistic-row">
                         <div className="statistic-items">
                             <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>{sts?.all}</h3>
+                                <p>Umumiy murojaatlar.</p>
                             </div>
                         </div>
                         <div className="statistic-items">
                             <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>{sts?.inprocces}</h3>
+                                <p>Ko'rib chiqilayotgan murojaatlar.</p>
                             </div>
                         </div>
                         <div className="statistic-items">
                             <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>{sts?.complete}</h3>
+                                <p>Ko'rib chiqilgan murojaatlar.</p>
                             </div>
                         </div>
                         <div className="statistic-items">
                             <div className="statistic">
-                                <h3>124</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>{sts?.applicants}</h3>
+                                <p>Umumiy ariza beruvchilar.</p>
                             </div>
                         </div>
                     </div>

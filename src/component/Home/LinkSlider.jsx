@@ -63,7 +63,7 @@ useEffect(()=>{
         {links &&
           links?.map((item, i) => (
             <SwiperSlide key={i}>
-              <a href={item?.url["uz"]} className="useful-links-item1">
+              <a href={item?.url["uz"]} target="_blank" className="useful-links-item1">
               <img src={gerbImg} alt="" />
               <p>{item?.name["uz"]}</p>
             </a>
