@@ -9,7 +9,7 @@ import {withTranslation} from "react-i18next";
 import CustomPagination from "../catalog/Pagenation";
 import Swal from "sweetalert2";
 import ResponseRequestItem1 from "./ResponseRequestItem1";
-import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
+import {Audiotrack, FileCopy, TextFields, Videocam} from "@material-ui/icons";
 import i18next from "i18next";
 import Dialog from "@material-ui/core/Dialog";
 import {blue, green, red} from "@material-ui/core/colors";
@@ -44,6 +44,7 @@ const IncomingRequestSection = (props) => {
     const [comment, setComment] = useState({
         status: false,
         message: "",
+        to:"",
         errorCom: ""
     })
     const [appealFilter, setAppealFilter] = useState({
@@ -160,7 +161,8 @@ const IncomingRequestSection = (props) => {
                             'Authorization': token
                         },
                         data: {
-                            comment:comment.message
+                            comment:comment.message,
+                            to:comment.to
                         }
                     }).then((r) => {
                         Swal.fire(
@@ -334,6 +336,9 @@ const IncomingRequestSection = (props) => {
                                                 padding: "5px",
                                                 borderRadius: "5px"
                                             }}>
+                                                {/*<div>*/}
+                                                {/*    <TextFields/>*/}
+                                                {/*</div>*/}
                                   <textarea onChange={(e) => {
                                   if (e.target.value.length>10){
                                       setComment({

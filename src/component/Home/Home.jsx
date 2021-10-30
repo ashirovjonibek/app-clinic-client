@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import MapChart from "./MapUzb";
 import { DateRange, RemoveRedEye } from "@material-ui/icons";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
+import video from '../../assets/a/Proclinics.mp4'
 
 const Home = ({t}) => {
     const [links, setLinks] = useState([]);
@@ -42,9 +43,18 @@ const Home = ({t}) => {
     return (
         <div style={{paddingTop: "190px",filter:theme.filter}} className="home">
 
-            <div className="header-img">
-                <div className="container">
-                    <button id="what-clinic-to-scroll" className="btn-default-home">
+            <div style={{position:"relative"}} className="header-img">
+
+                <div style={{
+                    position:"absolute",
+                    zIndex:1,
+                    width:"100%",
+                    height:"100%",
+                    backgroundColor:"rgba(0,0,0,0.5)"
+
+                }} className="container">
+                    {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
+                    <button  id="what-clinic-to-scroll" className="btn-default-home">
                         <Link style={{textDecoration:"none",color:"white"}} to={
                             {
                                 pathname:'/applicantAppeal',
@@ -52,9 +62,12 @@ const Home = ({t}) => {
                                     to:"home"
                                 }
                             }
-                        }>Обращение</Link>
+                        }>{t("Appeals")}</Link>
                     </button>
                 </div>
+
+                <video width={"100%"} style={{objectFit:"cover"}} muted loop autoPlay={true} height={"100%"} src={video}/>
+
             </div>
             <div className="container2">
                 <div id="what-clinic" className="what-clinic">
@@ -161,26 +174,26 @@ const Home = ({t}) => {
           <div className="statistic-row">
             <div className="statistic-items">
               <div className="statistic">
-                <h3>124</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>{sts?.all}</h3>
+                <p>Umumiy arizalar soni.</p>
               </div>
             </div>
             <div className="statistic-items">
               <div className="statistic">
-                <h3>124</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>{sts?.inprocces}</h3>
+                <p>Ko'rib chiqilayotgan arizalar.</p>
               </div>
             </div>
             <div className="statistic-items">
               <div className="statistic">
-                <h3>124</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>{sts?.complete}</h3>
+                <p>Ko'rib chiqilgan arizalar.</p>
               </div>
             </div>
             <div className="statistic-items">
               <div className="statistic">
-                <h3>124</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>{sts?.applicants}</h3>
+                <p>Ariza beruvchilar soni.</p>
               </div>
             </div>
           </div>

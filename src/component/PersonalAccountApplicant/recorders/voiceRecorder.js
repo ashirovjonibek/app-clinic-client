@@ -4,7 +4,7 @@ import 'react-voice-recorder/dist/index.css'
 import Swal from "sweetalert2";
 import green from "@material-ui/core/colors/green";
 import axios from "axios";
-import {API_URL} from "../../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../../utils/constant";
 
 const VoiceRecorder = (props) => {
     const [audioDetails, setAudioDetails] = useState({
@@ -39,7 +39,8 @@ const VoiceRecorder = (props) => {
                         url: API_URL + '/attach/upload',
                         method: "POST",
                         headers: {
-                            'Content-Type': 'multipart/form-data'
+                            'Content-Type': 'multipart/form-data',
+                            Authorization:localStorage.getItem(STORAGE_NAME)
                         },
                         data: formData
                     }).then(res => {

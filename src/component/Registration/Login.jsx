@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import NavBottom from "../Nav/NavBottom";
 import Footer from "../Footer/Footer";
 import {Link} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 
 const Login = (props) => {
     const { history, t } = props;
@@ -23,15 +24,17 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useState({});
     const meTools=useSelector(state => state.meReducer);
+    const state=useLocation().state;
     const dispatch=useDispatch();
     const theme=useSelector(state => state.theme);
+    console.log(state)
     // if (app.currentUser.roles.filter(i =>
     //     i.name === 'ROLE_ADMIN'
     // ).length === 0) {
     //     router.push("/event")
     // }
     const handleLogin = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (phoneNumber !== undefined && password !== undefined) {
             axios({
                 url: API_URL + "/auth/login",

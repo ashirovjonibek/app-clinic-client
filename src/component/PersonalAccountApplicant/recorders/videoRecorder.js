@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
-import {API_URL} from "../../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../../utils/constant";
 import green from "@material-ui/core/colors/green";
 import Card from "@material-ui/core/Card";
 import Swal from "sweetalert2";
@@ -30,7 +30,8 @@ const CustomVideoRecorder = (props) => {
                         url: API_URL + '/attach/upload',
                         method: "POST",
                         headers: {
-                            'Content-Type': 'multipart/form-data'
+                            'Content-Type': 'multipart/form-data',
+                            Authorization:localStorage.getItem(STORAGE_NAME)
                         },
                         data: formData
                     }).then(res => {

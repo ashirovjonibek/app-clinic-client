@@ -17,20 +17,25 @@ const RequestNewPassword = () => {
         if (email.length>0){
             axios({
                 method:'post',
-                url:API_URL+'/auth/resetPassword?email='+email
+                url:API_URL+'/auth/resetPassword',
+                params:{
+                    phone:email
+                }
             }).then((r)=>{
                 if (r.status===200){
                     setIsSending(false);
                     setMessage(r?.data?.message);
                     history.push({
-                        pathname:"/newPassword",
+                        pathname:"/auth/login",
                         state:{
                             message:r?.data?.message
                         }
                     })
                 }
             }).catch((err)=>{
-                setMessage(err?.response?.data?.message)
+                setMessage(err?.response?.data?.message);
+                setIsSending(false);
+
             })
         }
     };
@@ -48,8 +53,8 @@ const RequestNewPassword = () => {
                                     <ul>
                                         <FormHelperText error={true}>{message}</FormHelperText>
                                         <li>
-                                            <label className="label" htmlFor="">Email</label>
-                                            <input required onChange={(e)=>setEmail(e.target.value)} className="input-text" type="email" placeholder="email" />
+                                            <label className="label" htmlFor="">Phone number</label>
+                                            <input required onChange={(e)=>setEmail(e.target.value)} className="input-text" type="phone" placeholder="Input phone number" />
                                         </li>
                                         <li>
                                             <button onClick={sendRequest} className="btn-default">Yuborish</button>

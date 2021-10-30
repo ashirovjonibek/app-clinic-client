@@ -122,7 +122,8 @@ const ApplicantAppeal = (props) => {
                 url: API_URL + '/attach/upload',
                 method: "POST",
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: localStorage.getItem(STORAGE_NAME)
                 },
                 data: formData
             }).then(res => {
@@ -204,28 +205,16 @@ const ApplicantAppeal = (props) => {
                             {
                                 values.videoId === "" ?
                                     <button onClick={() => {
-                                        navigator.permissions.query(
-                                            {name: 'camera'}
-                                            // { name: 'microphone' }
-                                            // { name: 'geolocation' }
-                                            // { name: 'notifications' }
-                                            // { name: 'midi', sysex: false }
-                                            // { name: 'midi', sysex: true }
-                                            // { name: 'push', userVisibleOnly: true }
-                                            // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
-                                        ).then(function (permissionStatus) {
-
-                                            console.log(permissionStatus.state); // granted, denied, prompt
-                                            if (permissionStatus.state === "granted") {
+                                        navigator.mediaDevices.getUserMedia({ video: true })
+                                            .then(stream => {
+                                                console.log(stream)
                                                 setRecord({
                                                     status: true,
                                                     name: "video"
                                                 })
-                                            } else {
-                                                alert("Permission " + permissionStatus.state + " for camera!!!")
-                                            }
-
-                                        });
+                                            }).catch(err => {
+                                            alert("Camera not detected")
+                                        })
 
                                     }} className="video-request">
                                 <span>
@@ -252,29 +241,16 @@ const ApplicantAppeal = (props) => {
                         <div>
                             {
                                 values.audioId === "" ? <button onClick={() => {
-                                        navigator.permissions.query(
-                                            // { name: 'camera' }
-                                            {name: 'microphone'}
-                                            // { name: 'geolocation' }
-                                            // { name: 'notifications' }
-                                            // { name: 'midi', sysex: false }
-                                            // { name: 'midi', sysex: true }
-                                            // { name: 'push', userVisibleOnly: true }
-                                            // { name: 'push' } // without userVisibleOnly isn't supported in chrome M45, yet
-                                        ).then(function (permissionStatus) {
-
-                                            console.log(permissionStatus.state); // granted, denied, prompt
-                                            if (permissionStatus.state === "granted") {
-                                                setRecord({
-                                                    status: true,
-                                                    name: "voice"
-                                                })
-                                            } else {
-                                                alert("Permission " + permissionStatus.state + " for microphone!!!")
-                                            }
-
-                                        });
-
+                                        navigator.mediaDevices.getUserMedia({ audio: true })
+                                            .then(stream => {
+                                                console.log(stream)
+                                               setRecord({
+                                                   status: true,
+                                                   name: "voice"
+                                               })
+                                            }).catch(err => {
+                                                alert("Microphone not detected")
+                                        })
                                     }} className="audio-request">
                                         <img src={iconAudio} alt=""/>
                                         Сделать аудио обращение
@@ -347,7 +323,7 @@ const ApplicantAppeal = (props) => {
                                                 {isLoading ? <CircularProgress
                                                     style={{width: "15px", height: "15px", marginTop: "3px"}}
                                                     color="primary"/> : ""}
-                                                <input title={done ? fileName : props.t("The file was not uploaded")}
+                                                <input accept="application/pdf" title={done ? fileName : props.t("The file was not uploaded")}
                                                        onChange={handleUpload} type="file"/>
                                             </div>
                                             <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
