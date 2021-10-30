@@ -14,7 +14,6 @@ import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
 import Footer from "./component/Footer/Footer";
 import FooterUsaid from "./component/Footer/FooterUsaid";
-import CustomDocViewer from "./component/catalog/docViewer";
 
 function App() {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
