@@ -24,17 +24,17 @@ function App() {
     const path=window.location.pathname;
     console.log(path);
 
-    useEffect(()=>{
-        axios({
-            method: 'get',
-            url:'https://proacademy.uz/uz-cyr/post'
-        }).then((re)=>{
-            console.log(re)
-        })
-    },[]);
+    // useEffect(()=>{
+    //     axios({
+    //         method: 'get',
+    //         url:'https://proacademy.uz/uz-cyr/post'
+    //     }).then((re)=>{
+    //         console.log(re)
+    //     })
+    // },[]);
 
     useEffect(() => {
-        axios.defaults.headers['Access-Control-Allow-Origin']='*';
+        // axios.defaults.headers['Access-Control-Allow-Origin']='*';
         if (openPages.includes(location.pathname)) {
             dispatch({type: LOADING});
             const token = localStorage.getItem(STORAGE_NAME);
