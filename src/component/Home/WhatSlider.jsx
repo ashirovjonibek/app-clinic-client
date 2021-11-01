@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
 import swiperImg2 from '../../assets/img/what-slider/what-slider-img-2.jpg';
@@ -19,10 +19,55 @@ import "../../assets/scss/what-slider.scss";
 import SwiperCore, {
     Autoplay, Pagination, Navigation
 } from 'swiper/core';
+import axios from "axios";
+import i18next from "i18next";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function WhatSlider() {
+
+    const [news,setNews]=useState([]);
+    const [one,setOne]=useState({
+        id:0,
+        title:"",
+        content:"",
+        date:"",
+        view:0,
+        img:""
+    })
+    const [imgLoader,setImgLoader]=useState(false);
+
+    useEffect(()=>{
+        axios({
+            method:'get',
+            url:'https://proacademy.uz/uz-cyr/post'
+        }).then((res)=>{
+            console.log(res)
+            setNews(res?.data?.items);
+        })
+    },[]);
+
+    const getLangContent=(content)=>{
+        let lng = i18next.language;
+        if (lng==="uz"||lng==="en") lng="uz-Lat";
+
+        let parse = JSON.parse(content);
+
+        console.log(parse[lng])
+        return parse[lng]
+
+    };
+
+    const getMedia=(id)=>{
+        axios({
+            method: 'get',
+            url:'https://proacademy.uz/uz-cyr/media?model_id='+id
+        }).then((res)=>{
+            console.log(res);
+            return 'https://proacademy.uz/postfiles/documents'+res.data?.items[0]?.url
+        });
+    };
+
     return (
         <div className="what-slider">
             <Swiper
@@ -41,118 +86,26 @@ function WhatSlider() {
                 navigation={true} className="mySwiper"
             
             >
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg1} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
+                {
+                    news&&news.map((item,i)=>
+                        <SwiperSlide key={i} style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}>
+                            <img src={swiperImg1} alt="img" />
+                            <div className="jus-center">
+                                <p className="ver_slider_header">{getLangContent(item?.title)}.</p>
+                                <p className="ver_slider_text">{getLangContent(item?.short_content)}.</p>
+                                <div className="ver_slider_bottom">
                             <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
+                                <DateRange  /> {item?.published_date}
                             </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
+                                    <span className="ver_slider_bottom">
+                                <RemoveRedEye /> {item?.views}
                             </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg2} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg3} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg4} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg5} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg6} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}> 
-                    <img src={swiperImg7} alt="img" />
-                    <div className="jus-center">
-                        <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-                        <p className="ver_slider_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, tempore.</p>
-                        <div className="ver_slider_bottom">
-                            <span className="ver_slider_bottom">
-                                <DateRange  /> 25 oktabr 2021 
-                            </span>
-                            <span className="ver_slider_bottom">
-                                <RemoveRedEye /> 25
-                            </span>
-                            <a href="#">batafsil...</a>
-                        </div> 
-                    </div>
-                </SwiperSlide>
+                                    <a href="#">batafsil...</a>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    )
+                }
             </Swiper>
         </div>
     )

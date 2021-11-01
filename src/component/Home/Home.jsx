@@ -50,20 +50,22 @@ const Home = ({t}) => {
                     zIndex:1,
                     width:"100%",
                     height:"100%",
-                    backgroundColor:"rgba(0,0,0,0.5)"
+                    backgroundColor:"rgba(0,0,0,0.3)"
 
                 }} className="container">
                     {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
-                    <button  id="what-clinic-to-scroll" className="btn-default-home">
-                        <Link style={{textDecoration:"none",color:"white"}} to={
-                            {
-                                pathname:'/applicantAppeal',
-                                state:{
-                                    to:"home"
+                    <div>
+                        <button  id="what-clinic-to-scroll" className="btn-default-home">
+                            <Link style={{textDecoration:"none",color:"white"}} to={
+                                {
+                                    pathname:'/applicantAppeal',
+                                    state:{
+                                        to:"home"
+                                    }
                                 }
-                            }
-                        }>{t("Appeals")}</Link>
-                    </button>
+                            }>{t("Appeals")}</Link>
+                        </button>
+                    </div>
                 </div>
 
                 <video width={"100%"} style={{objectFit:"cover"}} muted loop autoPlay={true} height={"100%"} src={video}/>

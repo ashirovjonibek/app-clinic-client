@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 import {STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,7 +8,8 @@ import UserName from "../UserName";
 
 const Enter = ({t}) => {
     const me = useSelector(state => state.meReducer);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history=useHistory();
     const logOut = () => {
         dispatch({type: ME_DATA, data: {}});
         dispatch({type: ME_USERNAME, data: ""});
@@ -24,7 +25,7 @@ const Enter = ({t}) => {
 
     return (
         <div className="enter">
-            <div className="enter-btn"  >
+            <div style={{cursor:"pointer"}} className="enter-btn"  onClick={()=>history.push("/auth/login")}>
                 <div className="enter-img" style={{padding: "3px"}}>
                     <UserName
                         width={"30px"}
@@ -42,7 +43,7 @@ const Enter = ({t}) => {
                     paddingLeft: "3px",
                     float: "left",
                     textAlign: "left"
-                }}> {me.meFullName !== "" ? <Link style={{textDecoration: "none", color:"white"}}  to={path==="/"?me.role[1]:"/"}>{me.meFullName}</Link> : <Link  style={{textDecoration: "none", color:"white"}}  to="/auth/login">{t("Login")}</Link>}
+                }}> {me.meFullName !== "" ? <Link style={{textDecoration: "none", color:"white"}}  to={"#"}>{me.meFullName}</Link> : <span  style={{textDecoration: "none", color:"white"}} >{t("Login")}</span>}
                     {/*<p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>*/}
                 </span>
             </div>

@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 import NavCenter from "../Nav/NavCenter";
 import NavTop from "../Nav/NavTop";
 import MuiPickersUtilsProvider, {DatePicker} from "@material-ui/pickers";
+import InputMask from 'react-input-mask'
 
 
 const RegistrationApplicant = (props) => {
@@ -70,7 +71,7 @@ const RegistrationApplicant = (props) => {
     const handleChange = (e) => {
         setValues({
             ...values,
-            [e?.target?.name]: e?.target?.value
+            [e?.target?.name]: e?.target?.name==="phoneNumber"?e:e?.target?.value
         });
     };
 
@@ -128,7 +129,7 @@ const RegistrationApplicant = (props) => {
 
     const numberHandler = (e) => {
         const name = e?.target?.name;
-        const phoneNumber = e?.target?.value;
+        const phoneNumber = e.target.value.replaceAll(" ","").replaceAll("(","").replaceAll(")","");
         // const regNumber = /^\d+/;
         const regNumber = /^((\+)33|0)[1-9](\d{2}){4}$/;
         // if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
@@ -194,7 +195,7 @@ const RegistrationApplicant = (props) => {
     }
 
     const handleSend = (e) => {
-        // console.log(values)
+        console.log(values)
         if (values?.password === values?.prePassword) {
             axios.post(API_URL + "/auth/createApplicant", {...values}).then(res => {
                 if (res?.data?.success) {
@@ -367,12 +368,19 @@ const RegistrationApplicant = (props) => {
                                             <li>
                                                 <label className="label"
                                                        htmlFor="phoneNumber">{props.t("Telephone")}</label>
-                                                <input
+                                                <InputMask
                                                     required={true}
-                                                    onBlur={e => numberHandler(e)}
-                                                    onChange={handleChange}
+                                                    onChange={e=>{setValues(
+                                                        {...values,
+                                                            phoneNumber:e.
+                                                            target.value.replaceAll(" ","")
+                                                                .replaceAll("(","")
+                                                                .replaceAll(")","")}
+                                                                )
+                                                        console.log(e?.target?.value)}}
                                                     name="phoneNumber"
                                                     id="phoneNumber"
+                                                    mask="+\9\9\8(99)999 99 99"
                                                     className="input-text" type="text"
                                                     placeholder="+998 (__) ___-__-__"/>
                                             </li>

@@ -442,7 +442,7 @@ const ProfileSettings = ({t, history}) => {
 
                                             <AddAPhoto/>
                                             </span>
-                                            <input type="file" name="file" onChange={handleUpload}/>
+                                            <input type="file" accept="image/*" name="file" onChange={handleUpload}/>
                                         </div>
                                     </div>
                                 </div>

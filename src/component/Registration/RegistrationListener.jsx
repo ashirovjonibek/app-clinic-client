@@ -11,6 +11,7 @@ import Footer from "../Footer/Footer";
 import NavTop from "../Nav/NavTop";
 import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
+import InputMask from "react-input-mask";
 
 function RegistrationListener(props) {
     const {history, t} = props;
@@ -354,16 +355,21 @@ function RegistrationListener(props) {
                                         <li>
                                             <label className="label"
                                                    htmlFor="phoneNumber">{props.t("Telephone")}</label>
-                                            <input
-                                                onBlur={e => numberHandler(e)}
-                                                onChange={handleChange}
-                                                id="phoneNumber"
+                                            <InputMask
+                                                required={true}
+                                                onChange={e=>{setValues(
+                                                    {...values,
+                                                        phoneNumber:e.
+                                                        target.value.replaceAll(" ","")
+                                                            .replaceAll("(","")
+                                                            .replaceAll(")","")}
+                                                )
+                                                    console.log(e?.target?.value)}}
                                                 name="phoneNumber"
-                                                className="input-text"
-                                                type="text"
-                                                placeholder="+998 (__) ___-__-__"
-                                                required
-                                            />
+                                                id="phoneNumber"
+                                                mask="+\9\9\8(99)999 99 99"
+                                                className="input-text" type="text"
+                                                placeholder="+998 (__) ___-__-__"/>
                                         </li>
                                         {(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}
                                         <li>
@@ -385,7 +391,7 @@ function RegistrationListener(props) {
                                                    onChange={handleChange}
                                                    id="password"
                                                    name="password"
-                                                   className="input-text" type="text"
+                                                   className="input-text" type="password"
                                                    onBlur={e => passwordHandler(e)}
                                                    placeholder={props.t("Enter your password")}
                                             />
@@ -401,7 +407,7 @@ function RegistrationListener(props) {
                                                    id="password"
                                                    name="prePassword"
                                                    className="input-text"
-                                                   type="text"
+                                                   type="password"
                                                    placeholder={props.t("Re-enter your password")}
                                             />
                                         </li>
