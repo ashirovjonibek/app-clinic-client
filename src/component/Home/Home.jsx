@@ -19,6 +19,10 @@ import { DateRange, RemoveRedEye } from "@material-ui/icons";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
 import video from '../../assets/a/Proclinics.mp4'
 import CircleImg from "../../assets/img/circle.png"
+import NewsPaper from "./news";
+import back from "../../assets/img/prokratura_flag_slow.mp4";
+import Footer from "../Footer/Footer";
+import FooterUsaid from "../Footer/FooterUsaid";
 
 const Home = ({t}) => {
     const [links, setLinks] = useState([]);
@@ -42,7 +46,7 @@ const Home = ({t}) => {
         })
     }, []);
     return (
-        <div style={{paddingTop: "190px",filter:theme.filter}} className="home">
+        <div style={{paddingTop: "190px",filter:theme.filter,position:"relative",zIndex:5,backgroundColor:"rgba(255,255,255,0.7 )"}} className="home">
 
             <div style={{position:"relative"}} className="header-img">
 
@@ -51,20 +55,15 @@ const Home = ({t}) => {
                     zIndex:1,
                     width:"100%",
                     height:"100%",
-                    backgroundColor:"rgba(0,0,0,0.5)"
+                    backgroundColor:"rgba(0,0,0,0.3)"
 
                 }} className="container">
                     {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
-                    <button  id="what-clinic-to-scroll" className="btn-default-home">
-                        <Link style={{textDecoration:"none",color:"white"}} to={
-                            {
-                                pathname:'/applicantAppeal',
-                                state:{
-                                    to:"home"
-                                }
-                            }
-                        }>{t("Appeals")}</Link>
-                    </button>
+                    {/*<div>*/}
+                    {/*    <button  id="what-clinic-to-scroll" className="btn-default-home">*/}
+                    {/*       */}
+                    {/*    </button>*/}
+                    {/*</div>*/}
                 </div>
 
                 <video width={"100%"} style={{objectFit:"cover"}} muted loop autoPlay={true} height={"100%"} src={video}/>
@@ -80,36 +79,39 @@ const Home = ({t}) => {
                         <WordCloud/>
                     </div>
                 </div>
+                <div className="right_margin left_margin">
+                  <NewsPaper/>
+                </div>
 
-        <div className="what-clinic what-clinic-slider ">
-          <div className="what-clinic-mini left_margin">
-            <WhatSlider />
-          </div>
-          {/* <div className="what-clinic-text brr-0 right_padding">
-                        <p>{t("The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.")}.</p>
-                    </div> */}
-          <div className="what-clinic-text news_big_div brr-0 right_padding">
-            <img src={swiperImg1} alt="img" />
-            <div className="jus-center">
-              <p className="ver_slider_header">Lorem, ipsum dolor.</p>
-              <p className="ver_slider_text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cum maiores porro odio doloremque aperiam!
-                tempore.
-              </p>
-              <div className="ver_slider_bottom">
-                <span className="ver_slider_bottom">
-                  <DateRange /> 25 oktabr 2021
-                </span>
-                <span className="ver_slider_bottom">
-                  <RemoveRedEye /> 25
-                </span>
-                <a href="#">batafsil...</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        {/*<div className="what-clinic what-clinic-slider ">*/}
+        {/*  <div className="what-clinic-mini left_margin">*/}
+        {/*    <WhatSlider />*/}
+        {/*  </div>*/}
+        {/*  /!* <div className="what-clinic-text brr-0 right_padding">*/}
+        {/*                <p>{t("The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.")}.</p>*/}
+        {/*            </div> *!/*/}
+        {/*  <div className="what-clinic-text news_big_div brr-0 right_padding">*/}
+        {/*    <img src={swiperImg1} alt="img" />*/}
+        {/*    <div className="jus-center">*/}
+        {/*      <p className="ver_slider_header">Lorem, ipsum dolor.</p>*/}
+        {/*      <p className="ver_slider_text">*/}
+        {/*        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,*/}
+        {/*        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cum maiores porro odio doloremque aperiam!*/}
+        {/*        tempore.*/}
+        {/*      </p>*/}
+        {/*      <div className="ver_slider_bottom">*/}
+        {/*        <span className="ver_slider_bottom">*/}
+        {/*          <DateRange /> 25 oktabr 2021*/}
+        {/*        </span>*/}
+        {/*        <span className="ver_slider_bottom">*/}
+        {/*          <RemoveRedEye /> 25*/}
+        {/*        </span>*/}
+        {/*        <a href="#">batafsil...</a>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+            
         <div id="cel-clinic" className="right_margin left_head brl-0">
           <Title text={t("Goal of the clinic")} />
           <h5>{t("The main objectives of the clinic are")}:</h5>
@@ -334,6 +336,8 @@ const Home = ({t}) => {
           />
         </div>
       </div>
+            <Footer/>
+            <FooterUsaid/>
     </div>
   );
 };

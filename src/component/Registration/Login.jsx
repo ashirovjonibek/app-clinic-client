@@ -11,12 +11,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from "../../redux/me/actionType";
 import meReducer from "../../redux/me/reducer";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import {TextField} from "@material-ui/core";
 import {allRoles} from "../../routes/authRoles";
 import Swal from "sweetalert2";
 import NavBottom from "../Nav/NavBottom";
 import Footer from "../Footer/Footer";
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
+import InputMask from 'react-input-mask'
 
 const Login = (props) => {
     const { history, t } = props;
@@ -101,7 +103,7 @@ const Login = (props) => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title:props.t("User not accepted. Please contact the admin")+"!",
+                    title:props.t("Password or login is incorrect")+"!",
                     showConfirmButton: false,
                     timer: 2000
                 }).then(()=>{
@@ -143,26 +145,37 @@ const Login = (props) => {
                                         <div className="first-label">
                                             <label className="label" htmlFor="phoneNumber">{props.t("Phone number")}</label>
                                         </div>
-                                        <input required={true} className="input-text" id="phoneNumber" onChange={changeLogin} type="text"
-                                            placeholder="+998 (__) ___-__-__" />
+                                        <InputMask className="input-text"
+                                                   placeholder={t("Phone number")}
+                                            mask="+\9\98(99)999 99 99"
+                                            disabled={false}
+                                                   autoComplete="new-password"
+                                            maskChar=" "
+                                                   onChange={(e)=>{
+                                                       setPhoneNumber(e.target.value.replaceAll(" ","").replaceAll("(","").replaceAll(")",""))
+                                                   }}
+                                        >
+                                            {/*{() => <TextField />}*/}
+                                        </InputMask>
 
                                     </li>
                                     <li>
                                         <div className="last-label">
                                             <label className="label" htmlFor="password">{props.t("Password")}</label>
                                         </div>
-                                        <input required={true} className="input-text" id="password" onChange={changePassword} type="text"
-                                            placeholder={props.t("Password")} />
+
+                                            <input autoComplete="new-password" required={true} className="input-text" id="password" onChange={changePassword} type="password"
+                                                       placeholder={props.t("Password")} />
                                     </li>
                                     <li>
                                         <button type="submit" className="btn-default">{props.t("Login")}</button>
                                     </li>
                                     <div className="form-link">
                                         <div className="link">
-                                            <Link to="/auth/registrationApplicant">{props.t("Regiter as applicant")}</Link>
+                                            <Link to="/auth/registrationApplicant">{props.t("Register as applicant")}</Link>
                                         </div>
                                         <div className="link">
-                                            <Link to="/auth/registrationListener">{props.t("Regiter as listener")}</Link>
+                                            <Link to="/auth/registrationListener">{props.t("Register as listener")}</Link>
                                         </div>
                                     </div>
                                     <div className="form-link">

@@ -14,7 +14,7 @@ import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
 import Footer from "./component/Footer/Footer";
 import FooterUsaid from "./component/Footer/FooterUsaid";
-
+import back from './assets/img/prokratura_flag_slow.mp4'
 function App() {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
     const history = useHistory();
@@ -32,6 +32,16 @@ function App() {
     //         console.log(re)
     //     })
     // },[]);
+
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        window.onscroll = () => {
+            setOffset(window.pageYOffset)
+        }
+    }, []);
+
+    console.log(offset);
 
     useEffect(() => {
         // axios.defaults.headers['Access-Control-Allow-Origin']='*';
@@ -81,13 +91,13 @@ function App() {
 
             {
                 loading.isLoading ? <Loading/> :
-                    <div style={{height:"100vh"}}>
-                        <Routes/>
-                        <Footer/>
-                        {
-                            path==="/"?<FooterUsaid/>:""
-                        }
-                    </div>
+                        <div>
+                            <Routes/>
+                            <Footer/>
+                            {
+                                path==="/"?<FooterUsaid/>:""
+                            }
+                        </div>
             }
         </>
     );

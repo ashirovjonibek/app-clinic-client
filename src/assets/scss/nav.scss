@@ -42,12 +42,12 @@
 
     background-color: white;
     top: 30px;
-    background-image: url("../img/Rectanglefornavbar.png"),
-    url("../img/126slash1.png"),
-    url("../img/78slash2.png"),
-    url("../img/right.png");
+    background-image: url("../img/Rectangl80.svg"),
+    url("../img/Rectangl81.svg"),
+    url("../img/Rectangl81.svg"),
+    url("../img/Rectangl79.svg");
     background-repeat: no-repeat;
-    background-position: -13%, 64%, 72%, 111%;
+    background-position: 0%, 64%, 72%, 100%;
     z-index: 11;
 
     .navbar {
@@ -333,7 +333,7 @@
   }
   .nav {
     .nav-center {
-      background-image: url("../img/right.png");
+      background-image: url("../img/Rectangl79.svg");
       background-repeat: no-repeat;
       background-position: 115%;
       background-color: white;
