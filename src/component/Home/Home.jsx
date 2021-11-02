@@ -18,6 +18,7 @@ import MapChart from "./MapUzb";
 import { DateRange, RemoveRedEye } from "@material-ui/icons";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
 import video from '../../assets/a/Proclinics.mp4'
+import CircleImg from "../../assets/img/circle.png"
 
 const Home = ({t}) => {
     const [links, setLinks] = useState([]);
@@ -114,32 +115,17 @@ const Home = ({t}) => {
           <h5>{t("The main objectives of the clinic are")}:</h5>
           <div className="cel-clinic-text">
             <div className="text-inform">
-              <ul>
-                <li>
-                  {t(
-                    "Ensuring the correspondence of theoretical knowledge of students to practice"
-                  )}
-                </li>
-                <li>
-                  {t(
-                    "Providing impartial legal assistance to individuals and legal entities"
-                  )}
-                </li>
-              </ul>
+              <div>
+                  <span>{t( "Ensuring the correspondence of theoretical knowledge of students to practice" )}</span>
+              </div>
+              <div>
+                <span>{t( "Providing impartial legal assistance to individuals and legal entities" )}</span>
+              </div>
             </div>
             <div className="text-inform">
-              <ul>
-                <li>
-                  {t(
-                    "Formation and development of practical skills in students"
-                  )}
-                </li>
-                <li>
-                  {t(
-                    "Raising the legal awareness and legal culture of the population"
-                  )}
-                </li>
-              </ul>
+
+                  {t( "Formation and development of practical skills in students" )}
+                  {t( "Raising the legal awareness and legal culture of the population" )}
             </div>
           </div>
         </div>
