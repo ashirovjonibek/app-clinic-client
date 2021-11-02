@@ -58,16 +58,6 @@ function WhatSlider() {
 
     };
 
-    const getMedia=(id)=>{
-        axios({
-            method: 'get',
-            url:'https://proacademy.uz/uz-cyr/media?model_id='+id
-        }).then((res)=>{
-            console.log(res);
-            return 'https://proacademy.uz/postfiles/documents'+res.data?.items[0]?.url
-        });
-    };
-
     return (
         <div className="what-slider">
             <Swiper
@@ -89,7 +79,7 @@ function WhatSlider() {
                 {
                     news&&news.map((item,i)=>
                         <SwiperSlide key={i} style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}>
-                            <img src={swiperImg1} alt="img" />
+                            <img src={"https://proacademy.uz/postfiles/documents"+item?.img_link} alt="img" />
                             <div className="jus-center">
                                 <p className="ver_slider_header">{getLangContent(item?.title)}.</p>
                                 <p className="ver_slider_text">{getLangContent(item?.short_content)}.</p>

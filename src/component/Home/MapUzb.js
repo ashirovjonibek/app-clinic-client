@@ -389,8 +389,8 @@ const MapChart = ({data}) => {
                         }
                     </div> : ""
                 }
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" aria-label="Map of Uzbekistan"
+                <div style={{display:"flex",justifyContent:"center"}}>
+                    <svg width="900px"   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" aria-label="Map of Uzbekistan"
                          className="map_chart">
                         <Tooltip followCursor title={<CardContent>{getRegion(5)}</CardContent>} arrow
                                  placement="top">
