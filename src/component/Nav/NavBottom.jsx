@@ -32,8 +32,9 @@ const NavBottom = ({t}) => {
                                 color:"white",
                                 backgroundColor:red[400],
                                 padding:"8px 10px",
-                                fontSize:"20px",
-                                borderRadius:"12px"
+                                fontSize:"14px",
+                                borderRadius:"12px",
+                                width:'150px'
                             }
                         } to={
                             {

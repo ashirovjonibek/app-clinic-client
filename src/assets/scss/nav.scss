@@ -281,6 +281,13 @@
           font-weight: 500;
         }
       }
+      li:last-child {
+        margin: 0 !important;
+        a{
+          width: 200px;
+          white-space: nowrap;
+        }
+      }
     }
   }
 }

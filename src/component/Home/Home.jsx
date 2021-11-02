@@ -16,72 +16,96 @@ import LinkSlider from "./LinkSlider";
 import { useSelector } from "react-redux";
 import MapChart from "./MapUzb";
 import { DateRange, RemoveRedEye } from "@material-ui/icons";
-import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
-import video from '../../assets/a/Proclinics.mp4'
-import CircleImg from "../../assets/img/circle.png"
+import swiperImg1 from "../../assets/img/what-slider/what-slider-img-1.jpg";
+import video from "../../assets/a/Proclinics.mp4";
+import CircleImg from "../../assets/img/circle.png";
 import NewsPaper from "./news";
 import back from "../../assets/img/prokratura_flag_slow.mp4";
 import Footer from "../Footer/Footer";
 import FooterUsaid from "../Footer/FooterUsaid";
 
-const Home = ({t}) => {
-    const [links, setLinks] = useState([]);
-    const history = useHistory();
-    const theme=useSelector(state => state.theme);
-    const [sts,setSts]=useState({});
+const Home = ({ t }) => {
+  const [links, setLinks] = useState([]);
+  const history = useHistory();
+  const theme = useSelector((state) => state.theme);
+  const [sts, setSts] = useState({});
 
-    useEffect(() => {
-        axios({
-            method: 'get',
-            url: API_URL + '/words'
-        }).then((res) => {
-            setLinks(res.data.object);
-        })
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: API_URL + "/words",
+    }).then((res) => {
+      setLinks(res.data.object);
+    });
 
-        axios({
-            url: API_URL+'/application/home-statistic',
-            method: 'get'
-        }).then((res)=>{
-            setSts(res?.data?.object);
-        })
-    }, []);
-    return (
-        <div style={{paddingTop: "190px",filter:theme.filter,position:"relative",zIndex:5,backgroundColor:"rgba(255,255,255,0.7 )"}} className="home">
+    axios({
+      url: API_URL + "/application/home-statistic",
+      method: "get",
+    }).then((res) => {
+      setSts(res?.data?.object);
+    });
+  }, []);
+  return (
+    <div
+      style={{
+        paddingTop: "190px",
+        filter: theme.filter,
+        position: "relative",
+        zIndex: 5,
+        backgroundColor: "rgba(255,255,255,0.7 )",
+      }}
+      className="home"
+    >
+      <div style={{ position: "relative" }} className="header-img">
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.3)",
+          }}
+          className="container"
+        >
+          {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
+          {/*<div>*/}
+          {/*    <button  id="what-clinic-to-scroll" className="btn-default-home">*/}
+          {/*       */}
+          {/*    </button>*/}
+          {/*</div>*/}
+        </div>
 
-            <div style={{position:"relative"}} className="header-img">
-
-                <div style={{
-                    position:"absolute",
-                    zIndex:1,
-                    width:"100%",
-                    height:"100%",
-                    backgroundColor:"rgba(0,0,0,0.3)"
-
-                }} className="container">
-                    {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
-                    {/*<div>*/}
-                    {/*    <button  id="what-clinic-to-scroll" className="btn-default-home">*/}
-                    {/*       */}
-                    {/*    </button>*/}
-                    {/*</div>*/}
-                </div>
-
-                <video width={"100%"} style={{objectFit:"cover"}} muted loop autoPlay={true} height={"100%"} src={video}/>
-
-            </div>
-            <div className="container2">
-                <div id="what-clinic" className="what-clinic">
-                    <div className="what-clinic-text left_head brl-0">
-                        <Title text={t("What is clinic")}/>
-                        <p>{t("The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities")}.</p>
-                    </div>
-                    <div style={{position:"relative",padding:"7px !important"}} className="what-clinic-mini what-clinic-tagcloud right_margin">
-                        <WordCloud/>
-                    </div>
-                </div>
-                <div className="right_margin left_margin">
-                  <NewsPaper/>
-                </div>
+        <video
+          width={"100%"}
+          style={{ objectFit: "cover" }}
+          muted
+          loop
+          autoPlay={true}
+          height={"100%"}
+          src={video}
+        />
+      </div>
+      <div className="container2">
+        <div id="what-clinic" className="what-clinic">
+          <div className="what-clinic-text left_head brl-0">
+            <Title text={t("What is clinic")} />
+            <p>
+              {t(
+                "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities"
+              )}
+              .
+            </p>
+          </div>
+          <div
+            style={{ position: "relative", padding: "7px !important" }}
+            className="what-clinic-mini what-clinic-tagcloud right_margin"
+          >
+            <WordCloud />
+          </div>
+        </div>
+        <div className="right_margin left_margin">
+          <NewsPaper />
+        </div>
 
         {/*<div className="what-clinic what-clinic-slider ">*/}
         {/*  <div className="what-clinic-mini left_margin">*/}
@@ -111,47 +135,77 @@ const Home = ({t}) => {
         {/*    </div>*/}
         {/*  </div>*/}
         {/*</div>*/}
-            
+
         <div id="cel-clinic" className="right_margin left_head brl-0">
           <Title text={t("Goal of the clinic")} />
           <h5>{t("The main objectives of the clinic are")}:</h5>
           <div className="cel-clinic-text">
             <div className="text-inform">
-              <div>
-                  <span>{t( "Ensuring the correspondence of theoretical knowledge of students to practice" )}</span>
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
+                  {t(
+                    "Ensuring the correspondence of theoretical knowledge of students to practice"
+                  )}
+                </span>
               </div>
-              <div>
-                <span>{t( "Providing impartial legal assistance to individuals and legal entities" )}</span>
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
+                  {t(
+                    "Providing impartial legal assistance to individuals and legal entities"
+                  )}
+                </span>
               </div>
             </div>
             <div className="text-inform">
-
-                  {t( "Formation and development of practical skills in students" )}
-                  {t( "Raising the legal awareness and legal culture of the population" )}
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
+                  {t(
+                    "Formation and development of practical skills in students"
+                  )}
+                </span>
+              </div>
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
+                  {t(
+                    "Raising the legal awareness and legal culture of the population"
+                  )}
+                </span>
+              </div>
             </div>
           </div>
         </div>
         <div id="cel-clinic" className="left_margin right_padding brr-0">
-          <h5>{t("The main tasks of the clinic are")}:</h5>
+          <h5 style={{marginLeft:"0"}}>{t("The main tasks of the clinic are")}:</h5>
           <div className="cel-clinic-text">
-            <div className="text-inform">
-              <ul>
-                <li>
+            <div className="text-inform ml-10">
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
                   {t(
                     "Ensuring that students undergo internships at the clinic during their studies in cooperation with government and business agencies, the judiciary and law enforcement agencies, advocacy and other organizations;"
                   )}
-                </li>
-                <li>
+                </span>
+              </div>
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
                   {t(
                     "To increase the level of professional training of students and develop their skills in working with legal entities and individuals;"
                   )}
-                </li>
-                <li>
-                  {t(
+                </span>
+              </div>
+              <div className="list_text">
+                <img src={CircleImg} alt="" />
+                <span>
+                {t(
                     "Providing impartial legal assistance to individuals and legal entities;"
                   )}
-                </li>
-              </ul>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -190,7 +244,7 @@ const Home = ({t}) => {
           <div className="left_margin">
             <Title text={t("Purpose of the clinic")} />
           </div>
-          <div className="porpose-text left_margin right_padding brr-0">
+          <div className="porpose-text left_margin right_padding brr-0" style={{paddingLeft:"25px"}}>
             <p>
               {t(
                 "In cooperation with the state and economic authorities, the judiciary and law enforcement agencies, the bar and other organizations to ensure the internship of students in the clinic during the study period"
@@ -210,20 +264,20 @@ const Home = ({t}) => {
               ;
             </p>
           </div>
-          <div className="porpose-text right_margin left_head brl-0">
-            <p>
+          <div className="porpose-text right_margin left_head brl-0" >
+            <p style={{paddingLeft:'27px'}}>
               {t(
                 "Providing equitable legal assistance to individuals and legal entities"
               )}
               :
             </p>
-            <p>
+            <p style={{paddingLeft:'27px'}}>
               {t(
                 "to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice"
               )}
               ;
             </p>
-            <p>
+            <p style={{paddingLeft:'27px'}}>
               {t(
                 "based on the nature and complexity of the appeals of individuals and legal entities, to make recommendations on the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them"
               )}
@@ -231,7 +285,7 @@ const Home = ({t}) => {
             </p>
           </div>
           <div id="popular-clinic-to-scroll"></div>
-          <div className="porpose-text left_margin right_padding brr-0">
+          <div className="porpose-text left_margin right_padding brr-0" style={{paddingLeft:"25px"}}>
             <p>
               {t(
                 "To increase the level of professional training of students and develop their skills in working with legal entities and individuals"
@@ -336,8 +390,8 @@ const Home = ({t}) => {
           />
         </div>
       </div>
-            <Footer/>
-            <FooterUsaid/>
+      <Footer />
+      <FooterUsaid />
     </div>
   );
 };

@@ -82,15 +82,31 @@
 
       .text-inform {
         width: 100%;
-        padding-left: 35px;
-
+        padding-left: 25px;
         ul {
           li {
             list-style-type: disc;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 25px;
           }
         }
+        .list_text{
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          span{
+            line-height: 25px;
+          }
+          img{
+            width: 15px;
+            height: 15px;
+            margin-right: 20px;
+          }
+        }
+      }
+      .ml-10{
+        margin-left: -20px !important;
       }
     }
   }
