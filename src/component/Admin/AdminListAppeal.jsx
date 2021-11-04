@@ -109,13 +109,13 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                                     <th className="table-border date">{t("Date of birth")}</th>
                                                     <th className="table-border ">{t("Action")}</th>
                                                 </tr>
-                                                {applicants && applicants.filter(item => {
+                                                {applicants && applicants?.filter(item => {
                                                     if (searchTerm === "") {
                                                         return item
                                                     } else if (item.fullName.toLowerCase().includes(searchTerm.toLowerCase())) {
                                                         return item
                                                     }
-                                                }).map((item) =>
+                                                })?.map((item) =>
                                                     <tr key={item.id} value={item.id}>
                                                         <td className="table-border applicant-name">{item.fullName}</td>
                                                         {/*<td className="table-border">{item.nation.name[i18next.language]}</td>*/}
@@ -124,7 +124,7 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                                             style={{textAlign: 'start'}}> {item.address}</td>
                                                         <td className="table-border">{item.phoneNumber}</td>
                                                         <td className="table-border">{item.email}</td>
-                                                        <td className="table-border">{item.socialStatus.name[i18next.language]}</td>
+                                                        <td className="table-border">{item?.socialStatus?.name[i18next?.language]}</td>
                                                         <td className="table-border">{item.birthDate.slice(0, 10)}</td>
                                                         {/*<td className="table-border edit"><AppealModal item={item} getApplicants={getApplicants}/></td>*/}
                                                         <td className="table-border edit">

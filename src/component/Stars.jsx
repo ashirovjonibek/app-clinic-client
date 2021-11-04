@@ -13,7 +13,7 @@ const Stars = (props) => {
     return (
         <div className="stars">
             {
-                stars&&stars.map((item,i)=>
+                stars&&stars?.map((item,i)=>
                     <img key={i} height="20px" width="20px" src={item} alt="" />
                 )
             }

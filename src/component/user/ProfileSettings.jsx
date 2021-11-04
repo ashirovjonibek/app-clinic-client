@@ -115,20 +115,20 @@ const ProfileSettings = ({t, history}) => {
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
-            setRegions(res.data._embedded.regions)
+            setRegions(res?.data?._embedded?.regions)
         });
     }, []);
 
     useEffect(() => {
         axios.get(API_URL + "/socialStatus").then(res => {
-            setSocialStatus(res.data._embedded.socialStatuses)
+            setSocialStatus(res?.data?._embedded?.socialStatuses)
         })
     }, []);
 
     const fetchDistricts = (e) => {
         let id = e.target.value
         axios.get(API_URL + "/district/search/filterByRegion?id=" + id + "").then(res => {
-            setDistricts(res.data._embedded.districts);
+            setDistricts(res?.data?._embedded?.districts);
         })
 
         setValues({

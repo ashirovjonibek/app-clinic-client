@@ -207,7 +207,7 @@
 
       .useful-links-item {
         background-color: white;
-        //height: 300px;
+        height: 250px;
         width: 200px;
         display: flex;
         flex-direction: column;
@@ -729,12 +729,12 @@ html, body {
       background-color: #F4F8FF;
 
       .useful-links-body {
-        flex-direction: column;
+        // flex-direction: column;
 
         .useful-links-item {
-          margin: 0 auto;
+          // margin: 0 auto;
           margin-bottom: 20px;
-          background-color: white;
+          // background-color: white;
         }
       }
     }
@@ -801,9 +801,9 @@ html, body {
     #home-useful-links {
       .useful-links-body {
         .useful-links-item {
-          padding: 10px;
+          // padding: 10px;
           //height: 300px;
-          width: 250px;
+          width: 100%;
           img{
             margin: 10px 0 5px;
           }

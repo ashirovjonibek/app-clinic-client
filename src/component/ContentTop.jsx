@@ -31,7 +31,7 @@ const ContentTop = (props) => {
                             <select onChange={handleChange} id="sectionId" name="sectionId"
                                     className="category" required>
                                 <option value="0">{t("Filter by department")}</option>
-                                {sections && sections.map((item, i) =>
+                                {sections && sections?.map((item, i) =>
                                     <option key={i} value={item.id}>{item.title.uz}</option>
                                 )}
                             </select>

@@ -3,8 +3,8 @@ import Title from "../Title";
 import WhatSlider from "./WhatSlider";
 import PopularSlider from "./PopularSlider";
 import prokuraturaImg from "../../assets/img/useful/prokuratura.jpg";
-import gerbImg from "../../assets/img/useful/gerb.jpg";
 import tashabbusImg from "../../assets/img/useful/5tashabbus.jpg";
+import gerbImg from "../../assets/img/useful/gerb.jpg";
 import { withTranslation } from "react-i18next";
 import axios from "axios";
 import { API_URL } from "../../utils/constant";
@@ -23,6 +23,7 @@ import NewsPaper from "./news";
 import back from "../../assets/img/prokratura_flag_slow.mp4";
 import Footer from "../Footer/Footer";
 import FooterUsaid from "../Footer/FooterUsaid";
+import FoydaliHavolaSlider from "./foydaliHavolaSlider"
 
 const Home = ({ t }) => {
   const [links, setLinks] = useState([]);
@@ -336,7 +337,8 @@ const Home = ({ t }) => {
         <div className="container">
           <Title text={t("Useful links")} />
           <div className="useful-links-body">
-            <a href="/#" className="useful-links-item">
+            <FoydaliHavolaSlider />
+            {/* <a href="/#" className="useful-links-item">
               <img src={prokuraturaImg} alt="" />
               <p>
                 {t("Prosecutor General's Office of the Republic of Uzbekistan")}
@@ -365,7 +367,7 @@ const Home = ({ t }) => {
               <p>
                 {t("Prosecutor General's Office of the Republic of Uzbekistan")}
               </p>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

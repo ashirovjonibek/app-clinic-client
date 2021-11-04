@@ -116,10 +116,10 @@ const Footer = ({t}) => {
                                         </a>
                                     </li>
                                 </ul>
-                                <form action="/#">
+                                {/* <form action="/#">
                                     <input type="email" placeholder={t("Email")}/>
                                     <button>{t("Subscribe")}</button>
-                                </form>
+                                </form> */}
                             </div>
                         </div>
                         <p className="about">© {date.getFullYear()} {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.")}</p>
