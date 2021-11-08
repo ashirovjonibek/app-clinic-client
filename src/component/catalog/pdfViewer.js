@@ -24,13 +24,13 @@ const PdfViewer=({url,open,setOpen,setUrl})=> {
                         overflow:"auto",
                     }}
                 >
-                <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js">
-                        <Viewer
-                            fileUrl={url}
-                            plugins={[defaultLayoutPluginInstance]}
-                            renderError={console.log}
-                        />
-                    </Worker>
+                        <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js">
+                            <Viewer
+                                fileUrl={url}
+                                plugins={[defaultLayoutPluginInstance]}
+                                renderError={console.log}
+                            />
+                        </Worker>
 
 
                     </div>

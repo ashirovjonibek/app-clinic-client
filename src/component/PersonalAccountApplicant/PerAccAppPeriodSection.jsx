@@ -34,7 +34,7 @@ const PerAccAppPeriodSection = () => {
                 message: ""+e.message
             });
         })
-    }, [active]);
+    }, [active,size]);
     return (
         <div className="per-acc-app-period-section">
         {

@@ -74,7 +74,7 @@ function PopularSlider({t}) {
                     top && top?.map((item, i) => {
                             return <SwiperSlide slot={"container-start"} key={i} >
                                 <div className="popular-text" style={{margin:'0'}}>
-                                    <UserName text={item?.applicant.fullName}/>
+                                    <UserName text={item?.applicant?.fullName} avatar={item?.applicant?.image}/>
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>{t("Subject of the appeal")}:</h4>

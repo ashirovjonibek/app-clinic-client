@@ -34,7 +34,7 @@ const PerAccAppCallFlowSection = () => {
                 message: ""+e.message
             });
         })
-    }, [active]);
+    }, [active,size]);
     return (
         <div className="per-acc-app-call-flow-item">
             {

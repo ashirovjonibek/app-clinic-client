@@ -27,12 +27,15 @@ const Footer = ({t}) => {
                                                 <img width="18px" src={iconAdreesLight} alt=""/>
                                             </div>
                                             <div style={{width: '80%'}}>
-                                                {t("100047, Tashkent, Mirabad district, st. Shakhrisabz, 42")}
+                                                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.0329210425926!2d69.28706118608989!3d41.3074374422724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad54d47a56f%3A0x87547e5307b77db5!2z0JPQtdC90LXRgNCw0LvRjNC90LDRjyDQv9GA0L7QutGD0YDQsNGC0YPRgNCwINCg0LXRgdC_0YPQsdC70LjQutC4INCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1624433459932!5m2!1sru!2s">
+                                                    {t("100047, Tashkent, Mirabad district, st. Shakhrisabz, 42")}
+                                                </a>
+
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailto:" className="email">
+                                        <a href="mailto:info@proacademy.uz" className="email">
                                             <div className="img">
                                                 <img width="22px" src={iconEmailLight} alt=""/>
                                             </div>
@@ -96,22 +99,22 @@ const Footer = ({t}) => {
                                 <div className="sub-title-line"/>
                                 <ul>
                                     <li>
-                                        <a href="/#">
+                                        <a target="_blank" href="https://www.facebook.com/ProsecutorAcademy">
                                             <img src={iconFacebook} alt=""/>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/#">
+                                        <a target="_blank" href="https://www.instagram.com/proacademyuz/">
                                             <img src={iconInstagram} alt=""/>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/#">
+                                        <a target="_blank" href="https://twitter.com/ProAcademyUz">
                                             <img src={iconTwitter} alt=""/>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/#">
+                                        <a target="_blank" href="https://t.me/ProsecutorAcademy">
                                             <img src={iconTelegram} alt=""/>
                                         </a>
                                     </li>
@@ -123,6 +126,7 @@ const Footer = ({t}) => {
                             </div>
                         </div>
                         <p className="about">© {date.getFullYear()} {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.")}</p>
+                        <p className="about">Сайт разработан в: <a style={{color:"white"}} href="http://napaautomative.com/">Napa Automative</a></p>
                     </div>
             </div>
     );

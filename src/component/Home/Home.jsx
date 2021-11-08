@@ -86,7 +86,6 @@ const Home = ({ t, searchVal }) => {
           {/*    </button>*/}
           {/*</div>*/}
         </div>
-
         <video
           width={"100%"}
           style={{ objectFit: "cover" }}
@@ -97,8 +96,12 @@ const Home = ({ t, searchVal }) => {
           src={video}
         />
       </div>
+      <div style={{
+        marginTop:"-300px",
+        position:"absolute"
+      }} id="what-clinic-to-scroll"></div>
       <div className="container2">
-        <div id="what-clinic" className="what-clinic">
+        <div id="what-clinic-to-scroll" className="what-clinic">
           <div className="what-clinic-text left_head brl-0">
             <Title text={t("What is clinic")} />
             <p>
