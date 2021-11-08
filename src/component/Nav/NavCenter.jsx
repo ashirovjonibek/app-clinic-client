@@ -10,11 +10,21 @@ import MenuIcon from "@material-ui/icons/Menu";
 import {useDispatch, useSelector} from "react-redux";
 import {CHANGE_THEME} from "../../redux/me/actionType";
 
-const NavCenter = ({t}) => {
+const NavCenter = ({t, setSearchVal}) => {
     const [sitebar, setSitebar] = useState(false);
+    const [aa, setaa] = useState(false);
     const theme=useSelector(state => state.theme);
     const dispatch=useDispatch();
-    console.log(theme);
+
+    const findString = () => {
+        console.log("searchVal",aa);
+        window.find(aa)
+        document.onmouseup = () => {
+            console.log("mmmmmmmm",window.getSelection());
+        };
+         
+    }
+
     return (
 
         <div style={theme} className="nav-center container-fluit">
@@ -43,8 +53,8 @@ const NavCenter = ({t}) => {
                     <div className="header-right">
                         <div className="header-right-desctop">
                             <form role="search" method="get" action="#" className="search-form">
-                                <input type="" placeholder={t("Search")+"..."} />
-                                <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                <input type="" onChange={(e)=>setaa(e.target.value)}  placeholder={t("Search")+"..."} />
+                                <button onClick={()=>findString()} type=""><img src={iconSearch} alt="search-icon" /></button>
                             </form>
                             <NavLanguage />
                             <div onClick={()=>{

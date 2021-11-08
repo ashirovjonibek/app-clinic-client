@@ -25,12 +25,22 @@ import Footer from "../Footer/Footer";
 import FooterUsaid from "../Footer/FooterUsaid";
 import FoydaliHavolaSlider from "./foydaliHavolaSlider"
 
-const Home = ({ t }) => {
+const Home = ({ t, searchVal }) => {
+  
   const [links, setLinks] = useState([]);
   const history = useHistory();
   const theme = useSelector((state) => state.theme);
   const [sts, setSts] = useState({});
 
+  
+  // const findString = (searchVal) => {
+  //   console.log("searchVal",searchVal);
+  //   window.find(searchVal)
+  // }
+  // useEffect(()=>{
+  //   findString(searchVal)
+  // },[searchVal])
+  
   useEffect(() => {
     axios({
       method: "get",
@@ -56,6 +66,7 @@ const Home = ({ t }) => {
         backgroundColor: "rgba(255,255,255,0.7 )",
       }}
       className="home"
+      id="home_page"
     >
       <div style={{ position: "relative" }} className="header-img">
         <div

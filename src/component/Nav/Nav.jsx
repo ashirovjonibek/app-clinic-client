@@ -3,11 +3,11 @@ import NavTop from "./NavTop";
 import NavCenter from "./NavCenter";
 import NavBottom from "./NavBottom";
 
-const Nav = () => {
+const Nav = ({setSearchVal}) => {
     return (
         <nav className="nav" >
             <NavTop />
-            <NavCenter />
+            <NavCenter setSearchVal={setSearchVal} />
             <NavBottom />
         </nav>
     );
