@@ -18,9 +18,9 @@ import awardsIcon from '../../assets/images/awards-icon.png'
 import lawyersIcon from '../../assets/images/lawyers-icon.png'
 import placeholder115x92 from '../../assets/images/placeholder-115x92.jpg'
 import '../../assets/newHome/customhjlkhkjh.css'
+import '../../assets/newHome/custom.css'
 import '../../assets/newHome/reset.css'
 import '../../assets/newHome/animate.css'
-import '../../assets/newHome/custom.css'
 import CountUp from "react-countup";
 import {withTranslation} from "react-i18next";
 import video from "../../assets/a/Proclinics.mp4";

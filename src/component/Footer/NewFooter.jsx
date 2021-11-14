@@ -7,7 +7,7 @@ const NewFooter = ({ t }) => {
   const theme = useSelector((state) => state.theme);
 
   return (
-    <footer className="footer">
+    <footer className="footer footer12">
       <div className="footer-bottom">
         <div className="container">
           <div className="row">

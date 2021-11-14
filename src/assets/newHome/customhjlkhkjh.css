@@ -1889,6 +1889,10 @@ ul.our-strength li .title {
 	  
 .footer {
 	display: block;
+	/* background: #025a8e; */
+}
+.footer12 {
+	/* display: block; */
 	background: #025a8e;
 }
 .footer-top-section{
@@ -4167,7 +4171,7 @@ ul.faq-listing li h2 {
 	background-attachment: fixed;
 	opacity: 0.5;
 }
-.login-wrapper {
+/* .login-wrapper {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -4203,7 +4207,7 @@ ul.faq-listing li h2 {
 	display: block;
 	padding: 40px;
 	background: #fff;
-}
+} */
 .form-outer input {
 	width: 100%;
 	height: 46px;

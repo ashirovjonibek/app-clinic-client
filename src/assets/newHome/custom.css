@@ -1638,6 +1638,11 @@ a.know-more:hover{
 	  
 .footer {
 	display: block;
+	/* background: #025a8e; */
+}
+
+.footer12 {
+	/* display: block; */
 	background: #025a8e;
 }
 .footer-top-section{
