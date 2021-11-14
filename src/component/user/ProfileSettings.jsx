@@ -16,6 +16,10 @@ import NavLanguage from "../Nav/NavLanguage";
 import iconGlass from "../../assets/icon/icon-glass.svg";
 import Enter from "../Nav/Enter";
 import {IMAGE, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME} from "../../redux/me/actionType";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const ProfileSettings = ({t, history}) => {
     const user = useSelector(state => state.meReducer);

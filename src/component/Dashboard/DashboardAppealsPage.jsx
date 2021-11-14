@@ -1,24 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
-import Swal from "sweetalert2";
-import axios from "axios";
-import {apiPath} from "../../requests/apiPath";
 import i18next from "i18next";
-import NavTop from "../Nav/NavTop";
 import {ArrowBack} from "@material-ui/icons";
-import iconLogo from "../../assets/icon/icon-logo.svg";
-import iconSearch from "../../assets/icon/icon-search.svg";
-import NavLanguage from "../Nav/NavLanguage";
-import iconGlass from "../../assets/icon/icon-glass.svg";
-import Enter from "../Nav/Enter";
-import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
-import {object} from "prop-types";
-import {Alarm,} from "@material-ui/icons";
-import {Link} from "react-router-dom";
-import AppealSections from "./AppealSections";
 import ContainerAppeals from "./ContainerAppeals";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const DashboardAppealsPage = ({t}) => {
     const user = useSelector(state => state.meReducer);

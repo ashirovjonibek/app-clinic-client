@@ -26,6 +26,10 @@ import {useSelector} from "react-redux";
 import ModeratorPerformerItem from "../PersonalAccountModerator/ModeratorPerformerItem";
 import ModeratorPerformerSection from "../PersonalAccountModerator/ModeratorPerformerSection";
 import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const PersonalAccountSupervisor = ({t}) => {
     const history = useHistory();

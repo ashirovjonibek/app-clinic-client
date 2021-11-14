@@ -5,12 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import { Provider } from "react-redux"
 import store from "./redux";
-import NewHome from "./component/Home/newHome";
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <NewHome/>
+            <App/>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')

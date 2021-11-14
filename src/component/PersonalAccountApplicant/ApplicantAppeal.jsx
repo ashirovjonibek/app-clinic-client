@@ -27,6 +27,10 @@ import CustomVideoRecorder from "./recorders/videoRecorder";
 import {useDispatch, useSelector} from "react-redux";
 import {CHANGE_THEME} from "../../redux/me/actionType";
 import PdfViewer from "../catalog/pdfViewer";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const ApplicantAppeal = (props) => {
     const {history, t} = props;

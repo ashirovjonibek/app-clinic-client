@@ -22,6 +22,10 @@ import Footer from "../Footer/Footer";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {red} from "@material-ui/core/colors";
 import axios from "axios";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 
 const PersonalAccountListener = ({t}) => {

@@ -24,6 +24,10 @@ import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
 import DashboardAppealsPage from "../Dashboard/DashboardAppealsPage";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const PersonalAccountModerator = ({t}) => {
     const history = useHistory();

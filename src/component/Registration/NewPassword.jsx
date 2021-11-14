@@ -8,6 +8,10 @@ import {API_URL} from "../../utils/constant";
 import Swal from 'sweetalert2'
 import {useHistory, Link} from 'react-router-dom'
 import {withTranslation} from "react-i18next";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const NewPassword = ({t}) => {
     const state = useLocation().state;

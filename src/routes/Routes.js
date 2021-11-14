@@ -10,7 +10,6 @@ import {
     supervisorRoute
 } from "./allRoutes";
 import {Redirect, Route, Switch} from "react-router-dom";
-import FirstHome from "../component/Home/FirstHome";
 import Login from "../component/Registration/Login";
 import Dashboard from "../component/Dashboard/Dashboard";
 import RegistrationApplicant from "../component/Registration/RegistrationApplicant";
@@ -19,15 +18,13 @@ import NotFound from "../component/catalog/NotFound";
 import Authmiddleware from "./routesConfig";
 import NewPassword from "../component/Registration/NewPassword";
 import RequestNewPassword from "../component/Registration/RequestNewPassword";
-import Footer from "../component/Footer/Footer";
-import FooterUsaid from "../component/Footer/FooterUsaid";
 import ApplicantAppeal from "../component/PersonalAccountApplicant/ApplicantAppeal";
+import NewHome from "../component/Home/newHome";
 
 export const Routes=()=>{
     const userRole=useSelector(state => state.meReducer);
 
     useEffect(()=>{
-        // console.log(userRole)
     },[]);
 
     const roleRoute=(role)=>{
@@ -45,7 +42,7 @@ export const Routes=()=>{
 
     return(
         <Switch>
-            <Route exact path="/" component={FirstHome}/>
+            <Route exact path="/" component={NewHome}/>
             <Route exact path="/auth/login" component={Login}/>
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>

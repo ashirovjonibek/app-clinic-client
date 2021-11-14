@@ -14,6 +14,10 @@ import {withTranslation} from "react-i18next";
 import {red} from "@material-ui/core/colors";
 import axios from "axios";
 import {useSelector} from "react-redux";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 
 const PersonalAccountApplicant = (props) => {
 

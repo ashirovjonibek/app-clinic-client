@@ -454,7 +454,7 @@ header.header-small .header-right-top a.free-consultation_btn{
 	position: relative;
 	overflow-x: hidden;
 }
-.banner-outer .banner-image{background: url(../images/placeholder-1920x815.jpg) no-repeat center top / cover;}
+.banner-outer .banner-image{background: url(../images/placeholder-1920x815.jpg) no-repeat center top / cover; position: relative}
 .banner-slider .container {
 	display: table;
 	height: 100%;
@@ -475,7 +475,9 @@ header.header-small .header-right-top a.free-consultation_btn{
 .banner-outer .content {
 	display: table-cell;
 	vertical-align: middle;
-	max-width:585px;
+	/*max-width:585px;*/
+	text-align: center;
+	color: white;
 	padding:245px 0 200px;
 }
 .banner-slider .content .fl-right {
@@ -486,7 +488,6 @@ header.header-small .header-right-top a.free-consultation_btn{
 	padding-bottom: 20px;
 	font-family: 'Yeseva One', cursive;
 	font-size: 106px;
-	color: #ff2f2f;
 	line-height: 95px;
 	-webkit-animation-delay: 0.2s;
 }

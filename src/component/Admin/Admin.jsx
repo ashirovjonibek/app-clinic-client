@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import iconSearch from "../../assets/icon/icon-search.svg";
+import "../../assets/scss/style.scss";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import '../../assets/css/table.css'
 import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
