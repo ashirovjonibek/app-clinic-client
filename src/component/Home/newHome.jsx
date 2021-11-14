@@ -19,14 +19,18 @@ import sucessCases from '../../assets/images/sucess-cases.png'
 import clientsIcon from '../../assets/images/clients-icon.png'
 import awardsIcon from '../../assets/images/awards-icon.png'
 import lawyersIcon from '../../assets/images/lawyers-icon.png'
-import placeholder115x92 from '../../assets/images/placeholder-115x92.jpg'
+
 import CountUp from "react-countup";
+import Mudirlar from './kafedraMudirlari'
+import PopularQuestionSlider from './questions'
+import NormativHujjatlar from './normativHujjatlar'
+import NewsContent from "./newsContent"
+import NewFooter from '../Footer/NewFooter'
 
 const NewHome = () => {
     const [scrollEl,setScrollEl]=useState(false);
     const [headerClass,setHeaderClass]=useState("");
     window.addEventListener('scroll',function(e) {
-        console.log("aaaaaaaaaaaaaaaaaa",e);
         if ($(this).scrollTop() > 1) {
             $('#header').addClass("header-small");
         } else {
@@ -298,265 +302,11 @@ const NewHome = () => {
                     </ul>
                 </div>
             </section>
-            <section className="our-attorneys padding-lg">
-                <div className="container">
-                    <div className="row heading heading-icon">
-                        <h2>Our Attorneys</h2>
-                    </div>
-                    <ul className="row">
-                        <li className="col-12 col-md-6 col-lg-3">
-                            <div className="cnt-block equal-hight">
-                                <figure><img src="images/placeholder-148x148.jpg" className="img-responsive" alt=""/>
-                                </figure>
-                                <h3><a href="attorney-profile.html">Guptam Holla</a></h3>
-                                <p>Hofstra University School of Law Hempstead, New York</p>
-                                <ul className="follow-us clearfix">
-                                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="col-12 col-md-6 col-lg-3">
-                            <div className="cnt-block equal-hight">
-                                <figure><img src="images/placeholder-148x148.jpg" className="img-responsive" alt=""/>
-                                </figure>
-                                <h3><a href="attorney-profile.html">Kappua Billa</a></h3>
-                                <p>Hofstra University School of Law Hempstead, New York</p>
-                                <ul className="follow-us clearfix">
-                                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="col-12 col-md-6 col-lg-3">
-                            <div className="cnt-block equal-hight">
-                                <figure><img src="images/placeholder-148x148.jpg" className="img-responsive" alt=""/>
-                                </figure>
-                                <h3><a href="attorney-profile.html">Omin Goshu</a></h3>
-                                <p>Hofstra University School of Law Hempstead, New York</p>
-                                <ul className="follow-us clearfix">
-                                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="col-12 col-md-6 col-lg-3">
-                            <div className="cnt-block equal-hight">
-                                <figure><img src="images/placeholder-148x148.jpg" className="img-responsive" alt=""/>
-                                </figure>
-                                <h3><a href="attorney-profile.html">NArman Bandhu</a></h3>
-                                <p>Hofstra University School of Law Hempstead, New York</p>
-                                <ul className="follow-us clearfix">
-                                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section className="testimonial padding-lg">
-                <div className="container">
-                    <div className="row heading heading-icon">
-                        <h2>Client testimonials</h2>
-                    </div>
-                    <div className="wrapper">
-                        <ul className="testimonial-slide">
-                            <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ex quis erat
-                                    elementum consectetur. Sed varius ultrices lacus. Vivamus semper orci efficitur
-                                    mattis maximus. Nulla pretium tortor sit amet maximus viverra. Duis dapibus feugiat
-                                    libero, ac dapibus leo suscipit at.</p>
-                                <p><span>- Mohin Shek</span></p></li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ex quis erat
-                                    elementum consectetur. Sed varius ultrices lacus. Vivamus semper orci efficitur
-                                    mattis maximus. Nulla pretium tortor sit amet maximus viverra. Duis dapibus feugiat
-                                    libero, ac dapibus leo suscipit at.</p>
-                                <p><span>- Mohin Shek</span></p></li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ex quis erat
-                                    elementum consectetur. Sed varius ultrices lacus. Vivamus semper orci efficitur
-                                    mattis maximus. Nulla pretium tortor sit amet maximus viverra. Duis dapibus feugiat
-                                    libero, ac dapibus leo suscipit at.</p>
-                                <p><span>- Mohin Shek</span></p></li>
-                        </ul>
-                        <div id="bx-pager"></div>
-                    </div>
-                </div>
-            </section>
-            <section className="logos">
-                <div className="container">
-                    <ul className="owl-carousel clearfix">
-                        <li><a href="#"><img src={placeholder115x92} className="img-responsive" alt=""/></a>
-                        </li>
-                        <li><a href="#"><img src={placeholder115x92} className="img-responsive" alt=""/></a>
-                        </li>
-                        <li><a href="#"><img src={placeholder115x92} className="img-responsive" alt=""/></a>
-                        </li>
-                        <li><a href="#"><img src={placeholder115x92} className="img-responsive" alt=""/></a>
-                        </li>
-                        <li><a href="#"><img src={placeholder115x92} className="img-responsive" alt=""/></a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section className="news-events padding-lg">
-                <div className="container">
-                    <div className="row heading heading-icon">
-                        <h2>OUR FIRM NEWS</h2>
-                    </div>
-                    <div className="row">
-                        <div className="col-12 col-md-8 left-block">
-                            <div className="news-box">
-                                <figure>
-                                    <img src="images/placeholder-750x270.jpg" className="img-responsive" alt=""/>
-                                </figure>
-                                <div className="date"><span>05</span>Jan 2020</div>
-                                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet cursus
-                                    felis. </h2>
-                                <div className="meta"><i className="fa fa-user" aria-hidden="true"></i>By John
-                                    Smith<span><i className="fa fa-comment" aria-hidden="true"></i>32</span></div>
-                                <p>Quam velit pretium ante, eu posuere sem massa non libero. Nunc viverra pretium nisi
-                                    ut pellentesque. Nullam sem sem, dignissim nec consequat sed, facilisis eu velit,
-                                    [...]</p>
-                                <a href="#" className="read-more">Know More </a>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4 right-block">
-                            <ul className="news-listes">
-                                <li>
-                                    <figure>
-                                        <img src="images/placeholder-115x92.jpg" alt=""/>
-                                    </figure>
-                                    <div className="news-list-details">
-                                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-                                        <div className="meta"><i className="fa fa-user" aria-hidden="true"></i>By John
-                                            Smith<span><i className="fa fa-comment" aria-hidden="true"></i>32</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img src="images/placeholder-115x92.jpg" alt=""/>
-                                    </figure>
-                                    <div className="news-list-details">
-                                        <h2> sagittis ipsum vel, accumsan est.</h2>
-                                        <div className="meta"><i className="fa fa-user" aria-hidden="true"></i>By John
-                                            Smith<span><i className="fa fa-comment" aria-hidden="true"></i>32</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img src="images/placeholder-115x92.jpg" alt=""/>
-                                    </figure>
-                                    <div className="news-list-details">
-                                        <h2>Orci varius natoque penatibus et magnis</h2>
-                                        <div className="meta"><i className="fa fa-user" aria-hidden="true"></i>By John
-                                            Smith<span><i className="fa fa-comment" aria-hidden="true"></i>32</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img src="images/placeholder-115x92.jpg" alt=""/>
-                                    </figure>
-                                    <div className="news-list-details">
-                                        <h2>Nunc condimentum nunc urna</h2>
-                                        <div className="meta"><i className="fa fa-user" aria-hidden="true"></i>By John
-                                            Smith<span><i className="fa fa-comment" aria-hidden="true"></i>32</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer className="footer">
-
-                <div className="footer-bottom">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-6 col-md-3">
-                                <div className="contact-us">
-                                    <h3>CONTACT US</h3>
-                                    <p><i className="fa fa-map-marker" aria-hidden="true"></i>234, My Street,
-                                        Kingston,<br/> New York</p>
-                                    <a href="tel:+1-760-284-3410"><i className="fa fa-phone" aria-hidden="true"></i>760-284-3410</a>
-                                    <a href="mailto:info@demoemail.com"><i className="fa fa-envelope"
-                                                                           aria-hidden="true"></i>info@demoemail.com</a>
-                                    <ul className="follow-us clearfix">
-                                        <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-md-3">
-                                <div className="open-time">
-                                    <h3>OPEN TIME</h3>
-                                    <p><strong>Opening Day:</strong><br/>Monday - Friday: 8am to 6pm<br/> Saturday: 9am
-                                        to 5pm</p>
-                                    <p><strong>Vacation:</strong><br/> All Sunday Day<br/> All Vacation Holiday</p>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-md-3">
-                                <div className="practice-area">
-                                    <h3>PRACTICE AREAS</h3>
-                                    <ul className="clearfix">
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Sexual
-                                            Offences</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Finance
-                                            & Banking</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right"
-                                                           aria-hidden="true"></i> Intellectual Property</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Merger
-                                            & Acquisition</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Real
-                                            Estate Constuction</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Money
-                                            Laundering</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-md-3">
-                                <div className="practice-area">
-                                    <h3>OUR ATTORNEYS</h3>
-                                    <ul className="clearfix">
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Jon
-                                            Bitoda</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Petar
-                                            Gossa</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Devid
-                                            Favda</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Michal
-                                            Khurpa</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Jali
-                                            Hajji</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" aria-hidden="true"></i> Handu
-                                            Smith</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="copy-rights-section">
-                    <div className="container">
-                        <div className="row">
-                            <p>© 2020 JOHN BISTAND - All rights reserved</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <a href="#" className="scroll-top"><i className="fa fa-chevron-up" aria-hidden="true"></i></a>
+            <Mudirlar />
+            <PopularQuestionSlider />
+            <NormativHujjatlar />
+            <NewsContent />
+            <NewFooter />
         </div>
     )
 };

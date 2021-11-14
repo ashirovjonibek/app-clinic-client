@@ -204,6 +204,51 @@ input:focus, textarea:focus, select:focus {
 	-webkit-animation-delay: 0.9s;
 	animation-delay: 0.9s;
 }
+.line_count_popular{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* number of lines to show */
+					line-clamp: 3; 
+	-webkit-box-orient: vertical;
+}
+
+.my_card{
+	height: 200px;
+}
+.my_card p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 7; /* number of lines to show */
+					line-clamp: 7; 
+	-webkit-box-orient: vertical;
+
+}
+.line_count_two{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+					line-clamp: 2; 
+	-webkit-box-orient: vertical;
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: 500;
+	color: rgb(41, 121, 168) !important;
+}
+
+.big_image_new{
+	max-width: 750px !important;
+	max-height: 270px !important;
+	object-fit: cover;
+}
+
+.ccccc{
+	width: 115px !important;
+	height: 92px !important;
+	object-fit: cover;
+}
 
  @-webkit-keyframes sk-foldCubeAngle {
 	 

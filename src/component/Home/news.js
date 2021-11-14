@@ -43,12 +43,12 @@ const NewsPaper = () => {
     return parse[lng];
   };
 
-  const targetLink = (id) => {
-    let htmlAnchorElement = document.createElement("a");
-    htmlAnchorElement.href = "https://proacademy.uz/ru/news/view?alias=" + id;
-    htmlAnchorElement.target = "_blank";
-    htmlAnchorElement.click();
-  };
+  // const targetLink = (id) => {
+  //   let htmlAnchorElement = document.createElement("a");
+  //   htmlAnchorElement.href = "https://proacademy.uz/ru/news/view?alias=" + id;
+  //   htmlAnchorElement.target = "_blank";
+  //   htmlAnchorElement.click();
+  // };
 
   return (
     <div className="container-fluit">
@@ -70,8 +70,8 @@ const NewsPaper = () => {
           {news &&
             news.map((item, i) => (
               <SwiperSlide key={i} className="news-swipe-slide">
-                <div
-                  onClick={() => targetLink(item.id)}
+                <a 
+                  href={"https://proacademy.uz/ru/news/view?alias=" + item.id}
                   className="general-news"
                 >
                   <div className="general-new-img">
@@ -102,21 +102,21 @@ const NewsPaper = () => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </a>
               </SwiperSlide>
             ))}
         </Swiper>
         <div className="other-news">
           {right &&
             right.map((item, i) => (
-              <div
+              <a
                 key={i}
-                onClick={() => targetLink(item.id)}
+                href={"https://proacademy.uz/ru/news/view?alias=" + item.id}
                 className="news-card"
               >
                 <div className="news-card-container">
                   <div className="news-card-imd">
-                    <img
+                    <img style={{width:"100px"}}
                       src={
                         "https://proacademy.uz/postfiles/documents" +
                         item?.img_link
@@ -147,7 +147,7 @@ const NewsPaper = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
         </div>
       </div>
