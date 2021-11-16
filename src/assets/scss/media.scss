@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.container {
+.container12 {
   width: 80%;
   margin: auto;
 }
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 992px) {
-  .container {
+  .container12 {
     max-width: 970px;
   }
   .footer {
@@ -43,7 +43,7 @@
 }
 
 @media (max-width: 768px) {
-  .container{
+  .container12{
     width: 90%;
   }
   .footer {
@@ -64,7 +64,7 @@
 }
 
 @media (max-width: 576px) {
-  .container{
+  .container12{
     width: 98%;
   }
   .footer {

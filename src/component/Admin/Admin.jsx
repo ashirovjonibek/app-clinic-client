@@ -153,7 +153,7 @@ const Admin = ({t}) => {
             </div>
             <div className="adminnav">
                 <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px', zIndex:1}}>
-                    <div className="navbar1">
+                    <div className="navbar">
                         <div className="menu-icon">
                             <MenuIcon
                                 fontSize={'large'}

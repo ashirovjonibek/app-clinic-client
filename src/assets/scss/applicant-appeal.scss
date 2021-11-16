@@ -1,6 +1,6 @@
 .applicant-appeal {
     background-color: #f4f8ff;
-    .container {
+    .container12 {
         padding: 50px 10px;
         display: flex;
         flex-direction: column;
@@ -145,7 +145,7 @@
 
 @media (max-width: 1200px) {
     .applicant-appeal {
-        .container {
+        .container12 {
             .appeal {
                 ul {
                     .last-form {
@@ -172,7 +172,7 @@
 
 @media (max-width: 992px) {
     .applicant-appeal {
-        .container {
+        .container12 {
             .appeal {
                 ul {
                     .last-form {
@@ -192,7 +192,7 @@
 
 @media (max-width: 768px) {
     .applicant-appeal {
-        .container {
+        .container12 {
             padding: 50px 90px;
             .requests {
                 display: flex;
@@ -231,7 +231,7 @@
 
 @media (max-width: 768px) {
     .applicant-appeal {
-        .container {
+        .container12 {
             padding: 50px 90px;
             .requests {
                 display: flex;
@@ -270,7 +270,7 @@
 
 @media (max-width: 480px) {
     .applicant-appeal {
-        .container {
+        .container12 {
             padding: 50px 10px;
             .appeal {
                 ul {

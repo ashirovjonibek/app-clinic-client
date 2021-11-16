@@ -3,7 +3,7 @@
   //height: vh;
   padding: 170px 0 10px 0;
 
-  .container {
+  .container12 {
     .login-wrapper {
       padding: 0 100px;
 
@@ -71,7 +71,7 @@
 
 @media (max-width: 768px) {
   .login {
-    .container {
+    .container12 {
       .login-wrapper {
         padding: 0;
         display: flex;
@@ -84,7 +84,7 @@
 
 @media (max-width: 576px) {
   .login {
-    .container {
+    .container12 {
       .login-wrapper {
         padding: 0;
         display: flex;
@@ -126,7 +126,7 @@
 
 @media (max-width: 480px) {
   .login {
-    .container {
+    .container12 {
       .login-wrapper {
         .form {
           height: 390px;
