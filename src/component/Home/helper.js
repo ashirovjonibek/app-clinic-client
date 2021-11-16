@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import i18n from "../../i18n";
 
-const LangContener=()=>{
+const LangContener=({color,className})=>{
     const [selectedLang,setSelectedLang]=useState("");
 
     const languagesList = [
@@ -34,24 +34,13 @@ const LangContener=()=>{
     };
 
     return(
-        <span style={{position:"relative"}} className="navlanguage">
-            {
-                languagesList.map((lang,index)=>
-                    lang.val===selectedLang?
-                        <span style={{cursor:"pointer"}} id="selectedLang" key={index} className={"navlanguage-item "+lang.className}>
-                            <span className="navlangs">{lang.label}</span></span>:""
-                )
-            }
-            <span className="navlanguage-content">
-                {
-                    languagesList.map((lang)=>
-                        <a style={{cursor:"pointer"}} key={lang.val} onClick={(e)=>{
-                            changeLang(e.target.id)
-                        }} id={lang.val} className={lang.className}>{lang.label}</a>
-                    )
-                }
-            </span>
-        </span>
+        <select className={className} style={{backgroundColor:"rgba(0,0,0,0)",color:color}} value={selectedLang} onChange={(e)=>{
+            changeLang(e.target.value)
+        }}>
+            {languagesList.map((item,i)=>
+                <option style={{color:"#000"}} value={item?.val}>{item?.label}</option>
+            )}
+        </select>
     )
 };
 

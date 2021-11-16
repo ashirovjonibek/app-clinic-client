@@ -363,8 +363,8 @@ const ProfileSettings = ({t, history}) => {
         <div>
             <div className="nav">
                 <NavTop/>
-                <div className="nav-center container-fluit">
-                    <div className="container">
+                <div className="nav-center container-fluit12">
+                    <div className="container12">
                         <div className="navbar2">
                             <div className="menu-icon">
                                 <ArrowBack
@@ -405,9 +405,9 @@ const ProfileSettings = ({t, history}) => {
                 {/*<NavCenter/>*/}
                 {/*<NavBottom/>*/}
             </div>
-            <div className="dashboard container-fluit">
+            <div className="dashboard container-fluit12">
 
-                <div className="container">
+                <div className="container12">
                     <div className="title">
                         <h4 className="title-text"><span onClick={() => {
 
@@ -420,7 +420,7 @@ const ProfileSettings = ({t, history}) => {
                     </div>
 
                     <div className="flexUchun">
-                        <div className="dashboard-container">
+                        <div className="dashboard-container12">
                             <div className="profileImage">
                                 {values.imageId || values.image ? <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px"
                                                                        src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}
@@ -462,7 +462,7 @@ const ProfileSettings = ({t, history}) => {
                             </div>
                         </div>
 
-                        <div className="registration-applicant container-fluit">
+                        <div className="registration-applicant container-fluit12">
                             <div className="registration-applicant-wrapper">
                                 <h5>{t("Personal data")}</h5>
                                 <form

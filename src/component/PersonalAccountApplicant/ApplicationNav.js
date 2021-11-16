@@ -28,7 +28,7 @@ const ApplicationNav=(props)=>{
     return(
         <div className="nav" style={theme}>
             <NavTop />
-            <div className="nav-center container-fluit">
+            <div className="nav-center container-fluit12">
                 <div className="container12">
                     <div className="navbar2">
                         <div className="menu-icon" >
@@ -68,7 +68,7 @@ const ApplicationNav=(props)=>{
                     </div>
                 </div>
                 <div className="desctop-navigation" id={props.sitebar ? "show-navigation" : ""}>
-                    <div className="container">
+                    <div className="container12">
                         <div className="desctop-navigation-body">
                             <div>
                                 <div className="mobil-language">

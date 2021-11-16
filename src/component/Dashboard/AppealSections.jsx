@@ -73,7 +73,7 @@ const AppealSections = ({item,setOpen,setUrl,t,dd,ds,dc,refr,setRefr}) => {
     return (
         <div style={{boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)", marginBottom: "10px", padding: "15px", lineHeight: "24px"}}
         // <div style={{ marginBottom: "10px", padding: "15px", lineHeight: "24px"}}
-             className="supervisor-appeal-item container">
+             className="supervisor-appeal-item container12">
             <div className="">
                 <div style={{float: "left", display: "inline-block"}} className="request-content-title-name">
                     <div style={{

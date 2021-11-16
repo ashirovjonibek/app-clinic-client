@@ -27,8 +27,8 @@ const NavCenter = ({t, setSearchVal}) => {
 
     return (
 
-        <div style={theme} className="nav-center container-fluit">
-            <div className="container">
+        <div style={theme} className="nav-center container-fluit12">
+            <div className="container12">
                 <div className="navbar2">
                     <div className="menu-icon" >
                         <MenuIcon
@@ -68,7 +68,7 @@ const NavCenter = ({t, setSearchVal}) => {
                 </div>
             </div>
             <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
-                <div className="container">
+                <div className="container12">
                     <div className="desctop-navigation-body">
                         <div>
                             <div className="mobil-language">

@@ -91,8 +91,8 @@ const PersonalAccountModerator = ({t}) => {
             <div>
                 <div className="nav">
                     <NavTop/>
-                    <div className="nav-center container-fluit">
-                        <div className="container">
+                    <div className="nav-center container-fluit12">
+                        <div className="container12">
                             <div className="navbar">
                                 <div className="menu-icon">
                                     <MenuIcon
@@ -130,7 +130,7 @@ const PersonalAccountModerator = ({t}) => {
                             </div>
                         </div>
                         <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
-                            <div className="container">
+                            <div className="container12">
                                 <div className="desctop-navigation-body">
                                     <div>
                                         <div className="mobil-language">
@@ -190,8 +190,8 @@ const PersonalAccountModerator = ({t}) => {
                         </div>
                     </div>
                 </div>
-                <div style={{paddingBottom: "15px"}} className="account-moderator container-fluit">
-                    <div className="container">
+                <div style={{paddingBottom: "15px"}} className="account-moderator container-fluit12">
+                    <div className="container12">
                         <section className="section-body">
                             <div className="navbar-wrapper">
                                 <div className="navbarr">

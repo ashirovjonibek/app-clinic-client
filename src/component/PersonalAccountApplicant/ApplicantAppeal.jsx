@@ -153,8 +153,8 @@ const ApplicantAppeal = (props) => {
         <div>
             <div className="nav">
                 <NavTop/>
-                <div className="nav-center container-fluit">
-                    <div className="container">
+                <div className="nav-center container-fluit12">
+                    <div className="container12">
                         <div style={theme} className="navbar2">
                             <div className="menu-icon">
                                 <ArrowBack
@@ -196,7 +196,7 @@ const ApplicantAppeal = (props) => {
                 </div>
             </div>
             <div style={{paddingTop: "88px",filter:theme.filter}} className="applicant-appeal">
-                <div className="container">
+                <div className="container12">
                     <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={() => {
                         history.push(location?"/":"/personalAccountApplicant")
                     }} style={{marginRight: "17px", cursor: "pointer"}}/>{

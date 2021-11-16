@@ -15,7 +15,7 @@ const Footer = ({t}) => {
 
     return (
             <div style={theme} className="footer">
-                    <div className="container">
+                    <div className="container12">
                         <div className="footer-first">
                             <div className="footer-contacts">
                                 <h4>{t("Contacts")}</h4>
@@ -43,7 +43,7 @@ const Footer = ({t}) => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="tel:" className="contact-number">
+                                        <a href="tel:+998712020496" className="contact-number">
                                             <div className="img">
                                                 <img width="20px" src={iconContactLight} alt=""/>
                                             </div>

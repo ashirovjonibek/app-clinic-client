@@ -81,7 +81,7 @@ const PersonalAccountApplicant = (props) => {
             <ApplicationNav getPage={getPage} setSitebar={setSitebar} sitebar={sitebar}/>
 
             <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
-                <div style={theme} className="container">
+                <div style={theme} className="container12">
                     <Title text={props.t("Personal account")} />
                     <section className="section-body">
                         <div className="navbar-wrapper">

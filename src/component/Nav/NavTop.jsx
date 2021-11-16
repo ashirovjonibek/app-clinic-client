@@ -8,8 +8,8 @@ import {useSelector} from "react-redux";
 const NavTop = ({t}) => {
     const theme=useSelector(state => state.theme);
     return (
-        <div style={theme} className="nav-top container-fluit">
-            <div className="container">
+        <div style={theme} className="nav-top container-fluit12">
+            <div className="container12">
                 <ul style={{width:"100% !important",padding:"0 !important"}}>
                     <li style={{display:"inline-block"}}>
                         <a href="/#" className="adress">

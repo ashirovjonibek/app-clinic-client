@@ -128,8 +128,8 @@ const Login = (props) => {
                 <NavCenter />
                 {/*<NavBottom/>*/}
             </div>
-            <div className="login container-fluit">
-                <div style={theme} className="container">
+            <div className="login container-fluit12">
+                <div style={theme} className="container12">
                     <div className="login-wrapper">
 
                         <Title  text={<span style={{cursor:"pointer"}} onClick={()=>{

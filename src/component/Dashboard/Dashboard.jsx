@@ -2,8 +2,8 @@ import React from "react";
 
 const Dashboard = () => {
     return (
-        <div className="dashboard container-fluit">
-            <div className="container">
+        <div className="dashboard container-fluit12">
+            <div className="container12">
                 <div className="dashboard-container">
                     <div className="dashboard-categories">
                         <ul>

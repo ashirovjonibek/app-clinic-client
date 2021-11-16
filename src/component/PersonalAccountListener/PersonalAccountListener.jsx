@@ -97,8 +97,8 @@ const PersonalAccountListener = ({t}) => {
         <div>
             <div className="nav">
                 <NavTop />
-                <div className="nav-center container-fluit">
-                    <div className="container">
+                <div className="nav-center container-fluit12">
+                    <div className="container12">
                         <div className="navbar2">
                             <div className="menu-icon" >
                                 <MenuIcon
@@ -135,7 +135,7 @@ const PersonalAccountListener = ({t}) => {
                         </div>
                     </div>
                     <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
-                        <div className="container">
+                        <div className="container12">
                             <div className="desctop-navigation-body">
                                 <div>
                                     <div className="mobil-language">
@@ -183,8 +183,8 @@ const PersonalAccountListener = ({t}) => {
                     </div>
                 </div >
             </div>
-            <div className="personal-account-listnear container-fluit" style={{paddingTop: '100px'}}>
-                <div className="container">
+            <div className="personal-account-listnear container-fluit12" style={{paddingTop: '100px'}}>
+                <div className="container12">
                     <section className="section-body">
                         <div>
                             <div className="navbar-wrapper">

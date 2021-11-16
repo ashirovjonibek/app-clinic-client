@@ -255,8 +255,8 @@ const RegistrationApplicant = (props) => {
                 <NavCenter/>
                 {/*<NavBottom/>*/}
             </div>
-            <div className="registration-applicant container-fluit">
-                <div className="container">
+            <div className="registration-applicant container-fluit12">
+                <div className="container12">
                     <div className="registration-applicant-wrapper">
                         <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={() => {
                             history.goBack()

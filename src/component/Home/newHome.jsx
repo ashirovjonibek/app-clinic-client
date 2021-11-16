@@ -41,26 +41,32 @@ const NewHome = ({t}) => {
     const [scrollEl, setScrollEl] = useState(false);
     const [headerClass, setHeaderClass] = useState("");
     const [color, setColor] = useState("#f2f2f2");
+    const [isMobile,setIsMobile]=useState(false);
 
     useEffect(() => {
         if (window.innerWidth<768){
-            setColor("#2a2a2a")
+            setColor("#2a2a2a");
+            setIsMobile(true)
+        }else {
+            setIsMobile(false)
         }
         window.addEventListener("resize",()=>{
             if (window.innerWidth<768){
-                setColor("#2a2a2a")
-            }        })
+                setColor("#2a2a2a");
+                setIsMobile(true)
+            }else {setIsMobile(false)}       })
     }, []);
 
     return (
         <div ref={container} onScroll={(e) => {
-            console.log(e.target.scrollTop)
             if (e.target.scrollTop > 1) {
-                setHeaderClass("header-small")
+                setHeaderClass("header-small");
                 setColor("#2a2a2a")
             } else {
-                setHeaderClass("");
-                setColor("#f2f2f2")
+                if (window.innerWidth>768){
+                    setHeaderClass("");
+                    setColor("#f2f2f2")
+                }
             }
             if (e.target.scrollTop > 792 && e?.target?.scrollTop < 2600) {
                 setScrollEl(true)
@@ -75,11 +81,11 @@ const NewHome = ({t}) => {
                 <div className="container header-middle">
                     <div className="row">
                         <div className="col-12 col-md-5 row logo">
-                           <div className="col-3">
+                           {!isMobile&&<div className="col-3">
                             <a href="#/"><img
                                 src={logo} width="65px" className="img-responsive" alt=""/></a>
-                           </div>
-                            <div className="col-9" style={{color:color}}>
+                           </div>}
+                            <div className={isMobile?"col-12":"col-9"} style={{color:color,lineHeight:"25px"}}>
                                 <p className="" style={{fontSize:"20px"}}>
                                     O'zbekiston Respublikasi Bosh prokratura akademyasi
                                 </p>
@@ -93,7 +99,7 @@ const NewHome = ({t}) => {
                                 <a className="tel-number" style={{color: color}} href="tel:+998 71 202-04-96"><i
                                     className="fa fa-phone"
                                     aria-hidden="true"></i> +998 (71) 202-04-96</a>
-                                    <LangContener/>
+                                    <LangContener className={isMobile?"mb-2":""} color={color}/>
                                 <Link className="free-consultation_btn" to={
                                     {
                                         pathname: '/applicantAppeal',

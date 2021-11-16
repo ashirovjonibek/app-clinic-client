@@ -59,7 +59,7 @@ const ContainerAppeals=({path,status})=>{
                     }
                 </div>:<div style={{textAlign:"center",marginTop:"25px"}}>Arizalar mavjud emas!!!</div>
             }
-        <div className="container">
+        <div className="container12">
             {
                 totalEl>size?<CustomPagination
                     active={active}

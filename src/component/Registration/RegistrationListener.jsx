@@ -237,13 +237,13 @@ function RegistrationListener(props) {
     }
 
     return (
-        <div className="registration-listnear container-fluit">
+        <div className="registration-listnear container-fluit12">
             <div className="nav">
                 <NavTop/>
                 <NavCenter/>
                 {/*<NavBottom/>*/}
             </div>
-            <div className="container">
+            <div className="container12">
                 <div className="registration-listnear-wrapper">
                     <Title text={<span><KeyboardBackspaceIcon titleAccess="Bosh sahifaga" onClick={() => {
                         history.goBack()

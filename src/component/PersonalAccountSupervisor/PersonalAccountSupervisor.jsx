@@ -88,8 +88,8 @@ const PersonalAccountSupervisor = ({t}) => {
             <div>
                 <div className="nav">
                     <NavTop/>
-                    <div className="nav-center container-fluit">
-                        <div className="container">
+                    <div className="nav-center container-fluit12">
+                        <div className="container12">
                             <div className="navbar">
                                 <div className="menu-icon">
                                     <MenuIcon
@@ -127,7 +127,7 @@ const PersonalAccountSupervisor = ({t}) => {
                             </div>
                         </div>
                         <div className="desctop-navigation" id={sitebar ? "show-navigation" : ""}>
-                            <div className="container">
+                            <div className="container12">
                                 <div className="desctop-navigation-body">
                                     <div>
                                         <div className="mobil-language">
@@ -191,8 +191,8 @@ const PersonalAccountSupervisor = ({t}) => {
                         </div>
                     </div>
                 </div>
-                <div className="personal-account-supervisor container-fluit">
-                    <div className="container">
+                <div className="personal-account-supervisor container-fluit12">
+                    <div className="container12">
                         <section className="section-body">
                             <div className="navbar-wrapper">
                                 <div className="navbarr">

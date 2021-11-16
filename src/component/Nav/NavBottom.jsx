@@ -5,8 +5,8 @@ import {blue, red} from "@material-ui/core/colors";
 
 const NavBottom = ({t}) => {
     return (
-        <nav className="nav-bottom container-fluit">
-            <div className="container">
+        <nav className="nav-bottom container-fluit12">
+            <div className="container12">
                 <ul>
                     <li>
                         <a href={"#what-clinic-to-scroll"}>{t("What is clinic")}</a>

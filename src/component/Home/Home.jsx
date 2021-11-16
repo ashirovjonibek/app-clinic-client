@@ -77,7 +77,7 @@ const Home = ({ t, searchVal }) => {
             height: "100%",
             backgroundColor: "rgba(0,0,0,0.3)",
           }}
-          className="container"
+          className="container12"
         >
           {/*<h4 style={{color:"white"}}>O'zbekiston Respublikasi bosh prokraturasi</h4>*/}
           {/*<div>*/}
@@ -318,7 +318,7 @@ const Home = ({ t, searchVal }) => {
         </div>
       </div>
       <div id="home-useful-links">
-        <div className="container">
+        <div className="container12">
           <Title text={t("Regulatory base")} />
           <div className="useful-links-body1">
             {/* {
@@ -336,7 +336,7 @@ const Home = ({ t, searchVal }) => {
       </div>
 
       <div id="home-useful-links">
-        <div className="container">
+        <div className="container12">
           <Title text={t("Useful links")} />
           <div className="useful-links-body">
             <FoydaliHavolaSlider />
@@ -373,7 +373,7 @@ const Home = ({ t, searchVal }) => {
           </div>
         </div>
       </div>
-      <div id="adres-procuratura1" className="container">
+      <div id="adres-procuratura1" className="container12">
         <div id="adres-procuratura">
           <Title text={t("Address")} />
           <MapChart />

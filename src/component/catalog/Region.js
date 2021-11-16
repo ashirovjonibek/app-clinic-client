@@ -64,7 +64,7 @@ function Region(props) {
                 request({
                     url: "/api/region"
                 }).then(res => {
-                    setRegions(res._embedded.regions);
+                    setRegions(res.regions);
                 })
             }
         })

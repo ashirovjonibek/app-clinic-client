@@ -50,8 +50,8 @@ const NewPassword = ({t}) => {
     };
 
     return (
-        <div className="newpassword container-fluit">
-            <div className="container">
+        <div className="newpassword container-fluit12">
+            <div className="container12">
                 <Title text="Восстановление аккаунта"/>
                 <div className="form">
                     <FormHelperText style={{fontSize: "20px", color: green[500]}}>{state?.message}</FormHelperText>

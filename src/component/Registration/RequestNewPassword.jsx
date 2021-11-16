@@ -52,8 +52,8 @@ const RequestNewPassword = ({t}) => {
                 <NavCenter />
                 {/*<NavBottom/>*/}
             </div>
-        <div className="newpassword container-fluit" >
-            <div className="container" >
+        <div className="newpassword container-fluit12" >
+            <div className="container12" >
                 <Title text={<span style={{cursor:"pointer"}} onClick={()=>{
                     history.push("/")
                 }}><KeyboardBackspaceIcon titleAccess="Bosh sahifaga"  style={{marginRight:"17px",cursor:"pointer"}}/>{
