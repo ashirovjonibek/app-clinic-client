@@ -6,3 +6,4 @@ export const ROLE="ROLE";
 export const LOADING="LOADING";
 export const IMAGE="IMAGE";
 export const CHANGE_THEME="CHANGE_THEME";
+export const CHANGE_EYE="CHANGE_EYE";

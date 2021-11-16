@@ -235,7 +235,7 @@ input:focus, textarea:focus, select:focus {
 	font-size: 18px;
 	line-height: 20px;
 	font-weight: 500;
-	color: rgb(41, 121, 168) !important;
+	color: rgb(41, 121, 168);
 }
 
 .big_image_new{
