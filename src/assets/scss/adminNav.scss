@@ -12,7 +12,7 @@
     //background-size: 150px 100px;
     background-color: white;
 
-    .navbar {
+    .navbar1 {
       height: 100px;
       display: flex;
       flex-direction: row;
@@ -252,7 +252,7 @@
 
 
 @media (max-width: 950px) {
-  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+  .adminnav .nav-center .navbar1 .header-right .enter .enter-btn {
     min-width: 140px;
 
     span {
@@ -267,7 +267,7 @@
     .nav-center {
       background-position: -14%, 54%, 66%, 115%;
 
-      .navbar {
+      .navbar1 {
         margin: 0 20px;
 
         .header-logo a .logo-right {
@@ -285,7 +285,7 @@
 
 
 @media (max-width: 800px) {
-  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+  .adminnav .nav-center .navbar1 .header-right .enter .enter-btn {
 
   }
   .adminnav {
@@ -295,7 +295,7 @@
       background-position: 115%;
       background-color: white;
 
-      .navbar {
+      .navbar1 {
         margin: 0 10px;
 
         .menu-icon {
@@ -354,7 +354,7 @@
 }
 
 @media (max-width: 576px) {
-  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+  .adminnav .nav-center .navbar1 .header-right .enter .enter-btn {
     span {
       font-size: 10px;
     }
@@ -362,7 +362,7 @@
   }
   .adminnav {
     .nav-center {
-      .navbar {
+      .navbar1 {
         .header-right {
           .header-right-desctop {
             display: none;
@@ -414,7 +414,7 @@
 }
 
 @media (max-width: 480px) {
-  .adminnav .nav-center .navbar .header-right .enter .enter-btn {
+  .adminnav .nav-center .navbar1 .header-right .enter .enter-btn {
     span {
       font-size: 18px !important;
     }
@@ -431,7 +431,7 @@
   .adminnav .nav-center {
     background-position: 180% 25px;
 
-    .navbar .header-right .search-form {
+    .navbar1 .header-right .search-form {
       display: none;
     }
   }

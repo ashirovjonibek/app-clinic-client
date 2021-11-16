@@ -365,7 +365,7 @@ const ProfileSettings = ({t, history}) => {
                 <NavTop/>
                 <div className="nav-center container-fluit">
                     <div className="container">
-                        <div className="navbar">
+                        <div className="navbar2">
                             <div className="menu-icon">
                                 <ArrowBack
                                     fontSize={'large'}

@@ -32,6 +32,8 @@ import NormativHujjatlar from "./normativHujjatlar";
 import NewsContent from "./newsContent";
 import NewFooter from "../Footer/NewFooter";
 import FooterUsaid from "../Footer/FooterUsaid";
+import WhatClinic from "./whatClinic";
+import CellClinic from "./cellClinic";
 
 const NewHome = ({t}) => {
     const container = useRef();
@@ -118,25 +120,25 @@ const NewHome = ({t}) => {
                                                 if (container?.current) {
                                                     container?.current.scrollIntoView({behavior: 'smooth'})
                                                 }
-                                            }} href="#">{t("What is clinic")}</a>
+                                            }} href="#about">{t("What is clinic")}</a>
                                         </li>
                                         <li className="nav-item">
                                             <a style={{
                                                 color: color
-                                            }} className="nav-link" href="#about">
+                                            }} className="nav-link" href="#cell-clinic">
                                                 {t("Goal of the clinic")}
                                             </a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a style={{
-                                                color: color
-                                            }} className="nav-link" onClick={() => {
-                                                if (container?.current) {
-                                                    console.log(container)
-                                                    container?.current.scrollIntoView({behavior: 'smooth'})
-                                                }
-                                            }} href="#practice-areas">{t("Purpose of the clinic")}</a>
-                                        </li>
+                                        {/*<li className="nav-item">*/}
+                                        {/*    <a style={{*/}
+                                        {/*        color: color*/}
+                                        {/*    }} className="nav-link" onClick={() => {*/}
+                                        {/*        if (container?.current) {*/}
+                                        {/*            console.log(container)*/}
+                                        {/*            container?.current.scrollIntoView({behavior: 'smooth'})*/}
+                                        {/*        }*/}
+                                        {/*    }} href="#practice-areas">{t("Purpose of the clinic")}</a>*/}
+                                        {/*</li>*/}
                                         <li className="nav-item">
                                             <a style={{
                                                 color: color
@@ -195,7 +197,7 @@ const NewHome = ({t}) => {
                     src={video}
                 />
             </div>
-            <section id="about" className="about">
+            <section id="about" className="about about1">
                 <div className="container">
                     <ul className="row our-links">
                         <li className="col-12 col-md-4 clearfix equal-hight">
@@ -233,88 +235,10 @@ const NewHome = ({t}) => {
                         </li>
                     </ul>
                 </div>
-                <div className="container">
-                    <div className="row heading heading-icon">
-                        <h2>WHO WE ARE</h2>
-                    </div>
-                    <div className="row">
-                        <div className="col-12 col-md-6 left-block">
-                            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada elementum nisl
-                                at rhoncus. Fusce at est hendrerit, laoreet nulla non, cursus neque. Integer a lacinia
-                                mauris. Duis rutrum urna finibus, dapibus leo cursus, rutrum nibh. Suspendisse
-                                potenti. </i>
-                            <p>Quam velit pretium ante, eu posuere sem massa non libero. Nunc viverra pretium nisi ut
-                                pellentesque. Nullam sem sem, dignissim nec consequat sed, facilisis eu velit. Nunc
-                                pharetra blandit diam commodo consequat. Sed placerat arcu hendrerit lorem finibus, in
-                                posuere arcu ullamcorper. In hac habitasse platea dictumst. Donec scelerisque enim vitae
-                                magna pretium dapibus ac et sapien.Aliquam erat volutpat. Cras eu neque diam. In
-                                pellentesque nunc varius, tempus turpis nec, elementum odio. Pellentesque id metus id
-                                velit efficitur lacinia. Proin tincidunt aliquam sollicitudin.</p>
-                            <p>Fusce sed dignissim sapien. Curabitur ullamcorper tempus elementum. Duis id tristique
-                                erat. Aliquam blandit felis nulla, at dapibus dui mollis id. Curabitur pellentesque
-                                pellentesque elit, vitae vestibulum odio tempus ut.</p>
-                            <a href="who-we-are.html" className="know-more">Know More </a>
-                        </div>
-                        <div className="col-12 col-md-6 right-block">
-                            <img src={placeholder555x493} className="img-responsive" alt=""/>
-                        </div>
-                    </div>
-                </div>
+                <WhatClinic/>
+                <div id="cell-clinic"/>
             </section>
-            <section className="we-are-here">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-7 left-block">
-                            <div className="details">
-                                <h2>We Are here</h2>
-                                <h4>to help you with law quetions</h4>
-                                <p>Quam velit pretium ante, eu posuere sem massa non libero. Nunc viverra pretium nisi
-                                    ut pellentesque. Nullam sem sem, dignissim nec consequat sed, facilisis eu velit.
-                                    Nunc</p>
-                                <a className="free-btn" href="contact-us.html">Free Consultation</a>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-5 right-block cases-box">
-                            <div className="col-12 col-md-6">
-                                <div className="box">
-                                    <div className="icon">
-                                        <img src={sucessCases} alt=""/>
-                                    </div>
-                                    <span className="counter"><CountUp end={scrollEl ? 800 : 0} duration={4}/></span>
-                                    <div className="title">Successful cases</div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <div className="box">
-                                    <div className="icon">
-                                        <img src={clientsIcon} alt=""/>
-                                    </div>
-                                    <span className="counter"><CountUp end={scrollEl ? 1000 : 0} duration={4}/></span>
-                                    <div className="title">TRUSTED CLIENTS</div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <div className="box">
-                                    <div className="icon">
-                                        <img src={awardsIcon} alt=""/>
-                                    </div>
-                                    <span className="counter"><CountUp end={scrollEl ? 2000 : 0} duration={4}/></span>
-                                    <div className="title">HONORS & AWaRDS</div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <div className="box">
-                                    <div className="icon">
-                                        <img src={lawyersIcon} alt=""/>
-                                    </div>
-                                    <span className="counter"><CountUp end={scrollEl ? 600 : 0} duration={4}/></span>
-                                    <div className="title">Qualified Lawyers</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <CellClinic scrollEl={scrollEl}/>
             <section id="practice-areas" className="practice-area padding-lg">
                 <div className="container">
                     <div className="row heading heading-icon">

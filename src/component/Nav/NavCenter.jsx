@@ -29,7 +29,7 @@ const NavCenter = ({t, setSearchVal}) => {
 
         <div style={theme} className="nav-center container-fluit">
             <div className="container">
-                <div className="navbar">
+                <div className="navbar2">
                     <div className="menu-icon" >
                         <MenuIcon
                             fontSize={'large'}

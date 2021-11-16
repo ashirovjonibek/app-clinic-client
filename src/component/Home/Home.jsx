@@ -166,29 +166,17 @@ const Home = ({ t, searchVal }) => {
               </div>
               <div className="list_text">
                 <img src={CircleImg} alt="" />
-                <span>
-                  {t(
-                    "Providing impartial legal assistance to individuals and legal entities"
-                  )}
-                </span>
+                <span>{t("Providing impartial legal assistance to individuals and legal entities")}</span>
               </div>
             </div>
             <div className="text-inform">
               <div className="list_text">
                 <img src={CircleImg} alt="" />
-                <span>
-                  {t(
-                    "Formation and development of practical skills in students"
-                  )}
-                </span>
+                <span>{t("Formation and development of practical skills in students")}</span>
               </div>
               <div className="list_text">
                 <img src={CircleImg} alt="" />
-                <span>
-                  {t(
-                    "Raising the legal awareness and legal culture of the population"
-                  )}
-                </span>
+                <span>{t("Raising the legal awareness and legal culture of the population")}</span>
               </div>
             </div>
           </div>

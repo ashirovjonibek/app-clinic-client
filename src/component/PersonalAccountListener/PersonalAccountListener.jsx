@@ -99,7 +99,7 @@ const PersonalAccountListener = ({t}) => {
                 <NavTop />
                 <div className="nav-center container-fluit">
                     <div className="container">
-                        <div className="navbar">
+                        <div className="navbar2">
                             <div className="menu-icon" >
                                 <MenuIcon
                                     fontSize={'large'}

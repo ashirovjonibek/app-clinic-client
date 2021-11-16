@@ -454,7 +454,7 @@ header.header-small .header-right-top a.free-consultation_btn{
 	position: relative;
 	overflow-x: hidden;
 }
-.banner-outer .banner-image{background: url(../images/placeholder-1920x815.jpg) no-repeat center top / cover; position: relative}
+.banner-outer .banner-image{background: url(../img/home.jpg) no-repeat center top / cover; position: relative}
 .banner-slider .container {
 	display: table;
 	height: 100%;
@@ -596,12 +596,12 @@ header.header-small .header-right-top a.free-consultation_btn{
 /*-----------------------
 	about
 -----------------------*/
-	
-.about {
+
+.about1 {
 	display: block;
 	position: relative;
 	padding: 185px 0 100px 0;
-	
+
 }
 .about ul.our-links {
 	margin:-320px 0 0 0;
@@ -802,11 +802,11 @@ a.know-more:hover{
 	We Are here
 -----------------------*/
 .we-are-here{
-	background: url(../images/placeholder-1920x551.jpg) no-repeat center bottom / cover;
+	background: url(../img/home.jpg) no-repeat center bottom / cover;
 	background-attachment:fixed;
 }
 .we-are-here .left-block .details{ 
-    padding:127px 56px;
+    padding:100px 56px;
 	background: rgba(7,91,141,0.8);
 	width:100%;
 	float:left;
@@ -819,13 +819,23 @@ a.know-more:hover{
 	text-transform:uppercase;
 }
 .we-are-here .left-block .details h4{
-	 color:#fff;
-	 font-size:30px;
-	 font-weight:400;
-	 line-height:48px;
-	 padding-bottom:10px;
-	 font-family: 'Poppins', sans-serif;
+	color:#fff;
+	font-size:30px;
+	font-weight:400;
+	line-height:48px;
+	padding-bottom:10px;
+	font-family: 'Poppins', sans-serif;
 }
+
+.we-are-here .left-block .details h5{
+	color:#fff;
+	font-size:25px;
+	font-weight:400;
+	line-height:38px;
+	padding-bottom:10px;
+	font-family: 'Poppins', sans-serif;
+}
+
 .we-are-here .left-block .details p{
 	 color:#fff;
 	 font-size:18px; 
@@ -841,7 +851,7 @@ a.know-more:hover{
 	font-size:22px; 
 	line-height:30px; 
 	font-weight:500;
-	margin-top:30px;
+	margin-top:50px;
 	float:left;
 	border:2px solid #ff2f2f;
 }
@@ -2006,9 +2016,9 @@ ul.our-strength li .title {
 	display: inline-block;
 	padding: 0 4px;
 }
-.footer ul.follow-us li:first-child {
-	padding-left: 0px;
-}
+/*.footer ul.follow-us li:first-child {*/
+/*	padding-left: 0px;*/
+/*}*/
 .footer ul.follow-us li a {
 	width: 40px;
 	height: 40px;
@@ -2116,11 +2126,11 @@ ul.our-strength li .title {
 	padding-bottom: 40px;
 	text-align:center;
 }
-.copy-rights-section p{ 
-    color:#2a9bdd; 
-	font-size:14px; 
-	line-height:20px; 
-	font-weight:500; 
+.copy-rights-section p{
+    color:#2a9bdd;
+	font-size:14px;
+	line-height:20px;
+	font-weight:500;
 	text-transform:uppercase;
 	width:100%;
 	text-align:center;
@@ -2146,7 +2156,7 @@ a.scroll-top:hover {
 /* ================================================== */
 /* 06. about page */
 /* ================================================== */
-	
+
 .about-right {
 	display: block;
 }
@@ -2249,7 +2259,7 @@ ul.our-strength.opt2 li .title {
 /* ================================================== */
 /* 07. Who we are page */
 /* ================================================== */
-	
+
 .inner-banner {
 	display: block;
 	padding: 260px 0 200px;
@@ -2496,7 +2506,7 @@ a.download-pros:hover, a.download-cert:hover {
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: -2px;
-	
+
 }
 .pagination > li:first-child a i {
 	margin-right: 10px;
@@ -2514,27 +2524,27 @@ a.download-pros:hover, a.download-cert:hover {
 .our-attorneys.attorney-page{
     background:#fff;
 }
-.our-attorney-profile h2{ 
-   font-size:24px; 
-   color:#0267a2; 
-   text-transform:uppercase; 
+.our-attorney-profile h2{
+   font-size:24px;
+   color:#0267a2;
+   text-transform:uppercase;
    padding:0 0 15px;
 }
 .our-attorney-profile h2.title{
 	font-size:30px;
 }
-.our-attorney-profile h6{ 
-   color:#ff2f2f; 
-   font-size:16px; 
+.our-attorney-profile h6{
+   color:#ff2f2f;
+   font-size:16px;
    font-weight:400;
-   font-family: 'Poppins', sans-serif; 
+   font-family: 'Poppins', sans-serif;
    padding:0 0 20px;
 }
 .our-attorney-profile p{
-   color:#2a2a2a; 
-   font-size:14px; 
-   line-height:24px; 
-   font-weight:400; 
+   color:#2a2a2a;
+   font-size:14px;
+   line-height:24px;
+   font-weight:400;
    padding:0 0 18px;
 }
 .our-attorney-profile p strong{
@@ -2598,7 +2608,7 @@ ul.best-award li:first-child{ padding-left:0;}
 /*-----------------------
 	browse teacher
 -----------------------*/
-	
+
 .browse-teacher {
 	display: block;
 }
@@ -2695,7 +2705,7 @@ ul.teachers-follow li:nth-child(3) a {
 /* ================================================== */
 /* 08. course detail page */
 /* ================================================== */
-	
+
 .enquire-wrapper {
 	max-width: 438px;
 }
@@ -2896,7 +2906,7 @@ ul.cert-list li span {
 	background: url(../images/placeholder-148x148.jpg) no-repeat center top / cover;
 }
 .image-center{
-	margin-top: 30px; 
+	margin-top: 30px;
 	margin-bottom:30px;
 }
 .container.case-result-detail.padding-lg {
@@ -2911,7 +2921,7 @@ ul.cert-list li span {
 .red-double-border-bottom {
     padding-bottom: 20px;
 	background: url(../images/red-double-border-bottom.png) no-repeat left bottom;
-}	
+}
 #myTabContent {
     padding-bottom: 50px;
 }
@@ -3131,7 +3141,7 @@ ul.cert-list li span {
 /*-----------------------
 	how to apply
 -----------------------*/
-	
+
 .how-apply {
 	display: block;
 }
@@ -3236,7 +3246,7 @@ ul.cert-list li span {
 /*-----------------------
 	comments section
 -----------------------*/
-	
+
 .comments-wrapper {
 	display: block;
 	background: #f3f6f8;
@@ -3433,7 +3443,7 @@ ul.cert-list li span {
 }
 .form-wrapper input[type="submit"]{
 	color:#fff;
-	font-size:20px; 
+	font-size:20px;
 	line-height:24px;
 	font-weight:500;
 	text-transform:uppercase;
@@ -3660,7 +3670,7 @@ ul.cert-list li span {
 /* ================================================== */
 /* 10. blog page */
 /* ================================================== */
-	
+
 .inner-banner.blog {
 	min-height: 240px;
 	padding: 60px 0;
@@ -3706,7 +3716,7 @@ ul.blog-listing > li h2 {
 ul.blog-listing > li p {
 	padding-bottom: 26px;
 	color: #2a2a2a;
-	font-size:14px; 
+	font-size:14px;
 	line-height:24px;
 	font-weight:400;
 }
@@ -3807,10 +3817,10 @@ ul.post-detail li .label {
 	text-transform: uppercase;
 	line-height:24px;
 }
-.category {
-	display: block;
-	padding-bottom: 70px;
-}
+/*.category {*/
+/*	display: block;*/
+/*	padding-bottom: 70px;*/
+/*}*/
 .category h3 {
 	border-bottom: 1px #bbbbbb solid;
 }
@@ -3959,7 +3969,7 @@ ul.tags-list li a:hover {
 /* ================================================== */
 /* 11. blog detail page */
 /* ================================================== */
-	
+
 .imp-quote {
 	display: block;
 	padding: 25px 20px 0 66px;
@@ -4037,7 +4047,7 @@ ul.blog-listing.detail > li {
 .error-banner{
 	background: url(../images/404-image.png) no-repeat center  top / cover;
 	min-height:600px;
-}	
+}
 .not-found-wrapper {
 	max-width: 660px;
 	margin: 0 auto;
@@ -4055,7 +4065,7 @@ ul.blog-listing.detail > li {
 }
 .not-found-wrapper h2{
 	color:#2a2a2a;
-	font-size:30px; 
+	font-size:30px;
 	line-height:90px;
 	padding: 40px 0 20px;
 }
@@ -4070,7 +4080,7 @@ ul.blog-listing.detail > li {
 /* ================================================== */
 /* 13. FAQ page */
 /* ================================================== */
-	
+
 .faq-wrapper {
 	display: block;
 	background: #f3f6f8;
@@ -4156,7 +4166,7 @@ ul.faq-listing li h2 {
 /* ================================================== */
 /* 14. login page */
 /* ================================================== */
-	
+
 .fill-bg {
 	background: #000;
 }

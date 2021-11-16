@@ -1391,6 +1391,13 @@
         position: absolute;
         cursor: pointer;
       }
+      span.attach-file{
+        top: 10px;
+        right: 36px;
+        label{
+          cursor: pointer;
+        }
+      }
     }
 
     .message-hours {

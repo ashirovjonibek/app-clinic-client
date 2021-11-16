@@ -2,10 +2,11 @@ import React, {useEffect, useRef, useState} from "react";
 import ButtonDefault from "../ButtonDefault";
 import UserName from "../UserName";
 import {withTranslation} from "react-i18next";
-import {Send, Edit, Delete, Clear} from '@material-ui/icons';
+import {Send, AttachFile, Edit, Delete, Clear,Description} from '@material-ui/icons';
 import unRead from '../../assets/icon/done_black_24dp.svg'
 import read from '../../assets/icon/done_all_black_24dp.svg'
 import axios from "axios";
+import {ListItem,ListItemAvatar,Avatar,ListItemText,List} from "@material-ui/core";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
 import {red} from "@material-ui/core/colors";
@@ -24,6 +25,15 @@ const CenterSends = (props) => {
     // const messagesEndRef = useRef(null);
     const [refresh, setRefresh] = useState(false);
     const [edit, setEdit] = useState(false);
+    const [dropFile, setDropFile] = useState({
+        open:false,
+        url:"",
+        type:"",
+        size:0,
+        file:"",
+        message:"",
+        name:""
+    });
     const [message, setMessage] = useState({
         id: "",
         text: ""
@@ -69,7 +79,7 @@ const CenterSends = (props) => {
 
     const getTime = (date) => {
         let s = new Date(date).toLocaleTimeString();
-        return s.replace(s.substring(s.lastIndexOf(":"), s.lastIndexOf(" ")), "")
+        return s.substring(0, s.lastIndexOf(":"))
     }
 
     const defaultDay = (index) => {
@@ -79,6 +89,7 @@ const CenterSends = (props) => {
 
     const getDay = (date) => {
         let s = new Date(date).toDateString();
+        console.log(s)
         return s.substring(0, s.lastIndexOf(" "));
     };
 
@@ -153,6 +164,51 @@ const CenterSends = (props) => {
         }
 
     };
+    const sendFile=(e)=>{
+        let file=e?.target?.files;
+        console.log(file[0]);
+        if (file[0]){
+            let type = file[0]?.type;
+            let s = URL.createObjectURL(file[0]);
+            if (type==="application/pdf"){
+                setDropFile(
+                    {
+                        ...dropFile,
+                        url:s,
+                        file:file[0],
+                        type:"file",
+                        name:file[0]?.name,
+                        size:parseInt(file[0]?.size/(1024)),
+                        open:true
+                    }
+                )
+            }else if (type.startsWith("video")){
+                setDropFile(
+                    {
+                        ...dropFile,
+                        url:s,
+                        file:file[0],
+                        type:"video",
+                        size:parseInt(file[0]?.size/(1024)),
+                        name:file[0]?.name,
+                        open:true
+                    }
+                )
+            }else {
+                setDropFile(
+                    {
+                        ...dropFile,
+                        url:s,
+                        file:file[0],
+                        type:"img",
+                        name:file[0]?.name,
+                        size:parseInt(file[0]?.size/(1024)),
+                        open:true
+                    }
+                )
+            }
+        }
+    }
 
     return (
         <div>
@@ -174,10 +230,11 @@ const CenterSends = (props) => {
                     </div>
                 </div>
 
-                {openMessaage && <div ref={chatContainer} className="message-content">
-                    {
+                {openMessaage && <div style={{position: "relative"}} ref={chatContainer} className="message-content">
+                    <>{
                         messages.length > 0 ? messages.map((item, i) =>
-                                <>
+                                <div>
+
                                     {
                                         defaultDay(i) ?
                                             <p className="messaging-day">
@@ -187,6 +244,7 @@ const CenterSends = (props) => {
                                             </p>
                                             : ""
                                     }
+
                                     <div key={i} className="message-paragrapgh">
 
                                         <p className={item.fromId === me.id ? "me" : ""}>
@@ -214,7 +272,7 @@ const CenterSends = (props) => {
                                             }} className="message-delete"><Delete/></span>
                                         </span> : ""}
                                     </div>
-                                </>
+                                </div>
                             ) :
                             <div style={{
                                 textAlign: "center",
@@ -222,12 +280,72 @@ const CenterSends = (props) => {
                             }}>Habarlar mavjud emas!!!</div>
 
                     }
+
+                    </>
                 </div>}
                 {
                     openMessaage && <div className="message-input">
+                        {dropFile?.open && <div onClick={() => setDropFile({
+                            open:false,url:"",type:"",size:0
+                        })} style={{
+                            position: "absolute",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            bottom: 70+"px",
+                            minHeight: "360px",
+                            width:"100%",
+                            backgroundColor: "rgba(0,0,0,0.3)",
+                            zIndex: "2"
+                        }}>
+                            <div style={{
+                                position: "relative",
+                                width: "60%",
+                                padding:"20px",
+                                borderRadius:"15px",
+                                height: "200px",
+                                backgroundColor: "#ffffff",
+                                zIndex:5
+                            }}>
+                                <div>
+                                    {
+                                        dropFile.type==="file"?
+                                            <List>
+                                                <ListItem style={{cursor:"pointer"}}>
+                                                    <ListItemAvatar style={{position:"relative"}}>
+                                                        <Avatar>
+                                                            <Description />
+                                                        </Avatar>
+                                                    </ListItemAvatar>
+                                                    <div style={{left:"65px",lineClamp:1}}>
+                                                        {
+                                                            dropFile?.name
+                                                        }
+                                                    </div>
+                                                </ListItem>
+                                            </List>:
+                                            dropFile.type==="video"?
+                                                <div>
+                                                    <video width={"100%"} height="140px" style={{position:"relative",objectFit:"cover"}} src={dropFile?.url} autoPlay={false} controls/>
+                                                </div>:
+                                                <div>
+                                                    <img width={"100%"} height={"140px"} src={dropFile?.url} alt=""/>
+                                                </div>
+                                    }
+                                </div>
+                                <div>
 
-                        <span onClick={sendOrEdit}>
-                            <Send style={{
+                                </div>
+                            </div>
+                        </div>}
+                        <span className="attach-file">
+                                <label htmlFor="attachFile"><AttachFile style={{
+                                    fontSize: "30px"
+                                }}/></label>
+                            <input onChange={sendFile} type="file" accept="application/pdf,image/jpeg,video/*" size={25} id="attachFile" style={{width:0}}/>
+                        </span>
+                        <span>
+                            <Send onClick={sendOrEdit} style={{
                                 fontSize: "30px"
                             }}/>
                         </span>

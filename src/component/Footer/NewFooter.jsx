@@ -16,19 +16,23 @@ const NewFooter = ({ t }) => {
                 <h3>{t("Contacts")}</h3>
                 <p>
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
-                  <a target="_blank" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.0329210425926!2d69.28706118608989!3d41.3074374422724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad54d47a56f%3A0x87547e5307b77db5!2z0JPQtdC90LXRgNCw0LvRjNC90LDRjyDQv9GA0L7QutGD0YDQsNGC0YPRgNCwINCg0LXRgdC_0YPQsdC70LjQutC4INCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1624433459932!5m2!1sru!2s">
+                  <a target="_blank" href="https://www.google.com/maps/place/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0+%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B8+%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/@41.307783,69.287713,17z/data=!4m5!3m4!1s0x0:0x87547e5307b77db5!8m2!3d41.3077454!4d69.2877751?hl=ru">
                     {t(
                       "100047, Tashkent, Mirabad district, st. Shakhrisabz, 42"
                     )}
                   </a>
                 </p>
-                <a href="tel:+998712020496">
-                  <i className="fa fa-phone" aria-hidden="true"></i>+998 (71) 202-04-96
-                </a>
-                <a href="mailto:info@proacademy.uz">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
+               <p>
+                 <a href="tel:+998712020496">
+                   <i className="fa fa-phone" aria-hidden="true"></i>+998 (71) 202-04-96
+                 </a>
+               </p>
+                <p>
+                  <a href="mailto:info@proacademy.uz">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
                     info@proacademy.uz
-                </a>
+                  </a>
+                </p>
                 <ul className="follow-us clearfix">
                   <li>
                     <a href="https://www.facebook.com/ProsecutorAcademy">
