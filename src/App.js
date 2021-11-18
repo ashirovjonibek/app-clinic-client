@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useLocation} from 'react-router-dom'
 import Container from './container'
 import $ from "jquery";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 
 function App() {
     const location = useLocation();

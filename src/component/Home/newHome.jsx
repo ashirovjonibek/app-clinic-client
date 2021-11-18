@@ -117,7 +117,7 @@ const NewHome = ({ t }) => {
               >
                 <p className="academy-name" style={{ fontSize: "20px",lineHeight: "24px" }}>
                   {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
-                  <p style={{ fontSize: "18px" }}>Yuridik klinikasi</p>
+                  <p style={{ fontSize: "18px" }}>{t("Legal clinic")}</p>
                 </p>
               </div>
             </div>
@@ -262,9 +262,9 @@ const NewHome = ({ t }) => {
                 style={{ margin: "0 !important", width: "100%" }}
               >
                 <h1 className="animated fadeInLeft" style={{ width: "100%" }}>
-                  O'zbekiston Respublikasi Bosh prokratura akademyasi
+                  {t("Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}
                 </h1>
-                <p className="animated fadeInLeft">Yuridik klinikasi</p>
+                <p className="animated fadeInLeft">{t("Legal clinic")}</p>
               </div>
             </div>
           </div>
@@ -291,9 +291,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Malakali mutahasislar</h3>
+                  <h3>{t("Qualified professionals")}</h3>
                   <p>
-                    O'zbeksiton Respublikasi Bosh prokraturasi akademyasining malakali hodimlaridan yuridik maslahatlar{" "}
+                    {t("Legal advice from qualified staff of the Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}{" "}
                   </p>
                 </div>
               </div>
@@ -308,9 +308,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Bepul yuridik maslahatlar</h3>
+                  <h3>{t("Free legal advice")}</h3>
                   <p>
-                    Bosh Prokratura Akademyasi klinikasi hodimlari tomonidan berilgan maslhatlarning barchasi mutlaqo bepuldir{" "}
+                    {t("All advice given by the staff of the General Prosecutor's Office Clinic is absolutely free")}{" "}
                   </p>
                 </div>
               </div>
@@ -325,9 +325,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Yuridik savollarga javoblar</h3>
+                  <h3>{t("Answers to legal questions")}</h3>
                   <p>
-                    Uzulksiz va doimiy yuridik savollarga malakali mutahasislar tomonidan javoblar. Yuridik murojaatlar soni cheklanmagan{" "}
+                    {t("Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited")}{" "}
                   </p>
                 </div>
               </div>

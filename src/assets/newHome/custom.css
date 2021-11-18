@@ -675,6 +675,7 @@ header.header-small .header-right-top a.free-consultation_btn{
 	width:100%;
 	background:#025a8e;
 	padding: 30px;
+	height: 350px;
 }
 .about ul.our-links li p {
 	padding-bottom: 0px;
@@ -4049,6 +4050,15 @@ ul.half-width li{
 /* ================================================== */
 
 @media only screen and (max-width: 1279px){
+
+	/* .about ul.our-links li .box{ 
+    float:left;
+	width:100%;
+	background:#025a8e;
+	padding: 30px;
+	height: 350px;
+} */
+
 .navbar-dark .navbar-nav .nav-link {
     font-size: 14px;
     color: #2a2a2a;
@@ -4122,6 +4132,7 @@ ul.half-width li{
 .we-are-here .right-block .box .counter{
 	font-size:28px;
 	line-height:35px;
+	height: 300px;
 }
 .we-are-here .right-block.cases-box {
     padding: 100px 0 0 35px;
@@ -4914,6 +4925,13 @@ ul.blog-listing > li .read-more{
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+	.about ul.our-links li .box{ 
+    float:left;
+		width:100%;
+		background:#025a8e;
+		padding: 30px;
+		height: 280px;
+}
 	header{
 		position:static;
 	}
@@ -6058,5 +6076,14 @@ ul.blog-listing > li .read-more{
 	.login-wrapper .btn {
 		padding: 6px 12px;
 		font-size: 12px;
+	}
+}
+@media (max-width: 300px) {
+	.about ul.our-links li .box{ 
+    float:left;
+		width:100%;
+		background:#025a8e;
+		padding: 30px;
+		height: 370px;
 	}
 }

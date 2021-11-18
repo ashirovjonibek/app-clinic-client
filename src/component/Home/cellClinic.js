@@ -64,7 +64,7 @@ const CellClinic = ({scrollEl, t,style}) => {
                                     <img src={sucessCases} alt=""/>
                                 </div>
                                 <span className="counter"><CountUp end={scrollEl ? sts?.all : 0} duration={duration}/></span>
-                                <div className="title">Umumiy arizalar</div>
+                                <div className="title">{t("General applications")}</div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6">
@@ -73,7 +73,7 @@ const CellClinic = ({scrollEl, t,style}) => {
                                     <img src={clientsIcon} alt=""/>
                                 </div>
                                 <span className="counter"><CountUp end={scrollEl ? sts?.inprocces : 0} duration={duration}/></span>
-                                <div className="title">Jarayonda</div>
+                                <div className="title">{t("In progress")}</div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6">
@@ -82,7 +82,7 @@ const CellClinic = ({scrollEl, t,style}) => {
                                     <img src={awardsIcon} alt=""/>
                                 </div>
                                 <span className="counter"><CountUp end={scrollEl ? sts?.complete : 0} duration={duration}/></span>
-                                <div className="title">Bajarilgan</div>
+                                <div className="title">{t("Done")}</div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6">
@@ -91,7 +91,7 @@ const CellClinic = ({scrollEl, t,style}) => {
                                     <img src={lawyersIcon} alt=""/>
                                 </div>
                                 <span className="counter"><CountUp end={scrollEl ? sts?.applicants : 0} duration={duration}/></span>
-                                <div className="title">foydalanuvchilar</div>
+                                <div className="title">{t("Users")}</div>
                             </div>
                         </div>
                     </div>
