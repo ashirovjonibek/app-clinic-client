@@ -46,11 +46,12 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper/core";
 import axios from "axios";
 import { API_URL } from "../../utils/constant";
 import { withTranslation } from "react-i18next";
+import { Avatar, Card } from "antd";
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-function PopularQuestionSlider({ t }) {
+function PopularQuestionSlider({ t,style }) {
   const [top, setTop] = useState([]);
 
   useEffect(() => {
@@ -70,9 +71,19 @@ function PopularQuestionSlider({ t }) {
     });
   };
 
+  function stringToHslColor(str, s, l) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let h = hash % 360;
+    return 'hsl('+h+', '+s+'%, '+l+'%)';
+}
+
   return (
     <>
-      <section className="testimonial padding-lg">
+      <section style={style} className="testimonial padding-lg">
         <div className="container">
           <div className="row heading heading-icon">
             <h2>{t("Popular questions")}</h2>
@@ -90,50 +101,34 @@ function PopularQuestionSlider({ t }) {
               pagination={false}
               navigation={true}
             >
-              <ul className="testimonial-slide">
+              <div className="testimonial-slide">
                 {top &&
                   top?.map((item, i) => {
                     return (
-                      <SwiperSlide key={i}>
-                        <li className="px-5 mt-5 pt-4">
-                        {/* <span>{item?.title}</span> */}
-                          <p className="line_count_popular">{item.description}</p>
-                          <p>
-                            <span>{item?.applicant?.fullName}</span>
-                          </p>
-                        </li>
-                        {/* <div>
-                  <UserName
-                    text={item?.applicant?.fullName}
-                    avatar={item?.applicant?.image}
-                  />
-                  <div className="document-text">
-                    <div className="document-text-title">
-                      <h4>{t("Subject of the appeal")}:</h4>
-                      <p>{item.title}</p>
-                    </div>
-                    <hr
-                      style={{
-                        backgroundColor: "rgba(0,0,0,0.3)",
-                        height: "1px",
-                      }}
-                    />
-                    <div
-                      style={{
-                        maxHeight: "150px",
-                        wordBreak: "break-all",
-                        overflow: "auto",
-                      }}
-                      className="document-text-item"
-                    >
-                      {item.description}
-                    </div>
-                  </div>
-                </div> */}
+                      <SwiperSlide className="container" key={i}>
+                        <Card
+                         style={
+                          {
+                            minHeight:"350px",
+                            maxHeight:"350px",
+                            overflow:"auto"
+                          
+                          }
+                        } title={
+                          <div>
+                            <Avatar className="m-0 p-0" style={{backgroundColor:item?.applicant?.fullName&&stringToHslColor(item?.applicant?.fullName,50,50),float:'left'}} size={45}>{item?.applicant?.image?
+                            <img src={API_URL+item?.applicant?.image} alt="" />
+                            :item?.applicant?.fullName[0].toUpperCase()}</Avatar>
+                            <span className="d-flex p-2 justify-content-center aligin-items-center" style={{backgroundColor:"",float:'left'}} >{item?.applicant?.fullName}</span>
+                          </div>
+                        } className="shadow m-2">
+
+                          <p className="line_count_popular text-justify">{item.description}</p>
+                        </Card>
                       </SwiperSlide>
                     );
                   })}
-              </ul>
+              </div>
             </Swiper>
           </div>
         </div>

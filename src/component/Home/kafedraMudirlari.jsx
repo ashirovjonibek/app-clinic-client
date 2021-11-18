@@ -1,8 +1,8 @@
 import React from "react";
 
-const Mudirlar = () => {
+const Mudirlar = ({style}) => {
   return (
-    <section className="our-attorneys padding-lg">
+    <section  style={style} className="our-attorneys padding-lg">
       <div className="container">
         <div className="row heading heading-icon">
           <h2>Our Attorneys</h2>

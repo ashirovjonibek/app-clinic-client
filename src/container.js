@@ -9,25 +9,16 @@ import {IMAGE, LOADING, ME_DATA, ME_EMAIL, ME_FULL_NAME, ME_USERNAME, ROLE} from
 import {Loading} from "./component/catalog/Loading";
 import {allRoles} from "./routes/authRoles";
 import Footer from "./component/Footer/Footer";
-import FooterUsaid from "./component/Footer/FooterUsaid";
+import 'antd/dist/antd.css';
 
-const Container=()=>{
+const Container = () => {
     const [i18] = useState(localStorage.getItem('I18N_LANGUAGE'));
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch()
     const loading = useSelector(state => state.loading);
-    const path=window.location.pathname;
+    const path = window.location.pathname;
     console.log(path);
-
-    // useEffect(()=>{
-    //     axios({
-    //         method: 'get',
-    //         url:'https://proacademy.uz/uz-cyr/post'
-    //     }).then((re)=>{
-    //         console.log(re)
-    //     })
-    // },[]);
 
     const [offset, setOffset] = useState(0);
 
@@ -88,10 +79,10 @@ const Container=()=>{
             {
                 loading.isLoading ? <Loading/> :
                     <div>
-                        <Routes/>
-                        {
-                            path==="/"?"":<Footer/>
-                        }
+                            <Routes/>
+                            {
+                                path === "/" ? "" : <Footer/>
+                            }
                     </div>
             }
         </>

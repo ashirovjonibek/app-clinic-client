@@ -11,7 +11,7 @@ import {API_URL} from "../../utils/constant";
 
 let duration=1
 
-const CellClinic = ({scrollEl, t}) => {
+const CellClinic = ({scrollEl, t,style}) => {
     const [sts, setSts] = useState({});
 
     useEffect(()=>{
@@ -24,8 +24,8 @@ const CellClinic = ({scrollEl, t}) => {
     },[]);
 
     return (
-        <section className="we-are-here">
-            <div className="container">
+        <section style={style} className="we-are-here">
+            <div style={style} className="container">
                 <div className="row">
                     <div className="col-12 col-md-7 left-block">
                         <div className="details">

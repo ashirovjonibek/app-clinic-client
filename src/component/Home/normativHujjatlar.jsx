@@ -14,7 +14,7 @@ import i18next from "i18next";
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-function NormativHujjatlar({ t }) {
+function NormativHujjatlar({ t,style }) {
   const [link, setLinks] = useState([]);
   const [countView, setcountView] = useState(3);
 
@@ -50,8 +50,8 @@ function NormativHujjatlar({ t }) {
 
   return (
     <div>
-      <section className="logos">
-        <div className="container">
+      <section style={style} className="logos">
+        <div style={style} className="container">
           <Swiper
             slidesPerView={countView}
             centeredSlides={true}
@@ -79,7 +79,7 @@ function NormativHujjatlar({ t }) {
                                 alt=""
                               />
                             </div>
-                            <div className="col-7">
+                            <div className="col-7 d-flex justify-content-center align-items-center">
                               <p>{item.name[i18next.language]}</p>
                             </div>
                           </div>

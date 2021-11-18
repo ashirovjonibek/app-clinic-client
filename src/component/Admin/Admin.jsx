@@ -152,8 +152,8 @@ const Admin = ({t}) => {
                 </div>
             </div>
             <div className="adminnav">
-                <div className="nav-center container-fluit" style={{position: 'fixed', top: '0px', zIndex:1}}>
-                    <div className="navbar">
+                <div className="nav-center container-fluit12" style={{position: 'fixed', top: '0px', zIndex:1}}>
+                    <div className="navbar1">
                         <div className="menu-icon">
                             <MenuIcon
                                 fontSize={'large'}
@@ -202,8 +202,8 @@ const Admin = ({t}) => {
             </div>
 
 
-            <div className="container-fluit admin-body">
-                <div className="container" style={{padding: '60px 0'}}>
+            <div className="container-fluit12 admin-body">
+                <div className="container12" style={{padding: '60px 0'}}>
                     <div className="sitebar-elements searchdiv ">
                         <form role="search" method="get" action="#" className="search-form">
                             <input type="text" placeholder={t("Search") + "..."}

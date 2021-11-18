@@ -6,6 +6,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import PdfViewer from "../catalog/pdfViewer";
+import Appeals from "../catalog/appeal";
 
 const ContainerAppeals=({path,status})=>{
     const [items,setItems]=useState([]);
@@ -40,6 +41,10 @@ const ContainerAppeals=({path,status})=>{
 
     return(
         <>
+        <Appeals/>
+        <Appeals/>
+        <Appeals/>
+        <Appeals/>
             {
                 loading?<Loading/>:items.length>0?<div style={{marginBottom:"15px"}}>
                     {

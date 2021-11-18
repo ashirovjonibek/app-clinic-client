@@ -2,12 +2,12 @@ import React from "react";
 import { withTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-const NewFooter = ({ t }) => {
+const NewFooter = ({ t,style }) => {
   let date = new Date();
   const theme = useSelector((state) => state.theme);
 
   return (
-    <footer className="footer footer12">
+    <footer style={style} className="footer footer12">
       <div className="footer-bottom">
         <div className="container">
           <div className="row">

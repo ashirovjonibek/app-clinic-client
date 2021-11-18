@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import $ from "jquery";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import "../../assets/aa/bootstrap/css/bootstrap.min.css";
 import "../../assets/aa/datepicker/css/datepicker.css";
 import "../../assets/aa/font-awesome/css/font-awesome.min.css";
@@ -34,28 +34,35 @@ import NewFooter from "../Footer/NewFooter";
 import FooterUsaid from "../Footer/FooterUsaid";
 import WhatClinic from "./whatClinic";
 import CellClinic from "./cellClinic";
-import { useDispatch } from "react-redux";
-import { CHANGE_EYE } from "../../redux/me/actionType";
+import {useDispatch, useSelector} from "react-redux";
+import { CHANGE_EYE, CHANGE_SCROLL } from "../../redux/me/actionType";
+import DropDown from "./dropdown/dropdown";
+import {Button} from 'antd'
 
 const NewHome = ({ t }) => {
   const container = useRef();
   const [collapse, setCollapse] = useState(false);
   const [scrollEl, setScrollEl] = useState(false);
+  const [path,setPath]=useState(window.location.href);
   const [headerClass, setHeaderClass] = useState("");
   const [color, setColor] = useState("#f2f2f2");
   const [isMobile, setIsMobile] = useState(false);
-  const dispatch = useDispatch()
+  const theme=useSelector(state => state.theme);
+  const dispatch = useDispatch();
+  const history=useHistory();
+
+  console.log(path)
 
   useEffect(() => {
     if (window.innerWidth < 768) {
-      setColor("#2a2a2a");
+      setColor(theme?.eye=="3"?"yellow":"#2a2a2a");
       setIsMobile(true);
     } else {
       setIsMobile(false);
     }
     window.addEventListener("resize", () => {
       if (window.innerWidth < 768) {
-        setColor("#2a2a2a");
+        setColor(theme?.eye=="3"?"yellow":"#2a2a2a");
         setIsMobile(true);
       } else {
         setIsMobile(false);
@@ -69,11 +76,11 @@ const NewHome = ({ t }) => {
       onScroll={(e) => {
         if (e.target.scrollTop > 1) {
           setHeaderClass("header-small");
-          setColor("#2a2a2a");
+          setColor(theme?.eye=="3"?"yellow":"#2a2a2a");
         } else {
           if (window.innerWidth > 768) {
             setHeaderClass("");
-            setColor("#f2f2f2");
+            setColor(theme?.eye=="3"?"yellow":"#f2f2f2");
           }
         }
         if (e.target.scrollTop > 792 && e?.target?.scrollTop < 2600) {
@@ -81,13 +88,14 @@ const NewHome = ({ t }) => {
         } else {
           setScrollEl(false);
         }
+        dispatch({type:CHANGE_SCROLL,data:e.target.scrollTop})
       }}
       style={{
         height: "100vh",
         overflow: "auto",
       }}
     >
-      <header id="header" className={headerClass}>
+      <header style={theme} id="header" className={headerClass}>
         <div className="container header-middle">
           <div className="row">
             <div className="col-12 col-md-5 row logo">
@@ -103,14 +111,14 @@ const NewHome = ({ t }) => {
                   </a>
                 </div>
               )}
-              <div
+              <div id="academy-name"
                 className={isMobile ? "col-12" : "col-9"}
-                style={{ color: color, lineHeight: "25px" }}
+                style={{ color: color}}
               >
-                <p className="" style={{ fontSize: "20px" }}>
-                  O'zbekiston Respublikasi Bosh prokratura akademyasi
+                <p className="academy-name" style={{ fontSize: "20px",lineHeight: "24px" }}>
+                  {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
+                  <p style={{ fontSize: "18px" }}>Yuridik klinikasi</p>
                 </p>
-                <p>Yuridik klinikasi</p>
               </div>
             </div>
             <div className="col-12 col-md-7 header-right-bottom">
@@ -124,18 +132,7 @@ const NewHome = ({ t }) => {
                   202-04-96
                 </a>
 
-                <select
-                  style={{ backgroundColor: "rgba(0,0,0,0)", color: color }}
-                //   value={selectedLang}
-                  onChange={(e) => dispatch({type:CHANGE_EYE,data:e.target.value})}
-                >
-                  <option className="text-dark" value="1">Odatiy</option>
-                  <option className="text-dark" value="2">Oq qora</option>
-                  <option className="text-dark" style={{borderBottom:"solid 1px rgba(0,0,0,0.3)"}} value="3">Qora sariq</option>
-                  <hr />
-                  <option className="text-dark" value="4">Rasmsiz</option>
-                </select>
-
+                <DropDown color={color}/>
                 <LangContener
                   className={isMobile ? "mb-2" : ""}
                   color={color}
@@ -201,16 +198,6 @@ const NewHome = ({ t }) => {
                         {t("Goal of the clinic")}
                       </a>
                     </li>
-                    {/*<li className="nav-item">*/}
-                    {/*    <a style={{*/}
-                    {/*        color: color*/}
-                    {/*    }} className="nav-link" onClick={() => {*/}
-                    {/*        if (container?.current) {*/}
-                    {/*            console.log(container)*/}
-                    {/*            container?.current.scrollIntoView({behavior: 'smooth'})*/}
-                    {/*        }*/}
-                    {/*    }} href="#practice-areas">{t("Purpose of the clinic")}</a>*/}
-                    {/*</li>*/}
                     <li className="nav-item">
                       <a
                         style={{
@@ -225,7 +212,7 @@ const NewHome = ({ t }) => {
                             });
                           }
                         }}
-                        href="#case-result"
+                        href="#popular-questions"
                       >
                         {t("Popular questions")}
                       </a>
@@ -244,24 +231,20 @@ const NewHome = ({ t }) => {
                             });
                           }
                         }}
-                        href="#attorney"
+                        href="#news"
                       >
-                        {t("Regulatory base")}
+                        {t("News")}
                       </a>
                     </li>
                     <li className="nav-item">
-                      <Link
-                        style={{
-                          backgroundColor: " #00202f",
-                          marginTop: "6px",
-                          padding: "6px 8px",
-                          color: "white",
+                      <Button className="nav-link-login text-uppercase"
+                        type="primary"
+                        onClick={()=>{
+                          history.push("/auth/login")
                         }}
-                        className="nav-link"
-                        to="/auth/login"
                       >
                         {t("Login")}
-                      </Link>
+                      </Button>
                     </li>
                   </ul>
                 </div>
@@ -270,7 +253,7 @@ const NewHome = ({ t }) => {
           </div>
         </div>
       </header>
-      <div className="banner-outer">
+      <div style={theme} className="banner-outer">
         <div className="banner-image">
           <div className="slide1" style={{ width: "100%" }}>
             <div className="container" style={{ width: "100% !important" }}>
@@ -295,7 +278,7 @@ const NewHome = ({ t }) => {
           src={video}
         />
       </div>
-      <section id="about" className="about about1">
+      <section style={theme} id="about" className="about about1">
         <div className="container">
           <ul className="row our-links">
             <li className="col-12 col-md-4 clearfix equal-hight">
@@ -308,10 +291,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Request A Lawyer</h3>
+                  <h3>Malakali mutahasislar</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus facilisis, arcu tristique suscipit convallis,{" "}
+                    O'zbeksiton Respublikasi Bosh prokraturasi akademyasining malakali hodimlaridan yuridik maslahatlar{" "}
                   </p>
                 </div>
               </div>
@@ -326,10 +308,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Case Investigation</h3>
+                  <h3>Bepul yuridik maslahatlar</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus facilisis, arcu tristique suscipit convallis,{" "}
+                    Bosh Prokratura Akademyasi klinikasi hodimlari tomonidan berilgan maslhatlarning barchasi mutlaqo bepuldir{" "}
                   </p>
                 </div>
               </div>
@@ -344,10 +325,9 @@ const NewHome = ({ t }) => {
                   />
                 </div>
                 <div className="detail">
-                  <h3>Search Directory</h3>
+                  <h3>Yuridik savollarga javoblar</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus facilisis, arcu tristique suscipit convallis,{" "}
+                    Uzulksiz va doimiy yuridik savollarga malakali mutahasislar tomonidan javoblar. Yuridik murojaatlar soni cheklanmagan{" "}
                   </p>
                 </div>
               </div>
@@ -357,8 +337,8 @@ const NewHome = ({ t }) => {
         <WhatClinic />
         <div id="cell-clinic" />
       </section>
-      <CellClinic scrollEl={scrollEl} />
-      <section id="practice-areas" className="practice-area padding-lg">
+      <CellClinic style={theme} scrollEl={scrollEl} />
+      <section style={theme} id="practice-areas" className="practice-area padding-lg">
         <div className="container">
           <div className="row heading heading-icon">
             <h2>Practice Area</h2>
@@ -463,11 +443,13 @@ const NewHome = ({ t }) => {
           </ul>
         </div>
       </section>
-      <Mudirlar />
-      <PopularQuestionSlider />
-      <NormativHujjatlar />
-      <NewsContent />
-      <NewFooter />
+      <Mudirlar style={theme} />
+      <div id="popular-questions"/>
+      <PopularQuestionSlider style={theme} />
+      <NormativHujjatlar style={theme} />
+      <div id="news"/>
+      <NewsContent style={theme} />
+      <NewFooter style={theme} />
       <FooterUsaid />
       <a href="#" className="scroll-top">
         <i className="fa fa-chevron-up" aria-hidden="true"></i>

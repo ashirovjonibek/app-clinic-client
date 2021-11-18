@@ -1798,7 +1798,6 @@ ul.our-strength li .title {
 .testimonial .wrapper:before {
 	left: 50%;
 	top: 0;
-	content: "\e90d";
 	margin-left: -20px;
 }
 .testimonial .wrapper:after {

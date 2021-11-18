@@ -15,7 +15,7 @@ import { DateRange, Visibility } from "@material-ui/icons";
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-function NewsContent({ t }) {
+function NewsContent({ t,style }) {
 
   const [news, setNews] = useState([]);
   const [right, setRight] = useState([]);
@@ -60,11 +60,11 @@ function NewsContent({ t }) {
   // };
 
   return (
-    <div>
+    <div style={style}>
       <section className="news-events padding-lg">
         <div className="container">
           <div className="row heading heading-icon">
-            <h2>OUR FIRM NEWS</h2>
+            <h2>{t("News")}</h2>
           </div>
           <div className="row">
             <div className="col-12 col-md-8 left-block">
@@ -80,9 +80,6 @@ function NewsContent({ t }) {
                   />
                   }
                 </figure>
-                <div className="date">
-                  <span>05</span>Jan 2020
-                </div>
                 <h2 >
                   <a href={`https://proacademy.uz/ru/news/view?alias=${news[0] && news[0]?.id}`} target="_blank">{news[0] && getLangContent(news[0]?.title)}</a>
                 </h2>
@@ -93,13 +90,13 @@ function NewsContent({ t }) {
                   </span>
                 </div>
                 <p>
-                  Quam velit pretium ante, eu posuere sem massa non libero. Nunc
-                  viverra pretium nisi ut pellentesque. Nullam sem sem,
-                  dignissim nec consequat sed, facilisis eu velit, [...]
+                  {
+                    news[0]?.short_content&&getLangContent(news[0]?.short_content)
+                  }
                 </p>
-                <a href="#" className="read-more">
-                  Know More{" "}
-                </a>
+                {/*<a href="#" className="read-more">*/}
+                {/*  Know More{" "}*/}
+                {/*</a>*/}
               </div>
             </div>
             <div className="col-12 col-md-4 right-block">
@@ -114,7 +111,7 @@ function NewsContent({ t }) {
                       } alt="" />
                       </figure>
                       <div className="news-list-details">
-                        <span className="line_count_two">{getLangContent(item?.title)}</span>
+                        <a target="_blank" href={`https://proacademy.uz/ru/news/view?alias=${item?.id}`} className="line_count_two">{getLangContent(item?.title)}</a>
                         <div className="meta">
                           <DateRange className=""/>
                           <span>
@@ -128,21 +125,6 @@ function NewsContent({ t }) {
                     </li>
                   ))
                 }
-                {/* <li>
-                  <figure>
-                    <img src="images/placeholder-115x92.jpg" alt="" />
-                  </figure>
-                  <div className="news-list-details">
-                    <h2>Nunc condimentum nunc urna</h2>
-                    <div className="meta">
-                      <i className="fa fa-user" aria-hidden="true"></i>By John
-                      Smith
-                      <span>
-                        <i className="fa fa-comment" aria-hidden="true"></i>32
-                      </span>
-                    </div>
-                  </div>
-                </li> */}
               </ul>
             </div>
           </div>
