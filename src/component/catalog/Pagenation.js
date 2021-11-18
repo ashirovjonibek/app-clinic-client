@@ -14,7 +14,7 @@ const CustomPagination=(props)=> {
                     if (props?.active===(i+1)){
                         a.push({
                             page:i+1,
-                            classPage:"active"
+                            classPage:"active-page"
                         })
                     }else {
                         a.push({
@@ -29,7 +29,7 @@ const CustomPagination=(props)=> {
                         a.push(
                             {
                                 page:props?.active,
-                                classPage:"active"
+                                classPage:"active-page"
                             },
                             {
                                 page:props?.active+1,
@@ -50,7 +50,7 @@ const CustomPagination=(props)=> {
                             },
                             {
                                 page:props?.active,
-                                classPage:"active"
+                                classPage:"active-page"
                             },
                             {
                                 page:props?.active+1,
@@ -70,7 +70,7 @@ const CustomPagination=(props)=> {
                             },
                             {
                                 page:props?.active,
-                                classPage:"active"
+                                classPage:"active-page"
                             },
                         )
                     }

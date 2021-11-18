@@ -28,13 +28,13 @@
     text-decoration: none;
 }
 
-.pagination1 span.active {
+.pagination1 span.active-page {
     background-color: #4CAF50;
     color: white;
     border-radius: 5px;
 }
 
-.pagination1 span:hover:not(.active) {
+.pagination1 span:hover:not(.active-page) {
     background-color: #ddd;
     border-radius: 5px;
 }
