@@ -13,6 +13,8 @@ import ContentTop from "../ContentTop";
 import {blue} from "@material-ui/core/colors";
 import FileReader from "../catalog/FileReader";
 import PdfViewer from "../catalog/pdfViewer";
+import Appeals from "../catalog/appeal/appeal";
+import { types } from "../catalog/appeal/type";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -102,7 +104,9 @@ const YourAppealSection = (props) => {
                         </div> :
                         <>
                             {appeal && appeal.map((item, i) =>
-                                <div className="content" key={i} value={item?.id}>
+                                <>
+                                <Appeals item={item} type={types.newAppFromApplicant}/>
+                                {/* <div className="content" key={i} value={item?.id}>
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>{props.t("Subject of the appeal")}:</h4>
@@ -177,7 +181,8 @@ const YourAppealSection = (props) => {
                                         </ul>
                                     </div>
                                     <CheckboxConfidensial top={item?.top}/>
-                                </div>
+                                </div> */}
+                                </>
                             )}
 
                             {/* <UserAppealItem /> */}
@@ -201,7 +206,7 @@ const YourAppealSection = (props) => {
                             </div>
                         </>
             }
-            <Dialog fullWidth={true} open={player.open}
+            {/* <Dialog fullWidth={true} open={player.open}
                     onClose={() => setPlayer({open: false, resource: "", name: ""})}>
                 <div style={{
                     width: "100%",
@@ -234,7 +239,7 @@ const YourAppealSection = (props) => {
                     }
                 </div>
             </Dialog>
-            <PdfViewer url={url} setOpen={setOpen} setUrl={setUrl} open={open}/>
+            <PdfViewer url={url} setOpen={setOpen} setUrl={setUrl} open={open}/> */}
         </div>
     );
 }

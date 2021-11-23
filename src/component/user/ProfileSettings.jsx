@@ -420,7 +420,7 @@ const ProfileSettings = ({t, history}) => {
                     </div>
 
                     <div className="flexUchun">
-                        <div className="dashboard-container12">
+                        <div className="dashboard-container">
                             <div className="profileImage">
                                 {values.imageId || values.image ? <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px"
                                                                        src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}

@@ -6,7 +6,8 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import CustomPagination from "../catalog/Pagenation";
 import {Loading} from "../catalog/Loading";
 import PdfViewer from "../catalog/pdfViewer";
-import Appeals from "../catalog/appeal";
+import Appeals from "../catalog/appeal/appeal";
+import { types } from "../catalog/appeal/type";
 
 const ContainerAppeals=({path,status})=>{
     const [items,setItems]=useState([]);
@@ -41,15 +42,16 @@ const ContainerAppeals=({path,status})=>{
 
     return(
         <>
-        <Appeals/>
-        <Appeals/>
-        <Appeals/>
-        <Appeals/>
+        
+        
             {
                 loading?<Loading/>:items.length>0?<div style={{marginBottom:"15px"}}>
+
                     {
-                        items.map((item,i)=>
-                        <AppealSections
+                        items&&items.map((item,i)=>
+                        <>
+                        <Appeals item={item} type={types.all}/><hr style={{border:"1px solid"}}/>
+                        {/* <AppealSections
                             setUrl={setUrl}
                             setOpen={setOpen}
                             item={path==="/application/get-delayed-app"?item?.documentResponse:item}
@@ -59,7 +61,8 @@ const ContainerAppeals=({path,status})=>{
                             key={i}
                             setRefr={setRef}
                             refr={ref}
-                        />
+                        /> */}
+                        </>
                         )
                     }
                 </div>:<div style={{textAlign:"center",marginTop:"25px"}}>Arizalar mavjud emas!!!</div>

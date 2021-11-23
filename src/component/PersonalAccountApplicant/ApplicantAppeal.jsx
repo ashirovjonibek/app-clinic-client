@@ -209,7 +209,7 @@ const ApplicantAppeal = (props) => {
                             {
                                 values.videoId === "" ?
                                     <button onClick={() => {
-                                        navigator.mediaDevices.getUserMedia({ video: true })
+                                        navigator?.mediaDevices?.getUserMedia({ video: true })
                                             .then(stream => {
                                                 console.log(stream)
                                                 setRecord({
@@ -245,7 +245,7 @@ const ApplicantAppeal = (props) => {
                         <div>
                             {
                                 values.audioId === "" ? <button onClick={() => {
-                                        navigator.mediaDevices.getUserMedia({ audio: true })
+                                        navigator?.mediaDevices?.getUserMedia({ audio: true })
                                             .then(stream => {
                                                 console.log(stream)
                                                setRecord({

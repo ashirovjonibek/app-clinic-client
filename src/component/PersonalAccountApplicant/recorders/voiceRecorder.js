@@ -77,12 +77,6 @@ const VoiceRecorder = (props) => {
         setAudioDetails(data);
     };
 
-
-    const handleAudioUpload=(file)=> {
-        console.log(file);
-    };
-
-
     const handleReset=()=> {
         const reset = {
             url: null,
@@ -104,6 +98,7 @@ const VoiceRecorder = (props) => {
                 title={"Ovozni yozib olish"}
                 audioURL={audioDetails.url}
                 showUIAudio
+                duration={5000}
                 handleAudioStop={data => handleAudioStop(data)}
                 handleAudioUpload={data => sendAudio(data)}
                 handleReset={() => handleReset()}

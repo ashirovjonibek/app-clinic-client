@@ -75,6 +75,7 @@ const CustomVideoRecorder = (props) => {
                         setVideo(e);
                         console.log(e)
                     }}
+                    timeLimit={5000}
                     chunkSize={250}
                     constraints={{
                         audio: true,
