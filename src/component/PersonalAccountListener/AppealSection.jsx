@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import {withTranslation} from "react-i18next";
 import AttachAnswer from "./AttachAnswer";
 import PdfViewer from "../catalog/pdfViewer";
+import {Badge} from "antd";
 
 const AppealSection = (props) => {
     let token = localStorage.getItem(STORAGE_NAME);
@@ -20,6 +21,8 @@ const AppealSection = (props) => {
     const [nS, setNs] = useState(1);
     const [url,setUrl]=useState("");
     const [open,setOpen]=useState(false);
+    const [countDenied,setDenied]=useState();
+    const [countIn,setIn]=useState();
 
     useEffect(() => {
         setLoading(true)
@@ -34,7 +37,17 @@ const AppealSection = (props) => {
                 console.log(r);
                 setTotal(r.data.totalPages);
                 setInpApps(r.data.object);
+                setIn(r?.data?.object?.length);
                 setLoading(false)
+            })
+            axios({
+                method: 'get',
+                url: API_URL + "/document/listener/denied?page=" + (active - 1) + "&size=" + size,
+                headers: {
+                    Authorization: token
+                }
+            }).then((r) => {
+                setDenied(r?.data?.object?.length);
             })
         }else {
             denied()
@@ -57,6 +70,15 @@ const AppealSection = (props) => {
             setInpApps(r.data.object);
             setItems(r.data.object);
             setLoading(false);
+        })
+        axios({
+            method: 'get',
+            url: API_URL + "/document/listener/denied?page=" + (active - 1) + "&size=" + size,
+            headers: {
+                Authorization: token
+            }
+        }).then((r) => {
+            setDenied(r?.data?.object?.length);
         })
     };
 
@@ -97,6 +119,7 @@ const AppealSection = (props) => {
             {
                 loading ? <Loading/> : <div className="appeal-section">
                     <div className="content-top">
+                        <Badge count={countIn} showZero>
                         <p style={{padding: "0px 10px", border: nS === 1 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items">
                             <Link onClick={() => {
@@ -104,13 +127,8 @@ const AppealSection = (props) => {
                                 setNs(1)
                             }}>{props.t("New answers")}</Link>
                         </p>
-                        {/*<p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}*/}
-                        {/*   className="request-items active">*/}
-                        {/*    <Link onClick={() => {*/}
-                        {/*        byStatus("INPROCESS")*/}
-                        {/*        setNs(2)*/}
-                        {/*    }}>{props.t("Responses received")}</Link>*/}
-                        {/*</p>*/}
+                        </Badge>
+                        <Badge count={countDenied} showZero>
                         <p style={{padding: "0px 10px", border: nS === 3 ? "1px solid rgba(0,0,0,0.5)" : ""}}
                            className="request-items active">
                             <Link onClick={() => {
@@ -118,6 +136,7 @@ const AppealSection = (props) => {
                                 setNs(3)
                             }}>{props.t("Rejected answers")}</Link>
                         </p>
+                        </Badge>
                     </div>
                     {
                         inpApps && inpApps.map((item, i) =>

@@ -15,8 +15,8 @@ const DirectorySection = ({t}) => {
     const user = useSelector(state => state.meReducer);
     const [files, setFiles] = useState([]);
     const [refresh, setRefresh] = useState(true);
-    const [url,setUrl]=useState("");
-    const [open,setOpen]=useState(false);
+    const [url, setUrl] = useState("");
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         axios({
@@ -33,30 +33,36 @@ const DirectorySection = ({t}) => {
 
     const fileUpload = (e) => {
         console.log(e.target.files[0]);
-        if (e.target.files){
-            let file=new FormData();
-            file.append("file",e.target.files[0]);
+        if (e?.target?.files[0]) {
+            let file = new FormData();
+            file.append("file", e.target.files[0]);
             Swal.fire({
-                confirmButtonText:"Ha",
-                confirmButtonColor:green[400],
-                cancelButtonColor:red[400],
-                cancelButtonText:"Yo'q",
-                showCancelButton:true,
-                title:"File yuklansinmi!!!",
-                icon:"warning"
-            }).then((confirm)=>{
-                if (confirm.isConfirmed){
+                confirmButtonText: "Ha",
+                confirmButtonColor: green[400],
+                cancelButtonColor: red[400],
+                cancelButtonText: "Yo'q",
+                showCancelButton: true,
+                title: "File yuklansinmi!!!",
+                icon: "warning"
+            }).then((confirm) => {
+                if (confirm.isConfirmed) {
+                    const config = {
+                        onUploadProgress: function (progressEvent) {
+                            var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+                            console.log(percentCompleted)
+                        }
+                    }
                     axios({
                         method: 'post',
-                        url: API_URL+'/attach/upload',
-                        headers:{
+                        url: API_URL + '/attach/upload',
+                        headers: {
                             Authorization: localStorage.getItem(STORAGE_NAME)
                         },
-                        data:file
-                    }).then((result)=>{
-                        Swal.fire("File yuklandi!!!","","success").then((re)=>{
+                        data: file, config
+                    }).then((result) => {
+                        Swal.fire("File yuklandi!!!", "", "success").then((re) => {
                             setRefresh(!refresh)
-                            e.target.files=null
+                            e.target.files = null
                         })
                     })
                 }
@@ -64,13 +70,13 @@ const DirectorySection = ({t}) => {
         }
     };
 
-    const refreshF=()=>{
+    const refreshF = () => {
         setRefresh(!refresh);
     };
 
     return (
         <>
-            <h3 style={{paddingTop:"15px"}}><b>
+            <h3 style={{paddingTop: "15px"}}><b>
                 {
                     t("Legal and regulatory framework")
                 }
@@ -80,22 +86,29 @@ const DirectorySection = ({t}) => {
                     user.role[0] === allRoles.ADMIN[0] ?
                         <div className="directory-pdf">
                             <div className="directory-file">
-                                <span><Add
-                                    style={{width: "100%", fontSize: "38px", cursor: "pointer", marginTop: "10px"}}/>
-                                <input
-                                    onChange={fileUpload}
-                                    type="file" accept="application/pdf"/>
-                                </span>
                                 <span>
-                                    Add file
+                                    <label htmlFor="uploadFile">
+                                        <Add style={{
+                                            width: "100%",
+                                            fontSize: "68px",
+                                            cursor: "pointer",
+                                            marginTop: "18px"
+                                        }}/>
+                                            <span>
+                                                Add file
+                                            </span>
+                                    </label>
+                                    <input id="uploadFile" onChange={fileUpload} type="file" accept="*"/>
                                 </span>
+
                             </div>
                         </div>
                         : ""
                 }
                 {
                     files && files.map((item, i) =>
-                        <DirectoryPdf setOpen={setOpen} setUrl={setUrl} role={user?.role[0]} refresh={refreshF} key={i} item={item}/>
+                        <DirectoryPdf setOpen={setOpen} setUrl={setUrl} role={user?.role[0]} refresh={refreshF} key={i}
+                                      item={item}/>
                     )
                 }
             </div>

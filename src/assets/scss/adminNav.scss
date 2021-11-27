@@ -3,12 +3,12 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 30px;
-    background-image: url("../img/Rectanglefornavbar.png"),
-    url("../img/126slash1.png"),
-    url("../img/78slash2.png"),
-    url("../img/right.png");
+    background-image: url("../img/Rectangl80.svg"),
+    url("../img/Rectangl81.svg"),
+    url("../img/Rectangl81.svg"),
+    url("../img/Rectangl79.svg");
     background-repeat: no-repeat;
-    background-position: -13%, 64%, 72%, 111%;
+    background-position: 0%, 64%, 72%, 100%;
     //background-size: 150px 100px;
     background-color: white;
 
@@ -18,7 +18,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      margin: 0 50px;
+      margin: 0 100px;
 
       .menu-icon {
         display: none;
@@ -290,9 +290,9 @@
   }
   .adminnav {
     .nav-center {
-      background-image: url("../img/right.png");
+      background-image: url("../img/Rectangl79.svg");
       background-repeat: no-repeat;
-      background-position: 115%;
+      background-position: 100%;
       background-color: white;
 
       .navbar1 {

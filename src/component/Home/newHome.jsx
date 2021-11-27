@@ -38,6 +38,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { CHANGE_EYE, CHANGE_SCROLL } from "../../redux/me/actionType";
 import DropDown from "./dropdown/dropdown";
 import {Button} from 'antd'
+import WordCloud from "./WordCloud/WordCloud";
 
 const NewHome = ({ t }) => {
   const container = useRef();
@@ -341,111 +342,159 @@ const NewHome = ({ t }) => {
       <section style={theme} id="practice-areas" className="practice-area padding-lg">
         <div className="container">
           <div className="row heading heading-icon">
-            <h2>Practice Area</h2>
+            <h2>{t("Clinic plans")}</h2>
           </div>
-          <ul className="row">
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img
-                  src="images/intellectual-icon.png"
-                  alt="Intellectual Property"
-                />
-                <h3>Intellectual Property</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
+          <div style={{lineHeight:"28px"}} className="row">
+            <div className="col-12 col-md-12 left-block">
+              <div className="details">
+                <h3 style={{fontSize:"20px"}}>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
+                <p style={{paddingLeft:"20px"}}>
+                  <ul >
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("take organizational measures to organize internships for students in the clinic;")}</span>
+                    </li>
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice;")}</span>
+                    </li>
+                  </ul>
                 </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
               </div>
-            </li>
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img src="images/finance-icon.png" alt="Finance & Banking" />
-                <h3>Finance & Banking</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
+            </div>
+            <div className="col-12 col-md-12 left-block">
+              <div className="details">
+                <h3 style={{fontSize:"20px"}}>{t("Regarding the provision of free legal aid to individuals and legal entities")}:</h3>
+                <p style={{paddingLeft:"20px"}}>
+                  <ul >
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice;")}</span>
+                    </li>
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("make recommendations on the nature and complexity of appeals of individuals and legal entities, and the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them;")}</span>
+                    </li>
+                  </ul>
                 </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
               </div>
-            </li>
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img src="images/sexual-icon.png" alt="Sexual Offences" />
-                <h3>Sexual Offences</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
+            </div>
+            <div className="col-12 col-md-12 left-block">
+              <div className="details">
+                <h3 style={{fontSize:"20px"}}>{t("To increase the level of professional training of students and develop their skills in working with legal entities and individuals")}:</h3>
+                <p style={{paddingLeft:"20px"}}>
+                  <ul >
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("preparation of analytical data on legal issues, development of new programs to help develop practical skills;")}</span>
+                    </li>
+                    <li style={{listStyleType:'circle',fontSize:"17px"}}>
+                      <span>{t("conducting seminars and trainings aimed at developing professional ethics and professional skills in trainees undergoing internships in the clinic;")}</span>
+                    </li>
+                  </ul>
                 </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
               </div>
-            </li>
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img
-                  src="images/real-estate-icon.png"
-                  alt="Real Estate Constuction"
-                />
-                <h3>Real Estate Constuction</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
-                </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
-              </div>
-            </li>
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img
-                  src="images/money-laundering-icon.png"
-                  alt="Money Laundering"
-                />
-                <h3>Money Laundering</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
-                </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
-              </div>
-            </li>
-            <li className="col-12 col-md-4 equal-hight">
-              <div className="inner">
-                <img
-                  src="images/merger-acquisition-icon.png"
-                  alt="Merger & Acquisition"
-                />
-                <h3>Merger & Acquisition</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam condimentum enim non ornare vulputate. Sed convallis
-                  magna eu metus fringilla mattis.
-                </p>
-                <a className="read-more" href="practice-areas-detail.html">
-                  READ More
-                </a>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+          {/*<ul className="row">*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img*/}
+          {/*        src="images/intellectual-icon.png"*/}
+          {/*        alt="Intellectual Property"*/}
+          {/*      />*/}
+          {/*      <h3>Intellectual Property</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img src="images/finance-icon.png" alt="Finance & Banking" />*/}
+          {/*      <h3>Finance & Banking</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img src="images/sexual-icon.png" alt="Sexual Offences" />*/}
+          {/*      <h3>Sexual Offences</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img*/}
+          {/*        src="images/real-estate-icon.png"*/}
+          {/*        alt="Real Estate Constuction"*/}
+          {/*      />*/}
+          {/*      <h3>Real Estate Constuction</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img*/}
+          {/*        src="images/money-laundering-icon.png"*/}
+          {/*        alt="Money Laundering"*/}
+          {/*      />*/}
+          {/*      <h3>Money Laundering</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*  <li className="col-12 col-md-4 equal-hight">*/}
+          {/*    <div className="inner">*/}
+          {/*      <img*/}
+          {/*        src="images/merger-acquisition-icon.png"*/}
+          {/*        alt="Merger & Acquisition"*/}
+          {/*      />*/}
+          {/*      <h3>Merger & Acquisition</h3>*/}
+          {/*      <p>*/}
+          {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+          {/*        Aliquam condimentum enim non ornare vulputate. Sed convallis*/}
+          {/*        magna eu metus fringilla mattis.*/}
+          {/*      </p>*/}
+          {/*      <a className="read-more" href="practice-areas-detail.html">*/}
+          {/*        READ More*/}
+          {/*      </a>*/}
+          {/*    </div>*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
         </div>
       </section>
       <Mudirlar style={theme} />
       <div id="popular-questions"/>
       <PopularQuestionSlider style={theme} />
+
       <NormativHujjatlar style={theme} />
       <div id="news"/>
       <NewsContent style={theme} />

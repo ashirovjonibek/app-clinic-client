@@ -65,7 +65,7 @@ function StatisticsByCategory({t}) {
                             method: 'get',
                             url: API_URL + '/region'
                         }).then((response1) => {
-                            let dat = response1.data?._embedded?.regions;
+                            let dat = response1.data;
                             console.log(dat);
 
                             dat.map((item) => {

@@ -19,7 +19,7 @@ const ModeratorApplicantItem = (props) => {
         <div className="moderator-applicant-item">
             <div className="content">
                 <div className="fedbeck">
-                    <UserName text={props.item.fullName} />
+                    <UserName avatar={props?.item?.image} text={props?.item?.fullName} />
                     <div className="supervisor-applicants">
                         <h5 >{props.t("Priority")} №1</h5>
                         <p>{props.t("Number of appeals")}:<strong >{

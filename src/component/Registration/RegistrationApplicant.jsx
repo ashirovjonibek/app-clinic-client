@@ -36,7 +36,7 @@ const RegistrationApplicant = (props) => {
 
     useEffect(() => {
         axios.get(API_URL + "/region").then(res => {
-            setRegions(res.data._embedded.regions)
+            setRegions(res.data)
         });
     }, []);
     // useEffect(() => {
@@ -56,11 +56,11 @@ const RegistrationApplicant = (props) => {
     // }, []);
 
     const fetchDistricts = (e) => {
-        let id = e?.target?.value
+        let id = e?.target?.value;
 
-        axios.get(API_URL + "/district/search/filterByRegion?id=" + id + "").then(res => {
-            setDistricts(res?.data?._embedded?.districts);
-        })
+        axios.get(API_URL + "/region/district?id=" + id + "").then(res => {
+            setDistricts(res?.data);
+        });
 
         setValues({
             ...values,

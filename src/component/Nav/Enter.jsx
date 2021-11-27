@@ -36,7 +36,7 @@ const Enter = ({ t }) => {
                             <Link onClick={logOut} to="/">{t("Go out")}</Link>
                         </Menu.Item>
                     </Menu>}>
-            <div style={{ cursor: "pointer" }} className="enter-btn" onClick={() => history.push("/auth/login")}>
+            <div style={{ cursor: "pointer" }} className="enter-btn">
                 <div className="enter-img" style={{ padding: "3px" }}>
                     <UserName
                         width={"30px"}
@@ -54,7 +54,7 @@ const Enter = ({ t }) => {
                     paddingLeft: "3px",
                     float: "left",
                     textAlign: "left"
-                }}> {me.meFullName !== "" ? <Link style={{ textDecoration: "none", color: "white" }} to={"#"}>{me.meFullName}</Link> : <span style={{ textDecoration: "none", color: "white" }} >{t("Login")}</span>}
+                }}> {me.meFullName !== "" ? <span style={{ textDecoration: "none", color: "white" }} >{me.meFullName}</span> : <span style={{ textDecoration: "none", color: "white" }} >{t("Login")}</span>}
                     {/*<p className="enter-btn-role">{me.meFullName!==""? "( "+me.me.roles[0].name+" )":""} </p>*/}
                 </span>
             </div>

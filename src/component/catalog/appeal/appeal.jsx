@@ -104,9 +104,9 @@ const Appeals = ({
                                 }}>{appeal?.applicant?.fullName}</span>
                         </Col>}
                         {
-                            appeal?.deadLineDate&&<Col Col xs={12} sm={12} md={12} lg={12}>
-                                <p className="text-end"><span style={{fontWeight:600}}>Ko'rib chiqish muddati: </span>{getDay(appeal?.deadLineDate)}</p>
-                            </Col>
+                            types.newAppFromApplicant !== type ? appeal?.deadLineDate&&<Col className="text-end" Col xs={12} sm={12} md={12} lg={12}>
+                                <p style={{width:"100%",textAlign:"right",marginTop:"4px"}}><span style={{fontWeight:600}}>Ko'rib chiqish muddati: </span>{getDay(appeal?.deadLineDate)} kun</p>
+                            </Col>:""
                         }
                         <Col xs={24} sm={24} md={24} lg={24}>
                             <Row gutter={24} className="mt-2">
@@ -193,7 +193,7 @@ const Appeals = ({
                             {appeal?.status==="COMPLETE"&&<AnswerForUser />}
                         </>
                     }
-                    {modalItem?.url && <AudioVidioReader type={modalItem?.type} url={modalItem?.url} open={open} setOpen={setOpen} />}
+                    {modalItem?.url && <AudioVidioReader type={modalItem?.type} setOption={()=>setMOdalItem({type:"",url:""})} url={modalItem?.url} open={open} setOpen={setOpen} />}
                     {doc && <PdfViewer url={doc} open={docOpen} setOpen={setDocOpen} setUrl={setDoc} />}
                 </Card>
             </Badge.Ribbon>

@@ -88,6 +88,7 @@ function PopularQuestionSlider({ t,style }) {
           <div className="row heading heading-icon">
             <h2>{t("Popular questions")}</h2>
           </div>
+          <div id="base"/>
           <div className="wrapper">
             <Swiper
               slidesPerView={1}

@@ -72,8 +72,10 @@ const AttachAnswer=({item,refresh,t,setUrl,setOpen})=>{
                             </ul>
                         </div>
                         <div className="content-line" />
-                        <Label text="Rahbar xulosasi:"/>
-                        <p style={{marginTop:"5px",marginLeft:"15px"}} className="text-warning">{item?.answer?.deniedMessage}</p>
+                        <>
+                            <Label text="Rahbar xulosasi:"/>
+                            <p style={{marginTop:"5px",marginLeft:"15px"}} className="text-warning">{item?.answer?.deniedMessage}</p>
+                        </>
                         <div className="response-request">
                             <ResponseRequestItem1 type={true} refresh={refresh} id={item?.id} docId={item?.id} item={item?.application}/>
                         </div>

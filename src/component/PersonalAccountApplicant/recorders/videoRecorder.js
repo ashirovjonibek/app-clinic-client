@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 const CustomVideoRecorder = (props) => {
     const [video, setVideo] = useState();
+
     const sendVideo = () => {
         if (video) {
             props.setRecord({
@@ -41,7 +42,8 @@ const CustomVideoRecorder = (props) => {
                             props.setValues({
                                 ...props.values,
                                 videoId:res?.data?.object
-                            })
+                            });
+                            // console.log(MediaDevices().getAll())
                         })
                         }
                     )
@@ -75,17 +77,18 @@ const CustomVideoRecorder = (props) => {
                         setVideo(e);
                         console.log(e)
                     }}
-                    timeLimit={5000}
-                    chunkSize={250}
+                    timeLimit={60000}
+                    // chunkSize={250}
                     constraints={{
                         audio: true,
                         video: true
                     }}
-                    countdownTime={3000}
-                    dataAvailableTimeout={500}
-                    disablePictureInPicture
-                    // isFlipped
-                    isOnInitially
+                    // countdownTime={3000}
+                    // dataAvailableTimeout={500}
+                    // disablePictureInPicture
+                    isFlipped
+                    mimeType="video/webm;codecs=vp8,opus"
+                    // isOnInitially
                     // onError={function noRefCheck(){}}
                     // onOpenVideoInput={function noRefCheck(){}}
                     // onRecordingComplete={function noRefCheck(){}}

@@ -26,14 +26,16 @@ import "../../assets/scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
+import {Badge} from "antd";
 
 
 const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [idUser, setIdUser] = useState(1);
     const history = useHistory();
-    const [count,setCount]=useState(0);
-    const [n,setN]=useState(0);
+    const [count, setCount] = useState(0);
+    const [n, setN] = useState(0);
+    const [counts, setCounts] = useState();
 
 
     function Applications(n) {
@@ -41,23 +43,23 @@ const PersonalAccountListener = ({t}) => {
             case 1:
                 return <IncomingRequestSection getPage={getPage}/>
             case 2:
-                return <AppealSection />
+                return <AppealSection/>
             case 3:
-                return <CallFlowSection />
+                return <CallFlowSection/>
             case 4:
-                return <ResponseRequestSection />
+                return <ResponseRequestSection/>
             case 5:
-                return <DeadlineRequestSection />
+                return <DeadlineRequestSection/>
             case 6:
-                return <FedbeckSection />
+                return <FedbeckSection/>
             case 7:
-                return <DirectorySection />
+                return <DirectorySection/>
             case 8:
-                return <SendSection />
+                return <SendSection/>
             case 9:
-                return <IncomingRequestItem currentItem="{currentItem}" />
+                return <IncomingRequestItem currentItem="{currentItem}"/>
             default:
-                return <IncomingRequestSection />
+                return <IncomingRequestSection/>
         }
     }
 
@@ -69,24 +71,35 @@ const PersonalAccountListener = ({t}) => {
 
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
-            method:'get',
-            url:API_URL+'/message',
-            headers:{
-                Authorization:localStorage.getItem(STORAGE_NAME)
+            method: 'get',
+            url: API_URL + '/message',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
             }
-        }).then((res)=>{
+        }).then((res) => {
             console.log(res);
-            let c=0;
-            let d=res?.data?.object;
+            let c = 0;
+            let d = res?.data?.object;
             for (let i = 0; i < d?.length; i++) {
-                c+=d[i].count;
+                c += d[i].count;
             }
-            console.log(c)
+            console.log(c);
             setCount(c);
+        });
+
+        axios({
+            method: 'get',
+            url: API_URL + '/message/get-counts',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res) => {
+            console.log(res);
+            setCounts(res?.data?.object);
         })
-    },[n]);
+    }, [n]);
 
     const getPage = (n) => {
         setIdUser(n);
@@ -96,11 +109,11 @@ const PersonalAccountListener = ({t}) => {
     return (
         <div>
             <div className="nav">
-                <NavTop />
+                <NavTop/>
                 <div className="nav-center container-fluit12">
                     <div className="container12">
                         <div className="navbar2">
-                            <div className="menu-icon" >
+                            <div className="menu-icon">
                                 <MenuIcon
                                     fontSize={'large'}
                                     onClick={() => setSitebar(!sitebar)}
@@ -109,12 +122,12 @@ const PersonalAccountListener = ({t}) => {
                             <div className="header-logo">
                                 <a href="/#">
                                     <div className="logo-left">
-                                        <img src={iconLogo} alt="logo" />
+                                        <img src={iconLogo} alt="logo"/>
                                     </div>
                                     <div className="logo-right">
                                         <div>
-                                            <span><strong>{t("Legal clinic")}</strong></span><br />
-                                            <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
+                                            <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                            <p style={{maxWidth: "350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -122,15 +135,15 @@ const PersonalAccountListener = ({t}) => {
                             <div className="header-right">
                                 <div className="header-right-desctop">
                                     <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder={t("Search")+"..."} />
-                                        <button type=""><img src={iconSearch} alt="search-icon" /></button>
+                                        <input type="" placeholder={t("Search") + "..."}/>
+                                        <button type=""><img src={iconSearch} alt="search-icon"/></button>
                                     </form>
-                                    <NavLanguage />
+                                    <NavLanguage/>
                                     <div className="glas">
-                                        <img src={iconGlass} alt="" />
+                                        <img src={iconGlass} alt=""/>
                                     </div>
                                 </div>
-                                <Enter />
+                                <Enter/>
                             </div>
                         </div>
                     </div>
@@ -139,20 +152,27 @@ const PersonalAccountListener = ({t}) => {
                             <div className="desctop-navigation-body">
                                 <div>
                                     <div className="mobil-language">
-                                        <NavLanguage />
+                                        <NavLanguage/>
                                         <div className="glas">
-                                            <img src={iconGlass} alt="" />
+                                            <img src={iconGlass} alt=""/>
                                         </div>
                                     </div>
                                     <ul>
                                         <li>
-                                            <Link to={"#"} onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
+                                            <Badge count={counts?.incoming} showZero>
+                                                <Link to={"#"}
+                                                      onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
+                                            </Badge>
                                         </li>
                                         <li>
-                                            <Link to={"#"} onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
+                                            <Badge count={counts?.answer} showZero>
+                                                <Link to={"#"}
+                                                      onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
+                                            </Badge>
                                         </li>
                                         <li>
-                                            <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
+                                            <Link to={"#"}
+                                                  onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         {/*<li>*/}
                                         {/*    <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>*/}
@@ -164,24 +184,27 @@ const PersonalAccountListener = ({t}) => {
                                             <Link to={"#"} onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li>
-                                            <Link to={"#"} onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
+                                            <Link to={"#"}
+                                                  onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
                                         <li>
-                                            <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
+                                            <Badge count={count} showZero>
+                                                <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
+                                            </Badge>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="icon-disable">
                                     <CloseIcon
                                         fontSize={'large'}
-                                        style={{ color: 'white' }}
+                                        style={{color: 'white'}}
                                         onClick={() => setSitebar(!sitebar)}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div >
+                </div>
             </div>
             <div className="personal-account-listnear container-fluit12" style={{paddingTop: '100px'}}>
                 <div className="container12">
@@ -190,14 +213,21 @@ const PersonalAccountListener = ({t}) => {
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
-                                        <li className="navbar-items" id={idUser === 1 ? 'active' : ''}>
-                                            <Link to={"#"} onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
-                                        </li>
-                                        <li className="navbar-items" id={idUser === 2 ? 'active' : ''}>
-                                            <Link to={"#"} onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
-                                        </li>
+                                        <Badge count={counts?.incoming ? counts?.incoming : 0} showZero>
+                                            <li className="navbar-items" id={idUser === 1 ? 'active' : ''}>
+                                                <Link to={"#"}
+                                                      onClick={() => getPage(1)}>{t("Incoming requests")}</Link>
+                                            </li>
+                                        </Badge>
+                                        <Badge count={counts?.answer ? counts?.answer : 0} showZero>
+                                            <li className="navbar-items" id={idUser === 2 ? 'active' : ''}>
+                                                <Link to={"#"}
+                                                      onClick={() => getPage(2)}>{t("Responses to requests")}</Link>
+                                            </li>
+                                        </Badge>
                                         <li className="navbar-items" id={idUser === 3 ? 'active' : ''}>
-                                            <Link to={"#"} onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
+                                            <Link to={"#"}
+                                                  onClick={() => getPage(3)}>{t("Deadline for the execution of requests")}</Link>
                                         </li>
                                         {/*<li className="navbar-items" id={idUser === 4 ? 'active' : ''}>*/}
                                         {/*    <Link to={"#"} onClick={() => getPage(4)}>{t("Appeals")}</Link>*/}
@@ -209,33 +239,19 @@ const PersonalAccountListener = ({t}) => {
                                             <Link to={"#"} onClick={() => getPage(6)}>{t("Your feedback")}</Link>
                                         </li>
                                         <li className="navbar-items" id={idUser === 7 ? 'active' : ''}>
-                                            <Link to={"#"} onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
+                                            <Link to={"#"}
+                                                  onClick={() => getPage(7)}>{t("Legal and regulatory framework")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
-                                            {
-                                                count>0?<div className="new" style={{position:"relative"}}>
-                                                    <div style={
-                                                        {
-                                                            position:"absolute",
-                                                            backgroundColor:red[400],
-                                                            padding:"5px",
-                                                            borderRadius:"50%",
-                                                            width:"24px",
-                                                            textAlign:"center",
-                                                            color:"white",
-                                                            right:0,
-                                                            top:"-12px"
-                                                        }
-                                                    } className="new-item">{count}</div>
-                                                </div>:""
-                                            }
-                                            <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
-                                        </li>
+                                        <Badge count={count ? count : 0} showZero>
+                                            <li className="navbar-items" id={idUser === 8 ? 'active' : ''}>
+                                                <Link to={"#"} onClick={() => getPage(8)}>{t("Message center")}</Link>
+                                            </li>
+                                        </Badge>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div style={{minHeight:"75vh"}} className="content-wrapper">
+                        <div style={{minHeight: "75vh"}} className="content-wrapper">
                             {
 
                                 Applications(idUser)

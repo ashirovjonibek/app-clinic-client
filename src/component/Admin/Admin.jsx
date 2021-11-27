@@ -107,7 +107,7 @@ const Admin = ({t}) => {
                 </div>
 
                 <ul>
-                    <li className="accordion__section">
+                    <li style={{marginTop:"50px"}} className="accordion__section">
                         <div className="accordion" onClick={() => getPage(7)}>
                             <h3 className="accordion__title">{t("Home page")}</h3>
                         </div>

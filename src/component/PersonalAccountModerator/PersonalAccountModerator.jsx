@@ -93,7 +93,7 @@ const PersonalAccountModerator = ({t}) => {
                     <NavTop/>
                     <div className="nav-center container-fluit12">
                         <div className="container12">
-                            <div className="navbar">
+                            <div className="navbar2">
                                 <div className="menu-icon">
                                     <MenuIcon
                                         fontSize={'large'}

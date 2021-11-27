@@ -35,22 +35,22 @@ const NewFooter = ({ t,style }) => {
                 </p>
                 <ul className="follow-us clearfix">
                   <li>
-                    <a href="https://www.facebook.com/ProsecutorAcademy">
+                    <a target="_blank" href="https://www.facebook.com/ProsecutorAcademy">
                       <i className="fa fa-facebook" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/ProAcademyUz">
+                    <a target="_blank" href="https://twitter.com/ProAcademyUz">
                       <i className="fa fa-twitter" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/proacademyuz/">
+                    <a target="_blank" href="https://www.instagram.com/proacademyuz/">
                       <i className="fa fa-instagram" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://t.me/ProsecutorAcademy">
+                    <a target="_blank" href="https://t.me/ProsecutorAcademy">
                       <i className="fa fa-telegram" aria-hidden="true"></i>
                     </a>
                   </li>
@@ -62,45 +62,45 @@ const NewFooter = ({ t,style }) => {
                 <h3>{t("Site navigation")}</h3>
                 <ul className="clearfix">
                   <li>
-                    <a href="#">
+                    <a href="#about">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
                       {t("What is clinic")}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#cell-clinic">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
                       {t("Goal of the clinic")}
                     </a>
                   </li>
+                  {/*<li>*/}
+                  {/*  <a href="#">*/}
+                  {/*    <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}*/}
+                  {/*    {t("Purpose of the clinic")}*/}
+                  {/*  </a>*/}
+                  {/*</li>*/}
                   <li>
-                    <a href="#">
-                      <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
-                      {t("Purpose of the clinic")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
+                    <a href="#popular-questions">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
                       {t("Popular questions")}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="#base">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
                       {t("Regulatory base")}
                     </a>
                   </li>
+                  {/*<li>*/}
+                  {/*  <a href="#">*/}
+                  {/*    <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}*/}
+                  {/*    {t("Useful links")}*/}
+                  {/*  </a>*/}
+                  {/*</li>*/}
                   <li>
-                    <a href="#">
+                    <a href="#news">
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
-                      {t("Useful links")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
-                      {t("Addresses prosecutors")}
+                      {t("News")}
                     </a>
                   </li>
                 </ul>

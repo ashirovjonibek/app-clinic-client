@@ -21,7 +21,7 @@ import Enter from "../Nav/Enter";
 import RequestFunctions from "../../requests/RequestFunctions";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {useSelector} from "react-redux";
 import ModeratorPerformerItem from "../PersonalAccountModerator/ModeratorPerformerItem";
 import ModeratorPerformerSection from "../PersonalAccountModerator/ModeratorPerformerSection";
@@ -30,13 +30,18 @@ import "../../assets/scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
+import axios from "axios";
+import {Badge} from "antd";
+import red from "@material-ui/core/colors/red";
 
 const PersonalAccountSupervisor = ({t}) => {
     const history = useHistory();
 
     const [sitebar, setSitebar] = useState(false);
     const [pageQount, setPageQount] = useState(12);
-    const userRole=useSelector(state => state.meReducer)
+    const userRole = useSelector(state => state.meReducer)
+    const [counts, setCounts] = useState();
+    const [n, setN] = useState(0);
 
     // const me=useSelector(state=>state.meReducer)
 
@@ -72,14 +77,25 @@ const PersonalAccountSupervisor = ({t}) => {
     }
 
     useEffect(() => {
-        // console.log("this is redux->",me)
         if (!localStorage.getItem(STORAGE_NAME)) {
             history.push("/")
         }
 
-    }, [])
+        axios({
+            method: 'get',
+            url: API_URL + '/message/get-counts',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res) => {
+            console.log(res);
+            setCounts(res?.data?.object);
+        })
+
+    }, [n]);
 
     const getPage = (n) => {
+        setN(n)
         setPageQount(n);
     }
 
@@ -90,7 +106,7 @@ const PersonalAccountSupervisor = ({t}) => {
                     <NavTop/>
                     <div className="nav-center container-fluit12">
                         <div className="container12">
-                            <div className="navbar">
+                            <div className="navbar2">
                                 <div className="menu-icon">
                                     <MenuIcon
                                         fontSize={'large'}
@@ -137,22 +153,29 @@ const PersonalAccountSupervisor = ({t}) => {
                                             </div>
                                         </div>
                                         <ul>
-                                            {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li>
-                                                <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
-                                            </li>:""}
+                                            {userRole.role[0] === "SUPER_MODERATOR_AND_MODERATOR" ? <li>
+                                                <Link
+                                                    to="/personalAccountModerator">{t("Go super moderator page")}</Link>
+                                            </li> : ""}
 
                                             <li>
-                                                <Link to="#" onClick={() => getPage(12)}>{t("Appeals informations")}</Link>
+                                                <Link to="#"
+                                                      onClick={() => getPage(12)}>{t("Appeals informations")}</Link>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                             </li>
                                             <li>
-                                                <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                                <Badge count={counts?.setListener} showZero>
+                                                    <Link to="#"
+                                                          onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                                </Badge>
                                             </li>
                                             <li>
-                                                <Link to="#"
-                                                      onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                                <Badge count={counts?.checkAnswer} showZero>
+                                                    <Link to="#"
+                                                          onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                                </Badge>
                                             </li>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(4)}>{t("The applicant")}</Link>
@@ -197,9 +220,11 @@ const PersonalAccountSupervisor = ({t}) => {
                             <div className="navbar-wrapper">
                                 <div className="navbarr">
                                     <ul>
-                                        {userRole.role[0]==="SUPER_MODERATOR_AND_MODERATOR"?<li className="navbar-items">
-                                            <Link to="/personalAccountModerator" >{t("Go super moderator page")}</Link>
-                                        </li>:""}
+                                        {userRole.role[0] === "SUPER_MODERATOR_AND_MODERATOR" ?
+                                            <li className="navbar-items">
+                                                <Link
+                                                    to="/personalAccountModerator">{t("Go super moderator page")}</Link>
+                                            </li> : ""}
 
                                         <li className="navbar-items" id={pageQount === 12 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(12)}>{t("Appeals informations")}</Link>
@@ -207,8 +232,9 @@ const PersonalAccountSupervisor = ({t}) => {
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>
-                                        <li className="navbar-items" id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                        <li className="navbar-items" style={{position: "relative",display:"block"}} id={pageQount === 2 ? 'active' : ''}>
+                                            <Link to="#"
+                                                  onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
                                         </li>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
@@ -235,7 +261,7 @@ const PersonalAccountSupervisor = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div style={{minHeight:"75vh"}} className="content-wrapper">
+                            <div style={{minHeight: "75vh"}} className="content-wrapper">
                                 {
                                     pushBar(pageQount)
                                 }

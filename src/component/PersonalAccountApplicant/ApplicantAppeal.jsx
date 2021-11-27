@@ -25,12 +25,13 @@ import Dialog from "@material-ui/core/Dialog";
 import VoiceRecorder from "./recorders/voiceRecorder";
 import CustomVideoRecorder from "./recorders/videoRecorder";
 import {useDispatch, useSelector} from "react-redux";
-import {CHANGE_THEME} from "../../redux/me/actionType";
+import {CHANGE_EYE, CHANGE_IMG_LESS, CHANGE_THEME} from "../../redux/me/actionType";
 import PdfViewer from "../catalog/pdfViewer";
 import "../../assets/scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
+import {Dropdown, Menu} from "antd";
 
 const ApplicantAppeal = (props) => {
     const {history, t} = props;
@@ -49,6 +50,8 @@ const ApplicantAppeal = (props) => {
     const location=useLocation().state;
     const [url,setUrl]=useState("");
     const [open,setOpen]=useState(false);
+    const [recaordStream,setRS]=useState();
+    const [stop,setStop]=useState(false);
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -80,42 +83,54 @@ const ApplicantAppeal = (props) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
         // console.log(values);
-        Swal.fire({
-            showCancelButton: true,
-            confirmButtonText: t("Send"),
-            title: t("Should the application be sent for review") + "?",
-            icon: "warning",
-            cancelButtonText: t("Cancel")
-        }).then((confirm) => {
-            if (confirm.isConfirmed) {
-                axios({
-                    url: API_URL + '/application/create',
-                    method: 'POST',
-                    data: values,
-                    headers: {
-                        'Authorization': token,
-                        'Content-Type': 'application/json'
-                    }
-                }).then(res => {
-                    if (res.data.success) {
-                        Swal.fire(t("Application has been sent"), "", "success").then(r => {
-                            history.push('/personalAccountApplicant')
-                        })
+       if ((values?.attachmentId||values?.audioId||values?.videoId)&&values?.title){
+           Swal.fire({
+               showCancelButton: true,
+               confirmButtonText: t("Send"),
+               title: t("Should the application be sent for review") + "?",
+               icon: "warning",
+               cancelButtonText: t("Cancel")
+           }).then((confirm) => {
+               if (confirm.isConfirmed) {
+                   axios({
+                       url: API_URL + '/application/create',
+                       method: 'POST',
+                       data: values,
+                       headers: {
+                           'Authorization': token,
+                           'Content-Type': 'application/json'
+                       }
+                   }).then(res => {
+                       if (res.data.success) {
+                           Swal.fire(t("Application has been sent"), "", "success").then(r => {
+                               history.push('/personalAccountApplicant')
+                           })
 
-                    } else {
-                        Swal.fire(res.data.message, "", "error").then(r => {
-                        })
-                    }
-                }).catch((err) => {
-                    Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
-                        console.log(r)
-                    })
-                });
-            }
-        })
+                       } else {
+                           Swal.fire(res.data.message, "", "error").then(r => {
+                           })
+                       }
+                   }).catch((err) => {
+                       Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
+                           console.log(r)
+                       })
+                   });
+               }
+           })
 
+       }else if (!values?.title){
+           Swal.fire('Iltimos mavzusini kiriting!!!',"","error")
+       }else {
+           Swal.fire('Iltimos audio, video, text yaki fayl kiriting!!!',"","error")
+       }
 
-    }
+    };
+
+    // useEffect(()=>{
+    //     if (recaordStream){
+    //         recaordStream.getTracks().forEach( track => track.stop() );
+    //     }
+    // },[stop]);
 
     const handleUpload = (e) => {
         setLoading(true)
@@ -149,6 +164,8 @@ const ApplicantAppeal = (props) => {
 
     }
 
+    const onChange=(e)=>{dispatch({type:CHANGE_EYE,data:e})};
+
     return (
         <div>
             <div className="nav">
@@ -178,15 +195,37 @@ const ApplicantAppeal = (props) => {
                             </div>
                             <div className="header-right">
                                 <div className="header-right-desctop">
-                                    <form role="search" method="get" action="#" className="search-form">
-                                        <input type="" placeholder={props.t("Search") + "..."}/>
-                                        <button type=""><img src={iconSearch} alt="search-icon"/></button>
-                                    </form>
+                                    {/*<form role="search" method="get" action="#" className="search-form">*/}
+                                    {/*    <input type="" placeholder={props.t("Search") + "..."}/>*/}
+                                    {/*    <button type=""><img src={iconSearch} alt="search-icon"/></button>*/}
+                                    {/*</form>*/}
                                     <NavLanguage/>
-                                    <div style={{cursor:"pointer"}} onClick={()=>{
-                                        dispatch({type:CHANGE_THEME,data:theme.filter?"":"grayscale(100%)"})
-                                    }} className="glas">
-                                        <img src={iconGlass} alt=""/>
+                                    <div style={{cursor:"pointer"}} className="glas">
+                                        <Dropdown overlay={
+                                            <Menu>
+                                                <Menu.Item onClick={(e)=>{
+                                                    dispatch({type:CHANGE_THEME,data:""});
+                                                    dispatch({type:CHANGE_IMG_LESS,data:false});
+                                                    onChange(1)
+                                                }}>
+                                                    Odatiy
+                                                </Menu.Item>
+                                                <Menu.Item onClick={()=>{dispatch({type:CHANGE_THEME,data:"grayscale(100%)"})}} >
+                                                    Oq va qora
+                                                </Menu.Item>
+                                                <Menu.Item style={{borderBottom:"1px solid rgba(0,0,0,0.2)"}} onClick={(e)=>{
+                                                    dispatch({type:CHANGE_THEME,data:""});
+                                                    onChange(3)
+                                                }} >
+                                                    Qora va sariq
+                                                </Menu.Item>
+                                                <Menu.Item onClick={(e)=>dispatch({type:CHANGE_IMG_LESS,data:true})}>
+                                                    Rasmsiz
+                                                </Menu.Item>
+                                            </Menu>
+                                        }>
+                                            <img src={iconGlass} alt=""/>
+                                        </Dropdown>
                                     </div>
                                 </div>
                                 <Enter/>
@@ -211,11 +250,12 @@ const ApplicantAppeal = (props) => {
                                     <button onClick={() => {
                                         navigator?.mediaDevices?.getUserMedia({ video: true })
                                             .then(stream => {
-                                                console.log(stream)
+                                                console.log(stream);
                                                 setRecord({
                                                     status: true,
                                                     name: "video"
                                                 })
+                                                setRS(stream);
                                             }).catch(err => {
                                             alert("Camera not detected")
                                         })
@@ -223,7 +263,7 @@ const ApplicantAppeal = (props) => {
                                     }} className="video-request">
                                 <span>
                                     <img src={iconVideo} alt=""/>
-                                Сделать видео обращение
+                                {t("Make a video appeal")}
                                 </span>
                                     </button> :
                                     <button className="video-request" onClick={() => {
@@ -237,7 +277,7 @@ const ApplicantAppeal = (props) => {
                                                 <Visibility/>
                                             </span>
                                         <span>
-                                                Videoni ko'rish
+                                            {t("Watch the video")}
                                             </span>
                                     </button>
                             }
@@ -257,7 +297,7 @@ const ApplicantAppeal = (props) => {
                                         })
                                     }} className="audio-request">
                                         <img src={iconAudio} alt=""/>
-                                        Сделать аудио обращение
+                                        {t("Make a audio appeal")}
                                     </button> :
                                     <button className="video-request" onClick={() => {
                                         setRecord({
@@ -270,7 +310,7 @@ const ApplicantAppeal = (props) => {
                                                 <Visibility/>
                                             </span>
                                         <span>
-                                                Audioni eshitish
+                                            {t("Listen to the audio")}
                                             </span>
                                     </button>
                             }

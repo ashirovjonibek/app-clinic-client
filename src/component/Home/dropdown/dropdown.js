@@ -14,7 +14,7 @@ const DropDown=({color})=>{
 
     return(
         <div className="dropdown">
-            <span className="dropbtn" style={{marginRight:"10px",fontSize:"20px",color:color}}><i className="fa fa-eye"></i></span>
+            <span className="dropbtn" style={{marginRight:"10px",fontSize:"20px",color:color}}><i style={{color:color}} className="fa fa-eye"></i></span>
             <div className="dropdown-content">
                 <a id="1" onClick={(e)=>{
                     dispatch({type:CHANGE_THEME,data:""});
@@ -27,8 +27,8 @@ const DropDown=({color})=>{
                     onChange(e)
                 }} style={{borderBottom:"1px solid rgba(0,0,0,0.3)"}} href="#">Qora va sariq</a>
                 <a id="4" onClick={(e)=>dispatch({type:CHANGE_IMG_LESS,data:true})} style={{backgroundColor:"rgba(0,0,0,0.7)"}} href="#">Rasmsiz</a>
-                <a id="5" onClick={onChange} href="#">Kichik shrift</a>
-                <a id="5" onClick={onChange} href="#">Katta shrift</a>
+                {/*<a id="5" onClick={onChange} href="#">Kichik shrift</a>*/}
+                {/*<a id="5" onClick={onChange} href="#">Katta shrift</a>*/}
             </div>
         </div>
     )

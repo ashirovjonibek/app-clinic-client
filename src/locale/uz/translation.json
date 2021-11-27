@@ -11,7 +11,7 @@
   "Listener": "Eshituvchi",
   "Go out": "Chiqish",
   "100047, Tashkent, Mirabad district, st. Shakhrisabz, 42": "100047, Tashkent, Mirobod tumani, Shakhrisabz ko'chasi, 42-uy",
-  "Legal clinic": "Huquq klinikasi",
+  "Legal clinic": "Yuridik klinikasi",
   "Academy of the General Prosecutor's Office of the Republic of Uzbekistan": "O'zbekiston Respublikasi Bosh prokuraturasi akademiyasi.",
   "Search": "Qidirish",
   "Phone number": "Telefon",
@@ -63,7 +63,7 @@
   "Listener rating": "Tinglovchilar reytingi",
   "Statistics and reports": "Statistika va hisobotlar",
   "Archive": "Arxiv",
-  "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities": "Klinika Akademiyaning ajralmas qismi bo'lib, u talabalarning nazariy bilimlarini amaliyot bilan integratsiyalashuvini ta'minlash, talabalarda amaliy ko'nikmalarni rivojlantirish va jismoniy va yuridik shaxslarga kamsitilmaydigan huquqiy maslahatlar berish bo'yicha faoliyatni amalga oshiradi.\n\nKlinika Akademiyaning ajralmas qismi bo'lib, u talabalarning nazariy bilimlarini amaliyot bilan integratsiyalashuvini ta'minlash, talabalarda amaliy ko'nikmalarni rivojlantirish va jismoniy va yuridik shaxslarga kamsitilmaydigan huquqiy maslahatlar berish bo'yicha faoliyatni amalga oshiradi.",
+  "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities": "Klinika Akademiyaning ajralmas qismi bo'lib, u Akademyada tahsil olayotgan tinglovchilarning nazariy bilimlarini amaliyot bilan integratsiyalashuvini ta'minlash, tinglovchilarda amaliy ko'nikmalarni rivojlantirish va jismoniy hamda yuridik shaxslarga kamsitilmaydigan huquqiy maslahatlar berish bo'yicha faoliyatni amalga oshiradi.",
   "The clinic operates in accordance with the Constitution and laws of the Republic of Uzbekistan, resolutions of the chambers of the Oliy Majlis of the Republic of Uzbekistan, decrees, resolutions and orders of the President of the Republic of Uzbekistan, resolutions and orders of the Cabinet of Ministers of the Republic of Uzbekistan. Decisions and orders of the Board of the Ministry of Higher and Secondary Special Education, in accordance with the Charter of the Academy and this Regulation.": "Klinika o‘z faoliyatini O‘zbekiston Respublikasining Konstitusiyasi va qonunlariga, O‘zbekiston Respublikasi Oliy Majlisi palatalari qarorlariga, O‘zbekiston Respublikasi Prezidentining farmon, qaror va farmoyishlariga, O‘zbekiston Respublikasi Vazirlar Mahkamasining qaror va farmoyishlariga, O‘zbekiston Respublikasi Adliya vazirligi, Oliy va o‘rta maxsus ta'lim vazirligining hay'at qarorlari va buyruqlari, Akademiya Ustavi hamda mazkur nizomga muvofiq olib boradi.",
   "The main objectives of the clinic are": "Klinikaning asosiy maqsadi quyidagilardan iborat",
   "The main tasks of the clinic are": "Klinikaning asosiy vazifalari quyidagilar hisoblanadi",
@@ -81,7 +81,6 @@
   "Providing equitable legal assistance to individuals and legal entities": "Jismoniy va yuridik shaxslarga beg‘araz yuridik yordamni ko‘rsatish borasida",
   "to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice": "jismoniy va yuridik shaxslarning yuridik maslahat olish to‘g‘risidagi murojaatlarini o‘z vaqtida va sifatli ko‘rib chiqilishini ta’minlash",
   "based on the nature and complexity of the appeals of individuals and legal entities, to make recommendations on the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them": "jismoniy va yuridik shaxslarning murojaati xususiyati va murakkabligidan kelib chiqib, ularni hal etish uchun tegishli davlat va xo‘jalik boshqaruvi organlari, sud, huquqni muhofaza qiluvchi organlar va advokatlik tuzilmalariga murojaat qilish lozimligi to‘g‘risida tavsiyalar berish",
-  "To increase the level of professional training of students and develop their skills in working with legal entities and individuals": "Talabalarning professional tayyorgarlik darajasini oshirish va ularda yuridik va jismoniy shaxslar bilan ishlash ko‘nikmalarini shakllantirish borasida",
   "preparation of analytical data on legal issues, development of new programs to help develop practical skills": "huquqiy masalalar bo‘yicha tahliliy ma’lumotlar tayyorlash, amaliy ko‘nikmalarni rivojlantirishga ko‘maklashuvchi yangi dasturlar ishlab chiqish",
   "conducting seminars and trainings on legal professional ethics and professional skills for students undergoing internships in the clinic": "klinikada amaliyot (stajirovka) o‘tayotgan talabalarda yuridik kasb etikasi, kasbiy faoliyat malakasini shakllantirishga qaratilgan seminar-treninglar o‘tkazish",
   "Directory title": "Katalog nomi",
@@ -199,7 +198,7 @@
   "Feedback reviews": "Fikr-mulohazalar",
   "Regulatory and legal framework": "Normativ -huquqiy baza",
   "Send the list to the system administrator": "Ro'yxatni tizim adminstratoriga yuborish",
-
+  "Clinic plans": "Klinikaning rejalari",
   "Generate link": "Havola yaratish",
   "Block": "Bloklash",
   "Unblock": "Blokdan chiqarish",
@@ -339,6 +338,25 @@
   "Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited":"Uzulksiz va doimiy yuridik savollarga malakali mutahasislar tomonidan javoblar. Yuridik murojaatlar soni cheklanmagan",
   "General applications":"Umumiy arizalar",
   "In progress":"Jarayonda",
-  "Users":"Foydalanuvchilar"
+  "Users":"Foydalanuvchilar",
+  "Our Attorneys": "Akademya xodimlari",
+
+
+  "Ensuring that trainees undergo internships at the clinic during their studies at the Academy": "Tinglovchilarni Akademyada o‘qish davri mobaynida klinikada amaliyot (stajirovka) o‘tashini ta’minlash borasida",
+  "take organizational measures to organize internships for students in the clinic;": " klinikada talabalarning amaliyot (stajirovka) o‘tashlarini tashkil etish yuzasidan tashkiliy choralarni ko‘rish;",
+  "to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice;": " talabalarning nazariy bilimlarini amaliyot bilan uzviy bog‘liqligini ta’minlash orqali ularni huquqni qo‘llash amaliyotiga keng jalb etish;",
+  "Regarding the provision of free legal aid to individuals and legal entities": "Jismoniy va yuridik shaxslarga beg‘araz yuridik yordamni ko‘rsatish borasida",
+  "to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice;": "jismoniy va yuridik shaxslarning yuridik maslahat olish to‘g‘risidagi murojaatlarini o‘z vaqtida va sifatli ko‘rib chiqilishini ta’minlash;",
+  "make recommendations on the nature and complexity of appeals of individuals and legal entities, and the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them;": "jismoniy va yuridik shaxslarning murojaati xususiyati va murakkabligidan kelib chiqib, ularni hal etish uchun tegishli davlat va xo‘jalik boshqaruvi organlari, sud, huquqni muhofaza qiluvchi organlar va advokatlik tuzilmalariga murojaat qilish lozimligi to‘g‘risida tavsiyalar berish",
+  "To increase the level of professional training of students and develop their skills in working with legal entities and individuals": "Tinglovchilarning professional tayyorgarlik darajasini oshirish hamda ularda yuridik va jismoniy shaxslar bilan ishlash ko‘nikmalarini shakllantirish borasida",
+  "preparation of analytical data on legal issues, development of new programs to help develop practical skills;": "huquqiy masalalar bo‘yicha tahliliy ma’lumotlar tayyorlash, amaliy ko‘nikmalarni rivojlantirishga ko‘maklashuvchi yangi dasturlar ishlab chiqish;",
+  "conducting seminars and trainings aimed at developing professional ethics and professional skills in trainees undergoing internships in the clinic;": "klinikada amaliyot (stajirovka) o‘tayotgan tinlovchilarda kasb etikasi, kasbiy faoliyat malakasini shakllantirishga qaratilgan seminar-treninglar o‘tkazish;",
+  "Make a video appeal": "Video biriktirish",
+  "Make a audio appeal": "Audio biriktirish",
+  "Watch the video": "Videoni ko'rish",
+  "Listen to the audio": "Audioni eshitish",
+  "Phone number or email": "Telefon raqam yoki email"
+
+
 
 }

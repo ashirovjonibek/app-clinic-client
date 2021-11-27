@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import {withTranslation} from "react-i18next";
 
 const RequestTheme = ({label,description,t,check}) => {
+
+    const [show,setShow]=useState(false);
+
     return (
         <div>
             <div className="request-theme">
@@ -15,9 +18,10 @@ const RequestTheme = ({label,description,t,check}) => {
                     <label htmlFor="">{t("Confidentially")}</label>
                 </div>
             </div>
+            <hr/>
             <div className="request-content-item">
-                <p>{description&&description}</p>
-
+                <p style={{maxHeight:show?"":"340px",overflow:"hidden"}}>{description&&description}</p>
+                {description?.length>1300&&<span onClick={()=>setShow(!show)} style={{cursor:"pointer",color:"blue"}}>{show?"Hide":"Show"}</span>}
             </div>
         </div>
     )

@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
 import i18next from "i18next";
+import PdfViewer from "../catalog/pdfViewer";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -33,6 +34,8 @@ const ModeratorPerformerItem = (props) => {
 
     const [edit, setEdit] = useState(false);
     const classes = useStyles();
+    const [doc,setDoc]=useState("");
+    const [openDoc,setOpenDoc]=useState(false);
     const [age, setAge] = React.useState('');
     const [items, setItems] = useState([]);
     const [id, setId] = useState("");
@@ -150,10 +153,14 @@ const ModeratorPerformerItem = (props) => {
                             }}>
                                 <label htmlFor="">{props.t("File")}</label>
                                 <div
+                                    onClick={()=>{
+                                        setDoc( API_URL + '/attach/' + props?.item?.application?.attachmentsId[0])
+                                        setOpenDoc(true)
+                                    }}
                                     title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                     style={{textAlign: "center", cursor: "pointer"}}
                                     className="file">
-                                    {props?.item?.application?.attachmentsId?<a href={API_URL + '/attach/' + props?.item?.application?.attachmentsId[0]}><FileCopy/></a>:""}
+                                    {props?.item?.application?.attachmentsId?<span><FileCopy/></span>:""}
                                 </div>
                             </li>
                             <li style={{display: props?.item?.application?.video ? "" : "none", margin: '0 5px 0 5px'}}>
@@ -242,6 +249,7 @@ const ModeratorPerformerItem = (props) => {
                         </div>
                 }
             </div>
+            {doc&&<PdfViewer url={doc} setUrl={setDoc} open={openDoc} setOpen={setOpenDoc} />}
         </div>
     );
 }

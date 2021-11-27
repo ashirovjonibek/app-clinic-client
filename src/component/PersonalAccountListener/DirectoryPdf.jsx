@@ -1,6 +1,6 @@
 import React from "react";
 import Label from "../Label";
-import {Description,Delete} from '@material-ui/icons'
+import {Description,Delete,PictureAsPdf} from '@material-ui/icons'
 import {withTranslation} from "react-i18next";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {allRoles} from "../../routes/authRoles";
@@ -62,12 +62,12 @@ const DirectoryPdf = (props) => {
                             <Delete />
                         </div>:""
                 }
-                <span ><Description onClick={()=>{
+                <span ><PictureAsPdf type="file-pdf" onClick={()=>{
                    props?.setUrl(API_URL+'/attach/'+props?.item?.id);
                    props?.setOpen(true)
 
-                }} style={{width:"100%",fontSize:"38px",marginTop:"18px"}}/></span>
-                <p>
+                }} style={{width:"100%",fontSize:"68px",marginTop:"18px"}}/></span>
+                <p style={{wordBreak:"break-all",padding:"0 15px"}}>
                     {
                         props?.item?.name
                     }

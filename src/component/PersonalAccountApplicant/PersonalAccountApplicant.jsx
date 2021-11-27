@@ -18,6 +18,7 @@ import "../../assets/scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
+import {Badge} from "antd";
 
 const PersonalAccountApplicant = (props) => {
 
@@ -25,9 +26,10 @@ const PersonalAccountApplicant = (props) => {
     const [sitebar, setSitebar] = useState(false);
     const [appeal, setAppeal] = useState([]);
     const history = useHistory();
-    const theme=useSelector(state => state.theme);
-    const [count,setCount]=useState(0);
-    const [n,setN]=useState(0);
+    const theme = useSelector(state => state.theme);
+    const [count, setCount] = useState(0);
+    const [n, setN] = useState(0);
+    const [counts, setCounts] = useState();
 
 
     function pushBar(n) {
@@ -35,15 +37,16 @@ const PersonalAccountApplicant = (props) => {
             case 1:
                 return <YourAppealSection n={n} setAppeal={setAppeal}/>
             case 2:
-                return <PerAccAppCallFlowSection />
+                return <PerAccAppCallFlowSection/>
             case 3:
-                return <PerAccAppPeriodSection />
+                return <PerAccAppPeriodSection/>
             case 4:
                 return <PerAccAppResponseRequest appeal={appeal}/>
             case 5:
-                return <SendSection />
+                return <SendSection/>
         }
     }
+
     useEffect(() => {
         // console.log("this is redux->",me)
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -52,24 +55,36 @@ const PersonalAccountApplicant = (props) => {
 
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
-            method:'get',
-            url:API_URL+'/message',
-            headers:{
-                Authorization:localStorage.getItem(STORAGE_NAME)
+            method: 'get',
+            url: API_URL + '/message',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
             }
-        }).then((res)=>{
+        }).then((res) => {
             console.log(res);
-            let c=0;
-            let d=res?.data?.object;
+            let c = 0;
+            let d = res?.data?.object;
             for (let i = 0; i < d?.length; i++) {
-                c+=d[i].count;
+                c += d[i].count;
             }
             console.log(c)
             setCount(c);
         })
-    },[n]);
+
+        axios({
+            method: 'get',
+            url: API_URL + '/message/get-counts',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res) => {
+            console.log(res);
+            setCounts(res?.data?.object);
+        })
+
+    }, [n]);
 
     const getPage = (n) => {
         setPageQount(n);
@@ -80,9 +95,9 @@ const PersonalAccountApplicant = (props) => {
         <div>
             <ApplicationNav getPage={getPage} setSitebar={setSitebar} sitebar={sitebar}/>
 
-            <div className="acount-applicant container-fluit" style={{ paddingTop: '150px' }}>
+            <div className="acount-applicant container-fluit" style={{paddingTop: '150px'}}>
                 <div style={theme} className="container12">
-                    <Title text={props.t("Personal account")} />
+                    <Title text={props.t("Personal account")}/>
                     <section className="section-body">
                         <div className="navbar-wrapper">
                             <div className="navbarr">
@@ -97,35 +112,24 @@ const PersonalAccountApplicant = (props) => {
                                         <Link to="#" onClick={() => getPage(2)}>{props.t("Document status")}</Link>
                                     </li>
                                     <li className="navbar-items" id={pageQount === 3 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(3)}>{props.t("Consideration period")}</Link>
+                                        <Link to="#"
+                                              onClick={() => getPage(3)}>{props.t("Consideration period")}</Link>
                                     </li>
-                                    <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
-                                        <Link to="#" onClick={() => getPage(4)}>{props.t("Responses to requests")}</Link>
-                                    </li>
-                                    <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                        {
-                                            count>0?<div className="new" style={{position:"relative"}}>
-                                                <div style={
-                                                    {
-                                                        position:"absolute",
-                                                        backgroundColor:red[400],
-                                                        padding:"5px",
-                                                        borderRadius:"50%",
-                                                        width:"24px",
-                                                        textAlign:"center",
-                                                        color:"white",
-                                                        right:0,
-                                                        top:"-12px"
-                                                    }
-                                                } className="new-item">{count}</div>
-                                            </div>:""
-                                        }
-                                        <Link to="#" onClick={() => getPage(5)}>{props.t("Message")}</Link>
-                                    </li>
+                                    <Badge count={counts?.complateApps ? counts?.complateApps : 0} showZero>
+                                        <li className="navbar-items" id={pageQount === 4 ? "active" : ""}>
+                                            <Link to="#"
+                                                  onClick={() => getPage(4)}>{props.t("Responses to requests")}</Link>
+                                        </li>
+                                    </Badge>
+                                    <Badge count={count} showZero>
+                                        <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
+                                            <Link to="#" onClick={() => getPage(5)}>{props.t("Message")}</Link>
+                                        </li>
+                                    </Badge>
                                 </ul>
                             </div>
                         </div>
-                        <div style={{minHeight:"75vh"}} className="content-wrapper">
+                        <div style={{minHeight: "75vh"}} className="content-wrapper">
                             {
                                 pushBar(pageQount)
                             }

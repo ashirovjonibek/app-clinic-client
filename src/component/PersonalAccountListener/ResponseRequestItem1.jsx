@@ -31,7 +31,7 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
         let path = type ? "/answer/updateByDocument?documentId=" : "/answer/create?applicationId=";
         let method = type ? "put" : "post";
         console.log(id);
-        Swal.fire({
+        if (fileId||message){Swal.fire({
             title: t("Confirmation") + "!!!",
             text: t("Confirm changes to this form") + "?",
             icon: 'warning',
@@ -75,7 +75,9 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
                     });
                 })
             }
-        })
+        })}else {
+            Swal.fire("Iltimos file yoki text kiriting!!!","","error");
+        }
     };
 
     const handleUpload = (e) => {
@@ -113,14 +115,12 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
                     {
                         backgroundColor: isAn ? red[400] : green[400],
                         width: "25px", height: "25px",
-                        paddingTop: "10px",
-                        paddingLeft: "3px",
-                        paddingRight: "3px",
                         color: "white",
                         borderRadius: "50%",
                         cursor: "pointer"
                     }
                 }
+                      className="d-flex justify-content-center text-light align-items-center"
                       onClick={() => setIsAn(!isAn)}
                 >{!isAn ? <AddIcon/> : <RemoveIcon/>}</span>
             </div>
@@ -167,4 +167,4 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
     );
 }
 
-export default withTranslation()(ResponseRequestItem1);
+export default  withTranslation()(ResponseRequestItem1);

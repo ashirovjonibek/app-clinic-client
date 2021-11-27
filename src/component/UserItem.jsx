@@ -1,5 +1,6 @@
 import React from "react";
 import user1Img from "../assets/img/user1.jpg";
+import {Avatar, Image} from "antd";
 
 const UserItem = (props) => {
 
@@ -17,18 +18,7 @@ const UserItem = (props) => {
     return (
         <div className="user-item">
             <div className="user-person-inform">
-                <div className="user-img" style={
-                    {
-                        width:props?.width?props?.width:"",
-                        height:props?.height?props?.height:"",
-                        backgroundColor:stringToHslColor(props?.p?.fullName?props?.p?.fullName:"A",50,50),
-                        textAlign:"center",
-                        color:"white",
-                        fontWeight:600,
-                        fontSize:"25px",
-                        lineHeight:"54px"
-                    }
-                }>{props?.p?.fullName[0]?.toUpperCase()}</div>
+                <Avatar style={{background:stringToHslColor(props?.p?.fullName?props?.p?.fullName:"",50,50)}} size={45} src={props?.p?.image&&<Image src={props?.p?.image}/>}>{props?.p?.fullName[0]?.toUpperCase()}</Avatar>
                 <div className="user-inform">
                     <div className="user-name">{props?.p?.fullName}</div>
                     {/*<div className="user-porofeesion">{props?.p?.roles[0]?.description}</div>*/}

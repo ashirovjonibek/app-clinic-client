@@ -15,6 +15,9 @@ import Dialog from "@material-ui/core/Dialog";
 import {blue, green, red} from "@material-ui/core/colors";
 import PdfViewer from "../catalog/pdfViewer";
 import yellow from "@material-ui/core/colors/yellow";
+import NewApplications from "./NewApplications";
+import {Badge} from "antd";
+import InpsApps from "./InpsApps";
 
 const IncomingRequestSection = (props) => {
     const {t} = props;
@@ -34,8 +37,8 @@ const IncomingRequestSection = (props) => {
     const [active1, setActive1] = useState(1);
     const [size1, setSize1] = useState(3);
     const [total1, setTotal1] = useState(1);
-    const [open,setOpen]=useState(false);
-    const [url,setUrl]=useState("");
+    const [open, setOpen] = useState(false);
+    const [url, setUrl] = useState("");
     const [player, setPlayer] = useState({
         open: false,
         name: "",
@@ -44,7 +47,7 @@ const IncomingRequestSection = (props) => {
     const [comment, setComment] = useState({
         status: false,
         message: "",
-        to:"",
+        to: "",
         errorCom: ""
     })
     const [appealFilter, setAppealFilter] = useState({
@@ -58,8 +61,8 @@ const IncomingRequestSection = (props) => {
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/listener?size=" + size + "&page=" + (active - 1)+
-            "&search="+appealFilter.search,
+            url: API_URL + "/application/listener?size=" + size + "&page=" + (active - 1) +
+                "&search=" + appealFilter.search,
             method: 'GET'
         }).then(res => {
             setRequest(res.data.object)
@@ -77,8 +80,8 @@ const IncomingRequestSection = (props) => {
 
         axios({
             method: 'get',
-            url: API_URL + "/application/unchecked?size=" + size1 + "&page=" + (active1 - 1)+
-            "&search="+appealFilter.search,
+            url: API_URL + "/application/unchecked?size=" + size1 + "&page=" + (active1 - 1) +
+                "&search=" + appealFilter.search,
             headers: {
                 'Authorization': token
             }
@@ -112,8 +115,8 @@ const IncomingRequestSection = (props) => {
 
     const acceptApp = (id) => {
         Swal.fire({
-            title: t("Confirmation")+"!!!",
-            text:  t("Should this application be accepted")+"?",
+            title: t("Confirmation") + "!!!",
+            text: t("Should this application be accepted") + "?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -129,11 +132,12 @@ const IncomingRequestSection = (props) => {
                     }
                 }).then((r) => {
                     Swal.fire(
-                        t("Approved")+"",
-                        t("The application was accepted")+"!!!",
+                        t("Approved") + "",
+                        t("The application was accepted") + "!!!",
                         'success'
                     ).then((res) => {
-                        newApplication()
+                        newApplication();
+                        acceptedApp()
                     });
                 })
 
@@ -145,12 +149,12 @@ const IncomingRequestSection = (props) => {
     const ignoredApp = (id) => {
         if (comment.message.length > 10) {
             Swal.fire({
-                title:  t("Confirmation") + "!!!",
+                title: t("Confirmation") + "!!!",
                 text: t("Are you sure this application will be sent to the Moderator") + "?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                confirmButtonText:  t("Yes"),
+                confirmButtonText: t("Yes"),
                 cancelButtonText: t("No")
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -161,19 +165,19 @@ const IncomingRequestSection = (props) => {
                             'Authorization': token
                         },
                         data: {
-                            comment:comment.message,
-                            to:comment.to
+                            comment: comment.message,
+                            to: comment.to
                         }
                     }).then((r) => {
                         Swal.fire(
-                            t("Sent")+"!",
-                            t("The application was sent to the Moderator")+"!",
+                            t("Sent") + "!",
+                            t("The application was sent to the Moderator") + "!",
                             'success'
                         ).then((res) => {
                             setComment({
-                                status:false,
-                                message:"",
-                                errorCom:"",
+                                status: false,
+                                message: "",
+                                errorCom: "",
                             })
                             newApplication()
                         });
@@ -184,7 +188,7 @@ const IncomingRequestSection = (props) => {
         } else {
             setComment({
                 ...comment,
-                errorCom: t("The message length must be at least 10 characters")+"!"
+                errorCom: t("The message length must be at least 10 characters") + "!"
             })
         }
     };
@@ -205,6 +209,10 @@ const IncomingRequestSection = (props) => {
     useEffect(() => {
         acceptedApp()
     }, [size, active]);
+
+    useEffect(() => {
+        acceptedApp()
+    }, []);
 
     const checkedApp = () => {
         axios({
@@ -235,12 +243,12 @@ const IncomingRequestSection = (props) => {
 
     };
 
-    const getDayDeadline=(date)=>{
+    const getDayDeadline = (date) => {
         let a = new Date(date);
         let b = new Date();
         let d = a.getTime() - b.getTime();
-        let s=d / (1000 * 60 * 60 * 24)
-        return s>0?parseInt(s)<s?parseInt(s+1):s:0;
+        let s = d / (1000 * 60 * 60 * 24)
+        return s > 0 ? parseInt(s) < s ? parseInt(s + 1) : s : 0;
     };
 
 
@@ -251,145 +259,17 @@ const IncomingRequestSection = (props) => {
                     <>
                         {newApps && newApps.map((item, i) =>
 
-                            <div className="content" key={i} value={item.id}>
-                                <div className="request-content-title">
-                                    <div className="request-content-title-name">
-                                        <UserName text={`${item.applicant.fullName}`}/>
-                                    </div>
-                                    <div className="request-content-title-date">
-                                        {/*{*/}
-                                        {/*    getDayDeadline(item.deadLineDate)*/}
-                                        {/*}*/}
-                                    </div>
-                                </div>
-                                <div className="request-theme">
-                                    <div className="request-theme-title">
-                                        <h3>{props.t("Subject of the appeal")}:</h3>
-                                        <p>{item.title}</p>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" defaultChecked={item.top}/>
-                                        <label htmlFor="">{props.t("Confidentially")}</label>
-                                    </div>
-                                </div>
-                                <div className="request-content-item">
-                                    <p>{item.description}</p>
-                                </div>
-                                <div className="categories">
-                                    <ul>
-                                        <li>
-                                            <label htmlFor="">{props.t("Category of treatment")}</label>
-                                            <div
-                                                className="category-item">{item?.section?.title[i18next.language]}</div>
-                                        </li>
-                                        <li style={{display: item?.attachmentsId ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("File")}</label>
-                                            <div
-                                                title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
-                                                style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                {item?.attachmentsId?<a onClick={()=>{
-                                                    setUrl(API_URL + '/attach/' + item?.attachmentsId[0])
-                                                    setOpen(true)
-                                                }
-                                                }><FileCopy/></a>:""}
-                                            </div>
-                                        </li>
-                                        <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("Video")}</label>
-                                            <div
-                                                title={item?.video ? props.t("Download the application") : props.t("Doc not found")}
-                                                onClick={(e) => {
-                                                    setPlayer({
-                                                        open: true,
-                                                        name: "video",
-                                                        resource: item?.video
-                                                    })
-                                                }} style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                <Videocam/>
-                                            </div>
-                                        </li>
-                                        <li style={{display: item?.audio ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("Audio")}</label>
-                                            <div
-                                                title={item?.audio ? props.t("Download the application") : props.t("Doc not found")}
-                                                onClick={(e) => {
-                                                    setPlayer({
-                                                        open: true,
-                                                        name: "audio",
-                                                        resource: item?.audio
-                                                    })
-                                                }} style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                <Audiotrack/>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="request-bottom">
-                                    {
-                                        comment.status ?
-                                            <div style={{
-                                                border: "1px solid rgba(0,0,0,0.3)",
-                                                width: "100%",
-                                                padding: "5px",
-                                                borderRadius: "5px"
-                                            }}>
-                                                {/*<div>*/}
-                                                {/*    <TextFields/>*/}
-                                                {/*</div>*/}
-                                  <textarea onChange={(e) => {
-                                  if (e.target.value.length>10){
-                                      setComment({
-                                          ...comment,
-                                          message: e.target.value,
-                                          errorCom:""
-                                      })
-                                  }
-                                  }
-                                  } id="" cols="30" rows="10">
-
-                                  </textarea>
-                                                <div>
-                                                    <span style={{color: red[400]}}>{comment.errorCom}</span>
-                                                    <button onClick={()=>{
-                                                        setComment({
-                                                            status:false,
-                                                            message:"",
-                                                            errorCom:"",
-                                                        })
-                                                    }} style={{
-                                                        padding: "6px 8px", borderRadius: "3px", float: "right"
-                                                    }}>Bekor qilish
-                                                    </button>
-                                                    <button onClick={() => ignoredApp(item.id)} style={{
-                                                        padding: "6px 8px",
-                                                        borderRadius: "3px",
-                                                        backgroundColor: green[400],
-                                                        color: "white",
-                                                        float: "right"
-                                                    }}>Yuborish
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            :
-                                            <>
-                                                < div style={{width: "100%", clear: "both"}}/>
-                                                <button className="blue-btn"
-                                                        onClick={() => setComment({
-                                                            ...comment,
-                                                            status: true
-                                                        })}>{props.t("Send to the moderator to replace the listener")}</button>
-                                                <button type="submit" className="btn-default" style={{
-                                                    marginTop: "15px"
-                                                }}
-                                                        onClick={() => acceptApp(item.id)}>{props.t("Accept")}</button>
-                                            </>
-                                    }
-                                </div>
-                            </div>
+                            <NewApplications
+                                setUrl={setUrl}
+                                setOpen={setOpen}
+                                setPlayer={setPlayer}
+                                item={item}
+                                comment={comment}
+                                setComment={setComment}
+                                ignoredApp={ignoredApp}
+                                acceptApp={acceptApp}
+                                i={i}
+                            />
                         )}
                         <div style={{clear: "both"}}/>
 
@@ -411,121 +291,19 @@ const IncomingRequestSection = (props) => {
                 return (
                     <>
                         {inpApps && inpApps.map((item, i) =>
-                            <div className="content" key={i} value={item.id}>
-                                <div className="request-content-title">
-                                    <div className="request-content-title-name">
-                                        <UserName text={`${item.applicant.fullName}`}/>
-                                    </div>
-                                    <div className="request-content-title-date">
-                                        <div style={{
-                                            marginRight:"6px",
-                                            textDecoration:"underline",
-                                            cursor:"pointer",
-                                            color:blue[400],
-                                            display:"block",
-                                            clear:"both"
-                                        }} onClick={()=>{
-                                            axios({
-                                                method:"post",
-                                                url:API_URL+'/message/generate-chat?toId='+item?.applicant.id,
-                                                headers:{
-                                                    Authorization:localStorage.getItem(STORAGE_NAME)
-                                                }
-                                            }).then((response)=>{
-                                                props.getPage(8)
-                                            })
-                                        }}>
-                                            {props.t("Send message")}
-                                        </div>
-                                        <div className="date-label">
-                                            {props.t("Review period")}:
-                                            <span style={{
-                                                position:"relative",
-                                                backgroundColor:getDayDeadline(item.deadLineDate)>10?green[400]:getDayDeadline(item.deadLineDate)<5?red[400]:yellow[400],
-                                                padding:"3px 4px",
-                                                borderRadius:"10px",
-                                                color:"white",
-                                                height:"100%"
-                                            }}>
-                                                <span>
-                                                    {
-                                                        getDayDeadline(item.deadLineDate)
-                                                    }
-                                                </span>
-                                                <span> kun</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="request-theme">
-                                    <div className="request-theme-title">
-                                        <h3>{props.t("Subject of the appeal")}:</h3>
-                                        <p>{item.title}</p>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox"/>
-                                        <label htmlFor="">{props.t("Confidentially")}</label>
-                                    </div>
-                                </div>
-                                <div className="request-content-item">
-                                    <p>{item.description}</p>
-                                </div>
-                                <div className="categories">
-                                    <ul>
-                                        <li>
-                                            <label htmlFor="">{props.t("Category of treatment")}</label>
-                                            <div
-                                                className="category-item">{item?.section?.title[i18next.language]}</div>
-                                        </li>
-                                        <li style={{display: item?.attachmentsId ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("File")}</label>
-                                            <div
-                                                title={item?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
-                                                style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                {item?.attachmentsId?<a onClick={()=>{
-                                                    setUrl(API_URL + '/attach/' + item?.attachmentsId[0]);
-                                                    setOpen(true)
-                                                }
-                                                }><FileCopy/></a>:""}
-                                            </div>
-                                        </li>
-                                        <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("Video")}</label>
-                                            <div
-                                                title={item?.video ? props.t("Download the application") : props.t("Doc not found")}
-                                                onClick={(e) => {
-                                                    setPlayer({
-                                                        open: true,
-                                                        name: "video",
-                                                        resource: item?.video
-                                                    })
-                                                }} style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                <Videocam/>
-                                            </div>
-                                        </li>
-                                        <li style={{display: item?.audio ? "" : "none", margin: '0 5px 0 5px'}}>
-                                            <label htmlFor="">{props.t("Audio")}</label>
-                                            <div
-                                                title={item?.audio ? props.t("Download the application") : props.t("Doc not found")}
-                                                onClick={(e) => {
-                                                    setPlayer({
-                                                        open: true,
-                                                        name: "audio",
-                                                        resource: item?.audio
-                                                    })
-                                                }} style={{textAlign: "center", cursor: "pointer"}}
-                                                className="file-item">
-                                                <Audiotrack/>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="response-request">
-                                    <ResponseRequestItem1 refresh={acceptedApp} id={item?.id} item={item}/>
-                                </div>
-                            </div>
+                            <InpsApps
+
+                                item={item}
+                                i={i}
+                                getPage={props?.getPage}
+                                getDayDeadline={getDayDeadline}
+                                setUrl={setUrl}
+                                setOpen={setOpen}
+                                setPlayer={setPlayer}
+                                acceptedApp={acceptedApp}
+
+
+                            />
                         )}
                         <div style={{clear: "both"}}/>
 
@@ -644,41 +422,45 @@ const IncomingRequestSection = (props) => {
     return (
         <div className="incoming-request-section">
 
-            <ContentTop role={"listener"} setAppealFilter={setAppealFilter} appealFilter={appealFilter} />
+            <ContentTop role={"listener"} setAppealFilter={setAppealFilter} appealFilter={appealFilter}/>
 
-            <div className="navbar-wrapper">
-                <div className="content-top">
-                    <p className="request-items">
+            <div className="navbar-wrapper1">
+                <div className="content-top1">
+                    <p className="request-items1">
                     </p>
+                    <Badge showZero count={newApps.length}>
                     <p style={{padding: "0px 10px", border: nS === 1 ? "1px solid rgba(0,0,0,0.5)" : ""}}
-                       className="request-items">
+                       className="request-items1">
                         <Link to={"#"} onClick={() => {
                             setNS(1)
                             newApplication();
                             setAppealFilter({
                                 ...appealFilter,
-                                search:""
+                                search: ""
                             })
                         }}>{props.t("New")}</Link>
                     </p>
+                    </Badge>
+                    <Badge showZero count={inpApps.length}>
                     <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
-                       className="request-items">
+                       className="request-items1">
                         <Link to={"#"} onClick={() => {
                             setNS(2)
                             acceptedApp();
                             setAppealFilter({
                                 ...appealFilter,
-                                search:""
+                                search: ""
                             })
                         }}>{props.t("Accepted")}</Link>
                     </p>
+                    </Badge>
                     {/*<p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">*/}
                     {/*    <Link to={"#"} onClick={()=>{*/}
                     {/*        setNS(3);*/}
                     {/*        checkedApp();*/}
                     {/*    }}>{props.t("Reviewed")}</Link>*/}
                     {/*</p>*/}
-                    <p className="request-items">
+                    <p className="request-items1">
                     </p>
                 </div>
             </div>

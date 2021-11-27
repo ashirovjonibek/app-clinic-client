@@ -21,7 +21,7 @@ const UserName = (props) => {
     return (
         <>
             <div className="request-content-title-name">
-                <div className="applicant-image" style={
+                <div className="applicant-image text-light" style={
                     {
                         width:props?.width?props?.width:"45px",
                         height:props?.height?props?.height:"45px",

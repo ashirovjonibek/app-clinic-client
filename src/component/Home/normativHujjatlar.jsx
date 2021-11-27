@@ -52,6 +52,9 @@ function NormativHujjatlar({ t,style }) {
     <div>
       <section style={style} className="logos">
         <div style={style} className="container">
+          <div className="row heading heading-icon">
+            <h2>{t("Regulatory base")}</h2>
+          </div>
           <Swiper
             slidesPerView={countView}
             centeredSlides={true}

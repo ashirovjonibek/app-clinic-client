@@ -8,11 +8,15 @@ import {withTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import {API_URL} from "../../utils/constant";
+import home from '../../assets/img/home.jpg'
 
 let duration=1
 
 const CellClinic = ({scrollEl, t,style}) => {
     const [sts, setSts] = useState({});
+    const [style1,setStyle1]=useState({
+        background: `url(${home}) no-repeat center bottom / cover`
+    })
 
     useEffect(()=>{
         axios({
@@ -24,7 +28,7 @@ const CellClinic = ({scrollEl, t,style}) => {
     },[]);
 
     return (
-        <section style={style} className="we-are-here">
+        <section style={{...style,...style1}} className="we-are-here">
             <div style={style} className="container">
                 <div className="row">
                     <div className="col-12 col-md-7 left-block">
