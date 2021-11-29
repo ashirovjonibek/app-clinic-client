@@ -12,6 +12,8 @@ import Swal from "sweetalert2";
 import {Audiotrack, DirectionsWalk, FileCopy, Videocam} from "@material-ui/icons";
 import {FormHelperText} from "@material-ui/core";
 import i18next from "i18next";
+import PdfViewer from "../catalog/pdfViewer";
+import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 
 const SupervisorResponsesRequestItem = (props) => {
     const { t } = props;
@@ -20,6 +22,8 @@ const SupervisorResponsesRequestItem = (props) => {
     const [isM, setIsM] = useState(false);
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false);
+    const [open,setOpen]=useState(false);
+    const [url,setUrl]=useState("");
 
 
     const fileLoad = (id, name) => {
@@ -120,7 +124,7 @@ const SupervisorResponsesRequestItem = (props) => {
                     <div className="categories">
 
                     </div>
-                    <SectionCategory fileId={props?.item?.answer?.attachmentId}
+                    <SectionCategory fileId={props?.item?.answer?.attachmentId?props?.item?.answer?.attachmentId:null} setPlayer={props?.setPlayer}
                                      section={props?.item?.application?.section} item={props.item}/>
                 </div>
                 <div className="content-line"/>
@@ -133,17 +137,19 @@ const SupervisorResponsesRequestItem = (props) => {
                         <div style={{width: "100%"}}>
                             {props?.item?.answer?.description}
                         </div>
-                        <div onClick={() => {
-                            fileLoad(props?.item?.answer?.attachmentId, "answer")
+                        {props?.item?.answer?.attachmentId&&<div onClick={() => {
+                            setOpen(true);
+                            setUrl(API_URL + "/attach/"+props?.item?.answer?.attachmentId)
                         }} style={{cursor: "pointer"}} className="file file1">
-                            {props.t("Upload listener response")}
-                        </div>
+                            <DownloadOutlined />
+                        </div>}
                     </div>
                     <br/>
                     {
                         isM ? <div style={
                             {
                                 display: "block",
+                                clear:"both",
                                 width: "100%",
                                 marginTop: "25px",
                                 border: "1px solid rgba(0,0,0,0.1)",
@@ -157,7 +163,7 @@ const SupervisorResponsesRequestItem = (props) => {
                                 if (e.target.value.length > 10) {
                                     setError(false)
                                 }
-                            }} cols="30" rows="10" placeholder="Rad etilish sababini kiriting!!!">
+                            }} rows="10" style={{width:"100%"}} placeholder="Rad etilish sababini kiriting!!!">
                             </textarea>
                             {error ? <FormHelperText
                                 error={error}>{props.t("Enter a minimum of 10 characters")}!!!</FormHelperText> : ""}
@@ -193,6 +199,7 @@ const SupervisorResponsesRequestItem = (props) => {
                     </div>
                 </div>
             </div>
+            <PdfViewer url={url} open={open} setUrl={setUrl} setOpen={setOpen}/>
         </div>
     );
 }

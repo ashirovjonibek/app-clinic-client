@@ -5,7 +5,7 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const SupervisorFeedbakRequestSection = () => {
+const SupervisorFeedbakRequestSection = (props) => {
     const [feedBack, setFeedBack] = useState([]);
     const [pageLength,setPageLength]=useState(0);
     const [size,setSize]=useState(5);
@@ -31,8 +31,8 @@ const SupervisorFeedbakRequestSection = () => {
             <>
                 {
                     feedBack&&feedBack.map((item,i)=>
-                        item?.liked?<SupervisorFeedbakRequestItem key={i} item={item}/>:
-                            <SupervisorFeedbakRequestItemDizz key={i} item={item}/>
+                        item?.liked?<SupervisorFeedbakRequestItem listener={props?.listener} key={i} item={item}/>:
+                            <SupervisorFeedbakRequestItemDizz listener={props?.listener} key={i} item={item}/>
                     )
                 }
             </>

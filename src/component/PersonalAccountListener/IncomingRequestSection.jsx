@@ -75,6 +75,7 @@ const IncomingRequestSection = (props) => {
             setTotal(res.data.totalPages)
             setNewApps(cr);
             section(1)
+            props?.setRefreshCount(!props?.refreshCount)
 
         });
 
@@ -88,6 +89,7 @@ const IncomingRequestSection = (props) => {
         }).then((r) => {
             setTotal1(r.data.totalPages);
             setInpApps(r.data.object)
+            props?.setRefreshCount(!props?.refreshCount)
         })
     }, [active, active1, size, size1, appealFilter]);
 
@@ -138,6 +140,7 @@ const IncomingRequestSection = (props) => {
                     ).then((res) => {
                         newApplication();
                         acceptedApp()
+                        props?.setRefreshCount(!props?.refreshCount)
                     });
                 })
 
@@ -180,6 +183,7 @@ const IncomingRequestSection = (props) => {
                                 errorCom: "",
                             })
                             newApplication()
+                            props?.setRefreshCount(!props?.refreshCount)
                         });
                     })
 
@@ -212,6 +216,7 @@ const IncomingRequestSection = (props) => {
 
     useEffect(() => {
         acceptedApp()
+         props?.setRefreshCount(!props?.refreshCount)
     }, []);
 
     const checkedApp = () => {
@@ -269,6 +274,7 @@ const IncomingRequestSection = (props) => {
                                 ignoredApp={ignoredApp}
                                 acceptApp={acceptApp}
                                 i={i}
+                                refreshCount={props?.refreshCount} setRefreshCount={props?.setRefreshCount}
                             />
                         )}
                         <div style={{clear: "both"}}/>
@@ -301,7 +307,7 @@ const IncomingRequestSection = (props) => {
                                 setOpen={setOpen}
                                 setPlayer={setPlayer}
                                 acceptedApp={acceptedApp}
-
+                                refreshCount={props?.refreshCount} setRefreshCount={props?.setRefreshCount}
 
                             />
                         )}

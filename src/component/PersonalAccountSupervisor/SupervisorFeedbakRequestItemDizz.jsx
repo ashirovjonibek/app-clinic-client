@@ -4,6 +4,7 @@ import UserName from "../UserName";
 import SupervisorComments from "../SupervisorComments";
 import {withTranslation} from "react-i18next";
 import i18next from "i18next";
+import {Button} from "antd";
 
 const SupervisorFeedbakRequestItemDizz = ({t,item}) => {
     function stringToHslColor(str, s, l) {
@@ -41,7 +42,9 @@ const SupervisorFeedbakRequestItemDizz = ({t,item}) => {
                 <div className="content-line" />
                 <div className="avatar">
                     <UserName text={item?.applicantName} />
-                    <button className="red-btn">{t("Unsatisfactory")}</button>
+                </div>
+                <div className="d-flex justify-content-end">
+                    <Button className="bg-danger text-light" style={{borderRadius:"15px"}} disabled>{t("Unsatisfactory")}</Button>
                 </div>
                 <SupervisorComments com={item?.comment} />
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import UserName from "../UserName";
 import {blue, green, red} from "@material-ui/core/colors";
 import axios from "axios";
@@ -20,6 +20,9 @@ const InpsApps = ({
                       setPlayer,
                       acceptedApp
                   }) => {
+
+    const [show,setShow]=useState(false);
+
     return (
         <div className="content" key={i}>
             <div className="request-content-title">
@@ -78,7 +81,8 @@ const InpsApps = ({
                 </div>
             </div>
             <div className="request-content-item">
-                <p>{item.description}</p>
+                <p style={{maxHeight:show?"":"340px",overflow:"hidden"}}>{item?.description&&item?.description}</p>
+                {item?.description?.length>1300&&<span onClick={()=>setShow(!show)} style={{cursor:"pointer",color:"blue"}}>{show?"Hide":"Show"}</span>}
             </div>
             <div className="categories">
                 <ul>

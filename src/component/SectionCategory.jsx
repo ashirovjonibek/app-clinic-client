@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {useTranslation, withTranslation} from "react-i18next";
 import Label from "./Label";
 import InputFile from "./InputFile";
@@ -6,9 +6,13 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../utils/constant";
 import i18next from "i18next";
 import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
+import PdfViewer from "./catalog/pdfViewer";
+import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 
 const SectionCategory = (props) => {
     const {i18n}=useTranslation();
+    const [open,setOpen]=useState(false);
+    const [url,setUrl]=useState("");
 
     let token=localStorage.getItem(STORAGE_NAME);
     // console.log(props);
@@ -42,41 +46,23 @@ const SectionCategory = (props) => {
 
     return (
         <div className="categories">
-            {
-                !props.item?<ul>
-                {!props?.showSection?<li>
-                    <label htmlFor="">{props.t("Category of treatment")}</label>
-                    <input disabled={true} type="text" value={props?.section?.title[''+i18n.language]}/>
-                </li>:""}
-                <li >
-                    <label htmlFor="">{props.t("File")}</label>
-                    <div onClick={()=>{
-                        if (props?.fileId){
-                            fileLoad(props.fileId,"answer")
-                        }
-                    }} title={props?.fileId?{}:props.t("Doc not found")} style={{cursor:props?.fileId?"pointer":"no-drop"}} className="file">
-                        {props.t("Download the application")}
-                    </div>
-                </li>
-            </ul>:
                     <ul>
                         <li>
                             <label htmlFor="">{props.t("Category of treatment")}</label>
                             <div className="file">{props?.item?.application?.section?.title[i18next.language]}</div>
                         </li>
-                        <li style={{display:props?.item?.application?.attachmentsId?"":"none",margin:'0 5px 0 5px'}}>
+                        {props?.item?.application?.attachmentsId?.length>0 && <li style={{margin:'0 5px 0 5px'}}>
                             <label htmlFor="">{props.t("File")}</label>
                             <div
                                 title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                 style={{textAlign: "center", cursor: "pointer"}}
-                                className="file">
-                                {/*<a href={API_URL+'/attach/'+props?.item?.application?.attachmentsId[0]}><FileCopy/></a>*/}
-                                {props?.item?.attachmentsId?<a onClick={()=>{
-                                    props?.setUrl(API_URL + '/attach/' + props?.item?.attachmentsId[0]);
-                                    props?.setOpen(true)
-                                }}><FileCopy/></a>:""}
+                                className="file" onClick={()=>{
+                                setOpen(true);
+                                setUrl(API_URL + "/attach/"+props?.item?.application?.attachmentsId[0])
+                            }}>
+                                <DownloadOutlined />
                             </div>
-                        </li>
+                        </li>}
                         <li style={{display:props?.item?.application?.video?"":"none",margin:'0 5px 0 5px'}}>
                             <label htmlFor="">{props.t("Video")}</label>
                             <div
@@ -108,7 +94,7 @@ const SectionCategory = (props) => {
                             </div>
                         </li>
                     </ul>
-            }
+            <PdfViewer url={url} open={open} setUrl={setUrl} setOpen={setOpen}/>
         </div>
     );
 }

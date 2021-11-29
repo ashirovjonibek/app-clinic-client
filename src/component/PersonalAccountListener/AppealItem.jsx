@@ -9,11 +9,16 @@ import Dialog from "@material-ui/core/Dialog";
 import ButtonDefault from "../ButtonDefault";
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
+import PdfViewer from "../catalog/pdfViewer";
+import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
+import {Tag} from "antd";
 
 const AppealItem = (props) => {
     const {t} = props;
     const [file, setFile] = useState();
     const [open, setOpen] = useState(false);
+    const [open1, setOpen1] = useState(false);
+    const [url, setUrl] = useState("");
     let token = localStorage.getItem(STORAGE_NAME)
 
     const fileLoad = (id) => {
@@ -137,19 +142,20 @@ const AppealItem = (props) => {
                         <span style={{fontWeight: "bold", display: "inline-block"}}>
                             {props.t("Answer file")}:
                         </span>
-                                <span onClick={() => {
+                                <span title="Ko'rish" onClick={() => {
+                                    setUrl(API_URL + '/attach/' + props?.item?.answer?.attachmentId);
+                                    setOpen1(true)
 
-                                    fileLoad(props?.item?.answer?.attachmentId)
                                 }} style={{
-                                    marginLeft: "25px",
+                                    marginLeft: "5px",
                                     marginTop: "15px",
                                     paddingTop: "15px",
                                     display: "inline-block",
                                     cursor: "pointer"
                                 }}>
-                            {
-                                <DescriptionIcon/>
-                            }
+                            <Tag className="d-flex justify-content-center align-items-center p-2 bg-success text-light rounded">
+                                <DownloadOutlined />
+                            </Tag>
                         </span>
                             </div> : ""
                     }
@@ -165,6 +171,7 @@ const AppealItem = (props) => {
                     </div>
                 </div>
             </div>
+            <PdfViewer url={url} setUrl={setUrl} setOpen={setOpen1} open={open1}/>
         </div>
     );
 }

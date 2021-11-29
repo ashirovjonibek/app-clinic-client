@@ -17,7 +17,7 @@ function App() {
                 background: "#000000",
                 color: "yellow"
             });
-            $("div.banner-image").css("background-color","rgba(0,0,0,0)")
+            $("div.banner-image").css("background-color","rgba(0,0,0,0)");
             $("video").css("z-index","1")
         }
         if (eye.imgless) {

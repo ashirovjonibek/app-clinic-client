@@ -174,6 +174,7 @@ const CenterSends = (props) => {
                     }
                 )
                 setEdit(false)
+                props?.setRefreshCount(!props?.refreshCount)
             }).catch((e) => {
                 Swal.fire("Xatolik yuz berdi!!!", "", "error")
             })
@@ -202,7 +203,8 @@ const CenterSends = (props) => {
         <div>
             <div className="new">
                 {
-                    props?.chat?.count > 0 ? <div className="new-item">{props?.chat?.count}</div> : <div className="new-item">0</div>
+                    props?.chat?.count > 0 ? <div className="new-item">{props?.chat?.count}</div> :
+                        <div className="new-item">0</div>
                 }
             </div>
             <div className="content">
@@ -235,35 +237,37 @@ const CenterSends = (props) => {
                                     }
 
                                     {item?.fileUrl ?
-                                        <div style={{width: "98%",margin:"auto", clear: "both"}}>
+                                        <div style={{width: "98%", margin: "auto", clear: "both"}}>
                                             <Row className={item.fromId === me.id ? "d-flex justify-content-end" : ""}
                                                  gutter={24}>
                                                 <Col xs={22} sm={18} md={16} lg={12} style={{position: "relative"}}>
-                                                    <span onClick={() => {
-                                                        deleteMessage(item?.messageId)
-                                                    }} style={{
-                                                        position: "absolute",
-                                                        top: "5px",
-                                                        zIndex: 1,
-                                                        right: "15px",
-                                                        color: red[400],
-                                                    }}
-                                                    >
+                                                    {
+                                                        item.fromId === me.id && <span onClick={() => {
+                                                            deleteMessage(item?.messageId)
+                                                        }} style={{
+                                                            position: "absolute",
+                                                            top: "5px",
+                                                            zIndex: 1,
+                                                            right: "15px",
+                                                            color: red[400],
+                                                        }}
+                                                        >
                                                             <span style={{
                                                                 height: "35px",
                                                                 width: "15px",
                                                                 cursor: "pointer",
                                                                 position: "relative"
                                                             }}>
-                                                                <Delete />
+                                                                <Delete/>
                                                             </span>
                                                     </span>
+                                                    }
                                                     <Tag className="pt-2 bg-info pb-2 text-light"
                                                          style={{width: "100%", overflow: "hidden", borderRadius: "12px"}}>
-                                                        <Row style={{cursor:"pointer"}} gutter={24}>
-                                                            <Col onClick={()=>{
+                                                        <Row style={{cursor: "pointer"}} gutter={24}>
+                                                            <Col onClick={() => {
                                                                 setModal(true)
-                                                                setModalUrl(API_URL+item?.fileUrl)
+                                                                setModalUrl(API_URL + item?.fileUrl)
                                                             }} span={3}>
                                                                 <Avatar><Description/></Avatar>
                                                             </Col>
@@ -429,7 +433,7 @@ const CenterSends = (props) => {
                             </Col>}
                             <Col className="d-flex justify-content-center align-items-center" xs={2} sm={2} md={2}
                                  lg={1}>
-                                <span style={{cursor:"pointer"}}>
+                                <span style={{cursor: "pointer"}}>
                             <Send onClick={sendOrEdit} style={{
                                 fontSize: "30px"
                             }}/>
@@ -439,8 +443,8 @@ const CenterSends = (props) => {
                     </div>
                 }
             </div>
-                <PdfViewer open={modal} url={modalUrl} setOpen={setModal}
-                           setUrl={setModalUrl}/>
+            <PdfViewer open={modal} url={modalUrl} setOpen={setModal}
+                       setUrl={setModalUrl}/>
         </div>
     );
 }

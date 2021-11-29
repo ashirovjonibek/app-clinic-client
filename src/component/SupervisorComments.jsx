@@ -1,12 +1,12 @@
 import React from "react";
+import {withTranslation} from "react-i18next";
 
-const SupervisorComments = ({com}) => {
+const SupervisorComments = ({com,t}) => {
     return (
         <div className="comments">
-            <h6 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '10px' }}>Комментарий:</h6>
-            <p style={{ fontSize: '14px', lineHeight: '22px' }}>{com}</p>
+            <p style={{ fontSize: '17px', lineHeight: '22px' }}><strong>{t("Comment")}: </strong>{com}</p>
         </div>
     );
 }
 
-export default SupervisorComments;
+export default withTranslation()(SupervisorComments);

@@ -32,7 +32,7 @@ const UserName = (props) => {
                         paddingTop:props?.avatar?"5px":"",
                         fontWeight:600,
                         fontSize:props?.fontSize?props.fontSize:"25px",
-                        lineHeight:!props?.avatar?props?.lineHeight?props.lineHeight:"38px":""
+                        lineHeight:!props?.avatar?props?.lineHeight?props.lineHeight:"45px":""
                     }
                 }>
                     {props.avatar?

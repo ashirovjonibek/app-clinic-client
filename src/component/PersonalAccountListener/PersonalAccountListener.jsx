@@ -27,12 +27,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
 import {Badge} from "antd";
+import PerAccAppResponseRequest from "../PersonalAccountApplicant/PerAccAppResponseRequest";
+import SupervisorFeedbakRequestSection from "../PersonalAccountSupervisor/SupervisorFeedbakRequestSection";
 
 
 const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [idUser, setIdUser] = useState(1);
     const history = useHistory();
+    const [refreshCount,setRefreshCount]=useState(false);
     const [count, setCount] = useState(0);
     const [n, setN] = useState(0);
     const [counts, setCounts] = useState();
@@ -41,7 +44,7 @@ const PersonalAccountListener = ({t}) => {
     function Applications(n) {
         switch (n) {
             case 1:
-                return <IncomingRequestSection getPage={getPage}/>
+                return <IncomingRequestSection refreshCount={refreshCount} setRefreshCount={setRefreshCount} getPage={getPage}/>
             case 2:
                 return <AppealSection/>
             case 3:
@@ -51,11 +54,11 @@ const PersonalAccountListener = ({t}) => {
             case 5:
                 return <DeadlineRequestSection/>
             case 6:
-                return <FedbeckSection/>
+                return <SupervisorFeedbakRequestSection listener={true}/>
             case 7:
                 return <DirectorySection/>
             case 8:
-                return <SendSection/>
+                return <SendSection refreshCount={refreshCount} setRefreshCount={setRefreshCount}/>
             case 9:
                 return <IncomingRequestItem currentItem="{currentItem}"/>
             default:
@@ -99,7 +102,7 @@ const PersonalAccountListener = ({t}) => {
             console.log(res);
             setCounts(res?.data?.object);
         })
-    }, [n]);
+    }, [n,refreshCount]);
 
     const getPage = (n) => {
         setIdUser(n);

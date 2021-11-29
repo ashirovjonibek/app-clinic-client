@@ -3,7 +3,7 @@ import CenterSends from "./CenterSends";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
-const SendSection = () => {
+const SendSection = (props) => {
 
     const [chats,setChats]=useState([]);
 
@@ -23,7 +23,7 @@ const SendSection = () => {
         <div className="send-section">
             {
                 chats.length>0?chats&&chats.map((item,i)=>
-                    <CenterSends key={i} chat={item}/>
+                    <CenterSends refreshCount={props?.refreshCount} setRefreshCount={props?.setRefreshCount} key={i} chat={item}/>
                 ):
                     <div style={{textAlign:"center",marginTop:"25px"}}>
                         Chatlar mavjud emas!!!

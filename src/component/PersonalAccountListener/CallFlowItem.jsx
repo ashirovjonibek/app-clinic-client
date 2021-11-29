@@ -2,6 +2,7 @@ import React from "react";
 import UserName from "../UserName";
 import RequestTheme from "../RequestTheme";
 import DocumentProsses from "../DocumentProsses";
+import {Tag} from "antd";
 
 const CallFlowItem = (props) => {
     const getDayDeadline=()=>{
@@ -15,6 +16,7 @@ const CallFlowItem = (props) => {
         <div className="call-flow-item">
             <div className="content">
                 <DocumentProsses status={props?.item?.status}/>
+                <hr/>
                 <div style={{display:"inline-block"}} className="request-content-title-name">
                     <UserName text={props?.item.applicant?.fullName} />
                 </div>
@@ -23,14 +25,10 @@ const CallFlowItem = (props) => {
                         Ko'rib chiqish muddati:
                     </div>
                     <div style={{textAlign:"right",display:"inline-block"}}
-                        // style={{backgroundColor: new Date(
-                        //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime()))
-                        //                                          .getDate()>10?"#63AA55":new Date(
-                        //                                          (new Date().getTime())-(new Date().getTime())).getDate()<=10&&new Date(
-                        //                                          (new Date(item.deadLineDate).getTime())-(new Date().getTime())).getDate()>5?"#FBCE0E":"#d80027"}}
-                        //                                        className="date-item"
                     >
-                        {" "+getDayDeadline()}
+                        <Tag color={getDayDeadline()>10?"green":getDayDeadline()<10&&getDayDeadline()>5?"yellow":"red"} style={{marginLeft:"5px"}} className="d-flex justify-content-center align-items-center rounded">
+                            {"\t"+getDayDeadline()+" kun"}
+                        </Tag>
                     </div>
                 </div>
                 <RequestTheme label={props?.item?.title} check={props?.item?.top}/>

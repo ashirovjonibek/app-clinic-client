@@ -5,6 +5,7 @@ import {API_URL} from "../../utils/constant";
 import {Audiotrack, FileCopy, Videocam} from "@material-ui/icons";
 import {green, red} from "@material-ui/core/colors";
 import {withTranslation} from "react-i18next";
+import {Select} from "antd";
 
 
 const NewApplications = ({
@@ -113,7 +114,7 @@ const NewApplications = ({
                             {/*<div>*/}
                             {/*    <TextFields/>*/}
                             {/*</div>*/}
-                            <textarea onChange={(e) => {
+                            <textarea style={{width:"100%"}} onChange={(e) => {
                                 if (e.target.value.length > 10) {
                                     setComment({
                                         ...comment,
@@ -122,11 +123,21 @@ const NewApplications = ({
                                     })
                                 }
                             }
-                            } id="" cols="30" rows="10">
+                            } id="" rows="10">
 
                                   </textarea>
                             <div>
-                                <span style={{color: red[400]}}>{comment.errorCom}</span>
+                                <p style={{color: red[400]}}>{comment.errorCom}</p>
+                                <label htmlFor="selectHow">Kimga yuborilsin:</label><br/>
+                                <Select onChange={(e)=>{
+                                    setComment({
+                                                   ...comment,
+                                                   to: e
+                                               })
+                                }} id={"selectHow"} placeholder="Kimga yo'naltirish">
+                                    <Select.Option value={"boss"}>Kafedra mudiriga</Select.Option>
+                                    <Select.Option value={"moderator"}>Super moderatorga</Select.Option>
+                                </Select>
                                 <button onClick={() => {
                                     setComment({
                                         status: false,

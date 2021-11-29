@@ -16,6 +16,8 @@ import {withTranslation} from "react-i18next";
 import {green} from "@material-ui/core/colors";
 import Swal from "sweetalert2";
 import PdfViewer from "../catalog/pdfViewer";
+import {Tag} from "antd";
+import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 
 const PerAccAppResponseRequest = ({t}) => {
     let token = localStorage.getItem(STORAGE_NAME);
@@ -71,12 +73,13 @@ const PerAccAppResponseRequest = ({t}) => {
                     },
                     data: {
                         ...item,
-                        commit: comment,
+                        comment: comment,
                         liked: false
                     }
                 }).then((r) => {
                     Swal.fire(t("Comment sent") + "!!!", "", "success").then((conf) => {
                         setRef(!ref);
+                        setIsDislike(-1)
                     })
                 }).catch((e) => {
                     Swal.fire(t("An error occurred") + "!!!", "", "error").then((conf) => {
@@ -94,17 +97,17 @@ const PerAccAppResponseRequest = ({t}) => {
                     {
                         items && items.map((item, i) =>
                             <div key={i} className="content per-acc-app-response-request">
-                                <div className="request-theme" style={{marginBottom: '40px'}}>
-                                    <div>
-                                        <h3>{t("The answer to your appeal came from")}
-                                            <strong>{item?.checkedBy?.fullName}</strong></h3>
-                                    </div>
-                                </div>
+                                {/*<div className="request-theme" style={{marginBottom: '40px'}}>*/}
+                                {/*    <div>*/}
+                                {/*        <h3>{t("The answer to your appeal came from")}*/}
+                                {/*            <strong style={{marginLeft:"5px"}}>{item?.checkedBy?.fullName}</strong></h3>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
                                 <div style={{marginBottom: '20px'}}>
                                     <DocumentText appeal={item?.application}/>
                                 </div>
                                 <SectionCategory setOpen={setOpen} setUrl={setUrl} section={item?.application?.section}
-                                                 fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null}/>
+                                                 fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null} item={item}/>
                                 <CheckboxConfidensial/>
                                 <div className="response-request">
                                     <div className="content-line"/>
@@ -113,30 +116,34 @@ const PerAccAppResponseRequest = ({t}) => {
                                     </div>
 
                                     <div className="answer-for-appeal" style={{}}>
-                                        <p  style={{padding:'10px 0',fontSize:"18px"}}>{t("Answer text")}:</p>
-                                        <p   style={{padding:'10px 0',fontSize:"14px"}}>
-                                            {item?.answer.description}
-                                        </p>
+                                        <p  style={{fontSize:"18px"}}><strong>{t("Answer text")}: </strong>{item?.answer?.description}</p>
                                     </div>
 
-                                    <div className="file-upload">
-                                        <SectionCategory setOpen={setOpen} setUrl={setUrl} showSection={true} section={item?.application?.section}
-                                                         fileId={item?.answer?.attachmentId ? item?.answer?.attachmentId[0] : null}/>
-                                    </div>
+                                    {item?.answer?.attachmentId&&<div className="file-upload" style={{width:"150px"}}>
+                                        <p style={{fontSize:"18px"}}><strong>Javob fayli:</strong></p>
+                                        <Tag onClick={()=>{
+                                            setUrl(API_URL+"/attach/"+item?.answer?.attachmentId);
+                                            setOpen(true)
+                                        }} style={{cursor:"pointer"}} className="d-flex justify-content-center align-items-center p-2">
+                                            <DownloadOutlined />
+                                        </Tag>
+                                    </div>}
                                 </div>
                                 <div className="answer-score">
                                     <h4>{t("Evaluating the response")}:</h4>
                                     <div className="answer-score-button">
                                             <span onClick={() => {
                                                 setIsDislike(-1);
-                                            }} style={{padding: "3px 5px", cursor: "pointer", color: "green"}}>
+                                            }} style={{padding: "3px 5px", cursor: "pointer", color: !(isDislike === i || item?.answer?.comment )?"green":""}}>
                                                 <ThumbUpIcon/>
                                             </span>
                                         <span onClick={() => {
-                                            if (isDislike === i) {
-                                                setIsDislike(-1);
-                                            } else {
-                                                setIsDislike(i);
+                                            if (!item?.answer?.comment){
+                                                if (isDislike === i) {
+                                                    setIsDislike(-1);
+                                                } else {
+                                                    setIsDislike(i);
+                                                }
                                             }
                                         }} style={{
                                             padding: "3px 5px",

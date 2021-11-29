@@ -23,6 +23,7 @@ const RequestTheme = ({label,description,t,check}) => {
                 <p style={{maxHeight:show?"":"340px",overflow:"hidden"}}>{description&&description}</p>
                 {description?.length>1300&&<span onClick={()=>setShow(!show)} style={{cursor:"pointer",color:"blue"}}>{show?"Hide":"Show"}</span>}
             </div>
+            <hr/>
         </div>
     )
 }

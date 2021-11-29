@@ -14,6 +14,12 @@ import DoneIcon from "@material-ui/icons/Done";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import {CircularProgress} from "@material-ui/core";
 import Swal from "sweetalert2";
+import {Col, Collapse, Input, Row} from "antd";
+import EditOutlined from "@ant-design/icons/lib/icons/EditOutlined";
+import UnorderedListOutlined from "@ant-design/icons/lib/icons/UnorderedListOutlined";
+import CloseOutlined from "@ant-design/icons/lib/icons/CloseOutlined";
+import loading from "../../redux/loding";
+import CloudUploadOutlined from "@ant-design/icons/lib/icons/CloudUploadOutlined";
 
 const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
     const [isAn, setIsAn] = useState(false);
@@ -89,6 +95,7 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
                 url: API_URL + '/attach/upload',
                 method: "POST",
                 headers: {
+                    Authorization:localStorage.getItem(STORAGE_NAME),
                     'Content-Type': 'multipart/form-data'
                 },
                 data: formData
@@ -109,60 +116,41 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
     }
     return (
         <div className="response-request">
-            <div className="content-line"/>
-            <div style={{textAlign: isAn ? "end" : "start", marginBottom: isAn ? "" : "7px"}}>
-                <span title={isAn ? t("Cancel the action") : t("Add an answer")} style={
-                    {
-                        backgroundColor: isAn ? red[400] : green[400],
-                        width: "25px", height: "25px",
-                        color: "white",
-                        borderRadius: "50%",
-                        cursor: "pointer"
-                    }
-                }
-                      className="d-flex justify-content-center text-light align-items-center"
-                      onClick={() => setIsAn(!isAn)}
-                >{!isAn ? <AddIcon/> : <RemoveIcon/>}</span>
-            </div>
-            {
-                isAn ? <div>
-                    <Label text={t("Answer") + ":"}/>
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} style={
-                        {
-                            border: "1px solid rgba(0,0,0,0.3)",
-                            width: "100%",
-                            borderRadius: "5px",
-                            minHeight: "75px",
-                            maxHeight: "85px",
-                            marginBottom: "3px",
-                            padding: "6px"
-                        }
-                    }
-                              placeholder={t("Enter the answer text")}
-                    >
-
-                </textarea>
-                </div> : ""
-            }
-            <div style={{marginTop: "17px"}}>
-                <div style={{marginBottom: '20px', display: "inline-block"}}>
-                    <div className="lb">
-                        <label className="label" htmlFor="">{t("Attach file")}</label>
+            <Collapse accordion
+                      expandIcon={({ isActive }) => isActive?<CloseOutlined style={{fontSize:"20px"}} className="text-light"/>:<UnorderedListOutlined  style={{fontSize:"20px"}} className="text-light"/>}
+                      expandIconPosition={"right"}
+            >
+                <Collapse.Panel style={{fontSize:"16px"}} className="bg-info" header={<div style={{display:"inline-block"}}>
+                    <Row gutter={24} >
+                        <Col span={24}  className="text-light" style={{fontWeight:600}}>Javob biriktirish</Col>
+                    </Row>
+                </div>}>
+                    <Row gutter={24}>
+                        <Col span={24}>
+                            <Input.TextArea onChange={(e)=>setMessage(e?.target?.value)} style={{height:"105px"}} placeholder="Javob matnini kiriting!!!"/>
+                        </Col>
+                    </Row>
+                    <div style={{marginTop: "17px"}}>
+                        <div style={{marginBottom: '20px', display: "inline-block"}}>
+                            <div className="lb">
+                                <label className="label">{t("Attach file")}</label>
+                            </div>
+                            <div className="file" style={{cursor: !done?"pointer":"", marginTop: "5px"}}>
+                                {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
+                                    <label style={{cursor:"pointer"}} htmlFor="answerFile"><CloudUploadOutlined /></label> : ""}
+                                {isLoading ? <CircularProgress style={{width: "15px", height: "15px", marginTop: "3px"}}
+                                                               color="primary"/> : ""}
+                                {<input accept="application/pdf" id="answerFile" style={{cursor:"pointer"}} title={done ? fileName : "Fayl yuklanmagan"} onChange={handleUpload} type="file"/>}
+                            </div>
+                            <div className="file1">{fileName}</div>
+                            <p className="text-danger">{errorUpload}</p>
+                        </div>
+                        <div className="button" style={{marginTop: '20px', display: "inline-block", float: "right"}}>
+                            <button onClick={submit} className="btn-default">{t("Attach the answer")}</button>
+                        </div>
                     </div>
-                    <div className="file" style={{cursor: "pointer", marginTop: "5px"}}>
-                        {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
-                            <GetAppIcon style={{cursor: "pointer"}}/> : ""}
-                        {isLoading ? <CircularProgress style={{width: "15px", height: "15px", marginTop: "3px"}}
-                                                       color="primary"/> : ""}
-                        <input title={done ? fileName : "Fayl yuklanmagan"} onChange={handleUpload} type="file"/>
-                    </div>
-                    <div className="file1">{fileName}</div>
-                    <p className="text-danger">{errorUpload}</p>
-                </div>
-                <div className="button" style={{marginTop: '20px', display: "inline-block", float: "right"}}>
-                    <button onClick={submit} className="btn-default">{t("Attach the answer")}</button>
-                </div>
-            </div>
+                </Collapse.Panel>
+            </Collapse>
         </div>
     );
 }

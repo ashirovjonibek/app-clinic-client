@@ -5,8 +5,9 @@ import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import i18next from "i18next";
+import {Button} from "antd";
 
-const SupervisorFeedbakRequestItem = ({t,item}) => {
+const SupervisorFeedbakRequestItem = ({t,item,listener}) => {
     function stringToHslColor(str, s, l) {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
@@ -41,7 +42,9 @@ const SupervisorFeedbakRequestItem = ({t,item}) => {
                 <div className="content-line" />
                 <div className='avatar'>
                     <UserName text={item?.applicantName}/>
-                    <span style={{paddingTop:"13px"}} className="green-btn">{t("Satisfactorily")}</span>
+                </div>
+                <div className="d-flex justify-content-end">
+                    <Button className="bg-success text-light" style={{borderRadius:"15px"}} disabled>{t("Satisfactorily")}</Button>
                 </div>
             </div>
         </div>

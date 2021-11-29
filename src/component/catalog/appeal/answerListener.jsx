@@ -3,8 +3,9 @@ import { Avatar, Col, Image, Row, Tag, Form, Button, Input } from 'antd';
 import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import { API_URL } from '../../../utils/constant';
+import {types} from "./type";
 
-const AnswerListener = ({item,t,answer,setDoc,setDocOpen}) => {
+const AnswerListener = ({item,t,answer,type,setDoc,setDocOpen}) => {
     const [form] = Form.useForm();
     const [isDislike, setIsDislike] = useState(false);
 
@@ -77,7 +78,7 @@ const AnswerListener = ({item,t,answer,setDoc,setDocOpen}) => {
                                 </Tag>
                             </Col>}
                             <Col lg={answer?.attachmentId?21:24} md={answer?.attachmentId?20:24} sm={answer?.attachmentId?16:24} xs={answer?.attachmentId?12:24} className="p-1">
-                                <Row className="float-right" sm={24} xs={24} lg={4} md={12}>
+                                {type===types.getFromBoss&&<Row className="float-right" sm={24} xs={24} lg={4} md={12}>
                                     <Col lg={12} md={12} sm={12} xs={12}>
                                         <Tag onClick={() => setIsDislike(!isDislike)} style={{ width: "100%", cursor: 'pointer' }} className="text-center p-2 bg-danger text-light rounded">
                                             Qoniqarsiz
@@ -88,7 +89,7 @@ const AnswerListener = ({item,t,answer,setDoc,setDocOpen}) => {
                                             Qoniqarli
                                         </Tag>
                                     </Col>
-                                </Row>
+                                </Row>}
 
                             </Col>
                         </Row>
