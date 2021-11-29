@@ -232,19 +232,23 @@ const PersonalAccountSupervisor = ({t}) => {
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Listener")}</Link>
                                         </li>
-                                        <li className="navbar-items" style={{position: "relative",display:"block"}} id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#"
-                                                  onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
-                                        </li>
-                                        <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
-                                            <Link to="#" onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
-                                        </li>
+                                        <Badge count={counts?.setListener} showZero>
+                                            <li className="navbar-items"
+                                                style={{position: "relative", display: "block"}}
+                                                id={pageQount === 2 ? 'active' : ''}>
+                                                <Link to="#"
+                                                      onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                            </li>
+                                        </Badge>
+                                        <Badge count={counts?.checkAnswer} showZero>
+                                            <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
+                                                <Link to="#"
+                                                      onClick={() => getPage(3)}>{t("Responses to requests")}</Link>
+                                            </li>
+                                        </Badge>
                                         <li className="navbar-items" id={pageQount === 4 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(4)}>{t("The applicant")}</Link>
                                         </li>
-                                        {/*<li className="navbar-items" id={pageQount === 6 ? 'active' : ''}>*/}
-                                        {/*    <Link to="#" onClick={() => getPage(6)}>{t("Call flow")}</Link>*/}
-                                        {/*</li>*/}
                                         <li className="navbar-items" id={pageQount === 7 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(7)}>{t("Feedback on requests")}</Link>
                                         </li>

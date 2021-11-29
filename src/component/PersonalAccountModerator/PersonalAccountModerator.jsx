@@ -19,7 +19,7 @@ import NavLanguage from "../Nav/NavLanguage";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Enter from "../Nav/Enter";
-import {STORAGE_NAME} from "../../utils/constant";
+import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
 import Footer from "../Footer/Footer";
 import {useSelector} from "react-redux";
@@ -28,13 +28,29 @@ import "../../assets/scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
+import axios from "axios";
+import {Badge} from "antd";
 
 const PersonalAccountModerator = ({t}) => {
     const history = useHistory();
     const userRole = useSelector(state => state.meReducer);
 
     const [sitebar, setSitebar] = useState(false);
+    const [counts, setCounts] = useState();
     const [pageQount, setPageQount] = useState(11);
+
+    useEffect(() => {
+        axios({
+            method: 'get',
+            url: API_URL + '/message/get-counts',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
+            }
+        }).then((res) => {
+            console.log(res);
+            setCounts(res?.data?.object);
+        })
+    }, []);
 
     function pushBar(n) {
         switch (n) {
@@ -148,14 +164,17 @@ const PersonalAccountModerator = ({t}) => {
                                                 <Link to="#"
                                                       onClick={() => getPage(11)}>{t("Appeals informations")}</Link>
                                             </li>
+
                                             <li>
                                                 <Link to="#"
                                                       onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                             </li>
-                                            <li>
-                                                <Link to="#"
-                                                      onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
-                                            </li>
+                                            <Badge count={counts?.setSection} showZero>
+                                                <li>
+                                                    <Link to="#"
+                                                          onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                                </li>
+                                            </Badge>
                                             <li>
                                                 <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
                                             </li>
@@ -207,10 +226,12 @@ const PersonalAccountModerator = ({t}) => {
                                         <li className="navbar-items" id={pageQount === 1 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(1)}>{t("Heads of departments")}</Link>
                                         </li>
-                                        <li className="navbar-items " id={pageQount === 2 ? 'active' : ''}>
-                                            <Link to="#"
-                                                  onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
-                                        </li>
+                                        <Badge count={counts?.setSection} showZero>
+                                            <li className="navbar-items " id={pageQount === 2 ? 'active' : ''}>
+                                                <Link to="#"
+                                                      onClick={() => getPage(2)}>{t("Appointment of the performer")}</Link>
+                                            </li>
+                                        </Badge>
                                         <li className="navbar-items" id={pageQount === 3 ? 'active' : ''}>
                                             <Link to="#" onClick={() => getPage(3)}>{t("Listeners")}</Link>
                                         </li>
@@ -236,7 +257,7 @@ const PersonalAccountModerator = ({t}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div style={{minHeight: "75vh"}} className={pageQount === 11 ?"" : "content-wrapper"}>
+                            <div style={{minHeight: "75vh"}} className={pageQount === 11 ? "" : "content-wrapper"}>
                                 {
                                     pushBar(pageQount)
                                 }

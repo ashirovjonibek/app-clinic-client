@@ -16,12 +16,7 @@ const NavLanguage = () => {
             label: "РУС",
             className:"rus-item",
             val: "ru"
-        },
-        {
-            label: "ENG",
-            className:"ang-item",
-            val: "en"
-        },
+        }
     ];
 
     useEffect(()=>{
