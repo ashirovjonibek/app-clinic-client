@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import $ from "jquery";
 import { Link,useHistory } from "react-router-dom";
 import "../../assets/aa/bootstrap/css/bootstrap.min.css";
 import "../../assets/aa/datepicker/css/datepicker.css";
@@ -11,20 +10,12 @@ import logo from "../../assets/img/logo.svg";
 import requestLawyer from "../../assets/images/request-lawyer.png";
 import investigation from "../../assets/images/case-investigation.png";
 import searchDirectory from "../../assets/images/search-directory.png";
-import placeholder555x493 from "../../assets/images/placeholder-555x493.jpg";
-import sucessCases from "../../assets/images/sucess-cases.png";
-import clientsIcon from "../../assets/images/clients-icon.png";
-import awardsIcon from "../../assets/images/awards-icon.png";
-import lawyersIcon from "../../assets/images/lawyers-icon.png";
-import placeholder115x92 from "../../assets/images/placeholder-115x92.jpg";
 import "../../assets/newHome/customhjlkhkjh.css";
 import "../../assets/newHome/custom.css";
 import "../../assets/newHome/reset.css";
 import "../../assets/newHome/animate.css";
-import CountUp from "react-countup";
 import { withTranslation } from "react-i18next";
 import video from "../../assets/a/Proclinics.mp4";
-import NavLanguage from "../Nav/NavLanguage";
 import LangContener from "./helper";
 import Mudirlar from "./kafedraMudirlari";
 import PopularQuestionSlider from "./questions";
@@ -35,10 +26,9 @@ import FooterUsaid from "../Footer/FooterUsaid";
 import WhatClinic from "./whatClinic";
 import CellClinic from "./cellClinic";
 import {useDispatch, useSelector} from "react-redux";
-import { CHANGE_EYE, CHANGE_SCROLL } from "../../redux/me/actionType";
+import {CHANGE_SCROLL} from "../../redux/me/actionType";
 import DropDown from "./dropdown/dropdown";
 import {Button} from 'antd'
-import WordCloud from "./WordCloud/WordCloud";
 
 const NewHome = ({ t }) => {
   const container = useRef();
@@ -259,20 +249,22 @@ const NewHome = ({ t }) => {
           <div className="slide1" style={{ width: "100%" }}>
             <div className="container" style={{ width: "100% !important" }}>
               <div
-                className="content animated fadeInLeft m-0"
+                className="content animated fadeInLeft m-0 d-flex justify-content-center align-items-center"
                 style={{ margin: "0 !important", width: "100%" }}
               >
-                <h1 className="animated fadeInLeft" style={{ width: "100%" }}>
-                  {t("Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}
-                </h1>
-                <p className="animated fadeInLeft">{t("Legal clinic")}</p>
+                <div>
+                  <h1 className="animated fadeInLeft" style={{ width: "100%" }}>
+                    {t("Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}
+                  </h1>
+                  <p className="animated fadeInLeft">{t("Legal clinic")}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <video
           width={"100%"}
-          style={{ objectFit: "cover", height: "930px" }}
+          style={{ objectFit: "cover", height: "100vh" }}
           muted
           loop
           autoPlay={true}
