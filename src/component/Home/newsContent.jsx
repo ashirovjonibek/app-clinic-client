@@ -61,15 +61,15 @@ function NewsContent({ t,style }) {
 
   return (
     <div style={style}>
-      <section className="news-events padding-lg">
+      <section className="news-events padding-lg pb-5">
         <div className="container">
           <div className="row heading heading-icon">
-            <h2>{t("News")}</h2>
+            <h2 className="text-light">{t("News")}</h2>
           </div>
-          <div className="row">
+          <div className="row pb-4">
             <div className="col-12 col-md-8 left-block">
-              <div className="news-box">
-                <figure>
+              <div className="news-box bg-light p-2 mb-3">
+                <figure className="pb-0">
                   {
                     news[0] &&
                   <img
@@ -80,30 +80,28 @@ function NewsContent({ t,style }) {
                   />
                   }
                 </figure>
-                <h2 >
-                  <a href={`https://proacademy.uz/ru/news/view?alias=${news[0] && news[0]?.id}`} target="_blank">{news[0] && getLangContent(news[0]?.title)}</a>
+                <h2 className="m-0 pt-0 pb-0">
+                  <a className="pt-0" style={{fontSize:"14px"}} href={`https://proacademy.uz/ru/news/view?alias=${news[0] && news[0]?.id}`} target="_blank">{news[0] && getLangContent(news[0]?.title)}</a>
                 </h2>
+
+                <p className="pb-1">
+                  {
+                    news[0]?.short_content&&getLangContent(news[0]?.short_content)
+                  }
+                </p>
                 <div className="meta">
                   <DateRange className="mr-2" />{ news[0] && news[0]?.published_date}
                   <span>
                   <Visibility className="mr-2" />{news[0] && news[0]?.views}
                   </span>
                 </div>
-                <p>
-                  {
-                    news[0]?.short_content&&getLangContent(news[0]?.short_content)
-                  }
-                </p>
-                {/*<a href="#" className="read-more">*/}
-                {/*  Know More{" "}*/}
-                {/*</a>*/}
               </div>
             </div>
             <div className="col-12 col-md-4 right-block">
               <ul className="news-listes">
                 {
                   right && right?.map((item, i) => (
-                    <li>
+                    <li className="bg-light rounded p-1 m-1">
                       <figure>
                         <img className="ccccc" src={
                         "https://proacademy.uz/postfiles/documents" +
@@ -111,7 +109,7 @@ function NewsContent({ t,style }) {
                       } alt="" />
                       </figure>
                       <div className="news-list-details">
-                        <a target="_blank" href={`https://proacademy.uz/ru/news/view?alias=${item?.id}`} className="line_count_two">{getLangContent(item?.title)}</a>
+                        <a target="_blank" href={`https://proacademy.uz/ru/news/view?alias=${item?.id}`} className="line_count_two ">{getLangContent(item?.title)}</a>
                         <div className="meta">
                           <DateRange className=""/>
                           <span>

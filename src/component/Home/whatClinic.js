@@ -8,7 +8,7 @@ const WhatClinic=({t})=>{
     return(
         <div className="container">
             <div className="row heading heading-icon">
-                <h2>{t("What is clinic")}</h2>
+                <h2 className="text-dark">{t("What is clinic")}</h2>
             </div>
             <div className="row">
                 <div className="col-12 col-md-6 left-block row">

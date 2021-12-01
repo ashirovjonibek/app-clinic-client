@@ -714,6 +714,7 @@ header.header-small .header-right-top a.free-consultation_btn {
     display: block;
     position: relative;
     padding: 185px 0 80px 0;
+    background: #fff;
 
 }
 
@@ -952,12 +953,11 @@ a.know-more:hover {
 	We Are here
 -----------------------*/
 .we-are-here {
-    background: url(../img/home.jpg) no-repeat center bottom / cover;
-    background-attachment: fixed;
+    background: rgba(0,0,0,0.3);
 }
 
 .we-are-here .left-block .details {
-    padding: 70px 56px;
+    padding: 70px 66px;
     background: rgba(7, 91, 141, 0.8);
     width: 100%;
     float: left;
@@ -1059,6 +1059,10 @@ a.know-more:hover {
     padding-bottom: 60px;
 }
 
+.practice-area{
+    background: #fff;
+}
+
 .practice-area.padding-lg {
     padding-bottom: 55px;
     padding-top: 55px;
@@ -1116,15 +1120,33 @@ a.know-more:hover {
     background: url(../images/placeholder-148x148.jpg) no-repeat center top / cover;
 }
 
+.more-content-attorney{
+    position:absolute;
+    top:300px;
+    opacity: 0;
+    right:0;
+    font-size:18px;
+    left:0;
+    bottom:0;
+    background-color:rgba(0,0,0,0.5);
+    transition:  top 500ms ease;
+}
+
 .our-attorneys {
-    background: #ededed;
+    background: #fff;
+    transition: box-shadow 1ms ease;
+}
+
+.our-attorneys figure:hover .more-content-attorney {
+    opacity: 1;
+    top: 0;
 }
 
 .our-attorneys .cnt-block {
     float: left;
     width: 100%;
 	min-height: 361px;
-    background: #fff;
+    background: #d5d5d5;
     text-align: center;
     border: 2px solid #d5d5d5;
     /*margin: 0 0 28px;*/
@@ -1134,26 +1156,26 @@ a.know-more:hover {
     width: 100%;
     /*border-radius: 100%;*/
     display: inline-block;
-    margin-bottom: 15px;
 }
 
 .our-attorneys .cnt-block img {
     width: 250px;
-    height:250px;
+    height:300px;
     /*border-radius: 100%;*/
 }
 
 .our-attorneys .cnt-block h3 {
-    color: #2a2a2a;
+    /*color: #2a2a2a;*/
     font-size: 20px;
     font-weight: 500;
-    padding: 6px 8px;
+    background: #4083d0;
+    height: 60px;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
 }
 
 .our-attorneys .cnt-block h3 a {
-    color: #2a2a2a;
+    color: #fff;
 }
 
 .our-attorneys .cnt-block h3 a:hover {
@@ -1521,7 +1543,7 @@ a.know-more:hover {
 .logos {
     display: block;
     padding: 60px 0;
-    background: #ededed;
+    background: rgba(0,0,0,0.3);
 }
 
 .logos ul {
@@ -1608,7 +1630,7 @@ a.know-more:hover {
 -----------------------*/
 
 .news-events {
-    background: #fff;
+    background: rgba(0,0,0,0.3);
     padding-bottom: 0;
 }
 

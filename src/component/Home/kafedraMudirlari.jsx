@@ -57,7 +57,7 @@ const Mudirlar = ({style, t}) => {
         <section style={style} className="our-attorneys padding-lg">
             <div className="container">
                 <div className="row heading heading-icon">
-                    <h2>{t("Our Attorneys")}</h2>
+                    <h2 className="text-dark">{t("Our Attorneys")}</h2>
                 </div>
                 <Swiper
                     slidesPerView={showCount}
@@ -73,21 +73,27 @@ const Mudirlar = ({style, t}) => {
                     }}
                     freeMode={true}
                     navigation={true}
-                    className="row p-1"
+                    className=""
                     style={{width:"100%"}}
                 >
                     {
                         items && items?.map((item, i) =>
-                            <SwiperSlide className="col-12 m-1 p-1 col-md-6 col-lg-4">
-                                <div className="cnt-block equal-hight">
-                                    <figure className="pt-2">
+                            <SwiperSlide className="">
+                                <div className="cnt-block equal-hight bg-light p-0">
+                                    <figure style={{position:"relative"}} className="p-0 m-0">
                                         <img
+                                            style={{
+                                                borderRadius:0,
+                                                margin:0,
+                                                width:"100%"
+                                            }}
                                             src={item?.img_link}
                                             className="img-responsive"
                                             alt=""
                                         />
+                                        <div className="more-content-attorney d-flex justify-content-center align-items-center text-light" >more content...</div>
                                     </figure>
-                                    <h3>
+                                    <h3 style={{padding:"0 5px"}} className="d-flex justify-content-center align-items-center m-0 p-2 text-light">
                                         <a href="#">{getTitle(item?.title)}</a>
                                     </h3>
                                 </div>
