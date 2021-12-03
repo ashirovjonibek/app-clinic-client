@@ -72,7 +72,7 @@ export const questions = [
 ];
 
 export const statistic = {
-    all: 125,
+    all: 198,
     inprocces: 100,
     complete: 98,
     applicants: 35

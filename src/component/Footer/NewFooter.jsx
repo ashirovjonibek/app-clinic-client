@@ -59,7 +59,7 @@ const NewFooter = ({t, style}) => {
                             </div>
                         </div>
                         <div className="col-sm-6 col-md-3">
-                            <div className="practice-area">
+                            <div className="">
                                 <h3>{t("Site navigation")}</h3>
                                 <ul className="clearfix">
                                     <li>

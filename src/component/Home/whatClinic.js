@@ -13,18 +13,18 @@ const WhatClinic = ({t}) => {
             <div className="row">
                 <div className="col-12 col-md-6 left-block row">
                     <i> </i>
-                    <p className="col-12 col-md-12 left-block">{t(
+                    <p style={{fontSize: "16px"}} className="col-12 col-md-12 left-block">{t(
                         "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities"
                     )}</p>
                     <div className="col-12 col-md-12 left-block">
                         <div className="details">
-                            <h3 style={{fontSize: "16px"}}>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
+                            <h3 style={{fontSize: "16px",fontWeight:600}}>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
                             <p style={{paddingLeft: "20px"}}>
                                 <ul>
-                                    <li style={{listStyleType: 'circle', fontSize: "14px"}}>
+                                    <li style={{listStyleType: 'circle', fontSize: "16px"}}>
                                         <span>{t("take organizational measures to organize internships for students in the clinic;")}</span>
                                     </li>
-                                    <li style={{listStyleType: 'circle', fontSize: "14px"}}>
+                                    <li style={{listStyleType: 'circle', fontSize: "16px"}}>
                                         <span>{t("to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice;")}</span>
                                     </li>
                                 </ul>
