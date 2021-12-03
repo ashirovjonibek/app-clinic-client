@@ -9,61 +9,62 @@ import {CircularProgress} from "@material-ui/core";
 const PerAccAppPeriodSection = () => {
     const token = localStorage.getItem(STORAGE_NAME);
     const [appeal, setAppeal] = useState([]);
-    const [pageSize,setPageSize]=useState(0)
-    const [active,setActive]=useState(1)
-    const [loading,setLoading]=useState(true)
-    const [errorMsg,setErrorMsg]=useState({message:"",status:false});
-    const [size,setSize]=useState(3)
-    useEffect(()=>{
+    const [pageSize, setPageSize] = useState(0)
+    const [active, setActive] = useState(1)
+    const [loading, setLoading] = useState(true)
+    const [errorMsg, setErrorMsg] = useState({message: "", status: false});
+    const [size, setSize] = useState(3)
+    useEffect(() => {
         axios({
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant?size="+size+"&page="+(active-1),
+            url: API_URL + "/application/applicant?size=" + size + "&page=" + (active - 1),
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
             console.log(res);
             setLoading(false)
             setPageSize(res.data.object.totalPages)
-        }).catch((e)=>{
+        }).catch((e) => {
             setLoading(false)
             console.log(e.message)
             setErrorMsg({
                 status: true,
-                message: ""+e.message
+                message: "" + e.message
             });
         })
-    }, [active,size]);
+    }, [active, size]);
     return (
         <div className="per-acc-app-period-section">
-        {
-            errorMsg.status ? <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px", fontSize: "45px"}}>
+            {
+                errorMsg.status ?
+                    <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px", fontSize: "45px"}}>
                     <span>
                         {errorMsg.message}
                     </span>
-                </div> :
-                loading ? <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px"}}>
-                        <CircularProgress/>
                     </div> :
-                    <>
-                        {
-                            appeal&&appeal.map((item,i)=>
-                                <PerAccAppPeriodItem key={i} item={item}/>
-                            )
-                        }
-                        <div style={{clear: "both"}}/>
-                        <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
-                            <CustomPagination
-                                size={size}
-                                setSize={{setSize}}
-                                pageLength={pageSize}
-                                setActive={setActive}
-                                active={active}
-                            />
-                        </div>
-                    </>
-        }
+                    loading ? <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px"}}>
+                            <CircularProgress/>
+                        </div> :
+                        <>
+                            {
+                                appeal && appeal.map((item, i) =>
+                                    <PerAccAppPeriodItem key={i} item={item}/>
+                                )
+                            }
+                            <div style={{clear: "both"}}/>
+                            <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
+                                <CustomPagination
+                                    size={size}
+                                    setSize={{setSize}}
+                                    pageLength={pageSize}
+                                    setActive={setActive}
+                                    active={active}
+                                />
+                            </div>
+                        </>
+            }
         </div>
     );
 }

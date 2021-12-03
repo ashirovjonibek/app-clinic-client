@@ -216,7 +216,7 @@ const IncomingRequestSection = (props) => {
 
     useEffect(() => {
         acceptedApp()
-         props?.setRefreshCount(!props?.refreshCount)
+        props?.setRefreshCount(!props?.refreshCount)
     }, []);
 
     const checkedApp = () => {
@@ -435,30 +435,30 @@ const IncomingRequestSection = (props) => {
                     <p className="request-items1">
                     </p>
                     <Badge showZero count={newApps.length}>
-                    <p style={{padding: "0px 10px", border: nS === 1 ? "1px solid rgba(0,0,0,0.5)" : ""}}
-                       className="request-items1">
-                        <Link to={"#"} onClick={() => {
-                            setNS(1)
-                            newApplication();
-                            setAppealFilter({
-                                ...appealFilter,
-                                search: ""
-                            })
-                        }}>{props.t("New")}</Link>
-                    </p>
+                        <p style={{padding: "0px 10px", border: nS === 1 ? "1px solid rgba(0,0,0,0.5)" : ""}}
+                           className="request-items1">
+                            <Link to={"#"} onClick={() => {
+                                setNS(1)
+                                newApplication();
+                                setAppealFilter({
+                                    ...appealFilter,
+                                    search: ""
+                                })
+                            }}>{props.t("New")}</Link>
+                        </p>
                     </Badge>
                     <Badge showZero count={inpApps.length}>
-                    <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
-                       className="request-items1">
-                        <Link to={"#"} onClick={() => {
-                            setNS(2)
-                            acceptedApp();
-                            setAppealFilter({
-                                ...appealFilter,
-                                search: ""
-                            })
-                        }}>{props.t("Accepted")}</Link>
-                    </p>
+                        <p style={{padding: "0px 10px", border: nS === 2 ? "1px solid rgba(0,0,0,0.5)" : ""}}
+                           className="request-items1">
+                            <Link to={"#"} onClick={() => {
+                                setNS(2)
+                                acceptedApp();
+                                setAppealFilter({
+                                    ...appealFilter,
+                                    search: ""
+                                })
+                            }}>{props.t("Accepted")}</Link>
+                        </p>
                     </Badge>
                     {/*<p style={{padding:"0px 10px",border:nS===3?"1px solid rgba(0,0,0,0.5)":""}} className="request-items active">*/}
                     {/*    <Link to={"#"} onClick={()=>{*/}

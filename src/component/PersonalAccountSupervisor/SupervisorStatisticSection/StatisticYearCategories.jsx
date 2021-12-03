@@ -16,4 +16,4 @@ const StatisticYearCategories = ({t}) => {
     );
 }
 
-export default withTranslation() (StatisticYearCategories);
+export default withTranslation()(StatisticYearCategories);

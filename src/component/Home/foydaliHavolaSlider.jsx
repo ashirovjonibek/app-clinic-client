@@ -135,113 +135,114 @@
 
 
 import React, {useEffect, useState} from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { withTranslation } from "react-i18next";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {withTranslation} from "react-i18next";
 import prokuraturaImg from "../../assets/img/useful/prokuratura.jpg";
 import tashabbusImg from "../../assets/img/useful/5tashabbus.jpg";
 import gerbImg from "../../assets/img/useful/gerb.jpg";
 
-import SwiperCore, { Pagination, Navigation } from "swiper";
+import SwiperCore, {Pagination, Navigation} from "swiper";
+
 SwiperCore.use([Pagination, Navigation]);
 
-function FoydaliHavolaSlider({ t }) {
-const [countView, setcountView] = useState(6)
+function FoydaliHavolaSlider({t}) {
+    const [countView, setcountView] = useState(6)
 
-window.addEventListener('resize', (e)=>{
-  // console.log("eee", e.target.innerWidth);
-  if(e.target.innerWidth<1600 && e.target.innerWidth>1200){
-    setcountView(5)
-  }else if(e.target.innerWidth<1200 && e.target.innerWidth>1100){
-    setcountView(4)
-  }else if(e.target.innerWidth<1100 && e.target.innerWidth>1000){
-    setcountView(3)
-  } else if(e.target.innerWidth<1000 && e.target.innerWidth>768){
-    setcountView(2)
-  } else if(e.target.innerWidth<768 ){
-    setcountView(1)
-  } else {
-    setcountView(6)
-  }
-});
+    window.addEventListener('resize', (e) => {
+        // console.log("eee", e.target.innerWidth);
+        if (e.target.innerWidth < 1600 && e.target.innerWidth > 1200) {
+            setcountView(5)
+        } else if (e.target.innerWidth < 1200 && e.target.innerWidth > 1100) {
+            setcountView(4)
+        } else if (e.target.innerWidth < 1100 && e.target.innerWidth > 1000) {
+            setcountView(3)
+        } else if (e.target.innerWidth < 1000 && e.target.innerWidth > 768) {
+            setcountView(2)
+        } else if (e.target.innerWidth < 768) {
+            setcountView(1)
+        } else {
+            setcountView(6)
+        }
+    });
 
-useEffect(()=>{
- if(window.innerWidth<1600 && window.innerWidth>1200){
-    setcountView(5)
-  }else if(window.innerWidth<1200 && window.innerWidth>1100){
-    setcountView(4)
-  }else if(window.innerWidth<1100 && window.innerWidth>1000){
-    setcountView(3)
-  } else if(window.innerWidth<1000 && window.innerWidth>768){
-    setcountView(2)
-  } else if(window.innerWidth<768 ){
-    setcountView(1)
-  } else {
-    setcountView(6)
-  }
-},[]);
+    useEffect(() => {
+        if (window.innerWidth < 1600 && window.innerWidth > 1200) {
+            setcountView(5)
+        } else if (window.innerWidth < 1200 && window.innerWidth > 1100) {
+            setcountView(4)
+        } else if (window.innerWidth < 1100 && window.innerWidth > 1000) {
+            setcountView(3)
+        } else if (window.innerWidth < 1000 && window.innerWidth > 768) {
+            setcountView(2)
+        } else if (window.innerWidth < 768) {
+            setcountView(1)
+        } else {
+            setcountView(6)
+        }
+    }, []);
 
 
-  return (
-    <>
-      <Swiper
-        slidesPerView={countView}
-        spaceBetween={0}
-        // slidesPerGroup={countView}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: true
-      }}
-        freeMode={true}
-        navigation={false}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-           <a href="/#" className="useful-links-item">
-             <img src={prokuraturaImg} alt="" />
-             <p>
-               {t("Prosecutor General's Office of the Republic of Uzbekistan")}
-             </p>
-           </a>
-         </SwiperSlide>
-         <SwiperSlide>
-           <a href="/#" className="useful-links-item">
-             <img src={gerbImg} alt="" />
-             <p>
-               {t(
-                 "Official website of the President of the Republic of Uzbekistan"
-               )}
-             </p>
-           </a>
-         </SwiperSlide>
-         <SwiperSlide>
-           <a href="/#" className="useful-links-item">
-             <img src={tashabbusImg} alt="" />
-             <p>{t("Development strategy center")}</p>
-           </a>
-         </SwiperSlide>
-         <SwiperSlide>
-           <a href="/#" className="useful-links-item">
-             <img src={prokuraturaImg} alt="" />
-             <p>
-               {t("Prosecutor General's Office of the Republic of Uzbekistan")}
-             </p>
-           </a>
-         </SwiperSlide>
-         <SwiperSlide>
-           <a href="/#" className="useful-links-item">
-             <img src={prokuraturaImg} alt="" />
-             <p>
-               {t("Prosecutor General's Office of the Republic of Uzbekistan")}
-             </p>
-           </a>
-         </SwiperSlide>
-      </Swiper>
-    </>
-  );
+    return (
+        <>
+            <Swiper
+                slidesPerView={countView}
+                spaceBetween={0}
+                // slidesPerGroup={countView}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                pagination={{
+                    clickable: true,
+                }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: true
+                }}
+                freeMode={true}
+                navigation={false}
+                className="mySwiper"
+            >
+                <SwiperSlide>
+                    <a href="/#" className="useful-links-item">
+                        <img src={prokuraturaImg} alt=""/>
+                        <p>
+                            {t("Prosecutor General's Office of the Republic of Uzbekistan")}
+                        </p>
+                    </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <a href="/#" className="useful-links-item">
+                        <img src={gerbImg} alt=""/>
+                        <p>
+                            {t(
+                                "Official website of the President of the Republic of Uzbekistan"
+                            )}
+                        </p>
+                    </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <a href="/#" className="useful-links-item">
+                        <img src={tashabbusImg} alt=""/>
+                        <p>{t("Development strategy center")}</p>
+                    </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <a href="/#" className="useful-links-item">
+                        <img src={prokuraturaImg} alt=""/>
+                        <p>
+                            {t("Prosecutor General's Office of the Republic of Uzbekistan")}
+                        </p>
+                    </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <a href="/#" className="useful-links-item">
+                        <img src={prokuraturaImg} alt=""/>
+                        <p>
+                            {t("Prosecutor General's Office of the Republic of Uzbekistan")}
+                        </p>
+                    </a>
+                </SwiperSlide>
+            </Swiper>
+        </>
+    );
 };
 export default withTranslation()(FoydaliHavolaSlider);

@@ -21,7 +21,7 @@ const InpsApps = ({
                       acceptedApp
                   }) => {
 
-    const [show,setShow]=useState(false);
+    const [show, setShow] = useState(false);
 
     return (
         <div className="content" key={i}>
@@ -81,8 +81,14 @@ const InpsApps = ({
                 </div>
             </div>
             <div className="request-content-item">
-                <p style={{maxHeight:show?"":"340px",overflow:"hidden"}}>{item?.description&&item?.description}</p>
-                {item?.description?.length>1300&&<span onClick={()=>setShow(!show)} style={{cursor:"pointer",color:"blue"}}>{show?"Hide":"Show"}</span>}
+                <p style={{
+                    maxHeight: show ? "" : "340px",
+                    overflow: "hidden"
+                }}>{item?.description && item?.description}</p>
+                {item?.description?.length > 1300 && <span onClick={() => setShow(!show)} style={{
+                    cursor: "pointer",
+                    color: "blue"
+                }}>{show ? "Hide" : "Show"}</span>}
             </div>
             <div className="categories">
                 <ul>
@@ -93,7 +99,7 @@ const InpsApps = ({
                     </li>
                     <li style={{display: item?.attachmentsId ? "" : "none", margin: '0 5px 0 5px'}}>
                         <label htmlFor="">{t("File")}</label>
-                        {item?.attachmentsId ?<div
+                        {item?.attachmentsId ? <div
                             onClick={() => {
                                 setUrl(API_URL + '/attach/' + item?.attachmentsId[0]);
                                 setOpen(true)
@@ -102,8 +108,8 @@ const InpsApps = ({
                             title={item?.attachmentsId ? t("Download the application") : t("Doc not found")}
                             style={{textAlign: "center", cursor: "pointer"}}
                             className="file-item d-flex justify-content-center align-items-center">
-                             <a ><FileCopy/></a>
-                        </div>: ""}
+                            <a><FileCopy/></a>
+                        </div> : ""}
                     </li>
                     <li style={{display: item?.video ? "" : "none", margin: '0 5px 0 5px'}}>
                         <label htmlFor="">{t("Video")}</label>

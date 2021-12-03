@@ -29,7 +29,8 @@ const ModeratorAppealItem = (props) => {
                 <div className="request-content">
                     <div className="request-content-title">
                         <div className="request-content-title-name with-margin-20">
-                            <UserName avatar={props?.item?.application?.applicant?.image} text={`${props?.item?.application?.applicant?.fullName}`}/>
+                            <UserName avatar={props?.item?.application?.applicant?.image}
+                                      text={`${props?.item?.application?.applicant?.fullName}`}/>
                         </div>
                         <div className="request-content-title-date">
                             <div className="date-label">
@@ -38,7 +39,7 @@ const ModeratorAppealItem = (props) => {
                             <div
                                 style={{backgroundColor: d.getDate() > 10 ? "#63AA55" : d.getDate() <= 10 && d.getDate() > 5 ? "#FBCE0E" : "#d80027"}}
                                 className="date-item">
-                                {props?.item?.application?.deadLineDate?<>{d.getDate()} {props.t("days")}</>:"Belgilanmagan"}
+                                {props?.item?.application?.deadLineDate ? <>{d.getDate()} {props.t("days")}</> : "Belgilanmagan"}
                             </div>
                         </div>
                     </div>

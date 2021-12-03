@@ -6,8 +6,8 @@ const SupervisorCallFlowItem = () => {
     return (
         <div className="sipervisor-call-falow-item">
             <div className="content">
-                <DocumentProsses />
-                <DocumentText />
+                <DocumentProsses/>
+                <DocumentText/>
             </div>
         </div>
     );

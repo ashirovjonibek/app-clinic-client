@@ -13,7 +13,7 @@ const SupervisorIncomingRequestItem = (props) => {
                 <div className="fedbeck">
                     <UserItem p={props.info.listener}/>
                     <div className="count-request">
-                        <div style={{ marginBottom: '15px' }}>{props.t("Number of appeals")}:<strong>15</strong></div>
+                        <div style={{marginBottom: '15px'}}>{props.t("Number of appeals")}:<strong>15</strong></div>
                         <div>{props.t("Number of processed")}:<strong>{props.info?.counts[0]?.count}</strong></div>
                     </div>
                 </div>
@@ -22,4 +22,4 @@ const SupervisorIncomingRequestItem = (props) => {
     );
 }
 
-export default withTranslation() (SupervisorIncomingRequestItem);
+export default withTranslation()(SupervisorIncomingRequestItem);

@@ -21,7 +21,7 @@ const NewApplications = ({
                              setPlayer
                          }) => {
 
-    const [show,setShow]=useState(false);
+    const [show, setShow] = useState(false);
 
     return (
         <div className="content" key={i}>
@@ -46,8 +46,14 @@ const NewApplications = ({
                 </div>
             </div>
             <div className="request-content-item">
-                <p style={{maxHeight:show?"":"340px",overflow:"hidden"}}>{item?.description&&item?.description}</p>
-                {item?.description?.length>1300&&<span onClick={()=>setShow(!show)} style={{cursor:"pointer",color:"blue"}}>{show?"Hide":"Show"}</span>}
+                <p style={{
+                    maxHeight: show ? "" : "340px",
+                    overflow: "hidden"
+                }}>{item?.description && item?.description}</p>
+                {item?.description?.length > 1300 && <span onClick={() => setShow(!show)} style={{
+                    cursor: "pointer",
+                    color: "blue"
+                }}>{show ? "Hide" : "Show"}</span>}
             </div>
             <div className="categories">
                 <ul>
@@ -114,7 +120,7 @@ const NewApplications = ({
                             {/*<div>*/}
                             {/*    <TextFields/>*/}
                             {/*</div>*/}
-                            <textarea style={{width:"100%"}} onChange={(e) => {
+                            <textarea style={{width: "100%"}} onChange={(e) => {
                                 if (e.target.value.length > 10) {
                                     setComment({
                                         ...comment,
@@ -129,11 +135,11 @@ const NewApplications = ({
                             <div>
                                 <p style={{color: red[400]}}>{comment.errorCom}</p>
                                 <label htmlFor="selectHow">Kimga yuborilsin:</label><br/>
-                                <Select onChange={(e)=>{
+                                <Select onChange={(e) => {
                                     setComment({
-                                                   ...comment,
-                                                   to: e
-                                               })
+                                        ...comment,
+                                        to: e
+                                    })
                                 }} id={"selectHow"} placeholder="Kimga yo'naltirish">
                                     <Select.Option value={"boss"}>Kafedra mudiriga</Select.Option>
                                     <Select.Option value={"moderator"}>Super moderatorga</Select.Option>

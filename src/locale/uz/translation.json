@@ -96,7 +96,6 @@
   "Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.": "O'zbekiston Respublikasi Bosh prokuraturasi akademiyasi. Barcha huquqlar himoyalangan.",
   "This website is made possible by the assistance of the American people through the United States Agency for International Development (USAID). Tetra Tech DPK is responsible for the content of this publication, which does not necessarily reflect the position of USAID or the US Government.": "Bu veb -sayt Amerika Xalqaro Taraqqiyot Agentligi (USAID) orqali Amerika xalqining yordami bilan yaratilgan. Tetra Tech DPK ushbu nashrning mazmuni uchun javobgardir, bu USAID yoki AQSh hukumatining pozitsiyasini aks ettirmaydi.",
   "Attach the answer": "Javob biriktirish",
-
   "In the context of regions": "Viloyatlar kontekstida",
   "By age categories": "Yosh bo'yicha",
   "By gender": "Jins bo'yicha",
@@ -105,19 +104,15 @@
   "By category": "Kategoriya bo'yicha",
   "By type of benefits": "Imtiyozlar turi bo'yicha",
   "For periods": "Davrlar uchun",
-
   "In the context of regions (district, city, region)": "Viloyatlar kontekstida (tuman, shahar, viloyat)",
   "By age categories of applicants": "Ariza beruvchilarning yosh toifalari bo'yicha",
   "By gender of applicants": "Ariza beruvchilarning jinsi bo'yicha",
   "List of appeals": "Murojaatlarning ro'yxati",
   "By types of benefits available to applicants": "Ariza beruvchilar uchun mavjud imtiyozlar turlari bo'yicha",
   "for periods (day, week, month, year)": "davrlar uchun (kun, hafta, oy, yil)",
-
   "invalid": "nogiron",
   "single_mother": "yolgiz_ona",
   "others": "boshqalar",
-
-
   "Tashkent City": "Toshkent shahar",
   "Tashkent": "Toshkent",
   "Andijan": "Andijon",
@@ -132,7 +127,6 @@
   "Fergana": "Farg`ona",
   "Khorezm": "Xorazm",
   "Karakalpaks tan": "Qoraqalpo g`iston",
-
   "Create a new ticket": "Murojaat yo'llash",
   "Your appeal": "Sizning murojaatingiz",
   "Document status": "Hujjat holati",
@@ -166,17 +160,14 @@
   "Cancel": "Bekor qilish",
   "Save": "Saqlash",
   "Rating": "Baholash",
-
   "Replace the performer": "Ijrochini almashtirish",
   "Number of appeals": "Murojaatlar soni",
   "Number of processed": "Qayta ishlanganlar soni",
   "Priority": "Birinchi o'ringa",
   "Satisfactorily": "Qoniqarli",
   "Unsatisfactory": "Qoniqarsiz",
-
   "inprocess": "jarayonida",
   "completed": "tugallangan",
-
   "fromZeroToSeventeen": "interval: 0-17",
   "fromEighteenToThirty": "interval: 18-30",
   "fromThirtyOneToFortyFive": "interval: 31-45",
@@ -186,11 +177,9 @@
   "Create a new appeal": "Yangi shikoyat xati yaratish",
   "Open": "Ochish",
   "Legal and regulatory framework": "Normativ-huquqiy baza",
-
   "Accepted": "Qabul qilinganlar",
   "Reviewed": "Ko'rib chiqilganlar",
   "No new appeals are available": "Yangi arizalar mavjud emas",
-
   "Heads of departments": "Bo'lim boshliqlari",
   "Appointment of the performer": "Ijrochining tayinlanishi",
   "Listeners": "Tinglovchilar",
@@ -205,13 +194,11 @@
   "Unblock": "Blokdan chiqarish",
   "Enter a minimum of 10 characters": "Minimum 10 ta belgi kiriting",
   "Upload listener response": "Listener javobini yuklash",
-
   "Send to the moderator to replace the listener": "Tinglovchini almashtirish uchun moderatorga yuborish",
   "Accept": "Qabul qilish",
   "Review period": "Ko'rib chiqish muddati",
   "until": "gacha",
   "Accepted applications are not available": "Qabul qilingan arizalar mavjud emas",
-
   "Write a message": "Xabar yozish",
   "To answer": "Javob berish",
   "The applications reviewed are not available": "Ko'rib chiqilgan arizalar mavjud emas",
@@ -221,7 +208,6 @@
   "Section": "Bo'lim",
   "Left": "Qoldi",
   "Civil Law Expert": "Fuqarolik huquqi bo'yicha mutaxassis",
-
   "Enter your full name": "Ism sharfingizni kiriting (F.I.SH)",
   "Choose your nationality": "Millatingizni tanlang",
   "Date of Birth": "Tug'ilgan kun",
@@ -242,26 +228,21 @@
   "I consent to the processing of my personal data and have read the ": "Men shaxsiy ma'lumotlarimni qayta ishlashga rozilik bildiraman va maxfiylik siyosatini o'qib chiqdim. ",
   "privacy policy": "Maxfiylik siyosati",
   "Personal data": "Shaxsiy malumot",
-
   "Choose your position": "Lavozimingizni tanlang",
   "Choose your course": "Kursingizni tanlang",
   "Choose your department": "Bo'limingizni tanlang",
   "Repeat password": "Parolni qayta kiriting",
-
   "only ( *.pdf ) format": "faqat ( *.pdf) format",
   "The file was not uploaded": "Fayl yuklanmagan",
   "Go super moderator page": "Super moderator sahifasiga o'tish",
   "Go moderator page": "Moderator sahifasiga o'tish",
-
   "Moderators and super moderators": "Moderatorlar va super moderatorlar",
-
   "Should the applicant be deleted": "Arizachi o'chirib yuborilsinmi",
   "Applicant deleted": "Arizachi o'chirildi",
   "An error occurred": "Xatolik yuz berdi",
   "Delete user": "User o'chirilsinmi",
   "Deleted": "O'chirildi",
   "User acceptance": "User qabul qilinsinmi",
-
   "Yes": "Ha",
   "No": "Yo'q",
   "Department created": "Kafedra yaratildi",
@@ -306,7 +287,6 @@
   "Consultation": "Maslahat",
   "The purpose of the clinic": "Klinikaning maqsadi",
   "About the clinic": "Klinika haqida",
-
   "Filter by department": "Bo'lim bo'yicha filtrlash",
   "Filter by status": "Holati bo'yicha filtrlash",
   "extended appeals": "muddati uzaytirilgan arizalar",
@@ -322,27 +302,24 @@
   "Decree of the President of the Republic of Uzbekistan \"On strengthening the role of the prosecutor's office in the implementation of socio-economic reforms, modernization of the country, ensuring reliable protection of human rights and freedoms\"": "O'zbekiston Respublikasi Prezidentining «Ijtimoiy-iqtisodiy islohotlarni amalga oshirish,  mamlakatni modernizatsiya qilish, inson huquq va erkinliklarining ishonchli himoyasini  ta'minlashda prokuratura organlarining rolini kuchaytirish to'g'risida»gi Farmoni",
   "Decree of the President of the Republic of Uzbekistan \"On measures to radically improve the system of criminal law statistics and increase the efficiency of systematic analysis of crimes\"": "O'zbekiston Respublikasi Prezidentining «Jinoiy-huquqiy statistika tizimini tubdan  takomillashtirish va jinoyatlarni tizimli tahlil qilish samaradorligini oshirish chora-tadbirlari  to'g'risida» Farmoni",
   "Registration is required to submit an application": "Ariza yuborish uchun ro'yhatdan o'tish zarur",
-
   "Register as applicant": "Arizachi sizatida ro'yhatdan o'tish!",
   "Register as listener": "Tinglovchi sifatida ro'yhatdan o'tish!",
   "Reset password": "Parolni tiklash",
   "User not found with number": "Ushbu raqamli foydalanuvchi topilmadi",
   "Input phone number": "Raqamingizni kiriting",
   "Password or phone number is incorrect": "Parol yoki raqam noto'g'ri  ",
-  "News":"Yangiliklar",
-  "Academy of the Prosecutor General's Office of the Republic of Uzbekistan":"O'zbekiston Respublikasi Bosh prokratura akademyasi",
-  "Qualified professionals":"Malakali mutahasislar",
-  "Free legal advice":"Bepul yuridik maslahatlar",
-  "Answers to legal questions":"Yuridik savollarga javoblar",
-  "Legal advice from qualified staff of the Academy of the Prosecutor General's Office of the Republic of Uzbekistan":"O'zbeksiton Respublikasi Bosh prokraturasi akademyasining malakali hodimlaridan yuridik maslahatlar",
-  "All advice given by the staff of the General Prosecutor's Office Clinic is absolutely free":"Bosh Prokratura Akademyasi klinikasi hodimlari tomonidan berilgan maslhatlarning barchasi mutlaqo bepuldir",
-  "Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited":"Uzulksiz va doimiy yuridik savollarga malakali mutahasislar tomonidan javoblar. Yuridik murojaatlar soni cheklanmagan",
-  "General applications":"Umumiy arizalar",
-  "In progress":"Jarayonda",
-  "Users":"Foydalanuvchilar",
+  "News": "Yangiliklar",
+  "Academy of the Prosecutor General's Office of the Republic of Uzbekistan": "O'zbekiston Respublikasi Bosh prokratura akademyasi",
+  "Qualified professionals": "Malakali mutahasislar",
+  "Free legal advice": "Bepul yuridik maslahatlar",
+  "Answers to legal questions": "Yuridik savollarga javoblar",
+  "Legal advice from qualified staff of the Academy of the Prosecutor General's Office of the Republic of Uzbekistan": "O'zbeksiton Respublikasi Bosh prokraturasi akademyasining malakali hodimlaridan yuridik maslahatlar",
+  "All advice given by the staff of the General Prosecutor's Office Clinic is absolutely free": "Bosh Prokratura Akademyasi klinikasi hodimlari tomonidan berilgan maslhatlarning barchasi mutlaqo bepuldir",
+  "Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited": "Uzulksiz va doimiy yuridik savollarga malakali mutahasislar tomonidan javoblar. Yuridik murojaatlar soni cheklanmagan",
+  "General applications": "Umumiy arizalar",
+  "In progress": "Jarayonda",
+  "Users": "Foydalanuvchilar",
   "Our Attorneys": "Akademya xodimlari",
-
-
   "Ensuring that trainees undergo internships at the clinic during their studies at the Academy": "Tinglovchilarni Akademyada o‘qish davri mobaynida klinikada amaliyot (stajirovka) o‘tashini ta’minlash borasida",
   "take organizational measures to organize internships for students in the clinic;": " klinikada talabalarning amaliyot (stajirovka) o‘tashlarini tashkil etish yuzasidan tashkiliy choralarni ko‘rish;",
   "to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice;": " talabalarning nazariy bilimlarini amaliyot bilan uzviy bog‘liqligini ta’minlash orqali ularni huquqni qo‘llash amaliyotiga keng jalb etish;",
@@ -357,7 +334,4 @@
   "Watch the video": "Videoni ko'rish",
   "Listen to the audio": "Audioni eshitish",
   "Phone number or email": "Telefon raqam yoki email"
-
-
-
 }

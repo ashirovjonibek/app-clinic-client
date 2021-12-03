@@ -12,15 +12,17 @@ const UserItem = (props) => {
         }
 
         let h = hash % 360;
-        return 'hsl('+h+', '+s+'%, '+l+'%)';
+        return 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
     }
 
     return (
         <div className="user-item">
             <div className="user-person-inform">
-                <Avatar style={{background:stringToHslColor(props?.p?.fullName?props?.p?.fullName:"",50,50)}} size={45} src={props?.p?.image&&<Image src={props?.p?.image}/>}>{props?.p?.fullName[0]?.toUpperCase()}</Avatar>
+                <Avatar style={{background: stringToHslColor(props?.p?.fullName ? props?.p?.fullName : "", 50, 50)}}
+                        size={45} src={props?.p?.image &&
+                <Image src={props?.p?.image}/>}>{props?.p?.fullName[0]?.toUpperCase()}</Avatar>
                 <div className="user-inform">
-                    <div className="user-name" style={{marginLeft:"5px"}}>{props?.p?.fullName}</div>
+                    <div className="user-name" style={{marginLeft: "5px"}}>{props?.p?.fullName}</div>
                     {/*<div className="user-porofeesion">{props?.p?.roles[0]?.description}</div>*/}
                 </div>
             </div>

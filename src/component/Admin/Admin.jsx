@@ -12,7 +12,7 @@ import AdminListSupervisor from './AdminListSupervisor';
 import AdminListModerator from './AdminListModerator';
 import AdminListSetting from './AdminListSetting';
 import {withTranslation} from "react-i18next";
-import {useHistory,Link} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import {STORAGE_NAME} from "../../utils/constant";
 import "../../assets/scss/adminList.scss"
 import "../../assets/scss/adminNav.scss"
@@ -79,7 +79,7 @@ const Admin = ({t}) => {
         getPage(6);
         setSettingContentItem(!settingContentItem);
     };
-    const handleModeratorAndSuperModerator=()=>{
+    const handleModeratorAndSuperModerator = () => {
         getPage(5);
         setModeratorAdnSuperModeratorContentItem(!moderatorAdnSuperModeratorContentItem);
     }
@@ -107,7 +107,7 @@ const Admin = ({t}) => {
                 </div>
 
                 <ul>
-                    <li style={{marginTop:"50px"}} className="accordion__section">
+                    <li style={{marginTop: "50px"}} className="accordion__section">
                         <div className="accordion" onClick={() => getPage(7)}>
                             <h3 className="accordion__title">{t("Home page")}</h3>
                         </div>
@@ -145,14 +145,14 @@ const Admin = ({t}) => {
                 </ul>
                 <br/>
                 <div className="mobil-language mobil-language-admin">
-                    <NavLanguage />
+                    <NavLanguage/>
                     {/*<div className="glas">*/}
                     {/*    <img src={iconGlass} alt="" />*/}
                     {/*</div>*/}
                 </div>
             </div>
             <div className="adminnav">
-                <div className="nav-center container-fluit12" style={{position: 'fixed', top: '0px', zIndex:1}}>
+                <div className="nav-center container-fluit12" style={{position: 'fixed', top: '0px', zIndex: 1}}>
                     <div className="navbar1">
                         <div className="menu-icon">
                             <MenuIcon
@@ -194,7 +194,7 @@ const Admin = ({t}) => {
                                 {/*    </div>*/}
                                 {/*    {t("Go out")}*/}
                                 {/*</div>*/}
-                                <Enter />
+                                <Enter/>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import randomColor from 'randomcolor';
 import TagCloud from 'react-tag-cloud';
 import './style.css'
@@ -47,7 +47,7 @@ class WordCloud extends Component {
                                             fontStyle: 'italic',
                                             fontWeight: 'bold',
                                             color: randomColor()
-                                        }} target="_blank"  href={item.url}>{item.word}</a>
+                                        }} target="_blank" href={item.url}>{item.word}</a>
                                     </div>
                                 )
                             }

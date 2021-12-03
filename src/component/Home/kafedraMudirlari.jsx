@@ -6,7 +6,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 
 const Mudirlar = ({style, t}) => {
     const [items, setItems] = useState([]);
-    const [showCount,setShowCount]=useState(3);
+    const [showCount, setShowCount] = useState(3);
 
     useEffect(() => {
         axios({
@@ -16,27 +16,27 @@ const Mudirlar = ({style, t}) => {
             setItems(response?.data?.items);
         })
 
-      if (window.innerWidth<768){
-        setShowCount(1)
-      }
-      if (window.innerWidth>768&&window.innerWidth<992){
-        setShowCount(2)
-      }
-      if (window.innerWidth>992){
-        setShowCount(3)
-      }
+        if (window.innerWidth < 768) {
+            setShowCount(1)
+        }
+        if (window.innerWidth > 768 && window.innerWidth < 992) {
+            setShowCount(2)
+        }
+        if (window.innerWidth > 992) {
+            setShowCount(3)
+        }
 
-      window.addEventListener('resize',()=>{
-          if (window.innerWidth<768){
-              setShowCount(1)
-          }
-          if (window.innerWidth>768&&window.innerWidth<992){
-              setShowCount(2)
-          }
-          if (window.innerWidth>992){
-              setShowCount(3)
-          }
-      })
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) {
+                setShowCount(1)
+            }
+            if (window.innerWidth > 768 && window.innerWidth < 992) {
+                setShowCount(2)
+            }
+            if (window.innerWidth > 992) {
+                setShowCount(3)
+            }
+        })
 
     }, []);
 
@@ -74,26 +74,30 @@ const Mudirlar = ({style, t}) => {
                     freeMode={true}
                     navigation={true}
                     className=""
-                    style={{width:"100%"}}
+                    style={{width: "100%"}}
                 >
                     {
                         items && items?.map((item, i) =>
                             <SwiperSlide className="">
                                 <div className="cnt-block equal-hight bg-light p-0">
-                                    <figure style={{position:"relative"}} className="p-0 m-0">
+                                    <figure style={{position: "relative"}} className="p-0 m-0">
                                         <img
                                             style={{
-                                                borderRadius:0,
-                                                margin:0,
-                                                width:"100%"
+                                                borderRadius: 0,
+                                                margin: 0,
+                                                width: "100%"
                                             }}
                                             src={item?.img_link}
                                             className="img-responsive"
                                             alt=""
                                         />
-                                        <div className="more-content-attorney d-flex justify-content-center align-items-center text-light" >more content...</div>
+                                        <div
+                                            className="more-content-attorney d-flex justify-content-center align-items-center text-light">more
+                                            content...
+                                        </div>
                                     </figure>
-                                    <h3 style={{padding:"0 5px"}} className="d-flex justify-content-center align-items-center m-0 p-2 text-light">
+                                    <h3 style={{padding: "0 5px"}}
+                                        className="d-flex justify-content-center align-items-center m-0 p-2 text-light">
                                         <a href="#">{getTitle(item?.title)}</a>
                                     </h3>
                                 </div>

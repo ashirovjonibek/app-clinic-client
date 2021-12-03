@@ -1,76 +1,90 @@
 .setting {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 15px rgb(194, 194, 194);
-    border-radius: 10px;
-    padding: 30px 15px 0 15px;
-    .row {
-        width: 100%;
-        min-height: 30vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #78baf3;
-        }
-        .kafedr {
-            min-height: 400px;
-            h3 {
-                margin-bottom: 20px;
-            }
-            .table-scroll {
-                overflow-x: scroll;
-                &::-webkit-scrollbar {
-                    width: 10px;
-                    background-color: #e2e2e2;
-                    border-radius: 10px;
-                }
-                &::-webkit-scrollbar-thumb {
-                    border-radius: 10px;
-                    background-color: #c2c2c2;
-                }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 15px rgb(194, 194, 194);
+  border-radius: 10px;
+  padding: 30px 15px 0 15px;
 
-                table {
-                    margin-bottom: 10px;
-                    width: 1260px;
-                    tr {
-                        .table-border {
-                            height: 40px;
-                            text-align: center;
-                            background: #ffffff;
-                            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                            border-radius: 5px;
-                            margin: 1px;
-                           
-                        }
-                        .number {
-                            width: 30px;
-                        }
-                        .name-uz {
-                            width: 120px;
-                        }
-                        .name-ru {
-                            width: 120px;
-                        }
-                        .name-en {
-                            width: 120px;
-                        }
-                        .edit {
-                            width: 20px;
-                            
-                        }
-                        .delete {
-                            width: 20px;
-                        }
-                    }
-                }
-            }
-        }
+  .row {
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #78baf3;
     }
+
+    .kafedr {
+      min-height: 400px;
+
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      .table-scroll {
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+          width: 10px;
+          background-color: #e2e2e2;
+          border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background-color: #c2c2c2;
+        }
+
+        table {
+          margin-bottom: 10px;
+          width: 1260px;
+
+          tr {
+            .table-border {
+              height: 40px;
+              text-align: center;
+              background: #ffffff;
+              box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              margin: 1px;
+
+            }
+
+            .number {
+              width: 30px;
+            }
+
+            .name-uz {
+              width: 120px;
+            }
+
+            .name-ru {
+              width: 120px;
+            }
+
+            .name-en {
+              width: 120px;
+            }
+
+            .edit {
+              width: 20px;
+
+            }
+
+            .delete {
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -8,16 +8,16 @@ import {withTranslation} from "react-i18next";
 import CustomPagination from "../catalog/Pagenation";
 
 const PerAccSupListenersSection = ({t}) => {
-    const [listeners,setListeners]=useState();
-    let token=localStorage.getItem(STORAGE_NAME);
-    const [size,setSize]=useState(5);
-    const [active,setActive]=useState(1);
-    const [totalEl,setTotalEl]=useState();
-    const [totalPage,setTotalPage]=useState();
-    useEffect(()=>{
+    const [listeners, setListeners] = useState();
+    let token = localStorage.getItem(STORAGE_NAME);
+    const [size, setSize] = useState(5);
+    const [active, setActive] = useState(1);
+    const [totalEl, setTotalEl] = useState();
+    const [totalPage, setTotalPage] = useState();
+    useEffect(() => {
         const config = {
             method: 'get',
-            url: API_URL+'/auth/listeners?page'+(active-1)+'&size='+size,
+            url: API_URL + '/auth/listeners?page' + (active - 1) + '&size=' + size,
             headers: {
                 'Authorization': token
             }
@@ -31,12 +31,12 @@ const PerAccSupListenersSection = ({t}) => {
             .catch(function (error) {
                 console.log(error);
             });
-    },[]);
+    }, []);
 
-    const refresh=()=>{
+    const refresh = () => {
         const config = {
             method: 'get',
-            url: API_URL +'/auth/listeners',
+            url: API_URL + '/auth/listeners',
             headers: {
                 'Authorization': token
             }
@@ -62,22 +62,22 @@ const PerAccSupListenersSection = ({t}) => {
             {/*    <SortDate />*/}
             {/*</div>*/}
             {
-                listeners&&listeners.map((item,i)=>
-                    <PerAccSupListenersItem key={i} refresh={refresh} item={item} />
+                listeners && listeners.map((item, i) =>
+                    <PerAccSupListenersItem key={i} refresh={refresh} item={item}/>
                 )
             }
             {
-                totalEl>5?
+                totalEl > 5 ?
                     <CustomPagination
                         pageLength={totalPage}
                         active={active}
                         setActive={setActive}
                         size={size}
                         setSize={setSize}
-                    />:""
+                    /> : ""
             }
         </div>
     );
 }
 
-export default withTranslation() (PerAccSupListenersSection);
+export default withTranslation()(PerAccSupListenersSection);

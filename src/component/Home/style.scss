@@ -46,6 +46,7 @@
 
   div {
     overflow: hidden;
+
     .description {
       position: absolute;
       right: 0;
@@ -53,12 +54,13 @@
       z-index: 1;
     }
 
-    .description1{
+    .description1 {
       display: none;
     }
 
     div {
       z-index: 0;
+
       svg {
         padding-top: 35px;
       }
@@ -67,40 +69,41 @@
   }
 }
 
-@media screen and(max-width: 1045px){
-  .map-container{
-    div{
-      .description{
+@media screen and(max-width: 1045px) {
+  .map-container {
+    div {
+      .description {
         top: -20px;
       }
     }
   }
 }
 
-@media screen and(max-width: 950px){
-  .map-container{
-    div{
-      .description{
+@media screen and(max-width: 950px) {
+  .map-container {
+    div {
+      .description {
         display: none;
       }
 
-      .description1{
+      .description1 {
         display: block;
       }
     }
   }
 }
 
-@media screen and(max-width: 720px){
-  .map-container{
-    div{
+@media screen and(max-width: 720px) {
+  .map-container {
+    div {
 
-      .description1{
+      .description1 {
         display: block;
         bottom: 0;
-        div{
-          h1{
-            font-size: 15px!important;
+
+        div {
+          h1 {
+            font-size: 15px !important;
           }
         }
       }

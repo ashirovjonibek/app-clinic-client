@@ -47,11 +47,11 @@ const ApplicantAppeal = (props) => {
     const [errorUpload, setErrorUpload] = useState("");
     const [openVideo, setOpenVideo] = useState(false);
     const me = useSelector(state => state.meReducer);
-    const location=useLocation().state;
-    const [url,setUrl]=useState("");
-    const [open,setOpen]=useState(false);
-    const [recaordStream,setRS]=useState();
-    const [stop,setStop]=useState(false);
+    const location = useLocation().state;
+    const [url, setUrl] = useState("");
+    const [open, setOpen] = useState(false);
+    const [recaordStream, setRS] = useState();
+    const [stop, setStop] = useState(false);
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -61,8 +61,8 @@ const ApplicantAppeal = (props) => {
         audioId: "",
         videoId: ""
     });
-    const theme=useSelector(state => state.theme);
-    const dispatch=useDispatch();
+    const theme = useSelector(state => state.theme);
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
@@ -83,46 +83,46 @@ const ApplicantAppeal = (props) => {
         const token = localStorage.getItem(STORAGE_NAME);
         e.preventDefault();
         // console.log(values);
-       if ((values?.attachmentId||values?.audioId||values?.videoId)&&values?.title){
-           Swal.fire({
-               showCancelButton: true,
-               confirmButtonText: t("Send"),
-               title: t("Should the application be sent for review") + "?",
-               icon: "warning",
-               cancelButtonText: t("Cancel")
-           }).then((confirm) => {
-               if (confirm.isConfirmed) {
-                   axios({
-                       url: API_URL + '/application/create',
-                       method: 'POST',
-                       data: values,
-                       headers: {
-                           'Authorization': token,
-                           'Content-Type': 'application/json'
-                       }
-                   }).then(res => {
-                       if (res.data.success) {
-                           Swal.fire(t("Application has been sent"), "", "success").then(r => {
-                               history.push('/personalAccountApplicant')
-                           })
+        if ((values?.attachmentId || values?.audioId || values?.videoId) && values?.title) {
+            Swal.fire({
+                showCancelButton: true,
+                confirmButtonText: t("Send"),
+                title: t("Should the application be sent for review") + "?",
+                icon: "warning",
+                cancelButtonText: t("Cancel")
+            }).then((confirm) => {
+                if (confirm.isConfirmed) {
+                    axios({
+                        url: API_URL + '/application/create',
+                        method: 'POST',
+                        data: values,
+                        headers: {
+                            'Authorization': token,
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => {
+                        if (res.data.success) {
+                            Swal.fire(t("Application has been sent"), "", "success").then(r => {
+                                history.push('/personalAccountApplicant')
+                            })
 
-                       } else {
-                           Swal.fire(res.data.message, "", "error").then(r => {
-                           })
-                       }
-                   }).catch((err) => {
-                       Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
-                           console.log(r)
-                       })
-                   });
-               }
-           })
+                        } else {
+                            Swal.fire(res.data.message, "", "error").then(r => {
+                            })
+                        }
+                    }).catch((err) => {
+                        Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
+                            console.log(r)
+                        })
+                    });
+                }
+            })
 
-       }else if (!values?.title){
-           Swal.fire('Iltimos mavzusini kiriting!!!',"","error")
-       }else {
-           Swal.fire('Iltimos audio, video, text yaki fayl kiriting!!!',"","error")
-       }
+        } else if (!values?.title) {
+            Swal.fire('Iltimos mavzusini kiriting!!!', "", "error")
+        } else {
+            Swal.fire('Iltimos audio, video, text yaki fayl kiriting!!!', "", "error")
+        }
 
     };
 
@@ -164,7 +164,9 @@ const ApplicantAppeal = (props) => {
 
     }
 
-    const onChange=(e)=>{dispatch({type:CHANGE_EYE,data:e})};
+    const onChange = (e) => {
+        dispatch({type: CHANGE_EYE, data: e})
+    };
 
     return (
         <div>
@@ -200,26 +202,30 @@ const ApplicantAppeal = (props) => {
                                     {/*    <button type=""><img src={iconSearch} alt="search-icon"/></button>*/}
                                     {/*</form>*/}
                                     <NavLanguage/>
-                                    <div style={{cursor:"pointer"}} className="glas">
+                                    <div style={{cursor: "pointer"}} className="glas">
                                         <Dropdown overlay={
                                             <Menu>
-                                                <Menu.Item onClick={(e)=>{
-                                                    dispatch({type:CHANGE_THEME,data:""});
-                                                    dispatch({type:CHANGE_IMG_LESS,data:false});
+                                                <Menu.Item onClick={(e) => {
+                                                    dispatch({type: CHANGE_THEME, data: ""});
+                                                    dispatch({type: CHANGE_IMG_LESS, data: false});
                                                     onChange(1)
                                                 }}>
                                                     Odatiy
                                                 </Menu.Item>
-                                                <Menu.Item onClick={()=>{dispatch({type:CHANGE_THEME,data:"grayscale(100%)"})}} >
+                                                <Menu.Item onClick={() => {
+                                                    dispatch({type: CHANGE_THEME, data: "grayscale(100%)"})
+                                                }}>
                                                     Oq va qora
                                                 </Menu.Item>
-                                                <Menu.Item style={{borderBottom:"1px solid rgba(0,0,0,0.2)"}} onClick={(e)=>{
-                                                    dispatch({type:CHANGE_THEME,data:""});
-                                                    onChange(3)
-                                                }} >
+                                                <Menu.Item style={{borderBottom: "1px solid rgba(0,0,0,0.2)"}}
+                                                           onClick={(e) => {
+                                                               dispatch({type: CHANGE_THEME, data: ""});
+                                                               onChange(3)
+                                                           }}>
                                                     Qora va sariq
                                                 </Menu.Item>
-                                                <Menu.Item onClick={(e)=>dispatch({type:CHANGE_IMG_LESS,data:true})}>
+                                                <Menu.Item
+                                                    onClick={(e) => dispatch({type: CHANGE_IMG_LESS, data: true})}>
                                                     Rasmsiz
                                                 </Menu.Item>
                                             </Menu>
@@ -234,10 +240,10 @@ const ApplicantAppeal = (props) => {
                     </div>
                 </div>
             </div>
-            <div style={{paddingTop: "88px",filter:theme.filter}} className="applicant-appeal">
+            <div style={{paddingTop: "88px", filter: theme.filter}} className="applicant-appeal">
                 <div className="container12">
                     <Title text={<span><KeyboardBackspaceIcon titleAccess={props.t("Go back")} onClick={() => {
-                        history.push(location?"/":"/personalAccountApplicant")
+                        history.push(location ? "/" : "/personalAccountApplicant")
                     }} style={{marginRight: "17px", cursor: "pointer"}}/>{
 
                         props.t("Appeal")}
@@ -248,7 +254,7 @@ const ApplicantAppeal = (props) => {
                             {
                                 values.videoId === "" ?
                                     <button onClick={() => {
-                                        navigator?.mediaDevices?.getUserMedia({ video: true })
+                                        navigator?.mediaDevices?.getUserMedia({video: true})
                                             .then(stream => {
                                                 console.log(stream);
                                                 setRecord({
@@ -263,7 +269,7 @@ const ApplicantAppeal = (props) => {
                                     }} className="video-request">
                                 <span>
                                     <img src={iconVideo} alt=""/>
-                                {t("Make a video appeal")}
+                                    {t("Make a video appeal")}
                                 </span>
                                     </button> :
                                     <button className="video-request" onClick={() => {
@@ -285,15 +291,15 @@ const ApplicantAppeal = (props) => {
                         <div>
                             {
                                 values.audioId === "" ? <button onClick={() => {
-                                        navigator?.mediaDevices?.getUserMedia({ audio: true })
+                                        navigator?.mediaDevices?.getUserMedia({audio: true})
                                             .then(stream => {
                                                 console.log(stream)
-                                               setRecord({
-                                                   status: true,
-                                                   name: "voice"
-                                               })
+                                                setRecord({
+                                                    status: true,
+                                                    name: "voice"
+                                                })
                                             }).catch(err => {
-                                                alert("Microphone not detected")
+                                            alert("Microphone not detected")
                                         })
                                     }} className="audio-request">
                                         <img src={iconAudio} alt=""/>
@@ -328,7 +334,7 @@ const ApplicantAppeal = (props) => {
                                     color: "#CACFD2",
                                     backgroundColor: "#CACFD2",
                                     height: 1,
-                                    marginTop:"5px"
+                                    marginTop: "5px"
                                 }}/>
 
                                 <textarea name="description" onChange={handleChange} id="description" cols="30"
@@ -356,7 +362,7 @@ const ApplicantAppeal = (props) => {
                                     </li>
 
                                     <li>
-                                        <div style={{marginBottom: '20px', textAlign:"center"}}>
+                                        <div style={{marginBottom: '20px', textAlign: "center"}}>
                                             <div className="lb">
                                                 <label className="label" htmlFor="">{props.t("Attach file")}</label>
 
@@ -367,11 +373,12 @@ const ApplicantAppeal = (props) => {
                                                 {isLoading ? <CircularProgress
                                                     style={{width: "15px", height: "15px", marginTop: "3px"}}
                                                     color="primary"/> : ""}
-                                                <input accept="application/pdf" title={done ? fileName : props.t("The file was not uploaded")}
+                                                <input accept="application/pdf"
+                                                       title={done ? fileName : props.t("The file was not uploaded")}
                                                        onChange={handleUpload} type="file"/>
                                             </div>
                                             <p className="pdfFormat">{props.t("only ( *.pdf ) format")}</p>
-                                            <a onClick={()=>{
+                                            <a onClick={() => {
                                                 setUrl(API_URL + '/attach/' + values.attachmentId[0]);
                                                 setOpen(true)
                                             }}
@@ -403,9 +410,10 @@ const ApplicantAppeal = (props) => {
                             </li>
                             <li className="send-button">
                                 {
-                                    me.role.length>0?<button type="submit" disabled={isLoading}
-                                                             className="btn-default">{props.t("Submit")}</button>:
-                                        <Link className="btn-default" to="/auth/login">{props.t("Registration is required to submit an application")}</Link>
+                                    me.role.length > 0 ? <button type="submit" disabled={isLoading}
+                                                                 className="btn-default">{props.t("Submit")}</button> :
+                                        <Link className="btn-default"
+                                              to="/auth/login">{props.t("Registration is required to submit an application")}</Link>
                                 }
                             </li>
 

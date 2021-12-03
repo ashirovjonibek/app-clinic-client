@@ -166,7 +166,6 @@
   "Save": "Сохранить",
   "Satisfactorily": "Удовлетворительно",
   "Unsatisfactory": "Неудовлетворительно",
-
   "Number of appeals": "Количество обращений",
   "Number of processed": "Количество обработанных",
   "Replace the performer": "Заменить исполнителя",
@@ -175,7 +174,6 @@
   "Responses received": "Получено ответов",
   "Rejected answers": "Отклоненные ответы",
   "No new appeals are available": "Новых апелляций нет",
-
   "Heads of departments": "Начальники кафедр",
   "Appointment of the performer": "Назначение исполнителя",
   "Listeners": "Слушатели",
@@ -184,14 +182,12 @@
   "Regulatory and legal framework": "Нормативно - правовая база",
   "Send the list to the system administrator": "Отправить список администратору системы",
   "Applications are not available": "Приложения недоступны",
-
   "Generate link": "Сгенерировать ссылку",
   "Block": "Блокировать",
   "Unblock": "Разблокировать",
   "Enter a minimum of 10 characters": "Введите не менее 10 символов",
   "Upload listener response": "Загрузить ответ слушателя",
   "Download the application": "Скачать приложение",
-
   "Send to the moderator to replace the listener": "Отправить модератору на замену слушателя",
   "Accept": "Принимать",
   "Review period": "Период рассмотрения",
@@ -206,8 +202,6 @@
   "Section": "Кафедра",
   "Left": "Осталось",
   "Civil Law Expert": "Эксперт по гражданскому праву",
-
-
   "Enter your full name": "Введите ваше Ф.И.О",
   "Choose your nationality": "Выберите ваш национальность",
   "Date of Birth": "Дата рождения",
@@ -228,17 +222,14 @@
   "I consent to the processing of my personal data and have read the ": "Я даю согласие на обработку своих персональных данных и ознакомлен с ",
   "privacy policy": "политикой конфиденциальности",
   "Personal data": "Анкетные данные",
-
   "Choose your position": "Выберите ваш должность",
   "Choose your course": "Выберите ваш курс",
   "Choose your department": "Выберите свой кафедра",
   "Repeat password": "Повторите пароль",
-
   "only ( *.pdf ) format": "только формат (* .pdf)",
   "The file was not uploaded": "Файл не загружен",
   "Go super moderator page": "Перейти на страницу супер модератора",
   "Go moderator page": "Перейти на страницу модератора",
-
   "Moderators and super moderators": "Модераторы и супер модераторы",
   "Should the applicant be deleted": "Если заявитель будет удален",
   "Applicant deleted": "Заявитель удален",
@@ -270,7 +261,6 @@
   "Will the application be accepted": "Будет ли принята заявка",
   "Should the application be rejected": "Следует ли отклонить заявку",
   "Logged in to the account": "Авторизовался в учётной записи",
-
   "Login or password error. Please try again": "Ошибка входа или пароля. Повторите попытку.",
   "Registered": "Зарегистрировано",
   "An error occurred. Please try again": "ЗарегистрированоПроизошла ошибка. Пожалуйста, попробуйте еще раз",
@@ -306,18 +296,18 @@
   "Decree of the President of the Republic of Uzbekistan \"On measures to radically improve the system of criminal law statistics and increase the efficiency of systematic analysis of crimes\"": "Указ Президента Республики Узбекистан «О мерах по коренному совершенствованию системы уголовно-правовой статистики и повышению эффективности системного анализа преступлений»",
   "Registration is required to submit an application": "Для подачи заявки требуется регистрация",
   "News": "Новости",
-  "Academy of the Prosecutor General's Office of the Republic of Uzbekistan":"Академия Генеральной прокуратуры Республики Узбекистан",
-  "Qualified professionals":"Квалифицированные специалисты",
-  "Free legal advice":"Бесплатная юридическая консультация",
-  "Answers to legal questions":"Ответы на юридические вопросы",
-  "Legal advice from qualified staff of the Academy of the Prosecutor General's Office of the Republic of Uzbekistan":"Юридическая консультация квалифицированного персонала Академии Генеральной прокуратуры Республики Узбекистан",
-  "All advice given by the staff of the General Prosecutor's Office Clinic is absolutely free":"Все консультации сотрудников поликлиники Генеральной прокуратуры абсолютно бесплатны",
-  "Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited":"Ответы на постоянные и постоянные юридические вопросы квалифицированными специалистами. Количество обращений в суд не ограничено",
-  "Appeals send":"Заявки будут отправлены",
-  "General applications":"Приложения",
-  "In progress":"Процесс",
-  "Done":"Выполнено",
-  "Users":"Пользователи",
+  "Academy of the Prosecutor General's Office of the Republic of Uzbekistan": "Академия Генеральной прокуратуры Республики Узбекистан",
+  "Qualified professionals": "Квалифицированные специалисты",
+  "Free legal advice": "Бесплатная юридическая консультация",
+  "Answers to legal questions": "Ответы на юридические вопросы",
+  "Legal advice from qualified staff of the Academy of the Prosecutor General's Office of the Republic of Uzbekistan": "Юридическая консультация квалифицированного персонала Академии Генеральной прокуратуры Республики Узбекистан",
+  "All advice given by the staff of the General Prosecutor's Office Clinic is absolutely free": "Все консультации сотрудников поликлиники Генеральной прокуратуры абсолютно бесплатны",
+  "Answers to continuous and ongoing legal questions by qualified professionals. The number of legal appeals is not limited": "Ответы на постоянные и постоянные юридические вопросы квалифицированными специалистами. Количество обращений в суд не ограничено",
+  "Appeals send": "Заявки будут отправлены",
+  "General applications": "Приложения",
+  "In progress": "Процесс",
+  "Done": "Выполнено",
+  "Users": "Пользователи",
   "Our Attorneys": "Сотрудники Академии",
   "Clinic plans": "Планы клиники",
   "Ensuring that trainees undergo internships at the clinic during their studies at the Academy": "Обеспечение прохождения студентами стажировки в клинике во время учебы в сотрудничестве с государством и бизнесом, судебными и правоохранительными органами, правозащитными и другими организациями",
@@ -334,5 +324,4 @@
   "Watch the video": "Смотреть видео",
   "Listen to the audio": "Слушайте аудио",
   "Phone number or email": "Номер телефона или электронная почта"
-
 }

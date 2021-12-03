@@ -6,7 +6,7 @@ import CustomPagination from "../catalog/Pagenation";
 import {withTranslation} from "react-i18next";
 import Dialog from "@material-ui/core/Dialog";
 
-const ModeratorPerformerSection = ({t,sts}) => {
+const ModeratorPerformerSection = ({t, sts}) => {
     const [activeItems, setActiveItems] = useState([]);
     const [total, setTotal] = useState(0);
     const [size, setSize] = useState(3);
@@ -21,7 +21,7 @@ const ModeratorPerformerSection = ({t,sts}) => {
     useEffect(() => {
         axios({
             method: 'get',
-            url: API_URL + '/document/applications?size=' + size + '&page=' + (active - 1)+"&sts="+sts,
+            url: API_URL + '/document/applications?size=' + size + '&page=' + (active - 1) + "&sts=" + sts,
             headers: {
                 Authorization: token
             }
@@ -35,7 +35,7 @@ const ModeratorPerformerSection = ({t,sts}) => {
     const refresh = () => {
         axios({
             method: 'get',
-            url: API_URL + '/document/applications?size=' + size + '&page=' + (active - 1)+"&sts="+sts,
+            url: API_URL + '/document/applications?size=' + size + '&page=' + (active - 1) + "&sts=" + sts,
             headers: {
                 Authorization: token
             }
@@ -51,8 +51,8 @@ const ModeratorPerformerSection = ({t,sts}) => {
         <div className="moderator-performer-section">
 
             {
-                        activeItems && activeItems.map((item, i) =>
-                        <ModeratorPerformerItem sts={sts} setPlayer={setPlayer} refresh={refresh} key={i} item={item} />)
+                activeItems && activeItems.map((item, i) =>
+                    <ModeratorPerformerItem sts={sts} setPlayer={setPlayer} refresh={refresh} key={i} item={item}/>)
 
             }
             <div style={{clear: "both"}}>

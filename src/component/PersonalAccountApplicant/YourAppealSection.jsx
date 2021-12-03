@@ -14,7 +14,7 @@ import {blue} from "@material-ui/core/colors";
 import FileReader from "../catalog/FileReader";
 import PdfViewer from "../catalog/pdfViewer";
 import Appeals from "../catalog/appeal/appeal";
-import { types } from "../catalog/appeal/type";
+import {types} from "../catalog/appeal/type";
 
 const YourAppealSection = (props) => {
     const i18 = localStorage.getItem('I18N_LANGUAGE')
@@ -26,9 +26,9 @@ const YourAppealSection = (props) => {
     const [loading, setLoading] = useState(true)
     const [errorMsg, setErrorMsg] = useState({message: "", status: false});
     const [size, setSize] = useState(3);
-    const [show,setShow]=useState();
-    const [url,setUrl]=useState("");
-    const [open,setOpen]=useState(false);
+    const [show, setShow] = useState();
+    const [url, setUrl] = useState("");
+    const [open, setOpen] = useState(false);
 
     const [appealFilter, setAppealFilter] = useState({
         status: "ALL",
@@ -91,7 +91,7 @@ const YourAppealSection = (props) => {
 
     return (
         <div className="your-appeal-item-section">
-            <ContentTop appealFilter={appealFilter} setAppealFilter={setAppealFilter} />
+            <ContentTop appealFilter={appealFilter} setAppealFilter={setAppealFilter}/>
             {
                 errorMsg.status ?
                     <div style={{width: 100 + "%", textAlign: "center", paddingTop: "100px", fontSize: "45px"}}>
@@ -105,8 +105,8 @@ const YourAppealSection = (props) => {
                         <>
                             {appeal && appeal.map((item, i) =>
                                 <>
-                                <Appeals item={item} type={types.newAppFromApplicant}/>
-                                {/* <div className="content" key={i} value={item?.id}>
+                                    <Appeals item={item} type={types.newAppFromApplicant}/>
+                                    {/* <div className="content" key={i} value={item?.id}>
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>{props.t("Subject of the appeal")}:</h4>

@@ -6,13 +6,13 @@ import ModeratorHeadsDepartmentItem from "./ModeratorHeadsDepartmentItem";
 
 const ModeratorListnearSection = (props) => {
 
-    const [listeners,setListeners]=useState([]);
-    const [info,setInfo]=useState([]);
+    const [listeners, setListeners] = useState([]);
+    const [info, setInfo] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const config = {
             method: 'get',
-            url: API_URL +'/auth/listeners',
+            url: API_URL + '/auth/listeners',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -28,23 +28,23 @@ const ModeratorListnearSection = (props) => {
 
         axios({
             method: 'get',
-            url: API_URL +'/application/info/listener',
+            url: API_URL + '/application/info/listener',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
             }
-        }).then((res)=>{
+        }).then((res) => {
             // console.log(res);
             setInfo(res.data.object)
         })
-    },[props])
+    }, [props])
     return (
         <div className="moderator-listnear-section">
             {
-                listeners.length>0?listeners.map((item,i)=>
-                    <ModeratorListnearItem key={i} item={item} info={info}/>
-                    ):
-                <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
+                listeners.length > 0 ? listeners.map((item, i) =>
+                        <ModeratorListnearItem key={i} item={item} info={info}/>
+                    ) :
+                    <div style={{marginTop: "35px", textAlign: "center"}}>Ma'lumot topilmadi</div>
             }
         </div>
     );

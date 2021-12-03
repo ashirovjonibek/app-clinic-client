@@ -63,7 +63,7 @@ const AppealItem = (props) => {
                 }).then((r) => {
                     console.log(r);
                     Swal.fire(
-                        t("Sent")+"!",
+                        t("Sent") + "!",
                         '',
                         'success'
                     ).then((res) => {
@@ -76,8 +76,8 @@ const AppealItem = (props) => {
 
     const sendApplicant = (id) => {
         Swal.fire({
-            title: t("Confirmation")+"!!!",
-            text: t("Should this form be sent to the applicant")+"?",
+            title: t("Confirmation") + "!!!",
+            text: t("Should this form be sent to the applicant") + "?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -94,7 +94,7 @@ const AppealItem = (props) => {
                 }).then((r) => {
                     console.log(r);
                     Swal.fire(
-                        t("Sent")+"!",
+                        t("Sent") + "!",
                         '',
                         'success'
                     ).then((res) => {
@@ -153,8 +153,9 @@ const AppealItem = (props) => {
                                     display: "inline-block",
                                     cursor: "pointer"
                                 }}>
-                            <Tag className="d-flex justify-content-center align-items-center p-2 bg-success text-light rounded">
-                                <DownloadOutlined />
+                            <Tag
+                                className="d-flex justify-content-center align-items-center p-2 bg-success text-light rounded">
+                                <DownloadOutlined/>
                             </Tag>
                         </span>
                             </div> : ""

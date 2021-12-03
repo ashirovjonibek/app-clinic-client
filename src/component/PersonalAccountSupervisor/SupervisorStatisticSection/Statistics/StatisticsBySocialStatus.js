@@ -10,7 +10,7 @@ const renderCustomizedLabel = (props) => {
     const fireOffset = value.toString().length < 5;
     const offset = fireOffset ? -40 : 5;
     return (
-        <text fontSize={10} x={x + width + 12} y={y + height } fill={fireOffset ? "#000" : "#000"} textAnchor="end">
+        <text fontSize={10} x={x + width + 12} y={y + height} fill={fireOffset ? "#000" : "#000"} textAnchor="end">
             {value}
         </text>
     );
@@ -76,7 +76,8 @@ function StatisticsBySocialStatus({t}) {
                 }
             } else {
                 if (item[singlemother] === 0) {
-                    item[singlemother] = ""                }
+                    item[singlemother] = ""
+                }
                 if (item[invalid] === 0) {
                     item[invalid] = ""
                 }
@@ -86,8 +87,7 @@ function StatisticsBySocialStatus({t}) {
 
             }
         })
-    } ))
-
+    }))
 
 
         return (

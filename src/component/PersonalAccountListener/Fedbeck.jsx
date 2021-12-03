@@ -5,7 +5,7 @@ const Fedbeck = (props) => {
     return (
         <div className="content">
             <div className="fedbeck">
-                <UserName text="Турсунов Тулкин Мирзаевич" />
+                <UserName text="Турсунов Тулкин Мирзаевич"/>
                 <div className="request-content-title-date">
                     <button className="fedbeck-green-btn">Удовлетворительно</button>
                 </div>

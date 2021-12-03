@@ -8,33 +8,33 @@ import {CircularProgress} from "@material-ui/core";
 const PerAccAppCallFlowSection = () => {
     const token = localStorage.getItem(STORAGE_NAME);
     const [appeal, setAppeal] = useState([]);
-    const [pageSize,setPageSize]=useState(0)
-    const [active,setActive]=useState(1)
-    const [loading,setLoading]=useState(true)
-    const [errorMsg,setErrorMsg]=useState({message:"",status:false})
-    const [size,setSize]=useState(3)
+    const [pageSize, setPageSize] = useState(0)
+    const [active, setActive] = useState(1)
+    const [loading, setLoading] = useState(true)
+    const [errorMsg, setErrorMsg] = useState({message: "", status: false})
+    const [size, setSize] = useState(3)
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
             headers: {
                 'Authorization': token
             },
-            url: API_URL + "/application/applicant?size="+size+"&page="+(active-1),
+            url: API_URL + "/application/applicant?size=" + size + "&page=" + (active - 1),
             method: 'GET'
         }).then(res => {
             setAppeal(res.data.object.object);
             console.log(res);
             setLoading(false)
             setPageSize(res.data.object.totalPages)
-        }).catch((e)=>{
+        }).catch((e) => {
             setLoading(false)
             console.log(e.message)
             setErrorMsg({
                 status: true,
-                message: ""+e.message
+                message: "" + e.message
             });
         })
-    }, [active,size]);
+    }, [active, size]);
     return (
         <div className="per-acc-app-call-flow-item">
             {
@@ -49,12 +49,12 @@ const PerAccAppCallFlowSection = () => {
                         </div> :
                         <>
                             {
-                                appeal&&appeal.map((item)=>
+                                appeal && appeal.map((item) =>
                                     <PerAccAppCallFlowItem appeal={item}/>
                                 )
                             }
                             <div style={{clear: "both"}}/>
-                            <div style={{display:"block",textAlign:"center",marginTop:"10px"}}>
+                            <div style={{display: "block", textAlign: "center", marginTop: "10px"}}>
                                 <CustomPagination
                                     size={size}
                                     setSize={setSize}

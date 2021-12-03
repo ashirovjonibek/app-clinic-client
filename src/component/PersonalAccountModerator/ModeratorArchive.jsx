@@ -4,7 +4,7 @@ import DirectorySection from "../PersonalAccountListener/DirectorySection";
 const ModeratorArchive = () => {
     return (
         <div>
-            <DirectorySection />
+            <DirectorySection/>
         </div>
     );
 }

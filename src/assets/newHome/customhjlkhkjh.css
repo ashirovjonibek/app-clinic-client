@@ -1586,7 +1586,7 @@ ul.our-strength li .title {
 -----------------------*/
 
 .news-events {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     padding-bottom: 0;
 }
 
@@ -6012,7 +6012,7 @@ ul.half-width li {
     }
 
     .banner-outer {
-		width: 100%;
+        width: 100%;
     }
 
     .banner-outer .content {

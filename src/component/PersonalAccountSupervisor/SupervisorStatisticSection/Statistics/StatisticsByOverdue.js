@@ -26,7 +26,7 @@ const renderCustomizedLabel = (props) => {
 
 function StatisticsByOverdue({t}) {
 
-    const data =[
+    const data = [
         {name: t('Karakalpaks tan'), id: 1, count: 0},
         {name: t('Andijan'), id: 2, count: 0},
         {name: t('Bukhara'), id: 3, count: 0},
@@ -52,7 +52,7 @@ function StatisticsByOverdue({t}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/application/filterByRegion',
+            url: API_URL + '/application/filterByRegion',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -77,24 +77,24 @@ function StatisticsByOverdue({t}) {
     //     })
     // }))
 
-        return (
-            <ResponsiveContainer width="100%" height={"100%"}>
-                <BarChart margin={{
-                    left: 45
-                }} width={400} height={500} data={data} layout="vertical">
-                    <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
-                    <YAxis dataKey="name" type="category"/>
-                    <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
-                    <br/>
-                    {/*<Legend wrapperStyle={{position: 'relative'}}/>*/}
-                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
-                    <Bar barSize={15}
-                         dataKey="count" fill="#78BAF3">
-                        <LabelList dataKey="count" content={renderCustomizedLabel}/>
-                    </Bar>
-                </BarChart>
-            </ResponsiveContainer>
-        );
+    return (
+        <ResponsiveContainer width="100%" height={"100%"}>
+            <BarChart margin={{
+                left: 45
+            }} width={400} height={500} data={data} layout="vertical">
+                <CartesianGrid horizontal={false} stroke="#CFD8DC" strokeWidth={0.5}/>
+                <YAxis dataKey="name" type="category"/>
+                <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
+                <br/>
+                {/*<Legend wrapperStyle={{position: 'relative'}}/>*/}
+                <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
+                <Bar barSize={15}
+                     dataKey="count" fill="#78BAF3">
+                    <LabelList dataKey="count" content={renderCustomizedLabel}/>
+                </Bar>
+            </BarChart>
+        </ResponsiveContainer>
+    );
 }
 
 export default withTranslation()(StatisticsByOverdue);

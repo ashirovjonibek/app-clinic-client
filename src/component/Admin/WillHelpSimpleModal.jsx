@@ -176,114 +176,114 @@ function SimpleModal({item, t}) {
                 className="editIcon"
                 onClick={handleOpen}>
                 < EditIcon/>
-            < /button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-            >
-                <div className="simple-modal">
-                    <form onSubmit={changeUpdate}>
-                        <ul>
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="">{t("Full name")}</label>*/}
-                            {/*    <input*/}
-                            {/*        onBlur={e => nameHandler(e)}*/}
-                            {/*        name="fullName"*/}
-                            {/*        className="input-text"*/}
-                            {/*        type="text"*/}
-                            {/*        value={listener.fullName}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*        required*/}
-                            {/*    />*/}
-                            {/*</li>*/}
-                            {/*{(nameDirty && errorName) && <p className="error">{errorName}</p>}*/}
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="">{t("Email")}</label>*/}
-                            {/*    <input*/}
-                            {/*        onBlur={e => emailHandler(e)}*/}
-                            {/*        name="email"*/}
-                            {/*        className="input-text"*/}
-                            {/*        type="text"*/}
-                            {/*        value={listener.email}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*    />*/}
-                            {/*</li>*/}
-                            {/*{(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}*/}
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="">{t("Phone number")}</label>*/}
-                            {/*    <input*/}
-                            {/*        onBlur={e => numberHandler(e)}*/}
-                            {/*        className="input-text"*/}
-                            {/*        name="phoneNumber"*/}
-                            {/*        type="text"*/}
-                            {/*        value={listener.phoneNumber}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*        required/>*/}
-                            {/*</li>*/}
-                            {/*{(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}*/}
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="positionId">{t("Position")}</label>*/}
-                            {/*    <select id="positionId" name="positionId" onChange={handleChange}*/}
-                            {/*            className="category" required>*/}
-                            {/*        {positions && positions.map((item, i) =>*/}
-                            {/*            <option key={i} value={item.id}>{item.title[i18]}</option>*/}
-                            {/*        )}*/}
-                            {/*    </select>*/}
-                            {/*</li>*/}
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="sectionId">{t("Department")}</label>*/}
-                            {/*    <select id="sectionId" name="sectionId" onChange={handleChange}*/}
-                            {/*            className="category">*/}
-                            {/*        <option value="">{item.section.title[i18]}</option>*/}
-                            {/*        {sections && sections.map((item, i) =>*/}
-                            {/*            <option key={item.id} value={item.id}>{item.title[i18]}</option>*/}
-                            {/*        )}*/}
-                            {/*    </select>*/}
-                            {/*</li>*/}
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="course">{t("Course")}</label>*/}
-                            {/*    <select id="course" name="course" onChange={handleChange}*/}
-                            {/*            className="category">*/}
-                            {/*        <option value="">{item.course}</option>*/}
-                            {/*        <option value="1">1</option>*/}
-                            {/*        <option value="2">2</option>*/}
-                            {/*        <option value="3">3</option>*/}
-                            {/*    </select>*/}
-                            {/*</li>*/}
+                < /button>
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                    >
+                        <div className="simple-modal">
+                            <form onSubmit={changeUpdate}>
+                                <ul>
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="">{t("Full name")}</label>*/}
+                                    {/*    <input*/}
+                                    {/*        onBlur={e => nameHandler(e)}*/}
+                                    {/*        name="fullName"*/}
+                                    {/*        className="input-text"*/}
+                                    {/*        type="text"*/}
+                                    {/*        value={listener.fullName}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*        required*/}
+                                    {/*    />*/}
+                                    {/*</li>*/}
+                                    {/*{(nameDirty && errorName) && <p className="error">{errorName}</p>}*/}
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="">{t("Email")}</label>*/}
+                                    {/*    <input*/}
+                                    {/*        onBlur={e => emailHandler(e)}*/}
+                                    {/*        name="email"*/}
+                                    {/*        className="input-text"*/}
+                                    {/*        type="text"*/}
+                                    {/*        value={listener.email}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*    />*/}
+                                    {/*</li>*/}
+                                    {/*{(emailDirty && errorEmail) && <p className="error">{errorEmail}</p>}*/}
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="">{t("Phone number")}</label>*/}
+                                    {/*    <input*/}
+                                    {/*        onBlur={e => numberHandler(e)}*/}
+                                    {/*        className="input-text"*/}
+                                    {/*        name="phoneNumber"*/}
+                                    {/*        type="text"*/}
+                                    {/*        value={listener.phoneNumber}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*        required/>*/}
+                                    {/*</li>*/}
+                                    {/*{(numberDirty && errorNumber) && <p className="error">{errorNumber}</p>}*/}
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="positionId">{t("Position")}</label>*/}
+                                    {/*    <select id="positionId" name="positionId" onChange={handleChange}*/}
+                                    {/*            className="category" required>*/}
+                                    {/*        {positions && positions.map((item, i) =>*/}
+                                    {/*            <option key={i} value={item.id}>{item.title[i18]}</option>*/}
+                                    {/*        )}*/}
+                                    {/*    </select>*/}
+                                    {/*</li>*/}
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="sectionId">{t("Department")}</label>*/}
+                                    {/*    <select id="sectionId" name="sectionId" onChange={handleChange}*/}
+                                    {/*            className="category">*/}
+                                    {/*        <option value="">{item.section.title[i18]}</option>*/}
+                                    {/*        {sections && sections.map((item, i) =>*/}
+                                    {/*            <option key={item.id} value={item.id}>{item.title[i18]}</option>*/}
+                                    {/*        )}*/}
+                                    {/*    </select>*/}
+                                    {/*</li>*/}
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="course">{t("Course")}</label>*/}
+                                    {/*    <select id="course" name="course" onChange={handleChange}*/}
+                                    {/*            className="category">*/}
+                                    {/*        <option value="">{item.course}</option>*/}
+                                    {/*        <option value="1">1</option>*/}
+                                    {/*        <option value="2">2</option>*/}
+                                    {/*        <option value="3">3</option>*/}
+                                    {/*    </select>*/}
+                                    {/*</li>*/}
 
-                            {/*<li>*/}
-                            {/*    <label className="label" htmlFor="birthDate">{t("Date")}</label>*/}
-                            {/*    <input*/}
-                            {/*        className="input-date"*/}
-                            {/*        onBlur={e => yearHandler(e)}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*        name="birthDate"*/}
-                            {/*        id="birthDate"*/}
-                            {/*        type="date"*/}
-                            {/*        value={listener.birthDate.slice(0, 10)}*/}
-                            {/*    />*/}
-                            {/*</li>*/}
-                            {/*{(yearDirty && errorYear) && <p className="error">{errorYear}</p>}*/}
-                            <li>
-                                <div className="label">{t("Role")}</div>
-                                <select onChange={handleRol} className="inform">
-                                    <option value={item.roles[0].name}>{item.roles[0].name}</option>
-                                    {roles && roles.map((rol) =>
-                                        <option key={rol.id
-                                        } value={rol.name}>{rol.name}</option>
-                                    )}
-                                </select>
-                            </li>
-                        </ul>
-                        <button type="submit" className="change-btn">{t("Edit")}</button>
-                    </form>
-                </div>
-            </Modal>
+                                    {/*<li>*/}
+                                    {/*    <label className="label" htmlFor="birthDate">{t("Date")}</label>*/}
+                                    {/*    <input*/}
+                                    {/*        className="input-date"*/}
+                                    {/*        onBlur={e => yearHandler(e)}*/}
+                                    {/*        onChange={handleChange}*/}
+                                    {/*        name="birthDate"*/}
+                                    {/*        id="birthDate"*/}
+                                    {/*        type="date"*/}
+                                    {/*        value={listener.birthDate.slice(0, 10)}*/}
+                                    {/*    />*/}
+                                    {/*</li>*/}
+                                    {/*{(yearDirty && errorYear) && <p className="error">{errorYear}</p>}*/}
+                                    <li>
+                                        <div className="label">{t("Role")}</div>
+                                        <select onChange={handleRol} className="inform">
+                                            <option value={item.roles[0].name}>{item.roles[0].name}</option>
+                                            {roles && roles.map((rol) =>
+                                                <option key={rol.id
+                                                } value={rol.name}>{rol.name}</option>
+                                            )}
+                                        </select>
+                                    </li>
+                                </ul>
+                                <button type="submit" className="change-btn">{t("Edit")}</button>
+                            </form>
+                        </div>
+                    </Modal>
         </div>
 
-    );
+);
 }
 
 export default withTranslation()(SimpleModal)

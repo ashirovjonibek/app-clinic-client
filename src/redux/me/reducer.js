@@ -3,11 +3,11 @@ import {allRoles} from "../../routes/authRoles";
 
 const initialState = {
     me: {},
-    meUsername:"",
-    meEmail:"",
-    meFullName:"",
-    role:[],
-    image:""
+    meUsername: "",
+    meEmail: "",
+    meFullName: "",
+    role: [],
+    image: ""
 }
 
 const meReducer = (state = initialState, action) => {
@@ -15,32 +15,32 @@ const meReducer = (state = initialState, action) => {
         case ME_DATA:
             return {
                 ...state,
-                me:action.data
+                me: action.data
             };
         case ME_USERNAME:
             return {
                 ...state,
-                meUsername:action.data
+                meUsername: action.data
             };
         case ME_FULL_NAME:
             return {
                 ...state,
-                meFullName:action.data
+                meFullName: action.data
             };
         case ME_EMAIL:
             return {
                 ...state,
-                meEmail:action.data
+                meEmail: action.data
             };
         case ROLE:
             return {
                 ...state,
-                role:action.data
+                role: action.data
             };
         case IMAGE:
             return {
                 ...state,
-                image:action.data
+                image: action.data
             };
         default:
             return state

@@ -2,9 +2,9 @@ import React, {useEffect} from "react";
 import './404.css'
 import {Link} from "react-router-dom";
 
-const NotFound=()=>{
+const NotFound = () => {
 
-    return(
+    return (
         <div>
             <div id="notfound">
                 <div className="notfound">

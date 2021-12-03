@@ -30,12 +30,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModeratorPerformerItem = (props) => {
-    const { t } = props;
+    const {t} = props;
 
     const [edit, setEdit] = useState(false);
     const classes = useStyles();
-    const [doc,setDoc]=useState("");
-    const [openDoc,setOpenDoc]=useState(false);
+    const [doc, setDoc] = useState("");
+    const [openDoc, setOpenDoc] = useState(false);
     const [age, setAge] = React.useState('');
     const [items, setItems] = useState([]);
     const [id, setId] = useState("");
@@ -51,7 +51,7 @@ const ModeratorPerformerItem = (props) => {
     }
 
     useEffect(() => {
-        let url=props.sts==="SUPER_MODERATOR"?'/section':'/auth/listenerBySection?sectionId='+props?.item?.sectionId;
+        let url = props.sts === "SUPER_MODERATOR" ? '/section' : '/auth/listenerBySection?sectionId=' + props?.item?.sectionId;
         const config = {
             method: 'get',
             url: API_URL + url,
@@ -72,10 +72,10 @@ const ModeratorPerformerItem = (props) => {
 
     const uploadAppeal = () => {
         if (id) {
-            let url=props.sts==="SUPER_MODERATOR"?'/document/set/section':'/document/set/listener';
+            let url = props.sts === "SUPER_MODERATOR" ? '/document/set/section' : '/document/set/listener';
             Swal.fire({
                 title: t("Confirmation") + "!!!",
-                text: t("Ushbu ma'lumot o'zgarishini tasdiqlaysizmi")+"?",
+                text: t("Ushbu ma'lumot o'zgarishini tasdiqlaysizmi") + "?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -85,10 +85,10 @@ const ModeratorPerformerItem = (props) => {
                     axios({
                         method: 'put',
                         url: API_URL + url,
-                        params: props.sts==="SUPER_MODERATOR"?{
+                        params: props.sts === "SUPER_MODERATOR" ? {
                             documentId: props.item.id,
                             sectionId: id
-                        }:{
+                        } : {
                             documentId: props.item.id,
                             listenerId: id
                         },
@@ -153,14 +153,14 @@ const ModeratorPerformerItem = (props) => {
                             }}>
                                 <label htmlFor="">{props.t("File")}</label>
                                 <div
-                                    onClick={()=>{
-                                        setDoc( API_URL + '/attach/' + props?.item?.application?.attachmentsId[0])
+                                    onClick={() => {
+                                        setDoc(API_URL + '/attach/' + props?.item?.application?.attachmentsId[0])
                                         setOpenDoc(true)
                                     }}
                                     title={props?.item?.application?.attachmentsId ? props.t("Download the application") : props.t("Doc not found")}
                                     style={{textAlign: "center", cursor: "pointer"}}
                                     className="file">
-                                    {props?.item?.application?.attachmentsId?<span><FileCopy/></span>:""}
+                                    {props?.item?.application?.attachmentsId ? <span><FileCopy/></span> : ""}
                                 </div>
                             </li>
                             <li style={{display: props?.item?.application?.video ? "" : "none", margin: '0 5px 0 5px'}}>
@@ -203,18 +203,22 @@ const ModeratorPerformerItem = (props) => {
                             <div className="avatar"
                                  style={{display: props.item.checkedBy ? "" : "block", textAlign: "right"}}>
                                 {props.item.checkedBy ? <UserItem p={props.item.checkedBy}/> : ""}
-                                <ButtonDefault text={props.sts==="SUPER_MODERATOR"?"Bo'lim biriktirish":props.t("Replace the performer")} onClick={() => setEdit(true)}/>
+                                <ButtonDefault
+                                    text={props.sts === "SUPER_MODERATOR" ? "Bo'lim biriktirish" : props.t("Replace the performer")}
+                                    onClick={() => setEdit(true)}/>
                             </div>
                             {
-                                props?.item?.forwardMessage?<div style={{display:"block",width:"100%",textAlign:"left",marginTop:"10px"}}>
-                                    <span>Yo'naltirish xabari: </span>{props?.item?.forwardMessage}
-                                </div>:""
+                                props?.item?.forwardMessage ?
+                                    <div style={{display: "block", width: "100%", textAlign: "left", marginTop: "10px"}}>
+                                        <span>Yo'naltirish xabari: </span>{props?.item?.forwardMessage}
+                                    </div> : ""
                             }
                         </div> :
                         <div className="container">
                             <div style={{display: "inline-block"}}>
                                 <FormControl error={e} className={classes.formControl}>
-                                    <InputLabel id="demo-simple-select-label1">{props.sts==="SUPER_MODERATOR"?"Bo'lim biriktirish":"Ijroji biriktirish"}</InputLabel>
+                                    <InputLabel
+                                        id="demo-simple-select-label1">{props.sts === "SUPER_MODERATOR" ? "Bo'lim biriktirish" : "Ijroji biriktirish"}</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label1"
                                         id="demo-simple-select1"
@@ -224,7 +228,8 @@ const ModeratorPerformerItem = (props) => {
                                     >
                                         {
                                             items && items.map((item, i) =>
-                                                <MenuItem key={i} value={item?.id}>{props.sts!=="SUPER_MODERATOR"?item?.fullName:item?.title[i18next.language]}</MenuItem>
+                                                <MenuItem key={i}
+                                                          value={item?.id}>{props.sts !== "SUPER_MODERATOR" ? item?.fullName : item?.title[i18next.language]}</MenuItem>
                                             )
                                         }
 
@@ -249,7 +254,7 @@ const ModeratorPerformerItem = (props) => {
                         </div>
                 }
             </div>
-            {doc&&<PdfViewer url={doc} setUrl={setDoc} open={openDoc} setOpen={setOpenDoc} />}
+            {doc && <PdfViewer url={doc} setUrl={setDoc} open={openDoc} setOpen={setOpenDoc}/>}
         </div>
     );
 }

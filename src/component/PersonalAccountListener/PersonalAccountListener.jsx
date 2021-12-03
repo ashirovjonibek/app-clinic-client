@@ -35,7 +35,7 @@ const PersonalAccountListener = ({t}) => {
     const [sitebar, setSitebar] = useState(false);
     const [idUser, setIdUser] = useState(1);
     const history = useHistory();
-    const [refreshCount,setRefreshCount]=useState(false);
+    const [refreshCount, setRefreshCount] = useState(false);
     const [count, setCount] = useState(0);
     const [n, setN] = useState(0);
     const [counts, setCounts] = useState();
@@ -44,7 +44,8 @@ const PersonalAccountListener = ({t}) => {
     function Applications(n) {
         switch (n) {
             case 1:
-                return <IncomingRequestSection refreshCount={refreshCount} setRefreshCount={setRefreshCount} getPage={getPage}/>
+                return <IncomingRequestSection refreshCount={refreshCount} setRefreshCount={setRefreshCount}
+                                               getPage={getPage}/>
             case 2:
                 return <AppealSection/>
             case 3:
@@ -102,7 +103,7 @@ const PersonalAccountListener = ({t}) => {
             console.log(res);
             setCounts(res?.data?.object);
         })
-    }, [n,refreshCount]);
+    }, [n, refreshCount]);
 
     const getPage = (n) => {
         setIdUser(n);

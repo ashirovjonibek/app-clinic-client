@@ -546,8 +546,11 @@ header.header-small .header-right-top a.free-consultation_btn {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
-.banner-outer .banner-image {
+.banner-outer {
     background: url(../img/home.jpg) no-repeat center top / cover;
+}
+
+.banner-outer .banner-image {
 }
 
 .banner-slider .container {
@@ -566,7 +569,7 @@ header.header-small .header-right-top a.free-consultation_btn {
 
 .banner-outer .content {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: center;
     position: relative;
     /*padding:245px 0 200px;*/
 }
@@ -953,7 +956,7 @@ a.know-more:hover {
 	We Are here
 -----------------------*/
 .we-are-here {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .we-are-here .left-block .details {
@@ -1059,7 +1062,7 @@ a.know-more:hover {
     padding-bottom: 60px;
 }
 
-.practice-area{
+.practice-area {
     background: #fff;
 }
 
@@ -1120,16 +1123,16 @@ a.know-more:hover {
     background: url(../images/placeholder-148x148.jpg) no-repeat center top / cover;
 }
 
-.more-content-attorney{
-    position:absolute;
-    top:300px;
+.more-content-attorney {
+    position: absolute;
+    top: 300px;
     opacity: 0;
-    right:0;
-    font-size:18px;
-    left:0;
-    bottom:0;
-    background-color:rgba(0,0,0,0.5);
-    transition:  top 500ms ease;
+    right: 0;
+    font-size: 18px;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: top 500ms ease;
 }
 
 .our-attorneys {
@@ -1145,7 +1148,7 @@ a.know-more:hover {
 .our-attorneys .cnt-block {
     float: left;
     width: 100%;
-	min-height: 361px;
+    min-height: 361px;
     background: #d5d5d5;
     text-align: center;
     border: 2px solid #d5d5d5;
@@ -1160,7 +1163,7 @@ a.know-more:hover {
 
 .our-attorneys .cnt-block img {
     width: 250px;
-    height:300px;
+    height: 300px;
     /*border-radius: 100%;*/
 }
 
@@ -1543,7 +1546,7 @@ a.know-more:hover {
 .logos {
     display: block;
     padding: 60px 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .logos ul {
@@ -1630,7 +1633,7 @@ a.know-more:hover {
 -----------------------*/
 
 .news-events {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     padding-bottom: 0;
 }
 
@@ -4876,7 +4879,7 @@ ul.half-width li {
         line-height: 60px;
     }
 
-    .content{
+    .content {
         height: 100vh;
     }
 

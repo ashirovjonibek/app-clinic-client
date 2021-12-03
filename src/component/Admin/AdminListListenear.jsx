@@ -21,10 +21,10 @@ const AdminListListener = ({t, searchTerm}) => {
     const [reLoad, setReLoad] = useState(true);
     const sectionIds = []
     const i18 = i18next.language
-    const [active,setActive]=useState(1);
-    const [totalPages,setTotalPages]=useState();
-    const [size,setSize]=useState(10);
-    const [loader,setLoader]=useState(false);
+    const [active, setActive] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+    const [size, setSize] = useState(10);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         getListeners()
@@ -77,7 +77,7 @@ const AdminListListener = ({t, searchTerm}) => {
 
     const deleteMethod = (id) => {
         Swal.fire({
-            title: t("Delete user")+"?",
+            title: t("Delete user") + "?",
             cancelButtonText: t("Cancel"),
             confirmButtonText: t("Delete"),
             confirmButtonColor: "red",
@@ -93,18 +93,18 @@ const AdminListListener = ({t, searchTerm}) => {
                 })
                     .then(res => {
                             if (res.status === 200) {
-                                Swal.fire(t("Deleted")+"", "", "success").then((r) => {
+                                Swal.fire(t("Deleted") + "", "", "success").then((r) => {
                                     getListeners()
                                     setReLoad(!reLoad)
                                 })
                             } else {
-                                Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
+                                Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                                     getListeners()
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                         getListeners()
                     })
                 })
@@ -122,7 +122,7 @@ const AdminListListener = ({t, searchTerm}) => {
             }
         };
         Swal.fire({
-            title: t("User acceptance")+"?",
+            title: t("User acceptance") + "?",
             confirmButtonText: t("Yes"),
             cancelButtonText: t("No"),
             showCancelButton: true,
@@ -131,14 +131,14 @@ const AdminListListener = ({t, searchTerm}) => {
             if (confirm.isConfirmed) {
                 axios(config)
                     .then(function (response) {
-                        Swal.fire(t("Accepted")+"!!!", "", "success").then((confirm1) => {
+                        Swal.fire(t("Accepted") + "!!!", "", "success").then((confirm1) => {
                             getListeners()
                             getNewListeners()
                         })
                     })
                     .catch(function (error) {
                         console.log(error);
-                        Swal.fire(t("Applicant deleted")+"!!!", "", "error").then((confirm1) => {
+                        Swal.fire(t("Applicant deleted") + "!!!", "", "error").then((confirm1) => {
                             getListeners()
                         })
                     });
@@ -158,7 +158,7 @@ const AdminListListener = ({t, searchTerm}) => {
     return (
         <div className="admin">
             <div className="admin-list-listnear">
-                {listeners.length>0?<div className="admin-listener">
+                {listeners.length > 0 ? <div className="admin-listener">
                     <h5 className="table-title">{t("Department")}</h5>
                     <div className="listener">
                         <div className="listener-divs">
@@ -181,9 +181,10 @@ const AdminListListener = ({t, searchTerm}) => {
                             )}
                         </div>
                     </div>
-                </div>:""}
+                </div> : ""}
                 {
-                        newListeners.length>0?<div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
+                    newListeners.length > 0 ?
+                        <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                             <h5 className="table-title">{t("New")}</h5>
                             <table>
                                 <tbody>
@@ -222,16 +223,16 @@ const AdminListListener = ({t, searchTerm}) => {
                                 )}
                                 </tbody>
                             </table>
-                        </div>:""
+                        </div> : ""
                 }
 
                 {
-                    loader?<Loading/>
-                    :
+                    loader ? <Loading/>
+                        :
                         <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                             <h5 className="table-title">{t("List")}</h5>
                             {
-                                listeners.length>0?<>
+                                listeners.length > 0 ? <>
                                     <table>
                                         <tbody>
                                         <tr>
@@ -262,7 +263,8 @@ const AdminListListener = ({t, searchTerm}) => {
                                                     item={item}
                                                     getListeners={() => getListeners()}/></td>
                                                 <td className="table-border edit">
-                                                    <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                                    <button type="button" className="deleteIcon"
+                                                            onClick={() => deleteMethod(item.id)}>
                                                         <DeleteIcon/>
                                                     </button>
                                                 </td>
@@ -277,8 +279,8 @@ const AdminListListener = ({t, searchTerm}) => {
                                         size={size}
                                         setSize={setSize}
                                     />
-                                </>:<div style={{
-                                    textAlign:"center"
+                                </> : <div style={{
+                                    textAlign: "center"
                                 }}>
                                     Tinglovchilar mavjud emas!!!
                                 </div>

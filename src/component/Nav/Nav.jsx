@@ -5,10 +5,10 @@ import NavBottom from "./NavBottom";
 
 const Nav = ({setSearchVal}) => {
     return (
-        <nav className="nav" >
-            <NavTop />
-            <NavCenter setSearchVal={setSearchVal} />
-            <NavBottom />
+        <nav className="nav">
+            <NavTop/>
+            <NavCenter setSearchVal={setSearchVal}/>
+            <NavBottom/>
         </nav>
     );
 }

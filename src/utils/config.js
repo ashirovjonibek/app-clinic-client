@@ -1,4 +1,3 @@
-
 module.exports = {
     openPages: [
         '/personalAccountListener',
@@ -6,7 +5,7 @@ module.exports = {
         '/personalAccountApplicant',
         '/personalAccountModerator',
         '/personalAccountSupervisor',
-        '/admin',"/profileSettings",
+        '/admin', "/profileSettings",
         '/dashboardAppeals'
     ],
 };

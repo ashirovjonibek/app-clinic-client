@@ -4,7 +4,7 @@ const InputFile = ({text}) => {
     return (
         <div className="file">
             {text}
-            <input type="file" />
+            <input type="file"/>
         </div>
     );
 };

@@ -113,5 +113,5 @@ const StatisticPeriods = ({t}) => {
     );
 }
 
-export default withTranslation() (StatisticPeriods);
+export default withTranslation()(StatisticPeriods);
 

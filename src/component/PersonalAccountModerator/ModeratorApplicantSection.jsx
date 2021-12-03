@@ -4,13 +4,13 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import axios from "axios";
 
 const ModeratorApplicantSection = (props) => {
-    const [applicants,setApplicants]=useState([]);
-    const [info,setInfo]=useState([]);
+    const [applicants, setApplicants] = useState([]);
+    const [info, setInfo] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const config = {
             method: 'get',
-            url: API_URL +'/auth/applicants',
+            url: API_URL + '/auth/applicants',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -26,22 +26,22 @@ const ModeratorApplicantSection = (props) => {
             });
         axios({
             method: 'get',
-            url: API_URL +'/application/info/applicant',
+            url: API_URL + '/application/info/applicant',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
             }
-        }).then((res)=>{
+        }).then((res) => {
             // console.log(res)
             setInfo(res.data.object)
         })
-    },[props]);
+    }, [props]);
     return (
         <div className="moderator-applicant-section">
             {
-                applicants.length>0?applicants.map((item,i)=>
-                    <ModeratorApplicantItem key={i} item={item} info={info}/>):
-                    <div style={{marginTop:"35px",textAlign:"center"}}>Ma'lumot topilmadi</div>
+                applicants.length > 0 ? applicants.map((item, i) =>
+                        <ModeratorApplicantItem key={i} item={item} info={info}/>) :
+                    <div style={{marginTop: "35px", textAlign: "center"}}>Ma'lumot topilmadi</div>
             }
         </div>
     );

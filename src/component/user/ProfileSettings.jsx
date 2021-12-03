@@ -28,7 +28,7 @@ const ProfileSettings = ({t, history}) => {
     const [region, setRegion] = useState([]);
     const [newUser, setNewUser] = useState({});
     let [isApplicant, setIsApplicant] = useState(false);
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (!localStorage.getItem(STORAGE_NAME)) {
@@ -422,13 +422,22 @@ const ProfileSettings = ({t, history}) => {
                     <div className="flexUchun">
                         <div className="dashboard-container">
                             <div className="profileImage">
-                                {values.imageId || values.image ? <img onClick={()=>setOpenImageDialog(true)} width="100px" height="100px"
-                                                                       src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}
-                                                                       alt=""/> : <div style={{width:"100%",height:"100%"}}/>}
+                                {values.imageId || values.image ?
+                                    <img onClick={() => setOpenImageDialog(true)} width="100px" height="100px"
+                                         src={API_URL + (values.imageId !== "" ? "/attach/" + values.imageId : values.image)}
+                                         alt=""/> : <div style={{width: "100%", height: "100%"}}/>}
                                 <Dialog fullWidth={true} open={openImageDialog}
                                         onClose={() => setOpenImageDialog(false)}>
-                                    <div style={{width:"100%",position:"relative"}}>
-                                        <span style={{backgroundColor:"rgba(0,0,0,0.4)",position:"absolute",margin:"10px",color:"white",fontSize:"20px",right:0,cursor:"pointer"}}
+                                    <div style={{width: "100%", position: "relative"}}>
+                                        <span style={{
+                                            backgroundColor: "rgba(0,0,0,0.4)",
+                                            position: "absolute",
+                                            margin: "10px",
+                                            color: "white",
+                                            fontSize: "20px",
+                                            right: 0,
+                                            cursor: "pointer"
+                                        }}
                                               onClick={() => setOpenImageDialog(false)}
                                         >
                                             <b>X</b></span>
@@ -446,7 +455,7 @@ const ProfileSettings = ({t, history}) => {
 
                                             <AddAPhoto/>
                                             </span>
-                                            <input type="file" accept="image/*" name="file" onChange={handleUpload}/>   
+                                            <input type="file" accept="image/*" name="file" onChange={handleUpload}/>
                                         </div>
                                     </div>
                                 </div>

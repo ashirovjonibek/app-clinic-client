@@ -163,7 +163,7 @@ const Login = (props) => {
                                             name="password"
                                         >
                                             <Input.Password autoComplete="new-password"
-                                                   placeholder={t("Password")}/>
+                                                            placeholder={t("Password")}/>
                                         </Form.Item>
                                     </Col>
                                     <Col xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
@@ -172,13 +172,16 @@ const Login = (props) => {
                                                     htmlType="submit">{props.t("Login")}</Button>
                                         </Form.Item>
                                     </Col>
-                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
+                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}}
+                                         lg={{span: 18, offset: 3}}>
                                         <Link to="/auth/registrationApplicant">{props.t("Register as applicant")}</Link>
                                     </Col>
-                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
+                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}}
+                                         lg={{span: 18, offset: 3}}>
                                         <Link to="/auth/registrationListener">{props.t("Register as listener")}</Link>
                                     </Col>
-                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
+                                    <Col className="text-center" xs={24} sm={24} md={{span: 18, offset: 3}}
+                                         lg={{span: 18, offset: 3}}>
                                         <Link to="/requestNewPassword">{props.t("Forgot your password")}?</Link>
                                     </Col>
                                 </Row>

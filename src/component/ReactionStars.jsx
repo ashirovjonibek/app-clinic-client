@@ -6,7 +6,7 @@ const ReactionStars = () => {
     return (
         <div className="user-reaction-stars">
             <div className="us-re-label">Оценка вашего ответа:</div>
-            <Stars />
+            <Stars/>
         </div>
     );
 }

@@ -30,20 +30,20 @@ function StatisticsByGender({t}) {
     let male = t("male")
     let female = t("female")
 
-    const  data  =  [
-        {name: t('Karakalpaks tan'), id: 1, [male]: 0,[female]: 0},
-        {name: t('Andijan'), id: 2, [male]: 0,[female]: 0},
-        {name: t('Bukhara'), id: 3, [male]: 0,[female]: 0},
-        {name: t('Jizzakh'), id: 4, [male]: 0,[female]: 0},
-        {name: t('Kashka darya'), id: 5, [male]: 0,[female]: 0},
-        {name: t('Navoi'), id: 6, [male]: 0,[female]: 0},
-        {name: t('Namangan'), id: 7, [male]: 0,[female]: 0},
-        {name: t('Samarkand'), id: 8, [male]: 0,[female]: 0},
-        {name: t('Surkhandarya'), id: 9, [male]: 0,[female]: 0},
-        {name: t('Syrdarya'), id: 10, [male]: 0,[female]: 0},
-        {name: t('Tashkent'), id: 11, [male]: 0,[female]: 0},
-        {name: t('Fergana'), id: 12, [male]: 0,[female]: 0},
-        {name: t('Khorezm'), id: 13, [male]: 0,[female]: 0},
+    const data = [
+        {name: t('Karakalpaks tan'), id: 1, [male]: 0, [female]: 0},
+        {name: t('Andijan'), id: 2, [male]: 0, [female]: 0},
+        {name: t('Bukhara'), id: 3, [male]: 0, [female]: 0},
+        {name: t('Jizzakh'), id: 4, [male]: 0, [female]: 0},
+        {name: t('Kashka darya'), id: 5, [male]: 0, [female]: 0},
+        {name: t('Navoi'), id: 6, [male]: 0, [female]: 0},
+        {name: t('Namangan'), id: 7, [male]: 0, [female]: 0},
+        {name: t('Samarkand'), id: 8, [male]: 0, [female]: 0},
+        {name: t('Surkhandarya'), id: 9, [male]: 0, [female]: 0},
+        {name: t('Syrdarya'), id: 10, [male]: 0, [female]: 0},
+        {name: t('Tashkent'), id: 11, [male]: 0, [female]: 0},
+        {name: t('Fergana'), id: 12, [male]: 0, [female]: 0},
+        {name: t('Khorezm'), id: 13, [male]: 0, [female]: 0},
         {name: t("Tashkent City"), id: 14, [male]: 0, [female]: 0}
     ];
     const [fetch, setFetch] = useState([]);
@@ -56,7 +56,7 @@ function StatisticsByGender({t}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/application/filterByGender',
+            url: API_URL + '/application/filterByGender',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -73,17 +73,17 @@ function StatisticsByGender({t}) {
     if (fetch && fetch.map(gender => {
         data.map(item => {
             if (item.id === gender.regionId) {
-                if (gender.gender==="erkak"){
-                item[male] = gender.count
+                if (gender.gender === "erkak") {
+                    item[male] = gender.count
                 }
-                if (gender.gender==="ayol"){
-                item[female] = gender.count
+                if (gender.gender === "ayol") {
+                    item[female] = gender.count
                 }
-            }else {
+            } else {
                 if (item[female] === 0) {
-                    item[female]= ""
+                    item[female] = ""
                 }
-                if ( item[male]===0) {
+                if (item[male] === 0) {
                     item[male] = ""
                 }
 
@@ -101,7 +101,7 @@ function StatisticsByGender({t}) {
                     <XAxis type={"number"} tickCount={10} domain={[0, "dataMax+10"]}/>
                     <br/>
                     <Legend wrapperStyle={{position: 'relative'}}/>
-                    <Tooltip itemStyle={{fontSize:12}} labelStyle={{fontSize:12}}/>
+                    <Tooltip itemStyle={{fontSize: 12}} labelStyle={{fontSize: 12}}/>
                     <Bar barSize={10}
                          dataKey={t("male")} fill="#78BAF3">
                         <LabelList dataKey={t("male")} content={renderCustomizedLabel}/>

@@ -12,21 +12,21 @@ import {Loading} from "../catalog/Loading";
 const AdminListAppeal = ({t, searchTerm}) => {
     const [applicants, setApplicants] = useState([]);
     const i18 = i18next.language;
-    const [active,setActive]=useState(1);
-    const [totalPages,setTotalPages]=useState();
-    const [size,setSize]=useState(10);
-    const [loader,setLoader]=useState(false);
+    const [active, setActive] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+    const [size, setSize] = useState(10);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         getApplicants()
-    }, [active,size]);
+    }, [active, size]);
 
     const getApplicants = () => {
         setLoader(true);
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/auth/applicants?page'+(active-1)+'$size='+size,
+            url: API_URL + '/auth/applicants?page' + (active - 1) + '$size=' + size,
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
@@ -48,14 +48,14 @@ const AdminListAppeal = ({t, searchTerm}) => {
 
     const deleteMethod = (id) => {
         Swal.fire({
-            confirmButtonText: t("O'chirish")+"!!!",
-            cancelButtonText:t("Cancel"),
-            confirmButtonColor:"red",
-            showCancelButton:true,
-            title:t("Should the applicant be deleted")+"?",
-            icon:"warning"
-        }).then((conform)=>{
-            if (conform.isConfirmed){
+            confirmButtonText: t("O'chirish") + "!!!",
+            cancelButtonText: t("Cancel"),
+            confirmButtonColor: "red",
+            showCancelButton: true,
+            title: t("Should the applicant be deleted") + "?",
+            icon: "warning"
+        }).then((conform) => {
+            if (conform.isConfirmed) {
                 axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, {
                     headers: {
                         'Authorization': localStorage.getItem(STORAGE_NAME),
@@ -63,20 +63,20 @@ const AdminListAppeal = ({t, searchTerm}) => {
                     }
                 })
                     .then(res => {
-                        console.log(res);
-                            if (res?.status===200){
-                                Swal.fire(t("Applicant deleted")+"!!!","","success").then(r=>{
+                            console.log(res);
+                            if (res?.status === 200) {
+                                Swal.fire(t("Applicant deleted") + "!!!", "", "success").then(r => {
                                     getApplicants()
                                 })
-                            }else {
-                                Swal.fire(t("An error occurred")+"!!!","","error").then(r=>{
+                            } else {
+                                Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
                                     getApplicants()
                                 })
                             }
                         }
                     ).catch(error => {
                     console.log(error);
-                    Swal.fire(t("An error occurred")+"!!!","","error").then(r=>{
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then(r => {
                         getApplicants()
                     })
                 });
@@ -147,12 +147,12 @@ const AdminListAppeal = ({t, searchTerm}) => {
                                         </>
                                         :
                                         <div style={{
-                                            textAlign:"center"
+                                            textAlign: "center"
                                         }}>
                                             Ariza beruvchilar mavjud emas!!!
                                         </div>
                                 }
-                                
+
                             </div>
                         </div>
                     </div>

@@ -39,11 +39,13 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       padding: 20px;
       font-size: 14px;
+
       p {
         line-height: 24px;
         margin: 10px;
       }
     }
+
     .what-clinic-text {
       width: 60%;
     }
@@ -83,6 +85,7 @@
       .text-inform {
         width: 100%;
         padding-left: 25px;
+
         ul {
           li {
             list-style-type: disc;
@@ -90,22 +93,26 @@
             line-height: 25px;
           }
         }
-        .list_text{
+
+        .list_text {
           margin-bottom: 20px;
           display: flex;
           justify-content: start;
           align-items: center;
-          span{
+
+          span {
             line-height: 25px;
           }
-          img{
+
+          img {
             width: 15px;
             height: 15px;
             margin-right: 20px;
           }
         }
       }
-      .ml-10{
+
+      .ml-10 {
         margin-left: -20px !important;
       }
     }
@@ -121,6 +128,7 @@
 
       .statistic-items {
         margin-top: 11px;
+
         .statistic {
           min-height: 180px;
           max-width: 290px;
@@ -237,7 +245,7 @@
         }
       }
 
-      .useful-links-item-regulatory{
+      .useful-links-item-regulatory {
         width: 340px;
       }
     }
@@ -284,27 +292,34 @@
     }
   }
 }
-.news_big_div{
+
+.news_big_div {
   display: flex;
   justify-content: space-between;
-  img{
+
+  img {
     width: 50%;
     border-radius: 8px;
     background-size: cover;
   }
-  .jus-center{
+
+  .jus-center {
     padding-left: 15px !important;
-    .ver_slider_header{
+
+    .ver_slider_header {
       font-weight: 600;
     }
-    .ver_slider_text{
+
+    .ver_slider_text {
       min-height: 200px;
     }
-    .ver_slider_bottom{
+
+    .ver_slider_bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      svg{
+
+      svg {
         color: #8c8c8c;
         margin-right: 10px !important;
       }
@@ -312,67 +327,74 @@
   }
 }
 
-.right_margin{
+.right_margin {
   margin-right: 195px !important;
 }
 
-.left_margin{
+.left_margin {
   margin-left: 195px !important;
 }
 
-.left_head{
+.left_head {
   padding-left: 195px !important;
 }
-.right_padding{
+
+.right_padding {
   padding-right: 195px !important;
 }
-.right_head{
+
+.right_head {
   display: flex;
   justify-content: end;
-  p{
+
+  p {
     padding-right: 195px;
   }
 }
-.brl-0{
+
+.brl-0 {
   border-bottom-left-radius: 0 !important;
   border-top-left-radius: 0 !important;
   margin-left: 0 !important;
 }
 
-.brr-0{
+.brr-0 {
   border-bottom-right-radius: 0 !important;
   border-top-right-radius: 0 !important;
   margin-right: 0 !important;
 }
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-@media only screen and (min-width: 1200px) and (max-width:1400px){
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
   .useful-links-item1 {
     height: 395px !important;
   }
   .useful-links-item {
     width: 170px !important;
   }
-  .right_margin{
+  .right_margin {
     margin-right: 100px !important;
   }
-  
-  .left_margin{
+
+  .left_margin {
     margin-left: 100px !important;
   }
-  
-  .left_head{
+
+  .left_head {
     padding-left: 100px !important;
   }
-  .right_padding{
+  .right_padding {
     padding-right: 100px !important;
   }
-  .right_head{
+  .right_head {
     display: flex;
     justify-content: end;
-    p{
+
+    p {
       padding-right: 100px;
     }
   }
@@ -388,7 +410,7 @@ html, body {
   }
 }
 
-@media only screen and (min-width: 1000px) and (max-width:1200px){
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
   .useful-links-item1 {
     height: 405px !important;
   }
@@ -397,24 +419,25 @@ html, body {
     width: 200px !important;
   }
 
-  .right_margin{
+  .right_margin {
     margin-right: 70px !important;
   }
-  
-  .left_margin{
+
+  .left_margin {
     margin-left: 70px !important;
   }
-  
-  .left_head{
+
+  .left_head {
     padding-left: 70px !important;
   }
-  .right_padding{
+  .right_padding {
     padding-right: 70px !important;
   }
-  .right_head{
+  .right_head {
     display: flex;
     justify-content: end;
-    p{
+
+    p {
       padding-right: 70px;
     }
   }
@@ -431,7 +454,8 @@ html, body {
     }
   }
 }
-@media only screen and (min-width: 700px) and (max-width:1000px){
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
   .useful-links-item1 {
     height: 345px !important;
   }
@@ -440,37 +464,39 @@ html, body {
     width: 280px !important;
   }
 
-  .right_margin{
+  .right_margin {
     margin-right: 40px !important;
   }
-  
-  .left_margin{
+
+  .left_margin {
     margin-left: 40px !important;
   }
-  
-  .left_head{
+
+  .left_head {
     padding-left: 40px !important;
   }
-  .right_padding{
+  .right_padding {
     padding-right: 40px !important;
   }
-  .right_head{
+  .right_head {
     display: flex;
     justify-content: end;
-    p{
+
+    p {
       padding-right: 40px;
     }
   }
   .home {
     .container2 {
-      #what-clinic{
+      #what-clinic {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 100% !important;
           border-bottom-right-radius: 0 !important;
           border-top-right-radius: 0 !important;
@@ -482,14 +508,15 @@ html, body {
 
   .home {
     .container2 {
-      .what-clinic-slider{
+      .what-clinic-slider {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 98% !important;
           border-bottom-left-radius: 0 !important;
           border-top-left-radius: 0 !important;
@@ -511,7 +538,8 @@ html, body {
     }
   }
 }
-@media only screen and (min-width: 500px) and (max-width:700px){
+
+@media only screen and (min-width: 500px) and (max-width: 700px) {
   .useful-links-item1 {
     height: 305px !important;
   }
@@ -520,38 +548,40 @@ html, body {
     width: 280px !important;
   }
 
-  .right_margin{
+  .right_margin {
     margin-right: 20px !important;
   }
-  
-  .left_margin{
+
+  .left_margin {
     margin-left: 20px !important;
   }
-  
-  .left_head{
+
+  .left_head {
     padding-left: 20px !important;
   }
-  .right_padding{
+  .right_padding {
     padding-right: 20px !important;
   }
-  .right_head{
+  .right_head {
     display: flex;
     justify-content: end;
-    p{
+
+    p {
       padding-right: 20px;
     }
   }
 
   .home {
     .container2 {
-      #what-clinic{
+      #what-clinic {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 100% !important;
           border-bottom-right-radius: 0 !important;
           border-top-right-radius: 0 !important;
@@ -563,14 +593,15 @@ html, body {
 
   .home {
     .container2 {
-      .what-clinic-slider{
+      .what-clinic-slider {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 98% !important;
           border-bottom-left-radius: 0 !important;
           border-top-left-radius: 0 !important;
@@ -592,7 +623,8 @@ html, body {
     }
   }
 }
-@media only screen and (max-width:500px){
+
+@media only screen and (max-width: 500px) {
   .useful-links-item1 {
     height: 435px !important;
   }
@@ -600,38 +632,40 @@ html, body {
     width: 280px !important;
   }
 
-  .right_margin{
+  .right_margin {
     margin-right: 5px !important;
   }
-  
-  .left_margin{
+
+  .left_margin {
     margin-left: 5px !important;
   }
-  
-  .left_head{
+
+  .left_head {
     padding-left: 5px !important;
   }
-  .right_padding{
+  .right_padding {
     padding-right: 5px !important;
   }
-  .right_head{
+  .right_head {
     display: flex;
     justify-content: end;
-    p{
+
+    p {
       padding-right: 5px;
     }
   }
 
   .home {
     .container2 {
-      #what-clinic{
+      #what-clinic {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 100% !important;
           border-bottom-right-radius: 0 !important;
           border-top-right-radius: 0 !important;
@@ -643,14 +677,15 @@ html, body {
 
   .home {
     .container2 {
-      .what-clinic-slider{
+      .what-clinic-slider {
         display: flex;
         flex-wrap: wrap;
-        .what-clinic-text{
+
+        .what-clinic-text {
           width: 100% !important;
         }
-      
-        .what-clinic-mini{
+
+        .what-clinic-mini {
           width: 98% !important;
           border-bottom-left-radius: 0 !important;
           border-top-left-radius: 0 !important;
@@ -804,34 +839,41 @@ html, body {
           // padding: 10px;
           //height: 300px;
           width: 100%;
-          img{
+
+          img {
             margin: 10px 0 5px;
           }
         }
       }
     }
   }
-  .news_big_div{
+  .news_big_div {
     display: none;
     justify-content: space-between;
-    img{
+
+    img {
       width: 100%;
       border-radius: 8px;
       background-size: cover;
     }
-    .jus-center{
+
+    .jus-center {
       padding-left: 15px !important;
-      .ver_slider_header{
+
+      .ver_slider_header {
         font-weight: 600;
       }
-      .ver_slider_text{
+
+      .ver_slider_text {
         min-height: 100px;
       }
-      .ver_slider_bottom{
+
+      .ver_slider_bottom {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        svg{
+
+        svg {
           color: #8c8c8c;
           margin-right: 10px !important;
         }

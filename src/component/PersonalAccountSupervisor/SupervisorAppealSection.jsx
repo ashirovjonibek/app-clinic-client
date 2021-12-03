@@ -4,7 +4,7 @@ import SupervisorAppealItem from "./SupervisorAppealItem";
 const SupervisorAppealSection = () => {
     return (
         <div className="supervisor-appeal-section">
-            <SupervisorAppealItem  />
+            <SupervisorAppealItem/>
         </div>
     );
 }

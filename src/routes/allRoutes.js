@@ -9,113 +9,113 @@ import ProfileSettings from "../component/user/ProfileSettings";
 import DashboardAppealsPage from "../component/Dashboard/DashboardAppealsPage";
 
 
-export const adminRoute=[
+export const adminRoute = [
     {
-        path:"/admin",
-        component:Admin
+        path: "/admin",
+        component: Admin
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     }
 ]
 
-export const supervisorRoute=[
+export const supervisorRoute = [
     {
-        path:"/personalAccountSupervisor",
-        component:PersonalAccountSupervisor
+        path: "/personalAccountSupervisor",
+        component: PersonalAccountSupervisor
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     },
     {
-        path:"/dashboardAppeals",
-        component:DashboardAppealsPage
+        path: "/dashboardAppeals",
+        component: DashboardAppealsPage
     }
 ]
 
-export const moderatorAndSuperModeratorRoute=[
+export const moderatorAndSuperModeratorRoute = [
     {
-        path:"/personalAccountSupervisor",
-        component:PersonalAccountSupervisor
+        path: "/personalAccountSupervisor",
+        component: PersonalAccountSupervisor
     },
     {
-        path:"/personalAccountModerator",
-        component:PersonalAccountModerator
+        path: "/personalAccountModerator",
+        component: PersonalAccountModerator
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     },
     {
-        path:"/dashboardAppeals",
-        component:DashboardAppealsPage
+        path: "/dashboardAppeals",
+        component: DashboardAppealsPage
     }
 ]
 
-export const moderatorRoute=[
+export const moderatorRoute = [
     {
-        path:"/personalAccountModerator",
-        component:PersonalAccountModerator
+        path: "/personalAccountModerator",
+        component: PersonalAccountModerator
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     },
     {
-        path:"/dashboardAppeals",
-        component:DashboardAppealsPage
+        path: "/dashboardAppeals",
+        component: DashboardAppealsPage
     }
 ]
 
-export const applicantRoute=[
+export const applicantRoute = [
     {
-        path:"/personalAccountApplicant",
-        component:PersonalAccountApplicant
+        path: "/personalAccountApplicant",
+        component: PersonalAccountApplicant
     },
     {
-        path:"/applicantAppeal",
-        component:ApplicantAppeal
+        path: "/applicantAppeal",
+        component: ApplicantAppeal
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     }
 ]
 
-export const listenerRoute=[
+export const listenerRoute = [
     {
-        path:"/personalAccountListener",
-        component:PersonalAccountListener
+        path: "/personalAccountListener",
+        component: PersonalAccountListener
     },
     {
-        path:"/newPassword",
-        component:NewPassword
+        path: "/newPassword",
+        component: NewPassword
     },
     {
-        path:"/profileSettings",
-        component:ProfileSettings
+        path: "/profileSettings",
+        component: ProfileSettings
     }
 ]
 

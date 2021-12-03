@@ -26,7 +26,9 @@ const ApplicationNav = (props) => {
         }
     });
 
-    const onChange=(e)=>{dispatch({type:CHANGE_EYE,data:e})};
+    const onChange = (e) => {
+        dispatch({type: CHANGE_EYE, data: e})
+    };
 
     return (
         <div className="nav" style={theme}>
@@ -63,23 +65,26 @@ const ApplicationNav = (props) => {
                                 <div style={{cursor: "pointer"}} className="glas">
                                     <Dropdown overlay={
                                         <Menu>
-                                            <Menu.Item onClick={(e)=>{
-                                                dispatch({type:CHANGE_THEME,data:""});
-                                                dispatch({type:CHANGE_IMG_LESS,data:false});
+                                            <Menu.Item onClick={(e) => {
+                                                dispatch({type: CHANGE_THEME, data: ""});
+                                                dispatch({type: CHANGE_IMG_LESS, data: false});
                                                 onChange(1)
                                             }}>
                                                 Odatiy
                                             </Menu.Item>
-                                            <Menu.Item onClick={()=>{dispatch({type:CHANGE_THEME,data:"grayscale(100%)"})}} >
+                                            <Menu.Item onClick={() => {
+                                                dispatch({type: CHANGE_THEME, data: "grayscale(100%)"})
+                                            }}>
                                                 Oq va qora
                                             </Menu.Item>
-                                            <Menu.Item style={{borderBottom:"1px solid rgba(0,0,0,0.2)"}} onClick={(e)=>{
-                                                dispatch({type:CHANGE_THEME,data:""});
-                                                onChange(3)
-                                            }} >
+                                            <Menu.Item style={{borderBottom: "1px solid rgba(0,0,0,0.2)"}}
+                                                       onClick={(e) => {
+                                                           dispatch({type: CHANGE_THEME, data: ""});
+                                                           onChange(3)
+                                                       }}>
                                                 Qora va sariq
                                             </Menu.Item>
-                                            <Menu.Item onClick={(e)=>dispatch({type:CHANGE_IMG_LESS,data:true})}>
+                                            <Menu.Item onClick={(e) => dispatch({type: CHANGE_IMG_LESS, data: true})}>
                                                 Rasmsiz
                                             </Menu.Item>
                                         </Menu>

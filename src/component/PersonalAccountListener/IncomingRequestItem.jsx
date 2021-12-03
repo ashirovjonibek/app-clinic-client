@@ -1,7 +1,7 @@
 import React from "react";
 import UserName from "../UserName";
 
-const IncomingRequestItem = ({ currentItem }) => {
+const IncomingRequestItem = ({currentItem}) => {
     // console.log(currentItem)
     return (
 
@@ -9,7 +9,7 @@ const IncomingRequestItem = ({ currentItem }) => {
             <div className="content">
                 <div className="request-content-title">
                     <div className="request-content-title-name">
-                        <UserName text={currentItem} />
+                        <UserName text={currentItem}/>
                         <div className="id">id: 12345</div>
                     </div>
                     <div className="request-content-title-date">
@@ -27,7 +27,7 @@ const IncomingRequestItem = ({ currentItem }) => {
                         <p>{currentItem.title}</p>
                     </div>
                     <div>
-                        <input type="checkbox" />
+                        <input type="checkbox"/>
                         <label htmlFor="">Конфиденциально</label>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const IncomingRequestItem = ({ currentItem }) => {
                 </div>
                 <button type="submit" className="btn-default">Назад</button>
             </div>
-        </div >
+        </div>
     );
 }
 

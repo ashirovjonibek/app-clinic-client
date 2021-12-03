@@ -32,7 +32,7 @@ function SettingModal({t, getSections}) {
             method: 'post',
             url: API_URL + '/section',
             headers: {
-                'Authorization':localStorage.getItem(STORAGE_NAME),
+                'Authorization': localStorage.getItem(STORAGE_NAME),
                 'Content-Type': 'application/json'
             },
             data: section
@@ -40,14 +40,15 @@ function SettingModal({t, getSections}) {
         axios(config)
             .then(function (response) {
                 if (response.status === 200) {
-                    Swal.fire(t("Department created")+"", "", "success").then((r) => {
+                    Swal.fire(t("Department created") + "", "", "success").then((r) => {
                         getSections()
                     })
                 } else {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                         getSections()
                     })
-                }            })
+                }
+            })
             .catch(function (error) {
                 console.log(error);
             });
@@ -130,7 +131,7 @@ function SettingModal({t, getSections}) {
                     boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.25',
                     borderRadius: '50%',
                     marginRight: '10px',
-                    cursor:'pointer'
+                    cursor: 'pointer'
                 }}/>
                 {t("Add department")}
             </div>
@@ -141,12 +142,12 @@ function SettingModal({t, getSections}) {
                 aria-describedby="simple-modal-description"
             >
                 <div className="simple-modal simple-modal-setting">
-                    <h3 >Add department</h3>
+                    <h3>Add department</h3>
                     <form onSubmit={handleSubmit}>
                         <ul>
                             <li>
                                 {/*<label className="label" htmlFor="">{t("title ru")}</label>*/}
-                                    <label className="label" htmlFor="">Кафедара</label>
+                                <label className="label" htmlFor="">Кафедара</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="ru"

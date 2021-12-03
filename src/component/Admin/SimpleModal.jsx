@@ -6,11 +6,11 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
 import {withTranslation} from "react-i18next";
 
-function SimpleModal({t,item, getListeners}) {
+function SimpleModal({t, item, getListeners}) {
     const [open, setOpen] = useState(false);
     const [roles, setRoles] = useState([]);
     const select = item.roles[0].name;
-    const [changeRolesItem,     setChangeRolesItem] = useState(0);
+    const [changeRolesItem, setChangeRolesItem] = useState(0);
 
     useEffect(() => {
         getRoles()
@@ -20,7 +20,7 @@ function SimpleModal({t,item, getListeners}) {
         const axios = require('axios');
         const config = {
             method: 'get',
-            url: API_URL+'/auth/roles',
+            url: API_URL + '/auth/roles',
             headers: {
                 'Authorization': localStorage.getItem(STORAGE_NAME)
             }
@@ -51,26 +51,26 @@ function SimpleModal({t,item, getListeners}) {
     const changeUpdate = () => {
         handleClose();
         Swal.fire({
-            title:t("Save the change")+"?",
-            showCancelButton:true,
-            cancelButtonText:t("Cancel"),
-            confirmButtonText:t("Save"),
-            icon:"warning",
+            title: t("Save the change") + "?",
+            showCancelButton: true,
+            cancelButtonText: t("Cancel"),
+            confirmButtonText: t("Save"),
+            icon: "warning",
 
-        }).then((conform)=>{
-            if (conform.isConfirmed){
-                RequestFunctions.updateListenerByRole(changeRolesItem, item.id).then((r)=>{
-                    if (r.status===202){
-                        Swal.fire(t("Saved")+"!!!","","success").then((r)=>{
+        }).then((conform) => {
+            if (conform.isConfirmed) {
+                RequestFunctions.updateListenerByRole(changeRolesItem, item.id).then((r) => {
+                    if (r.status === 202) {
+                        Swal.fire(t("Saved") + "!!!", "", "success").then((r) => {
                             getListeners();
                         })
-                    }else {
-                        Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
+                    } else {
+                        Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                             handleOpen()
                         })
                     }
-                }).catch((err)=>{
-                    Swal.fire(t("An error occurred")+"!!!","","error").then((r)=>{
+                }).catch((err) => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                         handleOpen()
                     })
                 });
@@ -156,4 +156,5 @@ function SimpleModal({t,item, getListeners}) {
         </div>
     );
 }
-export default withTranslation() (SimpleModal);
+
+export default withTranslation()(SimpleModal);

@@ -2,17 +2,18 @@
     display: inline-block;
     float: right;
 }
-.size-page{
+
+.size-page {
     display: inline-block;
     float: left;
     padding-left: 25px;
 }
 
-.tree-dots:hover{
-    background-color: #fff!important;
+.tree-dots:hover {
+    background-color: #fff !important;
 }
 
-.input-size-option{
+.input-size-option {
     width: 50px;
     padding: 6px 5px;
     margin: 8px 0;
@@ -21,6 +22,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 .pagination1 span {
     color: black;
     float: left;
@@ -38,31 +40,37 @@
     background-color: #ddd;
     border-radius: 5px;
 }
-.z-index{
+
+.z-index {
     z-index: 1;
 }
 
 @media screen and(min-width: 785px) {
-    .pagination1{
+    .pagination1 {
         display: block;
         float: left;
     }
 }
+
 @media only screen and (max-width: 555px) {
-    .page_size_text{
+    .page_size_text {
         display: none !important;
 
     }
-    .size-page{
+
+    .size-page {
         margin-left: auto !important;
     }
-    .pagination_text{
+
+    .pagination_text {
         font-size: 14px !important;
     }
-    .pagination1 svg{
+
+    .pagination1 svg {
         font-size: 14px !important;
     }
-    .pagination1 span{
+
+    .pagination1 span {
         font-size: 14px !important;
         padding: 8px 10px !important;
     }

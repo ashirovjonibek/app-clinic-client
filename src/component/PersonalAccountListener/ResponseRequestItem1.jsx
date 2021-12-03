@@ -37,52 +37,54 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
         let path = type ? "/answer/updateByDocument?documentId=" : "/answer/create?applicationId=";
         let method = type ? "put" : "post";
         console.log(id);
-        if (fileId||message){Swal.fire({
-            title: t("Confirmation") + "!!!",
-            text: t("Confirm changes to this form") + "?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: t("Yes"),
-            cancelButtonText: t("No")
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axios({
-                    method: method,
-                    url: API_URL + path + id,
-                    headers: {
-                        Authorization: token
-                    },
-                    data: {
-                        attachmentId: fileId ? fileId : [],
-                        description: message,
-                    }
-                }).then((r) => {
-                    console.log(r);
-                    Swal.fire(
-                        t("Saved"),
-                        '',
-                        'success'
-                    ).then((res) => {
-                        refresh();
-                        setIsAn(false)
-                        setMessage("");
-                        setMessage("");
-                        setFileName("");
-                        setDone(false);
-                        setFileId("")
-                    });
-                }).catch((err) => {
-                    Swal.fire(
-                        t("An error occurred")+"!",
-                        '',
-                        'error'
-                    ).then((res) => {
-                    });
-                })
-            }
-        })}else {
-            Swal.fire("Iltimos file yoki text kiriting!!!","","error");
+        if (fileId || message) {
+            Swal.fire({
+                title: t("Confirmation") + "!!!",
+                text: t("Confirm changes to this form") + "?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: t("Yes"),
+                cancelButtonText: t("No")
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios({
+                        method: method,
+                        url: API_URL + path + id,
+                        headers: {
+                            Authorization: token
+                        },
+                        data: {
+                            attachmentId: fileId ? fileId : [],
+                            description: message,
+                        }
+                    }).then((r) => {
+                        console.log(r);
+                        Swal.fire(
+                            t("Saved"),
+                            '',
+                            'success'
+                        ).then((res) => {
+                            refresh();
+                            setIsAn(false)
+                            setMessage("");
+                            setMessage("");
+                            setFileName("");
+                            setDone(false);
+                            setFileId("")
+                        });
+                    }).catch((err) => {
+                        Swal.fire(
+                            t("An error occurred") + "!",
+                            '',
+                            'error'
+                        ).then((res) => {
+                        });
+                    })
+                }
+            })
+        } else {
+            Swal.fire("Iltimos file yoki text kiriting!!!", "", "error");
         }
     };
 
@@ -95,7 +97,7 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
                 url: API_URL + '/attach/upload',
                 method: "POST",
                 headers: {
-                    Authorization:localStorage.getItem(STORAGE_NAME),
+                    Authorization: localStorage.getItem(STORAGE_NAME),
                     'Content-Type': 'multipart/form-data'
                 },
                 data: formData
@@ -117,17 +119,22 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
     return (
         <div className="response-request">
             <Collapse accordion
-                      expandIcon={({ isActive }) => isActive?<CloseOutlined style={{fontSize:"20px"}} className="text-light"/>:<UnorderedListOutlined  style={{fontSize:"20px"}} className="text-light"/>}
+                      expandIcon={({isActive}) => isActive ?
+                          <CloseOutlined style={{fontSize: "20px"}} className="text-light"/> :
+                          <UnorderedListOutlined style={{fontSize: "20px"}} className="text-light"/>}
                       expandIconPosition={"right"}
             >
-                <Collapse.Panel style={{fontSize:"16px"}} className="bg-info" header={<div style={{display:"inline-block"}}>
-                    <Row gutter={24} >
-                        <Col span={24}  className="text-light" style={{fontWeight:600}}>Javob biriktirish</Col>
-                    </Row>
-                </div>}>
+                <Collapse.Panel style={{fontSize: "16px"}} className="bg-info"
+                                header={<div style={{display: "inline-block"}}>
+                                    <Row gutter={24}>
+                                        <Col span={24} className="text-light" style={{fontWeight: 600}}>Javob
+                                            biriktirish</Col>
+                                    </Row>
+                                </div>}>
                     <Row gutter={24}>
                         <Col span={24}>
-                            <Input.TextArea onChange={(e)=>setMessage(e?.target?.value)} style={{height:"105px"}} placeholder="Javob matnini kiriting!!!"/>
+                            <Input.TextArea onChange={(e) => setMessage(e?.target?.value)} style={{height: "105px"}}
+                                            placeholder="Javob matnini kiriting!!!"/>
                         </Col>
                     </Row>
                     <div style={{marginTop: "17px"}}>
@@ -135,12 +142,15 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
                             <div className="lb">
                                 <label className="label">{t("Attach file")}</label>
                             </div>
-                            <div className="file" style={{cursor: !done?"pointer":"", marginTop: "5px"}}>
+                            <div className="file" style={{cursor: !done ? "pointer" : "", marginTop: "5px"}}>
                                 {!isLoading ? done ? <DoneIcon style={{cursor: "pointer"}}/> :
-                                    <label style={{cursor:"pointer"}} htmlFor="answerFile"><CloudUploadOutlined /></label> : ""}
+                                    <label style={{cursor: "pointer"}}
+                                           htmlFor="answerFile"><CloudUploadOutlined/></label> : ""}
                                 {isLoading ? <CircularProgress style={{width: "15px", height: "15px", marginTop: "3px"}}
                                                                color="primary"/> : ""}
-                                {<input accept="application/pdf" id="answerFile" style={{cursor:"pointer"}} title={done ? fileName : "Fayl yuklanmagan"} onChange={handleUpload} type="file"/>}
+                                {<input accept="application/pdf" id="answerFile" style={{cursor: "pointer"}}
+                                        title={done ? fileName : "Fayl yuklanmagan"} onChange={handleUpload}
+                                        type="file"/>}
                             </div>
                             <div className="file1">{fileName}</div>
                             <p className="text-danger">{errorUpload}</p>
@@ -155,4 +165,4 @@ const ResponseRequestItem1 = ({t, id, item, refresh, type}) => {
     );
 }
 
-export default  withTranslation()(ResponseRequestItem1);
+export default withTranslation()(ResponseRequestItem1);

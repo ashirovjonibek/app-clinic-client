@@ -21,26 +21,33 @@ import RequestNewPassword from "../component/Registration/RequestNewPassword";
 import ApplicantAppeal from "../component/PersonalAccountApplicant/ApplicantAppeal";
 import NewHome from "../component/Home/newHome";
 
-export const Routes=()=>{
-    const userRole=useSelector(state => state.meReducer);
+export const Routes = () => {
+    const userRole = useSelector(state => state.meReducer);
 
-    useEffect(()=>{
-    },[]);
+    useEffect(() => {
+    }, []);
 
-    const roleRoute=(role)=>{
+    const roleRoute = (role) => {
         // console.log(userRole)
-        switch (role){
-            case allRoles.ADMIN[0]: return adminRoute;
-            case allRoles.MODERATOR[0]: return supervisorRoute;
-            case allRoles.SUPER_MODERATOR[0]: return moderatorRoute;
-            case allRoles.LISTENER[0]: return listenerRoute;
-            case allRoles.USER[0]: return applicantRoute;
-            case allRoles.SUPER_MODERATOR_AND_MODERATOR[0]: return moderatorAndSuperModeratorRoute;
-            default:return null
+        switch (role) {
+            case allRoles.ADMIN[0]:
+                return adminRoute;
+            case allRoles.MODERATOR[0]:
+                return supervisorRoute;
+            case allRoles.SUPER_MODERATOR[0]:
+                return moderatorRoute;
+            case allRoles.LISTENER[0]:
+                return listenerRoute;
+            case allRoles.USER[0]:
+                return applicantRoute;
+            case allRoles.SUPER_MODERATOR_AND_MODERATOR[0]:
+                return moderatorAndSuperModeratorRoute;
+            default:
+                return null
         }
     }
 
-    return(
+    return (
         <Switch>
             <Route exact path="/" component={NewHome}/>
             <Route exact path="/auth/login" component={Login}/>
@@ -48,7 +55,7 @@ export const Routes=()=>{
             <Route exact path="/auth/registrationApplicant" component={RegistrationApplicant}/>
             <Route exact path="/auth/registrationListener" component={RegistrationListener}/>
             {
-                roleRoute(userRole?.role[0])?.map((route,i)=>
+                roleRoute(userRole?.role[0])?.map((route, i) =>
                     <Authmiddleware path={route.path}
                                     component={route.component}
                                     key={i}

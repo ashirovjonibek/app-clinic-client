@@ -69,7 +69,13 @@ function StatisticsByCategory({t}) {
                             console.log(dat);
 
                             dat.map((item) => {
-                                let b = {name: item.name[i18n.language], id: item.id, Jinoiy: 0, Anti_terror: 0, Ichki_ishlar: 0};
+                                let b = {
+                                    name: item.name[i18n.language],
+                                    id: item.id,
+                                    Jinoiy: 0,
+                                    Anti_terror: 0,
+                                    Ichki_ishlar: 0
+                                };
                                 filter.map((item1) => {
                                     d.map((sec, i) => {
                                         let kafedra = sec.title[i18n.language];

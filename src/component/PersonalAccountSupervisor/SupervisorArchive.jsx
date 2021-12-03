@@ -4,10 +4,10 @@ import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
 const SupervisorArchive = () => {
     return (
         <div>
-            <DirectoryPdf />
-            <DirectoryPdf />
-            <DirectoryPdf />
-            <DirectoryPdf />
+            <DirectoryPdf/>
+            <DirectoryPdf/>
+            <DirectoryPdf/>
+            <DirectoryPdf/>
 
         </div>
     );

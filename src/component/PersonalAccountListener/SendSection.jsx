@@ -5,27 +5,28 @@ import {API_URL, STORAGE_NAME} from "../../utils/constant";
 
 const SendSection = (props) => {
 
-    const [chats,setChats]=useState([]);
+    const [chats, setChats] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
-            method:'get',
-            url:API_URL+'/message',
-            headers:{
-                Authorization:localStorage.getItem(STORAGE_NAME)
+            method: 'get',
+            url: API_URL + '/message',
+            headers: {
+                Authorization: localStorage.getItem(STORAGE_NAME)
             }
-        }).then((res)=>{
+        }).then((res) => {
             console.log(res)
             setChats(res?.data?.object);
         })
-    },[]);
+    }, []);
     return (
         <div className="send-section">
             {
-                chats.length>0?chats&&chats.map((item,i)=>
-                    <CenterSends refreshCount={props?.refreshCount} setRefreshCount={props?.setRefreshCount} key={i} chat={item}/>
-                ):
-                    <div style={{textAlign:"center",marginTop:"25px"}}>
+                chats.length > 0 ? chats && chats.map((item, i) =>
+                    <CenterSends refreshCount={props?.refreshCount} setRefreshCount={props?.setRefreshCount} key={i}
+                                 chat={item}/>
+                ) :
+                    <div style={{textAlign: "center", marginTop: "25px"}}>
                         Chatlar mavjud emas!!!
                     </div>
             }

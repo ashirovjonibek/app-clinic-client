@@ -4,7 +4,7 @@ import DirectorySection from "../PersonalAccountListener/DirectorySection";
 const SupervisorDirectorySection = () => {
     return (
         <div>
-            <DirectorySection />
+            <DirectorySection/>
         </div>
     );
 }

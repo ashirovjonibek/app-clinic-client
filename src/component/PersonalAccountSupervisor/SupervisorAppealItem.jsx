@@ -11,19 +11,19 @@ const SupervisorAppealItem = ({t}) => {
     return (
         <div className="supervisor-appeal-item">
             <div className="content">
-                <UserName text="Aliyev Vali" />
-                <DocumentText />
+                <UserName text="Aliyev Vali"/>
+                <DocumentText/>
                 <div className="request-categoriyes">
-                    <SectionCategory />
+                    <SectionCategory/>
                 </div>
                 <div className="content-line"/>
                 <div className="request-categoriyes">
-                    <UserItem />
+                    <UserItem/>
                 </div>
                 <div className="request-bottom">
                     <div className="file-upload">
-                        <Label text={t("Answer")+":"} />
-                        <InputFile />
+                        <Label text={t("Answer") + ":"}/>
+                        <InputFile/>
                     </div>
                 </div>
             </div>
@@ -31,4 +31,4 @@ const SupervisorAppealItem = ({t}) => {
     );
 }
 
-export default withTranslation() (SupervisorAppealItem);
+export default withTranslation()(SupervisorAppealItem);

@@ -4,7 +4,7 @@ import ResponseRequestItem from "./ResponseRequestItem";
 const ResponseRequestSection = () => {
     return (
         <div className="response-request-section">
-            <ResponseRequestItem />
+            <ResponseRequestItem/>
         </div>
     )
 };

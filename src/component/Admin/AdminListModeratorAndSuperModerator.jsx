@@ -15,10 +15,10 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
     const [moderator, setModerator] = useState([]);
     const i18 = i18next.language
     const [reLoad, setReLoad] = useState(true);
-    const [active,setActive]=useState(1);
-    const [totalPages,setTotalPages]=useState();
-    const [size,setSize]=useState(10);
-    const [loader,setLoader]=useState(false);
+    const [active, setActive] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+    const [size, setSize] = useState(10);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         getListeners()
@@ -57,18 +57,18 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
                 axios.delete(API_URL + apiPath.deleteUser + "?id=" + id, configHeader)
                     .then(res => {
                             if (res.status === 200) {
-                                Swal.fire(t("Deleted")+"", "", "success").then((r) => {
+                                Swal.fire(t("Deleted") + "", "", "success").then((r) => {
                                     getListeners()
                                     setReLoad(!reLoad)
                                 })
                             } else {
-                                Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
+                                Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                                     getListeners()
                                 })
                             }
                         }
                     ).catch(error => {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then((r) => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then((r) => {
                         getListeners()
                     })
                 })
@@ -85,7 +85,7 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
             <div className="admin-list-listnear">
                 <div className="table-scroll" style={{paddingBottom: '20px', marginBottom: '20px'}}>
                     <h5 className="table-title">{t("List")}</h5>
-                    {moderator.length>0?
+                    {moderator.length > 0 ?
                         <>
                             <table>
                                 <tbody>
@@ -113,10 +113,12 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
                                         <td className="table-border">{item.section.title[i18]}</td>
                                         <td className="table-border">{item.phoneNumber}</td>
                                         <td className="table-border">{item.email}</td>
-                                        <td className="table-border edit"><SimpleModal item={item} getListeners={getListeners}/>
+                                        <td className="table-border edit"><SimpleModal item={item}
+                                                                                       getListeners={getListeners}/>
                                         </td>
                                         <td className="table-border edit">
-                                            <button type="button" className="deleteIcon" onClick={() => deleteMethod(item.id)}>
+                                            <button type="button" className="deleteIcon"
+                                                    onClick={() => deleteMethod(item.id)}>
                                                 <DeleteIcon/>
                                             </button>
                                         </td>
@@ -132,10 +134,10 @@ const AdminListModeratorAndSuperModerator = ({t, searchTerm}) => {
                                 setSize={setSize}
                             />
                         </>
-                    :<div style={{
-                        textAlign:"center"
-                    }}>
-                        Moderator hamda super moderator rolli hodimlar mavjud emas!!!
+                        : <div style={{
+                            textAlign: "center"
+                        }}>
+                            Moderator hamda super moderator rolli hodimlar mavjud emas!!!
                         </div>
                     }
                 </div>

@@ -52,7 +52,7 @@ function AppealModal({item, t, getApplicants}) {
     const deleteMethod = () => {
         RequestFunctions.deleteUser(user.id)
             .then(res =>
-                    console.log(res)
+                console.log(res)
             ).catch(error => {
             console.log(error)
         })

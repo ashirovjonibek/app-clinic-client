@@ -18,11 +18,11 @@ const VoiceRecorder = (props) => {
         }
     });
 
-    const sendAudio= (file) => {
+    const sendAudio = (file) => {
         if (file) {
             props.setRecord({
-                status:false,
-                name:""
+                status: false,
+                name: ""
             });
             Swal.fire({
                 title: "Audio arizaga biriktirish uchun saqlansinmi?",
@@ -40,31 +40,31 @@ const VoiceRecorder = (props) => {
                         method: "POST",
                         headers: {
                             'Content-Type': 'multipart/form-data',
-                            Authorization:localStorage.getItem(STORAGE_NAME)
+                            Authorization: localStorage.getItem(STORAGE_NAME)
                         },
                         data: formData
                     }).then(res => {
 
-                            Swal.fire("Audio saqlandi","","success").then((confirm)=>{
+                            Swal.fire("Audio saqlandi", "", "success").then((confirm) => {
                                 console.log(res);
                                 props.setValues({
                                     ...props.values,
-                                    audioId:res?.data?.object
+                                    audioId: res?.data?.object
                                 })
                             })
                         }
                     )
-                }else {
+                } else {
                     props.setRecord({
-                        status:true,
-                        name:"video"
+                        status: true,
+                        name: "video"
                     });
                 }
-            }).catch((err)=>{
-                Swal.fire("Xatolik yuz berdi","","error").then((confirm)=>{
+            }).catch((err) => {
+                Swal.fire("Xatolik yuz berdi", "", "error").then((confirm) => {
                     props.setRecord({
-                        status:true,
-                        name:"video"
+                        status: true,
+                        name: "video"
                     });
                 })
             })
@@ -72,12 +72,12 @@ const VoiceRecorder = (props) => {
     }
 
 
-    const handleAudioStop=(data)=>{
+    const handleAudioStop = (data) => {
         console.log(data);
         setAudioDetails(data);
     };
 
-    const handleReset=()=> {
+    const handleReset = () => {
         const reset = {
             url: null,
             blob: null,

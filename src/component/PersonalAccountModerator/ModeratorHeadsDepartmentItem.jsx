@@ -5,7 +5,7 @@ import SimpleModal from "../Admin/SimpleModal";
 import {Avatar, Image} from "antd";
 
 const ModeratorHeadsDepartmentItem = (props) => {
-    const {i18n}=useTranslation();
+    const {i18n} = useTranslation();
 
     function stringToHslColor(str, s, l) {
         let hash = 0;
@@ -14,7 +14,7 @@ const ModeratorHeadsDepartmentItem = (props) => {
         }
 
         let h = hash % 360;
-        return 'hsl('+h+', '+s+'%, '+l+'%)';
+        return 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
     }
 
     return (
@@ -33,7 +33,9 @@ const ModeratorHeadsDepartmentItem = (props) => {
                             {/*}>*/}
                             {/*    {props.item.fullName[0].toUpperCase()}*/}
                             {/*</div>*/}
-                            <Avatar src={props?.item?.image&&<Image src={props?.item?.image}/>} size={45} style={{background:stringToHslColor(props?.item?.fullName?props?.item?.fullName:"",50, 50)}} className="me-1">{props?.item?.fullName[0].toUpperCase()}</Avatar>
+                            <Avatar src={props?.item?.image && <Image src={props?.item?.image}/>} size={45}
+                                    style={{background: stringToHslColor(props?.item?.fullName ? props?.item?.fullName : "", 50, 50)}}
+                                    className="me-1">{props?.item?.fullName[0].toUpperCase()}</Avatar>
                             <div className="user-inform">
                                 <div className="user-name">{props?.item?.fullName}</div>
                             </div>
@@ -54,4 +56,4 @@ const ModeratorHeadsDepartmentItem = (props) => {
     );
 }
 
-export default withTranslation() (ModeratorHeadsDepartmentItem);
+export default withTranslation()(ModeratorHeadsDepartmentItem);

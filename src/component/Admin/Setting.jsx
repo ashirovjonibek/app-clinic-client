@@ -53,8 +53,8 @@ const Setting = ({t}) => {
                                 <td className="table-border">Jinoiy ishlar</td>
                                 <td className="table-border">Уголовные дела</td>
                                 <td className="table-border">Criminal cases</td>
-                                <td className="table-border"><EditIcon /></td>
-                                <td className="table-border"><DeleteIcon /></td>
+                                <td className="table-border"><EditIcon/></td>
+                                <td className="table-border"><DeleteIcon/></td>
                             </tr>
                             </tbody>
                         </table>

@@ -11,25 +11,25 @@ import {API_URL} from "../../utils/constant";
 import home from '../../assets/img/home.jpg'
 import {statistic} from "./data";
 
-let duration=2;
+let duration = 2;
 
-const CellClinic = ({scrollEl, t,style}) => {
+const CellClinic = ({scrollEl, t, style}) => {
     const [sts, setSts] = useState({});
-    const [style1,setStyle1]=useState({
+    const [style1, setStyle1] = useState({
         background: `url(${home}) no-repeat center bottom / cover`
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
             url: API_URL + "/application/home-statistic",
             method: "get",
         }).then((res) => {
             setSts(res?.data?.object);
         });
-    },[]);
+    }, []);
 
     return (
-        <section style={{...style,...style1}} className="we-are-here">
+        <section style={{...style, ...style1}} className="we-are-here">
             <div style={style} className="container">
                 <div className="row">
                     <div className="col-12 col-md-7 left-block">
@@ -68,7 +68,9 @@ const CellClinic = ({scrollEl, t,style}) => {
                                 <div className="icon">
                                     <img src={sucessCases} alt=""/>
                                 </div>
-                                <span className="counter"><CountUp end={scrollEl ? sts?.all>0?sts?.all:statistic.all : 0} duration={duration}/></span>
+                                <span className="counter"><CountUp
+                                    end={scrollEl ? sts?.all > 0 ? sts?.all : statistic.all : 0}
+                                    duration={duration}/></span>
                                 <div className="title">{t("General applications")}</div>
                             </div>
                         </div>
@@ -77,7 +79,9 @@ const CellClinic = ({scrollEl, t,style}) => {
                                 <div className="icon">
                                     <img src={clientsIcon} alt=""/>
                                 </div>
-                                <span className="counter"><CountUp end={scrollEl ? sts?.inprocces>0?sts?.inprocces:statistic.inprocces : 0} duration={duration}/></span>
+                                <span className="counter"><CountUp
+                                    end={scrollEl ? sts?.inprocces > 0 ? sts?.inprocces : statistic.inprocces : 0}
+                                    duration={duration}/></span>
                                 <div className="title">{t("In progress")}</div>
                             </div>
                         </div>
@@ -86,7 +90,9 @@ const CellClinic = ({scrollEl, t,style}) => {
                                 <div className="icon">
                                     <img src={awardsIcon} alt=""/>
                                 </div>
-                                <span className="counter"><CountUp end={scrollEl ? sts?.complete>0?sts?.complete:statistic.complete : 0} duration={duration}/></span>
+                                <span className="counter"><CountUp
+                                    end={scrollEl ? sts?.complete > 0 ? sts?.complete : statistic.complete : 0}
+                                    duration={duration}/></span>
                                 <div className="title">{t("Done")}</div>
                             </div>
                         </div>
@@ -95,7 +101,9 @@ const CellClinic = ({scrollEl, t,style}) => {
                                 <div className="icon">
                                     <img src={lawyersIcon} alt=""/>
                                 </div>
-                                <span className="counter"><CountUp end={scrollEl ? sts?.applicants>0?sts?.applicants:statistic.applicants : 0} duration={duration}/></span>
+                                <span className="counter"><CountUp
+                                    end={scrollEl ? sts?.applicants > 0 ? sts?.applicants : statistic.applicants : 0}
+                                    duration={duration}/></span>
                                 <div className="title">{t("Users")}</div>
                             </div>
                         </div>

@@ -5,8 +5,8 @@ import FedbeckDiz from "./FedbeckDiz";
 const FedbeckSection = () => {
     return (
         <div className="fedbeck-section">
-            <Fedbeck />
-            <FedbeckDiz />
+            <Fedbeck/>
+            <FedbeckDiz/>
         </div>
     );
 }

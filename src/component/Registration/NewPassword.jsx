@@ -38,11 +38,11 @@ const NewPassword = ({t}) => {
                         token: token
                     }
                 }).then((res) => {
-                    Swal.fire(t("Saved")+"!", "", 'success').then((conf) => {
+                    Swal.fire(t("Saved") + "!", "", 'success').then((conf) => {
                         history.push('/auth/login')
                     })
                 }).catch((err) => {
-                    Swal.fire(t("An error occurred")+"!!!\n" + err.response?.data?.message, "", 'error').then((conf) => {
+                    Swal.fire(t("An error occurred") + "!!!\n" + err.response?.data?.message, "", 'error').then((conf) => {
                     })
                 })
             }

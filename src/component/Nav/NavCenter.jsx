@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import iconLogo from "../../assets/icon/icon-logo.svg";
 import iconSearch from "../../assets/icon/icon-search.svg";
 import iconGlass from "../../assets/icon/icon-glass.svg";
@@ -13,16 +13,16 @@ import {CHANGE_THEME} from "../../redux/me/actionType";
 const NavCenter = ({t, setSearchVal}) => {
     const [sitebar, setSitebar] = useState(false);
     const [aa, setaa] = useState(false);
-    const theme=useSelector(state => state.theme);
-    const dispatch=useDispatch();
+    const theme = useSelector(state => state.theme);
+    const dispatch = useDispatch();
 
     const findString = () => {
-        console.log("searchVal",aa);
+        console.log("searchVal", aa);
         window.find(aa)
         document.onmouseup = () => {
-            console.log("mmmmmmmm",window.getSelection());
+            console.log("mmmmmmmm", window.getSelection());
         };
-         
+
     }
 
     return (
@@ -30,7 +30,7 @@ const NavCenter = ({t, setSearchVal}) => {
         <div style={theme} className="nav-center container-fluit12">
             <div className="container12">
                 <div className="navbar2">
-                    <div className="menu-icon" >
+                    <div className="menu-icon">
                         <MenuIcon
                             fontSize={'large'}
                             onClick={() => setSitebar(!sitebar)}
@@ -39,12 +39,12 @@ const NavCenter = ({t, setSearchVal}) => {
                     <div className="header-logo">
                         <a href="/#">
                             <div className="logo-left">
-                                <img src={iconLogo} alt="logo" />
+                                <img src={iconLogo} alt="logo"/>
                             </div>
                             <div className="logo-right">
                                 <div>
-                                    <span><strong>{t("Legal clinic")}</strong></span><br />
-                                    <p style={{maxWidth:"350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
+                                    <span><strong>{t("Legal clinic")}</strong></span><br/>
+                                    <p style={{maxWidth: "350px"}}>{t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}</p>
                                 </div>
 
                             </div>
@@ -53,17 +53,19 @@ const NavCenter = ({t, setSearchVal}) => {
                     <div className="header-right">
                         <div className="header-right-desctop">
                             <form role="search" method="get" action="#" className="search-form">
-                                <input type="" onChange={(e)=>setaa(e.target.value)}  placeholder={t("Search")+"..."} />
-                                <button onClick={()=>findString()} type=""><img src={iconSearch} alt="search-icon" /></button>
+                                <input type="" onChange={(e) => setaa(e.target.value)}
+                                       placeholder={t("Search") + "..."}/>
+                                <button onClick={() => findString()} type=""><img src={iconSearch} alt="search-icon"/>
+                                </button>
                             </form>
-                            <NavLanguage />
-                            <div onClick={()=>{
-                                dispatch({type:CHANGE_THEME,data:theme.filter?"":"grayscale(100%)"})
-                            }} style={{cursor:"pointer"}} className="glas">
-                                <img src={iconGlass} alt="" />
+                            <NavLanguage/>
+                            <div onClick={() => {
+                                dispatch({type: CHANGE_THEME, data: theme.filter ? "" : "grayscale(100%)"})
+                            }} style={{cursor: "pointer"}} className="glas">
+                                <img src={iconGlass} alt=""/>
                             </div>
                         </div>
-                        <Enter />
+                        <Enter/>
                     </div>
                 </div>
             </div>
@@ -72,9 +74,9 @@ const NavCenter = ({t, setSearchVal}) => {
                     <div className="desctop-navigation-body">
                         <div>
                             <div className="mobil-language">
-                                <NavLanguage />
+                                <NavLanguage/>
                                 <div className="glas">
-                                    <img src={iconGlass} alt="" />
+                                    <img src={iconGlass} alt=""/>
                                 </div>
                             </div>
                             <ul>
@@ -104,14 +106,14 @@ const NavCenter = ({t, setSearchVal}) => {
                         <div className="icon-disable">
                             <CloseIcon
                                 fontSize={'large'}
-                                style={{ color: 'white' }}
+                                style={{color: 'white'}}
                                 onClick={() => setSitebar(!sitebar)}
                             />
                         </div>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 import swiperImg1 from '../../assets/img/what-slider/what-slider-img-1.jpg';
 import swiperImg2 from '../../assets/img/what-slider/what-slider-img-2.jpg';
 import swiperImg3 from '../../assets/img/what-slider/what-slider-img-3.jpg';
@@ -26,30 +26,30 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function WhatSlider() {
 
-    const [news,setNews]=useState([]);
-    const [one,setOne]=useState({
-        id:0,
-        title:"",
-        content:"",
-        date:"",
-        view:0,
-        img:""
+    const [news, setNews] = useState([]);
+    const [one, setOne] = useState({
+        id: 0,
+        title: "",
+        content: "",
+        date: "",
+        view: 0,
+        img: ""
     })
-    const [imgLoader,setImgLoader]=useState(false);
+    const [imgLoader, setImgLoader] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
-            method:'get',
-            url:'https://proacademy.uz/uz-cyr/post'
-        }).then((res)=>{
+            method: 'get',
+            url: 'https://proacademy.uz/uz-cyr/post'
+        }).then((res) => {
             console.log(res)
             setNews(res?.data?.items);
         })
-    },[]);
+    }, []);
 
-    const getLangContent=(content)=>{
+    const getLangContent = (content) => {
         let lng = i18next.language;
-        if (lng==="uz"||lng==="en") lng="uz-Lat";
+        if (lng === "uz" || lng === "en") lng = "uz-Lat";
 
         let parse = JSON.parse(content);
 
@@ -74,21 +74,21 @@ function WhatSlider() {
                     "clickable": true
                 }}
                 navigation={true} className="mySwiper"
-            
+
             >
                 {
-                    news&&news.map((item,i)=>
-                        <SwiperSlide key={i} style={{margin:'0', width:"100%", borderBottom:"solid 1px #d9d9d9"}}>
-                            <img src={"https://proacademy.uz/postfiles/documents"+item?.img_link} alt="img" />
+                    news && news.map((item, i) =>
+                        <SwiperSlide key={i} style={{margin: '0', width: "100%", borderBottom: "solid 1px #d9d9d9"}}>
+                            <img src={"https://proacademy.uz/postfiles/documents" + item?.img_link} alt="img"/>
                             <div className="jus-center">
                                 <p className="ver_slider_header">{getLangContent(item?.title)}.</p>
                                 <p className="ver_slider_text">{getLangContent(item?.short_content)}.</p>
                                 <div className="ver_slider_bottom">
                             <span className="ver_slider_bottom">
-                                <DateRange  /> {item?.published_date}
+                                <DateRange/> {item?.published_date}
                             </span>
                                     <span className="ver_slider_bottom">
-                                <RemoveRedEye /> {item?.views}
+                                <RemoveRedEye/> {item?.views}
                             </span>
                                     <a href="#">batafsil...</a>
                                 </div>

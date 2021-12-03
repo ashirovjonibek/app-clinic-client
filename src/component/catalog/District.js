@@ -15,15 +15,16 @@ import axios from "axios";
 import {makeStyles} from "@material-ui/core/styles";
 
 
-const useStyle=makeStyles((theme)=>({
-    paper:{
-        marginTop:theme.spacing(3)
+const useStyle = makeStyles((theme) => ({
+    paper: {
+        marginTop: theme.spacing(3)
     }
 }))
+
 function District(props) {
     const [districts, setDistricts] = useState([]);
     const [open, setOpen] = React.useState(false);
-    const classes=useStyle();
+    const classes = useStyle();
 
     useEffect(() => {
         axios.get("/api/district").then(res => {
@@ -41,7 +42,7 @@ function District(props) {
 
     return (
         <Container>
-            <TableContainer component={Paper} className={classes.paper} >
+            <TableContainer component={Paper} className={classes.paper}>
                 <Button variant="contained" color="primary" onClick={handleClickOpen}
                         style={{float: 'right'}}>Add</Button>
                 <Table>

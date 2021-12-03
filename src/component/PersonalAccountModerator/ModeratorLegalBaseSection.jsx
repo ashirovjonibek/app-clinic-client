@@ -4,7 +4,7 @@ import DirectorySection from "../PersonalAccountListener/DirectorySection";
 const ModeratorLegalBaseSection = () => {
     return (
         <div className="moderator-legal-base-section">
-            <DirectorySection /> 
+            <DirectorySection/>
         </div>
     );
 }

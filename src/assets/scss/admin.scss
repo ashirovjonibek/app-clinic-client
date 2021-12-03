@@ -195,6 +195,7 @@
       .appeals-count-img {
         display: flex;
         align-items: center;
+
         img {
           margin-top: 5px;
           width: 30px !important;
@@ -222,8 +223,8 @@
       }
     }
 
-    .dashboardTableItems{
-      .table-border{
+    .dashboardTableItems {
+      .table-border {
         text-decoration: underline !important;
         color: #0046d5;
       }
@@ -244,6 +245,7 @@
   .table-scroll {
     overflow-x: scroll;
     width: 100%;
+
     &::-webkit-scrollbar {
       width: 10px;
       background-color: #e2e2e2;
@@ -381,7 +383,8 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  span{
+
+  span {
     display: inline-block;
     float: right;
     top: 0;
@@ -531,6 +534,7 @@
   }
 
 }
+
 @media (max-width: 576px) {
   .admin .admin-appeals-count .appeals-count-div .appeals-count-content {
     p {

@@ -34,7 +34,6 @@ export const apiPath = {
     deleteUser: '/auth/delete',
 
 
-
     /**     application-controller    **/
 
     createApplication: '/application/create',
@@ -70,7 +69,6 @@ export const apiPath = {
     getAttachment: '/attach/',
 
 
-
     /**     section-controller    **/
 
     getSections: '/section',
@@ -78,8 +76,6 @@ export const apiPath = {
     updateSection: '/section/',
     deleteSection: '/section/',
     createSection: '/section',
-
-
 
 
 }

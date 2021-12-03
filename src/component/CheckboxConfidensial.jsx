@@ -6,7 +6,7 @@ const CheckboxConfidensial = (props) => {
     return (
         <div>
             <div className="confidential">
-                <input type="checkbox" disabled={true} defaultChecked={props.top} id="vehicle1" name="vehicle1" />
+                <input type="checkbox" disabled={true} defaultChecked={props.top} id="vehicle1" name="vehicle1"/>
 
                 <div>
                     <label htmlFor="vehicle1">{props.t("Confidentially")}</label>

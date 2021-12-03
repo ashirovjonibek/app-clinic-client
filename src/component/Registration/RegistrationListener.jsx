@@ -108,7 +108,7 @@ function RegistrationListener(props) {
                     props.t("The phone number and email are already available") :
                     e.response.data.phoneNumber ?
                         props.t("The phone number is already available") : e.response.data.email ?
-                            props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
+                        props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
                 showConfirmButton: false,
                 timer: 2000
             }).then(() => {
@@ -357,14 +357,17 @@ function RegistrationListener(props) {
                                                    htmlFor="phoneNumber">{props.t("Telephone")}</label>
                                             <InputMask
                                                 required={true}
-                                                onChange={e=>{setValues(
-                                                    {...values,
-                                                        phoneNumber:e.
-                                                        target.value.replaceAll(" ","")
-                                                            .replaceAll("(","")
-                                                            .replaceAll(")","")}
-                                                )
-                                                    console.log(e?.target?.value)}}
+                                                onChange={e => {
+                                                    setValues(
+                                                        {
+                                                            ...values,
+                                                            phoneNumber: e.target.value.replaceAll(" ", "")
+                                                                .replaceAll("(", "")
+                                                                .replaceAll(")", "")
+                                                        }
+                                                    )
+                                                    console.log(e?.target?.value)
+                                                }}
                                                 name="phoneNumber"
                                                 id="phoneNumber"
                                                 mask="+\9\9\8(99)999 99 99"

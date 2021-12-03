@@ -13,8 +13,8 @@ const CustomVideoRecorder = (props) => {
     const sendVideo = () => {
         if (video) {
             props.setRecord({
-                status:false,
-                name:""
+                status: false,
+                name: ""
             });
             Swal.fire({
                 title: "Video arizaga biriktirish uchun saqlansinmi?",
@@ -32,32 +32,32 @@ const CustomVideoRecorder = (props) => {
                         method: "POST",
                         headers: {
                             'Content-Type': 'multipart/form-data',
-                            Authorization:localStorage.getItem(STORAGE_NAME)
+                            Authorization: localStorage.getItem(STORAGE_NAME)
                         },
                         data: formData
                     }).then(res => {
 
-                        Swal.fire("Video saqlandi","","success").then((confirm)=>{
-                            console.log(res);
-                            props.setValues({
-                                ...props.values,
-                                videoId:res?.data?.object
-                            });
-                            // console.log(MediaDevices().getAll())
-                        })
+                            Swal.fire("Video saqlandi", "", "success").then((confirm) => {
+                                console.log(res);
+                                props.setValues({
+                                    ...props.values,
+                                    videoId: res?.data?.object
+                                });
+                                // console.log(MediaDevices().getAll())
+                            })
                         }
                     )
-                }else {
+                } else {
                     props.setRecord({
-                        status:true,
-                        name:"video"
+                        status: true,
+                        name: "video"
                     });
                 }
-            }).catch((err)=>{
-                Swal.fire("Xatolik yuz berdi","","error").then((confirm)=>{
+            }).catch((err) => {
+                Swal.fire("Xatolik yuz berdi", "", "error").then((confirm) => {
                     props.setRecord({
-                        status:true,
-                        name:"video"
+                        status: true,
+                        name: "video"
                     });
                 })
             })

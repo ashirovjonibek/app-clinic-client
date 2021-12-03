@@ -16,4 +16,4 @@ const StatisticGender = ({t}) => {
     );
 }
 
-export default withTranslation() (StatisticGender);
+export default withTranslation()(StatisticGender);

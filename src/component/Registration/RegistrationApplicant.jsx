@@ -71,7 +71,7 @@ const RegistrationApplicant = (props) => {
     const handleChange = (e) => {
         setValues({
             ...values,
-            [e?.target?.name]: e?.target?.name==="phoneNumber"?e:e?.target?.value
+            [e?.target?.name]: e?.target?.name === "phoneNumber" ? e : e?.target?.value
         });
     };
 
@@ -129,7 +129,7 @@ const RegistrationApplicant = (props) => {
 
     const numberHandler = (e) => {
         const name = e?.target?.name;
-        const phoneNumber = e.target.value.replaceAll(" ","").replaceAll("(","").replaceAll(")","");
+        const phoneNumber = e.target.value.replaceAll(" ", "").replaceAll("(", "").replaceAll(")", "");
         // const regNumber = /^\d+/;
         const regNumber = /^((\+)33|0)[1-9](\d{2}){4}$/;
         // if (!regNumber.test(String(e.target.value).toLowerCase()) && name === 'phoneNumber') {
@@ -228,7 +228,7 @@ const RegistrationApplicant = (props) => {
                         props.t("The phone number and email are already available") :
                         e?.response?.data?.phoneNumber ?
                             props.t("The phone number is already available") : e?.response?.data?.email ?
-                                props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
+                            props.t("Email is already available") : props.t("An error occurred. Please try again") + "!",
                     showConfirmButton: false,
                     timer: 2000
                 }).then(r => {
@@ -370,14 +370,17 @@ const RegistrationApplicant = (props) => {
                                                        htmlFor="phoneNumber">{props.t("Telephone")}</label>
                                                 <InputMask
                                                     required={true}
-                                                    onChange={e=>{setValues(
-                                                        {...values,
-                                                            phoneNumber:e.
-                                                            target.value.replaceAll(" ","")
-                                                                .replaceAll("(","")
-                                                                .replaceAll(")","")}
-                                                                )
-                                                        console.log(e?.target?.value)}}
+                                                    onChange={e => {
+                                                        setValues(
+                                                            {
+                                                                ...values,
+                                                                phoneNumber: e.target.value.replaceAll(" ", "")
+                                                                    .replaceAll("(", "")
+                                                                    .replaceAll(")", "")
+                                                            }
+                                                        )
+                                                        console.log(e?.target?.value)
+                                                    }}
                                                     name="phoneNumber"
                                                     id="phoneNumber"
                                                     mask="+\9\9\8(99)999 99 99"

@@ -15,4 +15,4 @@ const StatisticStatus = ({t}) => {
     );
 }
 
-export default withTranslation() (StatisticStatus);
+export default withTranslation()(StatisticStatus);

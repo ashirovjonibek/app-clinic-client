@@ -1,4 +1,4 @@
-import { Avatar, Col, Image, Row } from 'antd';
+import {Avatar, Col, Image, Row} from 'antd';
 import React from 'react';
 
 const AnswerModerator = () => {
@@ -15,10 +15,11 @@ const AnswerModerator = () => {
 
     return (
         <Row className="border mt-2 rounded" gutter={24}>
-            <Col className="pb-1 pt-1 border-bottom" style={{backgroundColor:"#fff2e8"}} xs={24} sm={24} md={24} lg={24}>
+            <Col className="pb-1 pt-1 border-bottom" style={{backgroundColor: "#fff2e8"}} xs={24} sm={24} md={24}
+                 lg={24}>
                 <p
-                    style={{ fontWeight: "500", fontFamily: "sans-serif", wordBreak: "break-all" }}>
-                    <span style={{ fontWeight: "600", fontSize: "16px", paddingRight: "5px" }}>Mudir mulohazasi:</span>
+                    style={{fontWeight: "500", fontFamily: "sans-serif", wordBreak: "break-all"}}>
+                    <span style={{fontWeight: "600", fontSize: "16px", paddingRight: "5px"}}>Mudir mulohazasi:</span>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Quia voluptatibus itaque eaque dolore numquam magnam!
                     Ex dignissimos assumenda amet magni iusto dolor, error totam similique ea

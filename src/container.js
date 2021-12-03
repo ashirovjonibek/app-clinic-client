@@ -79,10 +79,10 @@ const Container = () => {
             {
                 loading.isLoading ? <Loading/> :
                     <div>
-                            <Routes/>
-                            {
-                                path === "/" ? "" : <Footer/>
-                            }
+                        <Routes/>
+                        {
+                            path === "/" ? "" : <Footer/>
+                        }
                     </div>
             }
         </>

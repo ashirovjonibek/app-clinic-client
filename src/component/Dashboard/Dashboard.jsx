@@ -9,22 +9,22 @@ const Dashboard = () => {
                         <ul>
                             <li>
                                 <h2>145</h2>
-                                <p>Общее количество<br /> обращений</p>
+                                <p>Общее количество<br/> обращений</p>
                             </li>
                             <div className="vertical-line"/>
                             <li>
                                 <h2>145</h2>
-                                <p>Поступило<br /> обращений</p>
+                                <p>Поступило<br/> обращений</p>
                             </li>
                             <div className="vertical-line"/>
                             <li>
                                 <h2>145</h2>
-                                <p>Обращениям<br /> ответил</p>
+                                <p>Обращениям<br/> ответил</p>
                             </li>
                             <div className="vertical-line"/>
                             <li>
                                 <h2>145</h2>
-                                <p>Обращений в<br /> обработке</p>
+                                <p>Обращений в<br/> обработке</p>
                             </li>
                             <div className="vertical-line"/>
                             <li>
@@ -34,12 +34,12 @@ const Dashboard = () => {
                             <div className="vertical-line"/>
                             <li>
                                 <h2>145</h2>
-                                <p>Обращений в<br /> рассмотрении</p>
+                                <p>Обращений в<br/> рассмотрении</p>
                             </li>
                             <div className="vertical-line"/>
                             <li>
                                 <h2>145</h2>
-                                <p>Прошли модерацию<br /> начальника</p>
+                                <p>Прошли модерацию<br/> начальника</p>
                             </li>
                         </ul>
                     </div>
@@ -47,13 +47,17 @@ const Dashboard = () => {
                         <table>
                             <tr>
                                 <td className="column-categories-name">&nbsp;</td>
-                                <td className="table-border table-categoriyes table-mini">Общее<br/> количество<br /> обращений</td>
-                                <td className="table-border table-categoriyes table-mini">Поступило<br /> обращений</td>
-                                <td className="table-border table-categoriyes table-mini">Обращениям<br /> ответил</td>
-                                <td className="table-border table-categoriyes table-mini">Обращений в <br />обработке</td>
+                                <td className="table-border table-categoriyes table-mini">Общее<br/> количество<br/> обращений
+                                </td>
+                                <td className="table-border table-categoriyes table-mini">Поступило<br/> обращений</td>
+                                <td className="table-border table-categoriyes table-mini">Обращениям<br/> ответил</td>
+                                <td className="table-border table-categoriyes table-mini">Обращений в <br/>обработке
+                                </td>
                                 <td className="table-border table-categoriyes table-mini">Новых<br/>обращений</td>
-                                <td className="table-border table-categoriyes table-mini">Обращений в<br /> рассмотрении</td>
-                                <td className="table-border table-categoriyes table-mini">Прошли<br/> модерацию<br /> начальника</td>
+                                <td className="table-border table-categoriyes table-mini">Обращений в<br/> рассмотрении
+                                </td>
+                                <td className="table-border table-categoriyes table-mini">Прошли<br/> модерацию<br/> начальника
+                                </td>
                             </tr>
                             <tr>
                                 <td className="table-border column-categories-name">Имя<br/>фамилия</td>

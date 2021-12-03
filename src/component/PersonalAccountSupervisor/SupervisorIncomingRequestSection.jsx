@@ -7,21 +7,21 @@ const SupervisorIncomingRequestSection = () => {
 
     const token = localStorage.getItem(STORAGE_NAME);
 
-    const [listeners,setListeners]=useState([]);
-    const [info,setInfo]=useState([]);
+    const [listeners, setListeners] = useState([]);
+    const [info, setInfo] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         axios({
-            method:'get',
-            url:API_URL+"/auth/me",
-            headers:{
-                Authorization:token
+            method: 'get',
+            url: API_URL + "/auth/me",
+            headers: {
+                Authorization: token
             }
-        }).then((me)=>{
+        }).then((me) => {
             console.log(me)
             axios({
                 method: 'get',
-                url: API_URL +'/auth/listeners',   //listenerBySection?sectionId=',
+                url: API_URL + '/auth/listeners',   //listenerBySection?sectionId=',
                 headers: {
                     'Authorization': localStorage.getItem(STORAGE_NAME)
                 }
@@ -34,21 +34,21 @@ const SupervisorIncomingRequestSection = () => {
 
             axios({
                 method: 'get',
-                url: API_URL +'/application/info/listener',
+                url: API_URL + '/application/info/listener',
                 headers: {
                     'Authorization': localStorage.getItem(STORAGE_NAME),
                     'Content-Type': 'application/json'
                 }
-            }).then((res)=>{
+            }).then((res) => {
                 setInfo(res.data)
             })
         })
-    },[])
+    }, [])
     return (
         <div className="supervisor-incoming-request-section">
             {
-                info&&info.map((item,i)=>
-                    <SupervisorIncomingRequestItem key={i} info={item} />
+                info && info.map((item, i) =>
+                    <SupervisorIncomingRequestItem key={i} info={item}/>
                 )
             }
         </div>

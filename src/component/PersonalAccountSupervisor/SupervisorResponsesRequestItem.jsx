@@ -16,14 +16,14 @@ import PdfViewer from "../catalog/pdfViewer";
 import DownloadOutlined from "@ant-design/icons/lib/icons/DownloadOutlined";
 
 const SupervisorResponsesRequestItem = (props) => {
-    const { t } = props;
+    const {t} = props;
 
     let token = localStorage.getItem(STORAGE_NAME);
     const [isM, setIsM] = useState(false);
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false);
-    const [open,setOpen]=useState(false);
-    const [url,setUrl]=useState("");
+    const [open, setOpen] = useState(false);
+    const [url, setUrl] = useState("");
 
 
     const fileLoad = (id, name) => {
@@ -46,8 +46,8 @@ const SupervisorResponsesRequestItem = (props) => {
 
     const accept = (id) => {
         Swal.fire({
-            title:t("Confirmation") + "!!!",
-            html: t("Will the application be accepted")+"?",
+            title: t("Confirmation") + "!!!",
+            html: t("Will the application be accepted") + "?",
             icon: "warning",
             confirmButtonText: t("Yes"),
             showCancelButton: true,
@@ -68,7 +68,7 @@ const SupervisorResponsesRequestItem = (props) => {
                         props.refresh()
                     })
                 }).catch((e) => {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(() => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then(() => {
 
                         props.refresh()
                     })
@@ -82,11 +82,11 @@ const SupervisorResponsesRequestItem = (props) => {
     const denied = (id) => {
         Swal.fire({
             title: t("Confirmation") + "!!!",
-            html: t("Should the application be rejected")+"?",
+            html: t("Should the application be rejected") + "?",
             icon: "warning",
-            confirmButtonText:  t("Yes"),
+            confirmButtonText: t("Yes"),
             showCancelButton: true,
-            cancelButtonText:  t("No"),
+            cancelButtonText: t("No"),
             confirmButtonColor: "red",
 
         }).then((confirm) => {
@@ -97,7 +97,7 @@ const SupervisorResponsesRequestItem = (props) => {
                     headers: {
                         Authorization: token
                     },
-                    data: {comment:message}
+                    data: {comment: message}
                 }).then((r) => {
                     Swal.fire(t("Done"), "", "success").then((ress) => {
                         console.log(r);
@@ -106,7 +106,7 @@ const SupervisorResponsesRequestItem = (props) => {
                         setIsM(false)
                     })
                 }).catch((e) => {
-                    Swal.fire(t("An error occurred")+"!!!", "", "error").then(() => {
+                    Swal.fire(t("An error occurred") + "!!!", "", "error").then(() => {
 
                         props.refresh()
                     })
@@ -124,8 +124,10 @@ const SupervisorResponsesRequestItem = (props) => {
                     <div className="categories">
 
                     </div>
-                    <SectionCategory fileId={props?.item?.answer?.attachmentId?props?.item?.answer?.attachmentId:null} setPlayer={props?.setPlayer}
-                                     section={props?.item?.application?.section} item={props.item}/>
+                    <SectionCategory
+                        fileId={props?.item?.answer?.attachmentId ? props?.item?.answer?.attachmentId : null}
+                        setPlayer={props?.setPlayer}
+                        section={props?.item?.application?.section} item={props.item}/>
                 </div>
                 <div className="content-line"/>
                 <div className="request-categoriyes">
@@ -137,11 +139,11 @@ const SupervisorResponsesRequestItem = (props) => {
                         <div style={{width: "100%"}}>
                             {props?.item?.answer?.description}
                         </div>
-                        {props?.item?.answer?.attachmentId&&<div onClick={() => {
+                        {props?.item?.answer?.attachmentId && <div onClick={() => {
                             setOpen(true);
-                            setUrl(API_URL + "/attach/"+props?.item?.answer?.attachmentId)
+                            setUrl(API_URL + "/attach/" + props?.item?.answer?.attachmentId)
                         }} style={{cursor: "pointer"}} className="file file1">
-                            <DownloadOutlined />
+                            <DownloadOutlined/>
                         </div>}
                     </div>
                     <br/>
@@ -149,7 +151,7 @@ const SupervisorResponsesRequestItem = (props) => {
                         isM ? <div style={
                             {
                                 display: "block",
-                                clear:"both",
+                                clear: "both",
                                 width: "100%",
                                 marginTop: "25px",
                                 border: "1px solid rgba(0,0,0,0.1)",
@@ -163,7 +165,7 @@ const SupervisorResponsesRequestItem = (props) => {
                                 if (e.target.value.length > 10) {
                                     setError(false)
                                 }
-                            }} rows="10" style={{width:"100%"}} placeholder="Rad etilish sababini kiriting!!!">
+                            }} rows="10" style={{width: "100%"}} placeholder="Rad etilish sababini kiriting!!!">
                             </textarea>
                             {error ? <FormHelperText
                                 error={error}>{props.t("Enter a minimum of 10 characters")}!!!</FormHelperText> : ""}

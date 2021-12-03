@@ -26,11 +26,13 @@
       .sub-title-line {
         max-width: 100%;
       }
+
       .footer-cotsial {
         ul {
           padding: 15px 0 0 10px;
           max-width: 90%;
         }
+
         form {
           input {
             height: 40px;
@@ -43,15 +45,17 @@
 }
 
 @media (max-width: 768px) {
-  .container12{
+  .container12 {
     width: 90%;
   }
   .footer {
     text-align: center;
+
     .footer-first {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .footer-navigation {
         ul {
           display: flex;
@@ -64,7 +68,7 @@
 }
 
 @media (max-width: 576px) {
-  .container12{
+  .container12 {
     width: 98%;
   }
   .footer {
@@ -72,6 +76,7 @@
       .sub-title-line {
         max-width: 100%;
       }
+
       .footer-contacts,
       .footer-navigation,
       .footer-cotsial {

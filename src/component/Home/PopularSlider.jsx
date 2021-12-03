@@ -20,23 +20,23 @@ function PopularSlider({t}) {
     const [top, setTop] = useState([]);
     const [countView, setcountView] = useState(2)
 
-    window.addEventListener('resize', (e)=>{
+    window.addEventListener('resize', (e) => {
         // console.log("eee", e.target.innerWidth);
-        if(e.target.innerWidth<1150 && e.target.innerWidth>900){
+        if (e.target.innerWidth < 1150 && e.target.innerWidth > 900) {
             setcountView(1)
-        }else if(e.target.innerWidth<900){
+        } else if (e.target.innerWidth < 900) {
             setcountView(1)
-        }else{
+        } else {
             setcountView(2)
         }
     });
 
     useEffect(() => {
-        if(window.innerWidth<1150 && window.innerWidth>900){
+        if (window.innerWidth < 1150 && window.innerWidth > 900) {
             setcountView(1)
-        }else if(window.innerWidth<900){
+        } else if (window.innerWidth < 900) {
             setcountView(1)
-        }else{
+        } else {
             setcountView(2)
         }
 
@@ -72,16 +72,17 @@ function PopularSlider({t}) {
             >
                 {
                     top && top?.map((item, i) => {
-                            return <SwiperSlide slot={"container-start"} key={i} >
-                                <div className="popular-text" style={{margin:'0'}}>
+                            return <SwiperSlide slot={"container-start"} key={i}>
+                                <div className="popular-text" style={{margin: '0'}}>
                                     <UserName text={item?.applicant?.fullName} avatar={item?.applicant?.image}/>
                                     <div className="document-text">
                                         <div className="document-text-title">
                                             <h4>{t("Subject of the appeal")}:</h4>
                                             <p>{item.title}</p>
                                         </div>
-                                        <hr style={{backgroundColor:"rgba(0,0,0,0.3)",height:"1px"}}/>
-                                        <div style={{maxHeight:"150px",wordBreak:"break-all",overflow:"auto"}} className="document-text-item">
+                                        <hr style={{backgroundColor: "rgba(0,0,0,0.3)", height: "1px"}}/>
+                                        <div style={{maxHeight: "150px", wordBreak: "break-all", overflow: "auto"}}
+                                             className="document-text-item">
                                             {
                                                 item.description
                                             }

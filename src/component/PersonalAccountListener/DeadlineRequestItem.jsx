@@ -41,8 +41,10 @@ const DeadlineRequestItem = ({t, appeal}) => {
                         <div className="date-label">
                             Осталось:
                         </div>
-                        <div >
-                            <Tag color={getDayDeadline(appeal?.deadLineDate)>10?'green':getDayDeadline(appeal?.deadLineDate)>5&&getDayDeadline(appeal?.deadLineDate)<=10?"yellow":"red"} style={{marginLeft:"5px"}}>
+                        <div>
+                            <Tag
+                                color={getDayDeadline(appeal?.deadLineDate) > 10 ? 'green' : getDayDeadline(appeal?.deadLineDate) > 5 && getDayDeadline(appeal?.deadLineDate) <= 10 ? "yellow" : "red"}
+                                style={{marginLeft: "5px"}}>
                                 {getDayDeadline(appeal?.deadLineDate)} kun
                             </Tag>
                         </div>
@@ -132,8 +134,10 @@ const DeadlineRequestItem = ({t, appeal}) => {
                     </Row>
                 </div>
             </div>
-            {modalItem?.url && <AudioVidioReader type={modalItem?.type} setOption={()=>setMOdalItem({type:"",url:""})} url={modalItem?.url} open={open} setOpen={setOpen} />}
-            {doc && <PdfViewer url={doc} open={docOpen} setOpen={setDocOpen} setUrl={setDoc} />}
+            {modalItem?.url &&
+            <AudioVidioReader type={modalItem?.type} setOption={() => setMOdalItem({type: "", url: ""})}
+                              url={modalItem?.url} open={open} setOpen={setOpen}/>}
+            {doc && <PdfViewer url={doc} open={docOpen} setOpen={setDocOpen} setUrl={setDoc}/>}
         </div>
     );
 }

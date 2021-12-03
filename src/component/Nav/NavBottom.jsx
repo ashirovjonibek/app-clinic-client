@@ -29,9 +29,9 @@ const NavBottom = ({t}) => {
                     <li>
                         <Link to={
                             {
-                                pathname:'/applicantAppeal',
-                                state:{
-                                    to:"home"
+                                pathname: '/applicantAppeal',
+                                state: {
+                                    to: "home"
                                 }
                             }
                         }>{t("Appeals send")}</Link>

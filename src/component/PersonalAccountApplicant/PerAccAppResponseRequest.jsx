@@ -31,8 +31,8 @@ const PerAccAppResponseRequest = ({t}) => {
     const [isDislike, setIsDislike] = useState(-1);
     const [comment, setComment] = useState("");
     const [comLength, setComLength] = useState(false);
-    const [url,setUrl]=useState("");
-    const [open,setOpen]=useState(false);
+    const [url, setUrl] = useState("");
+    const [open, setOpen] = useState(false);
     let a = 0;
 
 
@@ -107,7 +107,8 @@ const PerAccAppResponseRequest = ({t}) => {
                                     <DocumentText appeal={item?.application}/>
                                 </div>
                                 <SectionCategory setOpen={setOpen} setUrl={setUrl} section={item?.application?.section}
-                                                 fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null} item={item}/>
+                                                 fileId={item?.application?.attachmentsId ? item?.application?.attachmentsId[0] : null}
+                                                 item={item}/>
                                 <CheckboxConfidensial/>
                                 <div className="response-request">
                                     <div className="content-line"/>
@@ -116,16 +117,19 @@ const PerAccAppResponseRequest = ({t}) => {
                                     </div>
 
                                     <div className="answer-for-appeal" style={{}}>
-                                        <p  style={{fontSize:"18px"}}><strong>{t("Answer text")}: </strong>{item?.answer?.description}</p>
+                                        <p style={{fontSize: "18px"}}>
+                                            <strong>{t("Answer text")}: </strong>{item?.answer?.description}</p>
                                     </div>
 
-                                    {item?.answer?.attachmentId&&<div className="file-upload" style={{width:"150px"}}>
-                                        <p style={{fontSize:"18px"}}><strong>Javob fayli:</strong></p>
-                                        <Tag onClick={()=>{
-                                            setUrl(API_URL+"/attach/"+item?.answer?.attachmentId);
+                                    {item?.answer?.attachmentId &&
+                                    <div className="file-upload" style={{width: "150px"}}>
+                                        <p style={{fontSize: "18px"}}><strong>Javob fayli:</strong></p>
+                                        <Tag onClick={() => {
+                                            setUrl(API_URL + "/attach/" + item?.answer?.attachmentId);
                                             setOpen(true)
-                                        }} style={{cursor:"pointer"}} className="d-flex justify-content-center align-items-center p-2">
-                                            <DownloadOutlined />
+                                        }} style={{cursor: "pointer"}}
+                                             className="d-flex justify-content-center align-items-center p-2">
+                                            <DownloadOutlined/>
                                         </Tag>
                                     </div>}
                                 </div>
@@ -134,11 +138,15 @@ const PerAccAppResponseRequest = ({t}) => {
                                     <div className="answer-score-button">
                                             <span onClick={() => {
                                                 setIsDislike(-1);
-                                            }} style={{padding: "3px 5px", cursor: "pointer", color: !(isDislike === i || item?.answer?.comment )?"green":""}}>
+                                            }} style={{
+                                                padding: "3px 5px",
+                                                cursor: "pointer",
+                                                color: !(isDislike === i || item?.answer?.comment) ? "green" : ""
+                                            }}>
                                                 <ThumbUpIcon/>
                                             </span>
                                         <span onClick={() => {
-                                            if (!item?.answer?.comment){
+                                            if (!item?.answer?.comment) {
                                                 if (isDislike === i) {
                                                     setIsDislike(-1);
                                                 } else {

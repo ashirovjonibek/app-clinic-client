@@ -389,8 +389,9 @@ const MapChart = ({data}) => {
                         }
                     </div> : ""
                 }
-                <div style={{display:"flex",justifyContent:"center"}}>
-                    <svg width="900px"   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" aria-label="Map of Uzbekistan"
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <svg width="900px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550"
+                         aria-label="Map of Uzbekistan"
                          className="map_chart">
                         <Tooltip followCursor title={<CardContent>{getRegion(5)}</CardContent>} arrow
                                  placement="top">
@@ -569,7 +570,7 @@ const MapChart = ({data}) => {
             -13.4999998 6.65,-2.22 2.220003,-0.46 17.06,-5.04 z"/>
                         </Tooltip>
 
-        text-align: left;
+                        text-align: left;
                         <Tooltip followCursor title={getRegion(11)} arrow
                                  placement="top">
                             <path onClick={() => {

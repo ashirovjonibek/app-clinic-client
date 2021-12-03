@@ -10,7 +10,7 @@ const loading = (state = initialState, action) => {
         case LOADING:
             return {
                 ...state,
-                isLoading:!state.isLoading
+                isLoading: !state.isLoading
             }
         default:
             return state

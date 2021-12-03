@@ -9,10 +9,10 @@ import CustomPagination from "../catalog/Pagenation";
 const {Item} = Form;
 const DeadlineRequestSection = ({t}) => {
     const [form] = Form.useForm();
-    const [appeals,setAppeals]=useState([]);
-    const [size,setSize]=useState(3);
-    const [active,setActive]=useState(1);
-    const [total,setTotal]=useState(0);
+    const [appeals, setAppeals] = useState([]);
+    const [size, setSize] = useState(3);
+    const [active, setActive] = useState(1);
+    const [total, setTotal] = useState(0);
     const [prefix, setPrefix] = useState({
         status: "",
         search: ""
@@ -43,7 +43,7 @@ const DeadlineRequestSection = ({t}) => {
 
         axios({
             method: 'get',
-            url: API_URL + `/document/get-all?page=${active-1}&size=${size}${a}`,
+            url: API_URL + `/document/get-all?page=${active - 1}&size=${size}${a}`,
             headers: {
                 Authorization: localStorage.getItem(STORAGE_NAME),
                 'Access-Control-Allow-Origin': '*'
@@ -55,7 +55,7 @@ const DeadlineRequestSection = ({t}) => {
         }).catch((e) => {
             message.error("Xatolik yuz berdi");
         })
-    },[prefix,active,size]);
+    }, [prefix, active, size]);
 
 
     console.log(prefix);
@@ -70,7 +70,7 @@ const DeadlineRequestSection = ({t}) => {
                             <Select onChange={(e) => {
                                 setPrefix({
                                     ...prefix,
-                                    status:e
+                                    status: e
                                 })
                             }} allowClear placeholder="Holat bo'yicha saralash">
                                 {
@@ -98,19 +98,19 @@ const DeadlineRequestSection = ({t}) => {
                 </Row>
             </Form>
             {
-                appeals&&appeals?.map((item,i)=>
+                appeals && appeals?.map((item, i) =>
                     <DeadlineRequestItem key={i} appeal={item?.application}/>
                 )
             }
             <div>
                 {total > 0 && <CustomPagination
-                        pageLength={total}
-                        setActive={setActive}
-                        active={active}
-                        size={size}
-                        setSize={setSize}
-                    />}
-                    </div>
+                    pageLength={total}
+                    setActive={setActive}
+                    active={active}
+                    size={size}
+                    setSize={setSize}
+                />}
+            </div>
         </div>
     );
 }
