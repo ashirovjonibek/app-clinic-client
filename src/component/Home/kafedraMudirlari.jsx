@@ -91,9 +91,10 @@ const Mudirlar = ({style, t}) => {
                                             className="img-responsive"
                                             alt=""
                                         />
-                                        <div
-                                            className="more-content-attorney d-flex justify-content-center align-items-center text-light">more
-                                            content...
+                                        <div className="more-content-attorney d-flex justify-content-center align-items-center text-light p-2">
+                                            {
+                                                getTitle(item?.content)
+                                            }
                                         </div>
                                     </figure>
                                     <h3 style={{padding: "0 5px"}}
