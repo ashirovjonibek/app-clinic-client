@@ -100,14 +100,16 @@ function PopularQuestionSlider({t, style}) {
                                 delay: 6000,
                                 disableOnInteraction: false,
                             }}
-                            pagination={false}
+                            pagination={{
+                                clickable: true,
+                            }}
                             navigation={true}
                         >
                             <div className="testimonial-slide">
                                 {top?.length > 0 ?
                                     top?.map((item, i) => {
                                         return (
-                                            <SwiperSlide className="container" key={i}>
+                                            <SwiperSlide className="container pb-5" key={i}>
                                                 <Card
                                                     style={
                                                         {

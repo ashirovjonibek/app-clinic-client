@@ -632,6 +632,14 @@ header.header-small .header-right-top a.free-consultation_btn {
     color: #fff;
 }
 
+.news-title{
+    -webkit-line-clamp: 2;
+}
+
+.news-description{
+    -webkit-line-clamp: 2;
+}
+
 .btn.white {
     background: #fff;
     color: #595545;
@@ -1098,11 +1106,6 @@ a.know-more:hover {
     display: inline-block;
 }
 
-.our-attorneys .cnt-block img {
-    width: 148px;
-    height: 148px;
-    border-radius: 100%;
-}
 
 .our-attorneys .cnt-block h3 {
     color: #fff !important;

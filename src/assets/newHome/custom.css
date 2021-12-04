@@ -1163,7 +1163,7 @@ a.know-more:hover {
 
 .our-attorneys .cnt-block img {
     width: 250px;
-    height: 300px;
+    height: 350px;
     /*border-radius: 100%;*/
 }
 
@@ -2564,6 +2564,57 @@ a.download-cert {
     background: #f0bc01;
     border-left: 1px #fff solid;
 }
+
+/*.news-swipe {*/
+/*    margin-right: 10px;*/
+/*    border-radius: 5px;*/
+/*    !*background-color: white;*!*/
+/*}*/
+.news-swipe1 .news-swipe-slide1{
+    width: 100%;
+    padding: 12px;
+}
+.news-swipe1 .swiper-button-prev {
+    background: url("../icon/Arrow4.svg");
+    background-repeat: no-repeat;
+    width: 50px;
+    margin-top: 190px;
+    margin-left: 350px;
+    z-index: 255 !important;
+    height: 100px;
+    background-size: 100% 100%;
+}
+
+.news-swipe1 .swiper-pagination-bullets .swiper-pagination-bullet{
+    background: #fffff1;
+}
+
+.news-swipe1 .swiper-button-next {
+    width: 50px;
+    margin-top: 190px;
+    margin-right: 350px;
+    z-index: 255 !important;
+    height: 100px;
+    cursor: pointer;
+    background: url("../icon/Arrow3.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.news-swipe1 .swiper-button-next::after,
+.news-swipe1 .swiper-button-prev::after {
+    opacity: 0;
+}
+
+
+/*.news-swipe > .news-swipe-slide > .swiper-button-prev {*/
+/*    margin-left: 250px;*/
+/*    width: 80px;*/
+/*}*/
+
+/*.news-swipe > .news-swipe-slide > .swiper-button-next {*/
+/*    margin-right: 250px;*/
+/*    width: 80px;*/
+/*}*/
 
 a.download-pros .ico-block, a.download-cert .ico-block {
     display: block;

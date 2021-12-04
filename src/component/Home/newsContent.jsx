@@ -11,7 +11,9 @@ import {withTranslation} from "react-i18next";
 import gerbImg from "../../assets/img/useful/gerb.jpg";
 import i18next from "i18next";
 import {DateRange, Visibility} from "@material-ui/icons";
+import {Card} from "antd";
 
+const {Meta} = Card;
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -19,28 +21,41 @@ function NewsContent({t, style}) {
 
     const [news, setNews] = useState([]);
     const [right, setRight] = useState([]);
+    const [showCount, setShowCount] = useState(3);
 
     useEffect(() => {
         axios({
             method: "get",
             url: "https://proacademy.uz/uz-cyr/post",
         }).then((res) => {
-            let a = [],
-                b = [];
-            for (let i = 0; i < 6; i++) {
-                a.push(res?.data?.items[i]);
-            }
-            for (
-                let i = res?.data?.items.length - 4;
-                i < res?.data?.items?.length;
-                i++
-            ) {
-                b.push(res?.data?.items[i]);
-            }
-            setRight(b);
-            setNews(a);
-            console.log("a", a, "b", b);
+            setNews(res?.data?.items);
         });
+    }, []);
+
+    useEffect(() => {
+
+        if (window.innerWidth < 768) {
+            setShowCount(1)
+        }
+        if (window.innerWidth > 768 && window.innerWidth < 992) {
+            setShowCount(2)
+        }
+        if (window.innerWidth > 992) {
+            setShowCount(3)
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) {
+                setShowCount(1)
+            }
+            if (window.innerWidth > 768 && window.innerWidth < 992) {
+                setShowCount(2)
+            }
+            if (window.innerWidth > 992) {
+                setShowCount(3)
+            }
+        })
+
     }, []);
 
     const getLangContent = (content) => {
@@ -67,68 +82,62 @@ function NewsContent({t, style}) {
                         <h2 className="text-light">{t("News")}</h2>
                     </div>
                     <div className="row pb-4">
-                        <div className="col-12 col-md-8 left-block">
-                            <div className="news-box bg-light p-2 mb-3">
-                                <figure className="pb-0">
-                                    {
-                                        news[0] &&
-                                        <img
-                                            className="big_image_new"
-                                            src={"https://proacademy.uz/postfiles/documents" +
-                                            news[0]?.img_link}
-                                            alt=""
-                                        />
-                                    }
-                                </figure>
-                                <h2 className="m-0 pt-0 pb-0">
-                                    <a className="pt-0" style={{fontSize: "14px"}}
-                                       href={`https://proacademy.uz/ru/news/view?alias=${news[0] && news[0]?.id}`}
-                                       target="_blank">{news[0] && getLangContent(news[0]?.title)}</a>
-                                </h2>
-
-                                <p className="pb-1">
-                                    {
-                                        news[0]?.short_content && getLangContent(news[0]?.short_content)
-                                    }
-                                </p>
-                                <div className="meta">
-                                    <DateRange className="mr-2"/>{news[0] && news[0]?.published_date}
-                                    <span>
-                  <Visibility className="mr-2"/>{news[0] && news[0]?.views}
-                  </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4 right-block">
-                            <ul className="news-listes">
-                                {
-                                    right && right?.map((item, i) => (
-                                        <li className="bg-light rounded p-1 m-1">
-                                            <figure>
-                                                <img className="ccccc" src={
-                                                    "https://proacademy.uz/postfiles/documents" +
-                                                    item?.img_link
-                                                } alt=""/>
-                                            </figure>
-                                            <div className="news-list-details">
-                                                <a target="_blank"
-                                                   href={`https://proacademy.uz/ru/news/view?alias=${item?.id}`}
-                                                   className="line_count_two ">{getLangContent(item?.title)}</a>
-                                                <div className="meta">
-                                                    <DateRange className=""/>
-                                                    <span>
-                            {item?.published_date.slice(0, 10)}
-                          </span>
-                                                    <span>
-                          <Visibility className="mr-2"/>{item?.views}
-                          </span>
+                        <Swiper
+                            slidesPerView={3}
+                            spaceBetween={30}
+                            loop={false}
+                            loopFillGroupWithBlank={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: true
+                            }}
+                            freeMode={true}
+                            navigation={true}
+                            className="news-swipe1"
+                            style={{width: "100%"}}
+                        >
+                            {
+                                news && news?.map((item, i) =>
+                                        <SwiperSlide className="pb-5 news-swipe-slide1">
+                                            <Card hoverable
+                                                  className=""
+                                                  title={false}
+                                            >
+                                                <div>
+                                                    <div>
+                                                        <div style={{height:"200px",overflow:"hidden"}}>
+                                                            <img alt="example" width="100%" style={{
+                                                                objectFit:"cover"
+                                                            }}
+                                                                 src={"https://proacademy.uz/postfiles/documents" +
+                                                                 item?.img_link}/>
+                                                        </div>
+                                                        <p className="news-title" style={{height:"50px",overflow:"hidden",fontWeight:600}}>{getLangContent(item?.title)}</p>
+                                                        <p className="news-description" style={{height:"95px",overflow:"hidden"}}>{getLangContent(item?.short_content)}</p>
+                                                    </div>
+                                                    <p className="d-flex justify-content-between">
+                                                        <span>
+                                                            <span>
+                                                            <DateRange/>
+                                                        </span>
+                                                        <span>{item?.published_date}</span>
+                                                        </span>
+                                                        <span>
+                                                            <span>
+                                                            <Visibility/>
+                                                        </span>
+                                                        <span>{item?.views}</span>
+                                                        </span>
+                                                    </p>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
+                                            </Card>
+                                        </SwiperSlide>
+                                )
+                            }
+                        </Swiper>
                     </div>
                 </div>
             </section>

@@ -82,8 +82,7 @@ function NormativHujjatlar({t, style}) {
                                                             alt=""
                                                         />
                                                     </div>
-                                                    <div
-                                                        className="col-7 d-flex justify-content-center align-items-center">
+                                                    <div className="col-7 d-flex justify-content-center align-items-center border-left">
                                                         <p>{item.name[i18next.language]}</p>
                                                     </div>
                                                 </div>

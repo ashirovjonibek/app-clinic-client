@@ -3,6 +3,7 @@ import axios from "axios";
 import i18next from "i18next";
 import {withTranslation} from "react-i18next";
 import {Swiper, SwiperSlide} from "swiper/react";
+import './mudirlar.css'
 
 const Mudirlar = ({style, t}) => {
     const [items, setItems] = useState([]);
@@ -78,7 +79,7 @@ const Mudirlar = ({style, t}) => {
                 >
                     {
                         items && items?.map((item, i) =>
-                            <SwiperSlide className="">
+                            <SwiperSlide className="pb-4">
                                 <div className="cnt-block equal-hight bg-light p-0">
                                     <figure style={{position: "relative"}} className="p-0 m-0">
                                         <img
