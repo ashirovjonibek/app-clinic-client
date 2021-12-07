@@ -8,17 +8,17 @@ const WhatClinic = ({t}) => {
     return (
         <div className="container">
             <div className="row heading heading-icon">
-                <h2 className="text-dark">{t("What is clinic")}</h2>
+                <h2>{t("What is clinic")}</h2>
             </div>
             <div className="row">
                 <div className="col-12 col-md-6 left-block row">
                     <i> </i>
-                    <p style={{fontSize: "16px"}} className="col-12 col-md-12 left-block">{t(
+                    <p style={{fontSize: "16px"}} className="col-12 col-md-12 left-block text-justify">&nbsp;&nbsp;&nbsp;&nbsp;{t(
                         "The clinic is an integral part of the Academy, which carries out activities to ensure the integration of theoretical knowledge of students with practice, the development of practical skills among students and the provision of non-discriminatory legal advice to individuals and legal entities"
                     )}</p>
                     <div className="col-12 col-md-12 left-block">
                         <div className="details">
-                            <h3 style={{fontSize: "16px",fontWeight:600}}>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
+                            <h3 style={{fontSize: "16px",fontWeight:600}} className="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
                             <p style={{paddingLeft: "20px"}}>
                                 <ul>
                                     <li style={{listStyleType: 'circle', fontSize: "16px"}}>
@@ -33,7 +33,7 @@ const WhatClinic = ({t}) => {
                     </div>
                 </div>
 
-                <div className="col-12 col-md-6 right-block">
+                <div className="col-12 col-md-6 right-block pt-4">
                     <img src={placeholder555x493} className="img-responsive" alt=""/>
                 </div>
             </div>

@@ -32,7 +32,7 @@ function App() {
             $("p,a,h1,h2,h3,h4,h5,h6,li,ul,div,span,body,header,section,footer,navbar,button,input,select,option,label,textarea,form,i,.fa,.line_count_two").css({
                 background: "",
                 color: "",
-                fontFamily: "Verdana, sans-serif"
+                fontFamily: "-apple-system,BlinkMacSystemFont"
             });
             $("li.nav-item > a.nav-link,.tel-number,#academy-name,#select-land-id").css("color", eye?.scroll > 0 ? "black" : "white");
             $("#select-land-id").css('background-color', 'rgba(0,0,0,0)')

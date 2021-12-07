@@ -632,12 +632,14 @@ header.header-small .header-right-top a.free-consultation_btn {
     color: #fff;
 }
 
-.news-title{
-    -webkit-line-clamp: 2;
+.news-swipe-slide1 .news-dddd-title{
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
 }
 
-.news-description{
-    -webkit-line-clamp: 2;
+.news-swipe-slide1 .news-dddd-description{
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
 }
 
 .btn.white {
@@ -5965,6 +5967,14 @@ ul.half-width li {
 /* ================================================== */
 /* 22. Responsive Style */
 /* ================================================== */
+
+.navbar-nav .nav-item{
+    padding: 8px 10px;
+}
+
+.navbar-nav .nav-item .nav-link{
+    word-break: keep-all;
+}
 
 @media only screen and (max-width: 1279px) {
     .navbar-dark .navbar-nav .nav-link {

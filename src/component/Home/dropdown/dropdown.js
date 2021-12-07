@@ -16,8 +16,11 @@ const DropDown = ({color}) => {
 
     return (
         <div className="dropdown">
-            <span className="dropbtn" style={{marginRight: "10px", fontSize: "20px", color: color}}><i
-                style={{color: color}} className="fa fa-eye"></i></span>
+            <span className="dropbtn" style={{marginRight: "10px", fontSize: "20px", color: color}}>
+                <div className="pt-1">
+                    <Visibility/>
+                </div>
+            </span>
             <div className="dropdown-content">
                 <a id="1" onClick={(e) => {
                     dispatch({type: CHANGE_THEME, data: ""});

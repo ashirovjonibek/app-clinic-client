@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
+import {Phone,Visibility} from "@material-ui/icons";
 import "../../assets/aa/bootstrap/css/bootstrap.min.css";
 import "../../assets/aa/datepicker/css/datepicker.css";
 import "../../assets/aa/font-awesome/css/font-awesome.min.css";
@@ -30,6 +31,9 @@ import {CHANGE_SCROLL} from "../../redux/me/actionType";
 import DropDown from "./dropdown/dropdown";
 import {Button} from 'antd'
 import flag from '../../assets/img/prokratura_flag_slow.mp4'
+import ph1 from '../../assets/img/1.png'
+import ph2 from '../../assets/img/2.png'
+import ph3 from '../../assets/img/3.png'
 
 const NewHome = ({t}) => {
     const container = useRef();
@@ -40,6 +44,9 @@ const NewHome = ({t}) => {
     const [color, setColor] = useState("#f2f2f2");
     const [isMobile, setIsMobile] = useState(false);
     const theme = useSelector(state => state.theme);
+    const [shh1,setShh1]=useState(false);
+    const [shh2,setShh2]=useState(false);
+    const [shh3,setShh3]=useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -119,7 +126,9 @@ const NewHome = ({t}) => {
                             filter: theme?.filter,
                             backgroundColor: isMobile ? "white" : ""
                         }} id="header" className={headerClass}>
-                            <div className="container header-middle">
+                            <div
+                                style={{width:"66%",margin:"0 auto"}}
+                                className={isMobile?"container header-middle":"header-middle"}>
                                 <div className="row">
                                     <div className="col-12 col-md-5 row logo">
                                         {!isMobile && (
@@ -151,7 +160,7 @@ const NewHome = ({t}) => {
                                                 style={{color: color}}
                                                 href="tel:+998 71 202-04-96"
                                             >
-                                                <i className="fa fa-phone" aria-hidden="true"></i> +998 (71)
+                                                <Phone/> +998 (71)
                                                 202-04-96
                                             </a>
 
@@ -191,7 +200,7 @@ const NewHome = ({t}) => {
                                                 }
                                                 id="navbarNavDropdown"
                                             >
-                                                <ul className="navbar-nav">
+                                                <ul className="navbar-nav d-flex justify-content-end p-0" style={{width:"100%"}}>
                                                     <li className="nav-item active">
                                                         <a
                                                             style={{
@@ -365,64 +374,59 @@ const NewHome = ({t}) => {
                         <section style={theme} id="practice-areas" className="practice-area padding-lg">
                             <div className="container">
                                 <div className="row heading heading-icon">
-                                    <h2 className="text-dark">{t("Clinic plans")}</h2>
+                                    <h2>{t("Clinic plans")}</h2>
                                 </div>
-                                <div style={{lineHeight: "28px"}} className="row">
-                                    <div className="col-12 col-md-12 left-block">
-                                        <div className="details">
-                                            <h3 style={{
-                                                fontSize: "20px",
-                                                fontWeight: 600
-                                            }}>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}:</h3>
-                                            <p style={{paddingLeft: "20px"}}>
+                                <ul className="row">
+                                    <li className="col-12 col-md-4 equal-hight">
+                                        <div className="inner"><img src={ph1}
+                                                                    alt="Intellectual Property"/>
+                                            <h3>{t("Ensuring that trainees undergo internships at the clinic during their studies at the Academy")}</h3>
+                                            <p>
                                                 <ul>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px", borderBottom:"1px dashed",paddingBottom:"10px"}}>
                                                         <span>{t("take organizational measures to organize internships for students in the clinic;")}</span>
                                                     </li>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px",paddingTop:"10px"}}>
                                                         <span>{t("to involve students in law enforcement practice by ensuring that their theoretical knowledge is inextricably linked with practice;")}</span>
                                                     </li>
                                                 </ul>
                                             </p>
+                                            {/*<a className="read-more" onClick={()=>setShh1(!shh1)} href="#">{shh1?"Berkitish":"Batafsil"}</a>*/}
                                         </div>
-                                    </div>
-                                    <div className="col-12 col-md-12 left-block">
-                                        <div className="details">
-                                            <h3 style={{
-                                                fontSize: "20px",
-                                                fontWeight: 600
-                                            }}>{t("Regarding the provision of free legal aid to individuals and legal entities")}:</h3>
-                                            <p style={{paddingLeft: "20px"}}>
+                                    </li>
+                                    <li className="col-12 col-md-4 equal-hight">
+                                        <div className="inner"><img src={ph2}
+                                                                    alt="Intellectual Property"/>
+                                            <h3>{t("Regarding the provision of free legal aid to individuals and legal entities")}</h3>
+                                            <p>
                                                 <ul>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px", borderBottom:"1px dashed",paddingBottom:"10px"}}>
                                                         <span>{t("to ensure timely and quality consideration of appeals of individuals and legal entities for legal advice;")}</span>
                                                     </li>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px",paddingTop:"10px"}}>
                                                         <span>{t("make recommendations on the nature and complexity of appeals of individuals and legal entities, and the need to apply to the relevant state and economic authorities, courts, law enforcement agencies and advocacy structures to resolve them;")}</span>
                                                     </li>
                                                 </ul>
                                             </p>
                                         </div>
-                                    </div>
-                                    <div className="col-12 col-md-12 left-block">
-                                        <div className="details">
-                                            <h3 style={{
-                                                fontSize: "20px",
-                                                fontWeight: 600
-                                            }}>{t("To increase the level of professional training of students and develop their skills in working with legal entities and individuals")}:</h3>
-                                            <p style={{paddingLeft: "20px"}}>
+                                    </li>
+                                    <li className="col-12 col-md-4 equal-hight">
+                                        <div className="inner"><img src={ph3}
+                                                                    alt="Intellectual Property"/>
+                                            <h3>{t("To increase the level of professional training of students and develop their skills in working with legal entities and individuals")}</h3>
+                                            <p>
                                                 <ul>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px", borderBottom:"1px dashed",paddingBottom:"10px"}}>
                                                         <span>{t("preparation of analytical data on legal issues, development of new programs to help develop practical skills;")}</span>
                                                     </li>
-                                                    <li style={{listStyleType: 'circle', fontSize: "17px"}}>
+                                                    <li style={{fontSize: "17px",paddingTop:"10px"}}>
                                                         <span>{t("conducting seminars and trainings aimed at developing professional ethics and professional skills in trainees undergoing internships in the clinic;")}</span>
                                                     </li>
                                                 </ul>
                                             </p>
                                         </div>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
                         <NewsContent style={theme}/>

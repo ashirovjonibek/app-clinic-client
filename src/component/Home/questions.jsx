@@ -87,7 +87,7 @@ function PopularQuestionSlider({t, style}) {
             <section style={style} className="testimonial padding-lg">
                 <div className="container">
                     <div className="row heading heading-icon">
-                        <h2 className="text-dark">{t("Popular questions")}</h2>
+                        <h2>{t("Popular questions")}</h2>
                     </div>
                     <div id="base"/>
                     <div className="wrapper">
@@ -104,6 +104,7 @@ function PopularQuestionSlider({t, style}) {
                                 clickable: true,
                             }}
                             navigation={true}
+                            className="savollar"
                         >
                             <div className="testimonial-slide">
                                 {top?.length > 0 ?

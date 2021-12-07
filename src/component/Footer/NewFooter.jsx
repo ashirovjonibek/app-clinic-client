@@ -1,6 +1,7 @@
 import React from "react";
 import {withTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
+import {Telegram,Facebook,Twitter,Instagram,Map,Phone,Mail,ArrowRight} from "@material-ui/icons";
 
 const NewFooter = ({t, style}) => {
     let date = new Date();
@@ -15,44 +16,43 @@ const NewFooter = ({t, style}) => {
                             <div className="contact-us">
                                 <h3>{t("Contacts")}</h3>
                                 <p>
-                                    <i className="fa fa-map-marker" aria-hidden="true"></i>
                                     <a target="_blank"
                                        href="https://www.google.com/maps/place/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%83%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0+%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B8+%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/@41.307783,69.287713,17z/data=!4m5!3m4!1s0x0:0x87547e5307b77db5!8m2!3d41.3077454!4d69.2877751?hl=ru">
-                                        {t(
+                                        <Map/> {t(
                                             "100047, Tashkent, Mirabad district, st. Shakhrisabz, 42"
                                         )}
                                     </a>
                                 </p>
                                 <p>
                                     <a href="tel:+998712020496">
-                                        <i className="fa fa-phone" aria-hidden="true"></i>+998 (71) 202-04-96
+                                        <Phone/>+998 (71) 202-04-96
                                     </a>
                                 </p>
                                 <p>
                                     <a href="mailto:info@proacademy.uz">
-                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                        <Mail/>
                                         info@proacademy.uz
                                     </a>
                                 </p>
                                 <ul className="follow-us clearfix">
                                     <li>
                                         <a target="_blank" href="https://www.facebook.com/ProsecutorAcademy">
-                                            <i className="fa fa-facebook" aria-hidden="true"></i>
+                                            <Facebook/>
                                         </a>
                                     </li>
                                     <li>
                                         <a target="_blank" href="https://twitter.com/ProAcademyUz">
-                                            <i className="fa fa-twitter" aria-hidden="true"></i>
+                                            <Twitter/>
                                         </a>
                                     </li>
                                     <li>
                                         <a target="_blank" href="https://www.instagram.com/proacademyuz/">
-                                            <i className="fa fa-instagram" aria-hidden="true"></i>
+                                            <Instagram/>
                                         </a>
                                     </li>
                                     <li>
                                         <a target="_blank" href="https://t.me/ProsecutorAcademy">
-                                            <i className="fa fa-telegram" aria-hidden="true"></i>
+                                            <Telegram/>
                                         </a>
                                     </li>
                                 </ul>
@@ -64,13 +64,13 @@ const NewFooter = ({t, style}) => {
                                 <ul className="clearfix">
                                     <li>
                                         <a href="#about">
-                                            <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                                            <ArrowRight/>{" "}
                                             {t("What is clinic")}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#cell-clinic">
-                                            <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                                            <ArrowRight/>{" "}
                                             {t("Goal of the clinic")}
                                         </a>
                                     </li>
@@ -82,13 +82,13 @@ const NewFooter = ({t, style}) => {
                                     {/*</li>*/}
                                     <li>
                                         <a href="#popular-questions">
-                                            <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                                            <ArrowRight/>{" "}
                                             {t("Popular questions")}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#base">
-                                            <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                                            <ArrowRight/>{" "}
                                             {t("Regulatory base")}
                                         </a>
                                     </li>
@@ -100,7 +100,7 @@ const NewFooter = ({t, style}) => {
                                     {/*</li>*/}
                                     <li>
                                         <a href="#news">
-                                            <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                                            <ArrowRight/>{" "}
                                             {t("News")}
                                         </a>
                                     </li>
@@ -130,7 +130,8 @@ const NewFooter = ({t, style}) => {
             <div className="copy-rights-section">
                 <div className="container">
                     <div className="row">
-                        <p>© 2020 JOHN BISTAND - All rights reserved</p>
+                        <p>Сайт разработан в: <a style={{color: "white"}} href="http://napaautomative.com/">Napa
+                            Automative</a></p>
                     </div>
                 </div>
             </div>

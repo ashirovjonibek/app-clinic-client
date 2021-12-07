@@ -58,7 +58,7 @@ const Mudirlar = ({style, t}) => {
         <section style={style} className="our-attorneys padding-lg">
             <div className="container">
                 <div className="row heading heading-icon">
-                    <h2 className="text-dark">{t("Our Attorneys")}</h2>
+                    <h2>{t("Our Attorneys")}</h2>
                 </div>
                 <Swiper
                     slidesPerView={showCount}
@@ -74,7 +74,7 @@ const Mudirlar = ({style, t}) => {
                     }}
                     freeMode={true}
                     navigation={true}
-                    className=""
+                    className="mudirlar"
                     style={{width: "100%"}}
                 >
                     {
@@ -86,7 +86,8 @@ const Mudirlar = ({style, t}) => {
                                             style={{
                                                 borderRadius: 0,
                                                 margin: 0,
-                                                width: "100%"
+                                                width: "100%",
+                                                height:"325px"
                                             }}
                                             src={item?.img_link}
                                             className="img-responsive"
