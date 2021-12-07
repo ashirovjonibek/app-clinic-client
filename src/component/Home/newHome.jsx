@@ -290,13 +290,13 @@ const NewHome = ({t}) => {
                                 <div className="slide1" style={{width: "100%"}}>
                                     <div className="container" style={{width: "100% !important"}}>
                                         <div
-                                            className={isMobile ? "content animated fadeInLeft m-0 " : "content animated fadeInLeft m-0 d-flex justify-content-center align-items-center"}
+                                            className={isMobile ? "content row animated fadeInLeft m-0 " : "content animated row fadeInLeft m-0"}
                                         >
-                                            <div>
+                                            <div className="col-12 text-start pt-5">
                                                 <h1 className="animated fadeInLeft" style={{width: "100%"}}>
                                                     {t("Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}
                                                 </h1>
-                                                <p className="animated fadeInLeft">{t("Legal clinic")}</p>
+                                                <h1 className="animated fadeInLeft">{t("Legal clinic")}</h1>
                                             </div>
                                         </div>
                                     </div>

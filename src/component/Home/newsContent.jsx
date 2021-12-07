@@ -115,8 +115,8 @@ function NewsContent({t, style}) {
                                                                  src={"https://proacademy.uz/postfiles/documents" +
                                                                  item?.img_link}/>
                                                         </div>
-                                                        <p className="news-dddd-title" style={{fontWeight:600}}>{getLangContent(item?.title)?.length>70?getLangContent(item?.title).substring(0,70)+"...":getLangContent(item?.title)}</p>
-                                                        <p className="news-dddd-description">{getLangContent(item?.short_content)?.length>160?getLangContent(item?.short_content).substring(0,160)+"...":getLangContent(item?.short_content)}</p>
+                                                        <p className="news-dddd-title" style={{fontWeight:600}}>{getLangContent(item?.title)?.length>60?getLangContent(item?.title).substring(0,60)+"...":getLangContent(item?.title)}</p>
+                                                        <p className="news-dddd-description">{getLangContent(item?.short_content)?.length>120?getLangContent(item?.short_content).substring(0,120)+"...":getLangContent(item?.short_content)}</p>
                                                     </div>
                                                     <p className="d-flex justify-content-between">
                                                         <span>
