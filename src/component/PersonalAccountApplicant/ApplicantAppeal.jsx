@@ -32,6 +32,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../../assets/css/table.css'
 import {Dropdown, Menu} from "antd";
+import i18next from "i18next";
 
 const ApplicantAppeal = (props) => {
     const {history, t} = props;
@@ -354,7 +355,7 @@ const ApplicantAppeal = (props) => {
                                                         className="category" required>
                                                     <option value="">{props.t("Select department")}</option>
                                                     {sections && sections.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.title.uz}</option>
+                                                        <option key={i} value={item.id}>{item.title[i18next.language]}</option>
                                                     )}
                                                 </select>
                                             </div>

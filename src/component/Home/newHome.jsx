@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
-import {Phone,Visibility} from "@material-ui/icons";
+import {LocationOn, Mail, Phone, Visibility} from "@material-ui/icons";
 import "../../assets/aa/bootstrap/css/bootstrap.min.css";
 import "../../assets/aa/datepicker/css/datepicker.css";
 import "../../assets/aa/font-awesome/css/font-awesome.min.css";
@@ -34,6 +34,7 @@ import flag from '../../assets/img/prokratura_flag_slow.mp4'
 import ph1 from '../../assets/img/1.png'
 import ph2 from '../../assets/img/2.png'
 import ph3 from '../../assets/img/3.png'
+import NavTop from "../Nav/NavTop";
 
 const NewHome = ({t}) => {
     const container = useRef();
@@ -43,6 +44,7 @@ const NewHome = ({t}) => {
     const [headerClass, setHeaderClass] = useState("");
     const [color, setColor] = useState("#f2f2f2");
     const [isMobile, setIsMobile] = useState(false);
+    const [isWin, setIsWin] = useState(false);
     const theme = useSelector(state => state.theme);
     const [shh1,setShh1]=useState(false);
     const [shh2,setShh2]=useState(false);
@@ -59,12 +61,22 @@ const NewHome = ({t}) => {
         } else {
             setIsMobile(false);
         }
+        if (window.innerWidth < 1643) {
+            setIsWin(true)
+        } else {
+            setIsWin(false);
+        }
         window.addEventListener("resize", () => {
             if (window.innerWidth < 768) {
                 setColor(theme?.eye == "3" ? "yellow" : "#2a2a2a");
                 setIsMobile(true);
             } else {
                 setIsMobile(false);
+            }
+            if (window.innerWidth < 1643) {
+                setIsWin(true)
+            } else {
+                setIsWin(false);
             }
         });
     }, []);
@@ -127,8 +139,8 @@ const NewHome = ({t}) => {
                             backgroundColor: isMobile ? "white" : ""
                         }} id="header" className={headerClass}>
                             <div
-                                style={{width:"66%",margin:"0 auto"}}
-                                className={isMobile?"container header-middle":"header-middle"}>
+                                style={{width:isWin?"":"66%",margin:isWin?"":"0 auto"}}
+                                className={isMobile||isWin?"container header-middle":"header-middle"}>
                                 <div className="row">
                                     <div className="col-12 col-md-5 row logo">
                                         {!isMobile && (

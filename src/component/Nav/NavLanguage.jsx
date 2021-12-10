@@ -16,6 +16,11 @@ const NavLanguage = () => {
             label: "РУС",
             className: "rus-item",
             val: "ru"
+        },
+        {
+            label: "ЎЗБ",
+            className: "uzCyr-item",
+            val: "uzCyr"
         }
     ];
 

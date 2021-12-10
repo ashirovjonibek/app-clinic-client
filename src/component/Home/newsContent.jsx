@@ -61,6 +61,7 @@ function NewsContent({t, style}) {
     const getLangContent = (content) => {
         let lng = i18next.language;
         if (lng === "uz" || lng === "en") lng = "uz-Lat";
+        if (lng === "uzCyr") lng = "uz-Cyr";
 
         let parse = JSON.parse(content);
 
@@ -83,7 +84,7 @@ function NewsContent({t, style}) {
                     </div>
                     <div className="row pb-4">
                         <Swiper
-                            slidesPerView={3}
+                            slidesPerView={showCount}
                             spaceBetween={30}
                             loop={false}
                             loopFillGroupWithBlank={true}
@@ -115,8 +116,8 @@ function NewsContent({t, style}) {
                                                                  src={"https://proacademy.uz/postfiles/documents" +
                                                                  item?.img_link}/>
                                                         </div>
-                                                        <p className="news-dddd-title" style={{fontWeight:600}}>{getLangContent(item?.title)?.length>60?getLangContent(item?.title).substring(0,60)+"...":getLangContent(item?.title)}</p>
-                                                        <p className="news-dddd-description">{getLangContent(item?.short_content)?.length>120?getLangContent(item?.short_content).substring(0,120)+"...":getLangContent(item?.short_content)}</p>
+                                                        <p className="news-dddd-title" style={{fontWeight:600}}>{getLangContent(item?.title)?.length>45?getLangContent(item?.title).substring(0,45)+"...":getLangContent(item?.title)}</p>
+                                                        <p className="news-dddd-description">{getLangContent(item?.short_content)?.length>80?getLangContent(item?.short_content).substring(0,80)+"...":getLangContent(item?.short_content)}</p>
                                                     </div>
                                                     <p className="d-flex justify-content-between">
                                                         <span>

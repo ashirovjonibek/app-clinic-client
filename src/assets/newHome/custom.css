@@ -53,7 +53,7 @@ theme.
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Yeseva+One');
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Yeseva One', sans-serif !important;
     font-size: 14px;
     color: #2a2a2a;
     line-height: 24px;
@@ -567,7 +567,7 @@ header.header-small .header-right-top a.free-consultation_btn {
 .banner-outer .slide1, .banner-outer .slide2, .banner-outer .slide3 {
     display: block;
     width: 100%;
-    height: 930px;
+    height: 100vh;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.4);
 
@@ -2586,7 +2586,7 @@ a.download-cert {
     background: url("../icon/Arrow4.svg");
     background-repeat: no-repeat;
     width: 50px;
-    margin-top: 180px;
+    margin-top: 170px;
     margin-left: 350px;
     z-index: 255 !important;
     height: 100px;
@@ -2599,7 +2599,7 @@ a.download-cert {
 
 .news-swipe1 .swiper-button-next {
     width: 50px;
-    margin-top: 180px;
+    margin-top: 170px;
     margin-right: 350px;
     z-index: 255 !important;
     height: 100px;
@@ -2610,28 +2610,38 @@ a.download-cert {
 }
 .news-swipe1 .swiper-button-next::after,
 .news-swipe1 .swiper-button-prev::after {
-    opacity: 0;
+    display: none;
 }
 
 .mudirlar .swiper-button-prev {
-    background: url("../icon/Arrow4_1.svg");
+    margin-top: 200px;
+    height: 50px;
+    margin-left: 85%;
+    background: url("../icon/l.jpg");
     background-repeat: no-repeat;
     width: 50px;
-    margin-top: 145px;
-    margin-left: 250px;
-    z-index: 255 !important;
-    height: 100px;
     background-size: 100% 100%;
+}
+
+@media screen and(max-width: 810px){
+    .mudirlar .swiper-button-prev {
+        margin-top: 200px;
+        height: 50px;
+        margin-left: 50% !important;
+        background: url("../icon/l.jpg");
+        background-repeat: no-repeat;
+        width: 50px;
+        background-size: 100% 100%;
+    }
 }
 
 .mudirlar .swiper-button-next {
     width: 50px;
-    margin-top: 145px;
-    margin-right: 250px;
+    height: 50px;
+    margin-top:200px;
     z-index: 255 !important;
-    height: 100px;
     cursor: pointer;
-    background: url("../icon/Arrow3_1.svg");
+    background: url("../icon/r.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -2641,32 +2651,32 @@ a.download-cert {
 }
 
 
-.savollar .swiper-button-prev {
-    background: url("../icon/Arrow4_1.svg");
-    background-repeat: no-repeat;
-    width: 50px;
-    margin-top: 130px;
-    margin-left: 350px;
-    z-index: 255 !important;
-    height: 100px;
-    background-size: 100% 100%;
-}
+/*.savollar .swiper-button-prev {*/
+/*    background: url("../icon/Arrow4_1.svg");*/
+/*    background-repeat: no-repeat;*/
+/*    width: 50px;*/
+/*    margin-top: 130px;*/
+/*    margin-left: 350px;*/
+/*    z-index: 255 !important;*/
+/*    height: 100px;*/
+/*    background-size: 100% 100%;*/
+/*}*/
 
-.savollar .swiper-button-next {
-    width: 50px;
-    margin-top: 130px;
-    margin-right: 350px;
-    z-index: 255 !important;
-    height: 100px;
-    cursor: pointer;
-    background: url("../icon/Arrow3_1.svg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-.savollar .swiper-button-next::after,
-.savollar .swiper-button-prev::after {
-    opacity: 0;
-}
+/*.savollar .swiper-button-next {*/
+/*    width: 50px;*/
+/*    margin-top: 130px;*/
+/*    margin-right: 350px;*/
+/*    z-index: 255 !important;*/
+/*    height: 100px;*/
+/*    cursor: pointer;*/
+/*    background: url("../icon/Arrow3_1.svg");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.savollar .swiper-button-next::after,*/
+/*.savollar .swiper-button-prev::after {*/
+/*    opacity: 0;*/
+/*}*/
 
 /*.news-swipe > .news-swipe-slide > .swiper-button-prev {*/
 /*    margin-left: 250px;*/

@@ -14,6 +14,11 @@ const LangContener = ({color, className}) => {
             label: "РУС",
             className: "rus-item",
             val: "ru"
+        },
+        {
+            label: "ЎЗБ",
+            className: "uzCyr-item",
+            val: "uzCyr"
         }
     ];
 
@@ -39,7 +44,7 @@ const LangContener = ({color, className}) => {
                     changeLang(e.target.value)
                 }}>
             {languagesList.map((item, i) =>
-                <option style={{color: "#000"}} value={item?.val}>{item?.label}</option>
+                <option style={{color: "#000000"}} value={item?.val}>{item?.label}</option>
             )}
         </select>
     )

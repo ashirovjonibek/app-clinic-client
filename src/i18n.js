@@ -4,6 +4,7 @@ import {initReactI18next} from "react-i18next"
 
 import translationRU from "./locale/ru/translation.json"
 import translationUZ from "./locale/uz/translation.json"
+import translationUzCyr from "./locale/uz_cry/translation.json"
 
 const resources = {
     ru: {
@@ -11,6 +12,9 @@ const resources = {
     },
     uz: {
         translation: translationUZ,
+    },
+    uzCyr: {
+        translation: translationUzCyr
     }
 };
 

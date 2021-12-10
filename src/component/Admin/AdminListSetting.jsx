@@ -14,6 +14,7 @@ import {green, red} from "@material-ui/core/colors";
 import Dialog from "@material-ui/core/Dialog";
 import DirectoryPdf from "../PersonalAccountListener/DirectoryPdf";
 import DirectorySection from "../PersonalAccountListener/DirectorySection";
+import {Input} from "antd";
 
 const AdminListSetting = ({t, searchTerm}) => {
     const [departments, setDepartments] = useState([
@@ -32,6 +33,12 @@ const AdminListSetting = ({t, searchTerm}) => {
         }
     ]);
     const [links, setLinks] = useState([]);
+    const [mErr,setMErr]=useState({
+       uz:"Maydon to'ldirilishi shart!!!",
+       uzCyr:"Майдон тўлдирилиши шарт!!!",
+       ru:"Поле обязательно для заполнения !!!",
+       en:"The field must be filled !!!"
+    });
     const [active, setActive] = useState(1);
     const [totalPages, setTotalPages] = useState();
     const [size, setSize] = useState(10);
@@ -138,9 +145,11 @@ const AdminListSetting = ({t, searchTerm}) => {
     const saveLink = (method) => {
         if (
             item.nameuz &&
+            item.nameuzCyr &&
             item.nameru &&
             item.nameen &&
             item.urluz &&
+            item.urluzCyr &&
             item.urlru &&
             item.urlen
         ) {
@@ -168,9 +177,11 @@ const AdminListSetting = ({t, searchTerm}) => {
                             setItem(
                                 {
                                     nameuz: "",
+                                    nameuzCyr: "",
                                     nameru: "",
                                     nameen: "",
                                     urluz: "",
+                                    urluzCyr: "",
                                     urlru: "",
                                     urlen: ""
                                 }
@@ -195,6 +206,12 @@ const AdminListSetting = ({t, searchTerm}) => {
                     nameuz: true
                 }
             }
+            if (!item.nameuzCyr) {
+                a = {
+                    ...a,
+                    nameuzCyr: true
+                }
+            }
             if (!item.nameru) {
                 a = {
                     ...a,
@@ -211,6 +228,12 @@ const AdminListSetting = ({t, searchTerm}) => {
                 a = {
                     ...a,
                     urluz: true
+                }
+            }
+            if (!item.urluzCyr) {
+                a = {
+                    ...a,
+                    urluzCyr: true
                 }
             }
             if (!item.urlru) {
@@ -276,6 +299,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                             <tr>
                                 <th className="table-border number">#</th>
                                 <th className="table-border name-uz">Bo'lim nomi</th>
+                                <th className="table-border name-uz">Бўлим номи</th>
                                 <th className="table-border name-ru">Название кафедара</th>
                                 <th className="table-border name-en">Department name</th>
                                 {/*<th className="table-border edit">{t("Edit")}</th>*/}
@@ -291,6 +315,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                 <tr key={item.id} value={item.id}>
                                     <td className="table-border ">{i + 1}</td>
                                     <td className="table-border">{item.title["uz"]}</td>
+                                    <td className="table-border">{item.title["uzCyr"]}</td>
                                     <td className="table-border">{item.title["ru"]}</td>
                                     <td className="table-border">{item.title["en"]}</td>
                                     {/*<td className="table-border edit">*/}
@@ -319,11 +344,12 @@ const AdminListSetting = ({t, searchTerm}) => {
                         maxMin.link ? <VisibilityOff/> : <Visibility/>
                     }
                 </span>
-                <Dialog fullWidth={true} open={forLink.open} onClose={() => {
+                <Dialog maxWidth="lg" fullWidth={true} open={forLink.open} onClose={() => {
                     setForLink({item: null, open: false})
                     setError(
                         {
                             nameuz: false,
+                            nameuzCyr: false,
                             nameru: false,
                             nameen: false,
                             urluz: false,
@@ -333,6 +359,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                     )
                     setItem({
                         nameuz: "",
+                        nameuzCyr: "",
                         nameru: "",
                         nameen: "",
                         urluz: "",
@@ -383,7 +410,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.nameuz} onChange={(e) => {
+                                    <Input.TextArea value={item.nameuz} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             nameuz: e.target.value
@@ -399,7 +426,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     }} required={true} placeholder="Name(uz)" type="text"/>
                                     {
                                         error.nameuz ?
-                                            <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
                                     }
                                 </td>
                                 <td style={{
@@ -408,7 +435,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.urluz} required={true} onChange={(e) => {
+                                    <Input.TextArea value={item.urluz} required={true} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             urluz: e.target.value
@@ -424,7 +451,65 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     }} placeholder="Url(uz)" type="text"/>
                                     {
                                         error.urluz ?
-                                            <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
+                                    }
+                                </td>
+                            </tr>
+                            <tr style={{padding: "7px", borderBottom: "1px solid rgba(0,0,0,0.3)"}}>
+                                <td style={{
+                                    padding: "7px",
+                                    borderLeft: "1px solid rgba(0,0,0,0.3)",
+                                    borderBottom: "1px solid rgba(0,0,0,0.3)"
+                                }}>
+                                    <b>uz-krill</b>
+                                </td>
+                                <td style={{
+                                    padding: "7px",
+                                    borderLeft: "1px solid rgba(0,0,0,0.3)",
+                                    borderBottom: "1px solid rgba(0,0,0,0.3)"
+                                }}>
+                                    <Input.TextArea value={item.nameuz} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            nameuzCyr: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            nameuzCyr: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            nameuzCyr: true
+                                        })
+                                    }} required={true} placeholder="Name(uz-kr)" type="text"/>
+                                    {
+                                        error.nameuzCyr ?
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
+                                    }
+                                </td>
+                                <td style={{
+                                    padding: "7px",
+                                    borderLeft: "1px solid rgba(0,0,0,0.3)",
+                                    borderBottom: "1px solid rgba(0,0,0,0.3)",
+                                    borderRight: "1px solid rgba(0,0,0,0.3)"
+                                }}>
+                                    <Input.TextArea value={item.urluz} required={true} onChange={(e) => {
+                                        setItem({
+                                            ...item,
+                                            urluzCyr: e.target.value
+                                        })
+                                        if (e.target.value.length > 0) setError({
+                                            ...error,
+                                            urluzCyr: false
+                                        });
+                                        else setError({
+                                            ...error,
+                                            urluzCyr: true
+                                        })
+                                    }} placeholder="Url(uz-kr)" type="text"/>
+                                    {
+                                        error.urluzCyr ?
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
                                     }
                                 </td>
                             </tr>
@@ -441,7 +526,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.nameru} onChange={(e) => {
+                                    <Input.TextArea value={item.nameru} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             nameru: e.target.value
@@ -458,7 +543,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     }} required={true} placeholder="Name(ru)" type="text"/>
                                     {
                                         error.nameru ?
-                                            <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
                                     }
                                 </td>
                                 <td style={{
@@ -467,7 +552,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.urlru} onChange={(e) => {
+                                    <Input.TextArea value={item.urlru} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             urlru: e.target.value
@@ -483,7 +568,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     }} required={true} placeholder="Url(ru)" type="text"/>
                                     {
                                         error.urlru ?
-                                            <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
                                     }
                                 </td>
                             </tr>
@@ -500,7 +585,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderLeft: "1px solid rgba(0,0,0,0.3)",
                                     borderBottom: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.nameen} onChange={(e) => {
+                                    <Input.TextArea value={item.nameen} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             nameen: e.target.value
@@ -516,7 +601,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     }} required={true} placeholder="Name(en)" type="text"/>
                                     {
                                         error.nameen ?
-                                            <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""
+                                            <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""
                                     }
                                 </td>
                                 <td style={{
@@ -525,7 +610,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                     borderBottom: "1px solid rgba(0,0,0,0.3)",
                                     borderRight: "1px solid rgba(0,0,0,0.3)"
                                 }}>
-                                    <input value={item.urlen} onChange={(e) => {
+                                    <Input.TextArea value={item.urlen} onChange={(e) => {
                                         setItem({
                                             ...item,
                                             urlen: e.target.value
@@ -539,7 +624,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                             urlen: true
                                         })
                                     }} required={true} placeholder="Url(en)" type="text"/>
-                                    {error.urlen ? <p style={{color: red[400]}}>Maydon to'ldirilishi shart!!!</p> : ""}
+                                    {error.urlen ? <p style={{color: red[400]}}>{mErr[i18next.language]}</p> : ""}
                                 </td>
                             </tr>
                             </tbody>
@@ -558,7 +643,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                             boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
                             color: "white"
                         }} type="submit">
-                            Saqlash
+                            {t("Save")}
                         </button>
                         <button style={{
                             float: "right",
@@ -589,7 +674,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                             })
 
                         }}>
-                            Bekor qilish
+                            {t("Cancel")}
                         </button>
                     </div>
                 </Dialog>
@@ -613,7 +698,7 @@ const AdminListSetting = ({t, searchTerm}) => {
                                 <th className="table-border number">#</th>
                                 <th className="table-border name-uz">Name</th>
                                 <th className="table-border name-ru">Url</th>
-                                <th className="table-border edit">{t("Edit")}</th>
+                                <th className="table-border">{t("Edit")}</th>
                                 <th className="table-border delete">{t("Delete")}</th>
                             </tr>
                             {links && links.map((item, i) =>
@@ -627,9 +712,11 @@ const AdminListSetting = ({t, searchTerm}) => {
                                             let a = {
                                                 id: item.id,
                                                 nameuz: item.name["uz"],
+                                                nameuzCyr: item.name["uzCyr"],
                                                 nameru: item.name["ru"],
                                                 nameen: item.name["en"],
                                                 urluz: item.url["uz"],
+                                                urluzCyr: item.url["uzCyr"],
                                                 urlru: item.url["ru"],
                                                 urlen: item.url["en"]
                                             };

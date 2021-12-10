@@ -154,7 +154,7 @@ const Login = (props) => {
                                             label={<span style={{fontWeight: 600}}>{t("Phone number or email")}</span>}
                                             name="phoneNumber"
                                         >
-                                            <Input placeholder={t("Phone number or email")}/>
+                                            <Input className="shadow" style={{borderRadius:"6px"}} placeholder={t("Phone number or email")}/>
                                         </Form.Item>
                                     </Col>
                                     <Col xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
@@ -162,13 +162,13 @@ const Login = (props) => {
                                             label={<span style={{fontWeight: 600}}>{t("Password")}</span>}
                                             name="password"
                                         >
-                                            <Input.Password autoComplete="new-password"
+                                            <Input.Password className="shadow" style={{borderRadius:"6px"}} autoComplete="new-password"
                                                             placeholder={t("Password")}/>
                                         </Form.Item>
                                     </Col>
                                     <Col xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
                                         <Form.Item>
-                                            <Button style={{float: "right"}} type="primary"
+                                            <Button className="shadow" style={{float: "right",borderRadius:"6px"}} type="primary"
                                                     htmlType="submit">{props.t("Login")}</Button>
                                         </Form.Item>
                                     </Col>

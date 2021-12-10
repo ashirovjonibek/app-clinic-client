@@ -3,7 +3,9 @@ import axios from "axios";
 import i18next from "i18next";
 import {withTranslation} from "react-i18next";
 import {Swiper, SwiperSlide} from "swiper/react";
+import {ArrowRight,ArrowLeft} from "@material-ui/icons";
 import './mudirlar.css'
+import {blue} from "@material-ui/core/colors";
 
 const Mudirlar = ({style, t}) => {
     const [items, setItems] = useState([]);
@@ -48,6 +50,8 @@ const Mudirlar = ({style, t}) => {
 
         if (language === "uz") {
             return a["uz-Lat"];
+        } else if (language === "uzCyr") {
+            return a["uz-Cyr"];
         } else {
             return a[language];
         }
@@ -65,9 +69,7 @@ const Mudirlar = ({style, t}) => {
                     spaceBetween={30}
                     loop={false}
                     loopFillGroupWithBlank={true}
-                    pagination={{
-                        clickable: true,
-                    }}
+                    pagination={false}
                     autoplay={{
                         delay: 5000,
                         disableOnInteraction: true
@@ -79,7 +81,7 @@ const Mudirlar = ({style, t}) => {
                 >
                     {
                         items && items?.map((item, i) =>
-                            <SwiperSlide className="pb-4">
+                            <SwiperSlide className="pb-5">
                                 <div className="cnt-block equal-hight bg-light p-0">
                                     <figure style={{position: "relative"}} className="p-0 m-0">
                                         <img
@@ -87,13 +89,14 @@ const Mudirlar = ({style, t}) => {
                                                 borderRadius: 0,
                                                 margin: 0,
                                                 width: "100%",
-                                                height:"325px"
+                                                objectFit: "cover"
                                             }}
                                             src={item?.img_link}
                                             className="img-responsive"
                                             alt=""
                                         />
-                                        <div className="more-content-attorney d-flex justify-content-center align-items-center text-light p-2">
+                                        <div
+                                            className="more-content-attorney d-flex justify-content-center align-items-center text-light p-2">
                                             {
                                                 getTitle(item?.content)
                                             }
@@ -107,6 +110,26 @@ const Mudirlar = ({style, t}) => {
                             </SwiperSlide>
                         )
                     }
+                    {/*<div className="d-flex justify-content-end pt-5">*/}
+                    {/*    <span className="m-1 text-light" style={{*/}
+                    {/*        backgroundColor:"#4083d0",*/}
+                    {/*        cursor:"pointer",*/}
+                    {/*        borderRadius:"50%"*/}
+                    {/*    }}>*/}
+                    {/*<ArrowLeft style={{*/}
+                    {/*    fontSize:"35px"*/}
+                    {/*}}/>*/}
+                    {/*</span>*/}
+                    {/*<span className="m-1 text-light" style={{*/}
+                    {/*    backgroundColor:"#4083d0",*/}
+                    {/*    cursor:"pointer",*/}
+                    {/*    borderRadius:"50%"*/}
+                    {/*}}>*/}
+                    {/*    <ArrowRight style={{*/}
+                    {/*        fontSize:"35px"*/}
+                    {/*    }}/>*/}
+                    {/*</span>*/}
+                    {/*</div>*/}
                 </Swiper>
             </div>
         </section>

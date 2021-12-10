@@ -146,9 +146,6 @@ const Admin = ({t}) => {
                 <br/>
                 <div className="mobil-language mobil-language-admin">
                     <NavLanguage/>
-                    {/*<div className="glas">*/}
-                    {/*    <img src={iconGlass} alt="" />*/}
-                    {/*</div>*/}
                 </div>
             </div>
             <div className="adminnav">
@@ -183,17 +180,8 @@ const Admin = ({t}) => {
                                     <button type="button" disabled><img src={iconSearch} alt="search-icon"/></button>
                                 </form>
                                 <NavLanguage/>
-                                {/*<div className="glas">*/}
-                                {/*    <img src={iconGlass} alt=""/>*/}
-                                {/*</div>*/}
                             </div>
                             <div className="enter">
-                                {/*<div className="enter-btn" onClick={handleGoOut} style={{cursor: "pointer"}}>*/}
-                                {/*    <div className="enter-img">*/}
-                                {/*        <LockIcon/>*/}
-                                {/*    </div>*/}
-                                {/*    {t("Go out")}*/}
-                                {/*</div>*/}
                                 <Enter/>
                             </div>
                         </div>

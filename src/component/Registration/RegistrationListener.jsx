@@ -12,6 +12,7 @@ import NavTop from "../Nav/NavTop";
 import NavCenter from "../Nav/NavCenter";
 import NavBottom from "../Nav/NavBottom";
 import InputMask from "react-input-mask";
+import i18next from "i18next";
 
 function RegistrationListener(props) {
     const {history, t} = props;
@@ -310,7 +311,7 @@ function RegistrationListener(props) {
                                                     className="category" required={true}>
                                                 <option value="">{props.t("Select your region")}</option>
                                                 {regions && regions.map((item, i) =>
-                                                    <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    <option key={i} value={item.id}>{item.name[i18next.language]}</option>
                                                 )}
                                             </select>
                                         </li>
@@ -321,7 +322,7 @@ function RegistrationListener(props) {
                                                     className="category" required={true}>
                                                 <option value="">{props.t("Choose your district")}</option>
                                                 {districts && districts.map((item, i) =>
-                                                    <option key={i} value={item.id}>{item.name.uz}</option>
+                                                    <option key={i} value={item.id}>{item.name[i18next.language]}</option>
                                                 )}
                                             </select>
                                         </li>
@@ -348,7 +349,7 @@ function RegistrationListener(props) {
                                                     className="category" required={true}>
                                                 <option value="">{props.t("Choose your department")}</option>
                                                 {sections && sections.map((item, i) =>
-                                                    <option key={i} value={item.id}>{item.title.uz}</option>
+                                                    <option key={i} value={item.id}>{item.title[i18next.language]}</option>
                                                 )}
                                             </select>
                                         </li>

@@ -46,7 +46,7 @@ import SwiperCore, {Autoplay, Pagination, Navigation} from "swiper/core";
 import axios from "axios";
 import {API_URL} from "../../utils/constant";
 import {withTranslation} from "react-i18next";
-import {Avatar, Card, Image} from "antd";
+import {Avatar, Card, Image, Modal} from "antd";
 import {questions} from "./data";
 
 // install Swiper modules
@@ -54,6 +54,13 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function PopularQuestionSlider({t, style}) {
     const [top, setTop] = useState([]);
+    const [modal,setModal]=useState({
+        img:"",
+        name:"",
+        title:"",
+        desc:"",
+        open:false
+    })
 
     useEffect(() => {
 
@@ -100,9 +107,7 @@ function PopularQuestionSlider({t, style}) {
                                 delay: 6000,
                                 disableOnInteraction: false,
                             }}
-                            pagination={{
-                                clickable: true,
-                            }}
+                            pagination={false}
                             navigation={true}
                             className="savollar"
                         >
@@ -111,55 +116,8 @@ function PopularQuestionSlider({t, style}) {
                                     top?.map((item, i) => {
                                         return (
                                             <SwiperSlide className="container pb-5" key={i}>
-                                                <Card
-                                                    style={
-                                                        {
-                                                            minHeight: "350px",
-                                                            maxHeight: "350px",
-                                                            overflow: "auto"
-
-                                                        }
-                                                    } title={
-                                                    <div>
-                                                        <Avatar className="m-0 p-0" style={{
-                                                            backgroundColor: item?.applicant?.fullName && stringToHslColor(item?.applicant?.fullName, 50, 50),
-                                                            float: 'left'
-                                                        }} size={45}>{item?.applicant?.image ?
-                                                            <img src={API_URL + item?.applicant?.image} alt=""/>
-                                                            : item?.applicant?.fullName[0].toUpperCase()}</Avatar>
-                                                        <span
-                                                            className="d-flex p-2 justify-content-center aligin-items-center"
-                                                            style={{
-                                                                backgroundColor: "",
-                                                                float: 'left'
-                                                            }}>{item?.applicant?.fullName}</span>
-                                                    </div>
-                                                } className="shadow m-2">
-                                                    <div style={{width: "100%"}} className="text-justify">
-                                                        <strong style={{marginRight: "5px"}}>
-                                                            {t("Subject of the appeal")}:
-                                                        </strong>
-                                                        {item?.title}
-                                                    </div>
-                                                    <hr/>
-                                                    <p className="line_count_popular text-justify">{item.description}</p>
-                                                </Card>
-                                            </SwiperSlide>
-                                        );
-                                    }) :
-                                    questions.map((item, i) => {
-                                        return (
-                                            <SwiperSlide className="container" key={i}>
-                                                <Card
-                                                    style={
-                                                        {
-                                                            minHeight: "350px",
-                                                            maxHeight: "350px",
-                                                            overflow: "auto"
-
-                                                        }
-                                                    } title={
-                                                    <div>
+                                                <div>
+                                                    <div className="d-flex justify-content-center">
                                                         <Avatar src={item?.applicant?.image &&
                                                         <Image width="100%" height="50px"
                                                                src={item?.applicant?.image}> </Image>}
@@ -168,23 +126,55 @@ function PopularQuestionSlider({t, style}) {
                                                             float: 'left'
                                                         }} size={45}>{
                                                             item?.applicant?.fullName[0].toUpperCase()}</Avatar>
-                                                        <span
-                                                            className="d-flex p-2 justify-content-center aligin-items-center"
-                                                            style={{
-                                                                backgroundColor: "",
-                                                                float: 'left'
-                                                            }}>{item?.applicant?.fullName}</span>
                                                     </div>
-                                                } className="shadow m-2">
-                                                    <div style={{width: "100%"}} className="text-justify">
-                                                        <strong style={{marginRight: "5px"}}>
+                                                    <div style={{width: "100%"}} className="text-center pt-2">
+                                                        <strong>
                                                             {t("Subject of the appeal")}:
                                                         </strong>
                                                         {item?.title}
                                                     </div>
                                                     <hr/>
-                                                    <p className="line_count_popular text-justify">{item.description}</p>
-                                                </Card>
+                                                    <p className="line_count_popular text-center p-0 m-0">{item.description.length > 250 ? item?.description.substring(0, 250) : item?.description}...</p>
+                                                    <p className="text-center">{item?.applicant?.fullName}</p>
+                                                </div>
+                                            </SwiperSlide>
+                                        );
+                                    }) :
+                                    questions.map((item, i) => {
+                                        return (
+                                            <SwiperSlide className="container" key={i}>
+                                                <div>
+                                                    <div className="d-flex justify-content-center">
+                                                        <Avatar src={item?.applicant?.image &&
+                                                        <Image width="100%" height="50px"
+                                                               src={item?.applicant?.image}> </Image>}
+                                                                className="m-0 p-0" style={{
+                                                            backgroundColor: item?.applicant?.fullName && stringToHslColor(item?.applicant?.fullName, 50, 50),
+                                                            float: 'left'
+                                                        }} size={45}>{
+                                                            item?.applicant?.fullName[0].toUpperCase()}</Avatar>
+                                                    </div>
+                                                    <div style={{width: "100%"}} className="text-center pt-2 mb-3">
+                                                        <strong style={{marginRight:"5px"}}>
+                                                            {t("Subject of the appeal")}:
+                                                        </strong>
+                                                        {item?.title}
+                                                    </div>
+                                                    <div style={{paddingRight:"15px",paddingLeft:"15px"}}>
+                                                        <p style={{cursor:"pointer"}} onClick={()=>{
+                                                            setModal(
+                                                                {
+                                                                    img:item?.applicant?.image,
+                                                                    name:item?.applicant?.fullName,
+                                                                    title:item?.title,
+                                                                    desc:item.description,
+                                                                    open:true
+                                                                }
+                                                            )
+                                                        }} className="line_count_popular text-center p-0 m-0">{item?.description.length > 500 ? item?.description.substring(0, 500) : item?.description}...</p>
+                                                    </div>
+                                                    <p className="text-center text-danger mt-3" style={{fontWeight:500}}>{"- "+item?.applicant?.fullName}</p>
+                                                </div>
                                             </SwiperSlide>
                                         );
                                     })
@@ -192,6 +182,36 @@ function PopularQuestionSlider({t, style}) {
                             </div>
                         </Swiper>
                     </div>
+                    <Modal visible={modal?.open} title="Murojaat" footer={false} onCancel={()=>setModal({
+                        img:"",
+                        name:"",
+                        title:"",
+                        desc:"",
+                        open:false
+                    })}>
+                        <div>
+                            <div className="d-flex align-items-center">
+                                <Avatar src={modal?.img &&
+                                <Image width="100%" height="50px"
+                                       src={modal?.img}> </Image>}
+                                        className="m-0 p-0" style={{
+                                    backgroundColor: modal?.name && stringToHslColor(modal?.name, 50, 50),
+                                    float: 'left'
+                                }} size={45}>{
+                                    modal?.name.toUpperCase()}</Avatar>
+                                <span style={{paddingLeft:"7px"}} className="text-danger">{modal?.name}</span>
+                            </div>
+                            <div style={{width: "100%"}} className="text-justify pt-2 mb-3">
+                                <strong style={{marginRight:"5px"}}>
+                                    {t("Subject of the appeal")}:
+                                </strong>
+                                {modal?.title}
+                            </div>
+                            <p className="text-justify" style={{maxHeight:"50vh",overflow:"auto"}}>
+                                {modal?.desc}
+                            </p>
+                        </div>
+                    </Modal>
                 </div>
             </section>
         </>
