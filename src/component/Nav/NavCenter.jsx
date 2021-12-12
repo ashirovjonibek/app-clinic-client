@@ -8,7 +8,8 @@ import Enter from "./Enter";
 import {withTranslation} from "react-i18next";
 import MenuIcon from "@material-ui/icons/Menu";
 import {useDispatch, useSelector} from "react-redux";
-import {CHANGE_THEME} from "../../redux/me/actionType";
+import {CHANGE_EYE, CHANGE_IMG_LESS, CHANGE_THEME} from "../../redux/me/actionType";
+import {Dropdown, Menu} from "antd";
 
 const NavCenter = ({t, setSearchVal}) => {
     const [sitebar, setSitebar] = useState(false);
@@ -18,12 +19,18 @@ const NavCenter = ({t, setSearchVal}) => {
 
     const findString = () => {
         console.log("searchVal", aa);
-        window.find(aa)
+        window.find(aa,"",(e)=>{
+            console.log("nmadir",e)
+        })
         document.onmouseup = () => {
             console.log("mmmmmmmm", window.getSelection());
         };
 
     }
+    const onChange = (e) => {
+        dispatch({type: CHANGE_EYE, data: e})
+    };
+
 
     return (
 
@@ -55,14 +62,39 @@ const NavCenter = ({t, setSearchVal}) => {
                             <form role="search" method="get" action="#" className="search-form">
                                 <input type="" onChange={(e) => setaa(e.target.value)}
                                        placeholder={t("Search") + "..."}/>
-                                <button onClick={() => findString()} type=""><img src={iconSearch} alt="search-icon"/>
+                                <button onClick={() => findString()} type="button"><img src={iconSearch} alt="search-icon"/>
                                 </button>
                             </form>
                             <NavLanguage/>
-                            <div onClick={() => {
-                                dispatch({type: CHANGE_THEME, data: theme.filter ? "" : "grayscale(100%)"})
-                            }} style={{cursor: "pointer"}} className="glas">
-                                <img src={iconGlass} alt=""/>
+                            <div className="glas">
+                                <Dropdown overlay={
+                                    <Menu>
+                                        <Menu.Item onClick={(e) => {
+                                            dispatch({type: CHANGE_THEME, data: ""});
+                                            dispatch({type: CHANGE_IMG_LESS, data: false});
+                                            onChange(1)
+                                        }}>
+                                            Odatiy
+                                        </Menu.Item>
+                                        <Menu.Item onClick={() => {
+                                            dispatch({type: CHANGE_THEME, data: "grayscale(100%)"})
+                                        }}>
+                                            Oq va qora
+                                        </Menu.Item>
+                                        <Menu.Item style={{borderBottom: "1px solid rgba(0,0,0,0.2)"}}
+                                                   onClick={(e) => {
+                                                       dispatch({type: CHANGE_THEME, data: ""});
+                                                       onChange(3)
+                                                   }}>
+                                            Qora va sariq
+                                        </Menu.Item>
+                                        <Menu.Item onClick={(e) => dispatch({type: CHANGE_IMG_LESS, data: true})}>
+                                            Rasmsiz
+                                        </Menu.Item>
+                                    </Menu>
+                                }>
+                                    <img src={iconGlass} alt=""/>
+                                </Dropdown>
                             </div>
                         </div>
                         <Enter/>

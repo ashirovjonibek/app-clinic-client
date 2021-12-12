@@ -111,7 +111,7 @@ function NewsContent({t, style}) {
                                                     <div>
                                                         <div style={{height:"200px",overflow:"hidden"}}>
                                                             <img alt="example" width="100%" style={{
-                                                                objectFit:"cover"
+                                                                objectFit:"contain"
                                                             }}
                                                                  src={"https://proacademy.uz/postfiles/documents" +
                                                                  item?.img_link}/>

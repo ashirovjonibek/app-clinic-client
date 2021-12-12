@@ -66,6 +66,11 @@ const NewHome = ({t}) => {
         } else {
             setIsWin(false);
         }
+        if (window.innerWidth < 884) {
+            setShh1(true)
+        } else {
+            setShh1(false);
+        }
         window.addEventListener("resize", () => {
             if (window.innerWidth < 768) {
                 setColor(theme?.eye == "3" ? "yellow" : "#2a2a2a");
@@ -77,6 +82,11 @@ const NewHome = ({t}) => {
                 setIsWin(true)
             } else {
                 setIsWin(false);
+            }
+            if (window.innerWidth < 884) {
+                setShh1(true)
+            } else {
+                setShh1(false);
             }
         });
     }, []);
@@ -111,7 +121,7 @@ const NewHome = ({t}) => {
                             } else {
                                 if (window.innerWidth > 768) {
                                     setHeaderClass("");
-                                    setColor(theme?.eye == "3" ? "yellow" : "#f2f2f2");
+                                    setColor(theme?.eye == "3" ? "yellow" : "#2a2a2a");
                                 }
                             }
                             if (isMobile) {
@@ -157,7 +167,7 @@ const NewHome = ({t}) => {
                                         )}
                                         <div id="academy-name"
                                              className={isMobile ? "col-12" : "col-9"}
-                                             style={{color: color}}
+                                             // style={{color: color}}
                                         >
                                             <p className="academy-name" style={{fontSize: "20px", lineHeight: "24px"}}>
                                                 {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
@@ -166,23 +176,26 @@ const NewHome = ({t}) => {
                                         </div>
                                     </div>
                                     <div className="col-12 col-md-7 header-right-bottom">
-                                        <div className="header-right-top">
+                                        <div className="header-right-top d-flex justify-content-end flex-wrap">
                                             <a
-                                                className="tel-number"
-                                                style={{color: color}}
+                                                className="tel-number d-flex justify-content-center align-items-center"
+                                                // style={{color: color}}
                                                 href="tel:+998 71 202-04-96"
                                             >
                                                 <Phone/> +998 (71)
                                                 202-04-96
                                             </a>
 
-                                            <DropDown color={color}/>
+                                            <DropDown isMob={isMobile} isWin={shh1} color={color}/>
                                             <LangContener
                                                 className={isMobile ? "mb-2" : ""}
                                                 color={color}
                                             />
+                                            {
+                                                shh1? <p className="mb-2"/>:""
+                                            }
                                             <Link
-                                                className="free-consultation_btn"
+                                                className="free-consultation_btn d-flex justify-content-center align-items-center"
                                                 to={{
                                                     pathname: "/applicantAppeal",
                                                     state: {
@@ -216,9 +229,9 @@ const NewHome = ({t}) => {
                                                     <li className="nav-item active">
                                                         <a
                                                             style={{
-                                                                color: color,
+                                                                // color: color,
                                                             }}
-                                                            className="nav-link"
+                                                            className="nav-link d-flex flex-row"
                                                             onClick={() => {
                                                                 if (container?.current) {
                                                                     container?.current.scrollIntoView({
@@ -234,7 +247,7 @@ const NewHome = ({t}) => {
                                                     <li className="nav-item">
                                                         <a
                                                             style={{
-                                                                color: color,
+                                                                // color: color,
                                                             }}
                                                             className="nav-link"
                                                             href="#cell-clinic"
@@ -245,26 +258,7 @@ const NewHome = ({t}) => {
                                                     <li className="nav-item">
                                                         <a
                                                             style={{
-                                                                color: color,
-                                                            }}
-                                                            className="nav-link"
-                                                            onClick={() => {
-                                                                if (container?.current) {
-                                                                    console.log(container);
-                                                                    container?.current.scrollIntoView({
-                                                                        behavior: "smooth",
-                                                                    });
-                                                                }
-                                                            }}
-                                                            href="#popular-questions"
-                                                        >
-                                                            {t("Popular questions")}
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a
-                                                            style={{
-                                                                color: color,
+                                                                // color: color,
                                                             }}
                                                             className="nav-link"
                                                             onClick={() => {
@@ -278,6 +272,25 @@ const NewHome = ({t}) => {
                                                             href="#news"
                                                         >
                                                             {t("News")}
+                                                        </a>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <a
+                                                            style={{
+                                                                // color: color,
+                                                            }}
+                                                            className="nav-link"
+                                                            onClick={() => {
+                                                                if (container?.current) {
+                                                                    console.log(container);
+                                                                    container?.current.scrollIntoView({
+                                                                        behavior: "smooth",
+                                                                    });
+                                                                }
+                                                            }}
+                                                            href="#popular-questions"
+                                                        >
+                                                            {t("Popular questions")}
                                                         </a>
                                                     </li>
                                                     <li className="nav-item">
@@ -304,11 +317,11 @@ const NewHome = ({t}) => {
                                         <div
                                             className={isMobile ? "content row animated fadeInLeft m-0 " : "content animated row fadeInLeft m-0"}
                                         >
-                                            <div className="col-12 text-start pt-5">
-                                                <h1 className="animated fadeInLeft" style={{width: "100%"}}>
+                                            <div className="col-12 text-start pt-5" style={{fontFamily:"Poppins, sans-serif !important"}}>
+                                                <h1 className="animated fadeInLeft" style={{width: "100%",fontFamily:"Poppins, sans-serif !important"}}>
                                                     {t("Academy of the Prosecutor General's Office of the Republic of Uzbekistan")}
                                                 </h1>
-                                                <h1 className="animated fadeInLeft">{t("Legal clinic")}</h1>
+                                                <p className="animated fadeInLeft">{t("Legal clinic")}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -439,13 +452,13 @@ const NewHome = ({t}) => {
                                         </div>
                                     </li>
                                 </ul>
+                                <div id="news"/>
                             </div>
                         </section>
                         <NewsContent style={theme}/>
                         <div id="popular-questions"/>
                         <PopularQuestionSlider style={theme}/>
                         <NormativHujjatlar style={theme}/>
-                        <div id="news"/>
                         <Mudirlar style={theme}/>
                         <NewFooter style={theme}/>
                         <FooterUsaid/>

@@ -19,10 +19,10 @@ const Mudirlar = ({style, t}) => {
             setItems(response?.data?.items);
         })
 
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 480) {
             setShowCount(1)
         }
-        if (window.innerWidth > 768 && window.innerWidth < 992) {
+        if (window.innerWidth > 480 && window.innerWidth < 992) {
             setShowCount(2)
         }
         if (window.innerWidth > 992) {
@@ -30,10 +30,10 @@ const Mudirlar = ({style, t}) => {
         }
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 480) {
                 setShowCount(1)
             }
-            if (window.innerWidth > 768 && window.innerWidth < 992) {
+            if (window.innerWidth > 480 && window.innerWidth < 992) {
                 setShowCount(2)
             }
             if (window.innerWidth > 992) {

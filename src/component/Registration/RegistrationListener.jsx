@@ -295,16 +295,16 @@ function RegistrationListener(props) {
                                                 )}
                                             </select>
                                         </li>*/}
-                                        <li>
-                                            <label className="label" htmlFor="course">{props.t("Course")}</label>
-                                            <select id="course" name="course" onChange={handleChange} required={true}
-                                                    className="category">
-                                                <option value="">{props.t("Choose your course")}</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-                                        </li>
+                                        {/*<li>*/}
+                                        {/*    <label className="label" htmlFor="course">{props.t("Course")}</label>*/}
+                                        {/*    <select id="course" name="course" onChange={handleChange} required={true}*/}
+                                        {/*            className="category">*/}
+                                        {/*        <option value="">{props.t("Choose your course")}</option>*/}
+                                        {/*        <option value="1">1</option>*/}
+                                        {/*        <option value="2">2</option>*/}
+                                        {/*        <option value="3">3</option>*/}
+                                        {/*    </select>*/}
+                                        {/*</li>*/}
                                         <li>
                                             <label className="label" htmlFor="regionId">{props.t("Region")}</label>
                                             <select id="regionId" name="regionId" onChange={fetchDistricts}

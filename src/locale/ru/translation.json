@@ -325,5 +325,12 @@
   "Listen to the audio": "Слушайте аудио",
   "Phone number or email": "Номер телефона или электронная почта",
   "Add link": "Добавить ссылку",
-  "Home page": "Домашняя страница"
+  "Home page": "Домашняя страница",
+
+  "Normal":"Нормальный",
+  "White and black": "Черное и белое",
+  "Black and yellow": "Черный и желтый",
+  "No picture": "Нет картинки",
+  "No chats": "Чаты недоступны",
+  "Message center": "Сообщения"
 }

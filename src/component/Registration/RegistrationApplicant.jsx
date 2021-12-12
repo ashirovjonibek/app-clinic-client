@@ -11,6 +11,7 @@ import NavCenter from "../Nav/NavCenter";
 import NavTop from "../Nav/NavTop";
 import MuiPickersUtilsProvider, {DatePicker} from "@material-ui/pickers";
 import InputMask from 'react-input-mask'
+import i18next from "i18next";
 
 
 const RegistrationApplicant = (props) => {
@@ -329,7 +330,7 @@ const RegistrationApplicant = (props) => {
                                                 >
                                                     <option value="">{props.t("Select your region")}</option>
                                                     {regions && regions.map((item) =>
-                                                        <option key={item.id} value={item.id}>{item.name.uz}</option>
+                                                        <option key={item.id} value={item.id}>{item.name[i18next.language]}</option>
                                                     )}
                                                 </select>
                                             </li>
@@ -345,7 +346,7 @@ const RegistrationApplicant = (props) => {
                                                 >
                                                     <option value="">{props.t("Choose your district")}</option>
                                                     {districts && districts.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                        <option key={i} value={item.id}>{item.name[i18next.language]}</option>
                                                     )}
                                                 </select>
                                             </li>
@@ -412,7 +413,7 @@ const RegistrationApplicant = (props) => {
                                                 >
                                                     <option value="">{props.t("Select benefits")}</option>
                                                     {socialStatus && socialStatus.map((item, i) =>
-                                                        <option key={i} value={item.id}>{item.name.uz}</option>
+                                                        <option key={i} value={item.id}>{item.name[i18next.language]}</option>
                                                     )}
                                                 </select>
                                             </li>
@@ -425,7 +426,7 @@ const RegistrationApplicant = (props) => {
                                                     name="password"
                                                     id="password"
                                                     className="input-text"
-                                                    type="text"
+                                                    type="password"
                                                     onBlur={e => passwordHandler(e)}
                                                     placeholder={props.t("Enter your password")}
                                                 />
@@ -438,7 +439,8 @@ const RegistrationApplicant = (props) => {
                                                 <input onChange={handleChange} required={true}
                                                        onBlur={e => passwordChacker(e)} name="prePassword"
                                                        id="prePassword"
-                                                       className="input-text" type="text"
+
+                                                       className="input-text" type="password"
                                                        placeholder={props.t("Re-enter your password")}/>
                                             </li>
                                             {(errorPrePasswordDirty && errorPrePassword) &&

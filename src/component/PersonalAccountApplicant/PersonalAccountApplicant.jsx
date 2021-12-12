@@ -123,7 +123,7 @@ const PersonalAccountApplicant = (props) => {
                                     </Badge>
                                     <Badge count={count} showZero>
                                         <li className="navbar-items" id={pageQount === 5 ? "active" : ""}>
-                                            <Link to="#" onClick={() => getPage(5)}>{props.t("Message")}</Link>
+                                            <Link to="#" onClick={() => getPage(5)}>{props.t("Message center")}</Link>
                                         </li>
                                     </Badge>
                                 </ul>

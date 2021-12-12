@@ -39,7 +39,9 @@ const LangContener = ({color, className}) => {
 
     return (
         <select id="select-land-id" className={className}
-                style={{backgroundColor: "rgba(0,0,0,0)", color: color, marginRight: "10px"}} value={selectedLang}
+                style={{backgroundColor: "rgba(0,0,0,0)",
+                    // color: color,
+                    marginRight: "10px"}} value={selectedLang}
                 onChange={(e) => {
                     changeLang(e.target.value)
                 }}>

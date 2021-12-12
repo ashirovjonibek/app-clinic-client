@@ -32,7 +32,7 @@
   "Gender": "Jinsi",
   "Address": "Manzil",
   "Email": "Elektron pochta",
-  "Benefit category": "Foyda toifasi",
+  "Benefit category": "Imtiyoz turi",
   "Date of birth": "Tug'ilgan sana",
   "Register all": "Hammasini ro'yxatdan o'tkazish",
   "Register": "Ro'yxatdan o'tish",
@@ -225,6 +225,7 @@
   "Select benefits": "Imtiyozlarni tanlang",
   "Registration": "Ro'yxatdan o'tish",
   "Re-enter your password": "Parolni qayta kiriting",
+  "Enter your password": "Parolni kiriting",
   "I consent to the processing of my personal data and have read the ": "Men shaxsiy ma'lumotlarimni qayta ishlashga rozilik bildiraman va maxfiylik siyosatini o'qib chiqdim. ",
   "privacy policy": "Maxfiylik siyosati",
   "Personal data": "Shaxsiy malumot",
@@ -335,5 +336,12 @@
   "Listen to the audio": "Audioni eshitish",
   "Phone number or email": "Telefon raqam yoki email",
   "Havola qo'shing": "Havola qo'shing",
-  "Home page": "Bosh sahifa"
+  "Home page": "Bosh sahifa",
+
+  "Normal":"Odatiy",
+  "White and black": "Oq va qora",
+  "Black and yellow": "Qora va sariq",
+  "No picture": "Rasmsiz",
+  "No chats": "Chatlar mavjud emas",
+  "Message center": "Xabarlar"
 }

@@ -55,7 +55,7 @@ theme.
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Yeseva+One');
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
     font-size: 14px;
     color: #2a2a2a;
     line-height: 24px;
@@ -67,7 +67,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     padding: 0px;
     margin: 0px;
-    font-family: 'Yeseva One', cursive;
     color: #ff2f2f;
 }
 
@@ -544,7 +543,7 @@ header.header-small .header-right-top a.free-consultation_btn {
     /*max-width:585px;*/
     text-align: center;
     color: white;
-    padding: 245px 0 200px;
+    padding: 245px 0 0 0;
 }
 
 .banner-slider .content .fl-right {
@@ -554,7 +553,7 @@ header.header-small .header-right-top a.free-consultation_btn {
 .banner-outer .content h1 {
     display: block;
     padding-bottom: 20px;
-    font-family: 'Yeseva One', cursive;
+    font-family: Poppins, sans-serif;
     font-size: 106px;
     line-height: 95px;
     -webkit-animation-delay: 0.2s;

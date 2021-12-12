@@ -8,6 +8,7 @@ import iconTwitter from "../../assets/icon/footer/icon-twitter.svg";
 import iconTelegram from "../../assets/icon/footer/icon-telegram.svg";
 import {withTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
+import logoNapa from "../../assets/img/napa.svg";
 
 const Footer = ({t}) => {
     let date = new Date();
@@ -16,7 +17,7 @@ const Footer = ({t}) => {
     return (
         <div style={theme} className="footer">
             <div className="container12">
-                <div className="footer-first">
+                <div className="footer-first d-flex flex-wrap justify-content-center">
                     <div className="footer-contacts">
                         <h4>{t("Contacts")}</h4>
                         <div className="sub-title-line"/>
@@ -52,48 +53,48 @@ const Footer = ({t}) => {
                             </li>
                         </ul>
                     </div>
-                    <div className="footer-navigation">
-                        <h4>{t("Site navigation")}</h4>
-                        <div className="sub-title-line"/>
-                        <ul>
-                            <li>
-                                <a href="/#" className="adress">
-                                    {t("What is clinic")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="email">
-                                    {t("Goal of the clinic")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="contact-number">
-                                    {t("Purpose of the clinic")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="adress">
-                                    {t("Popular questions")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="adress">
-                                    {t("Regulatory base")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="email">
-                                    {t("Useful links")}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/#" className="contact-number">
-                                    {t("Addresses prosecutors")}
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
+                    {/*<div className="footer-navigation">*/}
+                    {/*    <h4>{t("Site navigation")}</h4>*/}
+                    {/*    <div className="sub-title-line"/>*/}
+                    {/*    /!*<ul>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="adress">*!/*/}
+                    {/*    /!*            {t("What is clinic")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="email">*!/*/}
+                    {/*    /!*            {t("Goal of the clinic")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="contact-number">*!/*/}
+                    {/*    /!*            {t("Purpose of the clinic")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="adress">*!/*/}
+                    {/*    /!*            {t("Popular questions")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="adress">*!/*/}
+                    {/*    /!*            {t("Regulatory base")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="email">*!/*/}
+                    {/*    /!*            {t("Useful links")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    /!*    <li>*!/*/}
+                    {/*    /!*        <a href="/#" className="contact-number">*!/*/}
+                    {/*    /!*            {t("Addresses prosecutors")}*!/*/}
+                    {/*    /!*        </a>*!/*/}
+                    {/*    /!*    </li>*!/*/}
+                    {/*    */}
+                    {/*    /!*</ul>*!/*/}
+                    {/*</div>*/}
                     <div className="footer-cotsial">
                         <h4>{t("We are in social networks")}</h4>
                         <div className="sub-title-line"/>
@@ -126,8 +127,11 @@ const Footer = ({t}) => {
                     </div>
                 </div>
                 <p className="about">© {date.getFullYear()} {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan. All rights reserved.")}</p>
-                <p className="about">Сайт разработан в: <a style={{color: "white"}} href="http://napaautomative.com/">Napa
-                    Automative</a></p>
+                <p className="about">
+                    <a style={{color: "white"}} target="_blank" href="https://www.napaautomotive.uz/ru">
+                        <img src={logoNapa} alt=""/>
+                    </a>
+                </p>
             </div>
         </div>
     );

@@ -154,7 +154,7 @@ const Login = (props) => {
                                             label={<span style={{fontWeight: 600}}>{t("Phone number or email")}</span>}
                                             name="phoneNumber"
                                         >
-                                            <Input className="shadow" style={{borderRadius:"6px"}} placeholder={t("Phone number or email")}/>
+                                            <Input allowClear className="input-text" style={{borderRadius:"6px"}} placeholder={t("Phone number or email")}/>
                                         </Form.Item>
                                     </Col>
                                     <Col xs={24} sm={24} md={{span: 18, offset: 3}} lg={{span: 18, offset: 3}}>
@@ -162,7 +162,7 @@ const Login = (props) => {
                                             label={<span style={{fontWeight: 600}}>{t("Password")}</span>}
                                             name="password"
                                         >
-                                            <Input.Password className="shadow" style={{borderRadius:"6px"}} autoComplete="new-password"
+                                            <Input.Password allowClear className="input-text" style={{borderRadius:"6px"}} autoComplete="new-password"
                                                             placeholder={t("Password")}/>
                                         </Form.Item>
                                     </Col>

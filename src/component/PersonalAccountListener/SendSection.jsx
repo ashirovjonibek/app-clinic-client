@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import CenterSends from "./CenterSends";
 import axios from "axios";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
+import {withTranslation} from "react-i18next";
 
 const SendSection = (props) => {
 
@@ -27,11 +28,11 @@ const SendSection = (props) => {
                                  chat={item}/>
                 ) :
                     <div style={{textAlign: "center", marginTop: "25px"}}>
-                        Chatlar mavjud emas!!!
+                        {props?.t("No chats")}!!!
                     </div>
             }
         </div>
     );
 }
 
-export default SendSection;
+export default withTranslation()(SendSection);

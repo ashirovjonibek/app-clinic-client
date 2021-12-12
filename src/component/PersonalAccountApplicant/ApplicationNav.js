@@ -16,6 +16,7 @@ import {Dropdown, Menu} from "antd";
 const ApplicationNav = (props) => {
     const [showMenuIcon, setShowMenuIcon] = useState(false);
     const theme = useSelector(state => state.theme);
+    const [aa, setaa] = useState(false);
     const dispatch = useDispatch();
 
     window.addEventListener('resize', () => {
@@ -29,6 +30,15 @@ const ApplicationNav = (props) => {
     const onChange = (e) => {
         dispatch({type: CHANGE_EYE, data: e})
     };
+
+    const findString = () => {
+        console.log("searchVal", aa);
+        window.find(aa)
+        document.onmouseup = () => {
+            console.log("mmmmmmmm", window.getSelection());
+        };
+
+    }
 
     return (
         <div className="nav" style={theme}>
@@ -57,9 +67,11 @@ const ApplicationNav = (props) => {
                         </div>
                         <div className="header-right">
                             <div className="header-right-desctop">
-                                <form role="search" method="get" action="#" className="search-form">
-                                    <input type="" placeholder={props.t("Search") + "..."}/>
-                                    <button type=""><img src={iconSearch} alt="search-icon"/></button>
+                                <form  role="search" method="get" action="#" className="search-form">
+                                    <input type="" onChange={(e) => setaa(e.target.value)}
+                                           placeholder={props?.t("Search") + "..."}/>
+                                    <button onClick={() => findString()} type="button"><img src={iconSearch} alt="search-icon"/>
+                                    </button>
                                 </form>
                                 <NavLanguage/>
                                 <div style={{cursor: "pointer"}} className="glas">

@@ -32,7 +32,7 @@
   "Gender": "Жинси",
   "Address": "Манзил",
   "Email": "Электрон почта",
-  "Benefit category": "Фойда тоифаси",
+  "Benefit category": "Имтиёз тури",
   "Date of birth": "Тугилган сана",
   "Register all": "Хаммасини рўйхатдан ўтказиш",
   "Register": "Рўйхатдан ўтказиш",
@@ -128,7 +128,7 @@
   "Khorezm": "Хоразм",
   "Karakalpaks tan": "Қорақолпоғистон",
   "Create a new ticket": "Мурожаат йўллаш",
-  "Your appeal": "сизнинг мурожаатингиз",
+  "Your appeal": "Cизнинг мурожаатингиз",
   "Document status": "Хужжат холати",
   "Consideration period": "Кўриб чиқиш даври",
   "Personal account": "Шахсий хисоб",
@@ -225,6 +225,7 @@
   "Select benefits": "имтиёзларни танланг",
   "Registration": "Рўйхатдан ўтинг",
   "Re-enter your password": "Парольни қайта киритинг",
+  "Enter your password": "Парольни киритинг",
   "I consent to the processing of my personal data and have read the ": "Мен шахсий ма’лумотларимни қайта ишлашига розилик билдираман ва махфийлик сиёсатини ўқиб чиқдим. ",
   "privacy policy": "Махфийлик сиёсати",
   "Personal data": "Шахсий ма’лумот",
@@ -335,7 +336,14 @@
   "Listen to the audio": "Аудиони ешитиш",
   "Phone number or email": "Телефон рақам ёки email",
   "Add link": "Ҳавола қўшинг",
-  "Home page": "Бош саҳифа"
+  "Home page": "Бош саҳифа",
+
+  "Normal":"Одатий",
+  "White and black": "Оқ ва қора",
+  "Black and yellow": "Қора ва сариқ",
+  "No picture": "Расмсиз",
+  "No chats": "Чатлар мавжуд эмас",
+  "Message center": "Хабарлар"
 }
 
 

@@ -134,7 +134,17 @@ function PopularQuestionSlider({t, style}) {
                                                         {item?.title}
                                                     </div>
                                                     <hr/>
-                                                    <p className="line_count_popular text-center p-0 m-0">{item.description.length > 250 ? item?.description.substring(0, 250) : item?.description}...</p>
+                                                    <p className="line_count_popular text-center p-0 m-0" style={{cursor:"pointer"}} onClick={()=>{
+                                                        setModal(
+                                                            {
+                                                                img:item?.applicant?.image,
+                                                                name:item?.applicant?.fullName,
+                                                                title:item?.title,
+                                                                desc:item.description,
+                                                                open:true
+                                                            }
+                                                        )
+                                                    }}>{item.description.length > 250 ? item?.description.substring(0, 250) : item?.description}...</p>
                                                     <p className="text-center">{item?.applicant?.fullName}</p>
                                                 </div>
                                             </SwiperSlide>
