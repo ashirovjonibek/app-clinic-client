@@ -169,9 +169,8 @@ const NewHome = ({t}) => {
                                              className={isMobile ? "col-12" : "col-9"}
                                              // style={{color: color}}
                                         >
-                                            <p className="academy-name" style={{fontSize: "20px", lineHeight: "24px"}}>
+                                            <p className="academy-name d-flex align-items-center" style={{fontSize: "20px", lineHeight: "24px"}}>
                                                 {t("Academy of the General Prosecutor's Office of the Republic of Uzbekistan")}
-                                                <p style={{fontSize: "18px"}}>{t("Legal clinic")}</p>
                                             </p>
                                         </div>
                                     </div>
@@ -313,7 +312,8 @@ const NewHome = ({t}) => {
                         <div style={theme} className="banner-outer">
                             {!isMobile && <div className="banner-image">
                                 <div className="slide1" style={{width: "100%"}}>
-                                    <div className="container" style={{width: "100% !important"}}>
+                                    <div style={{width:isWin?"":"66%",margin:isWin?"":"0 auto"}}
+                                         className={isMobile||isWin?"container header-middle":"header-middle"}>
                                         <div
                                             className={isMobile ? "content row animated fadeInLeft m-0 " : "content animated row fadeInLeft m-0"}
                                         >

@@ -106,10 +106,17 @@ function NewsContent({t, style}) {
                                             <Card hoverable
                                                   className=""
                                                   title={false}
+                                                  onClick={()=>{
+                                                      let a= document.createElement('a');
+                                                      a.target='_blank'
+                                                      a.href="https://proacademy.uz/ru/news/view?alias=" + item.id;
+                                                      a.click();
+                                                      a.remove();
+                                                  }}
                                             >
                                                 <div>
                                                     <div>
-                                                        <div style={{height:"200px",overflow:"hidden"}}>
+                                                        <div  style={{height:"200px",overflow:"hidden"}}>
                                                             <img alt="example" width="100%" style={{
                                                                 objectFit:"contain"
                                                             }}

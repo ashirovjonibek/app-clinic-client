@@ -546,6 +546,18 @@ header.header-small .header-right-top a.free-consultation_btn {
     padding: 245px 0 0 0;
 }
 
+@media (max-width: 1280px) {
+    .banner-outer .content {
+        padding: 10px 0 0 0;
+
+    }
+    .banner-outer .content h1{
+        font-size: 85px;
+    }
+
+}
+
+
 .banner-slider .content .fl-right {
     float: right;
 }
@@ -574,7 +586,17 @@ header.header-small .header-right-top a.free-consultation_btn {
     font-weight: 300;
     -webkit-animation-delay: 0.34s;
 }
+@media (max-width: 955px) {
+    .banner-outer .content {
+        padding: 0 0 0 0;
 
+    }
+    .banner-outer .content h1{
+        font-size: 35px;
+    }
+
+
+}
 .banner-outer .content a.btn {
     -webkit-animation-delay: 0.36s;
 }
@@ -589,7 +611,6 @@ header.header-small .header-right-top a.free-consultation_btn {
 }
 
 .banner-outer .slide2 .content h1, .banner-outer .slide3 .content h1 {
-    font-size: 54px;
     color: #fff;
 }
 
@@ -6032,7 +6053,6 @@ ul.half-width li {
 
     .banner-outer .content {
         width: 100%;
-        padding: 280px 380px;
     }
 
     .about ul.our-links li .detail h3 {
