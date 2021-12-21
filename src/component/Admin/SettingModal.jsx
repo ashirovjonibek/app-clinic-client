@@ -4,6 +4,7 @@ import {withTranslation} from "react-i18next";
 import AddIcon from "@material-ui/icons/Add";
 import {API_URL, STORAGE_NAME} from "../../utils/constant";
 import Swal from "sweetalert2";
+import Dialog from "@material-ui/core/Dialog";
 
 function SettingModal({t, getSections}) {
     const [open, setOpen] = useState(false);
@@ -17,11 +18,13 @@ function SettingModal({t, getSections}) {
             ru: '',
             uz: '',
             en: '',
+            uzCyr: ''
         },
         description: {
             ru: '',
             uz: '',
             en: '',
+            uzCyr:''
         }
     })
 
@@ -63,11 +66,13 @@ function SettingModal({t, getSections}) {
                 ru: '',
                 uz: '',
                 en: '',
+                uzCyr:''
             },
             description: {
                 ru: '',
                 uz: '',
                 en: '',
+                uzCyr:''
             }
         })
     };
@@ -135,14 +140,13 @@ function SettingModal({t, getSections}) {
                 }}/>
                 {t("Add department")}
             </div>
-            <Modal
+            <Dialog
                 open={open}
+                maxWidth={'lg'}
                 onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
             >
-                <div className="simple-modal simple-modal-setting">
-                    <h3>Add department</h3>
+                <div style={{height:70+"vh"}} className="simple-modal simple-modal-setting pb-2">
+                    <h3>{t("Add department")}</h3>
                     <form onSubmit={handleSubmit}>
                         <ul>
                             <li>
@@ -192,13 +196,42 @@ function SettingModal({t, getSections}) {
 
                             <li>
                                 {/*<label className="label" htmlFor="">{t("description uz")}</label>*/}
-                                <label className="label" htmlFor="">tavsif</label>
+                                <label className="label" htmlFor="">Tavsif</label>
                                 <input
                                     onBlur={e => nameHandler(e)}
                                     name="uz"
                                     className="input-text"
                                     type="text"
                                     value={section.description["uz"]}
+                                    onChange={handleChangeDesc}
+                                    required
+                                />
+                            </li>
+                            {(nameDirty && errorName) && <p className="error">{errorName}</p>}
+<li>
+                                {/*<label className="label" htmlFor="">{t("title uz")}</label>*/}
+                                <label className="label" htmlFor="">Бўлим</label>
+                                <input
+                                    onBlur={e => nameHandler(e)}
+                                    name="uz"
+                                    className="input-text"
+                                    type="text"
+                                    value={section.title["uzCyr"]}
+                                    onChange={handleChangeTitle}
+                                    required
+                                />
+                            </li>
+                            {(nameDirty && errorName) && <p className="error">{errorName}</p>}
+
+                            <li>
+                                {/*<label className="label" htmlFor="">{t("description uz")}</label>*/}
+                                <label className="label" htmlFor="">Тавсиф</label>
+                                <input
+                                    onBlur={e => nameHandler(e)}
+                                    name="uz"
+                                    className="input-text"
+                                    type="text"
+                                    value={section.description["uzCyr"]}
                                     onChange={handleChangeDesc}
                                     required
                                 />
@@ -234,10 +267,10 @@ function SettingModal({t, getSections}) {
                             {(nameDirty && errorName) && <p className="error">{errorName}</p>}
 
                         </ul>
-                        <button type="submit" className="change-btn">{t("Save")}</button>
+                        <button type="submit" className="change-btn mb-2">{t("Save")}</button>
                     </form>
                 </div>
-            </Modal>
+            </Dialog>
         </div>
     );
 }

@@ -352,7 +352,7 @@ header .logo img {
 
 .header-right-top {
     text-align: right;
-    border-bottom: 1px solid #b9b9b9;
+    /*border-bottom: 1px solid #b9b9b9;*/
     padding: 4px 0 25px;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -586,26 +586,28 @@ header.header-small .header-right-top a.free-consultation_btn {
 .banner-outer .content h1 {
     display: block;
     padding-bottom: 0;
+    max-width: 800px;
     text-align: start;
     font-weight: 500;
-    font-family: Poppins, sans-serif !important;
-    font-size: 73px;
+    font-family: "Yeseva One", cursive !important;
+    font-size: 55px;
     color: #ff2f2f;
-    line-height: 75px;
+    line-height: 65px;
     -webkit-animation-delay: 0.2s;
 }
 
 .banner-outer .content h1 span {
     display: block;
-    font-size: 62px;
+    font-size: 30px;
     -webkit-animation-delay: 0.3s;
 }
 
 .banner-outer .content p {
     display: block;
-    font-size: 55px;
+    /*text-transform: uppercase;*/
+    font-size: 50px;
     text-align: start;
-    line-height: 50px;
+    line-height: 60px;
     color: #025a8e;
     font-weight: 300;
     -webkit-animation-delay: 0.34s;
@@ -5046,6 +5048,10 @@ ul.half-width li {
     height: 100%;
 }
 
+.navbar-nav .nav-item{
+    padding: 8px 10px;
+    font-size: 18px;
+}
 
 /* ================================================== */
 /* 15. Responsive Style */
@@ -5061,9 +5067,8 @@ ul.half-width li {
 	height: 350px;
 } */
     .navbar-dark .navbar-nav .nav-link {
-        font-size: 14px;
+        font-size: 12px;
         color: #2a2a2a;
-        padding: 10px 9px;
     }
 
     .dropdown-item {
@@ -5071,7 +5076,7 @@ ul.half-width li {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        font-size: 14px;
+        font-size: 12px;
         padding: 12px 12px;
     }
 
@@ -5098,8 +5103,8 @@ ul.half-width li {
     }
 
     .banner-outer .content h1 {
-        font-size: 60px;
-        line-height: 60px;
+        font-size: 30px;
+        line-height: 40px;
     }
 
     .content {
@@ -5413,7 +5418,7 @@ ul.half-width li {
 @media (min-width: 992px) and (max-width: 1199px) {
 
     .nav > li > a {
-        padding: 12px 14px;
+        padding: 8px 10px;
     }
 
     .navbar-form {
@@ -5422,8 +5427,8 @@ ul.half-width li {
     }
 
     .banner-outer .content h1 {
-        font-size: 60px;
-        line-height: 60px;
+        font-size: 30px;
+        line-height: 40px;
     }
 
     .banner-outer .content h1 span {
@@ -5649,22 +5654,22 @@ ul.half-width li {
         /*height: 450px;*/
     }
 
-    .banner-outer .content h1 {
-        font-size: 60px;
-        line-height: 60px;
-    }
+    /*.banner-outer .content h1 {*/
+    /*    font-size: 60px;*/
+    /*    line-height: 60px;*/
+    /*}*/
 
     .banner-outer .content h1 span {
         font-size: 50px;
     }
 
-    .banner-outer .slide2 .content h1, .banner-outer .slide3 .content h1 {
-        font-size: 46px;
-    }
+    /*.banner-outer .slide2 .content h1, .banner-outer .slide3 .content h1 {*/
+    /*    font-size: 46px;*/
+    /*}*/
 
-    .banner-outer .content p {
-        font-size: 40px;
-    }
+    /*.banner-outer .content p {*/
+    /*    font-size: 40px;*/
+    /*}*/
 
     .about {
         padding-bottom: 60px;

@@ -300,7 +300,7 @@ header .logo img {
 
 .header-right-top {
     text-align: right;
-    border-bottom: 1px solid #b9b9b9;
+    /*border-bottom: 1px solid #b9b9b9;*/
     padding: 4px 0 25px;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -543,7 +543,7 @@ header.header-small .header-right-top a.free-consultation_btn {
     /*max-width:585px;*/
     text-align: center;
     color: white;
-    padding: 245px 0 0 0;
+    padding: 145px 0 0 0;
 }
 
 @media (max-width: 1280px) {
@@ -5991,9 +5991,7 @@ ul.half-width li {
 /* 22. Responsive Style */
 /* ================================================== */
 
-.navbar-nav .nav-item{
-    padding: 8px 10px;
-}
+
 
 .navbar-nav .nav-item .nav-link{
     word-break: keep-all;
@@ -6001,7 +5999,7 @@ ul.half-width li {
 
 @media only screen and (max-width: 1279px) {
     .navbar-dark .navbar-nav .nav-link {
-        font-size: 14px;
+        font-size: 12px;
         color: #2a2a2a;
         padding: 10px 10px;
     }
@@ -6011,7 +6009,7 @@ ul.half-width li {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        font-size: 14px;
+        font-size: 12px;
         padding: 12px 12px;
     }
 
@@ -6037,15 +6035,15 @@ ul.half-width li {
         top: 2px;
     }
 
-    .banner-outer .content h1 {
-        font-size: 60px;
-        line-height: 60px;
-    }
+    /*.banner-outer .content h1 {*/
+    /*    font-size: 60px;*/
+    /*    line-height: 60px;*/
+    /*}*/
 
-    .banner-outer .content p {
-        font-size: 40px;
-        line-height: 50px;
-    }
+    /*.banner-outer .content p {*/
+    /*    font-size: 40px;*/
+    /*    line-height: 50px;*/
+    /*}*/
 
     .banner-outer {
         width: 100%;
